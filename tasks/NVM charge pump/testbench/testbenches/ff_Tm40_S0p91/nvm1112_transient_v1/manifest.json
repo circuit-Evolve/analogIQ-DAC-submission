@@ -1,0 +1,49 @@
+{
+  "job_id": "ff_Tm40_S0p91/nvm1112_transient_v1",
+  "recipe_id": "nvm1112_transient_v1",
+  "recipe_version": 2,
+  "condition": {
+    "id": "ff_Tm40_S0p91",
+    "model_set": "ff",
+    "temperature_C": -40.0,
+    "supply_scale": 0.9090909090909092,
+    "supply_V": 3.0,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "ff"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 3.0
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/tran.tran.tran"
+  ],
+  "expected_metrics": [
+    "output_voltage_V",
+    "ripple_mV",
+    "input_power_mW",
+    "output_power_uW",
+    "efficiency_percent",
+    "rise_time_us",
+    "native_model_voltage_violations"
+  ],
+  "digests": {
+    "task": "2be87a46d6d5ed4f2982e2e56c34fd35e739a547f0e33991be47fe1466054985",
+    "candidate": "f0334ec74b509af077cdf4dab63630f340df33fcd98cadb595df8ce7f6fe7a36",
+    "parameterization": "1daef511972e4a4f1d3ef6880ca44f4ca8c387f4ef983c8ab0964ba3a5aec977",
+    "dut_source_netlist": "70f0a368bacc93506e617633ee6366f907d7dabe2bcd5e73c8714a15f32601f0",
+    "dut_subckt": "dea151c5d15f6cce96fe03eaf5431858a73a83ec265e87695abb4924fd891f84",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "8349ae85acb4b1d5cd5795b726d83a9ef8e1e446ff5a4b734f48a74e7fd6245f",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "7ab8b082bcbb00a51d97aae942e0eaa17b802e18dcfeb72f9fd079508e84ecd8"
+  },
+  "state": "rendered"
+}

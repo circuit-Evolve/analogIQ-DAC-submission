@@ -1,0 +1,2104 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "pa1088_dac_task_001",
+ "topology_id": "pa1088_dac_bench",
+ "family": "power_amplifier",
+ "technology_id": "gpdk090",
+ "parameterization_id": "pa1088_dac_p1",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md), converted 2026-11-11 from the owner-approved golden replay (2026-11-05). Single-NPN class-A common-emitter 433 MHz PA (paper Fig. 3) on the replay's fixture: 50-ohm ports, 12 V, the replay's nine conditions (gpdk090 high-performance BJT sections t / f / s x -40 / 27 / 100 C; nominal = t, 27 C). Targets = the 18 retained metrics of the replay with exactly the limits of its targets.json (paper value with the owner-approved 15 % directional allowance; K > 1 and |Delta| < 1 unrelaxed), each applied at every condition (worst case), as in the replay ('all saved conditions'). Zin / Zout are excluded by the batch (qualifications.json). No objective (D13). G8 gate on pa1088_sp_v1 (bipolar reading, recipes/pa1088_1111_ext.py) at nominal.",
+ "source": {
+  "title": "Design and Simulation of a Class-A Common-Emitter RF Power Amplifier for the 433 MHz ISM Band in Cadence Virtuoso (ICECTE 2026)",
+  "doi": null,
+  "figure": "paper Fig. 3 (complete schematic: CE gpdk090 NPN, passive base/collector bias, LC input and output matching)"
+ },
+ "variables": [
+  {
+   "name": "N_Q0",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier of the common-emitter NPN Q0 (area x m sets the device size: collector current capability, gm, fT-limited gain, device capacitances); area held at 0.5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "Q0"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "L_IN",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "L16 input series matching inductor (RF_IN - IN_MATCH; input L-match with C_IN_SH, paper Table II)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "L16"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_IN_SH",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C24 input shunt matching capacitor (IN_MATCH to ground, paper Table II)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C24"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_IN_BLK",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C1 input coupling / DC-block capacitor to the base (IN_MATCH - BASE)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C1"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "L_BCHOKE",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "L1 base RF choke (BASE_BIAS - BASE): feeds the base bias, isolates the bias network at 433 MHz",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "L1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "R_BBIAS",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "R3 base bias resistor from VCC (sets the base current / quiescent collector current, paper Table I)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R3"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_BDEC1",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C6 base-bias decoupling capacitor (BASE_BIAS to ground)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C6"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_BDEC2",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C5 base-bias decoupling capacitor (BASE_BIAS to ground)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C5"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_EMIT",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "R14 emitter degeneration resistor (sets the quiescent collector current with R_BBIAS, paper Table I)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R14"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_EBYP",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C27 emitter bypass capacitor (AC ground of the emitter at 433 MHz: gain, paper Table I)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C27"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_CFEED",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "R5 collector feed resistor from VCC (VCC - COL_BIAS; DC drop sets VCE with the collector current, paper Table I)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R5"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_CDEC",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C3 collector-feed decoupling capacitor (COL_BIAS to ground)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C3"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "L_CCHOKE",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "L0 collector RF choke (COL_BIAS - COLLECTOR): DC feed of the collector, part of the output network at 433 MHz",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "L0"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_SDEC",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C4 supply decoupling capacitor (VCC to VSS; across the ideal testbench supply it has no electrical effect)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C4"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_OUT_BLK",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C2 output coupling capacitor (COLLECTOR - OUT_MATCH; DC block, part of the output match)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C2"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_OUT_SH",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C25 output shunt matching capacitor (OUT_MATCH to ground, paper Table II)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C25"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "L_OUT",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "L17 output series matching inductor (OUT_MATCH - RF_OUT, paper Table II)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "L17"
+    ],
+    "parameter": "l"
+   }
+  }
+ ],
+ "dependent_parameters": {},
+ "conditions": [
+  {
+   "id": "highperf_bjt_t_Tm40_S1p00",
+   "model_set": "highperf_bjt_t",
+   "temperature_C": -40.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_t_T27_S1p00",
+   "model_set": "highperf_bjt_t",
+   "temperature_C": 27.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "highperf_bjt_t_T100_S1p00",
+   "model_set": "highperf_bjt_t",
+   "temperature_C": 100.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_f_Tm40_S1p00",
+   "model_set": "highperf_bjt_f",
+   "temperature_C": -40.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_f_T27_S1p00",
+   "model_set": "highperf_bjt_f",
+   "temperature_C": 27.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_f_T100_S1p00",
+   "model_set": "highperf_bjt_f",
+   "temperature_C": 100.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_s_Tm40_S1p00",
+   "model_set": "highperf_bjt_s",
+   "temperature_C": -40.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_s_T27_S1p00",
+   "model_set": "highperf_bjt_s",
+   "temperature_C": 27.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "highperf_bjt_s_T100_S1p00",
+   "model_set": "highperf_bjt_s",
+   "temperature_C": 100.0,
+   "supply_V": 12.0,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 12.0,
+   "provenance": "paper Sec. II/III.A (12 V supply); replay decks parameters VCC=12 (corners.json supply_V 12)"
+  },
+  "center_frequency_Hz": {
+   "value": 433000000.0,
+   "provenance": "paper (433 MHz ISM band); replay decks f0=4.33e+08 (measurements at 433 MHz)"
+  },
+  "port_impedance_ohm": {
+   "value": 50.0,
+   "provenance": "replay decks PORT_IN / PORT_OUT port r=50 (paper: matching to 50 ohm, Sec. II.B)"
+  }
+ },
+ "constraints": [
+  {
+   "name": "fH_3dB_Hz",
+   "metric": "fH_3dB_Hz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 416805150.0,
+   "upper": 563912850.0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:1 (paper_15percent): paper 490359000.0 Hz (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "fL_3dB_Hz",
+   "metric": "fL_3dB_Hz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 322647250.0,
+   "upper": 436522749.99999994,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:2 (paper_15percent): paper 379585000.0 Hz (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "Bandwidth_MHz",
+   "metric": "Bandwidth_MHz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "MHz",
+   "lower": 95.00789999999999,
+   "upper": 128.5401,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:5 (paper_15percent): paper 111.774 MHz (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "S12_dB",
+   "metric": "S12_dB",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": -67.63654319292776,
+   "target": {
+    "kind": "voltage_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:6 (paper_15percent): paper -68.8505 dB (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "S21_dB",
+   "metric": "S21_dB",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 21.807078514285852,
+   "target": {
+    "kind": "voltage_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:7 (paper_15percent): paper 23.2187 dB (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "S11_dB",
+   "metric": "S11_dB",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": -12.162643192927767,
+   "target": {
+    "kind": "voltage_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:8 (paper_15percent): paper -13.3766 dB (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "Delta_max_1MHz_1GHz",
+   "metric": "Delta_max_1MHz_1GHz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "",
+   "upper": 1,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:9 (strict_stability): paper 1 1 (PDF page 4, \u00a7III.C.1) < strict; limit copied exactly; Strict physical stability criterion; no tolerance relaxation at unity. Strict '<' in the replay; analogiq bounds are inclusive (a value exactly at 1 passes).",
+   "source": "native"
+  },
+  {
+   "name": "Delta_abs_433MHz",
+   "metric": "Delta_abs_433MHz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "",
+   "upper": 0.029439999999999997,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:10 (paper_15percent): paper 0.0256 1 (PDF page 4, \u00a7III.C.1); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "K_min_1MHz_1GHz",
+   "metric": "K_min_1MHz_1GHz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "",
+   "lower": 1,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:11 (strict_stability): paper 1 1 (PDF page 4, \u00a7III.C.1) > strict; limit copied exactly; Strict physical stability criterion; no tolerance relaxation at unity. Strict '>' in the replay; analogiq bounds are inclusive (a value exactly at 1 passes).",
+   "source": "native"
+  },
+  {
+   "name": "NF_433MHz_dB",
+   "metric": "NF_433MHz_dB",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": 16.76697840353612,
+   "target": {
+    "kind": "power_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:12 (paper_15percent): paper 16.16 dB (PDF page 6, \u00a7III.G); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "K_433MHz",
+   "metric": "K_433MHz",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "",
+   "lower": 98.362,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:13 (paper_15percent): paper 115.72 1 (PDF page 4, \u00a7III.C.1); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "Power_gain_dB",
+   "metric": "Power_gain_dB",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 22.717189257142927,
+   "target": {
+    "kind": "power_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:14 (paper_15percent): paper 23.423 dB (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "PDC_mW",
+   "metric": "PDC_mW",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "mW",
+   "upper": 362.64099999999996,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:15 (paper_15percent): paper 315.34 mW (PDF page 5, \u00a7III.E.3 equation); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "IC_mA",
+   "metric": "IC_mA",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "mA",
+   "upper": 28.278499999999998,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:16 (paper_15percent): paper 24.59 mA (PDF page 3, \u00a7III.A); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "VCE_V",
+   "metric": "VCE_V",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 7.5514,
+   "upper": 10.2166,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:17 (paper_15percent): paper 8.884 V (PDF page 3, \u00a7III.A); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "S22_dB",
+   "metric": "S22_dB",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": -12.217143192927768,
+   "target": {
+    "kind": "voltage_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:1:18 (paper_15percent): paper -13.4311 dB (PDF page 3, \u00a7III.B); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "Psat_dBm",
+   "metric": "Psat_dBm",
+   "recipe": "pa1088_hb_v1",
+   "point": {},
+   "unit": "dBm",
+   "lower": 16.32718925714293,
+   "target": {
+    "kind": "power_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:2:19 (paper_15percent): paper 17.033 dBm (PDF page 5, \u00a7III.E.2); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "PAE_peak_percent",
+   "metric": "PAE_peak_percent",
+   "recipe": "pa1088_hb_v1",
+   "point": {},
+   "unit": "%",
+   "lower": 35.955,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json pa1088_dac_task_001:2:20 (paper_15percent): paper 42.3 % (PDF page 5, \u00a7III.E.3); limit copied exactly; Paper reference and approved 15% directional allowance; see reference and qualifications.",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (not a paper target): Q0 forward-active at the quiescent point (class-A CE, paper Sec. III.A 'kept the transistor in the active region'); bipolar reading in recipes/pa1088_1111_ext.py. forward_biased_junctions / devices_outside_rails are added automatically",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "pa1088_sp_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "pa1088_hb_v1",
+   "PAE_peak_percent"
+  ],
+  [
+   "pa1088_hb_v1",
+   "Psat_dBm"
+  ],
+  [
+   "pa1088_hb_v1",
+   "points_converged"
+  ],
+  [
+   "pa1088_sp_v1",
+   "Bandwidth_MHz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "Delta_abs_433MHz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "Delta_max_1MHz_1GHz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "IC_mA"
+  ],
+  [
+   "pa1088_sp_v1",
+   "K_433MHz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "K_min_1MHz_1GHz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "NF_433MHz_dB"
+  ],
+  [
+   "pa1088_sp_v1",
+   "PDC_mW"
+  ],
+  [
+   "pa1088_sp_v1",
+   "Power_gain_dB"
+  ],
+  [
+   "pa1088_sp_v1",
+   "S11_dB"
+  ],
+  [
+   "pa1088_sp_v1",
+   "S12_dB"
+  ],
+  [
+   "pa1088_sp_v1",
+   "S21_dB"
+  ],
+  [
+   "pa1088_sp_v1",
+   "S22_dB"
+  ],
+  [
+   "pa1088_sp_v1",
+   "VCE_V"
+  ],
+  [
+   "pa1088_sp_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "pa1088_sp_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "pa1088_sp_v1",
+   "fH_3dB_Hz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "fL_3dB_Hz"
+  ],
+  [
+   "pa1088_sp_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "pa1088_sp_v1",
+   "saturation_margin_min_V"
+  ]
+ ],
+ "simulations_per_design": 18,
+ "analysis_executions_per_design": 5436,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "highperf_bjt_t_Tm40_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_t_Tm40_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_t_Tm40_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_t_Tm40_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_t_T27_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_t_T27_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_t_T27_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_t_T27_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_t_T100_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_t_T100_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_t_T100_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_t_T100_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_f_Tm40_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_f_Tm40_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_f_Tm40_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_f_Tm40_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_f_T27_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_f_T27_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_f_T27_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_f_T27_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_f_T100_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_f_T100_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_f_T100_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_f_T100_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_s_Tm40_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_s_Tm40_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_s_Tm40_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_s_Tm40_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_s_T27_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_s_T27_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_s_T27_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_s_T27_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_s_T100_S1p00",
+   "recipe": "pa1088_sp_v1",
+   "folder": "testbenches/highperf_bjt_s_T100_S1p00/pa1088_sp_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/dcop.dc",
+    "raw/nz.noise",
+    "raw/sp1.sp.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "fH_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "fL_3dB_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "Bandwidth_MHz": {
+     "unit": "MHz",
+     "source": "native"
+    },
+    "S11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S12_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S21_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "S22_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "Power_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "K_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_abs_433MHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "K_min_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "Delta_max_1MHz_1GHz": {
+     "unit": "",
+     "source": "native"
+    },
+    "NF_433MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "PDC_mW": {
+     "unit": "mW",
+     "source": "native"
+    },
+    "IC_mA": {
+     "unit": "mA",
+     "source": "native"
+    },
+    "VCE_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0
+    }
+   ]
+  },
+  {
+   "condition": "highperf_bjt_s_T100_S1p00",
+   "recipe": "pa1088_hb_v1",
+   "folder": "testbenches/highperf_bjt_s_T100_S1p00/pa1088_hb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/swp-000_hb1.fd.pss_hb"
+   ],
+   "metrics": {
+    "Psat_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "PAE_peak_percent": {
+     "unit": "%",
+     "source": "native"
+    },
+    "points_converged": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 433000000.0,
+     "pin_start_dBm": -40.0,
+     "pin_stop_dBm": 20.0
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "pa1088_dac_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('pa1088_dac_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

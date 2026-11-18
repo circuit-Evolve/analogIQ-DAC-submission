@@ -1,0 +1,2498 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_ccmp_lelo_task_001",
+  "task_id": "ccmp_lelo_task_001",
+  "topology_id": "ccmp_lelo",
+  "candidate_hash": "fa1c951ba4472c009c094d9754d38ddcba88d8fc2e696dd8827a2429e6c36c55",
+  "evaluator_hash": "2602bd46ed3f03052ea5251c42eb766d7e52f23b35068b5483247de13b058600",
+  "digests": {
+    "task": "8c57c425b500dd6087ba07d104272caa9d6b50b8944cdc0f59fadbb0386e0445",
+    "candidate": "fa1c951ba4472c009c094d9754d38ddcba88d8fc2e696dd8827a2429e6c36c55",
+    "parameterization": "f018d05656fb97480926323ca50fec342e0a055826395277cb48f4ad815e4431",
+    "dut_source_netlist": "769e34614c9399bff75bf9df68c6035fd4ffd9420336de1a16cfb19062d5eeef",
+    "dut_subckt": "6ea102702e6a4673d6e637a43c0cadd29559b6733ac8bfdedbd2583e9a9259a2",
+    "models": "cf0800bd8572a6c9379d777f9608319fdad8b069992de6d70b98c4dbbc642c8e",
+    "recipes": "209d409982bc1ac295023d0f8b06c5cb2ecfbf76de9ba265e87cb119d92e6664",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "2602bd46ed3f03052ea5251c42eb766d7e52f23b35068b5483247de13b058600"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 148,
+    "completed_measurement_checks": 148,
+    "valid_measurement_checks": 148
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "t_half_s",
+      "value": 2.16952158591255e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_typ_hi",
+        "t_half_typ_lo"
+      ],
+      "constraint": {
+        "lower": 1.960182e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2304655.5666773356,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_typ_hi",
+        "freq_typ_lo"
+      ],
+      "constraint": {
+        "lower": 2066400.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.664155332348916e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_typ_hi"
+      ],
+      "constraint": {
+        "upper": 5.0599999999999995e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.01711124841347178,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_typ_hi"
+      ],
+      "constraint": {
+        "upper": 0.0184822
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002052855793896672,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_typ_hi"
+      ],
+      "constraint": {
+        "upper": 0.0021747
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.8382754704443163e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_typ_hi",
+        "c_eff_typ_lo"
+      ],
+      "constraint": {
+        "lower": 2.5651350000000004e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.6650264339991283e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_typ_hi"
+      ],
+      "constraint": {
+        "upper": 1.84294e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.2345046253742314,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_op_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_op_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_op_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ccmp_op_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.4919984330597175e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2006421.807360816,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 6.709262378803942e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.021369728208271876,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002358777103266589,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 3.2434083822670835e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.279117974932484e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.485849639144936e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2011384.7278871874,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 5.2843860121440505e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.016813237210268617,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002218217697106741,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 3.2536307203563197e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.580254013235286e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p00_kss_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.4884735545543616e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2009263.8681448256,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.772476325376686e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.015180083896874308,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002105171738696867,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 3.263492003247057e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.853447187129903e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 1.8792291898314823e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2660665.355271737,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.668907836078224e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.01992676610638089,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002019934447546388,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.4499852280383923e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.4544056114432984e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 1.8811479849735156e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2657951.4423850044,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.095248174561431e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.017470178530750946,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.001904703577862443,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.459841028314005e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.751558437946521e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p00_kff_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 1.8865066000867512e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2650401.541012406,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 3.911113810831554e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.01668315660801245,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.001811862326476257,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.469158984159887e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.961888026758349e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T27_S1p06_kff_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.1896782190233752e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2283440.5332076894,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 7.515195035450067e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.027649808347553928,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002102896814664275,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.8272957064053174e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.1607285574946561e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.1762250634231643e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2297556.481651345,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 5.369672176963423e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.019720913304702603,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.00198400539339198,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.8375440591611907e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.454351588574175e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p00_ksf_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.1765386854524138e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2297225.4219137407,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.631004369865881e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.016999763672028267,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.001888027127125852,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.8474729973553604e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.752964977861355e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T27_S1p06_ksf_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.1623005670396523e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2312351.9811333935,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.697671422376372e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.017228012860900255,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002262350245909766,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.828965284162913e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.57103310672265e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S0p94_kfs_vl",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.1657828982874126e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2308633.983560281,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.286529885462729e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.015714601149405816,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002126174711263396,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.838603956507204e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 1.8409260722224927e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p00_kfs_vt",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_half_s",
+      "value": 2.1720511335885705e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_half_corner_hi",
+        "t_half_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.6901189999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "freq_Hz",
+      "value": 2301971.5892872247,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "freq_corner_hi",
+        "freq_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1807200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "t_delay_s",
+      "value": 4.161422590017451e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "t_delay_corner_hi"
+      ],
+      "constraint": {
+        "upper": 1.03235e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_over_V",
+      "value": 0.015254420367588284,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_over_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0377157
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "v_reset_V",
+      "value": 0.002016893847710745,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "v_reset_corner_hi"
+      ],
+      "constraint": {
+        "upper": 0.0027544
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "c_eff_F",
+      "value": 2.848242012640643e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "c_eff_corner_hi",
+        "c_eff_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.2076370000000003e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idd_avg_A",
+      "value": 2.0100910334497576e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "idd_avg_corner_hi"
+      ],
+      "constraint": {
+        "upper": 2.2473e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.t_half_s",
+      "value": 2.1626255776164378e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_mean_t_half_hi",
+        "mc_mean_t_half_lo"
+      ],
+      "constraint": {
+        "lower": 1.950444e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.t_half_s",
+      "value": 3.7659832918054005e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_t_half"
+      ],
+      "constraint": {
+        "upper": 5.2484630000000004e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.freq_Hz",
+      "value": 2312674.538970913,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_mean_freq_hi",
+        "mc_mean_freq_lo"
+      ],
+      "constraint": {
+        "lower": 2077200.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.freq_Hz",
+      "value": 40516.40517809279,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_freq"
+      ],
+      "constraint": {
+        "upper": 55733.369999999995
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.t_delay_s",
+      "value": 3.962818120863029e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1"
+    },
+    {
+      "metric": "mc_sigma.t_delay_s",
+      "value": 3.790967446436009e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_t_delay"
+      ],
+      "constraint": {
+        "upper": 5.4208e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.v_over_V",
+      "value": 0.01454544687314131,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1"
+    },
+    {
+      "metric": "mc_sigma.v_over_V",
+      "value": 0.013906579181477901,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_v_over"
+      ],
+      "constraint": {
+        "upper": 0.0198011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.v_reset_V",
+      "value": 0.0020510579939890814,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_mean_v_reset_hi"
+      ],
+      "constraint": {
+        "upper": 0.0021736
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.v_reset_V",
+      "value": 5.994538928322243e-06,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_v_reset"
+      ],
+      "constraint": {
+        "upper": 6.6e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.c_eff_F",
+      "value": 2.838425560832298e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_mean_c_eff_hi",
+        "mc_mean_c_eff_lo"
+      ],
+      "constraint": {
+        "lower": 2.5655309999999997e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.c_eff_F",
+      "value": 4.1152939828012183e-17,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_c_eff"
+      ],
+      "constraint": {
+        "upper": 6.592662999999999e-16
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.idd_avg_A",
+      "value": 1.6730589975478045e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_mean_idd_avg_hi"
+      ],
+      "constraint": {
+        "upper": 1.83447e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.idd_avg_A",
+      "value": 7.796365710750837e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ccmp_tran_v1",
+      "constraints": [
+        "mc_sigma_idd_avg"
+      ],
+      "constraint": {
+        "upper": 7.962163e-07
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "t_half_typ_hi": {
+      "value": 2.16952158591255e-07,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "t_half_typ_lo": {
+      "value": 2.16952158591255e-07,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "t_half_corner_hi": {
+      "value": 2.4919984330597175e-07,
+      "unit": "s",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "point": {},
+      "complete": true
+    },
+    "t_half_corner_lo": {
+      "value": 1.8792291898314823e-07,
+      "unit": "s",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_t_half_hi": {
+      "value": 2.1626255776164378e-07,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_t_half_lo": {
+      "value": 2.1626255776164378e-07,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_t_half": {
+      "value": 3.7659832918054005e-09,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "freq_typ_hi": {
+      "value": 2304655.5666773356,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "freq_typ_lo": {
+      "value": 2304655.5666773356,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "freq_corner_hi": {
+      "value": 2660665.355271737,
+      "unit": "Hz",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "point": {},
+      "complete": true
+    },
+    "freq_corner_lo": {
+      "value": 2006421.807360816,
+      "unit": "Hz",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_freq_hi": {
+      "value": 2312674.538970913,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_freq_lo": {
+      "value": 2312674.538970913,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_freq": {
+      "value": 40516.40517809279,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "t_delay_typ_hi": {
+      "value": 4.664155332348916e-09,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "t_delay_corner_hi": {
+      "value": 7.515195035450067e-09,
+      "unit": "s",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_t_delay": {
+      "value": 3.790967446436009e-09,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "v_over_typ_hi": {
+      "value": 0.01711124841347178,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "v_over_corner_hi": {
+      "value": 0.027649808347553928,
+      "unit": "V",
+      "condition_id": "sf_T27_S0p94_ksf_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_v_over": {
+      "value": 0.013906579181477901,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "v_reset_typ_hi": {
+      "value": 0.002052855793896672,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "v_reset_corner_hi": {
+      "value": 0.002358777103266589,
+      "unit": "V",
+      "condition_id": "ss_hh_T27_S0p94_kss_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_v_reset_hi": {
+      "value": 0.0020510579939890814,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_v_reset": {
+      "value": 5.994538928322243e-06,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "c_eff_typ_hi": {
+      "value": 2.8382754704443163e-13,
+      "unit": "F",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "c_eff_typ_lo": {
+      "value": 2.8382754704443163e-13,
+      "unit": "F",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "c_eff_corner_hi": {
+      "value": 3.263492003247057e-13,
+      "unit": "F",
+      "condition_id": "ss_hh_T27_S1p06_kss_vh",
+      "point": {},
+      "complete": true
+    },
+    "c_eff_corner_lo": {
+      "value": 2.4499852280383923e-13,
+      "unit": "F",
+      "condition_id": "ff_ll_T27_S0p94_kff_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_c_eff_hi": {
+      "value": 2.838425560832298e-13,
+      "unit": "F",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_c_eff_lo": {
+      "value": 2.838425560832298e-13,
+      "unit": "F",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_c_eff": {
+      "value": 4.1152939828012183e-17,
+      "unit": "F",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "idd_avg_typ_hi": {
+      "value": 1.6650264339991283e-05,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "idd_avg_corner_hi": {
+      "value": 2.0100910334497576e-05,
+      "unit": "A",
+      "condition_id": "fs_T27_S1p06_kfs_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_idd_avg_hi": {
+      "value": 1.6730589975478045e-05,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_idd_avg": {
+      "value": 7.796365710750837e-07,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "tt_T27_S1p00/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.62,
+      "cpu_s": 0.523
+    },
+    {
+      "job_id": "tt_T27_S1p00/lelo30_ccmp_op_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.515,
+      "cpu_s": 0.377
+    },
+    {
+      "job_id": "ss_hh_T27_S0p94_kss_vl/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.737,
+      "cpu_s": 0.595
+    },
+    {
+      "job_id": "ss_hh_T27_S1p00_kss_vt/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.74,
+      "cpu_s": 0.59
+    },
+    {
+      "job_id": "ss_hh_T27_S1p06_kss_vh/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.747,
+      "cpu_s": 0.588
+    },
+    {
+      "job_id": "ff_ll_T27_S0p94_kff_vl/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.839,
+      "cpu_s": 0.5640000000000001
+    },
+    {
+      "job_id": "ff_ll_T27_S1p00_kff_vt/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.795,
+      "cpu_s": 0.584
+    },
+    {
+      "job_id": "ff_ll_T27_S1p06_kff_vh/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 0.799,
+      "cpu_s": 0.62
+    },
+    {
+      "job_id": "sf_T27_S0p94_ksf_vl/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.109,
+      "cpu_s": 0.775
+    },
+    {
+      "job_id": "sf_T27_S1p00_ksf_vt/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.358,
+      "cpu_s": 0.747
+    },
+    {
+      "job_id": "sf_T27_S1p06_ksf_vh/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.476,
+      "cpu_s": 0.748
+    },
+    {
+      "job_id": "fs_T27_S0p94_kfs_vl/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.676,
+      "cpu_s": 0.738
+    },
+    {
+      "job_id": "fs_T27_S1p00_kfs_vt/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.635,
+      "cpu_s": 0.74
+    },
+    {
+      "job_id": "fs_T27_S1p06_kfs_vh/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.056,
+      "cpu_s": 0.635
+    },
+    {
+      "job_id": "tt_T27_S1p00_MC/lelo30_ccmp_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 143 notices",
+      "extraction_error": null,
+      "wall_s": 9.697,
+      "cpu_s": 7.91
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 15,
+    "analysis_executions": 34,
+    "condition_evaluations": 14,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 16.734,
+    "execution_wall_s": 16.846,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/tt_T27_S1p00/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/tt_T27_S1p00/lelo30_ccmp_op_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/ss_hh_T27_S0p94_kss_vl/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/ss_hh_T27_S1p00_kss_vt/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/ss_hh_T27_S1p06_kss_vh/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/ff_ll_T27_S0p94_kff_vl/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/ff_ll_T27_S1p00_kff_vt/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/ff_ll_T27_S1p06_kff_vh/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/sf_T27_S0p94_ksf_vl/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/sf_T27_S1p00_ksf_vt/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/sf_T27_S1p06_ksf_vh/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/fs_T27_S0p94_kfs_vl/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/fs_T27_S1p00_kfs_vt/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/fs_T27_S1p06_kfs_vh/lelo30_ccmp_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ccmp_lelo_task_001/tt_T27_S1p00_MC/lelo30_ccmp_tran_v1"
+    ]
+  }
+}

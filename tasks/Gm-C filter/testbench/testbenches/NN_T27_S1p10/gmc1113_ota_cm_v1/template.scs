@@ -1,0 +1,35 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task gmc_reconstructed_131126_task_001  topology gmc_reconstructed_131126
+// recipe gmc1113_ota_cm_v1 v2  condition NN_T27_S1p10 (models NN, 27 C, supply 1.1 V)
+// request gmc_reconstructed_131126_task_001__plan  candidate 4c8b5f7c3a0f510b
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs" section=NN
+include "dut.scs"
+
+parameters vsup=1.1
+// Sizing variables set in the testbench (external-bias values).
+parameters vt_bias_V={{vt_bias_V}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VT (b_VT 0) vsource dc=vt_bias_V
+VB_GND (b_GND 0) vsource dc=0.0
+
+VINP (iin 0) vsource dc=0.55 mag=1
+VINM (inn 0) vsource dc=0.55 mag=1
+VREF_SRC (vocm 0) vsource dc=0.55
+
+subckt gmc_ota_fixture VIP VIM VOP VOM VT VREF VDD GND
+parameters M19_l=0 M19_m=0 M19_w=0 M20_l=0 M20_m=0 M20_w=0 M23_l=0 M23_m=0 M23_w=0 M24_l=0 M24_m=0 M24_w=0 M25_l=0 M25_m=0 M25_w=0 M28_l=0 M28_m=0 M28_w=0 bias_n_l=0 bias_n_m=0 bias_n_w=0 bias_p_l=0 bias_p_m=0 bias_p_w=0 cap_b_F=0 cap_d_F=0 cm_fb_n_l=0 cm_fb_n_m=0 cm_fb_n_w=0 cm_fb_p_l=0 cm_fb_p_m=0 cm_fb_p_w=0 cm_node_n_l=0 cm_node_n_m=0 cm_node_n_w=0 cm_node_p_l=0 cm_node_p_m=0 cm_node_p_w=0 cm_out_n_l=0 cm_out_n_m=0 cm_out_n_w=0 cm_out_p_l=0 cm_out_p_m=0 cm_out_p_w=0 cross_n_l=0 cross_n_m=0 cross_n_w=0 cross_p_l=0 cross_p_m=0 cross_p_w=0 feedback_n_l=0 feedback_n_m=0 feedback_n_w=0 feedback_p_l=0 feedback_p_m=0 feedback_p_w=0 input_n_l=0 input_n_m=0 input_n_w=0 input_p_l=0 input_p_m=0 input_p_w=0 load_n_l=0 load_n_m=0 load_n_w=0 load_p_l=0 load_p_m=0 load_p_w=0
+XCORE (VIP VIM VOP VOM VT VREF VDD GND) ota_fig2_interpreted M19_l=M19_l M19_m=M19_m M19_w=M19_w M20_l=M20_l M20_m=M20_m M20_w=M20_w M23_l=M23_l M23_m=M23_m M23_w=M23_w M24_l=M24_l M24_m=M24_m M24_w=M24_w M25_l=M25_l M25_m=M25_m M25_w=M25_w M28_l=M28_l M28_m=M28_m M28_w=M28_w bias_n_l=bias_n_l bias_n_m=bias_n_m bias_n_w=bias_n_w bias_p_l=bias_p_l bias_p_m=bias_p_m bias_p_w=bias_p_w cm_fb_n_l=cm_fb_n_l cm_fb_n_m=cm_fb_n_m cm_fb_n_w=cm_fb_n_w cm_fb_p_l=cm_fb_p_l cm_fb_p_m=cm_fb_p_m cm_fb_p_w=cm_fb_p_w cm_node_n_l=cm_node_n_l cm_node_n_m=cm_node_n_m cm_node_n_w=cm_node_n_w cm_node_p_l=cm_node_p_l cm_node_p_m=cm_node_p_m cm_node_p_w=cm_node_p_w cm_out_n_l=cm_out_n_l cm_out_n_m=cm_out_n_m cm_out_n_w=cm_out_n_w cm_out_p_l=cm_out_p_l cm_out_p_m=cm_out_p_m cm_out_p_w=cm_out_p_w cross_n_l=cross_n_l cross_n_m=cross_n_m cross_n_w=cross_n_w cross_p_l=cross_p_l cross_p_m=cross_p_m cross_p_w=cross_p_w input_n_l=input_n_l input_n_m=input_n_m input_n_w=input_n_w input_p_l=input_p_l input_p_m=input_p_m input_p_w=input_p_w load_n_l=load_n_l load_n_m=load_n_m load_n_w=load_n_w load_p_l=load_p_l load_p_m=load_p_m load_p_w=load_p_w
+ends gmc_ota_fixture
+XDUT (iin inn out outn b_VT vocm vdd b_GND) gmc_ota_fixture M19_l={{M19_l}} M19_m={{M19_m}} M19_w={{M19_w}} M20_l={{M20_l}} M20_m={{M20_m}} M20_w={{M20_w}} M23_l={{M23_l}} M23_m={{M23_m}} M23_w={{M23_w}} M24_l={{M24_l}} M24_m={{M24_m}} M24_w={{M24_w}} M25_l={{M25_l}} M25_m={{M25_m}} M25_w={{M25_w}} M28_l={{M28_l}} M28_m={{M28_m}} M28_w={{M28_w}} bias_n_l={{bias_n_l}} bias_n_m={{bias_n_m}} bias_n_w={{bias_n_w}} bias_p_l={{bias_p_l}} bias_p_m={{bias_p_m}} bias_p_w={{bias_p_w}} cap_b_F={{cap_b_F}} cap_d_F={{cap_d_F}} cm_fb_n_l={{cm_fb_n_l}} cm_fb_n_m={{cm_fb_n_m}} cm_fb_n_w={{cm_fb_n_w}} cm_fb_p_l={{cm_fb_p_l}} cm_fb_p_m={{cm_fb_p_m}} cm_fb_p_w={{cm_fb_p_w}} cm_node_n_l={{cm_node_n_l}} cm_node_n_m={{cm_node_n_m}} cm_node_n_w={{cm_node_n_w}} cm_node_p_l={{cm_node_p_l}} cm_node_p_m={{cm_node_p_m}} cm_node_p_w={{cm_node_p_w}} cm_out_n_l={{cm_out_n_l}} cm_out_n_m={{cm_out_n_m}} cm_out_n_w={{cm_out_n_w}} cm_out_p_l={{cm_out_p_l}} cm_out_p_m={{cm_out_p_m}} cm_out_p_w={{cm_out_p_w}} cross_n_l={{cross_n_l}} cross_n_m={{cross_n_m}} cross_n_w={{cross_n_w}} cross_p_l={{cross_p_l}} cross_p_m={{cross_p_m}} cross_p_w={{cross_p_w}} feedback_n_l={{feedback_n_l}} feedback_n_m={{feedback_n_m}} feedback_n_w={{feedback_n_w}} feedback_p_l={{feedback_p_l}} feedback_p_m={{feedback_p_m}} feedback_p_w={{feedback_p_w}} input_n_l={{input_n_l}} input_n_m={{input_n_m}} input_n_w={{input_n_w}} input_p_l={{input_p_l}} input_p_m={{input_p_m}} input_p_w={{input_p_w}} load_n_l={{load_n_l}} load_n_m={{load_n_m}} load_n_w={{load_n_w}} load_p_l={{load_p_l}} load_p_m={{load_p_m}} load_p_w={{load_p_w}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_GND:p VB_VT:p VSUP:p iin inn out outn vdd vocm
+
+gmcopts options reltol=1e-6 vabstol=1e-9 iabstol=1e-14
+dcOp dc
+ac ac start=1 stop=100G dec=500

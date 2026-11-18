@@ -1,0 +1,2026 @@
+{
+  "counts": {
+    "primitive_instance_statements": 69,
+    "mos_instance_statements": 64,
+    "mos_parallel_unit_count_including_m": 134.0,
+    "by_model_instance_statements": {
+      "nmos1": 38,
+      "pmos1": 26,
+      "isource": 2,
+      "resistor": 1,
+      "capacitor": 2
+    },
+    "note": "DUT-only hierarchy expanded, excludes external testbench supply/control/stimulus sources; MOS parallel-unit count sums native m, not lithographic fingers."
+  },
+  "devices": [
+    {
+      "instance": "DUT.A2.M30",
+      "model": "nmos1",
+      "nodes": [
+        "Z2P",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M29",
+      "model": "nmos1",
+      "nodes": [
+        "Z1P",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M28",
+      "model": "nmos1",
+      "nodes": [
+        "ZP",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M27",
+      "model": "nmos1",
+      "nodes": [
+        "X",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M26",
+      "model": "nmos1",
+      "nodes": [
+        "T2",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.12797070063e-06",
+        "l": "1.89878554093e-06",
+        "as": "2.47678242038e-12",
+        "ad": "2.47678242038e-12",
+        "ps": "9.45594140125e-06",
+        "pd": "9.45594140125e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M25",
+      "model": "nmos1",
+      "nodes": [
+        "T1",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.12797070063e-06",
+        "l": "1.89878554093e-06",
+        "as": "2.47678242038e-12",
+        "ad": "2.47678242038e-12",
+        "ps": "9.45594140125e-06",
+        "pd": "9.45594140125e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M18",
+      "model": "nmos1",
+      "nodes": [
+        "NG",
+        "Y1",
+        "T2",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M17",
+      "model": "nmos1",
+      "nodes": [
+        "PG",
+        "X",
+        "T2",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M16",
+      "model": "nmos1",
+      "nodes": [
+        "NG",
+        "GND",
+        "T1",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M15",
+      "model": "nmos1",
+      "nodes": [
+        "PG",
+        "Y2",
+        "T1",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M14",
+      "model": "nmos1",
+      "nodes": [
+        "PB",
+        "PB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "6.25480960835e-07",
+        "l": "1.8e-07",
+        "as": "3.75288576501e-13",
+        "ad": "3.75288576501e-13",
+        "ps": "2.45096192167e-06",
+        "pd": "2.45096192167e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M13",
+      "model": "nmos1",
+      "nodes": [
+        "OP2",
+        "NB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "3.98093286488e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.38855971893e-12",
+        "ad": "2.38855971893e-12",
+        "ps": "9.16186572977e-06",
+        "pd": "9.16186572977e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M12",
+      "model": "nmos1",
+      "nodes": [
+        "OP",
+        "NB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "3.98093286488e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.38855971893e-12",
+        "ad": "2.38855971893e-12",
+        "ps": "9.16186572977e-06",
+        "pd": "9.16186572977e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M11",
+      "model": "nmos1",
+      "nodes": [
+        "NB",
+        "NB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "6.25480960835e-07",
+        "l": "1.8e-07",
+        "as": "3.75288576501e-13",
+        "ad": "3.75288576501e-13",
+        "ps": "2.45096192167e-06",
+        "pd": "2.45096192167e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M10",
+      "model": "nmos1",
+      "nodes": [
+        "OM",
+        "PB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "3.98093286488e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.38855971893e-12",
+        "ad": "2.38855971893e-12",
+        "ps": "9.16186572977e-06",
+        "pd": "9.16186572977e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M2",
+      "model": "nmos1",
+      "nodes": [
+        "NR",
+        "ZP",
+        "T",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "0.0001",
+        "l": "1.8e-07",
+        "as": "6e-11",
+        "ad": "6e-11",
+        "ps": "0.0002012",
+        "pd": "0.0002012",
+        "m": "16"
+      },
+      "multiplicity": 16.0
+    },
+    {
+      "instance": "DUT.A2.M1",
+      "model": "nmos1",
+      "nodes": [
+        "NL",
+        "N",
+        "T",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "0.0001",
+        "l": "1.8e-07",
+        "as": "6e-11",
+        "ad": "6e-11",
+        "ps": "0.0002012",
+        "pd": "0.0002012",
+        "m": "16"
+      },
+      "multiplicity": 16.0
+    },
+    {
+      "instance": "DUT.A2.M24",
+      "model": "pmos1",
+      "nodes": [
+        "Z2P",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M23",
+      "model": "pmos1",
+      "nodes": [
+        "Z1P",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M22",
+      "model": "pmos1",
+      "nodes": [
+        "ZP",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M21",
+      "model": "pmos1",
+      "nodes": [
+        "X",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M20",
+      "model": "pmos1",
+      "nodes": [
+        "NG",
+        "PG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "8.54649363996e-06",
+        "l": "1.8000000018e-07",
+        "as": "5.12789618399e-12",
+        "ad": "5.12789618399e-12",
+        "ps": "1.82929872799e-05",
+        "pd": "1.82929872799e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M19",
+      "model": "pmos1",
+      "nodes": [
+        "PG",
+        "PG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "8.54649363996e-06",
+        "l": "1.8000000018e-07",
+        "as": "5.12789618399e-12",
+        "ad": "5.12789618399e-12",
+        "ps": "1.82929872799e-05",
+        "pd": "1.82929872799e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M9",
+      "model": "pmos1",
+      "nodes": [
+        "PB",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.41259139412e-05",
+        "l": "1.22625502375e-06",
+        "as": "8.47554836475e-12",
+        "ad": "8.47554836475e-12",
+        "ps": "2.94518278825e-05",
+        "pd": "2.94518278825e-05",
+        "m": "3"
+      },
+      "multiplicity": 3.0
+    },
+    {
+      "instance": "DUT.A2.M8",
+      "model": "pmos1",
+      "nodes": [
+        "OP2",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.41259139412e-05",
+        "l": "1.22625502375e-06",
+        "as": "8.47554836475e-12",
+        "ad": "8.47554836475e-12",
+        "ps": "2.94518278825e-05",
+        "pd": "2.94518278825e-05",
+        "m": "3"
+      },
+      "multiplicity": 3.0
+    },
+    {
+      "instance": "DUT.A2.M7",
+      "model": "pmos1",
+      "nodes": [
+        "OP",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.41259139412e-05",
+        "l": "1.22625502375e-06",
+        "as": "8.47554836475e-12",
+        "ad": "8.47554836475e-12",
+        "ps": "2.94518278825e-05",
+        "pd": "2.94518278825e-05",
+        "m": "3"
+      },
+      "multiplicity": 3.0
+    },
+    {
+      "instance": "DUT.A2.M6",
+      "model": "pmos1",
+      "nodes": [
+        "NR",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.14192820657e-06",
+        "l": "1.8e-07",
+        "as": "3.68515692393e-12",
+        "ad": "3.68515692393e-12",
+        "ps": "1.34838564131e-05",
+        "pd": "1.34838564131e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M5",
+      "model": "pmos1",
+      "nodes": [
+        "NL",
+        "NL",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.14192820657e-06",
+        "l": "1.8e-07",
+        "as": "3.68515692393e-12",
+        "ad": "3.68515692393e-12",
+        "ps": "1.34838564131e-05",
+        "pd": "1.34838564131e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A2.M4",
+      "model": "pmos1",
+      "nodes": [
+        "NB",
+        "NL",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.41259139412e-05",
+        "l": "1.22625502375e-06",
+        "as": "8.47554836475e-12",
+        "ad": "8.47554836475e-12",
+        "ps": "2.94518278825e-05",
+        "pd": "2.94518278825e-05",
+        "m": "3"
+      },
+      "multiplicity": 3.0
+    },
+    {
+      "instance": "DUT.A2.M3",
+      "model": "pmos1",
+      "nodes": [
+        "OM",
+        "NL",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.41259139412e-05",
+        "l": "1.22625502375e-06",
+        "as": "8.47554836475e-12",
+        "ad": "8.47554836475e-12",
+        "ps": "2.94518278825e-05",
+        "pd": "2.94518278825e-05",
+        "m": "3"
+      },
+      "multiplicity": 3.0
+    },
+    {
+      "instance": "DUT.A2.IBIAS",
+      "model": "isource",
+      "nodes": [
+        "T",
+        "VSS"
+      ],
+      "parameters": {
+        "dc": "0.000146628282743",
+        "type": "dc"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M30",
+      "model": "nmos1",
+      "nodes": [
+        "Z2P",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M29",
+      "model": "nmos1",
+      "nodes": [
+        "Z1P",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M28",
+      "model": "nmos1",
+      "nodes": [
+        "ZP",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M27",
+      "model": "nmos1",
+      "nodes": [
+        "X",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.000000004e-07",
+        "l": "8.37674756503e-07",
+        "as": "2.4000000024e-13",
+        "ad": "2.4000000024e-13",
+        "ps": "2.0000000008e-06",
+        "pd": "2.0000000008e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M26",
+      "model": "nmos1",
+      "nodes": [
+        "T2",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.12797070063e-06",
+        "l": "1.89878554093e-06",
+        "as": "2.47678242038e-12",
+        "ad": "2.47678242038e-12",
+        "ps": "9.45594140125e-06",
+        "pd": "9.45594140125e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M25",
+      "model": "nmos1",
+      "nodes": [
+        "T1",
+        "VBIAS",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.12797070063e-06",
+        "l": "1.89878554093e-06",
+        "as": "2.47678242038e-12",
+        "ad": "2.47678242038e-12",
+        "ps": "9.45594140125e-06",
+        "pd": "9.45594140125e-06",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M18",
+      "model": "nmos1",
+      "nodes": [
+        "NG",
+        "Y1",
+        "T2",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M17",
+      "model": "nmos1",
+      "nodes": [
+        "PG",
+        "X",
+        "T2",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M16",
+      "model": "nmos1",
+      "nodes": [
+        "NG",
+        "GND",
+        "T1",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M15",
+      "model": "nmos1",
+      "nodes": [
+        "PG",
+        "Y2",
+        "T1",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "1.03744922234e-05",
+        "l": "5.90902019639e-07",
+        "as": "6.22469533403e-12",
+        "ad": "6.22469533403e-12",
+        "ps": "2.19489844468e-05",
+        "pd": "2.19489844468e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M14",
+      "model": "nmos1",
+      "nodes": [
+        "PB",
+        "PB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.47731762394e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.68639057436e-12",
+        "ad": "2.68639057436e-12",
+        "ps": "1.01546352479e-05",
+        "pd": "1.01546352479e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M13",
+      "model": "nmos1",
+      "nodes": [
+        "OP2",
+        "NB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.47731762394e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.68639057436e-12",
+        "ad": "2.68639057436e-12",
+        "ps": "1.01546352479e-05",
+        "pd": "1.01546352479e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M12",
+      "model": "nmos1",
+      "nodes": [
+        "OP",
+        "NB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.47731762394e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.68639057436e-12",
+        "ad": "2.68639057436e-12",
+        "ps": "1.01546352479e-05",
+        "pd": "1.01546352479e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M11",
+      "model": "nmos1",
+      "nodes": [
+        "NB",
+        "NB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.47731762394e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.68639057436e-12",
+        "ad": "2.68639057436e-12",
+        "ps": "1.01546352479e-05",
+        "pd": "1.01546352479e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M10",
+      "model": "nmos1",
+      "nodes": [
+        "OM",
+        "PB",
+        "VSS",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "4.47731762394e-06",
+        "l": "1.28847594535e-06",
+        "as": "2.68639057436e-12",
+        "ad": "2.68639057436e-12",
+        "ps": "1.01546352479e-05",
+        "pd": "1.01546352479e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M2",
+      "model": "nmos1",
+      "nodes": [
+        "NR",
+        "ZP",
+        "T",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "0.0001",
+        "l": "1.8e-07",
+        "as": "6e-11",
+        "ad": "6e-11",
+        "ps": "0.0002012",
+        "pd": "0.0002012",
+        "m": "16"
+      },
+      "multiplicity": 16.0
+    },
+    {
+      "instance": "DUT.A1.M1",
+      "model": "nmos1",
+      "nodes": [
+        "NL",
+        "N",
+        "T",
+        "VSS"
+      ],
+      "parameters": {
+        "w": "0.0001",
+        "l": "1.8e-07",
+        "as": "6e-11",
+        "ad": "6e-11",
+        "ps": "0.0002012",
+        "pd": "0.0002012",
+        "m": "16"
+      },
+      "multiplicity": 16.0
+    },
+    {
+      "instance": "DUT.A1.M24",
+      "model": "pmos1",
+      "nodes": [
+        "Z2P",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M23",
+      "model": "pmos1",
+      "nodes": [
+        "Z1P",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M22",
+      "model": "pmos1",
+      "nodes": [
+        "ZP",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M21",
+      "model": "pmos1",
+      "nodes": [
+        "X",
+        "NG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "6.33800580042e-06",
+        "l": "2.84389087614e-07",
+        "as": "3.80280348025e-12",
+        "ad": "3.80280348025e-12",
+        "ps": "1.38760116009e-05",
+        "pd": "1.38760116009e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M20",
+      "model": "pmos1",
+      "nodes": [
+        "NG",
+        "PG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "8.54649363996e-06",
+        "l": "1.8000000018e-07",
+        "as": "5.12789618399e-12",
+        "ad": "5.12789618399e-12",
+        "ps": "1.82929872799e-05",
+        "pd": "1.82929872799e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M19",
+      "model": "pmos1",
+      "nodes": [
+        "PG",
+        "PG",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "8.54649363996e-06",
+        "l": "1.8000000018e-07",
+        "as": "5.12789618399e-12",
+        "ad": "5.12789618399e-12",
+        "ps": "1.82929872799e-05",
+        "pd": "1.82929872799e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M9",
+      "model": "pmos1",
+      "nodes": [
+        "PB",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "5.92720633909e-06",
+        "l": "1.22625502375e-06",
+        "as": "3.55632380346e-12",
+        "ad": "3.55632380346e-12",
+        "ps": "1.30544126782e-05",
+        "pd": "1.30544126782e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M8",
+      "model": "pmos1",
+      "nodes": [
+        "OP2",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "5.92720633909e-06",
+        "l": "1.22625502375e-06",
+        "as": "3.55632380346e-12",
+        "ad": "3.55632380346e-12",
+        "ps": "1.30544126782e-05",
+        "pd": "1.30544126782e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M7",
+      "model": "pmos1",
+      "nodes": [
+        "OP",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "5.92720633909e-06",
+        "l": "1.22625502375e-06",
+        "as": "3.55632380346e-12",
+        "ad": "3.55632380346e-12",
+        "ps": "1.30544126782e-05",
+        "pd": "1.30544126782e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M6",
+      "model": "pmos1",
+      "nodes": [
+        "NR",
+        "NR",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.53548205164e-05",
+        "l": "4.5e-07",
+        "as": "9.21289230983e-12",
+        "ad": "9.21289230983e-12",
+        "ps": "3.19096410329e-05",
+        "pd": "3.19096410329e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M5",
+      "model": "pmos1",
+      "nodes": [
+        "NL",
+        "NL",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "1.53548205164e-05",
+        "l": "4.5e-07",
+        "as": "9.21289230983e-12",
+        "ad": "9.21289230983e-12",
+        "ps": "3.19096410329e-05",
+        "pd": "3.19096410329e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M4",
+      "model": "pmos1",
+      "nodes": [
+        "NB",
+        "NL",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "5.92720633909e-06",
+        "l": "1.22625502375e-06",
+        "as": "3.55632380346e-12",
+        "ad": "3.55632380346e-12",
+        "ps": "1.30544126782e-05",
+        "pd": "1.30544126782e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.M3",
+      "model": "pmos1",
+      "nodes": [
+        "OM",
+        "NL",
+        "VDD",
+        "VDD"
+      ],
+      "parameters": {
+        "w": "5.92720633909e-06",
+        "l": "1.22625502375e-06",
+        "as": "3.55632380346e-12",
+        "ad": "3.55632380346e-12",
+        "ps": "1.30544126782e-05",
+        "pd": "1.30544126782e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.A1.IBIAS",
+      "model": "isource",
+      "nodes": [
+        "T",
+        "VSS"
+      ],
+      "parameters": {
+        "dc": "0.0004",
+        "type": "dc"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.R2.MR2",
+      "model": "nmos1",
+      "nodes": [
+        "P",
+        "VC",
+        "GND",
+        "GND"
+      ],
+      "parameters": {
+        "w": "3.24074074074e-05",
+        "l": "1.8e-05",
+        "as": "1.94444444444e-11",
+        "ad": "1.94444444444e-11",
+        "ps": "6.60148148148e-05",
+        "pd": "6.60148148148e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.R2.MR1",
+      "model": "nmos1",
+      "nodes": [
+        "P",
+        "P",
+        "GND",
+        "GND"
+      ],
+      "parameters": {
+        "w": "3.24074074074e-05",
+        "l": "1.8e-05",
+        "as": "1.94444444444e-11",
+        "ad": "1.94444444444e-11",
+        "ps": "6.60148148148e-05",
+        "pd": "6.60148148148e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.R1.MR2",
+      "model": "nmos1",
+      "nodes": [
+        "P",
+        "VC",
+        "GND",
+        "GND"
+      ],
+      "parameters": {
+        "w": "9e-06",
+        "l": "1.8e-05",
+        "as": "5.39999999999e-12",
+        "ad": "5.39999999999e-12",
+        "ps": "1.92e-05",
+        "pd": "1.92e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.R1.MR1",
+      "model": "nmos1",
+      "nodes": [
+        "P",
+        "P",
+        "GND",
+        "GND"
+      ],
+      "parameters": {
+        "w": "9e-06",
+        "l": "1.8e-05",
+        "as": "5.39999999999e-12",
+        "ad": "5.39999999999e-12",
+        "ps": "1.92e-05",
+        "pd": "1.92e-05",
+        "m": "1"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.R3",
+      "model": "resistor",
+      "nodes": [
+        "I1",
+        "GND"
+      ],
+      "parameters": {
+        "r": "7245"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.C2",
+      "model": "capacitor",
+      "nodes": [
+        "I3",
+        "GND"
+      ],
+      "parameters": {
+        "c": "8.69830415595e-11"
+      },
+      "multiplicity": 1.0
+    },
+    {
+      "instance": "DUT.C1",
+      "model": "capacitor",
+      "nodes": [
+        "I2",
+        "GND"
+      ],
+      "parameters": {
+        "c": "4.34133486793e-12"
+      },
+      "multiplicity": 1.0
+    }
+  ],
+  "parameter_units_and_roles": [
+    {
+      "parameter": "ota_input_w",
+      "value": 0.0001,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M1,M2.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "ota_input_l",
+      "value": 1.8e-07,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M1,M2.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "ota_pmirror_w",
+      "value": 1.4125913941239434e-05,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M3,M4,M7,M8,M9.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "ota_pmirror_l",
+      "value": 1.22625502374595e-06,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M3,M4,M7,M8,M9.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "ota_pload_w",
+      "value": 6.1419282065741296e-06,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M5,M6.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "ota_pload_l",
+      "value": 1.8e-07,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M5,M6.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "ota_nmirror_w",
+      "value": 3.980932864884151e-06,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M10,M11,M12,M13,M14.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "ota_nmirror_l",
+      "value": 1.2884759453474346e-06,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M10,M11,M12,M13,M14.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "frontend_input_w",
+      "value": 1.0374492223376236e-05,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M15,M16,M17,M18.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M15",
+          "M16",
+          "M17",
+          "M18"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "frontend_input_l",
+      "value": 5.909020196389747e-07,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M15,M16,M17,M18.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M15",
+          "M16",
+          "M17",
+          "M18"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "frontend_pmirror_w",
+      "value": 8.546493639963264e-06,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M19,M20.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M19",
+          "M20"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "frontend_pmirror_l",
+      "value": 1.8000000017999998e-07,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M19,M20.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M19",
+          "M20"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "frontend_pout_w",
+      "value": 6.3380058004214616e-06,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M21,M22,M23,M24.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M21",
+          "M22",
+          "M23",
+          "M24"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "frontend_pout_l",
+      "value": 2.8438908761359876e-07,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M21,M22,M23,M24.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M21",
+          "M22",
+          "M23",
+          "M24"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "frontend_ntail_w",
+      "value": 4.127970700626665e-06,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M25,M26.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "frontend_ntail_l",
+      "value": 1.8987855409287907e-06,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M25,M26.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "frontend_nout_w",
+      "value": 4.000000004e-07,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M27,M28,M29,M30.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M27",
+          "M28",
+          "M29",
+          "M30"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "frontend_nout_l",
+      "value": 8.376747565031263e-07,
+      "unit": "m",
+      "role": "Identical A1 and A2 frontend sizes, all current copies retained; mdvccta_fig2.M27,M28,M29,M30.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M27",
+          "M28",
+          "M29",
+          "M30"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "resistor_w",
+      "value": 9e-06,
+      "unit": "m",
+      "role": "R1 only; R2 has explicit independent override; grounded_resistor_fig8a.MR1,MR2.w",
+      "binding": {
+        "cell": "grounded_resistor_fig8a",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "resistor_l",
+      "value": 1.8e-05,
+      "unit": "m",
+      "role": "R1 only; R2 has explicit independent override; grounded_resistor_fig8a.MR1,MR2.l",
+      "binding": {
+        "cell": "grounded_resistor_fig8a",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "C1",
+      "value": 4.341334867929787e-12,
+      "unit": "F",
+      "role": "Shared filter component or control; miso_fig3.C1.c",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "C1"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "parameter": "C2",
+      "value": 8.698304155954874e-11,
+      "unit": "F",
+      "role": "Shared filter component or control; miso_fig3.C2.c",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "C2"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "parameter": "R3",
+      "value": 7245.0,
+      "unit": "ohm",
+      "role": "Shared filter component or control; miso_fig3.R3.r",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "R3"
+        ],
+        "parameter": "r"
+      }
+    },
+    {
+      "parameter": "OTA_IBIAS",
+      "value": 0.00014662828274313486,
+      "unit": "A",
+      "role": "A2 OTA only; mdvccta_fig2.IBIAS.dc",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "IBIAS"
+        ],
+        "parameter": "dc"
+      }
+    },
+    {
+      "parameter": "VBIAS",
+      "value": 0.49140457613450667,
+      "unit": "V",
+      "role": "Shared filter component or control; __top__.VBIAS_SRC.dc",
+      "binding": {
+        "cell": "__top__",
+        "instances": [
+          "VBIAS_SRC"
+        ],
+        "parameter": "dc"
+      }
+    },
+    {
+      "parameter": "VCTRL",
+      "value": 0.9,
+      "unit": "V",
+      "role": "Shared filter component or control; __top__.VCTRL_SRC.dc",
+      "binding": {
+        "cell": "__top__",
+        "instances": [
+          "VCTRL_SRC"
+        ],
+        "parameter": "dc"
+      }
+    },
+    {
+      "parameter": "R2_w",
+      "value": 3.24074074074074e-05,
+      "unit": "m",
+      "role": "R2 only; grounded_resistor_fig8a_R2.MR1,MR2.w",
+      "binding": {
+        "cell": "grounded_resistor_fig8a_R2",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "R2_l",
+      "value": 1.8e-05,
+      "unit": "m",
+      "role": "R2 only; grounded_resistor_fig8a_R2.MR1,MR2.l",
+      "binding": {
+        "cell": "grounded_resistor_fig8a_R2",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "OTA_input_m",
+      "value": 16,
+      "unit": "1 (dimensionless multiplicity)",
+      "role": "A2 OTA only; mdvccta_fig2.M1,M2.m",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "parameter": "OTA_pmirror_m",
+      "value": 3,
+      "unit": "1 (dimensionless multiplicity)",
+      "role": "A2 OTA only; mdvccta_fig2.M3,M4,M7,M8,M9.m",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "parameter": "ota_ndiode_w",
+      "value": 6.254809608352391e-07,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M11,M14.w",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "ota_ndiode_l",
+      "value": 1.8e-07,
+      "unit": "m",
+      "role": "A2 OTA only; mdvccta_fig2.M11,M14.l",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "A1_ota_input_w",
+      "value": 0.0001,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M1,M2.w",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "A1_ota_input_l",
+      "value": 1.8e-07,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M1,M2.l",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "A1_ota_pmirror_w",
+      "value": 5.92720633909253e-06,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M3,M4,M7,M8,M9.w",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "A1_ota_pmirror_l",
+      "value": 1.22625502374595e-06,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M3,M4,M7,M8,M9.l",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "A1_ota_pload_w",
+      "value": 1.5354820516435323e-05,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M5,M6.w",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "A1_ota_pload_l",
+      "value": 4.5e-07,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M5,M6.l",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "A1_ota_nmirror_w",
+      "value": 4.4773176239389246e-06,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M10,M11,M12,M13,M14.w",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "A1_ota_nmirror_l",
+      "value": 1.2884759453474346e-06,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M10,M11,M12,M13,M14.l",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "parameter": "A1_OTA_IBIAS",
+      "value": 0.00039999999999999996,
+      "unit": "A",
+      "role": "A1 OTA only; mdvccta_fig2_A1.IBIAS.dc",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "IBIAS"
+        ],
+        "parameter": "dc"
+      }
+    },
+    {
+      "parameter": "A1_OTA_input_m",
+      "value": 16,
+      "unit": "1 (dimensionless multiplicity)",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M1,M2.m",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "parameter": "A1_OTA_pmirror_m",
+      "value": 1,
+      "unit": "1 (dimensionless multiplicity)",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M3,M4,M7,M8,M9.m",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "parameter": "A1_ota_ndiode_w",
+      "value": 4.4773176239389246e-06,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M11,M14.w",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "parameter": "A1_ota_ndiode_l",
+      "value": 1.2884759453474346e-06,
+      "unit": "m",
+      "role": "A1 OTA only; mdvccta_fig2_A1.M11,M14.l",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "l"
+      }
+    }
+  ]
+}

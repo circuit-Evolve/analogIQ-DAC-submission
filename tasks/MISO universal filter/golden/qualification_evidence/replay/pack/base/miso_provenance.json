@@ -1,0 +1,17 @@
+{
+  "source_project": "<WORK>/four-papers-20261107/miso",
+  "source_manifest": "templates/miso/manifest.json",
+  "paper_start": "All30 core MOS dimensions match Table4 native source; R3=2kohm, C1=C2=20pF, OTA bias47uA. Disclosed inferred values are frozen in assumptions.json/derived_resistor.json. No known-best sizing used.",
+  "geometry": "Engine mutate uses SI; width changes scale diffusion area linearly and perimeter by twice delta width. Shared symmetry groups preserved.",
+  "unchanged": "All topology, models, supplies, load terminations, input stimuli, temperature and sweep windows remain byte-identical outside authorized sizing fields.",
+  "measurement": "17 retained metrics. OCEAN deriv/cross and builtin8192-point THD used directly for three critical scalars in isolated batch. Remaining definitions reproduce retained comparison, including first relative half-power bandwidth crossing with log-frequency interpolation and existing IZP fine sweep.",
+  "ADE_BW_difference": "Native scalar log used linear-frequency crossing on coarse grid: Y1 1043533000 vs retained1043511815.2652109, Y2 1125637000 vs retained1125609543.879662. About20-24ppm. Retained IZP uses refined1561962368.7032197 rather than coarse1562018000. No target or acceptance changes.",
+  "profiles": {
+    "search_full": 12,
+    "full_verify": 20
+  },
+  "ocean_baseline_runtime_s": 45.629950479982654,
+  "ocean_timeout_s": 90,
+  "baseline_preflight": "../preflight/miso/report.json",
+  "bounds_policy": "W0.25x..4x; L0.5x..4x with0.18um minimum. C5..80pF; R3500..8000ohm; OTA10..150uA; VBIAS-0.55..-0.1V; VCTRL0.5..0.9V. Bounds are optimizer search choices, not published limits."
+}

@@ -1,0 +1,67 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task gbfc21_task_001  topology gbfc21
+// recipe amp_fd_ol_v1 v3  condition SS_T27_S1p00 (models SS, 27 C, supply 1.8 V)
+// request gbfc21_task_001__plan  candidate 3a14c89e438419ec
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=SS
+include "dut.scs"
+
+parameters cl=1e-12 vcm=0.8 a_p=0.5 a_m=-0.5 a_vdd=0.0 a_vss=0.0 vsup=1.8 vneg=0.0
+// Sizing variables set in the testbench (external-bias values).
+parameters I_B1=1e-05 I_NB1=1e-05 I_NB2=1e-05 I_NB3=1e-05 I_NB4=1e-05 I_PB1=1e-05 I_PB2=1e-05 I_PB3=1e-05 I_PB4=1e-05
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup mag=a_vdd
+VNEG (vss 0) vsource dc=vneg mag=a_vss
+// External bias (topology external_bias; reported separately as bias power).
+IB_Vb1 (b_Vb1 vss) isource dc=I_B1
+MREF_Vb1 (b_Vb1 b_Vb1 vdd vdd) pmos1 w=1.8e-05 l=1.8e-07 as=((1.8e-05)*6e-07) ad=((1.8e-05)*6e-07) ps=((1.8e-05)+1.2e-06) pd=((1.8e-05)+1.2e-06)
+IB_N_VB1 (b_N_VB1 vss) isource dc=I_NB1
+MREF_N_VB1 (b_N_VB1 b_N_VB1 vdd vdd) pmos1 w=1.8e-06 l=1e-06 as=((1.8e-06)*6e-07) ad=((1.8e-06)*6e-07) ps=((1.8e-06)+1.2e-06) pd=((1.8e-06)+1.2e-06)
+IB_N_VB2 (b_N_VB2 vss) isource dc=I_NB2
+MREF_N_VB2 (b_N_VB2 b_N_VB2 vdd vdd) pmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_N_VB3 (vdd b_N_VB3) isource dc=I_NB3
+MREF_N_VB3 (b_N_VB3 b_N_VB3 vss vss) nmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_N_VB4 (vdd b_N_VB4) isource dc=I_NB4
+MREF_N_VB4 (b_N_VB4 b_N_VB4 vss vss) nmos1 w=9e-07 l=1e-06 as=((9e-07)*6e-07) ad=((9e-07)*6e-07) ps=((9e-07)+1.2e-06) pd=((9e-07)+1.2e-06)
+IB_P_VB1 (b_P_VB1 vss) isource dc=I_PB1
+MREF_P_VB1 (b_P_VB1 b_P_VB1 vdd vdd) pmos1 w=2.41e-06 l=1e-06 as=((2.41e-06)*6e-07) ad=((2.41e-06)*6e-07) ps=((2.41e-06)+1.2e-06) pd=((2.41e-06)+1.2e-06)
+IB_P_VB2 (b_P_VB2 vss) isource dc=I_PB2
+MREF_P_VB2 (b_P_VB2 b_P_VB2 vdd vdd) pmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_P_VB3 (vdd b_P_VB3) isource dc=I_PB3
+MREF_P_VB3 (b_P_VB3 b_P_VB3 vss vss) nmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_P_VB4 (vdd b_P_VB4) isource dc=I_PB4
+MREF_P_VB4 (b_P_VB4 b_P_VB4 vss vss) nmos1 w=3.4e-06 l=1e-06 as=((3.4e-06)*6e-07) ad=((3.4e-06)*6e-07) ps=((3.4e-06)+1.2e-06) pd=((3.4e-06)+1.2e-06)
+
+// Open loop: DC from the opposite outputs through LF, AC into the inputs through CF.
+VACP (acp 0) vsource dc=0 mag=a_p
+VACM (acm 0) vsource dc=0 mag=a_m
+CFP (acp inp) capacitor c=1e+18
+CFM (acm inn) capacitor c=1e+18
+LFP (outn inp) inductor l=1e+18
+LFM (out inn) inductor l=1e+18
+CL1 (out 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+EOD (od 0 out outn) vcvs gain=1
+EODN (odn 0 out outn) vcvs gain=-1
+VOCM (vocm 0) vsource dc=1.09
+
+XDUT (vdd vss inn inp out outn vocm b_Vb1 b_N_VB1 b_N_VB2 b_N_VB3 b_N_VB4 b_P_VB1 b_P_VB2 b_P_VB3 b_P_VB4) gbfc21_dut L_N1=1e-06 L_N10=1e-06 L_N3=1e-06 L_N9=1e-06 L_NA1=1e-06 L_NA3=1e-06 L_NA5=1e-06 L_NA7=1e-06 L_NA9=1e-06 L_NA_C=1e-06 L_NA_S=1e-06 L_P1=1e-06 L_P11=1e-06 L_P13=1e-06 L_P3=1e-06 L_P5=1e-06 L_P7=1e-06 L_P8=1e-06 L_PA1=1e-06 L_PA3=1e-06 L_PA5=1e-06 L_PA7=1e-06 L_PA9=1e-06 L_PA_C=1e-06 L_PA_S=1e-06 M_N1=1.0 M_N10=1.0 M_N3=1.0 M_N9=1.0 M_NA1=1.0 M_NA3=1.0 M_NA5=1.0 M_NA7=1.0 M_NA9=1.0 M_NA_C=1.0 M_NA_S=1.0 M_P1=1.0 M_P11=1.0 M_P13=1.0 M_P3=1.0 M_P5=1.0 M_P7=1.0 M_P8=1.0 M_PA1=1.0 M_PA3=1.0 M_PA5=1.0 M_PA7=1.0 M_PA9=1.0 M_PA_C=1.0 M_PA_S=1.0 W_N1=1e-06 W_N10=1e-06 W_N3=1e-06 W_N9=1e-06 W_NA1=1e-06 W_NA3=1e-06 W_NA5=1e-06 W_NA7=1e-06 W_NA9=1e-06 W_NA_C=1e-06 W_NA_S=1e-06 W_P1=1e-06 W_P11=1e-06 W_P13=1e-06 W_P3=1e-06 W_P5=1e-06 W_P7=1e-06 W_P8=1e-06 W_PA1=1e-06 W_PA3=1e-06 W_PA5=1e-06 W_PA7=1e-06 W_PA9=1e-06 W_PA_C=1e-06 W_PA_S=1e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p inn inp od out outn vdd vocm vss
+
+ac1 ac start=1.0 stop=10000000000.0 dec=20
+simulator lang=spice
+.include 'measures.sp'
+.alter
+* point p001
+.param a_p=1 a_m=1 a_vdd=0 a_vss=0
+.alter
+* point p002
+.param a_p=0 a_m=0 a_vdd=1 a_vss=0
+.alter
+* point p003
+.param a_p=0 a_m=0 a_vdd=0 a_vss=1
+.end

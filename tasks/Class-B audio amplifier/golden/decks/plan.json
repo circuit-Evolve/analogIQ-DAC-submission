@@ -1,0 +1,4222 @@
+{
+  "request_id": "poweramp_dac_history_import",
+  "task_id": "poweramp_dac_task_001",
+  "topology_id": "poweramp_dac",
+  "execution_profile": "saved_history_replay",
+  "approval": {
+    "scope": "User-approved promotion of verified golden sizing for LDO, poweramp and PA1088 on 2026-11-05"
+  },
+  "digests": {
+    "candidate": "bc44d440b949a4045e24b066a5500542bc49355427eec30e95c48eb28158c553"
+  },
+  "candidate": {
+    "pa_L1": "10e-6",
+    "pa_R24": "2200",
+    "pa_R19": "100",
+    "pa_C5": "1e-9",
+    "pa_C18": "10e-9",
+    "pa_R22": "2200",
+    "pa_R21": "150",
+    "pa_R25": "6",
+    "pa_C16": "100e-9",
+    "pa_R17": "100",
+    "pa_R12": "47000",
+    "pa_R32": "1",
+    "pa_C9": "1e-9",
+    "pa_R15": "68000",
+    "pa_R14": "150",
+    "pa_R35": "8",
+    "pa_R2": "411",
+    "pa_R9": "4700",
+    "pa_C12": "4.7e-11",
+    "pa_R11": "0.33",
+    "pa_R34": "22",
+    "pa_R29": "2200",
+    "pa_R7": "10",
+    "pa_C19": "1e-9",
+    "pa_C13": "1e-05",
+    "pa_R5": "1000",
+    "pa_R28": "2200",
+    "pa_R30": "2200",
+    "pa_C11": "100e-9",
+    "pa_C7": "470e-12",
+    "pa_C8": "470e-12",
+    "pa_R18": "56",
+    "pa_R20": "47000",
+    "pa_C6": "100e-12",
+    "pa_C3": "1e-9",
+    "pa_R27": "105",
+    "pa_R3": "3300",
+    "pa_R13": "35",
+    "pa_C2": "0.0001",
+    "pa_C14": "1e-9",
+    "pa_R23": "2200",
+    "pa_R8": "4700",
+    "pa_R10": "10",
+    "pa_C15": "10e-12",
+    "pa_C17": "1e-6",
+    "pa_R16": "56",
+    "pa_R4": "1000",
+    "pa_R1": "411",
+    "pa_C10": "1e-9",
+    "pa_R26": "50",
+    "pa_R6": "15000",
+    "pa_C4": "100e-12",
+    "pa_R31": "6",
+    "pa_R33": "1",
+    "pa_C1": "10e-9",
+    "poweramp.L1.l": "2e-6",
+    "poweramp.R35.r": "8",
+    "poweramp.R34.r": "10",
+    "poweramp.R33.r": "0.1",
+    "poweramp.R32.r": "0.1",
+    "poweramp.R27.r": "70",
+    "poweramp.R26.r": "50",
+    "poweramp.R31.r": "6",
+    "poweramp.R30.r": "1330",
+    "poweramp.R29.r": "1000",
+    "poweramp.R28.r": "1330",
+    "poweramp.R25.r": "6",
+    "poweramp.R24.r": "1330",
+    "poweramp.R23.r": "1000",
+    "poweramp.R22.r": "1330",
+    "poweramp.R21.r": "36",
+    "poweramp.R20.r": "10000",
+    "poweramp.R19.r": "100",
+    "poweramp.R18.r": "56",
+    "poweramp.R17.r": "100",
+    "poweramp.R16.r": "56",
+    "poweramp.R15.r": "22000",
+    "poweramp.R14.r": "38",
+    "poweramp.R13.r": "35",
+    "poweramp.R12.r": "12000",
+    "poweramp.R3.r": "2000",
+    "poweramp.R2.r": "411",
+    "poweramp.R1.r": "411",
+    "poweramp.R11.r": "0.18",
+    "poweramp.R10.r": "6.65",
+    "poweramp.R9.r": "2700",
+    "poweramp.R8.r": "3160",
+    "poweramp.R7.r": "6.65",
+    "poweramp.R6.r": "27000",
+    "poweramp.R5.r": "470",
+    "poweramp.R4.r": "470",
+    "poweramp.C19.c": "1e-9",
+    "poweramp.C18.c": "5e-9",
+    "poweramp.C11.c": "1e-6",
+    "poweramp.C8.c": "1.8e-9",
+    "poweramp.C10.c": "10e-9",
+    "poweramp.C7.c": "1.8e-9",
+    "poweramp.C9.c": "10e-9",
+    "poweramp.C6.c": "270e-12",
+    "poweramp.C5.c": "10e-9",
+    "poweramp.C4.c": "270e-12",
+    "poweramp.C3.c": "10e-9",
+    "poweramp.C12.c": "4.7e-11",
+    "poweramp.C2.c": "0.0001",
+    "poweramp.C1.c": "68e-9",
+    "poweramp.C14.c": "10e-9",
+    "poweramp.C13.c": "1e-05",
+    "poweramp.C15.c": "1.2e-12",
+    "poweramp.C17.c": "33e-6"
+  },
+  "dut_transformations": [
+    "The approximate MMBT6429 model uses the paper VAF=804 V (previously 100 V); remaining model parameters are unchanged. The supplied models are not the exact author model library.",
+    "Transresistance rm was removed at the user request after failing its target. Its output-stage ratio remains inlined in the retained original total-gain expression; no standalone rm metric is scored.",
+    "Ten saved condition rows represent nine unique voltage/temperature conditions: Nominal duplicates VT_V42_T27. These are fixed-model VT corners, not process corners. Auxiliary +15 V, -7 V and +6 V supplies remain fixed.",
+    "Q11 maximum absolute VCE is 49.2683 V versus the BC857C 45 V metadata. This is outside the seven retained metric checks; passing them is not hardware-stress qualification.",
+    "All ten slew settling diagnostics passed. Physical component values in dut.scs are authoritative; legacy pa_* testbench declarations are retained for reproducibility and do not override literal DUT sizes."
+  ],
+  "jobs": [
+    {
+      "job_id": "Nominal/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "Nominal",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": true,
+        "supply_span_V": 84.0,
+        "source_point_id": 1,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/Nominal/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/Nominal/Slew_rate/raw",
+      "source_sha256": "5f179d8fe62e94bf53246a956d197f07bf29b843b2dbed79d075d7df93bf16ea",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 262.1499122425357,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 340.5373946422037,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "Nominal/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "Nominal",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": true,
+        "supply_span_V": 84.0,
+        "source_point_id": 1,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/Nominal/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/Nominal/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "6cba508fab0971947720479539b72ef5ba917cce7d0a40f28129a963ff84e895",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954702121959528,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 15242.40601250045,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01213867072879036,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.35833485928728,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 138.7712283242299,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "Nominal",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V37p8_T27/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V37p8_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 2,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T27/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T27/Slew_rate/raw",
+      "source_sha256": "64c3b0a3b1a143e12449623fea0845386679d3898afe1102c72cc9871f0a1a28",
+      "parameters": {
+        "DPAR_4": "37.8",
+        "DPAR_3": "37.8",
+        "DPAR_2": "37.8",
+        "DPAR_1": "37.8",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 252.0477341670333,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 330.0842945703664,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V37p8_T27/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V37p8_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 2,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T27/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T27/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "1ad002eca070bdd4abb405cb08273218f18ccdeb1462bea27e56a14a87758ebd",
+      "parameters": {
+        "DPAR_4": "37.8",
+        "DPAR_3": "37.8",
+        "DPAR_2": "37.8",
+        "DPAR_1": "37.8",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954701356306899,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 15301.06063147394,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01213734160405912,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.11905911877984,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 138.249241504788,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V37p8_T85/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V37p8_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 3,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T85/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T85/Slew_rate/raw",
+      "source_sha256": "d8cd6f4bbed01c6c55119bd6daf793334c599dcf274ad628c4205c128f339c58",
+      "parameters": {
+        "DPAR_4": "37.8",
+        "DPAR_3": "37.8",
+        "DPAR_2": "37.8",
+        "DPAR_1": "37.8",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 214.7595419289871,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 260.0261806412009,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V37p8_T85/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V37p8_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 3,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T85/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_T85/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "d47fcc649a4fecfc9f6a25596893cf49ccd7c0375e6e11f88ec69ed770902fd3",
+      "parameters": {
+        "DPAR_4": "37.8",
+        "DPAR_3": "37.8",
+        "DPAR_2": "37.8",
+        "DPAR_1": "37.8",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954702495789864,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 11601.50598036825,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01190221470476159,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.16547767450692,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 138.1596932994655,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V37p8_Tm40/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V37p8_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 4,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_Tm40/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_Tm40/Slew_rate/raw",
+      "source_sha256": "73bdbf2792649c8e4efe5c098e5fd53c3426105408017ae02e53fabe19a389ee",
+      "parameters": {
+        "DPAR_4": "37.8",
+        "DPAR_3": "37.8",
+        "DPAR_2": "37.8",
+        "DPAR_1": "37.8",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 284.84646347621,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 406.6651636993731,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V37p8_Tm40/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V37p8_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 4,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_Tm40/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V37p8_Tm40/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "cbd058adc74d99310cd82ec118fd661e432b577886ff37687d6fc1018ddc4387",
+      "parameters": {
+        "DPAR_4": "37.8",
+        "DPAR_3": "37.8",
+        "DPAR_2": "37.8",
+        "DPAR_1": "37.8",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954689861724585,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 19151.0068297214,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01231536840350678,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 29.53224961774564,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 136.3342570576778,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V37p8_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V42_T27/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V42_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 5,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T27/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T27/Slew_rate/raw",
+      "source_sha256": "6010be497148117151bf81b836b5b3fd8771189e6225f95f84b4f3a36dd61335",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 262.1499122425357,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 340.5373946422037,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V42_T27/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V42_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 5,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T27/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T27/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "3f222d205902c4162790e4d8e0025c1f5dc1a2fb2d1165370e6daf862afb3d3e",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954702121959528,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 15242.40601250045,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01213867072879036,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.35833485928728,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 138.7712283242299,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V42_T85/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V42_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 6,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T85/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T85/Slew_rate/raw",
+      "source_sha256": "2df42795f9de06483373bfae58ba9249bdf964a2e9e7ca7477852622f62a8b62",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 223.1797747801026,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 266.4025131751297,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V42_T85/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V42_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 6,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T85/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T85/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "b8b627781c41b626e93708bb8a13bf01315a12c041f7a232bac7e373864b4de2",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954704803588314,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 11543.061715306,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.0119037843263845,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.33839582749033,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 138.6521096023645,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V42_Tm40/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V42_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 7,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_Tm40/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_Tm40/Slew_rate/raw",
+      "source_sha256": "f394555ec1805e3984284b137eb27b9155a286e29305d41ca505e922d5a2006f",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 295.9610116396185,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 419.3135942072433,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V42_Tm40/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V42_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 7,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_Tm40/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_Tm40/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "94411b3375728a364728b61e60ed9ae7832a8dbaded03a790e54aae49d00b35e",
+      "parameters": {
+        "DPAR_4": "42",
+        "DPAR_3": "42",
+        "DPAR_2": "42",
+        "DPAR_1": "42",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954693028921936,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 19104.81420657938,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01231650850892001,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 29.84385029458735,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 136.8936639147919,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V42_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V46p2_T27/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V46p2_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 8,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T27/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T27/Slew_rate/raw",
+      "source_sha256": "a75b46ccbfd7c1e58e83bb49cbcaaf7ef64efe0aabf6f3d9ce8d5ddfed31d291",
+      "parameters": {
+        "DPAR_4": "46.2",
+        "DPAR_3": "46.2",
+        "DPAR_2": "46.2",
+        "DPAR_1": "46.2",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 271.0098031784418,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 348.053612874697,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V46p2_T27/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V46p2_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 8,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T27/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T27/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "f970c8c2d90b366ddddbc3f220414bc368090e02438e683d4ba70ca88d9920ad",
+      "parameters": {
+        "DPAR_4": "46.2",
+        "DPAR_3": "46.2",
+        "DPAR_2": "46.2",
+        "DPAR_1": "46.2",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954706356938718,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 15184.15197992187,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01213986208802673,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.60490886298293,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 139.2686423796895,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T27",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V46p2_T85/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V46p2_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 9,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T85/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T85/Slew_rate/raw",
+      "source_sha256": "951c3624ea631bdd15669cf3eb55fb596362411a3c64b037ad71261cb7dfeac2",
+      "parameters": {
+        "DPAR_4": "46.2",
+        "DPAR_3": "46.2",
+        "DPAR_2": "46.2",
+        "DPAR_1": "46.2",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 230.5424276035243,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 270.8345584854097,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V46p2_T85/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V46p2_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 9,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T85/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_T85/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "4a87caad76e45e6eb77df2e16f5838701c2edca442733cf94b1ac03722104059",
+      "parameters": {
+        "DPAR_4": "46.2",
+        "DPAR_3": "46.2",
+        "DPAR_2": "46.2",
+        "DPAR_1": "46.2",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954706159711495,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 11485.21291002595,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01190519789463155,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 31.5221654436807,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 139.1213679801591,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_T85",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V46p2_Tm40/Slew_rate",
+      "test": "Slew_rate",
+      "test_id": 1,
+      "condition": {
+        "id": "VT_V46p2_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 10,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_Tm40/Slew_rate/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_Tm40/Slew_rate/raw",
+      "source_sha256": "332c680a8014521e810e445efa79bed195b022db6380591e7e2c4320db20e4ef",
+      "parameters": {
+        "DPAR_4": "46.2",
+        "DPAR_3": "46.2",
+        "DPAR_2": "46.2",
+        "DPAR_1": "46.2",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "1",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=650u errpreset=conservative maxstep=2n write=\"spectre.ic\"  writefinal=\"spectre.fc\" relref=sigglobal annotate=status maxiters=50 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 1,
+          "name": "SR_fall_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 1,
+          "visible": "1",
+          "unit": "V/us"
+        },
+        {
+          "resultID": 2,
+          "name": "SR_rise_V_per_us",
+          "testID": 1,
+          "type": "0",
+          "expression": "(abs(slewRate(clip(getData(\"sr_out\" ?result \"tran\") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0)",
+          "resultOrder": 2,
+          "visible": "1",
+          "unit": "V/us"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "SR_fall_V_per_us",
+          "unit": "V/us",
+          "value": 305.7195119735241,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "SR_rise_V_per_us",
+          "unit": "V/us",
+          "value": 426.5392162860624,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+          "point": {}
+        }
+      ]
+    },
+    {
+      "job_id": "VT_V46p2_Tm40/test_poweramp_tb_dac_1",
+      "test": "test:poweramp_tb_dac:1",
+      "test_id": 2,
+      "condition": {
+        "id": "VT_V46p2_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 10,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_Tm40/test_poweramp_tb_dac_1/input.scs",
+      "source_psf": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V46p2_Tm40/test_poweramp_tb_dac_1/raw",
+      "source_sha256": "b635dabfea537a4e80a94d767b29e0a80d34dad75dc7ed9c1623e794d09beeb9",
+      "parameters": {
+        "DPAR_4": "46.2",
+        "DPAR_3": "46.2",
+        "DPAR_2": "46.2",
+        "DPAR_1": "46.2",
+        "vin_pk": "0.174216",
+        "pa_L1": "10e-6",
+        "pa_R24": "2200",
+        "pa_R19": "470",
+        "pa_C5": "1e-9",
+        "pa_C18": "10e-9",
+        "pa_R22": "2200",
+        "pa_R21": "150",
+        "pa_R25": "47",
+        "pa_C16": "100e-9",
+        "pa_R17": "470",
+        "pa_R12": "47000",
+        "pa_R32": "1",
+        "pa_C9": "1e-9",
+        "pa_R15": "68000",
+        "pa_R14": "150",
+        "pa_R35": "8",
+        "sr_edge": "1n",
+        "pa_R2": "1000",
+        "pa_R9": "4700",
+        "pa_C12": "330e-12",
+        "pa_R11": "0.33",
+        "pa_R34": "22",
+        "pa_R29": "2200",
+        "sr_enable": "0",
+        "pa_R7": "10",
+        "pa_C19": "1e-9",
+        "pa_C13": "100e-9",
+        "pa_R5": "1000",
+        "pa_R28": "2200",
+        "pa_R30": "2200",
+        "pa_C11": "100e-9",
+        "pa_C7": "470e-12",
+        "sr_amp": "0.87",
+        "pa_C8": "470e-12",
+        "pa_R18": "330",
+        "pa_R20": "47000",
+        "pa_C6": "100e-12",
+        "pa_C3": "1e-9",
+        "pa_R27": "105",
+        "pa_R3": "3300",
+        "pa_R13": "220",
+        "pa_C2": "22e-9",
+        "pa_C14": "1e-9",
+        "pa_R23": "2200",
+        "pa_R8": "4700",
+        "pa_R10": "10",
+        "pa_C15": "10e-12",
+        "pa_C17": "1e-6",
+        "pa_R16": "330",
+        "pa_R4": "1000",
+        "sr_delay": "500u",
+        "sr_width": "100u",
+        "pa_R1": "1000",
+        "pa_C10": "1e-9",
+        "sr_period": "2",
+        "pa_R26": "202.5",
+        "pa_R6": "15000",
+        "pa_C4": "100e-12",
+        "pa_R31": "47",
+        "pa_R33": "1",
+        "pa_C1": "10e-9",
+        "input_filter_scale": "1"
+      },
+      "analyses": [
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 errpreset=conservative maxstep=5u write=\"spectre.ic\"  writefinal=\"spectre.fc\" annotate=status maxiters=5 "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        }
+      ],
+      "outputs": [
+        {
+          "resultID": 5,
+          "name": "Vout_pp",
+          "testID": 2,
+          "type": "0",
+          "expression": "peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0))",
+          "resultOrder": 5,
+          "visible": "1",
+          "unit": "V"
+        },
+        {
+          "resultID": 6,
+          "name": "Av1",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 6,
+          "visible": "1",
+          "unit": "V/V"
+        },
+        {
+          "resultID": 7,
+          "name": "gm2",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 7,
+          "visible": "1",
+          "unit": "A/V"
+        },
+        {
+          "resultID": 8,
+          "name": "AI",
+          "testID": 2,
+          "type": "0",
+          "expression": "(peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0)))",
+          "resultOrder": 8,
+          "visible": "1",
+          "unit": "A/A"
+        },
+        {
+          "resultID": 10,
+          "name": "Total_gain_dB",
+          "testID": 2,
+          "type": "0",
+          "expression": "(20 * log10(((peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.input_base\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip((getData(\"XAMP.Q11:c\" ?result \"tran\") + getData(\"XAMP.Q13:c\" ?result \"tran\")) 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.stage1\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) / peakToPeak(clip(getData(\"XAMP.Q13:c\" ?result \"tran\") 0.8 1.0))) * (peakToPeak(clip(getData(\"out\" ?result \"tran\") 0.8 1.0)) / (peakToPeak(clip(getData(\"XAMP.Q17:c\" ?result \"tran\") 0.8 1.0)) + peakToPeak(clip(getData(\"XAMP.Q22:c\" ?result \"tran\") 0.8 1.0)))))))",
+          "resultOrder": 10,
+          "visible": "1",
+          "unit": "dB"
+        }
+      ],
+      "saved_test_status": {
+        "simulation_exit_code": 0,
+        "extraction_exit_code": 0,
+        "provenance": "verified fresh full-corner run"
+      },
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "model_includes": [
+        {
+          "path": "models.scs",
+          "section": null
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": [
+        "scalars.tsv"
+      ],
+      "expected_metrics": [
+        "Vout_pp",
+        "Av1",
+        "gm2",
+        "AI",
+        "Total_gain_dB"
+      ],
+      "saved_measurements": [
+        {
+          "metric": "Vout_pp",
+          "unit": "V",
+          "value": 9.954695863504782,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Av1",
+          "unit": "V/V",
+          "value": 19058.83740639167,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "gm2",
+          "unit": "A/V",
+          "value": 0.01231752880153308,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "AI",
+          "unit": "A/A",
+          "value": 30.15838299028575,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        },
+        {
+          "metric": "Total_gain_dB",
+          "unit": "dB",
+          "value": 137.4267989114424,
+          "status": "valid",
+          "reason": null,
+          "condition_id": "VT_V46p2_Tm40",
+          "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+          "point": {}
+        }
+      ]
+    }
+  ]
+}

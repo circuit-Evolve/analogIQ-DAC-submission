@@ -1,0 +1,7 @@
+opened=errset(openResults("raw") t)
+fp=outfile("scalars.tsv")
+v=nil
+when(opened && car(opened) v=errset(phaseMargin((- getData("loopGain" ?result "stb"))) t))
+if(v && numberp(car(v)) then fprintf(fp "11\t%.16g\n" car(v)) else fprintf(fp "11\tERROR\n"))
+close(fp)
+exit()

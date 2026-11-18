@@ -1,0 +1,1165 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "rvco24_um_task_001",
+ "topology_id": "rvco24_um",
+ "family": "oscillator",
+ "technology_id": "gpdk180",
+ "parameterization_id": "rvco_um2023_p1",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). Three-stage current-starved ring oscillator with signal-flip protection delay cells (paper Fig. 6), gpdk180, 1.8 V, free-running at 15 MHz set by the externally adjustable biases VBP / VBN. Single condition (nominal NN, 27 C, 1.8 V: the paper reports no PVT sweep and no temperature). Load 10 fF on VRO (the paper's output buffers are not in the netlist). Targets are the paper's measured values with 10 % linear tolerance: frequency 15 MHz (two-sided), power 178.9 uW, phase noise -95.43 dBc/Hz at 1 MHz, output swing 0-1.8 V, and the radiation tests: per-cycle frequency deviation after an emulated single-event strike of 0.25 pC within -5 % .. +11 %, and no more than 30 % deviation at 1.3 pC (the paper's critical charge). The strike test (recipe vco_see_v1) injects an exponential current pulse into the three delay-cell output nodes at pseudo-random clock phases (deterministic strike set, see onboarding_status). No Monte Carlo (the paper reports none), no G8 (ring oscillator).",
+ "source": {
+  "doi": "10.1109/TCSII.2022.3219159",
+  "title": "Um and Lee, 'A Fault-Tolerant Current-Starved Ring Oscillator With Signal-Flip Protection Delay Cells Against Radiation Effects', IEEE TCAS-II 70(3):880-884, Mar 2023",
+  "figure": "Fig. 6 (three-stage current-starved ring with signal-flip protection delay cells SPDC-1..3, VBP/VBN bias, output VRO); test setup Fig. 7 (built-in SEE emulator injecting an exponential current ISEE into each SPDC output node)"
+ },
+ "variables": [
+  {
+   "name": "N_PI",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of pmos inverter devices MP1/MP3/MP5 of the current-starved inverters",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP1",
+     "MP3",
+     "MP5"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_PI",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of pmos inverter devices MP1/MP3/MP5 of the current-starved inverters",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP1",
+     "MP3",
+     "MP5"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PI",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of pmos inverter devices MP1/MP3/MP5 of the current-starved inverters",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP1",
+     "MP3",
+     "MP5"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_NI",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of nmos inverter devices MN1/MN3/MN5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MN1",
+     "MN3",
+     "MN5"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_NI",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of nmos inverter devices MN1/MN3/MN5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MN1",
+     "MN3",
+     "MN5"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NI",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of nmos inverter devices MN1/MN3/MN5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MN1",
+     "MN3",
+     "MN5"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_PS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of PMOS starving (VBP) devices MP2/MP4/MP6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP2",
+     "MP4",
+     "MP6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_PS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of PMOS starving (VBP) devices MP2/MP4/MP6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP2",
+     "MP4",
+     "MP6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of PMOS starving (VBP) devices MP2/MP4/MP6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP2",
+     "MP4",
+     "MP6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_NS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of NMOS starving (VBN) devices MN2/MN4/MN6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MN2",
+     "MN4",
+     "MN6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_NS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of NMOS starving (VBN) devices MN2/MN4/MN6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MN2",
+     "MN4",
+     "MN6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of NMOS starving (VBN) devices MN2/MN4/MN6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MN2",
+     "MN4",
+     "MN6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_SW1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC delay-line PMOS switch M1/M9/M17 (gate VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M9",
+     "M17"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_SW1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC delay-line PMOS switch M1/M9/M17 (gate VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M9",
+     "M17"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_SW1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC delay-line PMOS switch M1/M9/M17 (gate VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M9",
+     "M17"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_SW2",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC delay-line NMOS switch M2/M10/M18 (gate VDD)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M10",
+     "M18"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_SW2",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC delay-line NMOS switch M2/M10/M18 (gate VDD)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M10",
+     "M18"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_SW2",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC delay-line NMOS switch M2/M10/M18 (gate VDD)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M10",
+     "M18"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_LHD",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC high-side voltage limiter, diode-connected PMOS M3/M11/M19",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M11",
+     "M19"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_LHD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC high-side voltage limiter, diode-connected PMOS M3/M11/M19",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M11",
+     "M19"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_LHD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC high-side voltage limiter, diode-connected PMOS M3/M11/M19",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M11",
+     "M19"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_HSW",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC high-side protection switch M4/M12/M20 (gate on the delayed node DH)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M4",
+     "M12",
+     "M20"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_HSW",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC high-side protection switch M4/M12/M20 (gate on the delayed node DH)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M4",
+     "M12",
+     "M20"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_HSW",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC high-side protection switch M4/M12/M20 (gate on the delayed node DH)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M4",
+     "M12",
+     "M20"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_SW5",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC NMOS delay-line switch M5/M13/M21 (gate VDD)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M13",
+     "M21"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_SW5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC NMOS delay-line switch M5/M13/M21 (gate VDD)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M13",
+     "M21"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_SW5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC NMOS delay-line switch M5/M13/M21 (gate VDD)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M13",
+     "M21"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_SW6",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC PMOS delay-line switch M6/M14/M22 (gate VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6",
+     "M14",
+     "M22"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_SW6",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC PMOS delay-line switch M6/M14/M22 (gate VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6",
+     "M14",
+     "M22"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_SW6",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC PMOS delay-line switch M6/M14/M22 (gate VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6",
+     "M14",
+     "M22"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_LSW",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC low-side protection switch M7/M15/M23 (gate on the delayed node DL)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7",
+     "M15",
+     "M23"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_LSW",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC low-side protection switch M7/M15/M23 (gate on the delayed node DL)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7",
+     "M15",
+     "M23"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_LSW",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC low-side protection switch M7/M15/M23 (gate on the delayed node DL)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7",
+     "M15",
+     "M23"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_LLD",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of SPDC low-side voltage limiter, diode-connected NMOS M8/M16/M24",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M8",
+     "M16",
+     "M24"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_LLD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of SPDC low-side voltage limiter, diode-connected NMOS M8/M16/M24",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M8",
+     "M16",
+     "M24"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_LLD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of SPDC low-side voltage limiter, diode-connected NMOS M8/M16/M24",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M8",
+     "M16",
+     "M24"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_LOAD",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "stage load capacitors C1 = C2 = C3 (delay-cell output nodes N1, N2, VRO to VSS; set the frequency with the starved current)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C1",
+     "C2",
+     "C3"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "V_BP",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.8,
+   "scale": "lin",
+   "start": 0.9,
+   "quantity": "bias_voltage",
+   "role": "PMOS starving bias voltage VBP (gates of MP2/MP4/MP6); externally adjustable in the paper (Sec. III-A), sets the clock frequency",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VBP"
+   }
+  },
+  {
+   "name": "V_BN",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.8,
+   "scale": "lin",
+   "start": 0.9,
+   "quantity": "bias_voltage",
+   "role": "NMOS starving bias voltage VBN (gates of MN2/MN4/MN6); externally adjustable in the paper (Sec. III-A), sets the clock frequency",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VBN"
+   }
+  }
+ ],
+ "dependent_parameters": {},
+ "conditions": [
+  {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": true
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.8,
+   "provenance": "paper: abstract, Table I (1.8 V)"
+  },
+  "load_capacitance_F": {
+   "value": 1e-14,
+   "provenance": "curator_choice: 10 fF on VRO (as the earlier ring-VCO tasks, owner answer RV5); the paper's output buffers / oscilloscope load are not in the netlist"
+  }
+ },
+ "constraints": [
+  {
+   "name": "f_lower",
+   "metric": "pss_frequency_Hz",
+   "recipe": "osc_pnoise_se_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 13500000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 15000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract / Table I (15 MHz output clock at 1.8 V); two-sided: within 10 %",
+   "source": "native"
+  },
+  {
+   "name": "f_upper",
+   "metric": "pss_frequency_Hz",
+   "recipe": "osc_pnoise_se_v1",
+   "point": {},
+   "unit": "Hz",
+   "upper": 16500000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 15000000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract / Table I (15 MHz); two-sided",
+   "source": "native"
+  },
+  {
+   "name": "power",
+   "metric": "pss_power_W",
+   "recipe": "osc_pnoise_se_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.00019679000000000002,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0001789,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table I (178.9 uW proposed CS-RO at 15 MHz, 1.8 V)",
+   "source": "native"
+  },
+  {
+   "name": "pn_1MHz",
+   "metric": "phase_noise_dBc_per_Hz",
+   "recipe": "osc_pnoise_se_v1",
+   "point": {
+    "offset_Hz": 1000000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -95.01607314841776,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -95.43,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table I (-95.43 dBc/Hz at 1 MHz offset, measured)",
+   "source": "native"
+  },
+  {
+   "name": "swing",
+   "metric": "output_vpp_V",
+   "recipe": "osc_pnoise_se_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 1.1223,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.247,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value 1.8 to the witness value 1.247 (the paper's 1.8 V swing is measured at a buffered output that the netlist does not contain; on the starved ring node the swing is limited by the current starving (target-definition fix)). paper: Fig. 9 / metrics.xlsx 'Output swing 0 to 1.8 V' (measured at the buffered VOUT, 1.8 V swing annotation); applied to VRO",
+   "source": "native"
+  },
+  {
+   "name": "see_pos_025pC",
+   "metric": "see_dev_max_pct",
+   "recipe": "vco_see_v1",
+   "point": {
+    "charge_pC": 0.25
+   },
+   "unit": "%",
+   "upper": 12.1,
+   "target": {
+    "kind": "linear",
+    "paper_value": 11.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract / Table I (frequency deviation -5 % to 11 % at 0.25 pC SEE charge)",
+   "source": "native"
+  },
+  {
+   "name": "see_neg_025pC",
+   "metric": "see_dev_neg_pct",
+   "recipe": "vco_see_v1",
+   "point": {
+    "charge_pC": 0.25
+   },
+   "unit": "%",
+   "upper": 5.5,
+   "target": {
+    "kind": "linear",
+    "paper_value": 5.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract / Table I (-5 % at 0.25 pC), as the size of the negative deviation",
+   "source": "native"
+  },
+  {
+   "name": "see_abs_13pC",
+   "metric": "see_dev_abs_pct",
+   "recipe": "vco_see_v1",
+   "point": {
+    "charge_pC": 1.3
+   },
+   "unit": "%",
+   "upper": 33.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 30.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table I / Fig. 13 (minimum SEE charge causing > 30 % frequency deviation is 1.3 pC: deviation <= 30 % at 1.3 pC)",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "osc_pnoise_se_v1",
+   "fom_dBc_per_Hz"
+  ],
+  [
+   "osc_pnoise_se_v1",
+   "output_max_V"
+  ],
+  [
+   "osc_pnoise_se_v1",
+   "output_min_V"
+  ],
+  [
+   "osc_pnoise_se_v1",
+   "output_vpp_V"
+  ],
+  [
+   "osc_pnoise_se_v1",
+   "phase_noise_dBc_per_Hz"
+  ],
+  [
+   "osc_pnoise_se_v1",
+   "pss_frequency_Hz"
+  ],
+  [
+   "osc_pnoise_se_v1",
+   "pss_power_W"
+  ],
+  [
+   "vco_see_v1",
+   "free_frequency_Hz"
+  ],
+  [
+   "vco_see_v1",
+   "output_vpp_V"
+  ],
+  [
+   "vco_see_v1",
+   "see_dev_abs_pct"
+  ],
+  [
+   "vco_see_v1",
+   "see_dev_max_pct"
+  ],
+  [
+   "vco_see_v1",
+   "see_dev_min_pct"
+  ],
+  [
+   "vco_see_v1",
+   "see_dev_neg_pct"
+  ]
+ ],
+ "simulations_per_design": 2,
+ "analysis_executions_per_design": 7,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "osc_pnoise_se_v1",
+   "folder": "testbenches/NN_T27_S1p00/osc_pnoise_se_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "output_vpp_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "output_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "output_max_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "offset_Hz": 1000000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "vco_see_v1",
+   "folder": "testbenches/NN_T27_S1p00/vco_see_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tr1.tran.tran"
+   ],
+   "metrics": {
+    "free_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "output_vpp_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "see_dev_max_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "see_dev_min_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "see_dev_neg_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "see_dev_abs_pct": {
+     "unit": "%",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "charge_pC": 0.25
+    },
+    {
+     "charge_pC": 1.3
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "rvco24_um_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('rvco24_um_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

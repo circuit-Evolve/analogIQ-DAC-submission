@@ -1,0 +1,103 @@
+{
+ "task": "ota3s24_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 30015,
+ "wall_s": 29211.8,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.315392,
+ "llm_cost_usd_recorded": 0.157696,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.733315034139706
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.8483995654270032
+  },
+  {
+   "phase": 3,
+   "evals": 401,
+   "best_score": 0.8666666666666667
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.8666666666666667
+  },
+  {
+   "phase": 5,
+   "evals": 497,
+   "best_score": 0.8666666666666667
+  }
+ ],
+ "best": {
+  "eval": 830,
+  "round": 3,
+  "f": 0.29999999999999993,
+  "loss": 0.1333333333333333,
+  "reward": 0.8666666666666667,
+  "score": 0.8666666666666667,
+  "targets_met": 14,
+  "targets": 15,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_M0": 2.2387186969104378e-05,
+   "L_M0": 1.5309749060679872e-05,
+   "W_M1": 4.8735365149978024e-05,
+   "L_M1": 1.0726354226117326e-05,
+   "W_M2": 4.933175208688792e-07,
+   "L_M2": 4.220671674898476e-07,
+   "W_M3": 2.3275044975455492e-05,
+   "L_M3": 2.089321057429461e-07,
+   "W_M4": 7.607269588261845e-06,
+   "L_M4": 6.411186944373008e-07,
+   "W_M5": 1.5728567480792615e-05,
+   "L_M5": 8.917474154614227e-07,
+   "W_M7": 1.4390455410830065e-06,
+   "L_M7": 1.1832572527564016e-05,
+   "W_M8": 1.3750326270818879e-05,
+   "L_M8": 1.2322812912739756e-05,
+   "W_M9": 1.9741397451469737e-06,
+   "L_M9": 2.1866306141769557e-07,
+   "W_M6A": 7.874784728195649e-07,
+   "W_M6B": 3.1173332547061543e-06,
+   "L_M6": 6.48848491731406e-06,
+   "RD": 26276.295878975758,
+   "CD": 2.7234165956944416e-14,
+   "CC1": 3.342285859265487e-13,
+   "CC2": 1.750634368024109e-14,
+   "VB1": 0.7258777625019943,
+   "VB2": 1.1852531311692411,
+   "VB3": 1.1042660426577515,
+   "M_M0": 87.0,
+   "M_M1": 66.0,
+   "M_M2": 34.0,
+   "M_M3": 61.0,
+   "M_M4": 54.0,
+   "M_M5": 9.0,
+   "M_M7": 14.0,
+   "M_M8": 78.0,
+   "M_M9": 75.0,
+   "M_M6A": 52.0,
+   "M_M6B": 56.0
+  }
+ }
+}

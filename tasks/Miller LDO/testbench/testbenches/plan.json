@@ -1,0 +1,1039 @@
+{
+  "request_id": "ldo24m_miller_task_001__plan",
+  "task_id": "ldo24m_miller_task_001",
+  "topology_id": "ldo24m_miller",
+  "execution_profile": "search_full",
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "digests": {
+    "task": "ef5f09b39669e5aa2626909451896c599683f38910432596936933912671115a",
+    "candidate": "ac77f2a3c8da6cc8bffb7c23b1fc9b51da539214605705f93d41af750fe4d04b",
+    "parameterization": "0c1e962b69d7baf9f89e4c7e71b41a3663428aed70fbe027fc4056c2afad59b3",
+    "dut_source_netlist": "273b9afac138e670d60be74bb167613e4f9fbb2d16161de696d71552c34b072b",
+    "dut_subckt": "25a4fdf5abe266d6d5ed0c93c3c4aebe24eda7ef1c580a3ca897c7261bc505bb",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "63e3f5b0976de52c7c3ad9f72948e15701822c8bbf2297d8e2505b0fd371383d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "ea74587204503ee7d9139d241c9ab6b6d7ccc1c5fbd4e2e809c93f01494f27a8"
+  },
+  "candidate": {
+    "W_EAL": 1e-06,
+    "L_EAL": 1e-06,
+    "W_EAIN": 1e-06,
+    "L_EAIN": 1e-06,
+    "W_EAT": 1e-06,
+    "L_EAT": 1e-06,
+    "W_EAS": 1e-06,
+    "L_EAS": 1e-06,
+    "W_EA2": 1e-06,
+    "L_EA2": 1e-06,
+    "W_MCR": 1e-06,
+    "L_MCR": 1e-06,
+    "C_EA": 1e-12,
+    "W_PASS": 1e-06,
+    "N_PASS": 1.0,
+    "L_PASS": 1e-06,
+    "W_RFB": 1e-06,
+    "L_RFB": 1e-06,
+    "W_MSW": 1e-06,
+    "L_MSW": 1e-06,
+    "W_CM": 1e-06,
+    "L_CM": 1e-06,
+    "W_WLS": 1e-06,
+    "L_WLS": 1e-06,
+    "W_WLB": 1e-06,
+    "L_WLB": 1e-06,
+    "W_MAB": 1e-06,
+    "L_MAB": 1e-06,
+    "C_F": 1e-12,
+    "V_BIAS": 1.05,
+    "M_EAL": 1.0,
+    "M_EAIN": 1.0,
+    "M_EAT": 1.0,
+    "M_EAS": 1.0,
+    "M_EA2": 1.0,
+    "M_MCR": 1.0,
+    "M_RFB": 1.0,
+    "M_MSW": 1.0,
+    "M_CM": 1.0,
+    "M_WLS": 1.0,
+    "M_WLB": 1.0,
+    "M_MAB": 1.0
+  },
+  "dut_transformations": [
+    "M1: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M3: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "loop-break iprobe IPRB_LOOP inserted between net VFB and terminal 1 of M4",
+    "M5: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M7: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M6: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MC: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MP: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MRFB1: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MRFB2: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MRFB3: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MS: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MA1: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MA2: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MA3: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MA4: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MA5: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MA6: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "MAB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)"
+  ],
+  "jobs": [
+    {
+      "job_id": "NN_T60_S1p00/ldo_line_v1",
+      "condition": {
+        "id": "NN_T60_S1p00",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "is_nominal": true,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_line_v1",
+      "recipe_version": 4,
+      "points": [
+        {
+          "vin_V": 2.1
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ground_current_A",
+        "line_regulation_V_per_V",
+        "dropout_voltage_V"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00/ldo_load_v1",
+      "condition": {
+        "id": "NN_T60_S1p00",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "is_nominal": true,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "load_regulation_V_per_A",
+        "ground_current_min_load_A"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00/ldo_psrr_v1",
+      "condition": {
+        "id": "NN_T60_S1p00",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "is_nominal": true,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_psrr_v1",
+      "recipe_version": 2,
+      "points": [
+        {
+          "freq_Hz": 1000.0
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "psrr_dB"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00/ldo_stb_v1",
+      "condition": {
+        "id": "NN_T60_S1p00",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "is_nominal": true,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_stb_v1",
+      "recipe_version": 5,
+      "points": [
+        {
+          "load_A": 0.0
+        },
+        {
+          "load_A": 0.07
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 7,
+      "expected_metrics": [
+        "loop_gain_lf_dB",
+        "loop_unity_gain_frequency_Hz",
+        "phase_margin_deg",
+        "gain_margin_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_V33/ldo_psrr_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_V33",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "V33",
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_psrr_v1",
+      "recipe_version": 2,
+      "points": [
+        {
+          "freq_Hz": 1000.0
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "psrr_dB"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_V33/ldo_stb_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_V33",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "V33",
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_stb_v1",
+      "recipe_version": 5,
+      "points": [
+        {
+          "load_A": 0.0
+        },
+        {
+          "load_A": 0.07
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 7,
+      "expected_metrics": [
+        "loop_gain_lf_dB",
+        "loop_unity_gain_frequency_Hz",
+        "phase_margin_deg",
+        "gain_margin_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_line_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_v12",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "v12",
+        "operating": {
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_line_v1",
+      "recipe_version": 4,
+      "points": [
+        {
+          "vin_V": 2.1
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ground_current_A",
+        "line_regulation_V_per_V",
+        "dropout_voltage_V"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_load_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_v12",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "v12",
+        "operating": {
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "load_regulation_V_per_A",
+        "ground_current_min_load_A"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_psrr_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_v12",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "v12",
+        "operating": {
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_psrr_v1",
+      "recipe_version": 2,
+      "points": [
+        {
+          "freq_Hz": 1000.0
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "psrr_dB"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_stb_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_v12",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "v12",
+        "operating": {
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_stb_v1",
+      "recipe_version": 5,
+      "points": [
+        {
+          "load_A": 0.0
+        },
+        {
+          "load_A": 0.07
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 7,
+      "expected_metrics": [
+        "loop_gain_lf_dB",
+        "loop_unity_gain_frequency_Hz",
+        "phase_margin_deg",
+        "gain_margin_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_v12_V33/ldo_psrr_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_v12_V33",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "v12_V33",
+        "operating": {
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 3.3
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_psrr_v1",
+      "recipe_version": 2,
+      "points": [
+        {
+          "freq_Hz": 1000.0
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "psrr_dB"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_v12_V33/ldo_stb_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_v12_V33",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "v12_V33",
+        "operating": {
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 3.3
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_stb_v1",
+      "recipe_version": 5,
+      "points": [
+        {
+          "load_A": 0.0
+        },
+        {
+          "load_A": 0.07
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 7,
+      "expected_metrics": [
+        "loop_gain_lf_dB",
+        "loop_unity_gain_frequency_Hz",
+        "phase_margin_deg",
+        "gain_margin_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_s18_21_a/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_s18_21_a",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "s18_21_a",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.001
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.001
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_s18_21_b/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_s18_21_b",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "s18_21_b",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.07
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_s18_21_c/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_s18_21_c",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "s18_21_c",
+        "operating": {
+          "load_step_low_A": 0.001,
+          "load_step_high_A": 0.07
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.001,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_s18_33_a/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_s18_33_a",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "s18_33_a",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.001
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.001
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_s18_33_b/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_s18_33_b",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "s18_33_b",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.07
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_s18_33_c/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_s18_33_c",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "s18_33_c",
+        "operating": {
+          "load_step_low_A": 0.001,
+          "load_step_high_A": 0.07
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.001,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_s12_21_a/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_s12_21_a",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "s12_21_a",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.001,
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.001
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_s12_21_b/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_s12_21_b",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "s12_21_b",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.07,
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p00_s12_21_c/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p00_s12_21_c",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.0,
+        "supply_V": 2.1,
+        "label": "s12_21_c",
+        "operating": {
+          "load_step_low_A": 0.001,
+          "load_step_high_A": 0.07,
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 2.1
+        },
+        "is_nominal": false,
+        "supply_span_V": 2.1
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.001,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_s12_33_a/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_s12_33_a",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "s12_33_a",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.001,
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 3.3
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.001
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_s12_33_b/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_s12_33_b",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "s12_33_b",
+        "operating": {
+          "load_step_low_A": 0,
+          "load_step_high_A": 0.07,
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 3.3
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.0,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    },
+    {
+      "job_id": "NN_T60_S1p57_s12_33_c/ldo_load_step_v1",
+      "condition": {
+        "id": "NN_T60_S1p57_s12_33_c",
+        "model_set": "NN",
+        "temperature_C": 60.0,
+        "supply_scale": 1.571428,
+        "supply_V": 3.2999988000000005,
+        "label": "s12_33_c",
+        "operating": {
+          "load_step_low_A": 0.001,
+          "load_step_high_A": 0.07,
+          "output_voltage_V": 1.2
+        },
+        "external_bias": {
+          "ENABLE": 3.3
+        },
+        "is_nominal": false,
+        "supply_span_V": 3.2999988000000005
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "ldo_load_step_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "load_low_A": 0.001,
+          "load_high_A": 0.07
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "undershoot_V",
+        "overshoot_V",
+        "settling_time_up_s",
+        "settling_time_down_s"
+      ]
+    }
+  ]
+}

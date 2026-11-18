@@ -1,0 +1,148 @@
+{
+ "task": "ldo24m_miller_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 48024,
+ "wall_s": 4793.6,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 8.052938,
+ "llm_cost_usd_recorded": 4.026469,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "best": {
+  "eval": 1144,
+  "round": 6,
+  "f": 0.02197802197802201,
+  "reward": 0.978021978021978,
+  "score": 0.978021978021978,
+  "targets_met": 90,
+  "targets": 91,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_EAL": 4.7244636797608926e-06,
+   "L_EAL": 3.65726339680481e-06,
+   "W_EAIN": 9.181721744464575e-06,
+   "L_EAIN": 5.756278293397387e-06,
+   "W_EAT": 3.6578033626126265e-05,
+   "L_EAT": 6.484037353126098e-06,
+   "W_EAS": 7.867215458966628e-06,
+   "L_EAS": 3.2098973469920025e-06,
+   "W_EA2": 2.5405919882359855e-06,
+   "L_EA2": 4.36935398393373e-07,
+   "W_MCR": 1.5113931291605818e-06,
+   "L_MCR": 5.66354266285283e-07,
+   "C_EA": 1.115342782844487e-11,
+   "W_PASS": 5.513332007859393e-05,
+   "L_PASS": 3.5184196332906863e-07,
+   "N_PASS": 223.0,
+   "W_RFB": 4.8768665094055166e-05,
+   "L_RFB": 3.938957662878424e-06,
+   "W_MSW": 1.6580945937891324e-05,
+   "L_MSW": 4.726619176511086e-07,
+   "W_CM": 1.74555827014714e-05,
+   "L_CM": 1.3044384773566586e-06,
+   "W_WLS": 3.57735684639127e-06,
+   "L_WLS": 1.024314441034715e-06,
+   "W_WLB": 3.932148314765304e-06,
+   "L_WLB": 1.3879098966649458e-06,
+   "W_MAB": 2.348436045841431e-06,
+   "L_MAB": 1.1937007827138264e-06,
+   "C_F": 4.5638897089695965e-12,
+   "V_BIAS": 0.7432290076550084,
+   "M_EAL": 15.0,
+   "M_EAIN": 12.0,
+   "M_EAT": 2.0,
+   "M_EAS": 16.0,
+   "M_EA2": 74.0,
+   "M_MCR": 5.0,
+   "M_RFB": 25.0,
+   "M_MSW": 35.0,
+   "M_CM": 26.0,
+   "M_WLS": 12.0,
+   "M_WLB": 37.0,
+   "M_MAB": 17.0
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 200,
+   "best_f": 0.8919242193352065,
+   "elapsed_s": 409.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 200,
+   "best_f": 0.06523129296039731,
+   "elapsed_s": 1048.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 200,
+   "best_f": 0.04774967009752584,
+   "elapsed_s": 596.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 200,
+   "best_f": 0.030979346860517842,
+   "elapsed_s": 458.0,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 200,
+   "best_f": 0.024660977271269924,
+   "elapsed_s": 385.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 200,
+   "best_f": 0.02197802197802201,
+   "elapsed_s": 375.4,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 200,
+   "best_f": 0.02197802197802201,
+   "elapsed_s": 343.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 200,
+   "best_f": 0.02197802197802201,
+   "elapsed_s": 359.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 200,
+   "best_f": 0.02420340187895975,
+   "elapsed_s": 385.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 200,
+   "best_f": 0.02197802197802201,
+   "elapsed_s": 368.8,
+   "best_feasible_objective": null
+  }
+ ]
+}

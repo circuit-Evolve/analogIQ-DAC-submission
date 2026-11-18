@@ -1,0 +1,933 @@
+{
+  "request_id": "dtmos_hpf_101126_task_001__plan",
+  "task_id": "dtmos_hpf_101126_task_001",
+  "topology_id": "dtmos_hpf_101126",
+  "execution_profile": "search_full",
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "digests": {
+    "task": "b93bb139f6cfa7e034fd6a2718cc3a547a83a28bc26bcc6bbb297bf619b18f11",
+    "candidate": "eac6ca687d6d919de9ee0562e6bb30d6c49a659708de83ff044395f5f9af2435",
+    "parameterization": "0df9ced570cb6443efdb6d3a56eb4067108da6ba309cddcaf06059e4697172b8",
+    "dut_source_netlist": "ab39d29eead65829a490e98c5c1d5c75a371caf26a6b308a0239844ec4a7616b",
+    "dut_subckt": "e4b123a8cbe626ca447cff81f16b74df2bd46e5d8630bf518ec0f4529b774cdc",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "2e0218e23a814adf0b9edb953be517e70bcec47c363104a23733f054f7ec160d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "ecdb834b1e820149bf663d2d1072c5cd7ec81658db26c945246c43b01580c700"
+  },
+  "candidate": {
+    "W_M1": 1e-06,
+    "L_M1": 1e-06,
+    "W_M2": 1e-06,
+    "W_M4": 1e-06,
+    "L_M24": 1e-06,
+    "W_M3": 1e-06,
+    "M_M3": 1.0,
+    "L_M3": 1e-06,
+    "W_MPB12": 1e-06,
+    "M_MPB12": 1.0,
+    "L_MPB12": 1e-06,
+    "W_MPB3": 1e-06,
+    "W_MPB4": 1e-06,
+    "L_MPB34": 1e-06,
+    "W_MPB56": 1e-06,
+    "L_MPB56": 1e-06,
+    "W_MPB7": 1e-06,
+    "W_MPB8": 1e-06,
+    "L_MPB78": 1e-06,
+    "W_MNB12": 1e-06,
+    "L_MNB12": 1e-06,
+    "W_MNB3": 1e-06,
+    "L_MNB3": 1e-06,
+    "W_MNB4": 1e-06,
+    "L_MNB4": 1e-06,
+    "W_MNB5": 1e-06,
+    "L_MNB5": 1e-06,
+    "C1": 1e-12,
+    "C2": 1e-12,
+    "I0": 1e-05,
+    "IB1": 1e-05,
+    "IB2": 1e-05,
+    "M_M1": 1.0,
+    "M_M2": 1.0,
+    "M_M4": 1.0,
+    "M_MPB3": 1.0,
+    "M_MPB4": 1.0,
+    "M_MPB56": 1.0,
+    "M_MPB7": 1.0,
+    "M_MPB8": 1.0,
+    "M_MNB12": 1.0,
+    "M_MNB3": 1.0,
+    "M_MNB4": 1.0,
+    "M_MNB5": 1.0
+  },
+  "dut_transformations": [
+    "ideal elements kept inside the DUT: I0, IB2, IB1",
+    "M3: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb8: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb7: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb6: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb5: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb4: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb3: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb2: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mpb1: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mnb5: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mnb4: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mnb3: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mnb2: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "Mnb1: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M1: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "widths bound to sizing variables on fold-capable devices are folded symbolically into ceil(W/max) fingers of W/ceil(W/max) (per-device max [0.0001] m): M1, M2, M3, M4, Mnb1, Mnb2, Mnb3, Mnb4, Mnb5, Mpb1, Mpb2, Mpb3, Mpb4, Mpb5, Mpb6, Mpb7, Mpb8"
+  ],
+  "jobs": [
+    {
+      "job_id": "NN_T27_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T27_S1p00",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": true,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T27_S1p00",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": true,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "FF_T27_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "FF_T27_S1p00",
+        "model_set": "FF",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "FF"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "FF_T27_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "FF_T27_S1p00",
+        "model_set": "FF",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "FF"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "FS_T27_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "FS_T27_S1p00",
+        "model_set": "FS",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "FS"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "FS_T27_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "FS_T27_S1p00",
+        "model_set": "FS",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "FS"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "SF_T27_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "SF_T27_S1p00",
+        "model_set": "SF",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "SF"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "SF_T27_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "SF_T27_S1p00",
+        "model_set": "SF",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "SF"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "SS_T27_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "SS_T27_S1p00",
+        "model_set": "SS",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "SS"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "SS_T27_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "SS_T27_S1p00",
+        "model_set": "SS",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "SS"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S0p78/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T27_S0p78",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 0.7777777777777777,
+        "supply_V": 0.7,
+        "is_nominal": false,
+        "supply_negative_V": -0.7,
+        "supply_span_V": 1.4
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S0p78/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T27_S0p78",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 0.7777777777777777,
+        "supply_V": 0.7,
+        "is_nominal": false,
+        "supply_negative_V": -0.7,
+        "supply_span_V": 1.4
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S0p89/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T27_S0p89",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 0.888888888888889,
+        "supply_V": 0.8,
+        "is_nominal": false,
+        "supply_negative_V": -0.8,
+        "supply_span_V": 1.6
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S0p89/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T27_S0p89",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 0.888888888888889,
+        "supply_V": 0.8,
+        "is_nominal": false,
+        "supply_negative_V": -0.8,
+        "supply_span_V": 1.6
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S1p11/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T27_S1p11",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.1111111111111112,
+        "supply_V": 1.0,
+        "is_nominal": false,
+        "supply_negative_V": -1.0,
+        "supply_span_V": 2.0
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S1p11/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T27_S1p11",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.1111111111111112,
+        "supply_V": 1.0,
+        "is_nominal": false,
+        "supply_negative_V": -1.0,
+        "supply_span_V": 2.0
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S1p22/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T27_S1p22",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.2222222222222223,
+        "supply_V": 1.1,
+        "is_nominal": false,
+        "supply_negative_V": -1.1,
+        "supply_span_V": 2.2
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S1p22/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T27_S1p22",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.2222222222222223,
+        "supply_V": 1.1,
+        "is_nominal": false,
+        "supply_negative_V": -1.1,
+        "supply_span_V": 2.2
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_Tm27_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_Tm27_S1p00",
+        "model_set": "NN",
+        "temperature_C": -27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_Tm27_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_Tm27_S1p00",
+        "model_set": "NN",
+        "temperature_C": -27.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_T0_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T0_S1p00",
+        "model_set": "NN",
+        "temperature_C": 0.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T0_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T0_S1p00",
+        "model_set": "NN",
+        "temperature_C": 0.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    },
+    {
+      "job_id": "NN_T100_S1p00/hpf1111_iac_v1",
+      "condition": {
+        "id": "NN_T100_S1p00",
+        "model_set": "NN",
+        "temperature_C": 100.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_iac_v1",
+      "recipe_version": 1,
+      "points": [
+        {},
+        {
+          "freq_Hz": 200.0
+        }
+      ],
+      "analysis_executions": 2,
+      "expected_outputs": 3,
+      "expected_metrics": [
+        "quiescent_power_W",
+        "cutoff_frequency_Hz",
+        "passband_gain_dB",
+        "passband_ripple_dB",
+        "current_gain_dB",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T100_S1p00/hpf1111_ithd_v1",
+      "condition": {
+        "id": "NN_T100_S1p00",
+        "model_set": "NN",
+        "temperature_C": 100.0,
+        "supply_scale": 1.0,
+        "supply_V": 0.9,
+        "is_nominal": false,
+        "supply_negative_V": -0.9,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "hpf1111_ithd_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "thd_pct",
+        "output_fundamental_A"
+      ]
+    }
+  ]
+}

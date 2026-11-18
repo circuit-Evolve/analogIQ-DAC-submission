@@ -1,0 +1,2016 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_tinywhisper24_iqmod_task_001",
+  "task_id": "tinywhisper24_iqmod_task_001",
+  "topology_id": "tinywhisper24_iqmod",
+  "candidate_hash": "fade3bb1883e8eadd28194e2b9abadc3ffd47e3c7e30e24d4eee689709883328",
+  "evaluator_hash": "f44acf23e9086c5ffc4d7d84c980dd3d8843bcff75948681704b80a55a4a4ff2",
+  "digests": {
+    "task": "ea5081abcb3f5348fdaa647f87bb38d47fe234c199c4ce65495c60e3f37bb479",
+    "candidate": "fade3bb1883e8eadd28194e2b9abadc3ffd47e3c7e30e24d4eee689709883328",
+    "parameterization": "e17fe334544584e18bf9fbdbb361eccbefdaa6f6a2e549a8cea3b48b16b5179d",
+    "dut_source_netlist": "3724a25a7582d0d1626f1b75c33841c8f274aa60c1414815e746714ac4c3191c",
+    "dut_subckt": "51b87753b39c4fc89007bd8a92241fa097c22a7f6c08dc858bc8d9739a96798e",
+    "models": "cf0800bd8572a6c9379d777f9608319fdad8b069992de6d70b98c4dbbc642c8e",
+    "recipes": "12d0f71199733a9081a19302fab3fe5dff07ecaefafb33e2d5a8ebd290923995",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "f44acf23e9086c5ffc4d7d84c980dd3d8843bcff75948681704b80a55a4a4ff2"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 38,
+    "completed_measurement_checks": 38,
+    "valid_measurement_checks": 38
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "passband_gain_dB",
+      "value": -0.10663714038343766,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "gain_nom",
+        "gain_spec_max"
+      ],
+      "constraint": {
+        "upper": 1.8278537031645015
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "cutoff_frequency_Hz",
+      "value": 375839.6392252772,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cutoff_nom"
+      ],
+      "constraint": {
+        "lower": 373410.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_at_cutoff_deg",
+      "value": -110.23915921282047,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 19.57125100804645,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "atten_1MHz"
+      ],
+      "constraint": {
+        "lower": 17.1848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 53.85950163070222,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "atten_4MHz"
+      ],
+      "constraint": {
+        "lower": 50.984850188786496
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 113.09547174736716,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "atten_28MHz"
+      ],
+      "constraint": {
+        "lower": 109.2848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 136.76318823835385,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "atten_56MHz"
+      ],
+      "constraint": {
+        "lower": 128.1848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "stopband_slope_dB_per_decade",
+      "value": -65.94901523857877,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "stopband_slope"
+      ],
+      "constraint": {
+        "upper": -58.68
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "input_impedance_dm_ohm",
+      "value": 1077432.951214182,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "zin_dm"
+      ],
+      "constraint": {
+        "lower": 1073700.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 51.97258570261626,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cmrr_nom"
+      ],
+      "constraint": {
+        "lower": 24.084850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "common_mode_gain_dB",
+      "value": -52.0792228429997,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_cm_ohm",
+      "value": 537767.404447114,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "zin_cm"
+      ],
+      "constraint": {
+        "lower": 522900.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.3760445453849224,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "tone_amplitude_V",
+      "value": 0.348600125409061,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "tone_amplitude"
+      ],
+      "constraint": {
+        "lower": 0.3141
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "tone_power_dBm",
+      "value": -12.163749176406833,
+      "unit": "dBm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "tone_power"
+      ],
+      "constraint": {
+        "lower": -12.557574905606751
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "sideband_suppression_dB",
+      "value": 69.89122289426744,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "sideband_suppression"
+      ],
+      "constraint": {
+        "lower": 64.8848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lo_leakage_dBc",
+      "value": -68.32662945350224,
+      "unit": "dBc",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "lo_leakage"
+      ],
+      "constraint": {
+        "upper": -50.9721462968355
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "counter_im3_dBc",
+      "value": -19.659346657011312,
+      "unit": "dBc",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "counter_im3"
+      ],
+      "constraint": {
+        "upper": -18.0721462968355
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "spur_lo_m5_dBc",
+      "value": -39.23117546079278,
+      "unit": "dBc",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "spur_m5"
+      ],
+      "constraint": {
+        "upper": -29.9721462968355
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "spur_3lo_max_dBc",
+      "value": -73.3714632390085,
+      "unit": "dBc",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "iqmod_iq_tran_v1",
+      "constraints": [
+        "spur_3lo"
+      ],
+      "constraint": {
+        "upper": -68.77214629683549
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "passband_gain_dB",
+      "value": 0.23173026264044483,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "gain_1p2V"
+      ],
+      "constraint": {
+        "lower": -1.5291498112135025
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "cutoff_frequency_Hz",
+      "value": 379812.15854797146,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cutoff_1p2V"
+      ],
+      "constraint": {
+        "lower": 376650.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_at_cutoff_deg",
+      "value": -119.98939657131915,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 20.48872260091948,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 56.97412928656444,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 126.00363194693061,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 149.60746520557316,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "stopband_slope_dB_per_decade",
+      "value": -76.02487866627942,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_dm_ohm",
+      "value": 1034345.4402291956,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 30.13926869238943,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cmrr_1p2V"
+      ],
+      "constraint": {
+        "lower": 24.084850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "common_mode_gain_dB",
+      "value": -29.907538429748985,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_cm_ohm",
+      "value": 529856.9064806204,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.15112485124230862,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S0p80",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "passband_gain_dB",
+      "value": 0.03519332732643829,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "gain_1p8V"
+      ],
+      "constraint": {
+        "lower": -1.5101498112135023
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "cutoff_frequency_Hz",
+      "value": 364641.4182175627,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cutoff_1p8V"
+      ],
+      "constraint": {
+        "lower": 359550.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_at_cutoff_deg",
+      "value": -106.10636575199949,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 19.647810763247065,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 53.28269961000579,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 106.96065520164603,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 129.1501713206328,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "stopband_slope_dB_per_decade",
+      "value": -61.11150775692502,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_dm_ohm",
+      "value": 1058767.9751005946,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 62.75650115051941,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cmrr_1p8V"
+      ],
+      "constraint": {
+        "lower": 24.084850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "common_mode_gain_dB",
+      "value": -62.72130782319297,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_cm_ohm",
+      "value": 530605.8770494437,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.5317557678429687,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p20",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "passband_gain_dB",
+      "value": -3.426853606180357,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "gain_rs250k"
+      ],
+      "constraint": {
+        "lower": -4.505149811213502
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "cutoff_frequency_Hz",
+      "value": 345330.342295137,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "phase_at_cutoff_deg",
+      "value": -113.76229624804785,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 21.877063375930284,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 57.06249847826216,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 123.38084737224413,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 152.1220151848678,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "stopband_slope_dB_per_decade",
+      "value": -71.4611416674298,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_dm_ohm",
+      "value": 1079393.0070241874,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 46.448377924820235,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "common_mode_gain_dB",
+      "value": -49.875231531000594,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_cm_ohm",
+      "value": 540591.7908679623,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.3963509210250573,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "passband_gain_dB",
+      "value": -3.7557752413505785,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "gain_rl650"
+      ],
+      "constraint": {
+        "lower": -4.455149811213502
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "cutoff_frequency_Hz",
+      "value": 203614.74582526248,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "cutoff_rl650"
+      ],
+      "constraint": {
+        "lower": 180450.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_at_cutoff_deg",
+      "value": -80.03615792105926,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 24.863007019436708,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 57.55644879140894,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 109.10552061100499,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "attenuation_dB",
+      "value": 129.50255208085326,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "stopband_slope_dB_per_decade",
+      "value": -59.4478431038702,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_dm_ohm",
+      "value": 1277742.9941927115,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 46.322161747645836,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "common_mode_gain_dB",
+      "value": -50.07793698899641,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "input_impedance_cm_ohm",
+      "value": 534766.2212223193,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.19596548361693997,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.passband_gain_dB",
+      "value": -0.10530186429540815,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "mc_mean_gain_lo",
+        "mc_mean_gain_hi"
+      ],
+      "constraint": {
+        "upper": 0.2508537031645015
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.passband_gain_dB",
+      "value": 0.0036920978992933556,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "mc_sigma_gain"
+      ],
+      "constraint": {
+        "upper": 0.0528
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.cutoff_frequency_Hz",
+      "value": 375820.755604601,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "mc_mean_cutoff_lo",
+        "mc_mean_cutoff_hi"
+      ],
+      "constraint": {
+        "upper": 452386.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.cutoff_frequency_Hz",
+      "value": 76.36518925775518,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "mc_sigma_cutoff"
+      ],
+      "constraint": {
+        "upper": 1430.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.phase_at_cutoff_deg",
+      "value": -110.24601015417693,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.phase_at_cutoff_deg",
+      "value": 0.022027747593142178,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.attenuation_dB",
+      "value": 19.57328046997562,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.attenuation_dB",
+      "value": 0.005272181697171729,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.attenuation_dB",
+      "value": 53.86285910973438,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.attenuation_dB",
+      "value": 0.007990842576283299,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.attenuation_dB",
+      "value": 113.02073763580302,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.attenuation_dB",
+      "value": 0.2168718890105063,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.attenuation_dB",
+      "value": 135.9066253268284,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.attenuation_dB",
+      "value": 2.8930203117067332,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.stopband_slope_dB_per_decade",
+      "value": -65.93328988027463,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.stopband_slope_dB_per_decade",
+      "value": 0.061237643243179776,
+      "unit": "dB/decade",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.input_impedance_dm_ohm",
+      "value": 1077346.7254510976,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.input_impedance_dm_ohm",
+      "value": 1907.6003780092153,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.cmrr_dB",
+      "value": 52.07020166906401,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "mc_mean_cmrr_lo"
+      ],
+      "constraint": {
+        "lower": 24.084850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.cmrr_dB",
+      "value": 1.2287708581961563,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1",
+      "constraints": [
+        "mc_sigma_cmrr"
+      ],
+      "constraint": {
+        "upper": 3.0140000000000002
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.common_mode_gain_dB",
+      "value": -52.17550353335942,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.common_mode_gain_dB",
+      "value": 1.229486495907051,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_mean.input_impedance_cm_ohm",
+      "value": 537614.460844792,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    },
+    {
+      "metric": "mc_sigma.input_impedance_cm_ohm",
+      "value": 251.75971211776132,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "iqmod_bb_ac_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "gain_nom": {
+      "value": -0.10663714038343766,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "gain_spec_max": {
+      "value": -0.10663714038343766,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "gain_1p2V": {
+      "value": 0.23173026264044483,
+      "unit": "dB",
+      "condition_id": "tt_T27_S0p80",
+      "point": {},
+      "complete": true
+    },
+    "gain_1p8V": {
+      "value": 0.03519332732643829,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p20",
+      "point": {},
+      "complete": true
+    },
+    "cutoff_nom": {
+      "value": 375839.6392252772,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "cutoff_1p2V": {
+      "value": 379812.15854797146,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S0p80",
+      "point": {},
+      "complete": true
+    },
+    "cutoff_1p8V": {
+      "value": 364641.4182175627,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p20",
+      "point": {},
+      "complete": true
+    },
+    "atten_1MHz": {
+      "value": 19.57125100804645,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "complete": true
+    },
+    "atten_4MHz": {
+      "value": 53.85950163070222,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "freq_Hz": 4000000.0
+      },
+      "complete": true
+    },
+    "atten_28MHz": {
+      "value": 113.09547174736716,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "freq_Hz": 28000000.0
+      },
+      "complete": true
+    },
+    "atten_56MHz": {
+      "value": 136.76318823835385,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "freq_Hz": 56000000.0
+      },
+      "complete": true
+    },
+    "stopband_slope": {
+      "value": -65.94901523857877,
+      "unit": "dB/decade",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "zin_dm": {
+      "value": 1077432.951214182,
+      "unit": "ohm",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "zin_cm": {
+      "value": 537767.404447114,
+      "unit": "ohm",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "gain_rs250k": {
+      "value": -3.426853606180357,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_RS250k",
+      "point": {},
+      "complete": true
+    },
+    "gain_rl650": {
+      "value": -3.7557752413505785,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "point": {},
+      "complete": true
+    },
+    "cutoff_rl650": {
+      "value": 203614.74582526248,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_RL650",
+      "point": {},
+      "complete": true
+    },
+    "sideband_suppression": {
+      "value": 69.89122289426744,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "lo_leakage": {
+      "value": -68.32662945350224,
+      "unit": "dBc",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "counter_im3": {
+      "value": -19.659346657011312,
+      "unit": "dBc",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "spur_m5": {
+      "value": -39.23117546079278,
+      "unit": "dBc",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_gain_lo": {
+      "value": -0.10530186429540815,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_gain_hi": {
+      "value": -0.10530186429540815,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_gain": {
+      "value": 0.0036920978992933556,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_cutoff_lo": {
+      "value": 375820.755604601,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_cutoff_hi": {
+      "value": 375820.755604601,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_cutoff": {
+      "value": 76.36518925775518,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_cmrr_lo": {
+      "value": 52.07020166906401,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_cmrr": {
+      "value": 1.2287708581961563,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "tone_amplitude": {
+      "value": 0.348600125409061,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "tone_power": {
+      "value": -12.163749176406833,
+      "unit": "dBm",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "spur_3lo": {
+      "value": -73.3714632390085,
+      "unit": "dBc",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "cmrr_nom": {
+      "value": 51.97258570261626,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "cmrr_1p2V": {
+      "value": 30.13926869238943,
+      "unit": "dB",
+      "condition_id": "tt_T27_S0p80",
+      "point": {},
+      "complete": true
+    },
+    "cmrr_1p8V": {
+      "value": 62.75650115051941,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p20",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "tt_T27_S1p00/iqmod_bb_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 1.408,
+      "cpu_s": 0.783
+    },
+    {
+      "job_id": "tt_T27_S1p00/iqmod_iq_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 20 notices",
+      "extraction_error": null,
+      "wall_s": 655.608,
+      "cpu_s": 621.0
+    },
+    {
+      "job_id": "tt_T27_S0p80/iqmod_bb_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 12 notices",
+      "extraction_error": null,
+      "wall_s": 1.217,
+      "cpu_s": 0.546
+    },
+    {
+      "job_id": "tt_T27_S1p20/iqmod_bb_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 12 notices",
+      "extraction_error": null,
+      "wall_s": 1.306,
+      "cpu_s": 0.766
+    },
+    {
+      "job_id": "tt_T27_S1p00_RS250k/iqmod_bb_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 14 notices",
+      "extraction_error": null,
+      "wall_s": 1.099,
+      "cpu_s": 0.8
+    },
+    {
+      "job_id": "tt_T27_S1p00_RL650/iqmod_bb_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 0.892,
+      "cpu_s": 0.724
+    },
+    {
+      "job_id": "tt_T27_S1p00_MC/iqmod_bb_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 34 notices",
+      "extraction_error": null,
+      "wall_s": 11.438,
+      "cpu_s": 9.86
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 7,
+    "analysis_executions": 51,
+    "condition_evaluations": 6,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 634.479,
+    "execution_wall_s": 689.096,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S1p00/iqmod_bb_ac_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S1p00/iqmod_iq_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S0p80/iqmod_bb_ac_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S1p20/iqmod_bb_ac_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S1p00_RS250k/iqmod_bb_ac_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S1p00_RL650/iqmod_bb_ac_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/tinywhisper24_iqmod_task_001/tt_T27_S1p00_MC/iqmod_bb_ac_v1"
+    ]
+  }
+}

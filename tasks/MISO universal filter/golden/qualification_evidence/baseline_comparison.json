@@ -1,0 +1,365 @@
+{
+  "requirements_revision": "retained_9_metrics",
+  "source": "<WORK>/miso_iruwb_15pct_20261110/miso/power_finalist_summary.json",
+  "source_sha256": "54412a6a928170632b93e5613ce69856f8f1c286078600a15248d1aa991d9cf7",
+  "new_simulations": 0,
+  "sizing_changed": false,
+  "corners": [
+    {
+      "corner": "TT",
+      "execution_ok": true,
+      "checks": [
+        {
+          "metric": "Y1_gain",
+          "value": 0.962172,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "Y2_gain",
+          "value": 0.954217,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "IZP_gain",
+          "value": 0.998553,
+          "passed": true,
+          "lower": 0.8482999999999999,
+          "upper": 1.1477
+        },
+        {
+          "metric": "MISO_BP_frequency",
+          "value": 4567994.272998435,
+          "passed": true,
+          "lower": 3383000.0,
+          "upper": 4577000.0
+        },
+        {
+          "metric": "MISO_quiescent_power",
+          "value": 0.0044872239395219605,
+          "passed": true,
+          "lower": 0,
+          "upper": 0.005393499999999999
+        },
+        {
+          "metric": "BP_noise_in",
+          "value": 4.863995029211505e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 7.5946e-08
+        },
+        {
+          "metric": "BP_noise_out",
+          "value": 4.740032279018081e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 6.536599999999999e-08
+        },
+        {
+          "metric": "LP_THD",
+          "value": 2.4765065864984512,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        },
+        {
+          "metric": "BP_THD",
+          "value": 3.566480757164054,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        }
+      ],
+      "passed": 9
+    },
+    {
+      "corner": "FF",
+      "execution_ok": true,
+      "checks": [
+        {
+          "metric": "Y1_gain",
+          "value": 0.960182,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "Y2_gain",
+          "value": 0.951125,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "IZP_gain",
+          "value": 0.997972,
+          "passed": true,
+          "lower": 0.8482999999999999,
+          "upper": 1.1477
+        },
+        {
+          "metric": "MISO_BP_frequency",
+          "value": 5889519.401637191,
+          "passed": false,
+          "lower": 3383000.0,
+          "upper": 4577000.0
+        },
+        {
+          "metric": "MISO_quiescent_power",
+          "value": 0.00540442172821248,
+          "passed": false,
+          "lower": 0,
+          "upper": 0.005393499999999999
+        },
+        {
+          "metric": "BP_noise_in",
+          "value": 5.29713724963445e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 7.5946e-08
+        },
+        {
+          "metric": "BP_noise_out",
+          "value": 3.773729107501853e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 6.536599999999999e-08
+        },
+        {
+          "metric": "LP_THD",
+          "value": 2.34619362579931,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        },
+        {
+          "metric": "BP_THD",
+          "value": 2.992014858947078,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        }
+      ],
+      "passed": 7
+    },
+    {
+      "corner": "SS",
+      "execution_ok": true,
+      "checks": [
+        {
+          "metric": "Y1_gain",
+          "value": 0.961491,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "Y2_gain",
+          "value": 0.954303,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "IZP_gain",
+          "value": 0.998903,
+          "passed": true,
+          "lower": 0.8482999999999999,
+          "upper": 1.1477
+        },
+        {
+          "metric": "MISO_BP_frequency",
+          "value": 3022281.4650732526,
+          "passed": false,
+          "lower": 3383000.0,
+          "upper": 4577000.0
+        },
+        {
+          "metric": "MISO_quiescent_power",
+          "value": 0.0036661323323911687,
+          "passed": true,
+          "lower": 0,
+          "upper": 0.005393499999999999
+        },
+        {
+          "metric": "BP_noise_in",
+          "value": 5.488657618136786e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 7.5946e-08
+        },
+        {
+          "metric": "BP_noise_out",
+          "value": 5.373720335458712e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 6.536599999999999e-08
+        },
+        {
+          "metric": "LP_THD",
+          "value": 3.453229533384758,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        },
+        {
+          "metric": "BP_THD",
+          "value": 2.8329365460887037,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        }
+      ],
+      "passed": 8
+    },
+    {
+      "corner": "SF",
+      "execution_ok": true,
+      "checks": [
+        {
+          "metric": "Y1_gain",
+          "value": 0.952896,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "Y2_gain",
+          "value": 0.944422,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "IZP_gain",
+          "value": 0.998583,
+          "passed": true,
+          "lower": 0.8482999999999999,
+          "upper": 1.1477
+        },
+        {
+          "metric": "MISO_BP_frequency",
+          "value": 3180720.313224799,
+          "passed": false,
+          "lower": 3383000.0,
+          "upper": 4577000.0
+        },
+        {
+          "metric": "MISO_quiescent_power",
+          "value": 0.0036618119302447624,
+          "passed": true,
+          "lower": 0,
+          "upper": 0.005393499999999999
+        },
+        {
+          "metric": "BP_noise_in",
+          "value": 5.407936667664522e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 7.5946e-08
+        },
+        {
+          "metric": "BP_noise_out",
+          "value": 5.8324544438153846e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 6.536599999999999e-08
+        },
+        {
+          "metric": "LP_THD",
+          "value": 3.5364241658698155,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        },
+        {
+          "metric": "BP_THD",
+          "value": 3.533224416440202,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        }
+      ],
+      "passed": 8
+    },
+    {
+      "corner": "FS",
+      "execution_ok": true,
+      "checks": [
+        {
+          "metric": "Y1_gain",
+          "value": 0.966796,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "Y2_gain",
+          "value": 0.958349,
+          "passed": true,
+          "lower": 0.8415,
+          "upper": 1.1384999999999998
+        },
+        {
+          "metric": "IZP_gain",
+          "value": 0.998378,
+          "passed": true,
+          "lower": 0.8482999999999999,
+          "upper": 1.1477
+        },
+        {
+          "metric": "MISO_BP_frequency",
+          "value": 5788422.163363921,
+          "passed": false,
+          "lower": 3383000.0,
+          "upper": 4577000.0
+        },
+        {
+          "metric": "MISO_quiescent_power",
+          "value": 0.005426825402285687,
+          "passed": false,
+          "lower": 0,
+          "upper": 0.005393499999999999
+        },
+        {
+          "metric": "BP_noise_in",
+          "value": 5.223331919146552e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 7.5946e-08
+        },
+        {
+          "metric": "BP_noise_out",
+          "value": 3.692723219496678e-08,
+          "passed": true,
+          "lower": 0,
+          "upper": 6.536599999999999e-08
+        },
+        {
+          "metric": "LP_THD",
+          "value": 2.0183579698371044,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        },
+        {
+          "metric": "BP_THD",
+          "value": 2.9307012509133057,
+          "passed": true,
+          "lower": 0,
+          "upper": 6
+        }
+      ],
+      "passed": 7
+    }
+  ],
+  "total_passed": 39,
+  "total_checks": 45,
+  "complete_corners": [
+    "TT"
+  ],
+  "golden": false
+}

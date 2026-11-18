@@ -1,0 +1,230 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "SS_Tm50_S1p00_SSF_Tmin/ldo_line_v1",
+ "recipe_id": "ldo_line_v1",
+ "recipe_version": 4,
+ "points": [
+  {
+   "vin_V": 1.7
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "SS_Tm50_S1p00_SSF_Tmin/ldo_line_v1",
+  "condition": {
+   "id": "SS_Tm50_S1p00_SSF_Tmin",
+   "model_set": "SS",
+   "temperature_C": -50.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.7,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "SS"
+    }
+   ],
+   "label": "SSF_Tmin",
+   "is_nominal": false,
+   "supply_span_V": 1.7
+  },
+  "operating": {
+   "input_voltage_V": 1.7,
+   "reference_V": 1.2,
+   "load_current_A": 0.0011,
+   "load_capacitance_F": 0.0,
+   "output_voltage_V": 1.5
+  },
+  "recipe_settings": {
+   "sweep_start_V": 1.3,
+   "sweep_stop_V": 1.98,
+   "sweep_step_V": 0.005,
+   "line_low_V": 1.7,
+   "line_high_V": 1.98,
+   "dropout_fraction": 0.00667,
+   "dropout_reference": "nominal_output"
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ldo24c_conventional",
+   "family": "ldo",
+   "interface_type": "pmos_pass_ldo",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "title": "Design of low-dropout voltage regulator (M. Cermak, CTU Prague master thesis, 2016)",
+    "figure": "Fig. 5.3 (final schematic), Fig. A.1 (Cadence schematic with the test setup, source/testbench.png)",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (thesis PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, schematics, testbench.png; see source/ORIGIN.txt)",
+    "modifications": [
+     "dut_benchmark.scs = final.scs (schemgen export, the uninstantiated subckt repaired_core is the DUT body) with the thesis's real passive components instead of ideal elements (paper_fidelity_2026_10_27; the paper is GPDK180, the same PDK as the netlist). Evidence: thesis Table 5.2 (RFB1/RFB2 W 0.6 um, L 340.85/1363.4 um; RC W 0.3 um, L 15 um; CFF W 62.5 um, L 20 um), Fig. A.1 (instance labels: polyhres, m1res r=500m w=300n l=15u, nmoscap 7p l=20u w=6.25u), Sec. 3.6 (poly-silicon resistors, high-resistance polyhres, nmoscap = NMOS with drain, source and bulk tied) and Table 3.1.",
+     "RFB1, RFB2: gpdk180_polyhres sl=(R-35)*w/352 (352 ohm/sq sheet resistance, 35 ohm = 25 end + 10 contact resistance of the PDK subckt: the same relation as the pcell, Table 5.2 L 340.85 um for 200 kohm), w 0.6 um fixed (thesis); the resistances R_FB1/R_FB2 stay the sizing variables (dut_parameter bindings). Below 387 ohm (the device at its minimum length 0.6 um) the length clamps.",
+     "RC (the paper's 0.5 ohm on-chip series resistor, previously folded into RPAD_RC r=RPAD+0.5): gpdk180_m1res sl=15u w=0.3u (0.01 ohm/sq x 50 sq = 0.5 ohm, tc1 3e-3/K, tc2 -2e-6/K^2 from the PDK model); the pad resistance RPAD (testbench) is a separate ideal resistor in series, RPAD_X. Fixed (the thesis did not size it).",
+     "CFF: NOT changed (ideal capacitor). The thesis names it a nmoscap (Sec. 3.6.2, Fig. A.1: 7 pF, W 62.5 um, L 20 um; PDK nmoscap = nmos1 with drain = source = bulk). Tried as CFF (VREG VFB VFB VFB) nmos1 w=62.5u l=20u (also bulk on VSS) at the paper sizes: the 0.3 V across it (below Vth) gives only ~2.6 pF (1.8 pF with bulk on VSS), loop PM 33 deg (16 deg) vs 65.1 deg thesis (ideal 7 pF with polyhres: 64), GM 11.8 dB (21.39 thesis), and even C_FF = 100 pF reaches only PM 52 deg (target >= 58.6 deg): the thesis results cannot come from a bias-dependent MOS cap, so its simulation effectively had ~7 pF; the ideal capacitor keeps the thesis behaviour. Open for the owner (onboarding_status paper_fidelity_2026_10_27).",
+     "The undeclared symbols RPAD and RESR_VALUE of final.scs are DUT parameters (testbench values, fixed).",
+     "The output capacitor COUT (1 uF) and its ESR RESR are inside final.scs (fixed value): they are the paper's external output capacitor, so the task load_capacitance_F is 0."
+    ]
+   },
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ldo24c_conventional_dut",
+    "port_order": [
+     "VIN",
+     "VSS",
+     "VREF",
+     "VOUT"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "supply_input": "VIN",
+    "output": "VOUT",
+    "reference": "VREF"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    }
+   },
+   "dut_parameters": {
+    "RPAD": {
+     "value": 0.2,
+     "provenance": "paper: Table 5.3 / p.46 (Rpad 0.2-0.5 ohm, test element); nominal value not stated: 0.2 ohm (range minimum) chosen 2026-10-26 (reference_audit_2026_10_26): it reproduces the thesis Fig. 5.10 absolute Vout (1.4992 V at 27 C, 1.1 mA), Fig. 5.14 load step (1.3-1.4 mV) and Table 5.4 PSR at UGBW (57.8 dB); the earlier mid-range 0.35 ohm fitted them less well (notes: docs/benchmark/fix_2026-10-26/check-ldo24c.md)"
+    },
+    "RESR_VALUE": {
+     "value": 0.01,
+     "provenance": "paper: Fig. A.1 testbench (ESR 10 mohm; Table 5.3 range 10-300 mohm)"
+    }
+   },
+   "probes": [
+    "VFB",
+    "EAOUT",
+    "VBUF",
+    "TAIL"
+   ],
+   "loop_probe": {
+    "instance": "M2",
+    "terminal": 1
+   },
+   "op_check": {
+    "exclude": [],
+    "note": "G8: no exclusions until the reference operating point is inspected (onboarding_status.yaml)"
+   },
+   "known_issues": [
+    "loop_probe: the gate of M2 (error-amplifier input from the feedback node VFB). It breaks the whole regulation loop (RFB1 and the feed-forward CFF both end on VFB) at a high-impedance point; the paper's own AC loop analysis (Figs. 5.4/5.5/5.11) is a loop-gain sweep.",
+    "IBIAS (100 nA) is an ideal isource inside final.scs: sizing variable I_BIAS (bias current, instance dc binding). The reference voltage 1.2 V (VREF) is the task's reference_V (paper: ideal source).",
+    "On-chip series resistor RPAD_RC = RPAD + 0.5 ohm (paper Rc 0.5 ohm + pad resistance) is a netlist expression, kept fixed.",
+    "Dropout: the paper is inconsistent (Table 5.4/6.1 15.6 mV nominal vs text p.48 'regulation stops below 1.57 V' = 70 mV); the summary-table value 15.6 mV is the target (G6)."
+   ]
+  },
+  "subckt_name": "ldo24c_conventional_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_IN": 2.0926289241618188e-05,
+   "L_IN": 1.0296745004490989e-06,
+   "M_IN": 2.0,
+   "W_BD": 9.876389941498025e-07,
+   "L_BD": 1.35231805924752e-05,
+   "W_TL": 1.5355836131301476e-06,
+   "L_TL": 1.5801062512847394e-05,
+   "M_TL": 6.0,
+   "W_ML": 2.7424462706287662e-06,
+   "L_ML": 2.6439619098981046e-06,
+   "W_MS": 2.6690976214548323e-06,
+   "L_MS": 3.2552601338191585e-06,
+   "W_NM": 1.308235972527795e-06,
+   "L_NM": 7.059897437360952e-06,
+   "W_CS": 3.602846628332428e-06,
+   "L_CS": 3.0382984351722227e-06,
+   "W_FOL": 1.7524904849146877e-05,
+   "L_FOL": 4.813859522562772e-07,
+   "W_PASS": 5.488708512050075e-05,
+   "L_PASS": 2.3987074675061084e-07,
+   "M_PASS": 11.0,
+   "R_FB1": 201692.60038783628,
+   "R_FB2": 859504.0522391661,
+   "C_FF": 7.142788169753396e-12,
+   "I_BIAS": 1.3321781830071586e-07
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

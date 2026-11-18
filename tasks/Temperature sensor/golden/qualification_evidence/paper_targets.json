@@ -1,0 +1,54 @@
+{
+  "source": "PDF page11 Fig26, vector paths exported via pdftocairo; first of each same-color trace taken as schematic, second postlayout per legend. Curves almost coincident. No graph targets extracted for other papers.",
+  "axis_calibration": {
+    "T0_x": 22.145634,
+    "T100_x": 182.120532,
+    "V0_y": 98.054836,
+    "V0p4_y": 18.369638
+  },
+  "uncertainty": "Approximate graph values, not author numerical data. Conservative \u00b12mV per Vout reading, \u00b10.04mV/C endpoint sensitivity, \u00b14mV output span. Curvature/linearity derived from graph is particularly uncertainty-sensitive; no exact claim. Last curve sample ~99.9C extrapolated over final0.1C.",
+  "metric_definitions": {
+    "Sensitivity_mV_C": "1000*(V(100)-V(0))/100; signed, negative in figure",
+    "Output_span_mV": "1000*(max(V)-min(V)),0..100C",
+    "Linearity_error_percent_FS": "100*max(abs(V-(a*T+b)))/(max(V)-min(V)); least-squares a,b on uniform1C grid. Definition chosen for reproducible graph/simulation comparison; paper does not define scalar linearity.",
+    "Endpoint_linearity_percent_FS": "100*max(abs(V-[V(0)+(V(100)-V(0))*T/100]))/(max(V)-min(V)); endpoint-line definition chosen for repeatable scalar extraction, not supplied in paper."
+  },
+  "corners": {
+    "TT": {
+      "metrics": {
+        "Vout_0C_V": 0.2854418006214906,
+        "Vout_27C_V": 0.22839061285303702,
+        "Vout_100C_V": 0.09570298832237688,
+        "Sensitivity_mV_C": -1.8973881229911371,
+        "Output_span_mV": 189.7388122991137,
+        "Linearity_error_percent_FS": 6.4804895166371415,
+        "Endpoint_linearity_percent_FS": 7.610615772725828
+      },
+      "schematic_postlayout_trace_max_difference_V": 0.00015713867385645786
+    },
+    "FS": {
+      "metrics": {
+        "Vout_0C_V": 0.1612022247845829,
+        "Vout_27C_V": 0.11198410491135545,
+        "Vout_100C_V": 0.062253988605019246,
+        "Sensitivity_mV_C": -0.9894823617956366,
+        "Output_span_mV": 98.94823617956366,
+        "Linearity_error_percent_FS": 19.541484308344298,
+        "Endpoint_linearity_percent_FS": 24.269265048527405
+      },
+      "schematic_postlayout_trace_max_difference_V": 0.00010484771013460903
+    },
+    "SF": {
+      "metrics": {
+        "Vout_0C_V": 0.3809117823864854,
+        "Vout_27C_V": 0.3285326053994881,
+        "Vout_100C_V": 0.1822450396048942,
+        "Sensitivity_mV_C": -1.9866674278159118,
+        "Output_span_mV": 198.66674278159118,
+        "Linearity_error_percent_FS": 0.5402159965885209,
+        "Endpoint_linearity_percent_FS": 0.7712310186756847
+      },
+      "schematic_postlayout_trace_max_difference_V": 0.0003140248778218946
+    }
+  }
+}

@@ -1,0 +1,25 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt alinejad2024_uwb_nc_lna (VIN VOUT VB1 VB2 VDD)
+C1 (net16 net6) capacitor c=20.28f
+C2 (net13 net28) capacitor c=951f
+C3 (net21 net20) capacitor c=20.28f
+C4 (VOUT net23) capacitor c=C4_value
+CIN (net4 VIN) capacitor c=CIN_value
+L0 (net28 net4) inductor l=L0_value
+L1 (net43 VDD) inductor l=1.22n
+L2 (net34 VDD) inductor l=5.24n
+L3 (net21 VDD) inductor l=1.43n
+L4 (net19 net16) inductor l=L4_value
+L5 (net23 net21) inductor l=L5_value
+LIN (0 net4) inductor l=LIN_value
+M1 (net29 net6 net28 0) nmos1 w=15u l=180n m=1 as=9p ad=9p ps=31.2u pd=31.2u
+M2 (net16 net29 0 0) nmos1 w=14.7u l=180n m=1 as=8.82p ad=8.82p ps=30.6u pd=30.6u
+M3 (net21 net19 0 0) nmos1 w=35.8u l=180n m=4 as=16.11p ad=10.74p ps=54.6u pd=36.4u
+M4 (net16 net13 0 0) nmos1 w=36u l=180n m=4 as=16.2p ad=10.8p ps=54.9u pd=36.6u
+R1 (net20 net19) resistor r=R1_value
+RB1 (net6 VB1) resistor r=RB1_value
+RB2 (VB2 net13) resistor r=RB2_value
+RL1 (net29 net43) resistor r=RL1_value
+RL2 (net16 net34) resistor r=RL2_value
+ends alinejad2024_uwb_nc_lna

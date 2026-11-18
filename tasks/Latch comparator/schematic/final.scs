@@ -1,0 +1,32 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt repaired_core VDD VSS CLK VP VN OUT
+SW1 (P CLK VDD VDD) pmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+SW3 (X CLK VDD VDD) pmos1 w=2u l=180n m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+P5 (X Y VDD VDD) pmos1 w=8u l=180n m=1 ad=4.8p as=4.8p pd=17.2u ps=17.2u
+P6 (Y X VDD VDD) pmos1 w=8u l=180n m=1 ad=4.8p as=4.8p pd=17.2u ps=17.2u
+SW4 (Y CLK VDD VDD) pmos1 w=2u l=180n m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+SW2 (Q CLK VDD VDD) pmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+N3 (X Y P VSS) nmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+N4 (Y X Q VSS) nmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+N1 (P VP TAIL VSS) nmos1 w=40u l=180n m=1 ad=24p as=24p pd=81.2u ps=81.2u
+N2 (Q VN TAIL VSS) nmos1 w=40u l=180n m=1 ad=24p as=24p pd=81.2u ps=81.2u
+N7 (TAIL CLK VSS VSS) nmos1 w=8u l=180n m=1 ad=4.8p as=4.8p pd=17.2u ps=17.2u
+P9 (XB X VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N8 (XB X VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P10 (YB Y VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N11 (YB Y VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P12 (A B VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P13 (B A VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N14 (A XB VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N15 (B YB VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P19 (DM DM VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P20 (DEC DM VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N16 (DM B DTAIL VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N17 (DEC A DTAIL VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N18_tail (DTAIL CLK VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P22 (BUF DEC VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N18_buf (BUF DEC VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+P23 (OUT BUF VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+N19 (OUT BUF VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+ends repaired_core

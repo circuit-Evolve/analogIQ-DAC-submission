@@ -1,0 +1,1033 @@
+{
+  "request_id": "nvm_chargepump_111126_task_001__plan",
+  "task_id": "nvm_chargepump_111126_task_001",
+  "topology_id": "nvm_chargepump_111126",
+  "execution_profile": "search_full",
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": null
+  },
+  "digests": {
+    "task": "2be87a46d6d5ed4f2982e2e56c34fd35e739a547f0e33991be47fe1466054985",
+    "candidate": "f0334ec74b509af077cdf4dab63630f340df33fcd98cadb595df8ce7f6fe7a36",
+    "parameterization": "1daef511972e4a4f1d3ef6880ca44f4ca8c387f4ef983c8ab0964ba3a5aec977",
+    "dut_source_netlist": "70f0a368bacc93506e617633ee6366f907d7dabe2bcd5e73c8714a15f32601f0",
+    "dut_subckt": "dea151c5d15f6cce96fe03eaf5431858a73a83ec265e87695abb4924fd891f84",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "8349ae85acb4b1d5cd5795b726d83a9ef8e1e446ff5a4b734f48a74e7fd6245f",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "7ab8b082bcbb00a51d97aae942e0eaa17b802e18dcfeb72f9fd079508e84ecd8"
+  },
+  "candidate": {
+    "S1_WN": 1e-06,
+    "S1_WP": 1e-06,
+    "S1_LN": 9.079999999999999e-07,
+    "S1_LP": 1e-06,
+    "S1_CF": 1e-12,
+    "S1_CS": 1e-12,
+    "S2_WN": 1e-06,
+    "S2_WP": 1e-06,
+    "S2_LN": 9.079999999999999e-07,
+    "S2_LP": 1e-06,
+    "S2_CF": 1e-12,
+    "S2_CS": 1e-12,
+    "S3_WN": 1e-06,
+    "S3_WP": 1e-06,
+    "S3_LN": 9.079999999999999e-07,
+    "S3_LP": 1e-06,
+    "S3_CF": 1e-12,
+    "S3_CS": 1e-12,
+    "S4_WN": 1e-06,
+    "S4_WP": 1e-06,
+    "S4_LN": 9.079999999999999e-07,
+    "S4_LP": 1e-06,
+    "S4_CF": 1e-12,
+    "S4_CS": 1e-12,
+    "S5_WN": 1e-06,
+    "S5_WP": 1e-06,
+    "S5_LN": 9.079999999999999e-07,
+    "S5_LP": 1e-06,
+    "S5_CF": 1e-12,
+    "S5_CS": 1e-12,
+    "S6_WN": 1e-06,
+    "S6_WP": 1e-06,
+    "S6_LN": 9.079999999999999e-07,
+    "S6_LP": 1e-06,
+    "S6_CF": 1e-12,
+    "S6_CS": 1e-12,
+    "S1_N_NF": 1.0,
+    "S1_N_M": 1.0,
+    "S1_P_NF": 1.0,
+    "S1_P_M": 1.0,
+    "S2_N_NF": 1.0,
+    "S2_N_M": 1.0,
+    "S2_P_NF": 1.0,
+    "S2_P_M": 1.0,
+    "S3_N_NF": 1.0,
+    "S3_N_M": 1.0,
+    "S3_P_NF": 1.0,
+    "S3_P_M": 1.0,
+    "S4_N_NF": 1.0,
+    "S4_N_M": 1.0,
+    "S4_P_NF": 1.0,
+    "S4_P_M": 1.0,
+    "S5_N_NF": 1.0,
+    "S5_N_M": 1.0,
+    "S5_P_NF": 1.0,
+    "S5_P_M": 1.0,
+    "S6_N_NF": 1.0,
+    "S6_N_M": 1.0,
+    "S6_P_NF": 1.0,
+    "S6_P_M": 1.0
+  },
+  "dut_transformations": [
+    "M1NA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M1NB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M1PA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M1PB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2NA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2NB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2PA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2PB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M3NA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M3NB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M3PA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M3PB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4NA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4NB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4PA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4PB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5NA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5NB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5PA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5PB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M6NA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M6NB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M6PA: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M6PB: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "netlist parameters bound to sizing variables: S1_WN <- S1_WN, S1_WP <- S1_WP, S2_WN <- S2_WN, S2_WP <- S2_WP, S3_WN <- S3_WN, S3_WP <- S3_WP, S4_WN <- S4_WN, S4_WP <- S4_WP, S5_WN <- S5_WN, S5_WP <- S5_WP, S6_WN <- S6_WN, S6_WP <- S6_WP"
+  ],
+  "jobs": [
+    {
+      "job_id": "tt_Tm40_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_Tm40_S0p91",
+        "model_set": "tt",
+        "temperature_C": -40.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_T27_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_T27_S0p91",
+        "model_set": "tt",
+        "temperature_C": 27.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_T125_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_T125_S0p91",
+        "model_set": "tt",
+        "temperature_C": 125.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_Tm40_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_Tm40_S1p00",
+        "model_set": "tt",
+        "temperature_C": -40.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_T27_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_T27_S1p00",
+        "model_set": "tt",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": true,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_T125_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_T125_S1p00",
+        "model_set": "tt",
+        "temperature_C": 125.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_Tm40_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_Tm40_S1p09",
+        "model_set": "tt",
+        "temperature_C": -40.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_T27_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_T27_S1p09",
+        "model_set": "tt",
+        "temperature_C": 27.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "tt_T125_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "tt_T125_S1p09",
+        "model_set": "tt",
+        "temperature_C": 125.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_Tm40_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_Tm40_S0p91",
+        "model_set": "ff",
+        "temperature_C": -40.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_T27_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_T27_S0p91",
+        "model_set": "ff",
+        "temperature_C": 27.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_T125_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_T125_S0p91",
+        "model_set": "ff",
+        "temperature_C": 125.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_Tm40_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_Tm40_S1p00",
+        "model_set": "ff",
+        "temperature_C": -40.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_T27_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_T27_S1p00",
+        "model_set": "ff",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_T125_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_T125_S1p00",
+        "model_set": "ff",
+        "temperature_C": 125.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_Tm40_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_Tm40_S1p09",
+        "model_set": "ff",
+        "temperature_C": -40.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_T27_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_T27_S1p09",
+        "model_set": "ff",
+        "temperature_C": 27.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ff_T125_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "ff_T125_S1p09",
+        "model_set": "ff",
+        "temperature_C": 125.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_Tm40_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_Tm40_S0p91",
+        "model_set": "ss",
+        "temperature_C": -40.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_T27_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_T27_S0p91",
+        "model_set": "ss",
+        "temperature_C": 27.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_T125_S0p91/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_T125_S0p91",
+        "model_set": "ss",
+        "temperature_C": 125.0,
+        "supply_scale": 0.9090909090909092,
+        "supply_V": 3.0,
+        "is_nominal": false,
+        "supply_span_V": 3.0
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_Tm40_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_Tm40_S1p00",
+        "model_set": "ss",
+        "temperature_C": -40.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_T27_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_T27_S1p00",
+        "model_set": "ss",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_T125_S1p00/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_T125_S1p00",
+        "model_set": "ss",
+        "temperature_C": 125.0,
+        "supply_scale": 1.0,
+        "supply_V": 3.3,
+        "is_nominal": false,
+        "supply_span_V": 3.3
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_Tm40_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_Tm40_S1p09",
+        "model_set": "ss",
+        "temperature_C": -40.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_T27_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_T27_S1p09",
+        "model_set": "ss",
+        "temperature_C": 27.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    },
+    {
+      "job_id": "ss_T125_S1p09/nvm1112_transient_v1",
+      "condition": {
+        "id": "ss_T125_S1p09",
+        "model_set": "ss",
+        "temperature_C": 125.0,
+        "supply_scale": 1.090909090909091,
+        "supply_V": 3.6,
+        "is_nominal": false,
+        "supply_span_V": 3.6
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "nvm1112_transient_v1",
+      "recipe_version": 2,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "output_voltage_V",
+        "ripple_mV",
+        "input_power_mW",
+        "output_power_uW",
+        "efficiency_percent",
+        "rise_time_us",
+        "native_model_voltage_violations"
+      ]
+    }
+  ]
+}

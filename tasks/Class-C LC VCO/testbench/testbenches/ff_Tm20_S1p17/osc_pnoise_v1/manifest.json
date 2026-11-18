@@ -1,0 +1,58 @@
+{
+  "job_id": "ff_Tm20_S1p17/osc_pnoise_v1",
+  "recipe_id": "osc_pnoise_v1",
+  "recipe_version": 3,
+  "condition": {
+    "id": "ff_Tm20_S1p17",
+    "model_set": "ff",
+    "temperature_C": -20.0,
+    "supply_scale": 1.1666667,
+    "supply_V": 1.40000004,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "ff"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 1.40000004
+  },
+  "points": [
+    {
+      "pss": true
+    },
+    {
+      "offset_Hz": 1000000.0
+    },
+    {
+      "offset_Hz": 3000000.0
+    },
+    {
+      "offset_Hz": 10000000.0
+    }
+  ],
+  "expected_outputs": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+  ],
+  "expected_metrics": [
+    "pss_frequency_Hz",
+    "pss_power_W",
+    "phase_noise_dBc_per_Hz",
+    "fom_dBc_per_Hz"
+  ],
+  "digests": {
+    "task": "a83b094f77058c3808327783ca14f012527afcf9b1813c949fd42317a6bdce10",
+    "candidate": "28d54c6829c7e5cb89c991f95bc5f7f96bbb51d74f3207b21f953ff81580fe52",
+    "parameterization": "28ab63d559503da613f54408b6c01a6ea16e22bf93f58a0bd7ea19c63a03e010",
+    "dut_source_netlist": "23c8236977d815cf2fb949a6ccd0f37875a1b498371abd89d588c95f42c7bdf6",
+    "dut_subckt": "ab16a4b2b8070438192baf261890b0710a0fc77c82cbdcfbcdaf6f83f44ccfed",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "169af2d925c7a57e6d0bf0c39834b7836075353c4c6dc8fe7458c0cb28d9d70d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "3a6c02bf23028bd7b139dc8432ac8727aef67a8a969c9e738cde064c9fe08f23"
+  },
+  "state": "rendered"
+}

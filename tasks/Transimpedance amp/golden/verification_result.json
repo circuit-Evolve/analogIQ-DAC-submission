@@ -1,0 +1,1724 @@
+{
+  "schema_version": 1,
+  "request_id": "tia02_restored_public_20261112",
+  "task_id": "tia02_task_001",
+  "topology_id": "tia02_singh_2018",
+  "candidate_hash": "eeabff1038ef4ccd036256381a45569b3437c56e81e45a18dfa395e9834c488a",
+  "evaluator_hash": "a8082e6740c7aed51fca130f92eea65d426a5f9f2c1668c23dc6d3e9a01c83e1",
+  "digests": {
+    "task": "65ddbb261da035072e08d137d001621f47647eca90e8f772aeb9be9892126152",
+    "candidate": "eeabff1038ef4ccd036256381a45569b3437c56e81e45a18dfa395e9834c488a",
+    "parameterization": "38a8ed0f4010c7323cc0a106a052a76db388cf72e60d8e280ae74f7773566714",
+    "dut_source_netlist": "4f05ac3c804615ab5235730559cfa260f48fe486f9908e65ece4e2f1442dd06b",
+    "dut_subckt": "6ab1e90802ac8123d531bf9e1a4bc73d28c9d2b7c059c4266647cf92b11f422c",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "a28e42d24599746024222f5a96cc17396635284272ba74e4395904ab011c5341",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "a8082e6740c7aed51fca130f92eea65d426a5f9f2c1668c23dc6d3e9a01c83e1"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 31,
+    "completed_measurement_checks": 31,
+    "valid_measurement_checks": 31
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.262138193,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_dBohm"
+      ],
+      "constraint": {
+        "lower": 44.308378514285856
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 13781671925.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_Hz"
+      ],
+      "constraint": {
+        "lower": 8585000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0797264161998617,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "input_noise_max_A_per_rtHz",
+      "value": 6.7546371509e-12,
+      "unit": "A/sqrt(Hz)",
+      "status": "valid",
+      "point": {
+        "band_low_Hz": 2000000000.0,
+        "band_high_Hz": 10000000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_noise_band_v1",
+      "constraints": [
+        "input_noise_max_A_per_rtHz"
+      ],
+      "constraint": {
+        "upper": 8.625e-12
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "input_noise_avg_A_per_rtHz",
+      "value": 6.7094085334e-12,
+      "unit": "A/sqrt(Hz)",
+      "status": "valid",
+      "point": {
+        "band_low_Hz": 2000000000.0,
+        "band_high_Hz": 10000000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_noise_band_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0012405976625,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0016767000000000002
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 0.00068922092361,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1"
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1"
+    },
+    {
+      "metric": "output_dc_V",
+      "value": 0.75965755212,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_start_V",
+      "value": 0.75965755212,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_stop_V",
+      "value": 0.76166187818,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1"
+    },
+    {
+      "metric": "dc_transimpedance_ohm",
+      "value": 105.49084526315819,
+      "unit": "ohm",
+      "status": "valid",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_dc_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.262138193,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_peak_v1"
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 13781671925.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_peak_v1"
+    },
+    {
+      "metric": "peaking_dB",
+      "value": 8.890773029000002,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_peak_v1",
+      "constraints": [
+        "peaking_dB"
+      ],
+      "constraint": {
+        "upper": 8.913956807072234
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "peak_frequency_Hz",
+      "value": 104712854.81,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "tia_ac_peak_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 50.055359877,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_SS"
+      ],
+      "constraint": {
+        "lower": 45.96837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 8516754661.6,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_SS"
+      ],
+      "constraint": {
+        "lower": 6893500000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.027126280862073693,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 1.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 45.194569254,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_FS"
+      ],
+      "constraint": {
+        "lower": 44.58837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 15635052677.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_FS"
+      ],
+      "constraint": {
+        "lower": 8075000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.12669063450418377,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 49.196941416,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_SF"
+      ],
+      "constraint": {
+        "lower": 43.18837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 9548223559.3,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_SF"
+      ],
+      "constraint": {
+        "lower": 9503000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.1320655680049162,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 44.109851507,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_FF"
+      ],
+      "constraint": {
+        "lower": 41.78837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 18061930160.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_FF"
+      ],
+      "constraint": {
+        "lower": 11798000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.10008546812956048,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 1.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 47.435426163,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T54_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_T54"
+      ],
+      "constraint": {
+        "lower": 46.18837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 11941930012.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T54_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_T54"
+      ],
+      "constraint": {
+        "lower": 7284500000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.06046458752720335,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T54_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T54_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T54_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T54_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 48.470724008,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T81_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_T81"
+      ],
+      "constraint": {
+        "lower": 47.988378514285856
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 10520350954.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T81_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_T81"
+      ],
+      "constraint": {
+        "lower": 6468500000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.04309281886294819,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T81_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T81_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T81_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T81_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 49.362521658,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T108_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_T108"
+      ],
+      "constraint": {
+        "lower": 49.28837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 9431987201.9,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T108_S1p00",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_T108"
+      ],
+      "constraint": {
+        "lower": 5797000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.027253287934664194,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T108_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T108_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T108_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T108_S1p00",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.013825299,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S0p89",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_supply"
+      ],
+      "constraint": {
+        "lower": 43.18837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 14017973908.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S0p89",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_V1p6"
+      ],
+      "constraint": {
+        "lower": 8075000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.11710139050929624,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p89",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p89",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p89",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p89",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.678939281,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S0p78",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_supply"
+      ],
+      "constraint": {
+        "lower": 43.18837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 12605375932.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S0p78",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_V1p4"
+      ],
+      "constraint": {
+        "lower": 7395000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.29523379324575744,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p78",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p78",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p78",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p78",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 47.86231514,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S0p67",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "transimpedance_supply"
+      ],
+      "constraint": {
+        "lower": 43.18837851428586
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 10685666424.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S0p67",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_V1p2"
+      ],
+      "constraint": {
+        "lower": 7055000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.4455952449722739,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p67",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p67",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p67",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 2.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p67",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.262129332,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 8266159682.3,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_Cpd100"
+      ],
+      "constraint": {
+        "lower": 6264500000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0797264161998617,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.262120167,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 5904451777.5,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_Cpd150"
+      ],
+      "constraint": {
+        "lower": 5780000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0797264161998617,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "transimpedance_dBohm",
+      "value": 46.262110697,
+      "unit": "dBohm",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "bandwidth_Hz",
+      "value": 4591694561.2,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "recipe_id": "tia_ac_v1",
+      "constraints": [
+        "bandwidth_Cpd200"
+      ],
+      "constraint": {
+        "lower": 4590000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0797264161998617,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "recipe_id": "tia_ac_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "recipe_id": "tia_ac_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "peaking_dB": {
+      "value": 8.890773029000002,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_dBohm": {
+      "value": 46.262138193,
+      "unit": "dBohm",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_SS": {
+      "value": 50.055359877,
+      "unit": "dBohm",
+      "condition_id": "SS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_FS": {
+      "value": 45.194569254,
+      "unit": "dBohm",
+      "condition_id": "FS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_SF": {
+      "value": 49.196941416,
+      "unit": "dBohm",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_FF": {
+      "value": 44.109851507,
+      "unit": "dBohm",
+      "condition_id": "FF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_T54": {
+      "value": 47.435426163,
+      "unit": "dBohm",
+      "condition_id": "NN_T54_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_T81": {
+      "value": 48.470724008,
+      "unit": "dBohm",
+      "condition_id": "NN_T81_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_T108": {
+      "value": 49.362521658,
+      "unit": "dBohm",
+      "condition_id": "NN_T108_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "transimpedance_supply": {
+      "value": 46.013825299,
+      "unit": "dBohm",
+      "condition_id": "NN_T27_S0p89",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_Hz": {
+      "value": 13781671925.0,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_SS": {
+      "value": 8516754661.6,
+      "unit": "Hz",
+      "condition_id": "SS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_FS": {
+      "value": 15635052677.0,
+      "unit": "Hz",
+      "condition_id": "FS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_SF": {
+      "value": 9548223559.3,
+      "unit": "Hz",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_FF": {
+      "value": 18061930160.0,
+      "unit": "Hz",
+      "condition_id": "FF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_T54": {
+      "value": 11941930012.0,
+      "unit": "Hz",
+      "condition_id": "NN_T54_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_T81": {
+      "value": 10520350954.0,
+      "unit": "Hz",
+      "condition_id": "NN_T81_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_T108": {
+      "value": 9431987201.9,
+      "unit": "Hz",
+      "condition_id": "NN_T108_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_V1p6": {
+      "value": 14017973908.0,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S0p89",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_V1p4": {
+      "value": 12605375932.0,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S0p78",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_V1p2": {
+      "value": 10685666424.0,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S0p67",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_Cpd100": {
+      "value": 8266159682.3,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_Cpd100",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_Cpd150": {
+      "value": 5904451777.5,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_Cpd150",
+      "point": {},
+      "complete": true
+    },
+    "bandwidth_Cpd200": {
+      "value": 4591694561.2,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_Cpd200",
+      "point": {},
+      "complete": true
+    },
+    "quiescent_power_W": {
+      "value": 0.0012405976625,
+      "unit": "W",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "iin_A": -2e-05
+      },
+      "complete": true
+    },
+    "input_noise_max_A_per_rtHz": {
+      "value": 6.7546371509e-12,
+      "unit": "A/sqrt(Hz)",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "band_low_Hz": 2000000000.0,
+        "band_high_Hz": 10000000000.0
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.12
+    },
+    {
+      "job_id": "NN_T27_S1p00/tia_noise_band_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.124
+    },
+    {
+      "job_id": "NN_T27_S1p00/tia_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.126
+    },
+    {
+      "job_id": "NN_T27_S1p00/tia_ac_peak_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 0.214,
+      "cpu_s": 0.121
+    },
+    {
+      "job_id": "SS_T27_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.121
+    },
+    {
+      "job_id": "FS_T27_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.122
+    },
+    {
+      "job_id": "SF_T27_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.124
+    },
+    {
+      "job_id": "FF_T27_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.128
+    },
+    {
+      "job_id": "NN_T54_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.214,
+      "cpu_s": 0.124
+    },
+    {
+      "job_id": "NN_T81_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.217,
+      "cpu_s": 0.124
+    },
+    {
+      "job_id": "NN_T108_S1p00/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.216,
+      "cpu_s": 0.125
+    },
+    {
+      "job_id": "NN_T27_S0p89/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.214,
+      "cpu_s": 0.11900000000000001
+    },
+    {
+      "job_id": "NN_T27_S0p78/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.215,
+      "cpu_s": 0.128
+    },
+    {
+      "job_id": "NN_T27_S0p67/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.216,
+      "cpu_s": 0.125
+    },
+    {
+      "job_id": "NN_T27_S1p00_Cpd100/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.216,
+      "cpu_s": 0.121
+    },
+    {
+      "job_id": "NN_T27_S1p00_Cpd150/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.214,
+      "cpu_s": 0.116
+    },
+    {
+      "job_id": "NN_T27_S1p00_Cpd200/tia_ac_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.218,
+      "cpu_s": 0.12
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 17,
+    "analysis_executions": 17,
+    "condition_evaluations": 14,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 2.088,
+    "execution_wall_s": 1.124,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs",
+    "plan": "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/plan.json",
+    "jobs": [
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00/tia_noise_band_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00/tia_dc_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00/tia_ac_peak_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/SS_T27_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FS_T27_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/SF_T27_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T54_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T81_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T108_S1p00/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S0p89/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S0p78/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S0p67/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00_Cpd100/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00_Cpd150/tia_ac_v1",
+      "<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/NN_T27_S1p00_Cpd200/tia_ac_v1"
+    ]
+  }
+}

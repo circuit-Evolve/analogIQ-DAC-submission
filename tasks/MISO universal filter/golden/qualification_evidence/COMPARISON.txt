@@ -1,0 +1,18 @@
+MISO: 45/45 retained requirements; all five process corners pass with one common sizing.
+Original nine requirements only; bandwidth/resistance/gm remain unscored diagnostics.
+Frequency uses original Cadence expression with 600 points/decade; same sizing passes 1200-point numerical convergence.
+VDD/VSS=+/-0.9V, VCTRL=0.9V, 27C; original LP/BP stimuli, model sections and all device connectivity retained.
+
+Baseline retained nine: 39/45, 1/5 corners. Selected fresh result: 45/45, 5/5 corners.
+
+Metric (unit)              | paper | allowed                   | TT        | FF        | SS        | SF        | FS       
+---------------------------+-------+---------------------------+-----------+-----------+-----------+-----------+----------
+Y1_gain (V/V)              | 0.99  | 0.8415 <= value <= 1.1385 | 0.937271  | 0.933449  | 0.936844  | 0.923603  | 0.943278 
+Y2_gain (V/V)              | 0.99  | 0.8415 <= value <= 1.1385 | 0.929011  | 0.923939  | 0.92951   | 0.914754  | 0.93441  
+IZP_gain (A/A)             | 0.998 | 0.8483 <= value <= 1.1477 | 0.998481  | 0.997609  | 0.998951  | 0.99869   | 0.998014 
+MISO_BP_frequency (MHz)    | 3.98  | 3.383 <= value <= 4.577   | 4.0913565 | 4.5580663 | 3.4393666 | 3.4020869 | 4.560263 
+MISO_quiescent_power (mW)  | 4.69  | 0 <= value <= 5.3935      | 3.5698257 | 4.1186527 | 3.0981134 | 3.092929  | 4.1226853
+BP_noise_in (nV/sqrt(Hz))  | 66.04 | 0 <= value <= 75.946      | 52.519341 | 57.991383 | 44.374488 | 46.32881  | 57.435208
+BP_noise_out (nV/sqrt(Hz)) | 56.84 | 0 <= value <= 65.366      | 58.975693 | 49.982293 | 58.55695  | 61.181768 | 48.241025
+LP_THD (%)                 | 6     | 0 <= value < 6            | 3.6761091 | 3.3219615 | 4.4870652 | 4.4471654 | 3.2756345
+BP_THD (%)                 | 6     | 0 <= value < 6            | 4.2624947 | 3.2284397 | 4.9298807 | 4.9952889 | 3.3354563

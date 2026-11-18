@@ -1,0 +1,98 @@
+{
+ "task": "ptat_lelo_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 1619,
+ "simulator_invocations": 76140,
+ "wall_s": 41208.5,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.825205,
+ "llm_cost_usd_recorded": 0.4126024,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "server crash 2026-11-16 17:26 UTC; finished from history",
+ "error": null,
+ "finished_from_history": {
+  "finished": "2026-11-17T18:46:30",
+  "verify_wall_s": 190.6,
+  "script": "<RUNS>/lasoboss_lab_20261116/finish_from_history.py"
+ },
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.8670773737025004
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.8877345558249745
+  },
+  {
+   "phase": 3,
+   "evals": 401,
+   "best_score": 0.9060580079781692
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.9044985718382006
+  },
+  {
+   "phase": 5,
+   "evals": 116,
+   "best_score": 0.9009940608702927
+  }
+ ],
+ "best": {
+  "eval": 767,
+  "round": 3,
+  "f": 0.18048326509216284,
+  "loss": 0.09394199202183084,
+  "reward": 0.9060580079781692,
+  "score": 0.9060580079781692,
+  "targets_met": 87,
+  "targets": 107,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_MIR": 1.082430671426461e-06,
+   "L_MIR": 1.2948318193428537e-05,
+   "NF_MIR": 8.0,
+   "W_CAS": 3.0311889031156907e-06,
+   "L_CAS": 6.840891123174237e-07,
+   "NF_CAS": 49.0,
+   "W_NLD": 2.519082762289637e-06,
+   "L_NLD": 4.432979184407692e-06,
+   "NF_NLD": 62.0,
+   "W_PMIR": 6.412877846929952e-06,
+   "L_PMIR": 5.098729525892702e-06,
+   "NF_PMIR": 50.0,
+   "W_LVT": 1.6913867384232473e-06,
+   "L_LVT": 1.8270023235364136e-06,
+   "NF_LVT": 9.0,
+   "W_NCR": 4.213963329980576e-07,
+   "L_NCR": 1.0176614384145213e-06,
+   "NF_NCR": 17.0,
+   "W_BS": 4.3600256975504885e-06,
+   "L_BS": 3.035133526829751e-06,
+   "NF_BS": 45.0,
+   "W_RLAD": 9.014257939365815e-07,
+   "L_RLAD": 1.8582095954605213e-05,
+   "W_RTAIL": 2.2610896672092787e-06,
+   "L_RTAIL": 4.260043655894541e-05,
+   "W_CLPI": 7.0363955665522505e-06,
+   "L_CLPI": 4.486439265603251e-06,
+   "W_CVCP": 2.2372334251691502e-05,
+   "L_CVCP": 1.8498491254855935e-05
+  }
+ }
+}

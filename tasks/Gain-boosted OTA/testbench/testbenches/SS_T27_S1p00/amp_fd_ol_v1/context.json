@@ -1,0 +1,341 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "SS_T27_S1p00/amp_fd_ol_v1",
+ "recipe_id": "amp_fd_ol_v1",
+ "recipe_version": 3,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "SS_T27_S1p00/amp_fd_ol_v1",
+  "condition": {
+   "id": "SS_T27_S1p00",
+   "model_set": "SS",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "SS"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "supply_negative_V": 0.0,
+   "input_common_mode_V": 0.8,
+   "output_common_mode_V": 1.09,
+   "load_capacitance_F": 1e-12
+  },
+  "recipe_settings": {
+   "start_Hz": 1.0,
+   "stop_Hz": 10000000000.0,
+   "points_per_decade": 20,
+   "low_frequency_Hz": 1.0
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "gbfc21",
+   "family": "amplifier",
+   "interface_type": "differential_input_differential_output",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "gbfc21_dut",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "VINM",
+     "VINP",
+     "VOUTM",
+     "VOUTP",
+     "VCM",
+     "Vb1",
+     "N_VB1",
+     "N_VB2",
+     "N_VB3",
+     "N_VB4",
+     "P_VB1",
+     "P_VB2",
+     "P_VB3",
+     "P_VB4"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input_positive": "VINP",
+    "input_negative": "VINM",
+    "output": "VOUTM",
+    "output_negative": "VOUTP",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS",
+    "output_common_mode_reference": "VCM"
+   },
+   "external_bias": {
+    "Vb1": {
+     "kind": "current_reference",
+     "device": "pmos1",
+     "w_m": 1.8e-05,
+     "l_m": 1.8e-07,
+     "value": 1e-05,
+     "provenance": "sizing variable I_B1"
+    },
+    "N_VB1": {
+     "kind": "current_reference",
+     "device": "pmos1",
+     "w_m": 1.8e-06,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_NB1"
+    },
+    "N_VB2": {
+     "kind": "current_reference",
+     "device": "pmos1",
+     "w_m": 5e-07,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_NB2"
+    },
+    "N_VB3": {
+     "kind": "current_reference",
+     "device": "nmos1",
+     "w_m": 5e-07,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_NB3"
+    },
+    "N_VB4": {
+     "kind": "current_reference",
+     "device": "nmos1",
+     "w_m": 9e-07,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_NB4"
+    },
+    "P_VB1": {
+     "kind": "current_reference",
+     "device": "pmos1",
+     "w_m": 2.41e-06,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_PB1"
+    },
+    "P_VB2": {
+     "kind": "current_reference",
+     "device": "pmos1",
+     "w_m": 5e-07,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_PB2"
+    },
+    "P_VB3": {
+     "kind": "current_reference",
+     "device": "nmos1",
+     "w_m": 5e-07,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_PB3"
+    },
+    "P_VB4": {
+     "kind": "current_reference",
+     "device": "nmos1",
+     "w_m": 3.4e-06,
+     "l_m": 1e-06,
+     "value": 1e-05,
+     "provenance": "sizing variable I_PB4"
+    }
+   },
+   "op_check": {
+    "exclude": [
+     "N_Mn5",
+     "N_Mn6",
+     "P_Mp7",
+     "P_Mp8"
+    ]
+   }
+  },
+  "subckt_name": "gbfc21_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_P1": 1e-06,
+   "L_P1": 1e-06,
+   "M_P1": 1.0,
+   "W_P3": 1e-06,
+   "L_P3": 1e-06,
+   "W_P5": 1e-06,
+   "L_P5": 1e-06,
+   "W_P7": 1e-06,
+   "L_P7": 1e-06,
+   "W_P8": 1e-06,
+   "L_P8": 1e-06,
+   "W_P11": 1e-06,
+   "L_P11": 1e-06,
+   "M_P11": 1.0,
+   "W_P13": 1e-06,
+   "L_P13": 1e-06,
+   "M_P13": 1.0,
+   "W_N1": 1e-06,
+   "L_N1": 1e-06,
+   "W_N3": 1e-06,
+   "L_N3": 1e-06,
+   "M_N3": 1.0,
+   "W_N9": 1e-06,
+   "L_N9": 1e-06,
+   "W_N10": 1e-06,
+   "L_N10": 1e-06,
+   "W_NA1": 1e-06,
+   "L_NA1": 1e-06,
+   "W_NA3": 1e-06,
+   "L_NA3": 1e-06,
+   "W_NA_C": 1e-06,
+   "L_NA_C": 1e-06,
+   "W_NA_S": 1e-06,
+   "L_NA_S": 1e-06,
+   "W_NA5": 1e-06,
+   "L_NA5": 1e-06,
+   "W_NA7": 1e-06,
+   "L_NA7": 1e-06,
+   "W_NA9": 1e-06,
+   "L_NA9": 1e-06,
+   "W_PA1": 1e-06,
+   "L_PA1": 1e-06,
+   "W_PA3": 1e-06,
+   "L_PA3": 1e-06,
+   "W_PA5": 1e-06,
+   "L_PA5": 1e-06,
+   "W_PA7": 1e-06,
+   "L_PA7": 1e-06,
+   "M_PA7": 1.0,
+   "W_PA9": 1e-06,
+   "L_PA9": 1e-06,
+   "W_PA_C": 1e-06,
+   "L_PA_C": 1e-06,
+   "W_PA_S": 1e-06,
+   "L_PA_S": 1e-06,
+   "M_P3": 1.0,
+   "M_P5": 1.0,
+   "M_P7": 1.0,
+   "M_P8": 1.0,
+   "M_N1": 1.0,
+   "M_N9": 1.0,
+   "M_N10": 1.0,
+   "M_NA1": 1.0,
+   "M_NA3": 1.0,
+   "M_NA_C": 1.0,
+   "M_NA_S": 1.0,
+   "M_NA5": 1.0,
+   "M_NA7": 1.0,
+   "M_NA9": 1.0,
+   "M_PA1": 1.0,
+   "M_PA3": 1.0,
+   "M_PA5": 1.0,
+   "M_PA9": 1.0,
+   "M_PA_C": 1.0,
+   "M_PA_S": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "I_B1": 1e-05,
+   "I_NB1": 1e-05,
+   "I_NB2": 1e-05,
+   "I_NB3": 1e-05,
+   "I_NB4": 1e-05,
+   "I_PB1": 1e-05,
+   "I_PB2": 1e-05,
+   "I_PB3": 1e-05,
+   "I_PB4": 1e-05
+  },
+  "bias_variables": {
+   "Vb1": "I_B1",
+   "N_VB1": "I_NB1",
+   "N_VB2": "I_NB2",
+   "N_VB3": "I_NB3",
+   "N_VB4": "I_NB4",
+   "P_VB1": "I_PB1",
+   "P_VB2": "I_PB2",
+   "P_VB3": "I_PB3",
+   "P_VB4": "I_PB4"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

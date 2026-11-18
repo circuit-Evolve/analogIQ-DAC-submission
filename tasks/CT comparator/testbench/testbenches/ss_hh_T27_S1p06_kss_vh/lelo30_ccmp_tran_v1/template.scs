@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ccmp_lelo_task_001  topology ccmp_lelo
+// recipe lelo30_ccmp_tran_v1 v1  condition ss_hh_T27_S1p06_kss_vh (models ss_hh, 27 C, supply 1.9 V)
+// request ccmp_lelo_task_001__plan  candidate 0efbac8fdb741303
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=ss_hh
+include "dut.scs"
+
+parameters vc=0.75 ibias=1e-06 vsup=1.9000008 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_PWRUP_B_1V8 (vdd b_PWRUP_B_1V8) vsource dc=0.0
+VB_PWRUP_N_1V8 (b_PWRUP_N_1V8 0) vsource dc=0.0
+IB_IBP_1U_1 (vdd b_IBP_1U_1) isource dc=1e-06
+
+VRST (rst 0) vsource type=pwl wave=[0 1.9000008 2e-07 1.9000008 2.001e-07 0]
+VC (inn 0) vsource dc=vc
+// IRAMP: the ramp current charges the integrating node (repository tran.spi IRAMP VDD_1V8 IBP_1U<0>)
+IRAMP (vdd inp) isource dc=ibias
+
+XDUT (vdd b_PWRUP_B_1V8 b_PWRUP_N_1V8 vss b_IBP_1U_1 inp outp inn rst) ccmp_lelo_dut L_BIAS={{L_BIAS}} L_CAP={{L_CAP}} L_CS={{L_CS}} L_DIFF={{L_DIFF}} L_NLOAD={{L_NLOAD}} L_PTAIL={{L_PTAIL}} L_RST={{L_RST}} NF_BIAS={{NF_BIAS}} NF_CS={{NF_CS}} NF_DIFF={{NF_DIFF}} NF_NLOAD={{NF_NLOAD}} NF_PTAIL={{NF_PTAIL}} NF_RST={{NF_RST}} W_BIAS={{W_BIAS}} W_CAP={{W_CAP}} W_CS={{W_CS}} W_DIFF={{W_DIFF}} W_NLOAD={{W_NLOAD}} W_PTAIL={{W_PTAIL}} W_RST={{W_RST}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_PWRUP_B_1V8:p VB_PWRUP_N_1V8:p VNEG:p VSUP:p inn inp outp rst vdd vss
+
+tran1 tran stop=6e-07 maxstep=1e-10 errpreset=moderate

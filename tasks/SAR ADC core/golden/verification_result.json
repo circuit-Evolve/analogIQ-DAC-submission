@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_sar24_liang_task_001",
+  "task_id": "sar24_liang_task_001",
+  "topology_id": "sar24_liang",
+  "candidate_hash": "aeff90be1ea5399a767ec065d7559fd818405efd0c311e36a42e3a4d3c547728",
+  "evaluator_hash": "fcc54e3f8388f745c4d1db992292bf56c72fa2d50ee18260c67c90f7ff6a1dc3",
+  "digests": {
+    "task": "44b779139c45689531940b2771ff2d8e6c61fb730b53674a7f16b87add7d13f5",
+    "candidate": "aeff90be1ea5399a767ec065d7559fd818405efd0c311e36a42e3a4d3c547728",
+    "parameterization": "ade2323a06286a6a6ef0c6863db4c167f5308bcced31f8072c613939be98a94f",
+    "dut_source_netlist": "18f0475808958dcf284678cdd18f7d7153d1eca578d2f1a65f758cb199485a53",
+    "dut_subckt": "a596348f7bdd5d8639b0cf506ae7305ddaa708bcf7aff7c776f74cbb06b3b4ab",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "ad227284df95e84217f1750f2ddcddc6d0e2a4e328c4317f0cfa10ea60f1bc88",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "fcc54e3f8388f745c4d1db992292bf56c72fa2d50ee18260c67c90f7ff6a1dc3"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 8,
+    "completed_measurement_checks": 8,
+    "valid_measurement_checks": 8
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "sndr_dB",
+      "value": 73.87890605844848,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1",
+      "constraints": [
+        "sndr"
+      ],
+      "constraint": {
+        "lower": 65.04242509439325
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "snr_dB",
+      "value": 73.97527484299,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1",
+      "constraints": [
+        "snr"
+      ],
+      "constraint": {
+        "lower": 65.24242509439325
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "sfdr_dB",
+      "value": 85.65861727104394,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1",
+      "constraints": [
+        "sfdr"
+      ],
+      "constraint": {
+        "lower": 79.14242509439325
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "thd_dB",
+      "value": -90.46548064972225,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1"
+    },
+    {
+      "metric": "enob_bit",
+      "value": 11.979884727317023,
+      "unit": "bit",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1",
+      "constraints": [
+        "enob"
+      ],
+      "constraint": {
+        "lower": 9.54
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "power_W",
+      "value": 0.00035865778238663927,
+      "unit": "W",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1",
+      "constraints": [
+        "power"
+      ],
+      "constraint": {
+        "upper": 0.00040040000000000003
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "comparator_delay_s",
+      "value": 4.028258428772283e-10,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1",
+      "constraints": [
+        "comparator_delay"
+      ],
+      "constraint": {
+        "upper": 4.4000000000000003e-10
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "valid_conversions",
+      "value": 256.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_dynamic_v1"
+    },
+    {
+      "metric": "inl_abs_max_lsb",
+      "value": 0.006514426468037589,
+      "unit": "LSB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_static_v1",
+      "constraints": [
+        "inl"
+      ],
+      "constraint": {
+        "upper": 1.0230000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "dnl_abs_max_lsb",
+      "value": 0.0021290845548027626,
+      "unit": "LSB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_static_v1",
+      "constraints": [
+        "dnl"
+      ],
+      "constraint": {
+        "upper": 0.8800000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "dac_gain",
+      "value": 0.9984320633946224,
+      "unit": "",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "tran",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "sar_static_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "sndr": {
+      "value": 73.87890605844848,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "snr": {
+      "value": 73.97527484299,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "sfdr": {
+      "value": 85.65861727104394,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "enob": {
+      "value": 11.979884727317023,
+      "unit": "bit",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "power": {
+      "value": 0.00035865778238663927,
+      "unit": "W",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "comparator_delay": {
+      "value": 4.028258428772283e-10,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "inl": {
+      "value": 0.006514426468037589,
+      "unit": "LSB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "dnl": {
+      "value": 0.0021290845548027626,
+      "unit": "LSB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/sar_dynamic_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 56.659,
+      "cpu_s": 52.7
+    },
+    {
+      "job_id": "NN_T27_S1p00/sar_static_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 17.818,
+      "cpu_s": 14.6
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 2,
+    "analysis_executions": 2,
+    "condition_evaluations": 1,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 67.3,
+    "execution_wall_s": 67.672,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/sar24_liang_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/sar24_liang_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/sar24_liang_task_001/NN_T27_S1p00/sar_dynamic_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/sar24_liang_task_001/NN_T27_S1p00/sar_static_v1"
+    ]
+  }
+}

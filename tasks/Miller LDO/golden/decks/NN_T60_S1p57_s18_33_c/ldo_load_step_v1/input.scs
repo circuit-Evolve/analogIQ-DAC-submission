@@ -1,0 +1,34 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ldo24m_miller_task_001  topology ldo24m_miller
+// recipe ldo_load_step_v1 v1  condition NN_T60_S1p57_s18_33_c (models NN, 60 C, supply 3.3 V)
+// request golden_ldo24m_miller_task_001  candidate 92722af89d1a6403
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vin=3.2999988000000005 iload=0.07 cout=5e-11
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS=0.5366334571987345
+// Supplies (charged to the DUT power metrics).
+VIN (vin 0) vsource dc=vin
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+VB_ENABLE (b_ENABLE 0) vsource dc=0.0
+
+VREFS (vref 0) vsource dc=1.2
+// Load: ideal current sink out->ground and output capacitor (+ESR).
+ILOAD (out 0) isource type=pulse val0=0.001 val1=0.07 delay=4e-05 rise=2e-06 fall=2e-06 width=3.8e-05 period=8e-05
+COUT (out 0) capacitor c=cout
+
+XDUT (vin b_VSS vref b_VBIAS b_ENABLE out) ldo24m_miller_dut C_EA=3.559701666949974e-13 C_F=1.2109464612028442e-11 L_CM=5.184219043653652e-07 L_EA2=1.99915252261674e-06 L_EAIN=2.24880190566467e-06 L_EAL=1.2333384268444895e-06 L_EAS=1.616078556483745e-06 L_EAT=2.9970193646535408e-06 L_MAB=6.798880437184044e-07 L_MCR=7.603922072908872e-06 L_MSW=4.186824600793429e-07 L_PASS=3.0031879113208985e-07 L_RFB=7.371708438376383e-07 L_WLB=9.458726116173424e-07 L_WLS=1.3360342093575552e-06 N_PASS=243.0 W_CM=3.3838201067244906e-06 W_EA2=4.8813348474016104e-05 W_EAIN=1.417535532684865e-05 W_EAL=1.239447261577426e-06 W_EAS=2.241586840284553e-06 W_EAT=1.379967110649612e-05 W_MAB=5.869974442355513e-06 W_MCR=1.4050021313860443e-06 W_MSW=5.010609552037965e-05 W_PASS=1.6922855977643836e-05 W_RFB=1.3620807697516766e-05 W_WLB=1.5486743372861277e-05 W_WLS=6.4959250892237435e-06
+
+opts options temp=60.0 tnom=27 reltol=0.0001 save=selected
+save VB_ENABLE:p VB_VBIAS:p VB_VSS:p VIN:p XDUT.N2 XDUT.NCF XDUT.VFB XDUT.VG out vin vref
+
+tr1 tran stop=0.00012000000000000002 maxstep=1e-08 errpreset=moderate
+simulator lang=spice
+.include 'measures.sp'
+.end

@@ -1,0 +1,193 @@
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence, Virtuoso and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: curator   Host: g4-vm   HostID: 8E0A0200   PID: 375717
+Memory  available: 105.4633 GB  physical: 189.5854 GB
+CPU Type: AMD EPYC 9B45
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [4113.4] ( 24 ),  1 [4117.8] ( 25 ),  2 [2700.0] ( 26 )
+                 3 [4117.8] ( 27 ),  4 [2700.0] ( 28 ),  5 [2700.0] ( 29 )
+                 6 [2700.0] ( 30 ),  7 [2700.0] ( 31 ),  8 [2700.0] ( 32 )
+                 9 [2700.0] ( 33 ), 10 [2700.0] ( 34 ), 11 [4136.0] ( 35 )
+                12 [2700.0] ( 36 ), 13 [4136.0] ( 37 ), 14 [4127.6] ( 38 )
+                15 [2700.0] ( 39 ), 16 [4127.1] ( 40 ), 17 [2700.0] ( 41 )
+                18 [2700.0] ( 42 ), 19 [2700.0] ( 43 ), 20 [2700.0] ( 44 )
+                21 [4127.1] ( 45 ), 22 [4127.1] ( 46 ), 23 [4127.1] ( 47 )
+        
+System load averages (1min, 5min, 15min) : 17.2 %, 6.6 %, 7.9 %
+Hyperthreading is enabled
+
+
+Simulating `<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/input.scs' on g4-vm at 11:24:19 AM, Fri Nov 13, 2026 (process id: 375717).
+Current working directory: <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1
+Command line:
+    /opt/cadence/rootfs/opt/MMSIM151/tools/bin/spectre -64 +escchars  \
+        =log  \
+        <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/spectre.log  \
+        -format psfascii -raw  \
+        <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/raw  \
+        <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/input.scs
+
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/input.scs
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_mos.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_mos_iso.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_resistor.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/resd_va.va
+Reading link:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/rnoise_va.va
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_capacitor.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_diode.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs
+Reading file:  <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/dut.scs
+Time for NDB Parsing: CPU = 71.683 ms, elapsed = 83.7131 ms.
+Time accumulated: CPU = 80.172 ms, elapsed = 83.715 ms.
+Peak resident memory used = 75.6 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre  0 (37.5 %)      1 (100.0 %)     2 (12.5 %)      3 (100.0 %)
+                 4 (12.5 %)      6 (11.1 %)     11 (87.5 %)     12 (10.0 %)
+                13 (100.0 %)    14 (87.5 %)     16 (100.0 %)    20 (62.5 %)
+                21 (100.0 %)    22 (100.0 %)    23 (100.0 %)    24 (37.5 %)
+                26 (44.4 %)     27 (44.4 %)     28 (11.1 %)     29 (11.1 %)
+                30 (22.2 %)     32 (88.9 %)     34 (11.1 %)     38 (11.1 %)
+                39 (100.0 %)    44 (40.0 %)     
+        Other   
+
+Warning from spectre during hierarchy flattening.
+    WARNING (SFE-884): "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/input.scs" 27: The option 'reltol' is deleted because it is redefined at '<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/input.scs':line '30'.
+
+Time for Elaboration: CPU = 14.461 ms, elapsed = 14.5011 ms.
+Time accumulated: CPU = 94.681 ms, elapsed = 98.263 ms.
+Peak resident memory used = 83.7 Mbytes.
+
+Time for EDB Visiting: CPU = 938 us, elapsed = 942.945 us.
+Time accumulated: CPU = 95.668 ms, elapsed = 99.2539 ms.
+Peak resident memory used = 84.4 Mbytes.
+
+
+Warning from spectre during initial setup.
+    WARNING (CMI-2477): XDUT.FD1Pp: `Rds' = 7.64381 uOhm is less than 0.001. Set to 0.
+    WARNING (CMI-2477): XDUT.OTA1.M18: `Rds' = 9.02904 uOhm is less than 0.001. Set to 0.
+    WARNING (CMI-2477): XDUT.OTA1.M28: `Rds' = 2.50021 uOhm is less than 0.001. Set to 0.
+    WARNING (CMI-2477): XDUT.OTA1.M27: `Rds' = 2.67878 uOhm is less than 0.001. Set to 0.
+    WARNING (CMI-2477): XDUT.OTA1.M24: `Rds' = 3.24555 uOhm is less than 0.001. Set to 0.
+        Further occurrences of this warning will be suppressed.
+
+Global user options:
+               temp = 27
+               tnom = 27
+               save = selected
+             reltol = 1e-06
+            vabstol = 1e-09
+            iabstol = 1e-14
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 30
+            bsim3v3 144   
+          capacitor 4     
+            vsource 6     
+
+Analysis and control statement inventory:
+                 ac 1     
+                 dc 1     
+               info 1     
+              noise 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 1     
+
+
+Notice from spectre.
+    17 warnings suppressed.
+
+Time for parsing: CPU = 1.492 ms, elapsed = 1.7128 ms.
+Time accumulated: CPU = 97.192 ms, elapsed = 100.999 ms.
+Peak resident memory used = 86.2 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+op_info: writing operating point information to rawfile.
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/raw/op_info.info ...
+DC simulation time: CPU = 1.23 ms, elapsed = 1.23501 ms.
+
+******************
+DC Analysis `dcOp'
+******************
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/raw/dcOp.dc ...
+Important parameter values:
+    reltol = 1e-06
+    abstol(V) = 1 nV
+    abstol(I) = 10 fA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    gmindc = 1 pS
+Convergence achieved in 2 iterations.
+Total time required for dc analysis `dcOp': CPU = 482 us, elapsed = 546.932 us.
+Time accumulated: CPU = 103.945 ms, elapsed = 108.061 ms.
+Peak resident memory used = 88.3 Mbytes.
+
+
+******************************************
+AC Analysis `ac': freq = (1 Hz -> 100 GHz)
+******************************************
+
+Notice from spectre during AC analysis `ac'.
+    Operating points will not be recomputed: the circuit and conditions were not changed since previous analysis.
+
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/raw/ac.ac ...
+......9......8......7......6......5......4......3......2......1......0
+Accumulated DC solution time = 0 s.
+Intrinsic ac analysis time =              0 s.
+Total time required for ac analysis `ac': CPU = 144.785 ms, elapsed = 145.025 ms.
+Time accumulated: CPU = 249.002 ms, elapsed = 253.719 ms.
+Peak resident memory used = 88.3 Mbytes.
+
+
+**********************************************
+Noise Analysis `noise': freq = (1 Hz -> 1 GHz)
+**********************************************
+
+Notice from spectre during Noise analysis `noise'.
+    Operating points will not be recomputed: the circuit and conditions were not changed since previous analysis.
+
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1/raw/noise.noise ...
+......9......8......7......6......5......4......3......2......1......0
+Accumulated DC solution time = 0 s.
+Intrinsic noise analysis time =              0 s.
+Total time required for noise analysis `noise': CPU = 957.262 ms, elapsed = 961.336 ms.
+Time accumulated: CPU = 1.21161 s, elapsed = 1.46456 s.
+Peak resident memory used = 89 Mbytes.
+
+
+Aggregate audit (11:24:20 AM, Fri Nov 13, 2026):
+Time used: CPU = 1.22 s, elapsed = 1.47 s, util. = 82.8%.
+Time spent in licensing: elapsed = 42.4 ms.
+Peak memory used = 89 Mbytes.
+Simulation started at: 11:24:19 AM, Fri Nov 13, 2026, ended at: 11:24:20 AM, Fri Nov 13, 2026, with elapsed time (wall clock): 1.47 s.
+spectre completes with 0 errors, 6 warnings, and 3 notices.

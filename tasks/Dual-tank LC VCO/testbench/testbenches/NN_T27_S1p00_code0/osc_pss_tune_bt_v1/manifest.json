@@ -1,0 +1,155 @@
+{
+  "job_id": "NN_T27_S1p00_code0/osc_pss_tune_bt_v1",
+  "recipe_id": "osc_pss_tune_bt_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T27_S1p00_code0",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 0.85,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "label": "code0",
+    "external_bias": {
+      "S0": 0.0,
+      "S1": 0.0,
+      "S2": 0.0,
+      "S3": 0.0
+    },
+    "is_nominal": false,
+    "supply_span_V": 0.85
+  },
+  "points": [
+    {
+      "vctrl_V": 0.0
+    },
+    {
+      "vctrl_V": 0.3
+    },
+    {
+      "vctrl_V": 0.6
+    },
+    {
+      "vctrl_V": 0.9
+    },
+    {
+      "vctrl_V": 1.2
+    },
+    {
+      "vctrl_V": 0.0,
+      "offset_Hz": 100000.0
+    },
+    {
+      "vctrl_V": 0.0,
+      "offset_Hz": 800000.0
+    },
+    {
+      "vctrl_V": 0.0,
+      "offset_Hz": 10000000.0
+    },
+    {
+      "vctrl_V": 0.3,
+      "offset_Hz": 100000.0
+    },
+    {
+      "vctrl_V": 0.3,
+      "offset_Hz": 800000.0
+    },
+    {
+      "vctrl_V": 0.3,
+      "offset_Hz": 10000000.0
+    },
+    {
+      "vctrl_V": 0.6,
+      "offset_Hz": 100000.0
+    },
+    {
+      "vctrl_V": 0.6,
+      "offset_Hz": 800000.0
+    },
+    {
+      "vctrl_V": 0.6,
+      "offset_Hz": 10000000.0
+    },
+    {
+      "vctrl_V": 0.9,
+      "offset_Hz": 100000.0
+    },
+    {
+      "vctrl_V": 0.9,
+      "offset_Hz": 800000.0
+    },
+    {
+      "vctrl_V": 0.9,
+      "offset_Hz": 10000000.0
+    },
+    {
+      "vctrl_V": 1.2,
+      "offset_Hz": 100000.0
+    },
+    {
+      "vctrl_V": 1.2,
+      "offset_Hz": 800000.0
+    },
+    {
+      "vctrl_V": 1.2,
+      "offset_Hz": 10000000.0
+    },
+    {
+      "curve": "tuning"
+    },
+    {
+      "target": "tuned"
+    },
+    {
+      "target": "tuned",
+      "offset_Hz": 100000.0
+    },
+    {
+      "target": "tuned",
+      "offset_Hz": 800000.0
+    },
+    {
+      "target": "tuned",
+      "offset_Hz": 10000000.0
+    }
+  ],
+  "expected_outputs": [],
+  "expected_metrics": [
+    "pss_frequency_Hz",
+    "pss_power_W",
+    "output_vpp_V",
+    "amplitude_ratio",
+    "tuning_range_Hz",
+    "kvco_Hz_per_V",
+    "max_min_frequency_ratio",
+    "tuning_range_pct",
+    "vf_linearity_error_pct",
+    "amplitude_ratio_min",
+    "amplitude_ratio_max",
+    "vctrl_at_target_V",
+    "target_frequency_Hz",
+    "output_min_V",
+    "output_max_V",
+    "phase_noise_dBc_per_Hz",
+    "fom_dBc_per_Hz"
+  ],
+  "digests": {
+    "task": "fae22f3fa3c5eb8860fa97d88e69d41034353447d1fb6cfc7ae4d8eda4d2051c",
+    "candidate": "e3d3eb6b52c9bee353fc8ba6e4886c033d5f15ee677fbff5e4b1cd0b194a85f8",
+    "parameterization": "3bc93092db4c92d01b793d229df7d231d7a190146f71b82e043aab7a6a91f6c2",
+    "dut_source_netlist": "5d4b7e56392b039d75e0c6e7db5cf978047687e3fd26de2713af29be2382a471",
+    "dut_subckt": "aa088acb5750e45d79d5660981ddd5dfad433e6026e1abeac2f0162821fc2802",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "dcd8e6f8d0f7d549716184a74bfe83773de84632841d1c3ef065aefe21046906",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "e44abd796fe8d99ea1e1a7c90691a2246d8271e99600629e0b2434ed3c6c2337"
+  },
+  "state": "rendered"
+}

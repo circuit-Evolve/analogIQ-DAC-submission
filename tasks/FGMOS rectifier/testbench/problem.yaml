@@ -1,0 +1,1084 @@
+schema: analogiq.sizing_problem/1
+task_id: fgmos_rectifier_101126_task_001
+topology_id: fgmos_rectifier_101126
+family: rectifier
+technology_id: gpdk180
+parameterization_id: fgmos_rectifier_101126_p1_counts_20261112
+execution_profile: search_full
+description: 'FGMOS current-mode full-wave rectifier (Chhabra, Aggarwal, Senani, IEMECON 2023, Fig. 4) in gpdk180 at VDD = 0.7 V: DC transfer
+  over Iin = -35..35 uA (static / maximum VDD power, maximum deviation of Iout from |Iin| in % of 35 uA full scale) and the -3 dB bandwidth of
+  the current transfer at Iin = 17.5 uA, at the five process corners (27 C) and at -27 / 0 / 100 C (NN). Fixture and extraction as the replay
+  pack (Cadence DC_AC_tb): ideal floating input current source X <- Y, output held at 0.7 V, power = VDD only. User decision 2026-11-12: validity
+  gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced. Diagnostics are not a gate pass or physical
+  qualification. User decision 2026-11-12: validity gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced.
+  Diagnostics are not a gate pass or physical qualification.'
+source:
+  title: 'A. Chhabra, B. Aggarwal, R. Senani, "Low Voltage Squarer/Divider Circuit based on FGMOS", IEMECON 2023: full-wave rectifier of Fig.
+    4 (squarer/divider of Fig. 3 with the current-mirror feedback M9/M11-M13 and output device M14)'
+  doi: 10.1109/IEMECON56962.2023.10092333
+  figure: Fig. 4 (FWR), Fig. 1 (2-input p-channel FGMOS model), Table I (aspect ratios); paper/paper.pdf
+variables:
+- name: W_IN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'input diodes M3 (node X) / M5 (node Y) of the two translinear loops: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    - M5
+    parameter: w
+- name: L_IN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'input diodes M3 / M5: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    - M5
+    parameter: l
+- name: W_CAS
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'loop transistors M4 (Z-X) / M6 (Z-Y), gate C: carry the squared current into the summing node Z: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    - M6
+    parameter: w
+- name: L_CAS
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'loop transistors M4 / M6: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    - M6
+    parameter: l
+- name: W_B1
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias diode M1 (upper, node C = loop gate voltage, carries I_B): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: w
+- name: L_B1
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'bias diode M1: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: l
+- name: W_B2
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias diode M2 (lower, node BIAS, carries I_B): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: w
+- name: L_B2
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'bias diode M2: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: l
+- name: W_SQ
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'squarer output diode M9 at node SQ (M10 in parallel = 2 x this width, dependent W_M10): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M9
+    parameter: w
+- name: L_SQ
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'squarer output diodes M9 / M10: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M9
+    - M10
+    parameter: l
+- name: W_FB
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'feedback mirror M11 (SQ -> PMBIAS: copies I_SQ into the bias loop, I_B = I_SQ): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M11
+    parameter: w
+- name: L_FB
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'feedback mirror M11: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M11
+    parameter: l
+- name: W_PM
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS bias-mirror diode M12 (node PMBIAS): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M12
+    parameter: w
+- name: L_PM
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS bias-mirror diode M12: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M12
+    parameter: l
+- name: W_PMO
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS bias-mirror output M13 (feeds I_B into the M1/M2 diode stack, node C): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M13
+    parameter: w
+- name: L_PMO
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS bias-mirror output M13: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M13
+    parameter: l
+- name: W_OUT
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output device M14 (mirrors node SQ to the output; paper: sqrt(8) x M9 makes I_out = |Iin|): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M14
+    parameter: w
+- name: L_OUT
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output device M14: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M14
+    parameter: l
+- name: W_FG
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'p-channel FGMOS core MP of M7 (diode-like, node Z) and M8 (mirror to SQ), subckt fgpmos: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - fgpmos.MP
+    parameter: w
+- name: L_FG
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'p-channel FGMOS core MP of M7 / M8: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - fgpmos.MP
+    parameter: l
+- name: C_BIAS
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'FGMOS input capacitor C1 (bias input VBIAS -> floating gate) of M7 / M8: AC coupling of the bias input (sets the effective threshold
+    tuning ratio C1/CT)'
+  binding:
+    type: instance_parameter
+    instances:
+    - fgpmos.C1
+    parameter: c
+- name: C_SIG
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'FGMOS input capacitor C2 (signal input -> floating gate) of M7 / M8: signal coupling ratio C2/CT'
+  binding:
+    type: instance_parameter
+    instances:
+    - fgpmos.C2
+    parameter: c
+- name: V_BIAS
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 0.7
+  scale: lin
+  start: 0.35
+  quantity: bias_voltage
+  role: 'FGMOS bias-input voltage V1 (pin VBIAS, both FGMOS): tunes their effective threshold (paper eq. 6)'
+  binding:
+    type: external_bias
+    pin: VBIAS
+- name: M_IN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M3, M5; matched sizing group W_IN
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    - M5
+    parameter: m
+- name: M_CAS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M4, M6; matched sizing group W_CAS
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    - M6
+    parameter: m
+- name: M_B1
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M1; matched sizing group W_B1
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: m
+- name: M_B2
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M2; matched sizing group W_B2
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: m
+- name: M_SQ
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M9, M10; matched sizing group W_SQ
+  binding:
+    type: instance_parameter
+    instances:
+    - M9
+    - M10
+    parameter: m
+- name: M_FB
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M11; matched sizing group W_FB
+  binding:
+    type: instance_parameter
+    instances:
+    - M11
+    parameter: m
+- name: M_PM
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M12; matched sizing group W_PM
+  binding:
+    type: instance_parameter
+    instances:
+    - M12
+    parameter: m
+- name: M_PMO
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M13; matched sizing group W_PMO
+  binding:
+    type: instance_parameter
+    instances:
+    - M13
+    parameter: m
+- name: M_OUT
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M14; matched sizing group W_OUT
+  binding:
+    type: instance_parameter
+    instances:
+    - M14
+    parameter: m
+- name: M_FG
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for fgpmos.MP; matched sizing group W_FG
+  binding:
+    type: instance_parameter
+    instances:
+    - fgpmos.MP
+    parameter: m
+dependent_parameters:
+  W_M10:
+    expression: 2*W_SQ
+    role: 'squarer diode M10 in parallel with M9: twice its width (the paper''s Table I ratio M10 : M9 = 2 : 1, kept by the golden design)'
+    binding:
+      type: instance_parameter
+      instances:
+      - M10
+      parameter: w
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: true
+- id: FF_T27_S1p00
+  model_set: FF
+  temperature_C: 27.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T27_S1p00
+  model_set: SS
+  temperature_C: 27.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T27_S1p00
+  model_set: FS
+  temperature_C: 27.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T27_S1p00
+  model_set: SF
+  temperature_C: 27.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+- id: NN_Tm27_S1p00
+  model_set: NN
+  temperature_C: -27.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T0_S1p00
+  model_set: NN
+  temperature_C: 0.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T100_S1p00
+  model_set: NN
+  temperature_C: 100.0
+  supply_V: 0.7
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 0.7
+    provenance: 'paper abstract and Sec. IV: VDD = 0.7 V; replay corners.json supply_V 0.7'
+  output_voltage_V:
+    value: 0.7
+    provenance: 'replay corners.json output_compliance_V 0.7 (decks: OUT_SRC (OUT 0) vsource dc=.7); the paper does not state the output termination
+      (replay qualification: "retained interpretation")'
+  input_bias_current_A:
+    value: 1.75e-05
+    provenance: 'replay corners.json ac_input_bias_A 1.75e-5 (decks: IIN (Y X) isource dc=17.5u mag=1): the DC input current of the AC test; the
+      paper does not state it (replay qualification)'
+constraints:
+- name: static_power
+  metric: static_power_W
+  recipe: rect1111_fwr_v1
+  point: {}
+  unit: W
+  upper: 2.068e-06
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  - model_set: FF
+    temperature_C: 27.0
+  - model_set: SS
+    temperature_C: 27.0
+  - model_set: FS
+    temperature_C: 27.0
+  - model_set: SF
+    temperature_C: 27.0
+  - model_set: NN
+    temperature_C: -27.0
+  - model_set: NN
+    temperature_C: 0.0
+  - model_set: NN
+    temperature_C: 100.0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay pack testbenches/10_11_26/Rectifiers/FGMOS_full_wave_rectifier/FGMOS_full_wave_rectifier/fgmos_rectifier_101126_task_001/targets.json
+    static_vdd_power_uW upper 2.068 uW (paper Sec. IV / abstract: FWR static power 1.88 uW; limit = 1.1 x paper); measurements.json: -0.7*I(VDD_SRC:p)
+    at the DC input point nearest zero; all 8 conditions'
+  source: native
+- name: max_power
+  metric: max_power_W
+  recipe: rect1111_fwr_v1
+  point: {}
+  unit: W
+  upper: 0.00012694
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  - model_set: FF
+    temperature_C: 27.0
+  - model_set: SS
+    temperature_C: 27.0
+  - model_set: FS
+    temperature_C: 27.0
+  - model_set: SF
+    temperature_C: 27.0
+  - model_set: NN
+    temperature_C: -27.0
+  - model_set: NN
+    temperature_C: 0.0
+  - model_set: NN
+    temperature_C: 100.0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay pack testbenches/10_11_26/Rectifiers/FGMOS_full_wave_rectifier/FGMOS_full_wave_rectifier/fgmos_rectifier_101126_task_001/targets.json
+    max_vdd_power_uW upper 126.94 uW (paper: FWR maximum power 115.4 uW; limit = 1.1 x paper); measurements.json: max(-0.7*I(VDD_SRC:p)) over
+    the DC input sweep; all 8 conditions'
+  source: native
+- name: bandwidth
+  metric: bandwidth_Hz
+  recipe: rect1111_fwr_v1
+  point: {}
+  unit: Hz
+  lower: 15633000.0
+  upper: 19107000.0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  - model_set: FF
+    temperature_C: 27.0
+  - model_set: SS
+    temperature_C: 27.0
+  - model_set: FS
+    temperature_C: 27.0
+  - model_set: SF
+    temperature_C: 27.0
+  - model_set: NN
+    temperature_C: -27.0
+  - model_set: NN
+    temperature_C: 0.0
+  - model_set: NN
+    temperature_C: 100.0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay pack testbenches/10_11_26/Rectifiers/FGMOS_full_wave_rectifier/FGMOS_full_wave_rectifier/fgmos_rectifier_101126_task_001/targets.json
+    ac_bandwidth_MHz lower 15.633 / upper 19.107 MHz (paper Sec. IV, Fig. 14: FWR -3 dB bandwidth 17.37 MHz; two-sided +-10 % as in the replay);
+    measurements.json: first downward crossing of 20*log10(abs(-Iac(OUT_SRC:p))) at the low-frequency gain - 3 dB, log10(f) interpolation; all
+    8 conditions'
+  source: native
+- name: max_deviation
+  metric: max_deviation_fullscale_pct
+  recipe: rect1111_fwr_v1
+  point: {}
+  unit: '%'
+  upper: 12.1
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  - model_set: FF
+    temperature_C: 27.0
+  - model_set: SS
+    temperature_C: 27.0
+  - model_set: FS
+    temperature_C: 27.0
+  - model_set: SF
+    temperature_C: 27.0
+  - model_set: NN
+    temperature_C: -27.0
+  - model_set: NN
+    temperature_C: 0.0
+  - model_set: NN
+    temperature_C: 100.0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay pack testbenches/10_11_26/Rectifiers/FGMOS_full_wave_rectifier/FGMOS_full_wave_rectifier/fgmos_rectifier_101126_task_001/targets.json
+    max_deviation_fullscale_percent upper 12.1 % (paper Sec. IV, Fig. 12: largest divergence from linearity 11 % over -35..35 uA; limit = 1.1
+    x paper); measurements.json: 100*max(abs(-I(OUT_SRC:p)-abs(Iin)))/35e-6 over the DC sweep; all 8 conditions'
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - rect1111_fwr_v1
+  - bandwidth_Hz
+- - rect1111_fwr_v1
+  - devices_out_of_saturation
+- - rect1111_fwr_v1
+  - devices_outside_rails
+- - rect1111_fwr_v1
+  - forward_biased_junctions
+- - rect1111_fwr_v1
+  - low_frequency_gain_dB
+- - rect1111_fwr_v1
+  - max_deviation_fullscale_pct
+- - rect1111_fwr_v1
+  - max_power_W
+- - rect1111_fwr_v1
+  - saturation_margin_min_V
+- - rect1111_fwr_v1
+  - static_power_W
+simulations_per_design: 8
+analysis_executions_per_design: 16
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/NN_T27_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: FF_T27_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/FF_T27_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: SS_T27_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/SS_T27_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: FS_T27_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/FS_T27_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: SF_T27_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/SF_T27_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_Tm27_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/NN_Tm27_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T0_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/NN_T0_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T100_S1p00
+  recipe: rect1111_fwr_v1
+  folder: testbenches/NN_T100_S1p00/rect1111_fwr_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcsw.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    static_power_W:
+      unit: W
+      source: native
+    max_power_W:
+      unit: W
+      source: native
+    max_deviation_fullscale_pct:
+      unit: '%'
+      source: native
+    bandwidth_Hz:
+      unit: Hz
+      source: native
+    low_frequency_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - fgmos_rectifier_101126_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('fgmos_rectifier_101126_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>
+validity_gate_waiver:
+  date: '2026-11-12'
+  authority: explicit user instruction in this conversation
+  instruction: for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks
+  classification: sizing_task_with_user_waived_validity_gates
+  status: waived_not_passed
+  waived_metrics:
+  - devices_out_of_saturation
+  - forward_biased_junctions
+  - devices_outside_rails
+  diagnostics_retained: true
+  performance_targets_and_corners_unchanged: true
+  sizing_unchanged: true
+  standard_bounds_unchanged: true
+  physical_qualification_claimed: false
+  source_evidence: <WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt
+task_classification: sizing_task_with_user_waived_validity_gates

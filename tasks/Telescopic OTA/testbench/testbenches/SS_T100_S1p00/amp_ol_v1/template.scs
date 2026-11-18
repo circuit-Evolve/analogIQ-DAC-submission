@@ -1,0 +1,46 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task telescopic01_scl180_task_001  topology telescopic01_scl180
+// recipe amp_ol_v1 v3  condition SS_T100_S1p00 (models SS, 100 C, supply 1.8 V)
+// request telescopic01_scl180_task_001__plan  candidate 1ad1a1f9b5e47ce6
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=SS
+include "dut.scs"
+
+parameters vcm=0.9 cl=1e-12 a_inp=1.0 a_inn=0.0 a_vdd=0.0 a_vss=0.0 vsup=1.8 vneg=0.0
+// Sizing variables set in the testbench (external-bias values).
+parameters VB1={{VB1}} VB2={{VB2}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup mag=a_vdd
+VNEG (vss 0) vsource dc=vneg mag=a_vss
+// External bias (topology external_bias; reported separately as bias power).
+VB_VB1 (b_VB1 0) vsource dc=VB1
+VB_VB2 (b_VB2 0) vsource dc=VB2
+
+// Open loop: DC loop closed by LF (out -> inn), AC injected into inn through CF.
+VIN (inp 0) vsource dc=vcm mag=a_inp
+VACN (acn 0) vsource dc=0 mag=a_inn
+CF (acn inn) capacitor c=1e+18
+LF (out inn) inductor l=1e+18
+EINV (outinv 0 out 0) vcvs gain=-1
+CL (out 0) capacitor c=cl
+
+XDUT (vdd vss inn inp out b_VB1 b_VB2) telescopic01_scl180_dut CC={{CC}} IBIAS={{IBIAS}} L_M1={{L_M1}} L_M11={{L_M11}} L_M3={{L_M3}} L_M5={{L_M5}} L_M6={{L_M6}} L_M7={{L_M7}} L_M8={{L_M8}} L_M9={{L_M9}} M_M1={{M_M1}} M_M11={{M_M11}} M_M3={{M_M3}} M_M5={{M_M5}} M_M6={{M_M6}} M_M7={{M_M7}} M_M9={{M_M9}} N_M8={{N_M8}} RZ={{RZ}} W_M1={{W_M1}} W_M11={{W_M11}} W_M3={{W_M3}} W_M5={{W_M5}} W_M6={{W_M6}} W_M7={{W_M7}} W_M8={{W_M8}} W_M9={{W_M9}}
+
+opts options temp=100.0 tnom=27 reltol=0.0001 save=selected
+save VB_VB1:p VB_VB2:p VNEG:p VSUP:p inn inp out vdd vss
+
+ac1 ac start=0.1 stop=10000000000.0 dec=20
+simulator lang=spice
+.include 'measures.sp'
+.alter
+* point p001
+.param a_inp=1 a_inn=1 a_vdd=0 a_vss=0
+.alter
+* point p002
+.param a_inp=0 a_inn=0 a_vdd=1 a_vss=0
+.alter
+* point p003
+.param a_inp=0 a_inn=0 a_vdd=0 a_vss=1
+.end

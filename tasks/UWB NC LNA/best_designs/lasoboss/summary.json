@@ -1,0 +1,95 @@
+{
+ "task": "nclna01_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 14007,
+ "wall_s": 4809.7,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 3,
+ "llm_cost_usd": 0.620754,
+ "llm_cost_usd_recorded": 0.310377,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.7321668068380802
+  },
+  {
+   "phase": 2,
+   "evals": 501,
+   "best_score": 0.7408668293476033
+  },
+  {
+   "phase": 3,
+   "evals": 401,
+   "best_score": 0.7382483975188819
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.7441248494247799
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 0.7372418764704858
+  }
+ ],
+ "best": {
+  "eval": 1560,
+  "round": 4,
+  "f": 0.3305480868721119,
+  "loss": 0.25587515057522014,
+  "reward": 0.7441248494247799,
+  "score": 0.7441248494247799,
+  "targets_met": 4,
+  "targets": 20,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_M1": 1.7339825864531232e-06,
+   "L_M1": 1.4100031208461535e-06,
+   "N_M1": 43.0,
+   "W_M2": 7.822539569593546e-07,
+   "L_M2": 1.528922383000016e-05,
+   "N_M2": 62.0,
+   "W_M3": 4.962101538459534e-06,
+   "L_M3": 1.9297764464399215e-05,
+   "N_M3": 4.0,
+   "W_M4": 1.2704896121651787e-05,
+   "L_M4": 8.477793635703392e-07,
+   "N_M4": 84.0,
+   "L_LD1": 1.275421791380148e-09,
+   "L_LD2": 2.7232426036521254e-08,
+   "L_LD3": 1.2464046537942217e-08,
+   "C_GB1": 1.1251888378318889e-14,
+   "C_GB2": 7.428742823074883e-11,
+   "C_FB": 8.385960901243923e-13,
+   "C_IN": 2.8037499720591985e-12,
+   "L_IN_SH": 5.421269916468817e-08,
+   "L_SRC": 1.4544444845761353e-10,
+   "L_IS": 7.562505017477798e-10,
+   "L_OUT": 1.1107232786136631e-08,
+   "C_OUT": 4.59514294705814e-12,
+   "R_FB": 89831.2137362816,
+   "R_B1": 2751.851013027722,
+   "R_B2": 389.5704100601957,
+   "R_L1": 171.5360991356363,
+   "R_L2": 13.640065698363454,
+   "V_B1": 0.502267226219262,
+   "V_B2": 0.1405468402035694
+  }
+ }
+}

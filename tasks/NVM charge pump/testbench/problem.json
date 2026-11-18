@@ -1,0 +1,2956 @@
+{
+  "schema": "analogiq.sizing_problem/1",
+  "task_id": "nvm_chargepump_111126_task_001",
+  "topology_id": "nvm_chargepump_111126",
+  "family": "charge_pump",
+  "technology_id": "sky130",
+  "parameterization_id": "nvm_chargepump_111126_p1",
+  "execution_profile": "search_full",
+  "description": "Genuine sizing task, same six user-adopted scalar limits and 27 approved reconstructed corners as imported replay. Physical qualification remains false; no claim of a feasible in-bounds witness. User decision 2026-11-12: validity gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced. Diagnostics are not a gate pass or physical qualification.",
+  "source": {
+    "title": "NVM six-stage cross-coupled charge pump"
+  },
+  "variables": [
+    {
+      "name": "S1_WN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 1 matched wn sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S1_WN",
+        "instances": [
+          "M1NA",
+          "M1NB"
+        ]
+      }
+    },
+    {
+      "name": "S1_WP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 1 matched wp sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S1_WP",
+        "instances": [
+          "M1PA",
+          "M1PB"
+        ]
+      }
+    },
+    {
+      "name": "S1_LN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 9.079999999999999e-07,
+      "scale": "log",
+      "start": 9.079999999999999e-07,
+      "quantity": "mos_l",
+      "role": "Stage 1 matched ln sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1NA",
+          "M1NB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S1_LP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "Stage 1 matched lp sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1PA",
+          "M1PB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S1_CF",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 1 matched cf sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C1A",
+          "C1B"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S1_CS",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 1 matched cs sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C1S"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S2_WN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 2 matched wn sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S2_WN",
+        "instances": [
+          "M2NA",
+          "M2NB"
+        ]
+      }
+    },
+    {
+      "name": "S2_WP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 2 matched wp sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S2_WP",
+        "instances": [
+          "M2PA",
+          "M2PB"
+        ]
+      }
+    },
+    {
+      "name": "S2_LN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 9.079999999999999e-07,
+      "scale": "log",
+      "start": 9.079999999999999e-07,
+      "quantity": "mos_l",
+      "role": "Stage 2 matched ln sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2NA",
+          "M2NB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S2_LP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "Stage 2 matched lp sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2PA",
+          "M2PB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S2_CF",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 2 matched cf sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C2A",
+          "C2B"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S2_CS",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 2 matched cs sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C2S"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S3_WN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 3 matched wn sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S3_WN",
+        "instances": [
+          "M3NA",
+          "M3NB"
+        ]
+      }
+    },
+    {
+      "name": "S3_WP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 3 matched wp sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S3_WP",
+        "instances": [
+          "M3PA",
+          "M3PB"
+        ]
+      }
+    },
+    {
+      "name": "S3_LN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 9.079999999999999e-07,
+      "scale": "log",
+      "start": 9.079999999999999e-07,
+      "quantity": "mos_l",
+      "role": "Stage 3 matched ln sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3NA",
+          "M3NB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S3_LP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "Stage 3 matched lp sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3PA",
+          "M3PB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S3_CF",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 3 matched cf sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C3A",
+          "C3B"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S3_CS",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 3 matched cs sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C3S"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S4_WN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 4 matched wn sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S4_WN",
+        "instances": [
+          "M4NA",
+          "M4NB"
+        ]
+      }
+    },
+    {
+      "name": "S4_WP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 4 matched wp sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S4_WP",
+        "instances": [
+          "M4PA",
+          "M4PB"
+        ]
+      }
+    },
+    {
+      "name": "S4_LN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 9.079999999999999e-07,
+      "scale": "log",
+      "start": 9.079999999999999e-07,
+      "quantity": "mos_l",
+      "role": "Stage 4 matched ln sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4NA",
+          "M4NB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S4_LP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "Stage 4 matched lp sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4PA",
+          "M4PB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S4_CF",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 4 matched cf sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C4A",
+          "C4B"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S4_CS",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 4 matched cs sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C4S"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S5_WN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 5 matched wn sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S5_WN",
+        "instances": [
+          "M5NA",
+          "M5NB"
+        ]
+      }
+    },
+    {
+      "name": "S5_WP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 5 matched wp sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S5_WP",
+        "instances": [
+          "M5PA",
+          "M5PB"
+        ]
+      }
+    },
+    {
+      "name": "S5_LN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 9.079999999999999e-07,
+      "scale": "log",
+      "start": 9.079999999999999e-07,
+      "quantity": "mos_l",
+      "role": "Stage 5 matched ln sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5NA",
+          "M5NB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S5_LP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "Stage 5 matched lp sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5PA",
+          "M5PB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S5_CF",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 5 matched cf sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C5A",
+          "C5B"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S5_CS",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 5 matched cs sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C5S"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S6_WN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 6 matched wn sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S6_WN",
+        "instances": [
+          "M6NA",
+          "M6NB"
+        ]
+      }
+    },
+    {
+      "name": "S6_WP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "Stage 6 matched wp sizing width per finger",
+      "binding": {
+        "type": "dut_parameter",
+        "parameter": "S6_WP",
+        "instances": [
+          "M6PA",
+          "M6PB"
+        ]
+      }
+    },
+    {
+      "name": "S6_LN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 9.079999999999999e-07,
+      "scale": "log",
+      "start": 9.079999999999999e-07,
+      "quantity": "mos_l",
+      "role": "Stage 6 matched ln sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6NA",
+          "M6NB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S6_LP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "Stage 6 matched lp sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6PA",
+          "M6PB"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "S6_CF",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 6 matched cf sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C6A",
+          "C6B"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S6_CS",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "Stage 6 matched cs sizing",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C6S"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "S1_N_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage1 matchedN pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1NA",
+          "M1NB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S1_N_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage1 matchedN pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1NA",
+          "M1NB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S1_P_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage1 matchedP pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1PA",
+          "M1PB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S1_P_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage1 matchedP pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1PA",
+          "M1PB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S2_N_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage2 matchedN pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2NA",
+          "M2NB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S2_N_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage2 matchedN pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2NA",
+          "M2NB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S2_P_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage2 matchedP pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2PA",
+          "M2PB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S2_P_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage2 matchedP pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2PA",
+          "M2PB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S3_N_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage3 matchedN pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3NA",
+          "M3NB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S3_N_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage3 matchedN pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3NA",
+          "M3NB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S3_P_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage3 matchedP pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3PA",
+          "M3PB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S3_P_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage3 matchedP pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3PA",
+          "M3PB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S4_N_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage4 matchedN pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4NA",
+          "M4NB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S4_N_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage4 matchedN pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4NA",
+          "M4NB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S4_P_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage4 matchedP pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4PA",
+          "M4PB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S4_P_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage4 matchedP pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4PA",
+          "M4PB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S5_N_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage5 matchedN pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5NA",
+          "M5NB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S5_N_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage5 matchedN pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5NA",
+          "M5NB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S5_P_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage5 matchedP pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5PA",
+          "M5PB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S5_P_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage5 matchedP pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5PA",
+          "M5PB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S6_N_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage6 matchedN pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6NA",
+          "M6NB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S6_N_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage6 matchedN pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6NA",
+          "M6NB"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "S6_P_NF",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage6 matchedP pair nf count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6PA",
+          "M6PB"
+        ],
+        "parameter": "nf"
+      }
+    },
+    {
+      "name": "S6_P_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Stage6 matchedP pair m count",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6PA",
+          "M6PB"
+        ],
+        "parameter": "m"
+      }
+    }
+  ],
+  "dependent_parameters": {
+    "S1_WN_TOTAL": {
+      "unit": "m",
+      "expression": "S1_WN * S1_N_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1NA",
+          "M1NB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S1_WP_TOTAL": {
+      "unit": "m",
+      "expression": "S1_WP * S1_P_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M1PA",
+          "M1PB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S2_WN_TOTAL": {
+      "unit": "m",
+      "expression": "S2_WN * S2_N_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2NA",
+          "M2NB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S2_WP_TOTAL": {
+      "unit": "m",
+      "expression": "S2_WP * S2_P_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M2PA",
+          "M2PB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S3_WN_TOTAL": {
+      "unit": "m",
+      "expression": "S3_WN * S3_N_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3NA",
+          "M3NB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S3_WP_TOTAL": {
+      "unit": "m",
+      "expression": "S3_WP * S3_P_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M3PA",
+          "M3PB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S4_WN_TOTAL": {
+      "unit": "m",
+      "expression": "S4_WN * S4_N_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4NA",
+          "M4NB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S4_WP_TOTAL": {
+      "unit": "m",
+      "expression": "S4_WP * S4_P_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M4PA",
+          "M4PB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S5_WN_TOTAL": {
+      "unit": "m",
+      "expression": "S5_WN * S5_N_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5NA",
+          "M5NB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S5_WP_TOTAL": {
+      "unit": "m",
+      "expression": "S5_WP * S5_P_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M5PA",
+          "M5PB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S6_WN_TOTAL": {
+      "unit": "m",
+      "expression": "S6_WN * S6_N_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6NA",
+          "M6NB"
+        ],
+        "parameter": "w"
+      }
+    },
+    "S6_WP_TOTAL": {
+      "unit": "m",
+      "expression": "S6_WP * S6_P_NF",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "M6PA",
+          "M6PB"
+        ],
+        "parameter": "w"
+      }
+    }
+  },
+  "conditions": [
+    {
+      "id": "tt_Tm40_S0p91",
+      "model_set": "tt",
+      "temperature_C": -40.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "tt_T27_S0p91",
+      "model_set": "tt",
+      "temperature_C": 27.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "tt_T125_S0p91",
+      "model_set": "tt",
+      "temperature_C": 125.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "tt_Tm40_S1p00",
+      "model_set": "tt",
+      "temperature_C": -40.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "tt_T27_S1p00",
+      "model_set": "tt",
+      "temperature_C": 27.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": true
+    },
+    {
+      "id": "tt_T125_S1p00",
+      "model_set": "tt",
+      "temperature_C": 125.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "tt_Tm40_S1p09",
+      "model_set": "tt",
+      "temperature_C": -40.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "tt_T27_S1p09",
+      "model_set": "tt",
+      "temperature_C": 27.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "tt_T125_S1p09",
+      "model_set": "tt",
+      "temperature_C": 125.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "ff_Tm40_S0p91",
+      "model_set": "ff",
+      "temperature_C": -40.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "ff_T27_S0p91",
+      "model_set": "ff",
+      "temperature_C": 27.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "ff_T125_S0p91",
+      "model_set": "ff",
+      "temperature_C": 125.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "ff_Tm40_S1p00",
+      "model_set": "ff",
+      "temperature_C": -40.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "ff_T27_S1p00",
+      "model_set": "ff",
+      "temperature_C": 27.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "ff_T125_S1p00",
+      "model_set": "ff",
+      "temperature_C": 125.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "ff_Tm40_S1p09",
+      "model_set": "ff",
+      "temperature_C": -40.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "ff_T27_S1p09",
+      "model_set": "ff",
+      "temperature_C": 27.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "ff_T125_S1p09",
+      "model_set": "ff",
+      "temperature_C": 125.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "ss_Tm40_S0p91",
+      "model_set": "ss",
+      "temperature_C": -40.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "ss_T27_S0p91",
+      "model_set": "ss",
+      "temperature_C": 27.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "ss_T125_S0p91",
+      "model_set": "ss",
+      "temperature_C": 125.0,
+      "supply_V": 3.0,
+      "supply_scale": 0.9090909090909092,
+      "nominal": false
+    },
+    {
+      "id": "ss_Tm40_S1p00",
+      "model_set": "ss",
+      "temperature_C": -40.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "ss_T27_S1p00",
+      "model_set": "ss",
+      "temperature_C": 27.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "ss_T125_S1p00",
+      "model_set": "ss",
+      "temperature_C": 125.0,
+      "supply_V": 3.3,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "ss_Tm40_S1p09",
+      "model_set": "ss",
+      "temperature_C": -40.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "ss_T27_S1p09",
+      "model_set": "ss",
+      "temperature_C": 27.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    },
+    {
+      "id": "ss_T125_S1p09",
+      "model_set": "ss",
+      "temperature_C": 125.0,
+      "supply_V": 3.6,
+      "supply_scale": 1.090909090909091,
+      "nominal": false
+    }
+  ],
+  "operating_conditions": {
+    "supply_V": {
+      "value": 3.3,
+      "provenance": "Paper nominal; user approved reconstructed 3.0/3.3/3.6 V grid"
+    },
+    "supply_negative_V": {
+      "value": 0.0,
+      "provenance": "Ground"
+    },
+    "pulse_frequency_Hz": {
+      "value": 20000000.0,
+      "provenance": "Paper and replay clock frequency20MHz"
+    },
+    "edge_time_s": {
+      "value": 1e-09,
+      "provenance": "Imported replay rise/fall1ns"
+    },
+    "load_resistance_ohm": {
+      "value": 1000000.0,
+      "provenance": "Paper and imported replay1Mohm output load"
+    }
+  },
+  "constraints": [
+    {
+      "name": "output_voltage_V",
+      "metric": "output_voltage_V",
+      "recipe": "nvm1112_transient_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 17.1,
+      "upper": 20.9,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "User-adopted preserved scalar limit from targets_rules.json; applied at all27approved corners; no second tolerance.",
+      "source": "native"
+    },
+    {
+      "name": "ripple_mV",
+      "metric": "ripple_mV",
+      "recipe": "nvm1112_transient_v1",
+      "point": {},
+      "unit": "mV",
+      "upper": 4.4759,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "User-adopted preserved scalar limit from targets_rules.json; applied at all27approved corners; no second tolerance.",
+      "source": "native"
+    },
+    {
+      "name": "input_power_mW",
+      "metric": "input_power_mW",
+      "recipe": "nvm1112_transient_v1",
+      "point": {},
+      "unit": "mW",
+      "upper": 1.119,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "User-adopted preserved scalar limit from targets_rules.json; applied at all27approved corners; no second tolerance.",
+      "source": "native"
+    },
+    {
+      "name": "output_power_uW",
+      "metric": "output_power_uW",
+      "recipe": "nvm1112_transient_v1",
+      "point": {},
+      "unit": "uW",
+      "lower": 292.1,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "User-adopted preserved scalar limit from targets_rules.json; applied at all27approved corners; no second tolerance.",
+      "source": "native"
+    },
+    {
+      "name": "efficiency_percent",
+      "metric": "efficiency_percent",
+      "recipe": "nvm1112_transient_v1",
+      "point": {},
+      "unit": "%",
+      "lower": 31.86,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "User-adopted preserved scalar limit from targets_rules.json; applied at all27approved corners; no second tolerance.",
+      "source": "native"
+    },
+    {
+      "name": "rise_time_us",
+      "metric": "rise_time_us",
+      "recipe": "nvm1112_transient_v1",
+      "point": {},
+      "unit": "us",
+      "lower": 9.24,
+      "upper": 39.29,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "User-adopted preserved scalar limit from targets_rules.json; applied at all27approved corners; no second tolerance.",
+      "source": "native"
+    }
+  ],
+  "objective": null,
+  "derived_metrics": {},
+  "all_metrics": [
+    [
+      "nvm1112_transient_v1",
+      "efficiency_percent"
+    ],
+    [
+      "nvm1112_transient_v1",
+      "input_power_mW"
+    ],
+    [
+      "nvm1112_transient_v1",
+      "native_model_voltage_violations"
+    ],
+    [
+      "nvm1112_transient_v1",
+      "output_power_uW"
+    ],
+    [
+      "nvm1112_transient_v1",
+      "output_voltage_V"
+    ],
+    [
+      "nvm1112_transient_v1",
+      "ripple_mV"
+    ],
+    [
+      "nvm1112_transient_v1",
+      "rise_time_us"
+    ]
+  ],
+  "simulations_per_design": 27,
+  "analysis_executions_per_design": 27,
+  "benchmark": {
+    "reference_hidden": true,
+    "rules": "docs/benchmark_rules.md",
+    "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+  },
+  "testbenches": [
+    {
+      "condition": "tt_Tm40_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_Tm40_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_T27_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_T27_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_T125_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_T125_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_Tm40_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_Tm40_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_T27_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_T27_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_T125_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_T125_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_Tm40_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_Tm40_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_T27_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_T27_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "tt_T125_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/tt_T125_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_Tm40_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_Tm40_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_T27_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_T27_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_T125_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_T125_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_Tm40_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_Tm40_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_T27_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_T27_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_T125_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_T125_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_Tm40_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_Tm40_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_T27_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_T27_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ff_T125_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ff_T125_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_Tm40_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_Tm40_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_T27_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_T27_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_T125_S0p91",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_T125_S0p91/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_Tm40_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_Tm40_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_T27_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_T27_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_T125_S1p00",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_T125_S1p00/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_Tm40_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_Tm40_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_T27_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_T27_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "ss_T125_S1p09",
+      "recipe": "nvm1112_transient_v1",
+      "folder": "testbenches/ss_T125_S1p09/nvm1112_transient_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran.tran.tran"
+      ],
+      "metrics": {
+        "output_voltage_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "ripple_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "input_power_mW": {
+          "unit": "mW",
+          "source": "native"
+        },
+        "output_power_uW": {
+          "unit": "uW",
+          "source": "native"
+        },
+        "efficiency_percent": {
+          "unit": "%",
+          "source": "native"
+        },
+        "rise_time_us": {
+          "unit": "us",
+          "source": "native"
+        },
+        "native_model_voltage_violations": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    }
+  ],
+  "interfaces": {
+    "evaluate_command": [
+      "<ANALOGIQ>/.venv/bin/python",
+      "-m",
+      "analogiq",
+      "size-eval",
+      "--task",
+      "nvm_chargepump_111126_task_001",
+      "--design",
+      "{design_json}",
+      "--out",
+      "{out_dir}"
+    ],
+    "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+    "python": "from analogiq.sizing import SizingProblem; SizingProblem('nvm_chargepump_111126_task_001').evaluate(design, out_dir)",
+    "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+    "deck_extract": [
+      "<ANALOGIQ>/.venv/bin/python",
+      "-m",
+      "analogiq",
+      "extract",
+      "--job",
+      "{job_folder}"
+    ],
+    "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+    "working_directory": "<ANALOGIQ>"
+  },
+  "validity_gate_waiver": {
+    "date": "2026-11-12",
+    "authority": "explicit user instruction in this conversation",
+    "instruction": "for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks",
+    "classification": "sizing_task_with_user_waived_validity_gates",
+    "status": "waived_not_passed",
+    "waived_metrics": [
+      "native_model_voltage_violations"
+    ],
+    "diagnostics_retained": true,
+    "performance_targets_and_corners_unchanged": true,
+    "sizing_unchanged": true,
+    "standard_bounds_unchanged": true,
+    "physical_qualification_claimed": false,
+    "source_evidence": "<WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt"
+  },
+  "task_classification": "sizing_task_with_user_waived_validity_gates"
+}

@@ -1,0 +1,206 @@
+{
+ "task": "rvco24_um_task_001",
+ "mc_samples": 100,
+ "score": 1.0,
+ "targets_met": 8,
+ "targets": 8,
+ "valid": true,
+ "params": {
+  "N_PI": 10.0,
+  "W_PI": 6.8694740280555e-07,
+  "L_PI": 7.322259792949499e-06,
+  "N_NI": 89.0,
+  "W_NI": 2.605645881321349e-06,
+  "L_NI": 6.781365999301629e-07,
+  "N_PS": 69.0,
+  "W_PS": 6.3876221324032155e-06,
+  "L_PS": 6.310426305828626e-07,
+  "N_NS": 33.0,
+  "W_NS": 1.479160716043159e-06,
+  "L_NS": 7.84718155839495e-07,
+  "N_SW1": 11.0,
+  "W_SW1": 6.333653739577733e-07,
+  "L_SW1": 1.1979829176985705e-06,
+  "N_SW2": 1.0,
+  "W_SW2": 1.174788590093601e-06,
+  "L_SW2": 9.29762529063927e-07,
+  "N_LHD": 86.0,
+  "W_LHD": 1.972286345362338e-05,
+  "L_LHD": 5.6201610096321e-07,
+  "N_HSW": 4.0,
+  "W_HSW": 4.853997512404542e-06,
+  "L_HSW": 4.827139386396302e-07,
+  "N_SW5": 4.0,
+  "W_SW5": 4.3459221415421554e-07,
+  "L_SW5": 2.3138574476920305e-06,
+  "N_SW6": 54.0,
+  "W_SW6": 4.3436576938506387e-07,
+  "L_SW6": 3.924128101161824e-07,
+  "N_LSW": 21.0,
+  "W_LSW": 2.211997817277763e-06,
+  "L_LSW": 7.937718698988247e-07,
+  "N_LLD": 86.0,
+  "W_LLD": 7.307205237034195e-07,
+  "L_LLD": 2.0703105162682476e-06,
+  "C_LOAD": 5.398626467622674e-14,
+  "V_BP": 0.8583619619193794,
+  "V_BN": 0.23181739946282423
+ },
+ "feasible": true,
+ "objective": null,
+ "constraints": {
+  "f_lower": {
+   "lower": 13500000.0,
+   "metric": "pss_frequency_Hz",
+   "target": {
+    "kind": "linear",
+    "paper_value": 15000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 14352108.126331,
+   "unit": "Hz",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 852108.1263309997,
+   "normalized_margin": 0.06311912046896294,
+   "satisfied": true
+  },
+  "f_upper": {
+   "upper": 16500000.0,
+   "metric": "pss_frequency_Hz",
+   "target": {
+    "kind": "linear",
+    "paper_value": 15000000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 14352108.126331,
+   "unit": "Hz",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2147891.8736690003,
+   "normalized_margin": 0.1301752650708485,
+   "satisfied": true
+  },
+  "power": {
+   "upper": 0.00019679000000000002,
+   "metric": "pss_power_W",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0001789,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.00019390501893078814,
+   "unit": "W",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.8849810692118804e-06,
+   "normalized_margin": 0.014660201581441537,
+   "satisfied": true
+  },
+  "pn_1MHz": {
+   "upper": -95.01607314841776,
+   "metric": "phase_noise_dBc_per_Hz",
+   "target": {
+    "kind": "power_db",
+    "paper_value": -95.43,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": -128.0962392026456,
+   "unit": "dBc/Hz",
+   "condition": "NN_T27_S1p00",
+   "point": {
+    "offset_Hz": 1000000.0
+   },
+   "complete": true,
+   "margin": 33.08016605422783,
+   "normalized_margin": 0.9995079792772869,
+   "satisfied": true
+  },
+  "swing": {
+   "lower": 1.1223,
+   "metric": "output_vpp_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.247,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.1442738435032371,
+   "unit": "V",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.021973843503237056,
+   "normalized_margin": 0.01957929564576054,
+   "satisfied": true
+  },
+  "see_pos_025pC": {
+   "upper": 12.1,
+   "metric": "see_dev_max_pct",
+   "target": {
+    "kind": "linear",
+    "paper_value": 11.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 4.150908167460754,
+   "unit": "%",
+   "condition": "NN_T27_S1p00",
+   "point": {
+    "charge_pC": 0.25
+   },
+   "complete": true,
+   "margin": 7.949091832539246,
+   "normalized_margin": 0.6569497382263839,
+   "satisfied": true
+  },
+  "see_neg_025pC": {
+   "upper": 5.5,
+   "metric": "see_dev_neg_pct",
+   "target": {
+    "kind": "linear",
+    "paper_value": 5.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 2.8529763490606097,
+   "unit": "%",
+   "condition": "NN_T27_S1p00",
+   "point": {
+    "charge_pC": 0.25
+   },
+   "complete": true,
+   "margin": 2.6470236509393903,
+   "normalized_margin": 0.4812770274435255,
+   "satisfied": true
+  },
+  "see_abs_13pC": {
+   "upper": 33.0,
+   "metric": "see_dev_abs_pct",
+   "target": {
+    "kind": "linear",
+    "paper_value": 30.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 25.38615563686848,
+   "unit": "%",
+   "condition": "NN_T27_S1p00",
+   "point": {
+    "charge_pC": 1.3
+   },
+   "complete": true,
+   "margin": 7.61384436313152,
+   "normalized_margin": 0.2307225564585309,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": 0.014660201581441537
+}

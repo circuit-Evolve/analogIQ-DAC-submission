@@ -1,0 +1,15 @@
+design( "DAC_20261107_MISO" "VM_BP_tb" "schematic")
+modelFile( 
+    '("<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" "NN")
+)
+analysis('noise ?start "10k"  ?stop "100M"  ?dec "100"  
+		?p "/VOUT"  ?n "/gnd!"  ?iprobe "/V3_SRC"  )
+analysis('dc ?saveOppoint t  )
+analysis('ac ?start "1"  ?stop "10G"  ?dec "150"  )
+option(	'iabstol  "1e-14" 
+	'vabstol  "1e-09" 
+	'reltol  "1e-06" 
+)
+saveOption( 'subcktprobelvl "5" )
+saveOption( 'currents "all" )
+temp( 27 ) 

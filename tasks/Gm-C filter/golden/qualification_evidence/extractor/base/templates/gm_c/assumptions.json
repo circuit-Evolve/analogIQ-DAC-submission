@@ -1,0 +1,23 @@
+{
+  "assumptions": [
+    "Only nominal GPDK090 NN, VDD=1V (Table2), temperature=27C (not specified); Vt=Vref=Vin_cm=0.5V assumed from half-supply common-mode statement. No corner matrix or sizing optimization.",
+    "All drawn MOS use Table1 W/L: M5/7/9/11=130/200nm; M6/8/10/12=365/100nm; other NMOS=600/120nm, PMOS=1180/100nm. All bodies at their supply rail, m=1. Diffusion area W*0.28um and perimeter 2W+0.56um are a disclosed GPDK schematic geometry convention, not paper layout.",
+    "Fig2 has 32 drawn transistors, because M25-M28 occur twice. Red additional devices use suffix R and Table1 rest sizing. Their red/black wires appear shorted together at N; retained as drawn. No author layout or netlist is supplied.",
+    "ota_fig2_literal preserves Vi- on M3/M4 drains and Vo+ on their gates as drawn. ota_fig2_interpreted swaps only these two devices gate/drain nets to implement the semantic differential inverter pair. All comparisons use this interpreted cell; literal operating point and AC are separate diagnostics.",
+    "Fig3 side feedback terminals on OTA1 and OTA4 have no pin definition or implementation in Fig2. ota_side_sum_assumption exposes SUMP/SUMM and uses four equal 1kohm resistors to average main/feedback inputs before the physical Fig2 OTA. Those resistors are not from the paper. This is one bounded executable hypothesis, not a recovered paper-exact topology.",
+    "Fig3 wire routing is retained as OTA1 outputs A drive OTA2 and OTA4; OTA2 outputs B return with negative sign to OTA1 side pins; OTA4 outputs drive OTA3 and external Vo; OTA3 outputs D return with negative sign to OTA4 side pins. C1/C2 shunt B pair, C3/C4 shunt D pair. Differential side-pin sign conventions are inferred. Four OTA cores do not prove a fourth-order response.",
+    "All four capacitances are absent from the paper. One short-circuit gm evaluation at .5V outputs gives gm=0.000721754S; C1=C2=C3=C4=gm/(2*pi*15MHz)=7.658047786423189e-12F. This is a missing-value derivation, not a performance fit; it does not establish 15MHz cutoff for the ambiguous network.",
+    "The paper equation states C=C3*C4, which has units F squared; the fc equation requires a square root of the capacitor product. The dimensionally valid single-capacitance gm/(2*pi*fc) is used only for the documented equal-C assumption.",
+    "OTA gain and common-mode gain extracted at 1Hz. No external OTA load specified, so outputs unloaded beyond transistor parasitics. UGF first falling unity crossing; phase margin is differential unity-feedback proxy, not a verified author loop-break experiment.",
+    "Filter input-referred noise uses output differential noise divided by differential AC gain at an assumed 1MHz midband point. The paper gives 85nV/sqrtHz without an exact frequency. VINP single-source input-noise normalization is deliberately not used for the reported differential metric.",
+    "P1dB source characterization uses 14 fixed logarithmic differential peak amplitudes 1mV to .3V, 1MHz, 30us duration, final10us Fourier integral, 2ns maxstep; interpolates input amplitude where gain falls1dB. IP3 assumes tones1MHz/1.1MHz, differential1mV peak each, same window, lower IM3 at0.9MHz. 50ohm is a power-reference convention only, not a physical load. Both results are diagnostic, because paper conditions are absent.",
+    "No auto-tuning circuit is supplied by the paper; fixed Vt is used. No automatic tuning capability, 500Hz lower tuning endpoint, or full tuning range is verified. No postlayout claim is made: no layout/parasitic extraction is supplied."
+  ],
+  "paper_inconsistencies": [
+    "15MHz filter cutoff conflicts with discussion of THD at1GHz and generic high-speed statements. THD has no numerical scalar value; no THD pass target is invented.",
+    "P1dB text gives -2.86026dB, Fig6 label -2.8606 and power axes dBm; reference impedance/frequency/amplitude convention missing. IP3 figure says input-referred13.2497, text also says OIP3; tones/reference missing.",
+    "Abstract claims postlayout result; figure/data context does not provide extracted parasitics. Comparisons here are transistor schematic only.",
+    "Fig5 common-mode plot is labeled Open loop dc gain=39dB although Table2 says -24dB; Table2 value is used. p61 says24dB without a minus sign.",
+    "Paper statements that lower phase margin eliminates overshoot and that this MOS OTA has no parasitic poles/zeroes are not physically reliable; they are not used as design requirements."
+  ]
+}

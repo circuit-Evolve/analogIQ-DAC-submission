@@ -1,0 +1,47 @@
+{
+  "job_id": "SF_T27_S1p00/miso1111_bp_v1",
+  "recipe_id": "miso1111_bp_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "SF_T27_S1p00",
+    "model_set": "SF",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 0.9,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "SF"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/ac1.ac",
+    "raw/noise1.noise"
+  ],
+  "expected_metrics": [
+    "bp_center_frequency_Hz",
+    "input_noise_V_per_rtHz",
+    "output_noise_V_per_rtHz",
+    "peak_gain_VperV"
+  ],
+  "digests": {
+    "task": "298436e80a53339358de70875fc5bd74c4f953cf39e697662366559e438676b1",
+    "candidate": "757e3058af5547ff89181f255f8d11a521073f74f4c18d89cd8d40a591e497ac",
+    "parameterization": "4e3037d3b6b02edffe6fe54df6c25328ee14eb7673f7d817b2e1ae7653caa360",
+    "dut_source_netlist": "3c5102ed0259acf0742ce88858df14c74d84bc1884a3963f71a61d343e6d5215",
+    "dut_subckt": "583b16c9ba190756656ae4d097307f346008270934b350baa0ecf0c2354a69f7",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "c7befce1e6debf2d7228c312db71a3f94868280328679d1bcfd1f9b8c382b901",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "1cf6412bb14cd7be70eb7fc07c3746ebc2562463f932fde3478606334704eb56"
+  },
+  "state": "rendered"
+}

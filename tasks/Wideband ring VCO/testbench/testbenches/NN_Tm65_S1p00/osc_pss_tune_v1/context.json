@@ -1,0 +1,314 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_Tm65_S1p00/osc_pss_tune_v1",
+ "recipe_id": "osc_pss_tune_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "vctrl_V": 0.45
+  },
+  {
+   "vctrl_V": 0.5
+  },
+  {
+   "vctrl_V": 0.55
+  },
+  {
+   "vctrl_V": 0.6
+  },
+  {
+   "vctrl_V": 0.65
+  },
+  {
+   "vctrl_V": 0.7
+  },
+  {
+   "vctrl_V": 0.75
+  },
+  {
+   "vctrl_V": 0.8
+  },
+  {
+   "vctrl_V": 0.825
+  },
+  {
+   "vctrl_V": 0.85
+  },
+  {
+   "vctrl_V": 0.9
+  },
+  {
+   "vctrl_V": 0.95
+  },
+  {
+   "vctrl_V": 1.0
+  },
+  {
+   "vctrl_V": 1.05
+  },
+  {
+   "vctrl_V": 1.1
+  },
+  {
+   "vctrl_V": 1.15
+  },
+  {
+   "vctrl_V": 1.2
+  },
+  {
+   "vctrl_V": 0.45,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.5,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.55,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.6,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.65,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.7,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.75,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.8,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.825,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.85,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.9,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 0.95,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 1.0,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 1.05,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 1.1,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 1.15,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "vctrl_V": 1.2,
+   "offset_Hz": 1000000.0
+  },
+  {
+   "curve": "tuning"
+  },
+  {
+   "target": "tuned"
+  },
+  {
+   "target": "tuned",
+   "offset_Hz": 1000000.0
+  }
+ ],
+ "expected_outputs": [],
+ "context": {
+  "job_id": "NN_Tm65_S1p00/osc_pss_tune_v1",
+  "condition": {
+   "id": "NN_Tm65_S1p00",
+   "model_set": "NN",
+   "temperature_C": -65.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.2,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs",
+     "section": "NN"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.2
+  },
+  "operating": {
+   "supply_V": 1.2,
+   "load_capacitance_F": 1e-14,
+   "tuning_voltage_V": 0.825
+  },
+  "recipe_settings": {
+   "tuning_voltages_V": [
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.825,
+    0.85,
+    0.9,
+    0.95,
+    1.0,
+    1.05,
+    1.1,
+    1.15,
+    1.2
+   ],
+   "target_frequency": "mid_range",
+   "fund_estimate_Hz": [
+    200000000.0,
+    20000000.0
+   ],
+   "harmonics": 10,
+   "tstab_s": 4e-07,
+   "offsets_Hz": [
+    1000000.0
+   ],
+   "min_amplitude_V": 0.05,
+   "kick_current_A": 0.0001,
+   "kick_width_s": 5e-11,
+   "pss_errpreset": "conservative",
+   "estimate": {
+    "tstop_s": 1e-06,
+    "maxstep_s": 2e-09,
+    "errpreset": "liberal",
+    "anchors": 5,
+    "points_other": "window",
+    "points_mc": "window",
+    "window": 1,
+    "keep_V": [
+     0.825
+    ]
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "rvco_khan2025_gpdk090",
+   "family": "oscillator",
+   "interface_type": "single_ended_ring_vco",
+   "technology_id": "gpdk090",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "gc_0232a331ef36_c27a2916",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "VCON",
+     "VOSC"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "output_positive": "VOSC",
+    "supply_positive": "VDD",
+    "tuning": "VCON"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    }
+   },
+   "op_check": {
+    "exclude": [
+     "M2",
+     "M4",
+     "M18",
+     "M20"
+    ]
+   }
+  },
+  "subckt_name": "gc_0232a331ef36_c27a2916",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "N_M11": 1.0,
+   "W_M11": 1e-06,
+   "L_M11": 1e-06,
+   "N_PS": 1.0,
+   "W_PS": 1e-06,
+   "L_PS": 1e-06,
+   "N_PCP": 1.0,
+   "W_PCP": 1e-06,
+   "L_PCP": 1e-06,
+   "N_PI": 1.0,
+   "W_PI": 1e-06,
+   "L_PI": 1e-06,
+   "N_NI": 1.0,
+   "W_NI": 1e-06,
+   "L_NI": 1e-06,
+   "N_NS": 1.0,
+   "W_NS": 1e-06,
+   "L_NS": 1e-06,
+   "N_NCP": 1.0,
+   "W_NCP": 1e-06,
+   "L_NCP": 1e-06,
+   "N_M22": 1.0,
+   "W_M22": 1e-06,
+   "L_M22": 1e-06,
+   "N_DG": 1.0,
+   "W_DG": 1e-06,
+   "L_DG": 1e-06,
+   "N_M23": 1.0,
+   "W_M23": 1e-06,
+   "L_M23": 1e-06,
+   "C_LOAD": 1e-12,
+   "C_PUMP": 1e-12
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "gpdk090_nmos1v": {
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-07,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.2,
+    "max_supply_V": 1.32,
+    "kind": "nmos",
+    "fold_wide": false
+   },
+   "gpdk090_pmos1v": {
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-07,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.2,
+    "max_supply_V": 1.32,
+    "kind": "pmos",
+    "fold_wide": false
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

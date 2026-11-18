@@ -1,0 +1,545 @@
+{
+  "task_id": "dtmos",
+  "topology_id": "dtmos_fig1b_paper_and_frozen_20mos_hpf",
+  "family": "dtmos_fractional_high_pass_filter",
+  "technology_id": "gpdk180_v3.2_NN",
+  "description": "Paper-start sizing of frozen 17-transistor DTMOS core and previously disclosed 20-transistor derived HPF. All original scalar comparisons retained; no new corners.",
+  "variables": [
+    {
+      "name": "M1_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 7.5e-07,
+      "upper": 1.2e-05,
+      "initial": 3e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M1"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "M1_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M1"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "M24_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2499999999999999e-06,
+      "upper": 1.9999999999999998e-05,
+      "initial": 4.9999999999999996e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M2",
+          "M4"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "M24_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M2",
+          "M4"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "M3_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 3.75e-05,
+      "upper": 0.00019999999999999998,
+      "initial": 0.00015,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M3"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "M3_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M3"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mpb14_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 9.999999999999999e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb1",
+          "Mpb2",
+          "Mpb3",
+          "Mpb4"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb14_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb1",
+          "Mpb2",
+          "Mpb3",
+          "Mpb4"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mpb56_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 9.999999999999999e-06,
+      "upper": 9.999999999999999e-05,
+      "initial": 3.9999999999999996e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb5",
+          "Mpb6",
+          "Mpb6_FB"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb56_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb5",
+          "Mpb6",
+          "Mpb6_FB"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mpb78_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2e-06,
+      "upper": 3.2e-05,
+      "initial": 8e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb7",
+          "Mpb8",
+          "Mpb8_FB"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb78_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb7",
+          "Mpb8",
+          "Mpb8_FB"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb12_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 9.999999999999999e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb1",
+          "Mnb2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb12_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb1",
+          "Mnb2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb3_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 9.999999999999999e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb3"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb3_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb3"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb4_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 7.5e-07,
+      "upper": 1.2e-05,
+      "initial": 3e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb4"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb4_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb4"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb5_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 9.999999999999999e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb5",
+          "Mnb5_FB"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb5_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 8e-07,
+      "initial": 2e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb5",
+          "Mnb5_FB"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Table I exact total W/L; feedback replicas preserve previously disclosed sizing",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "C1",
+      "kind": "real",
+      "unit": "F",
+      "lower": 7.000000000000001e-09,
+      "upper": 7.000000000000001e-07,
+      "initial": 7e-08,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "C1"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Section III.B nominal setting"
+    },
+    {
+      "name": "C2",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1.2e-08,
+      "upper": 1.2e-06,
+      "initial": 1.2e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "C2"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Section III.B nominal setting"
+    },
+    {
+      "name": "I0",
+      "kind": "real",
+      "unit": "A",
+      "lower": 6e-06,
+      "upper": 0.00024,
+      "initial": 6e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "I0"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Section III published bias current"
+    },
+    {
+      "name": "IB1",
+      "kind": "real",
+      "unit": "A",
+      "lower": 2.5e-05,
+      "upper": 0.001,
+      "initial": 0.00025,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "IB1"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Section III published bias current"
+    },
+    {
+      "name": "IB2",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1.5e-06,
+      "upper": 6e-05,
+      "initial": 1.5e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "IB2"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Section III published bias current"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "CORE_Rail_power_mW",
+      "metric": "CORE_Rail_power_mW",
+      "recipe": "900*(-I(VDD_SRC:p)+I(VSS_SRC:p)) at dcOp",
+      "lower": 0.4464,
+      "upper": 0.5456000000000001,
+      "paper_value": 0.496,
+      "conditions": [
+        "NN_27"
+      ],
+      "aggregate": "worst",
+      "unit": "mW",
+      "source": "Abstract and Table II",
+      "scope": "17-transistor core"
+    },
+    {
+      "name": "HPF_Rail_power_mW",
+      "metric": "HPF_Rail_power_mW",
+      "recipe": "900*(-I(VDD_SRC:p)+I(VSS_SRC:p)) at dcOp",
+      "lower": 0.4464,
+      "upper": 0.5456000000000001,
+      "paper_value": 0.496,
+      "conditions": [
+        "NN_27"
+      ],
+      "aggregate": "worst",
+      "unit": "mW",
+      "source": "Abstract and Table II",
+      "scope": "20-transistor derived HPF; assumption-dependent"
+    },
+    {
+      "name": "THD_500Hz_10uApp_percent",
+      "metric": "THD_500Hz_10uApp_percent",
+      "recipe": "100*sqrt(sum(A_h^2,h=2..20))/A_1; FFT 40-60 ms, 500 Hz, 2 us samples",
+      "lower": 0,
+      "upper": 6,
+      "upper_exclusive": true,
+      "paper_value": 6,
+      "conditions": [
+        "NN_27"
+      ],
+      "aggregate": "worst",
+      "unit": "%",
+      "source": "Section III.A and Conclusion: THD<6%",
+      "scope": "20-MOS derived HPF, single retained 500Hz/10uApp point"
+    },
+    {
+      "name": "HPF_cutoff_Hz",
+      "metric": "HPF_cutoff_Hz",
+      "recipe": "let((g p ref threshold) g=dB20(getData(\"VOUT_SENSE:p\" ?result \"ac-ac\")) p=clip(g 2000 20000) ref=value(g sqrt(2000*20000)) threshold=ref-20*log10(sqrt(2)) if(((ymax(p)-ymin(p))<=1) && (value(g 1)<threshold) then cross(clip(g 1 2000) threshold 1 \"rising\") else nil))",
+      "lower": 180,
+      "upper": 220,
+      "paper_value": 200,
+      "conditions": [
+        "NN_27"
+      ],
+      "aggregate": "worst",
+      "unit": "Hz",
+      "source": "200 Hz target specified by user",
+      "note": "First rising half-power crossing relative to measured passband gain. Provisional passband qualification window: 2-20 kHz (10-100 times the 200 Hz target), at most 1 dB peak-to-peak variation; reference gain at the geometric centre, 6.3246 kHz. The low-frequency gain must be below the half-power level. Window and flatness are measurement assumptions, not paper specifications; a failed qualification produces no fc. Target band: 180-220 Hz."
+    }
+  ],
+  "conditions": [
+    {
+      "id": "NN_27",
+      "model_set": "NN",
+      "temperature_C": 27,
+      "nominal": true
+    }
+  ],
+  "objective": null,
+  "provenance": "templates/dtmos/provenance.json",
+  "assumptions": "templates/dtmos/assumptions.json",
+  "bounds_policy": "Search bounds, not paper claims: width 0.25\u20134x seed clipped to 0.4\u2013100um per finger; M3 total max200um with fixed m2. Length 0.25\u20134x clipped 0.18\u20138um. C 0.1\u201310x, bias 0.1\u20134x. Matched groups preserve same values in both core and HPF.",
+  "operating_conditions": {
+    "temperature_C": 27,
+    "input_frequency_Hz": 500,
+    "input_peak_to_peak_uA": 10,
+    "input_dc_A": 0,
+    "output_clamp_V": 0,
+    "transient_stop_s": 0.06,
+    "transient_maxstep_s": 2e-06
+  },
+  "frozen_operating_metadata": {
+    "process": "NN",
+    "rails_V": [
+      -0.9,
+      0.9
+    ],
+    "ac_Hz": [
+      1,
+      10000000.0
+    ],
+    "corners_added": false
+  }
+}

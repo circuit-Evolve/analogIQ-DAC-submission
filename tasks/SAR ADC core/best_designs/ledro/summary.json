@@ -1,0 +1,140 @@
+{
+ "task": "sar24_liang_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 740,
+ "simulator_invocations": 1482,
+ "wall_s": 43371.7,
+ "feasible_designs": 149,
+ "first_feasible_eval": 350,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": true,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 8.982988,
+ "llm_cost_usd_recorded": 4.491493999999999,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "time limit",
+ "best": {
+  "eval": 669,
+  "round": 9,
+  "f": 0.0,
+  "reward": 1.0,
+  "score": 1.0,
+  "targets_met": 8,
+  "targets": 8,
+  "feasible": true,
+  "worst_margin": 0.03572676326297203,
+  "objective": null,
+  "params": {
+   "W_IN": 5.945687200906299e-06,
+   "L_IN": 2.6169532056932894e-07,
+   "W_PC": 2.903228373698315e-06,
+   "L_PC": 4.798401744079077e-07,
+   "W_TL": 5.04977927414848e-06,
+   "L_TL": 2.5375246486238494e-07,
+   "W_M6": 2.543394248990694e-06,
+   "L_M6": 2.5279294411282136e-07,
+   "W_PH": 2.7730771386668615e-06,
+   "L_PH": 2.4196066275994965e-07,
+   "W_NR": 2.5105707373535242e-06,
+   "L_NR": 3.0229231344656775e-07,
+   "W_PL": 9.698200326374438e-07,
+   "L_PL": 1.9357882205023017e-07,
+   "W_NL": 7.819544718939877e-07,
+   "L_NL": 2.746423134075772e-07,
+   "W_ND": 1.068933478445454e-06,
+   "L_ND": 2.5632070850708674e-07,
+   "W_OP": 4.935227952879303e-07,
+   "L_OP": 3.010980890186588e-07,
+   "W_ON": 4.577607327166526e-07,
+   "L_ON": 2.79563465082507e-07,
+   "CU": 1.2067332187344008e-14,
+   "M_IN": 2.0,
+   "M_PC": 2.0,
+   "M_TL": 10.0,
+   "M_M6": 2.0,
+   "M_PH": 2.0,
+   "M_NR": 1.0,
+   "M_PL": 7.0,
+   "M_NL": 7.0,
+   "M_ND": 1.0,
+   "M_OP": 5.0,
+   "M_ON": 6.0
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 118,
+   "best_f": 0.36029575315996054,
+   "elapsed_s": 4378.1,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 78,
+   "best_f": 0.027952027526399026,
+   "elapsed_s": 4545.4,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 70,
+   "best_f": 0.018082225980477706,
+   "elapsed_s": 4473.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 70,
+   "best_f": 0.007422066219535228,
+   "elapsed_s": 4406.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 70,
+   "best_f": 0.0,
+   "elapsed_s": 4355.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 70,
+   "best_f": 0.0,
+   "elapsed_s": 4339.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 70,
+   "best_f": 0.0,
+   "elapsed_s": 4358.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 70,
+   "best_f": 0.0,
+   "elapsed_s": 4385.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 70,
+   "best_f": 0.0,
+   "elapsed_s": 4473.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 54,
+   "best_f": 0.0,
+   "elapsed_s": 3525.4,
+   "best_feasible_objective": null
+  }
+ ]
+}

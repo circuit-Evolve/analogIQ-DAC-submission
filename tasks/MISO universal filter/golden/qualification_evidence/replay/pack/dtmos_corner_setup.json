@@ -1,0 +1,117 @@
+{
+  "paper": "A New DTMOS MOS-C Implementation of Fractional-Order Low-Voltage Low-Power Differentiator/High-Pass Filter",
+  "evidence": "Figure5(a): FF,FS,SF,SS; Figure5(b): \u00b10.7,\u00b10.8,\u00b11.0,\u00b11.1 V; Figure5(c): \u221227,0,+27,+100 \u00b0C. Nominal\u00b10.9V from TableII. Paper varies axes separately, not full Cartesian product. NN27C used for unspecified fixed axes.",
+  "source_deck": "<WORK>/dtmos-paper-audit-20261109/response_repair/native_simulations/unity_gain_candidate/input.scs",
+  "source_sha256": "e6de47997ee28e747eb6e55753fe9f8ffa7bad50aa6634c66573716955299611",
+  "sizing": "Latest native-verified17MOS private HPF candidate; no extra feedback devices; exact device sizing frozen",
+  "corners": [
+    {
+      "id": "NN_0p9V_27C",
+      "group": "nominal",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27
+    },
+    {
+      "id": "FF_0p9V_27C",
+      "group": "process",
+      "process": "FF",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27
+    },
+    {
+      "id": "FS_0p9V_27C",
+      "group": "process",
+      "process": "FS",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27
+    },
+    {
+      "id": "SF_0p9V_27C",
+      "group": "process",
+      "process": "SF",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27
+    },
+    {
+      "id": "SS_0p9V_27C",
+      "group": "process",
+      "process": "SS",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27
+    },
+    {
+      "id": "NN_0p7V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 0.7,
+      "temperature_C": 27
+    },
+    {
+      "id": "NN_0p8V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 0.8,
+      "temperature_C": 27
+    },
+    {
+      "id": "NN_1V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 1.0,
+      "temperature_C": 27
+    },
+    {
+      "id": "NN_1p1V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 1.1,
+      "temperature_C": 27
+    },
+    {
+      "id": "NN_0p9V_-27C",
+      "group": "temperature",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": -27
+    },
+    {
+      "id": "NN_0p9V_0C",
+      "group": "temperature",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 0
+    },
+    {
+      "id": "NN_0p9V_100C",
+      "group": "temperature",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 100
+    }
+  ],
+  "targets": {
+    "HPF_cutoff_Hz": {
+      "min": 180,
+      "max": 220,
+      "paper": 200
+    },
+    "HPF_Rail_power_mW": {
+      "min": 0.4464,
+      "max": 0.5456,
+      "paper": 0.496
+    },
+    "THD_500Hz_10uApp_percent": {
+      "min": 0,
+      "max_exclusive": 6,
+      "paper_upper_bound": 6
+    }
+  },
+  "limitations": [
+    "M2 drain current remains approximately 0.9 pA and IN is approximately \u22120.89999964 V, close to VSS. The intended active three-branch operating condition has not been recovered.",
+    "The measured response is a useful near-first-order high-pass candidate. It is not validated as the paper\u2019s fractional-order implementation or as a reproduction of its complete internal operating mode.",
+    "STB probes only the internal N2\u2192M4-gate loop. Its loop gain remains below unity throughout 1 mHz\u201310 GHz, so phase margin and gain margin are undefined; no numeric fallback is used. This does not establish stability of every possible feedback loop or loading condition.",
+    "Output current is measured into an ideal 0 V clamp. Output compliance and loading sensitivity are not validated.",
+    "Only NN, 27 \u00b0C, \u00b10.9 V was tested. No process or temperature corners were added."
+  ]
+}

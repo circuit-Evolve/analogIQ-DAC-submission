@@ -1,0 +1,207 @@
+{
+  "native_devices_checked": 40,
+  "exact_retained_sizing_and_topology": true,
+  "active_corners": [
+    "TT",
+    "FS",
+    "SF"
+  ],
+  "power_not_a_paper_target": true,
+  "corners": {
+    "tt": {
+      "metrics": {
+        "Vout_0C_V": 0.2689621094198038,
+        "Vout_27C_V": 0.217369506441757,
+        "Vout_100C_V": 0.09385775980104206,
+        "Sensitivity_mV_C": -1.7510434961876176,
+        "Output_span_mV": 175.10434961876174,
+        "Endpoint_linearity_percent_FS": 5.06855703112646
+      },
+      "returncode": 0,
+      "max_difference_from_retained_V": 7.640124310981378e-09,
+      "monotonic": true
+    },
+    "fs": {
+      "metrics": {
+        "Vout_0C_V": 0.1621464711184982,
+        "Vout_27C_V": 0.1193373389953666,
+        "Vout_100C_V": 0.06115110558872815,
+        "Sensitivity_mV_C": -1.0099536552977004,
+        "Output_span_mV": 100.99536552977005,
+        "Endpoint_linearity_percent_FS": 20.538788997608194
+      },
+      "returncode": 0,
+      "max_difference_from_retained_V": 4.120889740555356e-11,
+      "monotonic": true
+    },
+    "sf": {
+      "metrics": {
+        "Vout_0C_V": 0.3954070142390109,
+        "Vout_27C_V": 0.3394398665661968,
+        "Vout_100C_V": 0.1856053324112255,
+        "Sensitivity_mV_C": -2.0980168182778542,
+        "Output_span_mV": 209.80168182778542,
+        "Endpoint_linearity_percent_FS": 0.32445943620801665
+      },
+      "returncode": 0,
+      "max_difference_from_retained_V": 3.210270471676324e-08,
+      "monotonic": true
+    }
+  },
+  "comparison": [
+    {
+      "corner": "TT",
+      "metric": "Vout_0C_V",
+      "paper_graph_reference": 0.2854418006214906,
+      "candidate": 0.2689621094198038,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "TT",
+      "metric": "Vout_27C_V",
+      "paper_graph_reference": 0.22839061285303702,
+      "candidate": 0.217369506441757,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "TT",
+      "metric": "Vout_100C_V",
+      "paper_graph_reference": 0.09570298832237688,
+      "candidate": 0.09385775980104206,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "TT",
+      "metric": "Sensitivity_mV_C",
+      "paper_graph_reference": -1.8973881229911371,
+      "candidate": -1.7510434961876176,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "TT",
+      "metric": "Output_span_mV",
+      "paper_graph_reference": 189.7388122991137,
+      "candidate": 175.10434961876174,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "TT",
+      "metric": "Endpoint_linearity_percent_FS",
+      "paper_graph_reference": 7.610615772725828,
+      "candidate": 5.06855703112646,
+      "passed": true,
+      "rule": "upper bound"
+    },
+    {
+      "corner": "FS",
+      "metric": "Vout_0C_V",
+      "paper_graph_reference": 0.1612022247845829,
+      "candidate": 0.1621464711184982,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "FS",
+      "metric": "Vout_27C_V",
+      "paper_graph_reference": 0.11198410491135545,
+      "candidate": 0.1193373389953666,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "FS",
+      "metric": "Vout_100C_V",
+      "paper_graph_reference": 0.062253988605019246,
+      "candidate": 0.06115110558872815,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "FS",
+      "metric": "Sensitivity_mV_C",
+      "paper_graph_reference": -0.9894823617956366,
+      "candidate": -1.0099536552977004,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "FS",
+      "metric": "Output_span_mV",
+      "paper_graph_reference": 98.94823617956366,
+      "candidate": 100.99536552977005,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "FS",
+      "metric": "Endpoint_linearity_percent_FS",
+      "paper_graph_reference": 24.269265048527405,
+      "candidate": 20.538788997608194,
+      "passed": true,
+      "rule": "upper bound"
+    },
+    {
+      "corner": "SF",
+      "metric": "Vout_0C_V",
+      "paper_graph_reference": 0.3809117823864854,
+      "candidate": 0.3954070142390109,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "SF",
+      "metric": "Vout_27C_V",
+      "paper_graph_reference": 0.3285326053994881,
+      "candidate": 0.3394398665661968,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "SF",
+      "metric": "Vout_100C_V",
+      "paper_graph_reference": 0.1822450396048942,
+      "candidate": 0.1856053324112255,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "SF",
+      "metric": "Sensitivity_mV_C",
+      "paper_graph_reference": -1.9866674278159118,
+      "candidate": -2.0980168182778542,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "SF",
+      "metric": "Output_span_mV",
+      "paper_graph_reference": 198.66674278159118,
+      "candidate": 209.80168182778542,
+      "passed": true,
+      "rule": "+/-10%"
+    },
+    {
+      "corner": "SF",
+      "metric": "Endpoint_linearity_percent_FS",
+      "paper_graph_reference": 0.7712310186756847,
+      "candidate": 0.32445943620801665,
+      "passed": true,
+      "rule": "upper bound"
+    }
+  ],
+  "two_sided_passes": 15,
+  "linearity_upper_bound_passes": 3,
+  "OCEAN_scalar_checks": 18,
+  "maestro_reopened": true,
+  "maestro_active_corners": [
+    "TT",
+    "FS",
+    "SF"
+  ],
+  "status": "USER_SELECTED_GOLDEN_FOR_THREE_GRAPH_REFERENCE_CORNERS"
+}

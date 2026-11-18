@@ -1,0 +1,48 @@
+{
+  "parameters": {
+    "N_Q0": 10,
+    "L_IN": 3.891702802496527e-08,
+    "C_IN_SH": 2.9373012556686784e-12,
+    "C_IN_BLK": 3.0132646179627335e-10,
+    "L_BCHOKE": 1.6186834702955393e-05,
+    "R_BBIAS": 9733.79378832986,
+    "C_BDEC1": 1e-11,
+    "C_BDEC2": 8.2e-12,
+    "R_EMIT": 83.3392708795,
+    "C_EBYP": 4.282527027400597e-10,
+    "R_CFEED": 15.0,
+    "C_CDEC": 1.2367911333285738e-13,
+    "L_CCHOKE": 7.083781493513158e-08,
+    "C_SDEC": 1e-11,
+    "C_OUT_BLK": 5.5735569604160245e-12,
+    "C_OUT_SH": 5.036170439364871e-12,
+    "L_OUT": 5.112429612217947e-08
+  },
+  "parameterization_id": "pa1088_dac_p1",
+  "sizing_task_update": {
+    "date": "2026-11-12",
+    "physical_sizing_changed": false,
+    "search_bounds_legal": false,
+    "outside_bounds": [
+      {
+        "name": "C_IN_BLK",
+        "reference": 3.0132646179627335e-10,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "L_BCHOKE",
+        "reference": 1.6186834702955393e-05,
+        "lower": 1e-10,
+        "upper": 1e-07
+      },
+      {
+        "name": "C_EBYP",
+        "reference": 4.282527027400597e-10,
+        "lower": 1e-14,
+        "upper": 1e-10
+      }
+    ],
+    "note": "Canonical task variable names and explicit unit device counts; original file in repair backups. This is curator evidence, not the standard start."
+  }
+}

@@ -1,0 +1,73 @@
+schema_version: 1
+topology_id: ptat_lelo
+family: bias_generator
+interface_type: ptat_current_generator_with_regulation_loop
+technology_id: sky130
+approval_status: unapproved
+source:
+  title: 'lelo_temp_sky130a LELOTEMP_BIAS_IBP: PTAT current generator (repository documentation and simulation summaries; commit e439fe6)'
+  doi: 'none (repository: https://github.com/wulffern/lelo_temp_sky130a)'
+  figure: schematics/01_LELOTEMP_BIAS_IBP.png, 02_LELOTEMP_OTAR.png, 03_LELOTEMP_BIPOLAR.png
+  netlist_origin: final.scs (dataset export, export e4308e9)
+  modifications:
+  - dut_benchmark.scs = final.scs plus one added top-level `parameters W_...` line (per-finger widths bound by variables.yaml); no device, connection or value changed.
+  - 'Export completeness check (2026-10-30): the README''s 133 devices (95 MOSFET, 9 BJT, 16 R, 13 C) are all in final.scs: MOSFET 95 (64 pfet_01v8 + 19 nfet_01v8 + 12 pfet_01v8_lvt, counted with multiplicities), BJT 9 (xe1_Q1 m=1 + xe1_Q2 m=8, sky130_fd_pr__pnp_05v5_W3p40L3p40),
+    R 16 (res_high_po), C 13 (xd1 m=10 + xd2 m=3 cap_mim_m3_1). The substrate PNPs are present as two multiplied instances; no export error, no netlist change needed.'
+dut:
+  netlist: dut_benchmark.scs
+  subckt_name: ptat_lelo_dut
+  port_order:
+  - VDD_1V8
+  - VSS
+  - LPI
+  - LPO
+  - IBP_1U_3
+  - IBP_1U_2
+  - IBP_1U_1
+  - IBP_1U_0
+  - VD1
+  - PWRUP_1V8
+  - PWRUP_N_1V8
+  net_map: {}
+ports:
+  supply_positive: VDD_1V8
+  supply_negative: VSS
+  loop_input: LPI
+  loop_output: LPO
+  output_current_0: IBP_1U_0
+  output_current_1: IBP_1U_1
+  output_current_2: IBP_1U_2
+  output_current_3: IBP_1U_3
+  voltage_output: VD1
+  enable: PWRUP_1V8
+  enable_bar: PWRUP_N_1V8
+probes:
+- VR1
+- VD2
+op_check:
+  exclude:
+  - xad6_xba7_M1
+  - xad6_xba1_M1
+  - xad6_xba2_M1
+  - xad6_xns1_M1
+  - xad6_xns2_M1
+  - xad6_xns4_M1
+  - xad6_xba3_M1
+  - xad6_xfill_p_in_a_0_M1
+  - xad6_xfill_p_in_b_0_M1
+  - xad6_xfill_n_mirr_0_M1
+  - xg1_M1
+  - xcc_M1
+  - xsu1_M1
+  - xsu2_M1
+  - xfill_p_su_M1
+  - xfill_p_cc_M1
+  stacks:
+  - - xad6_xbs6_M1
+    - xad6_xbs1_M1
+    - xad6_xbs2_M1
+    - xad6_xbs4_M1
+    - xad6_xbs7_M1
+    - xad6_xbs8_M1
+  note: 'off or triode by design: power-down switches, start-up stack, clamp NMOS xg1 (diode-connected between VR1 and VD2, off in operation), dummies; the six series PMOS xbs* (common gate VCP, one long-channel diode-connected PMOS drawn as a 6-device
+    stack) are judged as one composite device'

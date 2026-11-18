@@ -1,0 +1,118 @@
+{
+ "task": "nclna02_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 4002,
+ "wall_s": 1003.9,
+ "feasible_designs": 1318,
+ "first_feasible_eval": 468,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 2.686293,
+ "llm_cost_usd_recorded": 1.3431466,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "best": {
+  "eval": 1099,
+  "round": 6,
+  "f": 0.0,
+  "reward": 1.0,
+  "score": 1.0,
+  "targets_met": 6,
+  "targets": 6,
+  "feasible": true,
+  "worst_margin": 0.21057385737936662,
+  "objective": null,
+  "params": {
+   "W_N": 5.1457374002868865e-06,
+   "L_N": 1.8290436716445083e-07,
+   "N_N": 33.0,
+   "W_P": 2.045691965865728e-06,
+   "L_P": 1.8338816712295136e-07,
+   "N_P": 57.0,
+   "C_C": 6.212584002128222e-11,
+   "R_C": 1215.0338865333254,
+   "R_L": 1169.1070893905373,
+   "C_O": 9.371989920609734e-12,
+   "V_BN": 1.4971237771823944,
+   "V_BP": 0.02688521383141183
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 200,
+   "best_f": 0.08403401688387468,
+   "elapsed_s": 116.5,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 200,
+   "best_f": 0.18075145259317527,
+   "elapsed_s": 89.1,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 86.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 93.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 90.3,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 88.1,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 92.3,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 101.1,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 94.4,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 104.6,
+   "best_feasible_objective": null
+  }
+ ]
+}

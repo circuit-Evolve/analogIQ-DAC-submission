@@ -1,0 +1,57 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task tinywhisper24_iqmod_task_001  topology tinywhisper24_iqmod
+// recipe iqmod_iq_tran_v1 v2  condition tt_T27_S1p00 (models tt, 27 C, supply 1.5 V)
+// request tinywhisper24_iqmod_task_001__plan  candidate 29459f7bd384e829
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+include "dut.scs"
+
+parameters vcm=0.75 vsup=1.5 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_di_analog_en (vdd b_di_analog_en) vsource dc=0.0
+
+VCMI (vcmi 0) vsource dc=vcm
+// PWM drive from the repository PWL data (DAC-side pins); complement = VDD - PWM.
+VPWI (dsip 0) vsource type=pwl file="pwm_i.pwl"
+ENI (dsin vdd dsip 0) vcvs gain=-1
+VPWQ (dsqp 0) vsource type=pwl file="pwm_q.pwl"
+ENQ (dsqn vdd dsqp 0) vcvs gain=-1
+// SPDT select 0 = DAC input; analog inputs at the common-mode level (deselected).
+VSPI (spdti 0) vsource dc=0
+VSPQ (spdtq 0) vsource dc=0
+VIP (inp vcmi) vsource dc=0
+VIN (inn vcmi) vsource dc=0
+VQP (qinp vcmi) vsource dc=0
+VQN (qinn vcmi) vsource dc=0
+// 4-phase 25 % LO (I, Q 90 deg later, I-bar, Q-bar).
+VLOP (lop 0) vsource type=pulse val0=0 val1=vsup period=3.571428571428571e-08 width=8.928571428571428e-09 rise=1e-11 fall=1e-11 delay=0.0
+VLQP (loqp 0) vsource type=pulse val0=0 val1=vsup period=3.571428571428571e-08 width=8.928571428571428e-09 rise=1e-11 fall=1e-11 delay=8.928571428571428e-09
+VLON (lon 0) vsource type=pulse val0=0 val1=vsup period=3.571428571428571e-08 width=8.928571428571428e-09 rise=1e-11 fall=1e-11 delay=1.7857142857142856e-08
+VLQN (loqn 0) vsource type=pulse val0=0 val1=vsup period=3.571428571428571e-08 width=8.928571428571428e-09 rise=1e-11 fall=1e-11 delay=2.6785714285714285e-08
+// The four RF outputs on one node, Cload, the coupled-resonator LC band-pass, meter and Rload.
+RT0 (out rf) resistor r=1m
+RT1 (outn rf) resistor r=1m
+RT2 (qout rf) resistor r=1m
+RT3 (qoutn rf) resistor r=1m
+CLRF (rf 0) capacitor c=1e-11
+BPF_C1L (rf bp1) capacitor c=1.4e-12
+BPF_L2 (bp1 0) inductor l=2.12e-06
+BPF_C1 (bp1 0) capacitor c=1.346e-11
+BPF_C12 (bp1 bp2) capacitor c=3.85e-13
+BPF_L3 (bp2 0) inductor l=2.12e-06
+BPF_C2 (bp2 0) capacitor c=1.346e-11
+BPF_C2L (bp2 rfo) capacitor c=1.4e-12
+VMEAS (rfo rfm) vsource dc=0
+RLOAD (rfm 0) resistor r=1000.0
+
+XDUT (dsip spdti dsin dsqn spdtq dsqp qinp qinn lop lon out inp inn loqp loqn outn qout qoutn vdd vss b_di_analog_en) tinywhisper24_iqmod_dut C1=1e-12 C2=1e-12 C3=1e-12 L_MIXDM_N=1e-06 L_MIXDM_P=1e-06 L_MIXTG_N=1e-06 L_MIXTG_P=1e-06 L_OTA10_N=1e-06 L_OTA10_P=1e-06 L_OTA20_N=1e-06 L_OTA20_P=1e-06 L_OTA6_N=1e-06 L_OTA6_P=1e-06 M_MIXDM_N=1.0 M_MIXDM_P=1.0 M_MIXTG_N=1.0 M_MIXTG_P=1.0 M_OTA10_N=1.0 M_OTA10_P=1.0 M_OTA20_N=1.0 M_OTA20_P=1.0 M_OTA6_N=1.0 M_OTA6_P=1.0 NF_MIXDM_N=1.0 NF_MIXDM_P=1.0 NF_MIXTG_N=1.0 NF_MIXTG_P=1.0 NF_OTA10_N=1.0 NF_OTA10_P=1.0 NF_OTA20_N=1.0 NF_OTA20_P=1.0 NF_OTA6_N=1.0 NF_OTA6_P=1.0 R1=10000.0 R2=10000.0 R3=10000.0 R4=10000.0 W_MIXDM_N=1e-06 W_MIXDM_P=1e-06 W_MIXTG_N=1e-06 W_MIXTG_P=1e-06 W_OTA10_N=1e-06 W_OTA10_P=1e-06 W_OTA20_N=1e-06 W_OTA20_P=1e-06 W_OTA6_N=1e-06 W_OTA6_P=1e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_di_analog_en:p VNEG:p VSUP:p dsin dsip dsqn dsqp inn inp lon lop loqn loqp out outn qinn qinp qout qoutn rf rfm spdti spdtq vdd vss
+
+iq1 tran stop=1.6051364365971107e-05 maxstep=3.5714285714285715e-09 skipstart=7.954253611556982e-06 errpreset=moderate

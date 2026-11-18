@@ -1,0 +1,1783 @@
+schema: analogiq.sizing_problem/1
+task_id: poweramp_dac_task_001
+topology_id: poweramp_dac
+family: power_amplifier
+technology_id: discrete_bjt
+parameterization_id: poweramp_dac_p2
+execution_profile: search_full
+description: 'User decision 2026-11-12: validity gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced.
+  Diagnostics are not a gate pass or physical qualification.'
+source:
+  title: The design, simulation and characterisation of a class-B audio power amplifier
+variables:
+- name: N_Q1_Q2
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; matched Q1/Q2
+  binding:
+    type: instance_parameter
+    instances:
+    - Q1
+    - Q2
+    parameter: m
+- name: N_Q4_Q5
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; matched Q4/Q5
+  binding:
+    type: instance_parameter
+    instances:
+    - Q4
+    - Q5
+    parameter: m
+- name: N_Q10_Q11
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; matched Q10/Q11
+  binding:
+    type: instance_parameter
+    instances:
+    - Q10
+    - Q11
+    parameter: m
+- name: N_Q12_Q13
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; matched Q12/Q13
+  binding:
+    type: instance_parameter
+    instances:
+    - Q12
+    - Q13
+    parameter: m
+- name: N_Q18
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q18
+  binding:
+    type: instance_parameter
+    instances:
+    - Q18
+    parameter: m
+- name: N_Q20
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q20
+  binding:
+    type: instance_parameter
+    instances:
+    - Q20
+    parameter: m
+- name: N_Q22
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q22
+  binding:
+    type: instance_parameter
+    instances:
+    - Q22
+    parameter: m
+- name: N_Q21
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q21
+  binding:
+    type: instance_parameter
+    instances:
+    - Q21
+    parameter: m
+- name: N_Q15
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q15
+  binding:
+    type: instance_parameter
+    instances:
+    - Q15
+    parameter: m
+- name: N_Q14
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q14
+  binding:
+    type: instance_parameter
+    instances:
+    - Q14
+    parameter: m
+- name: N_Q7
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q7
+  binding:
+    type: instance_parameter
+    instances:
+    - Q7
+    parameter: m
+- name: N_Q6
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q6
+  binding:
+    type: instance_parameter
+    instances:
+    - Q6
+    parameter: m
+- name: N_Q19
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q19
+  binding:
+    type: instance_parameter
+    instances:
+    - Q19
+    parameter: m
+- name: N_Q17
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q17
+  binding:
+    type: instance_parameter
+    instances:
+    - Q17
+    parameter: m
+- name: N_Q16
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q16
+  binding:
+    type: instance_parameter
+    instances:
+    - Q16
+    parameter: m
+- name: N_Q9
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q9
+  binding:
+    type: instance_parameter
+    instances:
+    - Q9
+    parameter: m
+- name: N_Q8
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q8
+  binding:
+    type: instance_parameter
+    instances:
+    - Q8
+    parameter: m
+- name: N_Q3
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: BJT parallel-device multiplier; Q3
+  binding:
+    type: instance_parameter
+    instances:
+    - Q3
+    parameter: m
+- name: L1
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: 'L1 design inductor: OUT LOAD'
+  binding:
+    type: instance_parameter
+    instances:
+    - L1
+    parameter: l
+- name: R34
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R34 design resistor: OUT zobel'
+  binding:
+    type: instance_parameter
+    instances:
+    - R34
+    parameter: r
+- name: R33
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R33 design resistor: OUT output_n_e'
+  binding:
+    type: instance_parameter
+    instances:
+    - R33
+    parameter: r
+- name: R32
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R32 design resistor: output_p_e OUT'
+  binding:
+    type: instance_parameter
+    instances:
+    - R32
+    parameter: r
+- name: R27
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R27 design resistor: output_bias output_n_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - R27
+    parameter: r
+- name: R26
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R26 design resistor: output_p_base output_bias'
+  binding:
+    type: instance_parameter
+    instances:
+    - R26
+    parameter: r
+- name: R31
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R31 design resistor: driver_n_e VN'
+  binding:
+    type: instance_parameter
+    instances:
+    - R31
+    parameter: r
+- name: R30
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R30 design resistor: driver_n_base VN'
+  binding:
+    type: instance_parameter
+    instances:
+    - R30
+    parameter: r
+- name: R29
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R29 design resistor: driver_n_buffer_e VN'
+  binding:
+    type: instance_parameter
+    instances:
+    - R29
+    parameter: r
+- name: R28
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R28 design resistor: drive_negative VN'
+  binding:
+    type: instance_parameter
+    instances:
+    - R28
+    parameter: r
+- name: R25
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R25 design resistor: VP driver_p_e'
+  binding:
+    type: instance_parameter
+    instances:
+    - R25
+    parameter: r
+- name: R24
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R24 design resistor: VP driver_p_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - R24
+    parameter: r
+- name: R23
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R23 design resistor: VP driver_p_buffer_e'
+  binding:
+    type: instance_parameter
+    instances:
+    - R23
+    parameter: r
+- name: R22
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R22 design resistor: VP drive_positive'
+  binding:
+    type: instance_parameter
+    instances:
+    - R22
+    parameter: r
+- name: R21
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R21 design resistor: tail2n_e VN7'
+  binding:
+    type: instance_parameter
+    instances:
+    - R21
+    parameter: r
+- name: R20
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R20 design resistor: GND bias2n'
+  binding:
+    type: instance_parameter
+    instances:
+    - R20
+    parameter: r
+- name: R19
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R19 design resistor: diff2n_right tail2n'
+  binding:
+    type: instance_parameter
+    instances:
+    - R19
+    parameter: r
+- name: R18
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R18 design resistor: diff2n_left tail2n'
+  binding:
+    type: instance_parameter
+    instances:
+    - R18
+    parameter: r
+- name: R17
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R17 design resistor: tail2p diff2p_right'
+  binding:
+    type: instance_parameter
+    instances:
+    - R17
+    parameter: r
+- name: R16
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R16 design resistor: tail2p diff2p_left'
+  binding:
+    type: instance_parameter
+    instances:
+    - R16
+    parameter: r
+- name: R15
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R15 design resistor: GND bias2p'
+  binding:
+    type: instance_parameter
+    instances:
+    - R15
+    parameter: r
+- name: R14
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R14 design resistor: V15 tail2p_e'
+  binding:
+    type: instance_parameter
+    instances:
+    - R14
+    parameter: r
+- name: R13
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R13 design resistor: tail1_e VN7'
+  binding:
+    type: instance_parameter
+    instances:
+    - R13
+    parameter: r
+- name: R12
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R12 design resistor: GND bias1'
+  binding:
+    type: instance_parameter
+    instances:
+    - R12
+    parameter: r
+- name: R3
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R3 design resistor: V15 mirror_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - R3
+    parameter: r
+- name: R1
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: Matched first-stage mirror Q1/Q2 emitter-degeneration resistors R1/R2
+  binding:
+    type: instance_parameter
+    instances:
+    - R1
+    - R2
+    parameter: r
+- name: R11
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R11 design resistor: reference_div ERROR'
+  binding:
+    type: instance_parameter
+    instances:
+    - R11
+    parameter: r
+- name: R10
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R10 design resistor: reference_div GND'
+  binding:
+    type: instance_parameter
+    instances:
+    - R10
+    parameter: r
+- name: R9
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R9 design resistor: reference_base reference_div'
+  binding:
+    type: instance_parameter
+    instances:
+    - R9
+    parameter: r
+- name: R8
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R8 design resistor: input_base ERROR'
+  binding:
+    type: instance_parameter
+    instances:
+    - R8
+    parameter: r
+- name: R7
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R7 design resistor: ERROR GND'
+  binding:
+    type: instance_parameter
+    instances:
+    - R7
+    parameter: r
+- name: R6
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R6 design resistor: OUT input_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - R6
+    parameter: r
+- name: R5
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R5 design resistor: input_filter input_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - R5
+    parameter: r
+- name: R4
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'R4 design resistor: input_cap input_filter'
+  binding:
+    type: instance_parameter
+    instances:
+    - R4
+    parameter: r
+- name: C18
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C18 design capacitor: zobel GND'
+  binding:
+    type: instance_parameter
+    instances:
+    - C18
+    parameter: c
+- name: C11
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C11 design capacitor: output_p_base output_n_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - C11
+    parameter: c
+- name: C8
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C8 design capacitor: driver_n_e VN'
+  binding:
+    type: instance_parameter
+    instances:
+    - C8
+    parameter: c
+- name: C10
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C10 design capacitor: drive_negative driver_n_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - C10
+    parameter: c
+- name: C7
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C7 design capacitor: VP driver_p_e'
+  binding:
+    type: instance_parameter
+    instances:
+    - C7
+    parameter: c
+- name: C9
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C9 design capacitor: driver_p_base drive_positive'
+  binding:
+    type: instance_parameter
+    instances:
+    - C9
+    parameter: c
+- name: C6
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C6 design capacitor: diff2n_right tail2n'
+  binding:
+    type: instance_parameter
+    instances:
+    - C6
+    parameter: c
+- name: C5
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C5 design capacitor: diff2n_left tail2n'
+  binding:
+    type: instance_parameter
+    instances:
+    - C5
+    parameter: c
+- name: C4
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C4 design capacitor: tail2p diff2p_right'
+  binding:
+    type: instance_parameter
+    instances:
+    - C4
+    parameter: c
+- name: C3
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C3 design capacitor: tail2p diff2p_left'
+  binding:
+    type: instance_parameter
+    instances:
+    - C3
+    parameter: c
+- name: C12
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C12 design capacitor: stage1 OUT'
+  binding:
+    type: instance_parameter
+    instances:
+    - C12
+    parameter: c
+- name: C2
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C2 design capacitor: V15 mirror_e2'
+  binding:
+    type: instance_parameter
+    instances:
+    - C2
+    parameter: c
+- name: C1
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C1 design capacitor: V15 mirror_e1'
+  binding:
+    type: instance_parameter
+    instances:
+    - C1
+    parameter: c
+- name: C14
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C14 design capacitor: reference_div GND'
+  binding:
+    type: instance_parameter
+    instances:
+    - C14
+    parameter: c
+- name: C13
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C13 design capacitor: reference_base reference_div'
+  binding:
+    type: instance_parameter
+    instances:
+    - C13
+    parameter: c
+- name: C15
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C15 design capacitor: OUT input_base'
+  binding:
+    type: instance_parameter
+    instances:
+    - C15
+    parameter: c
+- name: C17
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'C17 design capacitor: IN input_cap'
+  binding:
+    type: instance_parameter
+    instances:
+    - C17
+    parameter: c
+- name: C16
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: Input filter capacitor; bypassed only for the paper slew test
+  binding:
+    type: dut_parameter
+    parameter: filter_capacitance_F
+- name: V_REF6
+  kind: real
+  unit: V
+  lower: -42.0
+  upper: 42.0
+  scale: lin
+  start: 0.0
+  quantity: bias_voltage
+  role: Second-stage reference and clamp bias
+  binding:
+    type: external_bias
+    pin: REF6
+dependent_parameters: {}
+conditions:
+- id: fixed_models_T27_S1p00_Nominal
+  model_set: fixed_models
+  temperature_C: 27.0
+  supply_V: 42.0
+  supply_scale: 1.0
+  nominal: true
+- id: fixed_models_T27_S0p90_VT_V37p8_T27
+  model_set: fixed_models
+  temperature_C: 27.0
+  supply_V: 37.8
+  supply_scale: 0.8999999999999999
+  nominal: false
+- id: fixed_models_T85_S0p90_VT_V37p8_T85
+  model_set: fixed_models
+  temperature_C: 85.0
+  supply_V: 37.8
+  supply_scale: 0.8999999999999999
+  nominal: false
+- id: fixed_models_Tm40_S0p90_VT_V37p8_Tm40
+  model_set: fixed_models
+  temperature_C: -40.0
+  supply_V: 37.8
+  supply_scale: 0.8999999999999999
+  nominal: false
+- id: fixed_models_T85_S1p00_VT_V42_T85
+  model_set: fixed_models
+  temperature_C: 85.0
+  supply_V: 42.0
+  supply_scale: 1.0
+  nominal: false
+- id: fixed_models_Tm40_S1p00_VT_V42_Tm40
+  model_set: fixed_models
+  temperature_C: -40.0
+  supply_V: 42.0
+  supply_scale: 1.0
+  nominal: false
+- id: fixed_models_T27_S1p10_VT_V46p2_T27
+  model_set: fixed_models
+  temperature_C: 27.0
+  supply_V: 46.2
+  supply_scale: 1.1
+  nominal: false
+- id: fixed_models_T85_S1p10_VT_V46p2_T85
+  model_set: fixed_models
+  temperature_C: 85.0
+  supply_V: 46.2
+  supply_scale: 1.1
+  nominal: false
+- id: fixed_models_Tm40_S1p10_VT_V46p2_Tm40
+  model_set: fixed_models
+  temperature_C: -40.0
+  supply_V: 46.2
+  supply_scale: 1.1
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 42.0
+    provenance: Paper/saved nominal ±42 V rails
+  supply_negative_V:
+    value: -42.0
+    provenance: Negative supply set by per-condition VN source
+  center_frequency_Hz:
+    value: 50.0
+    provenance: Saved sine stimulus
+  port_impedance_ohm:
+    value: 8.0
+    provenance: Paper speaker R35 load; no RF port fixture
+  input_peak_V:
+    value: 0.174216
+    provenance: Saved testbench sine amplitude
+  slew_amplitude_V:
+    value: 0.87
+    provenance: Saved testbench pulse amplitude
+constraints:
+- name: metric_1
+  metric: SR_fall_V_per_us
+  recipe: poweramp_slew_v1
+  point: {}
+  unit: V/us
+  lower: 195.5
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+- name: metric_2
+  metric: SR_rise_V_per_us
+  recipe: poweramp_slew_v1
+  point: {}
+  unit: V/us
+  lower: 195.5
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+- name: metric_3
+  metric: Vout_pp
+  recipe: poweramp_tran_v1
+  point: {}
+  unit: V
+  lower: 8.5
+  upper: 11.5
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+- name: metric_4
+  metric: Av1
+  recipe: poweramp_tran_v1
+  point: {}
+  unit: V/V
+  lower: 6681.0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+- name: metric_5
+  metric: gm2
+  recipe: poweramp_tran_v1
+  point: {}
+  unit: A/V
+  lower: 0.008584999999999999
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+- name: metric_6
+  metric: AI
+  recipe: poweramp_tran_v1
+  point: {}
+  unit: A/A
+  lower: 21.505
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+- name: metric_7
+  metric: Total_gain_dB
+  recipe: poweramp_tran_v1
+  point: {}
+  unit: dB
+  lower: 127.98837851428586
+  target:
+    kind: voltage_db
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: Paper reference and approved 15% directional allowance; see reference and qualifications.
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - poweramp_slew_v1
+  - SR_fall_V_per_us
+- - poweramp_slew_v1
+  - SR_rise_V_per_us
+- - poweramp_tran_v1
+  - AI
+- - poweramp_tran_v1
+  - Av1
+- - poweramp_tran_v1
+  - Total_gain_dB
+- - poweramp_tran_v1
+  - Vout_pp
+- - poweramp_tran_v1
+  - devices_out_of_saturation
+- - poweramp_tran_v1
+  - devices_outside_rails
+- - poweramp_tran_v1
+  - forward_biased_junctions
+- - poweramp_tran_v1
+  - gm2
+- - poweramp_tran_v1
+  - saturation_margin_min_V
+simulations_per_design: 18
+analysis_executions_per_design: 18
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: fixed_models_T27_S1p00_Nominal
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_T27_S1p00_Nominal/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T27_S1p00_Nominal
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_T27_S1p00_Nominal/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T27_S0p90_VT_V37p8_T27
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T27_S0p90_VT_V37p8_T27
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T85_S0p90_VT_V37p8_T85
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T85_S0p90_VT_V37p8_T85
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_Tm40_S0p90_VT_V37p8_Tm40
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_Tm40_S0p90_VT_V37p8_Tm40
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T85_S1p00_VT_V42_T85
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T85_S1p00_VT_V42_T85
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_Tm40_S1p00_VT_V42_Tm40
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_Tm40_S1p00_VT_V42_Tm40
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T27_S1p10_VT_V46p2_T27
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T27_S1p10_VT_V46p2_T27
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T85_S1p10_VT_V46p2_T85
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_T85_S1p10_VT_V46p2_T85
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+- condition: fixed_models_Tm40_S1p10_VT_V46p2_Tm40
+  recipe: poweramp_tran_v1
+  folder: testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    Vout_pp:
+      unit: V
+      source: native
+    Av1:
+      unit: V/V
+      source: native
+    gm2:
+      unit: A/V
+      source: native
+    AI:
+      unit: A/A
+      source: native
+    Total_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: fixed_models_Tm40_S1p10_VT_V46p2_Tm40
+  recipe: poweramp_slew_v1
+  folder: testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_slew_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    SR_fall_V_per_us:
+      unit: V/us
+      source: native
+    SR_rise_V_per_us:
+      unit: V/us
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - poweramp_dac_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('poweramp_dac_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>
+validity_gate_waiver:
+  date: '2026-11-12'
+  authority: explicit user instruction in this conversation
+  instruction: for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks
+  scope_clarification: Did you update the tasks for the rest 3 circuits also for which the bypass is needed
+  classification: sizing_task_with_user_waived_validity_gates
+  status: waived_not_passed
+  waived_metrics:
+  - devices_out_of_saturation
+  - forward_biased_junctions
+  - devices_outside_rails
+  diagnostics_retained: true
+  performance_targets_and_corners_unchanged: true
+  sizing_unchanged: true
+  standard_bounds_unchanged: true
+  physical_qualification_claimed: false
+  source_evidence: <WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt
+task_classification: sizing_task_with_user_waived_validity_gates

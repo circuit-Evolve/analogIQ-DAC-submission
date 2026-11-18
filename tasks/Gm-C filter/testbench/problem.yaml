@@ -1,0 +1,1951 @@
+schema: analogiq.sizing_problem/1
+task_id: gmc_reconstructed_131126_task_001
+topology_id: gmc_reconstructed_131126
+family: filter
+technology_id: gpdk090
+parameterization_id: gmc_reconstructed_131126_p1
+execution_profile: search_full
+description: "Reconstructed four-stage Gm-C low-pass filter; retained six scalars,9independentP/V/T conditions, explicit10\u201320MHzcutoff and15%otherlimits.\
+  \ Scalar comparison is not paper-exact reproduction. Standard-start69-variable sizing benchmark with nominal G8. User decision2026-11-13: saturation\
+  \ gate waived,notpassed; junction and rail gates remain enforced at nominal."
+source:
+  title: "Design of Fourth Order Gm-C Low-Pass Filter for Microsensor Readout (Pugazhenthi R, Ananiah Durai S, Nabihah Ahmad; IJIE 18(1), 2026,\
+    \ 59\u201371)"
+  doi: 10.30880/ijie.2026.18.01.005
+  figure: Fig.2 interpreted OTA; experimental four-state replacement of ambiguous Fig.3
+variables:
+- name: input_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: input_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M1
+    - ota_fig2_interpreted.M3
+    parameter: w
+- name: input_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: input_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M1
+    - ota_fig2_interpreted.M3
+    parameter: l
+- name: input_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: input_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M1
+    - ota_fig2_interpreted.M3
+    parameter: m
+- name: input_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: input_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M2
+    - ota_fig2_interpreted.M4
+    parameter: w
+- name: input_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: input_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M2
+    - ota_fig2_interpreted.M4
+    parameter: l
+- name: input_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: input_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M2
+    - ota_fig2_interpreted.M4
+    parameter: m
+- name: cross_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cross_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M5
+    - ota_fig2_interpreted.M9
+    parameter: w
+- name: cross_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cross_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M5
+    - ota_fig2_interpreted.M9
+    parameter: l
+- name: cross_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cross_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M5
+    - ota_fig2_interpreted.M9
+    parameter: m
+- name: cross_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cross_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M6
+    - ota_fig2_interpreted.M10
+    parameter: w
+- name: cross_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cross_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M6
+    - ota_fig2_interpreted.M10
+    parameter: l
+- name: cross_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cross_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M6
+    - ota_fig2_interpreted.M10
+    parameter: m
+- name: load_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: load_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M7
+    - ota_fig2_interpreted.M11
+    parameter: w
+- name: load_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: load_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M7
+    - ota_fig2_interpreted.M11
+    parameter: l
+- name: load_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: load_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M7
+    - ota_fig2_interpreted.M11
+    parameter: m
+- name: load_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: load_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M8
+    - ota_fig2_interpreted.M12
+    parameter: w
+- name: load_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: load_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M8
+    - ota_fig2_interpreted.M12
+    parameter: l
+- name: load_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: load_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M8
+    - ota_fig2_interpreted.M12
+    parameter: m
+- name: cm_out_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cm_out_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M13
+    - ota_fig2_interpreted.M15
+    parameter: w
+- name: cm_out_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cm_out_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M13
+    - ota_fig2_interpreted.M15
+    parameter: l
+- name: cm_out_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cm_out_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M13
+    - ota_fig2_interpreted.M15
+    parameter: m
+- name: cm_out_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cm_out_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M14
+    - ota_fig2_interpreted.M16
+    parameter: w
+- name: cm_out_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cm_out_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M14
+    - ota_fig2_interpreted.M16
+    parameter: l
+- name: cm_out_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cm_out_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M14
+    - ota_fig2_interpreted.M16
+    parameter: m
+- name: cm_node_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cm_node_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M17
+    - ota_fig2_interpreted.M26R
+    - ota_fig2_interpreted.M28R
+    parameter: w
+- name: cm_node_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cm_node_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M17
+    - ota_fig2_interpreted.M26R
+    - ota_fig2_interpreted.M28R
+    parameter: l
+- name: cm_node_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cm_node_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M17
+    - ota_fig2_interpreted.M26R
+    - ota_fig2_interpreted.M28R
+    parameter: m
+- name: cm_node_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cm_node_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M18
+    - ota_fig2_interpreted.M25R
+    - ota_fig2_interpreted.M27R
+    parameter: w
+- name: cm_node_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cm_node_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M18
+    - ota_fig2_interpreted.M25R
+    - ota_fig2_interpreted.M27R
+    parameter: l
+- name: cm_node_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cm_node_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M18
+    - ota_fig2_interpreted.M25R
+    - ota_fig2_interpreted.M27R
+    parameter: m
+- name: cm_fb_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cm_fb_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M21
+    parameter: w
+- name: cm_fb_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cm_fb_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M21
+    parameter: l
+- name: cm_fb_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cm_fb_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M21
+    parameter: m
+- name: cm_fb_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: cm_fb_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M22
+    parameter: w
+- name: cm_fb_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: cm_fb_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M22
+    parameter: l
+- name: cm_fb_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: cm_fb_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M22
+    parameter: m
+- name: bias_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: bias_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M26
+    parameter: w
+- name: bias_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: bias_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M26
+    parameter: l
+- name: bias_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: bias_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M26
+    parameter: m
+- name: bias_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: bias_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M27
+    parameter: w
+- name: bias_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: bias_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M27
+    parameter: l
+- name: bias_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: bias_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M27
+    parameter: m
+- name: M19_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M19 matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M19
+    parameter: w
+- name: M19_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M19 matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M19
+    parameter: l
+- name: M19_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M19 matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M19
+    parameter: m
+- name: M20_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M20 matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M20
+    parameter: w
+- name: M20_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M20 matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M20
+    parameter: l
+- name: M20_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M20 matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M20
+    parameter: m
+- name: M23_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M23 matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M23
+    parameter: w
+- name: M23_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M23 matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M23
+    parameter: l
+- name: M23_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M23 matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M23
+    parameter: m
+- name: M24_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M24 matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M24
+    parameter: w
+- name: M24_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M24 matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M24
+    parameter: l
+- name: M24_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M24 matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M24
+    parameter: m
+- name: M25_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M25 matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M25
+    parameter: w
+- name: M25_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M25 matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M25
+    parameter: l
+- name: M25_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M25 matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M25
+    parameter: m
+- name: M28_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M28 matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M28
+    parameter: w
+- name: M28_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M28 matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M28
+    parameter: l
+- name: M28_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M28 matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - ota_fig2_interpreted.M28
+    parameter: m
+- name: feedback_n_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: feedback_n matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - FD1Pn
+    - FD1Mn
+    - FD2Pn
+    - FD2Mn
+    - FD3Pn
+    - FD3Mn
+    - FD4Pn
+    - FD4Mn
+    parameter: w
+- name: feedback_n_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: feedback_n matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - FD1Pn
+    - FD1Mn
+    - FD2Pn
+    - FD2Mn
+    - FD3Pn
+    - FD3Mn
+    - FD4Pn
+    - FD4Mn
+    parameter: l
+- name: feedback_n_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: feedback_n matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - FD1Pn
+    - FD1Mn
+    - FD2Pn
+    - FD2Mn
+    - FD3Pn
+    - FD3Mn
+    - FD4Pn
+    - FD4Mn
+    parameter: m
+- name: feedback_p_w
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: feedback_p matched w; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - FD1Pp
+    - FD1Mp
+    - FD2Pp
+    - FD2Mp
+    - FD3Pp
+    - FD3Mp
+    - FD4Pp
+    - FD4Mp
+    parameter: w
+- name: feedback_p_l
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: feedback_p matched l; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - FD1Pp
+    - FD1Mp
+    - FD2Pp
+    - FD2Mp
+    - FD3Pp
+    - FD3Mp
+    - FD4Pp
+    - FD4Mp
+    parameter: l
+- name: feedback_p_m
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: feedback_p matched m; shared by all filter stages and the standalone OTA fixture
+  binding:
+    type: instance_parameter
+    instances:
+    - FD1Pp
+    - FD1Mp
+    - FD2Pp
+    - FD2Mp
+    - FD3Pp
+    - FD3Mp
+    - FD4Pp
+    - FD4Mp
+    parameter: m
+- name: cap_b_F
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: Differential capacitor pair; reconstruction assumption, absent from paper
+  binding:
+    type: instance_parameter
+    instances:
+    - C1
+    - C2
+    parameter: c
+- name: cap_d_F
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: Differential capacitor pair; reconstruction assumption, absent from paper
+  binding:
+    type: instance_parameter
+    instances:
+    - C3
+    - C4
+    parameter: c
+- name: vt_bias_V
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.0
+  scale: lin
+  start: 0.5
+  quantity: bias_voltage
+  role: Common tuning bias, held fixed across all nine conditions for each candidate
+  binding:
+    type: external_bias
+    pin: VT
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S0p90
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 0.9
+  supply_scale: 0.9
+  nominal: false
+- id: NN_Tm40_S1p00
+  model_set: NN
+  temperature_C: -40.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: true
+- id: NN_T85_S1p00
+  model_set: NN
+  temperature_C: 85.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p10
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.1
+  supply_scale: 1.1
+  nominal: false
+- id: SS_T27_S1p00
+  model_set: SS
+  temperature_C: 27.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T27_S1p00
+  model_set: SF
+  temperature_C: 27.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T27_S1p00
+  model_set: FS
+  temperature_C: 27.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: false
+- id: FF_T27_S1p00
+  model_set: FF
+  temperature_C: 27.0
+  supply_V: 1.0
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.0
+    provenance: Paper nominal1V; independent voltage tests0.9/1.1V user-approved
+  input_common_mode_ratio:
+    value: 0.5
+    provenance: Retained fixture VREF/input common-mode=VDD/2; not sizing variables
+constraints:
+- name: OTA_differential_gain_dB
+  metric: OTA_differential_gain_dB
+  recipe: gmc1113_ota_diff_v1
+  point: {}
+  unit: dB
+  lower: 33.15
+  target:
+    kind: voltage_db
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: "User-approved retained limit,2026-11-13. Paper reference 39; cutoff explicit10\u201320MHz; other15% directions and literal-dB limits\
+    \ preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  source: native
+- name: OTA_unity_gain_frequency_Hz
+  metric: OTA_unity_gain_frequency_Hz
+  recipe: gmc1113_ota_diff_v1
+  point: {}
+  unit: Hz
+  lower: 8500000000.0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: "User-approved retained limit,2026-11-13. Paper reference 10000000000.0; cutoff explicit10\u201320MHz; other15% directions and literal-dB\
+    \ limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  source: native
+- name: OTA_phase_margin_deg
+  metric: OTA_phase_margin_deg
+  recipe: gmc1113_ota_diff_v1
+  point: {}
+  unit: deg
+  lower: 67.15
+  upper: 90.85
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: "User-approved retained limit,2026-11-13. Paper reference 79; cutoff explicit10\u201320MHz; other15% directions and literal-dB limits\
+    \ preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  source: native
+- name: OTA_common_mode_gain_dB
+  metric: OTA_common_mode_gain_dB
+  recipe: gmc1113_ota_cm_v1
+  point: {}
+  unit: dB
+  upper: -20.4
+  target:
+    kind: voltage_db
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: "User-approved retained limit,2026-11-13. Paper reference -24; cutoff explicit10\u201320MHz; other15% directions and literal-dB\
+    \ limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  source: native
+- name: Filter_cutoff_Hz
+  metric: Filter_cutoff_Hz
+  recipe: gmc1113_filter_v1
+  point: {}
+  unit: Hz
+  lower: 10000000.0
+  upper: 20000000.0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: "User-approved retained limit,2026-11-13. Paper reference 15000000.0; cutoff explicit10\u201320MHz; other15% directions and literal-dB\
+    \ limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  source: native
+- name: Filter_input_noise_nV_sqrtHz
+  metric: Filter_input_noise_nV_sqrtHz
+  recipe: gmc1113_filter_v1
+  point: {}
+  unit: nV/sqrtHz
+  upper: 97.75
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: "User-approved retained limit,2026-11-13. Paper reference 85; cutoff explicit10\u201320MHz; other15% directions and literal-dB limits\
+    \ preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: gmc1113_filter_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Benchmark G8 nominal-only validity gate; not a paper target. All144transistors checked; no waiver.
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: gmc1113_filter_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Benchmark G8 nominal-only validity gate; not a paper target. All144transistors checked; no waiver.
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - gmc1113_filter_v1
+  - Filter_cutoff_Hz
+- - gmc1113_filter_v1
+  - Filter_input_noise_nV_sqrtHz
+- - gmc1113_filter_v1
+  - devices_out_of_saturation
+- - gmc1113_filter_v1
+  - devices_outside_rails
+- - gmc1113_filter_v1
+  - forward_biased_junctions
+- - gmc1113_filter_v1
+  - saturation_margin_min_V
+- - gmc1113_ota_cm_v1
+  - OTA_common_mode_gain_dB
+- - gmc1113_ota_diff_v1
+  - OTA_differential_gain_dB
+- - gmc1113_ota_diff_v1
+  - OTA_phase_margin_deg
+- - gmc1113_ota_diff_v1
+  - OTA_unity_gain_frequency_Hz
+simulations_per_design: 27
+analysis_executions_per_design: 63
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S0p90
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/NN_T27_S0p90/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p90
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/NN_T27_S0p90/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p90
+  recipe: gmc1113_filter_v1
+  folder: testbenches/NN_T27_S0p90/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_Tm40_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/NN_Tm40_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: NN_Tm40_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/NN_Tm40_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: NN_Tm40_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/NN_Tm40_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/NN_T27_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/NN_T27_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/NN_T27_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T85_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/NN_T85_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: NN_T85_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/NN_T85_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: NN_T85_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/NN_T85_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p10
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/NN_T27_S1p10/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p10
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/NN_T27_S1p10/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p10
+  recipe: gmc1113_filter_v1
+  folder: testbenches/NN_T27_S1p10/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: SS_T27_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/SS_T27_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: SS_T27_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/SS_T27_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: SS_T27_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/SS_T27_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: SF_T27_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/SF_T27_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: SF_T27_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/SF_T27_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: SF_T27_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/SF_T27_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: FS_T27_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/FS_T27_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: FS_T27_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/FS_T27_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: FS_T27_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/FS_T27_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: FF_T27_S1p00
+  recipe: gmc1113_ota_diff_v1
+  folder: testbenches/FF_T27_S1p00/gmc1113_ota_diff_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_differential_gain_dB:
+      unit: dB
+      source: native
+    OTA_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    OTA_phase_margin_deg:
+      unit: deg
+      source: native
+  points:
+  - {}
+- condition: FF_T27_S1p00
+  recipe: gmc1113_ota_cm_v1
+  folder: testbenches/FF_T27_S1p00/gmc1113_ota_cm_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  metrics:
+    OTA_common_mode_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - {}
+- condition: FF_T27_S1p00
+  recipe: gmc1113_filter_v1
+  folder: testbenches/FF_T27_S1p00/gmc1113_filter_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcOp.dc
+  - raw/ac.ac
+  - raw/noise.noise
+  - raw/op_info.info
+  metrics:
+    Filter_cutoff_Hz:
+      unit: Hz
+      source: native
+    Filter_input_noise_nV_sqrtHz:
+      unit: nV/sqrtHz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - gmc_reconstructed_131126_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('gmc_reconstructed_131126_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

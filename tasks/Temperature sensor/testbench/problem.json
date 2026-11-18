@@ -1,0 +1,1236 @@
+{
+  "schema": "analogiq.sizing_problem/1",
+  "task_id": "temp_sensor_101126_task_001",
+  "topology_id": "ts1111_ptat_sensor",
+  "family": "temperature_sensor",
+  "technology_id": "sky130",
+  "parameterization_id": "ts1111_ptat_sensor_p1",
+  "execution_profile": "search_full",
+  "description": "CMOS temperature sensor of the RFID-tag paper (Sec. D, Fig. 10: self-biased bias circuit, PTAT voltage generator with substrate PNPs, unbalanced differential amplifier, voltage output V_TEMP), sky130, 1.8 V. Test = the replay pack's DC temperature sweep 0..100 C (1 C steps), output unloaded, at the three corners the golden setup verifies (TT, FS, SF; FF and SS were excluded by the user). Targets = the replay pack's targets.json (paper Fig. 26 curves digitized; per-corner limits as given). Not targeted (as in the pack): sensor power (no paper value), FF / SS corners, post-layout curves. User decision 2026-11-12: validity gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced. Diagnostics are not a gate pass or physical qualification. User decision 2026-11-12: validity gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced. Diagnostics are not a gate pass or physical qualification.",
+  "source": {
+    "title": "Block Design for an RFID Integrated Tag in an Open-Access Technology Node (Sec. D Temperature Sensor, Fig. 10, Table VI; results Fig. 26, cited as Fig. 29 in the text)",
+    "figure": "Fig. 10 (bias circuit M1-M6, PTAT voltage generator M7-M9 + Q1/Q2, amplifier M10-M14)"
+  },
+  "variables": [
+    {
+      "name": "W_BP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "bias circuit PMOS mirror M1 (diode, PBIAS) / M2 (Fig. 10 bias circuit): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M1",
+          "sensor_bias.M2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_BP",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "bias circuit PMOS mirror M1 (diode, PBIAS) / M2 (Fig. 10 bias circuit): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M1",
+          "sensor_bias.M2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_BP",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "bias circuit PMOS mirror M1 (diode, PBIAS) / M2 (Fig. 10 bias circuit): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M1",
+          "sensor_bias.M2"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_BC",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "bias circuit PMOS cascodes M3 (diode, NBIAS) / M4 (gate NBIAS): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M3",
+          "sensor_bias.M4"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_BC",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "bias circuit PMOS cascodes M3 (diode, NBIAS) / M4 (gate NBIAS): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M3",
+          "sensor_bias.M4"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_BC",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "bias circuit PMOS cascodes M3 (diode, NBIAS) / M4 (gate NBIAS): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M3",
+          "sensor_bias.M4"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_BN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "bias circuit NMOS diodes M5 (NBIAS: the bias voltage of M7 / M14) / M6 (NDIO): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M5",
+          "sensor_bias.M6"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_BN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "bias circuit NMOS diodes M5 (NBIAS: the bias voltage of M7 / M14) / M6 (NDIO): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M5",
+          "sensor_bias.M6"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_BN",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "bias circuit NMOS diodes M5 (NBIAS: the bias voltage of M7 / M14) / M6 (NDIO): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_bias.M5",
+          "sensor_bias.M6"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_P7",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "PTAT generator PMOS current source M7 (gate NBIAS): sets the current through M8: width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M7"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_P7",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "PTAT generator PMOS current source M7 (gate NBIAS): sets the current through M8: length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M7"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_P7",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "PTAT generator PMOS current source M7 (gate NBIAS): sets the current through M8: multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M7"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_N8",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "PTAT generator NMOS diode M8 on Q1 (node VN): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M8"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_N8",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "PTAT generator NMOS diode M8 on Q1 (node VN): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M8"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_N8",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "PTAT generator NMOS diode M8 on Q1 (node VN): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M8"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_N9",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "PTAT generator NMOS follower M9 on Q2 (node VP): with M8 sets the current-density ratio that makes V(VP)-V(VN): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M9"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_N9",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "PTAT generator NMOS follower M9 on Q2 (node VP): with M8 sets the current-density ratio that makes V(VP)-V(VN): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M9"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_N9",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "PTAT generator NMOS follower M9 on Q2 (node VP): with M8 sets the current-density ratio that makes V(VP)-V(VN): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_ptat.M9"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_LD",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "amplifier PMOS active-load mirror M10 (diode, NLOAD) / M11 (output V_TEMP): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M10",
+          "sensor_amplifier.M11"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_LD",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "amplifier PMOS active-load mirror M10 (diode, NLOAD) / M11 (output V_TEMP): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M10",
+          "sensor_amplifier.M11"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_LD",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "amplifier PMOS active-load mirror M10 (diode, NLOAD) / M11 (output V_TEMP): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M10",
+          "sensor_amplifier.M11"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_I12",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "amplifier input device M12 (gate VN, drain NLOAD) of the unbalanced pair (unbalanced on purpose in the paper: not tied to M13): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M12"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_I12",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "amplifier input device M12 (gate VN, drain NLOAD) of the unbalanced pair (unbalanced on purpose in the paper: not tied to M13): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M12"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_I12",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "amplifier input device M12 (gate VN, drain NLOAD) of the unbalanced pair (unbalanced on purpose in the paper: not tied to M13): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M12"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_I13",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "amplifier input device M13 (gate VP, drain V_TEMP) of the unbalanced pair: width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M13"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_I13",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "amplifier input device M13 (gate VP, drain V_TEMP) of the unbalanced pair: length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M13"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_I13",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "amplifier input device M13 (gate VP, drain V_TEMP) of the unbalanced pair: multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M13"
+        ],
+        "parameter": "mult"
+      }
+    },
+    {
+      "name": "W_TL",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.2e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "amplifier tail current source M14 (gate NBIAS): width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "L_TL",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 2.02e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "amplifier tail current source M14 (gate NBIAS): length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M14"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "M_TL",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "amplifier tail current source M14 (gate NBIAS): multiplicity (number of parallel devices)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "sensor_amplifier.M14"
+        ],
+        "parameter": "mult"
+      }
+    }
+  ],
+  "dependent_parameters": {},
+  "conditions": [
+    {
+      "id": "tt_binned_T27_S1p00",
+      "model_set": "tt_binned",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "nominal": true
+    },
+    {
+      "id": "fs_binned_T27_S1p00",
+      "model_set": "fs_binned",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "sf_binned_T27_S1p00",
+      "model_set": "sf_binned",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "nominal": false
+    }
+  ],
+  "operating_conditions": {
+    "supply_V": {
+      "value": 1.8,
+      "provenance": "replay pack corners.json supply_V 1.8 (VDD_SRC dc=1.8 in decks/*/input.scs); paper: 1.8 V nominal supply of the load circuits"
+    }
+  },
+  "constraints": [
+    {
+      "name": "vout0_tt",
+      "metric": "Vout_0C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.25689762055934157,
+      "upper": 0.3139859806836397,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "tt_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_0C_V, TT): paper value 0.285442 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, TT schematic); limits copied exactly from targets.json (lower 0.256898 / upper 0.313986; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout0_fs",
+      "metric": "Vout_0C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.1450820023061246,
+      "upper": 0.17732244726304122,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "fs_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_0C_V, FS): paper value 0.161202 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, FS schematic); limits copied exactly from targets.json (lower 0.145082 / upper 0.177322; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout0_sf",
+      "metric": "Vout_0C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.3428206041478368,
+      "upper": 0.4190029606251339,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "sf_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_0C_V, SF): paper value 0.380912 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, SF schematic); limits copied exactly from targets.json (lower 0.342821 / upper 0.419003; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout27_tt",
+      "metric": "Vout_27C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.20555155156773333,
+      "upper": 0.25122967413834074,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "tt_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_27C_V, TT): paper value 0.228391 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, TT schematic); limits copied exactly from targets.json (lower 0.205552 / upper 0.25123; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout27_fs",
+      "metric": "Vout_27C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.10078569442021991,
+      "upper": 0.123182515402491,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "fs_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_27C_V, FS): paper value 0.111984 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, FS schematic); limits copied exactly from targets.json (lower 0.100786 / upper 0.123183; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout27_sf",
+      "metric": "Vout_27C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.2956793448595393,
+      "upper": 0.36138586593943695,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "sf_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_27C_V, SF): paper value 0.328533 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, SF schematic); limits copied exactly from targets.json (lower 0.295679 / upper 0.361386; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout100_tt",
+      "metric": "Vout_100C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.08613268949013919,
+      "upper": 0.10527328715461458,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "tt_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_100C_V, TT): paper value 0.095703 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, TT schematic); limits copied exactly from targets.json (lower 0.0861327 / upper 0.105273; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout100_fs",
+      "metric": "Vout_100C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.05602858974451732,
+      "upper": 0.06847938746552118,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "fs_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_100C_V, FS): paper value 0.062254 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, FS schematic); limits copied exactly from targets.json (lower 0.0560286 / upper 0.0684794; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "vout100_sf",
+      "metric": "Vout_100C_V",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "V",
+      "lower": 0.16402053564440477,
+      "upper": 0.20046954356538363,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "sf_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Vout_100C_V, SF): paper value 0.182245 V digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, SF schematic); limits copied exactly from targets.json (lower 0.164021 / upper 0.20047; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "sens_tt",
+      "metric": "Sensitivity_mV_C",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "mV/degC",
+      "lower": -2.087126935290251,
+      "upper": -1.7076493106920234,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "tt_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Sensitivity_mV_C, TT): paper value -1.89739 mV/degC digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, TT schematic); limits copied exactly from targets.json (lower -2.08713 / upper -1.70765; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "sens_fs",
+      "metric": "Sensitivity_mV_C",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "mV/degC",
+      "lower": -1.0884305979752005,
+      "upper": -0.890534125616073,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "fs_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Sensitivity_mV_C, FS): paper value -0.989482 mV/degC digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, FS schematic); limits copied exactly from targets.json (lower -1.08843 / upper -0.890534; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "sens_sf",
+      "metric": "Sensitivity_mV_C",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "mV/degC",
+      "lower": -2.185334170597503,
+      "upper": -1.7880006850343206,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "sf_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Sensitivity_mV_C, SF): paper value -1.98667 mV/degC digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, SF schematic); limits copied exactly from targets.json (lower -2.18533 / upper -1.788; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "span_tt",
+      "metric": "Output_span_mV",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "mV",
+      "lower": 170.76493106920233,
+      "upper": 208.7126935290251,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "tt_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Output_span_mV, TT): paper value 189.739 mV digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, TT schematic); limits copied exactly from targets.json (lower 170.765 / upper 208.713; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "span_fs",
+      "metric": "Output_span_mV",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "mV",
+      "lower": 89.0534125616073,
+      "upper": 108.84305979752004,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "fs_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Output_span_mV, FS): paper value 98.9482 mV digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, FS schematic); limits copied exactly from targets.json (lower 89.0534 / upper 108.843; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "span_sf",
+      "metric": "Output_span_mV",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "mV",
+      "lower": 178.80006850343207,
+      "upper": 218.53341705975032,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "sf_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Output_span_mV, SF): paper value 198.667 mV digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, SF schematic); limits copied exactly from targets.json (lower 178.8 / upper 218.533; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "lin_tt",
+      "metric": "Endpoint_linearity_percent_FS",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "%FS",
+      "upper": 8.371677349998413,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "tt_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Endpoint_linearity_percent_FS, TT): paper value 7.61062 %FS digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, TT schematic); limits copied exactly from targets.json (upper 8.37168; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "lin_fs",
+      "metric": "Endpoint_linearity_percent_FS",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "%FS",
+      "upper": 26.69619155338015,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "fs_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Endpoint_linearity_percent_FS, FS): paper value 24.2693 %FS digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, FS schematic); limits copied exactly from targets.json (upper 26.6962; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    },
+    {
+      "name": "lin_sf",
+      "metric": "Endpoint_linearity_percent_FS",
+      "recipe": "ts1111_tsweep_v1",
+      "point": {},
+      "unit": "%FS",
+      "upper": 0.8483541205432532,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": [
+        {
+          "model_set": "sf_binned"
+        }
+      ],
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay pack targets.json (Endpoint_linearity_percent_FS, SF): paper value 0.771231 %FS digitized from the paper's Fig. 26 corner curve (the text calls it Fig. 29) (0-100 C DC sweep, SF schematic); limits copied exactly from targets.json (upper 0.848354; owner-approved, not re-derived with the flow's tolerance rule)",
+      "source": "native"
+    }
+  ],
+  "objective": null,
+  "derived_metrics": {},
+  "all_metrics": [
+    [
+      "ts1111_tsweep_v1",
+      "Endpoint_linearity_percent_FS"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "Output_span_mV"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "Sensitivity_mV_C"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "Vout_0C_V"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "Vout_100C_V"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "Vout_27C_V"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "devices_out_of_saturation"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "devices_outside_rails"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "forward_biased_junctions"
+    ],
+    [
+      "ts1111_tsweep_v1",
+      "saturation_margin_min_V"
+    ]
+  ],
+  "simulations_per_design": 3,
+  "analysis_executions_per_design": 3,
+  "benchmark": {
+    "reference_hidden": true,
+    "rules": "docs/benchmark_rules.md",
+    "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+  },
+  "testbenches": [
+    {
+      "condition": "tt_binned_T27_S1p00",
+      "recipe": "ts1111_tsweep_v1",
+      "folder": "testbenches/tt_binned_T27_S1p00/ts1111_tsweep_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tsweep.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "Vout_0C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Vout_27C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Vout_100C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Sensitivity_mV_C": {
+          "unit": "mV/degC",
+          "source": "native"
+        },
+        "Output_span_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "Endpoint_linearity_percent_FS": {
+          "unit": "%FS",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "fs_binned_T27_S1p00",
+      "recipe": "ts1111_tsweep_v1",
+      "folder": "testbenches/fs_binned_T27_S1p00/ts1111_tsweep_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tsweep.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "Vout_0C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Vout_27C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Vout_100C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Sensitivity_mV_C": {
+          "unit": "mV/degC",
+          "source": "native"
+        },
+        "Output_span_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "Endpoint_linearity_percent_FS": {
+          "unit": "%FS",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "sf_binned_T27_S1p00",
+      "recipe": "ts1111_tsweep_v1",
+      "folder": "testbenches/sf_binned_T27_S1p00/ts1111_tsweep_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tsweep.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "Vout_0C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Vout_27C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Vout_100C_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "Sensitivity_mV_C": {
+          "unit": "mV/degC",
+          "source": "native"
+        },
+        "Output_span_mV": {
+          "unit": "mV",
+          "source": "native"
+        },
+        "Endpoint_linearity_percent_FS": {
+          "unit": "%FS",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    }
+  ],
+  "interfaces": {
+    "evaluate_command": [
+      "<ANALOGIQ>/.venv/bin/python",
+      "-m",
+      "analogiq",
+      "size-eval",
+      "--task",
+      "temp_sensor_101126_task_001",
+      "--design",
+      "{design_json}",
+      "--out",
+      "{out_dir}"
+    ],
+    "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+    "python": "from analogiq.sizing import SizingProblem; SizingProblem('temp_sensor_101126_task_001').evaluate(design, out_dir)",
+    "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+    "deck_extract": [
+      "<ANALOGIQ>/.venv/bin/python",
+      "-m",
+      "analogiq",
+      "extract",
+      "--job",
+      "{job_folder}"
+    ],
+    "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+    "working_directory": "<ANALOGIQ>"
+  },
+  "validity_gate_waiver": {
+    "date": "2026-11-12",
+    "authority": "explicit user instruction in this conversation",
+    "instruction": "for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks",
+    "classification": "sizing_task_with_user_waived_validity_gates",
+    "status": "waived_not_passed",
+    "waived_metrics": [
+      "devices_out_of_saturation",
+      "forward_biased_junctions",
+      "devices_outside_rails"
+    ],
+    "diagnostics_retained": true,
+    "performance_targets_and_corners_unchanged": true,
+    "sizing_unchanged": true,
+    "standard_bounds_unchanged": true,
+    "physical_qualification_claimed": false,
+    "source_evidence": "<WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt"
+  },
+  "task_classification": "sizing_task_with_user_waived_validity_gates"
+}

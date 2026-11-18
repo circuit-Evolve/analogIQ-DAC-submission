@@ -1,0 +1,25 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt repaired_core VIN VSS VREF VOUT
+M1 (VB1 VREF TAIL VSS) nmos1 w=20u l=1u m=2 ad=12p as=12p pd=41.2u ps=41.2u
+M2 (VB2 VFB TAIL VSS) nmos1 w=20u l=1u m=2 ad=12p as=12p pd=41.2u ps=41.2u
+M3 (BIAS BIAS VSS VSS) nmos1 w=1u l=20u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M4 (TAIL BIAS VSS VSS) nmos1 w=1u l=20u m=10 ad=600f as=600f pd=3.2u ps=3.2u
+M5 (VB2 VB2 VIN VIN) pmos1 w=3u l=3u m=1 ad=1.8p as=1.8p pd=7.2u ps=7.2u
+M6 (EAOUT VB2 VIN VIN) pmos1 w=3u l=3u m=1 ad=1.8p as=1.8p pd=7.2u ps=7.2u
+M7 (VB1 VB1 VIN VIN) pmos1 w=3u l=3u m=1 ad=1.8p as=1.8p pd=7.2u ps=7.2u
+M8 (MIRROR VB1 VIN VIN) pmos1 w=3u l=3u m=1 ad=1.8p as=1.8p pd=7.2u ps=7.2u
+M9 (MIRROR MIRROR VSS VSS) nmos1 w=2u l=5u m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+M10 (EAOUT MIRROR VSS VSS) nmos1 w=2u l=5u m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+M11 (VBUF VB1 VIN VIN) pmos1 w=3u l=3u m=1 ad=1.8p as=1.8p pd=7.2u ps=7.2u
+M12 (VSS EAOUT VBUF VIN) pmos1 w=10u l=600n m=1 ad=6p as=6p pd=21.2u ps=21.2u
+M13 (VBUF VB2 VIN VIN) pmos1 w=3u l=3u m=1 ad=1.8p as=1.8p pd=7.2u ps=7.2u
+MPASS (VREG VBUF VIN VIN) pmos1 w=40u l=180n m=10 ad=24p as=24p pd=81.2u ps=81.2u
+IBIAS (VIN BIAS) isource dc=100n
+RFB1 (VREG VFB) resistor r=200K
+RFB2 (VFB VSS) resistor r=800K
+CFF (VREG VFB) capacitor c=7p
+RPAD_RC (VREG VOUT) resistor r=RPAD+0.5
+COUT (VOUT ESR_NODE) capacitor c=1u
+RESR (ESR_NODE VSS) resistor r=RESR_VALUE
+ends repaired_core

@@ -1,0 +1,216 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "SS_T100_S1p00/amp_ol_v1",
+ "recipe_id": "amp_ol_v1",
+ "recipe_version": 3,
+ "points": [
+  {},
+  {
+   "freq_Hz": 1.0
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "SS_T100_S1p00/amp_ol_v1",
+  "condition": {
+   "id": "SS_T100_S1p00",
+   "model_set": "SS",
+   "temperature_C": 100.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "SS"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "supply_negative_V": 0.0,
+   "input_common_mode_V": 0.9,
+   "load_capacitance_F": 1e-12
+  },
+  "recipe_settings": {
+   "start_Hz": 0.1,
+   "stop_Hz": 10000000000.0,
+   "points_per_decade": 20,
+   "low_frequency_Hz": 1.0,
+   "frequencies_Hz": [
+    1.0
+   ]
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "telescopic01_scl180",
+   "family": "amplifier",
+   "interface_type": "differential_input_single_output",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": null,
+    "title": "Soman, Gandhi, Baskaran M.: Analysis and Design of a Two stage Telescopic OTA using SCL 180nm CMOS Technology (ICNWC 2023)",
+    "figure": "Fig. 2 (p.2) / Fig. 4 (p.5, operating-point schematic): telescopic first stage (M1/M2, cascodes M11/M12 and M9/M10, mirror M3/M4, tail M5) and PMOS common-source second stage M8 with sink M7, CC + RZ Miller compensation",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (paper PDF, Paper1_Metrics.xlsx, Paper1_Corners.xlsx, Paper1_Schematic.png; see source/ORIGIN.txt)",
+    "modifications": [
+     "None to final.scs (schemgen export, one uninstantiated subckt read as the DUT body). Sizes follow the Fig. 4 labels, not Table III / Sec. III.B text (three inconsistent size sets in the paper, see known_issues). The paper's bias block (M0, M13-M15 -> VB1/VB2) and the Rz-tracking circuit (M16-M19) are not in the netlist: VB1/VB2 are driven externally and RZ is a fixed-topology resistor."
+    ]
+   },
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "telescopic01_scl180_dut",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "Vin_m",
+     "Vin_p",
+     "Vout",
+     "VB1",
+     "VB2"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input_positive": "Vin_p",
+    "input_negative": "Vin_m",
+    "output": "Vout",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "VB1": {
+     "kind": "voltage",
+     "value": 0.704872,
+     "provenance": "paper: Fig. 4 p.5 operating point (VB1 = 704.872 mV = gates of the PMOS cascodes M9/M10; design step p.3 B.7: Vb1 = 0.7 V); owner Q9a: absolute sizing variable"
+    },
+    "VB2": {
+     "kind": "voltage",
+     "value": 1.15786,
+     "provenance": "paper: Fig. 4 p.5 operating point (VB2 = 1.15786 V = gates of the NMOS cascodes M11/M12; design step p.3 B.7: Vb2 = 1.2 V); owner Q9a: absolute sizing variable"
+    }
+   },
+   "op_check": {
+    "exclude": [],
+    "note": "G8: no exclusions until the reference operating point is inspected (onboarding_status.yaml)"
+   },
+   "known_issues": [
+    "The paper gives three mutually inconsistent size sets (Table III with swapped L/W columns; Sec. III.B text W/L ratios; Fig. 4 labels); the netlist follows Fig. 4 (gap analysis).",
+    "Ibias is not given; the netlist's IB isource has an undeclared symbol IBIAS_DC. Power 1.4 mW (778 uA at 1.8 V) is inconsistent with ISS + IOSS = 360 uA of the hand design and with Ibias = 11.4 uA through the netlist's mirror ratios (M5/M6 = 7, M7/M6 = 30/0.6 over 1/0.5 = 25); the netlist ratios would need Ibias about 23.6 uA for 1.4 mW.",
+    "PSRR 185.33 / 176.69 dB (Table IV) are implausibly high next to DC gain 99 dB and CMRR 129 dB (supply-to-output gain of -86 dB), method not described; likely not reproducible (margin-scored, owner Q5a).",
+    "Slew rate is printed 'mV/us' (Table IV) but is 207.6 V/us (Fig. 7 '207.618 MV/s'); read as V/us (owner Q1a)."
+   ]
+  },
+  "subckt_name": "telescopic01_scl180_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M1": 7.12297825116076e-06,
+   "L_M1": 5.223779894190321e-07,
+   "W_M3": 1.60093553168872e-05,
+   "L_M3": 2.7418064541936703e-06,
+   "W_M9": 2.67776687168162e-05,
+   "L_M9": 7.29953911036602e-07,
+   "W_M11": 2.8516521355584906e-06,
+   "L_M11": 3.352148295430785e-07,
+   "W_M5": 2.4563245512014827e-05,
+   "L_M5": 9.87610368030221e-06,
+   "W_M6": 1.0685480745028321e-06,
+   "L_M6": 2.9515450755990507e-07,
+   "W_M7": 7.727404735802776e-05,
+   "L_M7": 3.3714792101020585e-07,
+   "W_M8": 1.3074802423224164e-06,
+   "L_M8": 1.8428526857507365e-07,
+   "N_M8": 73.0,
+   "CC": 3.376224377637557e-14,
+   "RZ": 58420.3108850206,
+   "IBIAS": 9.857592995535434e-06
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "VB1": 0.9620403397490732,
+   "VB2": 1.5115153646113546
+  },
+  "bias_variables": {
+   "VB1": "VB1",
+   "VB2": "VB2"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

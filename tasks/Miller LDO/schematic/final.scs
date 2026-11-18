@@ -1,0 +1,26 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt repaired_core VIN VSS VREF VBIAS ENABLE VOUT
+M1 (N1 N1 VIN VIN) pmos25 w=16u l=1.8u m=1 ad=9.6p as=9.6p pd=33.2u ps=33.2u
+M2 (N2 N1 VIN VIN) pmos25 w=16u l=1.8u m=1 ad=9.6p as=9.6p pd=33.2u ps=33.2u
+M3 (N1 VREF TAIL VSS) nmos25 w=8u l=1.8u m=1 ad=4.8p as=4.8p pd=17.2u ps=17.2u
+M4 (N2 VFB TAIL VSS) nmos25 w=8u l=1.8u m=1 ad=4.8p as=4.8p pd=17.2u ps=17.2u
+M5 (TAIL VBIAS VSS VSS) nmos25 w=5u l=1.8u m=1 ad=3p as=3p pd=11.2u ps=11.2u
+M7 (VG N2 VIN VIN) pmos25 w=16u l=1.8u m=1 ad=9.6p as=9.6p pd=33.2u ps=33.2u
+M6 (VG VBIAS VSS VSS) nmos25 w=16u l=1.8u m=1 ad=9.6p as=9.6p pd=33.2u ps=33.2u
+MC (NCC VSS N2 VIN) pmos25 w=2u l=1.8u m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+CC (NCC VG) capacitor c=1.2p
+MP (VOUT VG VIN VIN) pmos25 w=50u l=340n m=242 ad=30p as=30p pd=101.2u ps=101.2u
+MRFB1 (VFB VFB VOUT VOUT) pmos25 w=10u l=1u m=1 ad=6p as=6p pd=21.2u ps=21.2u
+MRFB2 (FBMID FBMID VFB VFB) pmos25 w=10u l=1u m=1 ad=6p as=6p pd=21.2u ps=21.2u
+MRFB3 (VSS VSS FBMID FBMID) pmos25 w=10u l=1u m=1 ad=6p as=6p pd=21.2u ps=21.2u
+MS (VOUT ENABLE VFB VSS) nmos25 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MA1 (NCF NCF VIN VIN) pmos25 w=2u l=800n m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+MA2 (NA3 NCF VIN VIN) pmos25 w=2u l=800n m=1 ad=1.2p as=1.2p pd=5.2u ps=5.2u
+MA3 (NA3 NA3 NA6 VSS) nmos25 w=1u l=800n m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MA4 (VG NA3 NA5 VSS) nmos25 w=22u l=800n m=1 ad=13.2p as=13.2p pd=45.2u ps=45.2u
+MA5 (NA5 NA5 VSS VSS) nmos25 w=22u l=800n m=1 ad=13.2p as=13.2p pd=45.2u ps=45.2u
+MA6 (NA6 NA5 VSS VSS) nmos25 w=1u l=800n m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MAB (NCF VBIAS VSS VSS) nmos25 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CF (NCF VOUT) capacitor c=1.5p
+ends repaired_core

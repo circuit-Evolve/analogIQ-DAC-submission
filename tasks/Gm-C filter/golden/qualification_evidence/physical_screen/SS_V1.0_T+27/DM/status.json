@@ -1,0 +1,31 @@
+{
+  "returncode": 0,
+  "error": null,
+  "wall_s": 20.294804732002376,
+  "corner": {
+    "id": "SS_V1.0_T+27",
+    "model_set": "SS",
+    "process": "SS",
+    "supply_V": 1.0,
+    "temperature_C": 27,
+    "VREF_V": 0.5,
+    "input_common_mode_V": 0.5,
+    "nominal": false
+  },
+  "job": "DM",
+  "deck_sha256": "fbe7bd7d5c83c06f4562a8e9ecd5995b937447317e5ec6639e3e0a33dc47d26d",
+  "command": [
+    "/opt/cadence/bin/spectre",
+    "input.scs",
+    "-format",
+    "psfascii",
+    "-raw",
+    "raw",
+    "+log",
+    "spectre.log"
+  ],
+  "nominal_only": false,
+  "launched": true,
+  "effective_timeout_s": 180.0,
+  "evaluator_deadline_monotonic": 43328.547902792
+}

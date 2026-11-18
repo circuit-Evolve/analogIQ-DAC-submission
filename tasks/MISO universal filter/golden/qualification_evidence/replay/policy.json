@@ -1,0 +1,148 @@
+[
+  {
+    "name": "Y1_gain",
+    "metric": "Y1_gain",
+    "recipe": "CORE_Y1",
+    "lower": 0.8415,
+    "upper": 1.1384999999999998,
+    "paper_value": 0.99,
+    "unit": "V/V",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Low-frequency magnitude at1Hz; Y1/Y2 X load2kohm; current output voltage clamped0V. Paper does not specify characterization loads."
+    },
+    "aggregate": "worst",
+    "expression": "value(mag(getData(\"X\" ?result \"ac\")) 1)",
+    "source": "Table5 p89"
+  },
+  {
+    "name": "Y2_gain",
+    "metric": "Y2_gain",
+    "recipe": "CORE_Y2",
+    "lower": 0.8415,
+    "upper": 1.1384999999999998,
+    "paper_value": 0.99,
+    "unit": "V/V",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Low-frequency magnitude at1Hz; Y1/Y2 X load2kohm; current output voltage clamped0V. Paper does not specify characterization loads."
+    },
+    "aggregate": "worst",
+    "expression": "value(mag(getData(\"X\" ?result \"ac\")) 1)",
+    "source": "Table5 p89"
+  },
+  {
+    "name": "IZP_gain",
+    "metric": "IZP_gain",
+    "recipe": "CORE_IZP",
+    "lower": 0.8482999999999999,
+    "upper": 1.1477,
+    "paper_value": 0.998,
+    "unit": "A/A",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Low-frequency magnitude at1Hz; Y1/Y2 X load2kohm; current output voltage clamped0V. Paper does not specify characterization loads."
+    },
+    "aggregate": "worst",
+    "expression": "value(mag(getData(\"ZP_SRC:p\" ?result \"ac\")) 1)",
+    "source": "Table5 p89"
+  },
+  {
+    "name": "MISO_BP_frequency",
+    "metric": "MISO_BP_frequency",
+    "recipe": "VM_BP",
+    "lower": 3383000.0,
+    "upper": 4577000.0,
+    "paper_value": 3980000.0,
+    "unit": "Hz",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Compare design pole-frequency3.98MHz to saved ADE scalar first falling zero of derivative of BP magnitude. Finite150points/decade grid gives4.366011MHz; a quadratic peak estimate4.332610MHz remains a diagnostic. No graph digitization."
+    },
+    "aggregate": "worst",
+    "expression": "cross(deriv(mag(getData(\"VOUT\" ?result \"ac\"))) 0 1 \"falling\")",
+    "source": "Section6.1 p90"
+  },
+  {
+    "name": "MISO_quiescent_power",
+    "metric": "MISO_quiescent_power",
+    "recipe": "VM_LP",
+    "lower": 0,
+    "upper": 0.005393499999999999,
+    "paper_value": 0.00469,
+    "unit": "W",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Both main supply rails at zero signal. Bias/control ideal voltage-source power is separately recorded. Paper MISO is post-layout; reproduction is schematic."
+    },
+    "aggregate": "worst",
+    "expression": "0.9*(-getData(\"VDD_SRC:p\" ?result \"dc\")+getData(\"VSS_SRC:p\" ?result \"dc\"))",
+    "source": "Table1 p77; conclusion p111"
+  },
+  {
+    "name": "BP_noise_in",
+    "metric": "BP_noise_in",
+    "recipe": "VM_BP",
+    "lower": 0,
+    "upper": 7.5946e-08,
+    "paper_value": 6.604e-08,
+    "unit": "V/sqrt(Hz)",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Sampled at nominal passband center3.98MHz. Paper says in passband without exact extraction frequency; nominal center is disclosed assumption."
+    },
+    "aggregate": "worst",
+    "expression": "value(getData(\"in\" ?result \"noise\") 3.98e6)",
+    "source": "Section6.1 p92"
+  },
+  {
+    "name": "BP_noise_out",
+    "metric": "BP_noise_out",
+    "recipe": "VM_BP",
+    "lower": 0,
+    "upper": 6.536599999999999e-08,
+    "paper_value": 5.684e-08,
+    "unit": "V/sqrt(Hz)",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Sampled at nominal passband center3.98MHz. Paper says in passband without exact extraction frequency; nominal center is disclosed assumption."
+    },
+    "aggregate": "worst",
+    "expression": "value(getData(\"out\" ?result \"noise\") 3.98e6)",
+    "source": "Section6.1 p92"
+  },
+  {
+    "name": "LP_THD",
+    "metric": "LP_THD",
+    "recipe": "VM_LP_TRAN",
+    "lower": 0,
+    "upper": 6,
+    "paper_value": 6,
+    "unit": "%",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Actual saved ADE/OCEAN builtin thd result:8192-point DFT over last20cycles; interpolation warnings retained in native/scalars.log. Python harmonics2-10 value is a separate diagnostic. LP: paper500kHz,200mVpp. Claim is only for this stimulus, not an entire amplitude range."
+    },
+    "aggregate": "worst",
+    "expression": "thd(getData(\"VOUT\" ?result \"tran\") 2e-05 6e-05 8192 500000)",
+    "source": "Section6.1 p90",
+    "upper_exclusive": true
+  },
+  {
+    "name": "BP_THD",
+    "metric": "BP_THD",
+    "recipe": "VM_BP_TRAN",
+    "lower": 0,
+    "upper": 6,
+    "paper_value": 6,
+    "unit": "%",
+    "conditions": {
+      "nominal": "NN 27C +/-0.9V",
+      "definition": "Actual saved ADE/OCEAN builtin thd result:8192-point DFT over last20cycles; interpolation warnings retained in native/scalars.log. Python harmonics2-10 value is a separate diagnostic. BP: assumed100mVpp at3.98MHz, based on TAM-BP stimulus; paper does not specify VM-BP THD input range. Claim is only for this stimulus, not an entire amplitude range."
+    },
+    "aggregate": "worst",
+    "expression": "thd(getData(\"VOUT\" ?result \"tran\") 2.51256281407e-06 7.53768844221e-06 8192 3980000)",
+    "source": "Section6.1 p90",
+    "upper_exclusive": true
+  }
+]

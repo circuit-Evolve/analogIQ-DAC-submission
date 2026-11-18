@@ -1,0 +1,3161 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_lcvco24_lohrabipour_task_001",
+  "task_id": "lcvco24_lohrabipour_task_001",
+  "topology_id": "lcvco24_lohrabipour",
+  "candidate_hash": "6bfcddeb36bf273d241fb8815443dc6ed6087caf6c7b8da2f12ff64c07a1b1f0",
+  "evaluator_hash": "e44abd796fe8d99ea1e1a7c90691a2246d8271e99600629e0b2434ed3c6c2337",
+  "digests": {
+    "task": "fae22f3fa3c5eb8860fa97d88e69d41034353447d1fb6cfc7ae4d8eda4d2051c",
+    "candidate": "6bfcddeb36bf273d241fb8815443dc6ed6087caf6c7b8da2f12ff64c07a1b1f0",
+    "parameterization": "3bc93092db4c92d01b793d229df7d231d7a190146f71b82e043aab7a6a91f6c2",
+    "dut_source_netlist": "5d4b7e56392b039d75e0c6e7db5cf978047687e3fd26de2713af29be2382a471",
+    "dut_subckt": "aa088acb5750e45d79d5660981ddd5dfad433e6026e1abeac2f0162821fc2802",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "dcd8e6f8d0f7d549716184a74bfe83773de84632841d1c3ef065aefe21046906",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "e44abd796fe8d99ea1e1a7c90691a2246d8271e99600629e0b2434ed3c6c2337"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 11,
+    "completed_measurement_checks": 11,
+    "valid_measurement_checks": 11
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5079886391.571143,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022699795572026137,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.577116617697605,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9999329289622646,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.78995436293324,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.34681489561748,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.99845631811718,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.49351711096256,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.97033843104177,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.527198963726,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5087773548.866897,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.0228602831013877,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.572973299516117,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0000411832090472,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.58561774750991,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.12535716576204,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.78463441058294,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.2625740889962,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.82480004592657,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.3645394641787,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5106425772.315841,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.023086089963725336,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5661152325362879,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9998841273895479,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.12247590848187,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.6513125378312,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.29796952741196,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.7650064169224,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.46858654572225,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.99742317507156,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5132245845.642323,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.023187754268946596,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.562837441302209,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0001312743193478,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -108.69238584608533,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.24594798985822,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -126.84778739670541,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.33954980063945,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.11883084120018,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.67239298497307,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5161009574.810983,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022987819582984084,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.565149144925511,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0000835729857298,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -108.43104811943023,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.0707636153919,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -126.58029460369502,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.15821035981782,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -147.9117694126302,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.55148490859187,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "tuning_range_Hz",
+      "value": 81123183.23983955,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "fine_tuning"
+      ],
+      "constraint": {
+        "lower": 36000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "kvco_Hz_per_V",
+      "value": 67602652.6998663,
+      "unit": "Hz/V",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "max_min_frequency_ratio",
+      "value": 1.0159694876984737,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "tuning_range_pct",
+      "value": 1.5718471757109773,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "vf_linearity_error_pct",
+      "value": 9.568038716849399,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio_min",
+      "value": 0.9998841273895479,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio_max",
+      "value": 1.0001312743193478,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "vctrl_at_target_V",
+      "value": 0.004321269042701261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "target_frequency_Hz",
+      "value": 5080000000.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022702107271334034,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "power"
+      ],
+      "constraint": {
+        "upper": 0.0814
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5770569363889659,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_min_V",
+      "value": 1.4543064381379818,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_max_V",
+      "value": 1.78267067126816,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9999344882813491,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.78701105129818,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "pn_100k"
+      ],
+      "constraint": {
+        "upper": -109.38607314841775
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.34362358238613,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.99537637815158,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "pn_800k"
+      ],
+      "constraint": {
+        "upper": -127.58607314841775
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.49018916940065,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.96824206264802,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "pn_10M"
+      ],
+      "constraint": {
+        "upper": -148.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.524854593736,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "fom_10M"
+      ],
+      "constraint": {
+        "upper": -189.08607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "dc_power_W",
+      "value": 0.021447878581114767,
+      "unit": "W",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_dc_bt_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.5915930262661742,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_dc_bt_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_dc_bt_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_dc_bt_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_dc_bt_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5079450705.004195,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "f_low_end"
+      ],
+      "constraint": {
+        "upper": 5280000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022703398856298976,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.577059727558797,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9999109637521713,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.79286973858814,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.3482959479101,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -128.0002255705815,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.49385204006458,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.97107650940575,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.5265027187277,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5087364605.906457,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022866030675802576,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5729051253245041,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.999937670497999,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.58579373061887,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.1237431960322,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.78470294935019,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.26085267492465,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.82425511811152,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.36220458352486,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5105990715.962391,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.02309111128575913,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5660654794786488,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9999090559933592,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.12334403949407,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.65049611231902,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.29865569827348,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.76400803125955,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.46858191367633,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.99573398650128,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5131822929.76354,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.023193414726441475,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5627595490954991,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.000135945655403,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -108.69288514936531,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.24467146985242,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -126.84877052708921,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.33875710773745,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.11920095043257,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.67098727091965,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5160570954.422339,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.02299018296242514,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5651051070349451,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0000689141934807,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -108.43481443288562,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.0733452314382,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -126.5841782371159,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.1609092958296,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -147.91484773867302,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.5533785372256,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "tuning_range_Hz",
+      "value": 81120249.41814423,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "kvco_Hz_per_V",
+      "value": 67600207.84845352,
+      "unit": "Hz/V",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "max_min_frequency_ratio",
+      "value": 1.015970279884442,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "tuning_range_pct",
+      "value": 1.571923923429992,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "vf_linearity_error_pct",
+      "value": 9.554318911340395,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio_min",
+      "value": 0.9999090559933592,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio_max",
+      "value": 1.000135945655403,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "vctrl_at_target_V",
+      "value": 0.020822663914624038,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "target_frequency_Hz",
+      "value": 5080000000.0,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.0227146869486968,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5767713612720515,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_min_V",
+      "value": 1.4545421704204917,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_max_V",
+      "value": 1.7826484687371345,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.99991281743748,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.77849682485905,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.33270351260367,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.98526638688851,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.47767333479428,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.96088580111777,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.5150924888624,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code15",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5081226203.749345,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022695062457222057,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5771742099573811,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9998420029159489,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.75027069299114,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.31032745167596,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.95757918274616,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.4558362015921,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.93680604241732,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.49686280110217,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.0,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5089036483.591437,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.022843367492707354,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.573178005478719,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0000628578197668,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.58527812693377,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.13038814895052,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.78399807186531,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.2673083540432,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.82595937385366,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.37106939587042,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.3,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5107699141.130461,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.023069156183147446,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.566321024932295,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 0.9998714485769216,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -109.12197295586175,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.65616202453566,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -127.29738319391942,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.76977252275444,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.46978185493688,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.0039709236108,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.6,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5133441913.272759,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.023160038895770972,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5631545560490929,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0000546991925408,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -108.69172272927472,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.2525029287997,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -126.84690557814655,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.34588603783263,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.11991038039724,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.68069057992219,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 0.9,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 5162361620.590173,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1",
+      "constraints": [
+        "f_high_end"
+      ],
+      "constraint": {
+        "lower": 4806000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.02297874416665024,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 0.5652427323136702,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": 1.0001476953633528,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -108.46087789382528,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.1045834615097,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 100000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -126.6107734177626,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.19267924560813,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 800000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -147.9417375705013,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.5854431381857,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "vctrl_V": 1.2,
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "tuning_range_Hz",
+      "value": 81135416.84082794,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "kvco_Hz_per_V",
+      "value": 67612847.36735663,
+      "unit": "Hz/V",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "max_min_frequency_ratio",
+      "value": 1.015967684489417,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "tuning_range_pct",
+      "value": 1.571672478681421,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "vf_linearity_error_pct",
+      "value": 9.62389084710605,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio_min",
+      "value": 0.9998420029159489,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio_max",
+      "value": 1.0001476953633528,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "curve": "tuning"
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "vctrl_at_target_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "target_frequency_Hz",
+      "value": null,
+      "unit": "Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": null,
+      "unit": "W",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_min_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "output_max_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "amplitude_ratio",
+      "value": null,
+      "unit": "",
+      "status": "undefined",
+      "point": {
+        "target": "tuned"
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": null,
+      "unit": "dBc/Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": null,
+      "unit": "dBc/Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": null,
+      "unit": "dBc/Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": null,
+      "unit": "dBc/Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": null,
+      "unit": "dBc/Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": null,
+      "unit": "dBc/Hz",
+      "status": "undefined",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "reason": "target frequency 5.08e+09 Hz is not on the simulated tuning curve [5.08123e+09, 5.16236e+09] Hz",
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00_code0",
+      "recipe_id": "osc_pss_tune_bt_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "f_low_end": {
+      "value": 5079450705.004195,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_code15",
+      "point": {
+        "vctrl_V": 0.0
+      },
+      "complete": true
+    },
+    "f_high_end": {
+      "value": 5162361620.590173,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_code0",
+      "point": {
+        "vctrl_V": 1.2
+      },
+      "complete": true
+    },
+    "fine_tuning": {
+      "value": 81123183.23983955,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "curve": "tuning"
+      },
+      "complete": true
+    },
+    "pn_100k": {
+      "value": -109.78701105129818,
+      "unit": "dBc/Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 100000.0
+      },
+      "complete": true
+    },
+    "pn_800k": {
+      "value": -127.99537637815158,
+      "unit": "dBc/Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 800000.0
+      },
+      "complete": true
+    },
+    "pn_10M": {
+      "value": -148.96824206264802,
+      "unit": "dBc/Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "complete": true
+    },
+    "fom_10M": {
+      "value": -189.524854593736,
+      "unit": "dBc/Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "target": "tuned",
+        "offset_Hz": 10000000.0
+      },
+      "complete": true
+    },
+    "power": {
+      "value": 0.022702107271334034,
+      "unit": "W",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "target": "tuned"
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/osc_pss_tune_bt_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 25 warnings, and 41 notices",
+      "extraction_error": null,
+      "wall_s": 10.732,
+      "cpu_s": 9.6
+    },
+    {
+      "job_id": "NN_T27_S1p00/osc_dc_bt_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 5 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.33,
+      "cpu_s": 0.149
+    },
+    {
+      "job_id": "NN_T27_S1p00_code15/osc_pss_tune_bt_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 25 warnings, and 41 notices",
+      "extraction_error": null,
+      "wall_s": 10.124,
+      "cpu_s": 9.04
+    },
+    {
+      "job_id": "NN_T27_S1p00_code0/osc_pss_tune_bt_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 25 warnings, and 41 notices",
+      "extraction_error": null,
+      "wall_s": 10.622,
+      "cpu_s": 9.48
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 4,
+    "analysis_executions": 31,
+    "condition_evaluations": 3,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 28.269,
+    "execution_wall_s": 11.083,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_lohrabipour_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_lohrabipour_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_lohrabipour_task_001/NN_T27_S1p00/osc_pss_tune_bt_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_lohrabipour_task_001/NN_T27_S1p00/osc_dc_bt_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_lohrabipour_task_001/NN_T27_S1p00_code15/osc_pss_tune_bt_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_lohrabipour_task_001/NN_T27_S1p00_code0/osc_pss_tune_bt_v1"
+    ]
+  }
+}

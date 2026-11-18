@@ -1,0 +1,255 @@
+{
+  "id": "TT",
+  "condition": {
+    "id": "TT",
+    "model_section": "NN",
+    "nmos1_section": "nom",
+    "pmos1_section": "nom",
+    "nominal": true,
+    "temperature_C": 27,
+    "VDD_V": 0.9,
+    "VSS_V": -0.9
+  },
+  "values": {
+    "Y1_gain": 0.937271,
+    "Y2_gain": 0.929011,
+    "IZP_gain": 0.998481,
+    "MISO_BP_frequency": 4091356.5355764492,
+    "MISO_quiescent_power": 0.003569825674198428,
+    "BP_noise_in": 5.251934099421993e-08,
+    "BP_noise_out": 5.897569296128164e-08,
+    "LP_THD": 3.676109097118363,
+    "BP_THD": 4.262494717927757
+  },
+  "diagnostics": {
+    "errors": {
+      "RX": "'CORE_RX'",
+      "RZP": "'CORE_RZP'",
+      "ROP": "'CORE_ROP'",
+      "ROM": "'CORE_ROM'",
+      "OTA_gm": "'CORE_GM'"
+    },
+    "ocean": {
+      "returncode": 0,
+      "launched": true,
+      "timeout_seconds": 90.0,
+      "deadline_exhausted": false,
+      "runtime_seconds": 58.594677884015255,
+      "method": "Unchanged Cadence deriv/cross and thd builtins;8192samples;frozen windows",
+      "interpolation_warning": true,
+      "log": "WARNING: HOST <g4-vm> DOES NOT APPEAR TO BE A CADENCE SUPPORTED LINUX CONFIGURATION.\n         For More Info,  Please Run '<cdsroot>/tools.lnx86/bin/checkSysConf' <productId>.\n\nCOPYRIGHT \ufffd 1992-2015  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.\n          \ufffd 1992-2015  UNIX SYSTEMS Laboratories INC.,\n                         Reproduced with permission.\n\nThis Cadence Design Systems program and online documentation are\nproprietary/confidential information and may be disclosed/used only\nas authorized in a license agreement controlling such use and disclosure.\n\n          RESTRICTED RIGHTS NOTICE (SHORT FORM)\nUse/reproduction/disclosure is subject to restriction\nset forth at FAR 1252.227-19 or its equivalent.\nLoading geView.cxt \nLoading menuBuilder.cxt \nLoading schView.cxt \nLoading selectSv.cxt \nLoading wireEdit.cxt \nLoading pte2.cxt \nLoading xlUI.cxt \nLoading auCore.cxt \nLoading vhdl.cxt \nLoading seismic.cxt \nLoading ci.cxt \nLoading ams.cxt \nVirtuoso Framework License (111) was checked out successfully. Total checkout time was 0.00s.\nLoading dal.cxt \nLoading awv.cxt \nLoading oasis.cxt \nLoading analog.cxt \nLoading asimenv.cxt \nLoading spectrei.cxt \nLoading devCheck.cxt \nLoading relXpert.cxt \nLoading viva.cxt \nMISO_SCALAR MISO_BP_frequency 4091356.5355764492\n*WARNING* Sample point 2 is interpolated from raw data points.*WARNING* Sample point 3 is interpolated from raw data points.*WARNING* Sample point 4 is interpolated from raw data points.*WARNING* ...*WARNING* The specified number of samples in the DFT function is higher than the number of raw data points*WARNING* The raw data points are non-uniform.*WARNING* From/To are not aligned with the raw data points.*WARNING* 8137/8192 sample points are interpolated, which could cause numerical errors. To remove these errors, reduce the number of samples, use uniform raw data points, and align the sample points with raw data points.MISO_SCALAR LP_THD 3.676109097118363\nsh: lsb_release: command not found\n*WARNING* Sample point 1 is interpolated from raw data points.*WARNING* Sample point 2 is interpolated from raw data points.*WARNING* Sample point 3 is interpolated from raw data points.*WARNING* ...*WARNING* The specified number of samples in the DFT function is higher than the number of raw data points*WARNING* The raw data points are non-uniform.*WARNING* From/To are not aligned with the raw data points.*WARNING* 8192/8192 sample points are interpolated, which could cause numerical errors. To remove these errors, reduce the number of samples, use uniform raw data points, and align the sample points with raw data points.MISO_SCALAR BP_THD 4.2624947179277566\n\nLoading lce.cxt \n\n\\# Program start time UTC 2026.11.10 19:24:09.604\n\\# Local time Tuesday 10 November 2026, 7:24 pm\n\\o Program:\t\t@(#)$CDS: virtuoso version 6.1.7-64b 11/09/2015 12:45 (sjfnl165) $\n\\o Hierarchy:\t\t/opt/cadence/rootfs/opt/IC617/tools.lnx86/dfII/\n\\o Sub version:\t\tsub-version  IC6.1.7-64b.78  (64-bit addresses)\n\\# Command line:\t/opt/cadence/rootfs/opt/IC617/tools/dfII/bin/64bit/virtuoso -nograph -nocdsinit -cdslib <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/TT/ocean/cds.lib -restore <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/TT/ocean/extract.ocn -log <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/TT/ocean/virtuoso.log\n\\# Host name (type):\tg4-vm (x86_64)\n\\# Operating system:\tLinux 4.18.0-553.182.1.el8_10.x86_64 #1 SMP Sat Oct 31 17:57:18 EDT 2026\n\\# Linux /etc/issue:\t\\S\n\\# Linux /etc/issue:\tKernel \\r on an \\m\n\\# X display name (WxH):\tg4-vm:80 (1024x868)\n\\# Available geometry:\t\t\tTL(0:0) BR(1023:867)\n\\# X server:\t\t\tRealVNC Ltd (VNC nograph server, PID 2785619)\n\\# Depth of Visual (Root):\t16 (16)\n\\# Number of Planes Used:\t16\n\\# X version:\t\t11.0 (vendor release 3370)\n\\# X resource pool:\tbase 0x800000, mask 0x3fffff (4194303), shift 0\n\\# \t\t\tcurrent id 0x0, current max 0x3ffffa (4194298)\n\\# Max data seg size:\t     unlimited\n\\# Max process size:\t     unlimited\n\\# Initial sbrk value:\t        381 MB\n\\# Available memory:\t     79,564 MB\n\\# System memory:\t    180,803 MB\n\\# Maximum memory size:\t    180,519 MB\n\\# Max mem available:\t     79,661 MB\n\\# Initial memory used:\t         97 MB\n\\#        process size:\t        871 MB\n\\# Qt version:\t\t4.8.5\n\\# Window Manager:\tother\n\\# User Name:\t\tcurator\n\\o Working Directory:\tg4-vm:<WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/TT/ocean\n\\# Process Id:\t\t2785492\n\\o \n\\o COPYRIGHT \ufffd 1992-2015  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.\n\\o           \ufffd 1992-2015  UNIX SYSTEMS Laboratories INC.,\n\\o                          Reproduced with permission.\n\\o \n\\o This Cadence Design Systems program and online documentation are\n\\o proprietary/confidential information and may be disclosed/used only\n\\o as authorized in a license agreement controlling such use and disclosure.\n\\o \n\\o           RESTRICTED RIGHTS NOTICE (SHORT FORM)\n\\o Use/reproduction/disclosure is subject to restriction\n\\o set forth at FAR 1252.227-19 or its equivalent.\n\\o Loading geView.cxt \n\\o Loading menuBuilder.cxt \n\\o Loading schView.cxt \n\\o Loading selectSv.cxt \n\\o Loading wireEdit.cxt \n\\o Loading pte2.cxt \n\\o Loading xlUI.cxt \n\\o Loading auCore.cxt \n\\o Loading vhdl.cxt \n\\o Loading seismic.cxt \n\\o Loading ci.cxt \n\\o Loading ams.cxt \n\\o Virtuoso Framework License (111) was checked out successfully. Total checkout time was 0.00s.\n\\o Loading dal.cxt \n\\o Loading awv.cxt \n\\o Loading oasis.cxt \n\\# Available memory:         79,566 MB at UTC 2026.11.10 19:24:25.855\n\\# Memory report: Maximum memory size now 80,132 MB at UTC 2026.11.10 19:24:25.855\n\\# Memory report: using         566 MB, process size 1,449 MB at UTC 2026.11.10 19:24:25.855\n\\o Loading analog.cxt \n\\o Loading asimenv.cxt \n\\o Loading spectrei.cxt \n\\o Loading devCheck.cxt \n\\o Loading relXpert.cxt \n\\o Loading viva.cxt \n\\o MISO_SCALAR MISO_BP_frequency 4091356.5355764492\n\\# Memory report: using       1,055 MB, process size 1,937 MB at UTC 2026.11.10 19:24:44.978\n\\w *WARNING* Sample point 2 is interpolated from raw data points.\n\\w *WARNING* Sample point 3 is interpolated from raw data points.\n\\w *WARNING* Sample point 4 is interpolated from raw data points.\n\\w *WARNING* ...\n\\w *WARNING* The specified number of samples in the DFT function is higher than the number of raw data points\n\\w *WARNING* The raw data points are non-uniform.\n\\w *WARNING* From/To are not aligned with the raw data points.\n\\w *WARNING* 8137/8192 sample points are interpolated, which could cause numerical errors. To remove these errors, reduce the number of samples, use uniform raw data points, and align the sample points with raw data points.\n\\o MISO_SCALAR LP_THD 3.676109097118363\n\\# Memory report: using       1,493 MB, process size 2,376 MB at UTC 2026.11.10 19:25:04.003\n\\w *WARNING* Sample point 1 is interpolated from raw data points.\n\\w *WARNING* Sample point 2 is interpolated from raw data points.\n\\w *WARNING* Sample point 3 is interpolated from raw data points.\n\\w *WARNING* ...\n\\w *WARNING* The specified number of samples in the DFT function is higher than the number of raw data points\n\\w *WARNING* The raw data points are non-uniform.\n\\w *WARNING* From/To are not aligned with the raw data points.\n\\w *WARNING* 8192/8192 sample points are interpolated, which could cause numerical errors. To remove these errors, reduce the number of samples, use uniform raw data points, and align the sample points with raw data points.\n\\o MISO_SCALAR BP_THD 4.2624947179277566\n\\o \n\\o Loading lce.cxt \n\\# Memory report: on exit          1,498 MB, process size 2,381 MB at UTC 2026.11.10 19:25:04.561\n\\# Memory report: peak usage       1,498 MB, process size 2,381 MB\n",
+      "evidence_directory": "<WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/TT/ocean"
+    },
+    "responses": {
+      "VM_BP": {
+        "IOUT_SRC:p": {
+          "gain_at_1Hz": 3.658880000013919e-05,
+          "gain_at_3p98MHz": 0.0003590332318632378,
+          "peak_gain": 0.00036457241585045896
+        },
+        "VOUT": {
+          "gain_at_1Hz": 0.1267070000004412,
+          "gain_at_3p98MHz": 1.1229354782251872,
+          "peak_gain": 1.123748207251073
+        }
+      },
+      "VM_LP": {
+        "IOUT_SRC:p": {
+          "gain_at_1Hz": 0.00026213300000000364,
+          "gain_at_3p98MHz": 0.00023432359781415065,
+          "peak_gain": 0.0002681291129527713
+        },
+        "VOUT": {
+          "gain_at_1Hz": 0.907766000000037,
+          "gain_at_3p98MHz": 0.7328891109104126,
+          "peak_gain": 0.9108377149728705
+        }
+      }
+    },
+    "unscored_building_block_diagnostics": {
+      "Y1_bandwidth": 1021957133.6573019,
+      "Y2_bandwidth": 1256599698.7820687,
+      "IZP_bandwidth": 1643757855.477295
+    },
+    "measurement_profile": "all9_user_retained_scalars_all5_paper_processes",
+    "jobs": [
+      {
+        "job": "CORE_IZP",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 0.8662419180036522,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "6e1cc9cf0abac25e95094c430c925efa50de50d3f0815f5847174bbd8aafa701",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    3 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 7 notices."
+        ]
+      },
+      {
+        "job": "CORE_Y1",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 0.7164972890168428,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "44c35d4033a860c4545514ced113aa1e02b15d36e3bdec81ccab26113ed6a387",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    3 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 9 notices."
+        ]
+      },
+      {
+        "job": "CORE_Y2",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 0.7158208490000106,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "c9bd137a1ac7b3bbd482604fb00cf688f4aebdb3d89eb7f0956c9cb8778315a6",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    3 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 9 notices."
+        ]
+      },
+      {
+        "job": "VM_BP",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 3.168362452997826,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "867a27c3f0245869d37feb97e6ac833afae4bb1c7b0b7d103f15328ab95877c6",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A1.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    11 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 5 notices."
+        ]
+      },
+      {
+        "job": "VM_BP_TRAN",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 10.777673600998241,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "6aff4d60960a63e38484f780f30d3f343997f20f468878d3014156165a436015",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A1.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    11 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 4 notices."
+        ]
+      },
+      {
+        "job": "VM_LP",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 0.815244837955106,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "463564ccc138a2ee6707a027ac9a88e7e70445b83c248507596684a8363f7ca4",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A1.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    11 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 4 notices."
+        ]
+      },
+      {
+        "job": "VM_LP_TRAN",
+        "returncode": 0,
+        "launched": true,
+        "timeout_seconds": 180.0,
+        "deadline_exhausted": false,
+        "error": null,
+        "runtime_seconds": 11.929875737987459,
+        "corner": "TT",
+        "model_section": "NN",
+        "netlist_sha256": "681c43f39c5984c8dd8dd694ebdb8f7155e9d9b308a440a56f9699a74ecea553",
+        "warnings": [
+          "Warning from spectre during initial setup.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rd' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "    WARNING (CMI-2666): DUT.A1.M1: Parasitic resistor `rs' of the device was smaller than `1.000000e-03'. To prevent possible convergence problem, add a larger global option `Minr' to eliminate the small resistor.",
+          "        Further occurrences of this warning will be suppressed.",
+          "    11 warnings suppressed.",
+          "spectre completes with 0 errors, 5 warnings, and 4 notices."
+        ]
+      }
+    ],
+    "metric_execution_status": {
+      "Y1_gain": "measured",
+      "Y2_gain": "measured",
+      "IZP_gain": "measured",
+      "MISO_BP_frequency": "measured",
+      "MISO_quiescent_power": "measured",
+      "BP_noise_in": "measured",
+      "BP_noise_out": "measured",
+      "LP_THD": "measured",
+      "BP_THD": "measured"
+    },
+    "extraction_error": null
+  },
+  "execution_ok": true
+}

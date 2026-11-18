@@ -1,0 +1,361 @@
+                                                                                                                                                             Design of Low Power and Efficient Charge Pump
+                                                                                                                                                                  for Non-Volatile Memory Applications
+
+                                                                                                                                                                       Shahla Sohail                                           Jamuna S                                             Harsshit Goenka
+                                                                                                                                                            Assistant Professor, Department of                    Professor, Department of Electronics                      B.E, Department of Electronics and
+                                                                                                                                                             Electronics and Communication                          and Communication Engineering                              Communication Engineering
+                                                                                                                                                                        Engineering                                   Dayananda Sagar College of                               Dayananda Sagar College of
+2026 1st International Conference on VLSI Circuits and Systems (ICVCS) | 979-8-3195-3071-4/26/$31.00 ©2026 IEEE | DOI: 10.1109/ICVCS69586.2026.11683210
+
+
+
+
+                                                                                                                                                               Dayananda Sagar College of                                     Engineering                                              Engineering
+                                                                                                                                                                        Engineering                                     Bengaluru-560111, India                                  Bengaluru-560111, India
+                                                                                                                                                                Bengaluru-560111, India                            Jamuna-ece@dayanandasagar.edu                               harsshitgoenka@gmail.com
+                                                                                                                                                             shahla-ece@dayanandasagar.edu
+
+                                                                                                                                                                 Ghanshyam Pratap Singh                                      Aliya Bhandari                                      Divya Priya Choudhary
+                                                                                                                                                            B.E, Department of Electronics and                     B.E, Department of Electronics and                       B.E, Department of Electronics and
+                                                                                                                                                               Communication Engineering                              Communication Engineering                                Communication Engineering
+                                                                                                                                                               Dayananda Sagar College of                             Dayananda Sagar College of                               Dayananda Sagar College of
+                                                                                                                                                                       Engineering                                            Engineering                                              Engineering
+                                                                                                                                                                 Bengaluru-560111, India                                 Bengaluru-560111, India                                 Bengaluru-560111, India
+                                                                                                                                                            ghanshyamsingh85165@gmail.com                            aliyabhandari5150@gmail.com                              divyapriyabksc13@gmail.com
+
+
+                                                                                                                                                              Abstract— Non-volatile memory technologies, such as                           Charge pumps implemented using diode-capacitor
+                                                                                                                                                          NAND flash and EEPROM, are widely used in modern                                configurations or switch-based topologies offer an efficient
+                                                                                                                                                          electronic systems, including solid-state drives, smartphones,                  and compact means to achieve voltage multiplication in deep
+                                                                                                                                                          and embedded devices. These systems require high-voltage                        sub-micron CMOS processes. Their performance is typically
+                                                                                                                                                          generation for programming and erasing operations, typically                    evaluated using key parameters, such as power efficiency,
+                                                                                                                                                          in the range of 10–20 V, while operating at low supply voltages                 output ripple, rise time, and silicon area, which collectively
+                                                                                                                                                          in CMOS circuits. To address this challenge, a charge pump                      determine their suitability for NVM-related high-voltage
+                                                                                                                                                          based high-voltage generator is widely used owing to its compact                operations. These performance aspects and design trade-offs
+                                                                                                                                                          and inductor-less implementation. In this work, a low-power                     have been extensively studied in prior works focusing on
+                                                                                                                                                          and high-efficiency cross-coupled charge pump is designed
+                                                                                                                                                                                                                                          charge pump optimization and efficiency improvement [9] -
+                                                                                                                                                          using 130 nm SKY130 CMOS technology for non-volatile
+                                                                                                                                                                                                                                          [12].
+                                                                                                                                                          memory applications. The proposed architecture employs non-
+                                                                                                                                                          overlapping clock signals and optimized circuit design                            Continued CMOS scaling and progressively lower supply
+                                                                                                                                                          techniques to enhance power efficiency and achieve ripple                       voltages have rendered achieving high voltage gains while
+                                                                                                                                                          reduction. The design can generate an output voltage of 19 V                    maintaining low power consumption, high efficiency, and
+                                                                                                                                                          from a 3.3 V input supply, making it suitable for NAND flash                    minimal ripple increasingly difficult. Furthermore, the reliable
+                                                                                                                                                          applications. Simulation results demonstrate that the proposed                  integration of charge pumps into advanced technology nodes
+                                                                                                                                                          CMOS charge pump achieves improved efficiency and low                           demands optimized transistor sizing, careful clock generation,
+                                                                                                                                                          ripple voltage while maintaining stable operation under process,
+                                                                                                                                                                                                                                          and low-loss switching strategies to mitigate threshold voltage
+                                                                                                                                                          voltage, and temperature (PVT) variations. The results confirm
+                                                                                                                                                          that the design provides reliable high-voltage generation with
+                                                                                                                                                                                                                                          losses and parasitic effects. Recent research highlights the
+                                                                                                                                                          enhanced performance, making it a suitable candidate for                        need for improved architectures that address these challenges
+                                                                                                                                                          integration in advanced non-volatile memory systems.                            while ensuring stable operation under varying conditions [5]
+                                                                                                                                                                                                                                          to [7], [13].
+                                                                                                                                                            Keywords— Charge pump, high-voltage generator,                                    Numerous charge pump topologies, such as the Dickson
+                                                                                                                                                          NAND Flash, SSD, CTS, Cross-Coupled                                             pump, cross-coupled pump, and charge-transfer switch (CTS)
+                                                                                                                                                                                                                                          pump, have been proposed to address challenges related to
+                                                                                                                                                                                                                                          threshold voltage drops, efficiency degradation, and ripple
+                                                                                                                                                                                  I. INTRODUCTION                                         generation. Advanced designs, such as adaptive-compensated
+                                                                                                                                                                                                                                          and high-efficiency cross-coupled charge pumps, have
+                                                                                                                                                            Non-volatile memory (NVM) technologies, such as NAND                          demonstrated improved performance in terms of ripple
+                                                                                                                                                          flash, EEPROM, and embedded flash, are fundamental                              reduction and transient response [8], [10], [14]. However,
+                                                                                                                                                          components of modern electronic systems, including solid-                       many existing designs suffer from limitations, including
+                                                                                                                                                          state drives (SSDs), smartphones, microcontrollers, Internet                    inefficient high-voltage generation, reliance on older process
+                                                                                                                                                          of Things (IoT) devices, and automotive electronics. These                      nodes, and restricted output capability. In several reported
+                                                                                                                                                          memory technologies require elevated voltage levels,                            implementations, achieving output voltages exceeding 10–12
+                                                                                                                                                          typically in the range of 10–20 V, for programming and                          V from a 3.3 V supply remains difficult, and substantial ripple
+                                                                                                                                                          erasing operations, whereas contemporary CMOS                                   levels further hinder compatibility with precision NVM
+                                                                                                                                                          technologies operate at much lower supply voltages, generally                   operations.
+                                                                                                                                                          between 1.2–3.3 V. This significant voltage discrepancy
+                                                                                                                                                          necessitates the use of charge pumps, which serve as on-chip                       These limitations highlight the need for improved charge
+                                                                                                                                                          voltage-boosting circuits capable of generating high DC                         pump architectures that can deliver high voltage, low ripple,
+                                                                                                                                                          voltages without relying on external power components.                          and enhanced efficiency in modern CMOS technologies.
+
+
+
+                                                                                                                                                          979-8-3195-3071-4/26/$31.00 ©2026 IEEE
+                                                                                                                                                                Authorized licensed use limited to: Politecnico di Milano. Downloaded on November 11,2026 at 11:17:55 UTC from IEEE Xplore. Restrictions apply.
+                       II.   RELATED WORK                                      B. Circuit Design
+  Several studies have been conducted on the design and                          The proposed design is based on a cross-coupled charge
+optimization of CMOS-based charge pumps for high-voltage                       pump with non-overlapping clock signals (Fig. 1) to charge
+generation and low-power applications.                                         and transfer energy alternately between flying capacitors.
+  Jamuna S et al. [1] proposed a multi-level voltage generator                 Switches are constructed using cross-coupled NMOS and
+for NAND flash operations. Their design achieved multiple                      PMOS transistors, and the charge pump operates at low
+voltage levels, for erase, program, and read, along with an                    threshold voltage.
+efficiency of 19.74% at a 3.3V supply, utilizing two ladders                   Each stage boosts the voltage progressively, and a multi-stage
+of Dickson charge pumps and a 600 mV ripple.                                   configuration is used to achieve a high output voltage.
+  Q Wang et al. [2] proposed a low-ripple and high-efficiency
+charge pump for 3D NAND flash memories. Their design                           The stage voltage gain is approximately given by
+was able to produce a stable output close to 12 V while
+keeping the ripple very low. This was achieved by controlling                                        ΔV ≈ Vclk-Vloss                                   (1)
+the clock frequency that regulated pumping current to reduce
+ripple.                                                                        To achieve an output of 19 V from a 3.3V supply,
+  M. El Alaoui et al. [3] proposed a 6-stage Dickson charge                    approximately six stages are required.
+pump for EEPROM applications in 180 nm CMOS
+technology. Their implementation generated around 11.25 V
+output for an input range of 2.7 V to 4.4 V. This was done
+using additional blocks like a pre-regulator, clock generator,
+and comparator, which helped in achieving a compact design
+with stable performance.
+  L. Fu et al. [4] proposed a high-efficiency charge pump for
+3D NAND flash memory applications. Their design reduced
+threshold voltage losses and improved voltage conversion
+efficiency by utilizing a PMOS-based architecture, achieving
+enhanced performance, particularly under low supply voltage                                 Fig. 1. Circuit diagram of Charge Pump
+conditions.
+                                                                                  Fig.1 illustrates the circuit diagram of the proposed
+                      III.   METHODOLOGY
+                                                                                  charge pump, which consists of multiple cascaded stages
+  This section describes the design and implementation                            designed to incrementally boost the input voltage. Each
+methodology of the proposed CMOS charge pump for high-                            stage contributes to the overall voltage gain through
+voltage generation using a SKY130 PDK. The design and                             controlled charge transfer. The generated clock
+simulations were performed using the Cadence Virtuoso                             waveforms are shown in Fig. 2.
+environment. The overall design flow consists of a literature
+review, specification formulation, circuit design, simulation,
+and performance verification.
+
+A. Design Workflow
+ The methodology used to develop the charge pump is
+summarized as follows:
+   • Literature Survey and Problem Identification:
+       Existing charge pump architectures were analyzed
+       to identify limitations in terms of efficiency, ripple,
+       and output voltage generation.
+                                                                                             Fig. 2. Non-overlapping clock waveforms of the
+   • Reference Design Implementation: A baseline                                                              charge pump
+       charge pump design from the existing literature [1]
+       was implemented using SKY130 technology and
+       evaluated for performance.                                              C. Block-Level Architecture
+   • Specification Formulation: Based on the analysis,                         The overall system comprised the following blocks:
+       design specifications, such as output voltage (19 V),                       • Clock Generation Unit: This unit generates
+       supply voltage (3.3V), power consumption,                                       nonoverlapping clock signals.
+       efficiency, and ripple constraints, were defined.                           • Charge Pump (Voltage Multiplier): Boosts the
+   • Simulation of Topologies: A robust cross coupled                                  input voltage through multiple stages.
+       charge pump topology was simulated in Cadence                               • Comparator and reference divider: Regulates the
+       Virtuoso to evaluate their performance under                                    output voltage.
+       different conditions.                                                       • Level shifter: Converts low VDD to high VDD for
+   • Verification: Simulation results were thoroughly                                  proper operation.
+       checked to ensure that the design meets all the
+       required specifications.
+
+
+
+
+     Authorized licensed use limited to: Politecnico di Milano. Downloaded on November 11,2026 at 11:17:55 UTC from IEEE Xplore. Restrictions apply.
+                                                                                cross-coupled NMOS and PMOS transistors along with
+                                                                                flying capacitors. In this configuration, the gates of the
+                                                                                transistors are cross-connected to the opposite nodes, thereby
+                                                                                enabling synchronous switching. This arrangement allows
+                                                                                the transistors to behave as active switches rather than diode-
+                                                                                connected elements, thereby significantly reducing threshold
+                                                                                voltage losses. The detailed schematic of the proposed design
+                                                                                is shown in Fig. 4, where NMOS and PMOS transistors are
+                                                                                connected in a cross-coupled manner to enable proper charge
+                                                                                transfer between stages.
+
+                                                                                In one clock phase, the flying capacitor gets charged to the
+                                                                                input voltage, and in the next phase, this stored charge is
+                                                                                transferred to the following stage, leading to a gradual
+                  Fig. 3. Block diagram of Charge Pump                          increase in voltage. Because of this configuration, there is
+                                                                                less voltage drop in the switching devices, thus enhancing the
+The complete high-voltage generation subsystem is                               gain obtained from each stage. Each stage adds
+illustrated in Fig. 3. Integration of these blocks ensures                      approximately 3 V, meaning that stages 6 enough can be used
+controlled and efficient high-voltage generation.                               to output approximately 19 V with a 3.3 V supply.
+
+D. Design Calculations                                                          Employing non-overlapping clocks guarantees that both
+                                                                                switches never turn ON simultaneously, preventing charge
+ Key design parameters were calculated as follows:                              leakage, as well as the possibility of shorting the power
+Load Resistance: 1MΩ                                                            supply. This enhances the efficiency and stability of the
+Clock Frequency: 10MHz                                                          charge transfer process. A 1MΩ load resistance represents
+                              % .                                               realistic conditions, and transient simulations are performed
+Load Current: I                             16uA                       (2)
+                                                                                to analyze the circuit dynamic behavior.
+P     N⋅C        ⋅V ⋅t                                                 (3)
+                                  1.5mW                                         The full cross-coupled charge pump schematic is illustrated
+                 ⇒C                          2pF                                in Fig. 4, with the NMOS and PMOS transistors and flying
+                              6 ⋅ 3.3 ⋅ 10M
+ΔV                ⇒C                      16pF                         (4)      capacitors arranged. The values of the flying and stage
+           ⋅                          ⋅ .                                       capacitors were selected according to design calculations and
+Q C ⋅V          2p ⋅ 3.3 7pC                                           (5)      simulation results. The flying capacitance was initially 2 pF
+This charge must move within half of the clock period                           but increased to 5 pF, and the clock frequency was increased
+I             0.155mA                                                  (6)      to 20MHz later for smaller rise times. These changes allowed
+                                            .                                   for greater steady state performance and faster voltage
+I      ⋅μ⋅C ⋅ ⋅ν             ⇒                          2              (7)      buildup.
+                                                ⋅ ⋅ .
+I        f⋅C ⋅V                                                        (8)
+                                                                                                   V.   RESULT AND DISCUSSION
+To reduce the rise time, Cfly was increased to 5 pF and the                     The results of the simulation show that the proposed cross-
+clock frequency was set to 20 MHz.                                              coupled charge pump is effective in achieving high.
+                                                                                The voltage generation has been improved performance
+                                                                                characteristics. As shown in Fig. 5.
+     IV.   SIMULATION OF CROSS COUPLED CHARGE PUMP
+The proposed multistage cross-coupled charge pump was
+designed and simulated using the Cadence Virtuoso ADE in
+SKY130 CMOS technology. The circuit operates with a
+supply voltage of 3.3 V and utilizes two non-overlapping
+clock signals to drive the switching operation of the charge
+pump stages.
+
+
+
+
+                                                                                                        Fig. 5. Calculation metrics
+
+           Fig. 4. Schematic of Cross Coupled Charge Pump
+The schematic of the cross-coupled charge pump consists of                      As can be seen in fig. 6 the output charge rises from 0V and
+cascaded stages, wherein each stage is formed by a pair of                      finally stabilizes at around 19V which demonstrates the
+
+
+
+
+      Authorized licensed use limited to: Politecnico di Milano. Downloaded on November 11,2026 at 11:17:55 UTC from IEEE Xplore. Restrictions apply.
+proper functionality of the voltage multiplication across the
+stages. The curve shows an exponential rise because
+charge keeps building up stage by stage, and after some
+time, the output settles at the required voltage, indicating
+stable operation.
+
+
+
+
+                                                                                                   Fig. 9. Output Power waveform
+
+                                                                               The efficiency of the circuit is observed in the range of 31%
+                                                                               to 36% as shown in Fig. 10, which is better compared to
+                      Fig. 6. Output waveform                                  conventional charge pump designs. This improvement comes
+                                                                               mainly from the cross-coupled structure, which reduces
+The ripple at the output is very small, which shows that                       voltage losses .
+charge transfer is efficient and the selected capacitor values
+are appropriate. The reduced ripple is mainly due to the
+higher flying capacitance and increased clock frequency,
+which help in maintaining a continuous and stable supply to
+the load., as shown in Fig. 7.
+
+
+
+
+                                                                                                     Fig. 10. Efficiency waveform
+
+                                                                               As shown in Fig. 11, the rise time of the circuit varies
+                                                                               between about 9 µs and 39 µs depending on process,
+                                                                               voltage, and temperature conditions. Faster response is seen
+                                                                               in fast process corners due to better carrier mobility, while
+                                                                               slower response occurs in slow corners. This clearly shows a
+                      Fig. 7. Ripple waveform                                  trade-off between speed and different operating conditions.
+
+Fig. 8 shows input power over different operating points
+varied from 903.3 µW to 1.119 mW under PVT variations.
+The higher power at the fast process corners is due to
+increased switching activity and more current flow. Likewise,
+the output power ranged from 292.1 µW to 404.3 µW in
+Fig.9. This indicates that the energy transfer at the charge
+pump was effective.
+
+
+
+
+                                                                                                  Fig. 11. Rise transition waveform
+
+                                                                               The PVT analysis for the output voltage that is shown in Fig.
+                                                                               12 shows that the output voltage is very close to the desired
+                                                                               value under process, voltage and temperature variations. This
+                                                                               suggests that the design is consistent and stable. There are
+                                                                               some values for the power and the rise time, but the circuit
+                                                                               works fine and meets the needed specifications.
+
+                   Fig. 8. Input Power waveform
+
+
+
+
+     Authorized licensed use limited to: Politecnico di Milano. Downloaded on November 11,2026 at 11:17:55 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                 TABLE 1
+                                                                                                        PERFORMANCE COMPARISON
+
+                                                                                     Parameter          [1]            [2]            [3]       This paper
+                                                                                                      130nm                                      130nm
+                                                                                      Process                        180nm          180nm
+                                                                                                     Skywater                                   Skywater
+                                                                                 Input Voltage         3.3V           1.8V         2.7-4.4V       3.3V
+                                                                                     Output
+                                                                                                        19V            12V         11.25V          19V
+                                                                                     voltage
+                                                                                  Number of                            Not
+                                                                                                         9                            6              6
+                                                                                     Stages                         specified
+                                                                                 Clock Phases            2              1             2              2
+                                                                                      Clock                            10-
+                                                                                                      100MHz                      ~100KHz        20MHz
+            Fig. 12. PVT Analysis of Output Voltage                                Frequency                         30MHz
+                                                                                   Efficiency                                        Not
+                                                                                                       19.74            49                        34.96
+                                                                                     (in %)                                        specified
+The measured results indicate that the new design exhibits                           Power
+                                                                                                                      Not            Not
+good performance for varying PVT conditions as well as                           Consumption            1.59                                      1.017
+                                                                                                                    specified      specified
+providing a stable high voltage output with low power. This                         (in mW)
+makes the cross coupled charge pump ideal for non-volatile                                                                                        4.069
+                                                                                 Ripple(in mV)          600            3.2           150
+memory and other low power, high voltage applications,                                  Rise
+where proper functionality is necessary.                                             Transition        1.785           ~2.5           ~6          14.68
+                                                                                      (in us)
+
+
+
+                                                                                                                 REFERENCES
+                                                                               [1]    S. Jamuna, A. K. Pawaskar, and K. K. Kishore, “Design and Analysis
+                                                                                      of Multi-Level Voltage Generator for NAND Flash Operations Using
+                                                                                      a Reference Voltage Controlled Charge Pump,” Research Article, Jun.
+                                                                                      2025.
+                                                                               [2]    Q. Wang, F. Liu, C. Huang, L. Fu, and Z. Huo, “A 12 V Low-Ripple
+                                                                                      and High-Efficiency Charge Pump with Continuous Regulation
+                                                                                      Scheme for 3D NAND Flash Memories,” in Proc. IEEE, 2018.
+                                                                               [3]    M. El Alaoui, F. Farah, K. El Khadiri, H. Qjidaa, A. Aarab, R. El
+                       Fig. 13. PVT Conclusion                                        Alami, and A. Lakhassassi, “Analysis and Design of Dickson Charge
+                                                                                      Pump for EEPROM in 180 nm CMOS Technology,” in Proc. IEEE,
+The PVT analysis confirms that the proposed cross-coupled                             2018.
+charge pump performs stably under various process, voltage,                    [4]    L. Fu, Y. Wang, Q. Wang, S. Yang, Y. Yang, and Z. Huo, “A High
+and temperature conditions, as illustrated in Fig. 13. Even if                        Efficiency All-PMOS Charge Pump for 3D NAND Flash Memory,” in
+                                                                                      Proc. IEEE, 2015.
+there is a distinction in the behavior of the switches and/or
+                                                                               [5]    X. Zhong et al., “An Adaptive-Compensated Charge Pump with Sub-
+the conditions of the supply, the circuit can still achieve the                       1-mV Ripple and Improved Transient Response for Flash-Based
+desired output voltage with minimal deviation. The power                              Computing-in-Memory,” IEICE Electronics Express, vol. 22, no. 21,
+consumption is controlled and the efficiency is better than the                       2025.
+conventional designs, showing the advantage of the cross-                      [6]    Q. Zhao et al., “A Charge Pump with Low Ripple and Fast Transient
+                                                                                      Response for CMOS Image Sensor Applications,” Microelectronics
+coupled structure. Although the rise time changes under                               Journal, vol. 166, 2025.
+different conditions, this trade-off is acceptable because of
+                                                                               [7]    T. Xu et al., “A Programmable High Efficiency Charge Pump System
+the improvement in efficiency and reduction in power.                                 for Embedded Flash Memory with Improved Current Driving
+The circuit performs better in fast process and low                                   Capability,” Microelectronics Journal, vol. 159, 2025.
+temperature conditions, while still working correctly in                       [8]    X. Li, Y. Wang, Z. Wu, and Z. Xie, “A High Peak-efficiency Cross-
+worst-case conditions such as slow process and high                                   coupled Charge Pump with Low Input Voltage for Energy Harvesting
+                                                                                      System,” Journal of Physics: Conference Series, vol. 2524, no. 1, 2023.
+temperature. Overall, the results confirm that the design is
+                                                                               [9]    J. Marek, J. Hospodka, and O. Subrt, “Cross-Coupled Charge Pump
+reliable and suitable for practical high-voltage applications.                        Synthesis Based on Full Transistor-Level,” Advances in Electrical and
+                                                                                      Electronic Engineering, vol. 17, no. 3, pp. 285–293, 2019.
+                                                                               [10]   M. Ma, X. Cai, Y. Sun, and N. George, “A robust high-efficiency cross-
+                                                                                      coupled charge pump circuit without blocking transistors,” Analog
+                                                                                      Integrated Circuits and Signal Processing, vol. 95, pp. 395–401, Mar.
+                                                                                      2018.
+                                                                               [11]   M. Ma, X. Cai, J. Jiang, and Y. Sun, “High Efficiency Cross-Coupled
+                                                                                      Charge Pump Circuit with Four-Clock Signals,” Radioelectronics and
+                                                                                      Communications Systems, vol. 61, no. 12, pp. 565–570, 2018.
+                                                                               [12]   Y.-R. Wang and Z.-G. Yu, “A High-Efficiency Cross-Coupled Charge
+                                                                                      Pump for Flash Memories,” in Proc. IEEE, 2010.
+                                                                               [13]   F. Su, W.-H. Ki, and C.-Y. Tsui, “High Efficiency Cross-Coupled
+                                                                                      Doubler with No Reversion Loss,” in Proc. IEEE ISCAS, 2006.
+                                                                               [14]   K.-S. Min et al., “CMOS Charge Pumps Using Cross-Coupled Charge
+                                                                                      Transfer Switches with Improved Voltage Pumping Gain and Low
+                                                                                      Gate-Oxide Stress for Low-Voltage Memory Circuits,” in Proc. IEEE,
+                                                                                      2002
+
+
+
+
+     Authorized licensed use limited to: Politecnico di Milano. Downloaded on November 11,2026 at 11:17:55 UTC from IEEE Xplore. Restrictions apply.
+

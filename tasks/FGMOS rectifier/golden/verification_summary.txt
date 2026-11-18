@@ -1,0 +1,12 @@
+FGMOS full-wave rectifier — Low Voltage Squarer/Divider Circuit based on FGMOS
+Fresh Spectre replay: 32/32 scalar checks; 8/8 conditions.
+Retained reference checks: 32; engineering checks: 0.
+Results match saved evidence within 1e-8 relative / 1e-9 absolute comparison tolerance.
+
+Conditional golden for these eight conditions only; not a full Cartesian process/temperature sweep.
+Power counts VDD only, excluding output-compliance and bias sources.
+AC bias is 17.5 uA; output compliance is 0.7 V; DC error is normalized to 35 uA full scale.
+Paper does not specify the exact AC bias, compliance, power setup or error normalization; retained interpretation is explicit.
+Final selected widths/lengths are rounded to 1 nm and capacitors to 1 fF; no new sizing.
+Preserves 1 Tohm floating-gate resistors and gmin=1e-15; physical floating-gate charge conditions are not established.
+Native final golden library was independently extracted and verified at all eight conditions.

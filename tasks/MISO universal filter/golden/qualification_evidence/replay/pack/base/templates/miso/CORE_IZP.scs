@@ -1,0 +1,71 @@
+// Generated for: spectre
+// Generated on: Nov  7 07:35:54 2026
+// Design library name: DAC_20261107_MISO
+// Design cell name: CORE_IZP_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+
+// Library name: DAC_20261107_MISO
+// Cell name: mdvccta_fig2
+// View name: schematic
+subckt mdvccta_fig2 GND N OM OP OP2 VBIAS VDD VSS X Y1 Y2 Z1P Z2P ZP
+    M30 (Z2P VBIAS VSS VSS) nmos1 w=18.75u l=0.36u as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M29 (Z1P VBIAS VSS VSS) nmos1 w=18.75u l=0.36u as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M28 (ZP VBIAS VSS VSS) nmos1 w=18.75u l=0.36u as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M27 (X VBIAS VSS VSS) nmos1 w=18.75u l=0.36u as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M26 (T2 VBIAS VSS VSS) nmos1 w=13.5u l=0.36u as=8.1p ad=8.1p ps=28.2u          pd=28.2u m=1
+    M25 (T1 VBIAS VSS VSS) nmos1 w=13.5u l=0.36u as=8.1p ad=8.1p ps=28.2u          pd=28.2u m=1
+    M18 (NG Y1 T2 VSS) nmos1 w=4.5u l=0.36u as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M17 (PG X T2 VSS) nmos1 w=4.5u l=0.36u as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M16 (NG GND T1 VSS) nmos1 w=4.5u l=0.36u as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M15 (PG Y2 T1 VSS) nmos1 w=4.5u l=0.36u as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M14 (PB PB VSS VSS) nmos1 w=3u l=0.72u as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M13 (OP2 NB VSS VSS) nmos1 w=3u l=0.72u as=1.8p ad=1.8p ps=7.2u          pd=7.2u m=1
+    M12 (OP NB VSS VSS) nmos1 w=3u l=0.72u as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M11 (NB NB VSS VSS) nmos1 w=3u l=0.72u as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M10 (OM PB VSS VSS) nmos1 w=3u l=0.72u as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M2 (NR ZP T VSS) nmos1 w=1.8u l=0.36u as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    M1 (NL N T VSS) nmos1 w=1.8u l=0.36u as=1.08p ad=1.08p ps=4.8u pd=4.8u          m=1
+    M24 (Z2P NG VDD VDD) pmos1 w=8.75u l=0.36u as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M23 (Z1P NG VDD VDD) pmos1 w=8.75u l=0.36u as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M22 (ZP NG VDD VDD) pmos1 w=8.75u l=0.36u as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M21 (X NG VDD VDD) pmos1 w=8.75u l=0.36u as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M20 (NG PG VDD VDD) pmos1 w=20u l=0.36u as=12p ad=12p ps=41.2u          pd=41.2u m=1
+    M19 (PG PG VDD VDD) pmos1 w=20u l=0.36u as=12p ad=12p ps=41.2u          pd=41.2u m=1
+    M9 (PB NR VDD VDD) pmos1 w=8u l=0.72u as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M8 (OP2 NR VDD VDD) pmos1 w=8u l=0.72u as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M7 (OP NR VDD VDD) pmos1 w=8u l=0.72u as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M6 (NR NR VDD VDD) pmos1 w=1.8u l=0.36u as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    M5 (NL NL VDD VDD) pmos1 w=1.8u l=0.36u as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    M4 (NB NL VDD VDD) pmos1 w=8u l=0.72u as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M3 (OM NL VDD VDD) pmos1 w=8u l=0.72u as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    IBIAS (T VSS) isource dc=47u type=dc
+ends mdvccta_fig2
+// End of subcircuit definition.
+
+// Library name: DAC_20261107_MISO
+// Cell name: CORE_IZP_tb
+// View name: schematic
+DUT (0 N OM OP OP2 VBIAS VDD VSS X Y1 Y2 Z1P Z2P ZP) mdvccta_fig2
+OP2_SRC (OP2 0) vsource dc=0 mag=0 type=dc
+OP_SRC (OP 0) vsource dc=0 mag=0 type=dc
+OM_SRC (OM 0) vsource dc=0 mag=0 type=dc
+Z2P_SRC (Z2P 0) vsource dc=0 mag=0 type=dc
+Z1P_SRC (Z1P 0) vsource dc=0 mag=0 type=dc
+ZP_SRC (ZP 0) vsource dc=0 mag=0 type=dc
+N_SRC (N 0) vsource dc=0 mag=0 type=dc
+Y2_SRC (Y2 0) vsource dc=0 mag=0 type=dc
+Y1_SRC (Y1 0) vsource dc=0 mag=0 type=dc
+VCTRL_SRC (VCTRL 0) vsource dc=0.7768446082050647 type=dc
+VBIAS_SRC (VBIAS 0) vsource dc=-0.3 type=dc
+VSS_SRC (VSS 0) vsource dc=-0.9 type=dc
+VDD_SRC (VDD 0) vsource dc=0.9 type=dc
+IX_SRC (0 X) isource dc=0 mag=1 type=dc
+simulatorOptions options reltol=1e-6 vabstol=1e-9 iabstol=1e-14 temp=27 tnom=27
+saveOptions options save=allpub currents=all subcktprobelvl=5
+dcOp dc
+ac ac start=1 stop=10G dec=150
+ac_fine ac start=1.5G stop=1.65G lin=1501
+range dc dev=IX_SRC param=dc start=-100u stop=100u step=.5u

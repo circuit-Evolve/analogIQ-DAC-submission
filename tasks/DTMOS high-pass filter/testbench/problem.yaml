@@ -1,0 +1,1622 @@
+schema: analogiq.sizing_problem/1
+task_id: dtmos_hpf_101126_task_001
+topology_id: dtmos_hpf_101126
+family: filter
+technology_id: gpdk180
+parameterization_id: dtmos_hpf_101126_p1_counts_20261112
+execution_profile: search_full
+description: 'DTMOS MOS-C current-mode fractional-order high-pass filter (IEMECON 2025, Fig. 1(b), gpdk180, +-0.9 V). Shared analogiq benchmark
+  version of the 10_11_26 replay task: the replay''s 12 conditions (nominal NN 27 C +-0.9 V; FF/FS/SF/SS; rails +-0.7/0.8/1.0/1.1 V; -27/0/100
+  C, one at a time), its fixture (ideal current drive into IN, OUT held at 0 V by a voltage source that senses the output current) and its four
+  retained metrics as targets with exactly the replay targets.json limits (owner-approved paper targets with a 15 % allowance; not re-derived
+  with the 10 % rule), each at every condition (replay scope). Rule G8 gate on the AC deck''s DC point (nominal). No Monte Carlo (the replay has
+  no Monte Carlo target; the paper''s Fig. 6 Monte Carlo spreads are not targeted). No objective. User decision 2026-11-12: validity gates are
+  bypassed for task eligibility/feasibility; all performance constraints remain enforced. Diagnostics are not a gate pass or physical qualification.'
+source:
+  title: A New DTMOS MOS-C Implementation of Fractional-Order Low-Voltage Low-Power Differentiator/High-Pass Filter (Kumar, Aggarwal, Gupta, Dabi,
+    Gupta; IEMECON 2025)
+  doi: 10.1109/IEMECON69302.2025.11365732
+  figure: Fig. 1(b) (17-MOS core with DTMOS bias circuitry Mpb1-Mpb4), Table I (device W/L groups)
+variables:
+- name: W_M1
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'core M1 (NMOS, gate N1, drain N2: gm1 integrator transconductor, Fig. 1(a)): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: w
+- name: L_M1
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'core M1: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: l
+- name: W_M2
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'core M2 (NMOS, gate N2, drain PLP: low-pass/band-pass output branch): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: w
+- name: W_M4
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'core M4 (NMOS source follower VDD -> IN, gate N2: input feedback transconductor gm2): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    parameter: w
+- name: L_M24
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'core M2 and M4 (both driven by N2; paper Table I M2, M4 one W/L group): common length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M4
+    parameter: l
+- name: W_M3
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'core M3 (PMOS, gate IN, source N1, drain NB3: input device feeding the high-pass output mirror): width per device'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    parameter: w
+- name: M_M3
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'core M3: parallel device count'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    parameter: m
+- name: L_M3
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'core M3: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    parameter: l
+- name: W_MPB12
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'DTMOS bias mirror Mpb2 (diode, IB2) -> Mpb1 (bias current into N1), bulk tied to gate: width per device'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb1
+    - Mpb2
+    parameter: w
+- name: M_MPB12
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'DTMOS bias mirror Mpb1/Mpb2: parallel device count (1:1 mirror)'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb1
+    - Mpb2
+    parameter: m
+- name: L_MPB12
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'DTMOS bias mirror Mpb1/Mpb2: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb1
+    - Mpb2
+    parameter: l
+- name: W_MPB3
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'DTMOS bias mirror output Mpb3 (bias current into N2, mirrors Mpb4): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb3
+    parameter: w
+- name: W_MPB4
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'DTMOS bias mirror diode Mpb4 (IB1), bulk tied to gate: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb4
+    parameter: w
+- name: L_MPB34
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'DTMOS bias mirror Mpb3/Mpb4: length (matched mirror; ratio set by the widths)'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb3
+    - Mpb4
+    parameter: l
+- name: W_MPB56
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS mirror Mpb5 (diode, PLP) -> Mpb6 (low-/band-pass current to OUT), 1:1: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb5
+    - Mpb6
+    parameter: w
+- name: L_MPB56
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS mirror Mpb5/Mpb6: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb5
+    - Mpb6
+    parameter: l
+- name: W_MPB7
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS mirror diode Mpb7 (PHP, high-pass branch): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb7
+    parameter: w
+- name: W_MPB8
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS mirror output Mpb8 (high-pass current to OUT; mirror ratio W_MPB8/W_MPB7 = the high-pass gain K2): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb8
+    parameter: w
+- name: L_MPB78
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS mirror Mpb7/Mpb8: length (matched mirror)'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb7
+    - Mpb8
+    parameter: l
+- name: W_MNB12
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS mirror Mnb1 (diode, I0) -> Mnb2 (input-node bias sink), 1:1: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb1
+    - Mnb2
+    parameter: w
+- name: L_MNB12
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'NMOS mirror Mnb1/Mnb2: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb1
+    - Mnb2
+    parameter: l
+- name: W_MNB3
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS mirror diode Mnb3 (NB3, M3 drain current): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb3
+    parameter: w
+- name: L_MNB3
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'NMOS mirror diode Mnb3: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb3
+    parameter: l
+- name: W_MNB4
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS mirror output Mnb4 (NB3 -> PHP, drives the Mpb7/Mpb8 high-pass mirror): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb4
+    parameter: w
+- name: L_MNB4
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'NMOS mirror output Mnb4: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb4
+    parameter: l
+- name: W_MNB5
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS output sink Mnb5 (gate N1, low-pass current from OUT): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb5
+    parameter: w
+- name: L_MNB5
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'NMOS output sink Mnb5: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb5
+    parameter: l
+- name: C1
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: integrating capacitor C1 (N1 to ground)
+  binding:
+    type: instance_parameter
+    instances:
+    - C1
+    parameter: c
+- name: C2
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: integrating capacitor C2 (N2 to ground; sets the fractional order alpha)
+  binding:
+    type: instance_parameter
+    instances:
+    - C2
+    parameter: c
+- name: I0
+  kind: real
+  unit: A
+  lower: 1.0e-10
+  upper: 0.01
+  scale: log
+  start: 1.0e-05
+  quantity: bias_current
+  role: bias current I0 (ground -> NB0, Mnb1/Mnb2 mirror)
+  binding:
+    type: instance_parameter
+    instances:
+    - I0
+    parameter: dc
+- name: IB1
+  kind: real
+  unit: A
+  lower: 1.0e-10
+  upper: 0.01
+  scale: log
+  start: 1.0e-05
+  quantity: bias_current
+  role: bias current IB1 (PB1 -> ground, DTMOS Mpb3/Mpb4 mirror)
+  binding:
+    type: instance_parameter
+    instances:
+    - IB1
+    parameter: dc
+- name: IB2
+  kind: real
+  unit: A
+  lower: 1.0e-10
+  upper: 0.01
+  scale: log
+  start: 1.0e-05
+  quantity: bias_current
+  role: bias current IB2 (PB2 -> ground, DTMOS Mpb1/Mpb2 mirror)
+  binding:
+    type: instance_parameter
+    instances:
+    - IB2
+    parameter: dc
+- name: M_M1
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M1; matched sizing group W_M1
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: m
+- name: M_M2
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M2; matched sizing group W_M2
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: m
+- name: M_M4
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M4; matched sizing group W_M4
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    parameter: m
+- name: M_MPB3
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mpb3; matched sizing group W_MPB3
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb3
+    parameter: m
+- name: M_MPB4
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mpb4; matched sizing group W_MPB4
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb4
+    parameter: m
+- name: M_MPB56
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mpb5, Mpb6; matched sizing group W_MPB56
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb5
+    - Mpb6
+    parameter: m
+- name: M_MPB7
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mpb7; matched sizing group W_MPB7
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb7
+    parameter: m
+- name: M_MPB8
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mpb8; matched sizing group W_MPB8
+  binding:
+    type: instance_parameter
+    instances:
+    - Mpb8
+    parameter: m
+- name: M_MNB12
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mnb1, Mnb2; matched sizing group W_MNB12
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb1
+    - Mnb2
+    parameter: m
+- name: M_MNB3
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mnb3; matched sizing group W_MNB3
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb3
+    parameter: m
+- name: M_MNB4
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mnb4; matched sizing group W_MNB4
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb4
+    parameter: m
+- name: M_MNB5
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for Mnb5; matched sizing group W_MNB5
+  binding:
+    type: instance_parameter
+    instances:
+    - Mnb5
+    parameter: m
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: true
+- id: FF_T27_S1p00
+  model_set: FF
+  temperature_C: 27.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T27_S1p00
+  model_set: FS
+  temperature_C: 27.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T27_S1p00
+  model_set: SF
+  temperature_C: 27.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T27_S1p00
+  model_set: SS
+  temperature_C: 27.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S0p78
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 0.7
+  supply_scale: 0.7777777777777777
+  nominal: false
+- id: NN_T27_S0p89
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 0.8
+  supply_scale: 0.888888888888889
+  nominal: false
+- id: NN_T27_S1p11
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.0
+  supply_scale: 1.1111111111111112
+  nominal: false
+- id: NN_T27_S1p22
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.1
+  supply_scale: 1.2222222222222223
+  nominal: false
+- id: NN_Tm27_S1p00
+  model_set: NN
+  temperature_C: -27.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T0_S1p00
+  model_set: NN
+  temperature_C: 0.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T100_S1p00
+  model_set: NN
+  temperature_C: 100.0
+  supply_V: 0.9
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 0.9
+    provenance: 'paper Sec. III and Table II: VDD/VSS = +-0.9 V; replay corners.json rails_V [-0.9, 0.9] (nominal); the 0.7-1.1 V corners scale
+      both rails'
+  supply_negative_V:
+    value: -0.9
+    provenance: 'paper Sec. III: VSS = -0.9 V; scaled with the supply corners (scale_supply_negative)'
+  output_voltage_V:
+    value: 0.0
+    provenance: 'replay decks: VOUT_SENSE (OUT 0) vsource dc=0 (corners.json output_clamp_V 0): the output current flows into an ideal 0 V termination'
+  input_frequency_Hz:
+    value: 500.0
+    provenance: 'paper Sec. III.A: 500 Hz sinusoidal input current; replay IIN_SRC freq=500'
+  input_peak_to_peak_A:
+    value: 1.0e-05
+    provenance: 'paper Sec. III.A: peak-to-peak amplitude 10 uA; replay IIN_SRC ampl=5u'
+  input_dc_A:
+    value: 0.0
+    provenance: replay IIN_SRC sinedc=0 (corners.json input_dc_A 0); the paper gives no input DC current
+constraints:
+- name: power
+  metric: quiescent_power_W
+  recipe: hpf1111_iac_v1
+  point: {}
+  unit: W
+  lower: 0.0
+  upper: 0.0005456
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay targets.json HPF_Rail_power_mW [0, 0.5456] mW at all 12 conditions (paper abstract and Table II: 0.496 mW; owner-approved
+    lower-is-better direction with the original upper tolerance, 0.496 x 1.1). Definition = replay: 1000*|rail|*(-I(VDD_SRC:p)+I(VSS_SRC:p)) at
+    the DC point, here -V(vdd)*I(VSUP) - V(vss)*I(VNEG) in W'
+  source: native
+- name: thd
+  metric: thd_pct
+  recipe: hpf1111_ithd_v1
+  point: {}
+  unit: '%'
+  lower: 0.0
+  upper: 6.0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay targets.json THD_500Hz_10uApp_percent [0, 6) % at all 12 conditions (paper Sec. III.A and Conclusion: THD < 6 %); the replay''s
+    bound is exclusive (< 6), analogiq limits are inclusive (<= 6): differs only at exactly 6 %. Definition = replay: 500 Hz, 10 uA peak-to-peak
+    input current, tran 60 ms, FFT of the output current over 40-60 ms at 2 us, harmonics 2..20'
+  source: native
+- name: cutoff
+  metric: cutoff_frequency_Hz
+  recipe: hpf1111_iac_v1
+  point: {}
+  unit: Hz
+  lower: 180.0
+  upper: 220.0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'replay targets.json HPF_cutoff_Hz [180, 220] Hz at all 12 conditions (200 Hz target specified by the user/owner; paper Fig. 5 /
+    6(b) cut-off spreads). Definition = replay qualified rising half-power crossing: reference = gain at 6.3246 kHz (centre of 2-20 kHz), passband
+    flat within 1 dB, gain at 1 Hz below the half-power level, first rising crossing at or below 2 kHz'
+  source: native
+- name: gain_200Hz
+  metric: current_gain_dB
+  recipe: hpf1111_iac_v1
+  point:
+    freq_Hz: 200.0
+  unit: dB
+  lower: -3.5
+  upper: -2.5
+  target:
+    kind: voltage_db
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: replay targets.json HPF_gain_200Hz_dB [-3.5, -2.5] dB at all 12 conditions (paper Fig. 6(a) mean gain -3.06 dB, measurement frequency
+    unspecified; user/owner fixed-200-Hz acceptance band). Definition = replay value(dB20(I(VOUT_SENSE:p)) 200)
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - hpf1111_iac_v1
+  - current_gain_dB
+- - hpf1111_iac_v1
+  - cutoff_frequency_Hz
+- - hpf1111_iac_v1
+  - devices_out_of_saturation
+- - hpf1111_iac_v1
+  - devices_outside_rails
+- - hpf1111_iac_v1
+  - forward_biased_junctions
+- - hpf1111_iac_v1
+  - passband_gain_dB
+- - hpf1111_iac_v1
+  - passband_ripple_dB
+- - hpf1111_iac_v1
+  - quiescent_power_W
+- - hpf1111_iac_v1
+  - saturation_margin_min_V
+- - hpf1111_ithd_v1
+  - output_fundamental_A
+- - hpf1111_ithd_v1
+  - thd_pct
+simulations_per_design: 24
+analysis_executions_per_design: 36
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T27_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T27_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T27_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: FF_T27_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/FF_T27_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: FF_T27_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/FF_T27_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: FS_T27_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/FS_T27_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: FS_T27_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/FS_T27_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: SF_T27_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/SF_T27_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: SF_T27_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/SF_T27_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: SS_T27_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/SS_T27_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: SS_T27_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/SS_T27_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p78
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T27_S0p78/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T27_S0p78
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T27_S0p78/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p89
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T27_S0p89/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T27_S0p89
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T27_S0p89/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p11
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T27_S1p11/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T27_S1p11
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T27_S1p11/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p22
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T27_S1p22/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T27_S1p22
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T27_S1p22/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_Tm27_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_Tm27_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_Tm27_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_Tm27_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_T0_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T0_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T0_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T0_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: NN_T100_S1p00
+  recipe: hpf1111_iac_v1
+  folder: testbenches/NN_T100_S1p00/hpf1111_iac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/ac1.ac
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: native
+    cutoff_frequency_Hz:
+      unit: Hz
+      source: native
+    passband_gain_dB:
+      unit: dB
+      source: native
+    passband_ripple_dB:
+      unit: dB
+      source: native
+    current_gain_dB:
+      unit: dB
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+  - freq_Hz: 200.0
+- condition: NN_T100_S1p00
+  recipe: hpf1111_ithd_v1
+  folder: testbenches/NN_T100_S1p00/hpf1111_ithd_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    thd_pct:
+      unit: '%'
+      source: native
+    output_fundamental_A:
+      unit: A
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - dtmos_hpf_101126_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('dtmos_hpf_101126_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>
+validity_gate_waiver:
+  date: '2026-11-12'
+  authority: explicit user instruction in this conversation
+  instruction: for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks
+  scope_clarification: Did you update the tasks for the rest 3 circuits also for which the bypass is needed
+  classification: sizing_task_with_user_waived_validity_gates
+  status: waived_not_passed
+  waived_metrics:
+  - devices_out_of_saturation
+  - forward_biased_junctions
+  - devices_outside_rails
+  diagnostics_retained: true
+  performance_targets_and_corners_unchanged: true
+  sizing_unchanged: true
+  standard_bounds_unchanged: true
+  physical_qualification_claimed: false
+  source_evidence: <WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt
+task_classification: sizing_task_with_user_waived_validity_gates

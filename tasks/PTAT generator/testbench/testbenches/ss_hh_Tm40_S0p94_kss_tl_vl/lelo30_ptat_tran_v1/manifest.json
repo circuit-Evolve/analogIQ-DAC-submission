@@ -1,0 +1,48 @@
+{
+  "job_id": "ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_tran_v1",
+  "recipe_id": "lelo30_ptat_tran_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+    "model_set": "ss_hh",
+    "temperature_C": -40.0,
+    "supply_scale": 0.944444,
+    "supply_V": 1.6999992,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "ss_hh"
+      }
+    ],
+    "label": "kss_tl_vl",
+    "is_nominal": false,
+    "supply_span_V": 1.6999992
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/tran1.tran.tran"
+  ],
+  "expected_metrics": [
+    "settling_time_s",
+    "output_current_0_A",
+    "output_current_1_A",
+    "output_current_2_A",
+    "output_current_3_A",
+    "supply_current_A"
+  ],
+  "digests": {
+    "task": "a334c069a03e33d1efa136b7fd23345ad7c3ad36e7d9507c296b50602a274944",
+    "candidate": "9fd967f9dc055ba485dd127e681026e1a75c805afa4a9b071e3ed9c4662865e2",
+    "parameterization": "5d0f45ae534502d12aade6b615197668c1c72c77ce5e4cba9d60a2b3a7071ad7",
+    "dut_source_netlist": "a4e0376244ab22cefb55ce72f556e7eff569ba1f32cc46971588834743fe6fbd",
+    "dut_subckt": "b392527f445cf84dc850be6f3e104311d0cf01daf64c02fc7a7e0e0990895f85",
+    "models": "cf0800bd8572a6c9379d777f9608319fdad8b069992de6d70b98c4dbbc642c8e",
+    "recipes": "5abdf7c5765617caa3184bba80dbf2bab89a8ea660794df5cda74f5946b18106",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "cb5960da2a7fbf1bfb18c17f7a566fe408c3394357bd0f23d00cf1dbae11cb14"
+  },
+  "state": "rendered"
+}

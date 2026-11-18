@@ -1,0 +1,664 @@
+{
+  "corner": {
+    "id": "NN_V1.0_T-40",
+    "model_set": "NN",
+    "process": "NN",
+    "supply_V": 1.0,
+    "temperature_C": -40,
+    "VREF_V": 0.5,
+    "input_common_mode_V": 0.5,
+    "nominal": false
+  },
+  "design_sha256": "7f88aea73747453a5c85bf9f4543102a8a49c2fec0d169fb4248babf13732b0b",
+  "jobs": {
+    "PZ": {
+      "returncode": 0,
+      "error": null,
+      "wall_s": 0.364340024003468,
+      "corner": {
+        "id": "NN_V1.0_T-40",
+        "model_set": "NN",
+        "process": "NN",
+        "supply_V": 1.0,
+        "temperature_C": -40,
+        "VREF_V": 0.5,
+        "input_common_mode_V": 0.5,
+        "nominal": false
+      },
+      "job": "PZ",
+      "deck_sha256": "933a6f84c7b47de0df295e54cb370c0215907d0900e7304af5210fdbe6ce5beb",
+      "command": [
+        "/opt/cadence/bin/spectre",
+        "input.scs",
+        "-format",
+        "psfascii",
+        "-raw",
+        "raw",
+        "+log",
+        "spectre.log"
+      ],
+      "nominal_only": false,
+      "launched": true,
+      "effective_timeout_s": 180.0,
+      "evaluator_deadline_monotonic": 43229.399968472
+    },
+    "DM": {
+      "returncode": 0,
+      "error": null,
+      "wall_s": 20.590477340003417,
+      "corner": {
+        "id": "NN_V1.0_T-40",
+        "model_set": "NN",
+        "process": "NN",
+        "supply_V": 1.0,
+        "temperature_C": -40,
+        "VREF_V": 0.5,
+        "input_common_mode_V": 0.5,
+        "nominal": false
+      },
+      "job": "DM",
+      "deck_sha256": "2e479891d9474672c3a43a6fe0566ed5af65763a30194754c0094e0df448b213",
+      "command": [
+        "/opt/cadence/bin/spectre",
+        "input.scs",
+        "-format",
+        "psfascii",
+        "-raw",
+        "raw",
+        "+log",
+        "spectre.log"
+      ],
+      "nominal_only": false,
+      "launched": true,
+      "effective_timeout_s": 180.0,
+      "evaluator_deadline_monotonic": 43229.765091116
+    },
+    "CM": {
+      "returncode": 0,
+      "error": null,
+      "wall_s": 22.097237264002615,
+      "corner": {
+        "id": "NN_V1.0_T-40",
+        "model_set": "NN",
+        "process": "NN",
+        "supply_V": 1.0,
+        "temperature_C": -40,
+        "VREF_V": 0.5,
+        "input_common_mode_V": 0.5,
+        "nominal": false
+      },
+      "job": "CM",
+      "deck_sha256": "157313dab8480ab7b19e12a0465afecdad2cd10a3ff8e9ac1e8e655ed1486cfc",
+      "command": [
+        "/opt/cadence/bin/spectre",
+        "input.scs",
+        "-format",
+        "psfascii",
+        "-raw",
+        "raw",
+        "+log",
+        "spectre.log"
+      ],
+      "nominal_only": false,
+      "launched": true,
+      "effective_timeout_s": 180.0,
+      "evaluator_deadline_monotonic": 43250.356147596
+    }
+  },
+  "paper_exact": false,
+  "errors": {},
+  "golden_verified": false,
+  "requested_DM_step_V": 0.0001,
+  "poles_Hz": [
+    [
+      -29733100.0,
+      0.0
+    ],
+    [
+      -30478900.0,
+      0.0
+    ],
+    [
+      -118295000.0,
+      0.0
+    ],
+    [
+      -124351000.0,
+      0.0
+    ],
+    [
+      -953613000.0,
+      967871000.0
+    ],
+    [
+      -953613000.0,
+      -967871000.0
+    ],
+    [
+      -1006640000.0,
+      959884000.0
+    ],
+    [
+      -1006640000.0,
+      -959884000.0
+    ],
+    [
+      -1050440000.0,
+      940295000.0
+    ],
+    [
+      -1050440000.0,
+      -940295000.0
+    ],
+    [
+      -1038140000.0,
+      1040520000.0
+    ],
+    [
+      -1038140000.0,
+      -1040520000.0
+    ],
+    [
+      -3182290000.0,
+      0.0
+    ],
+    [
+      -3182790000.0,
+      0.0
+    ],
+    [
+      -3184100000.0,
+      0.0
+    ],
+    [
+      -3185950000.0,
+      0.0
+    ],
+    [
+      -9629650000.0,
+      0.0
+    ],
+    [
+      -11170600000.0,
+      0.0
+    ],
+    [
+      -11910500000.0,
+      0.0
+    ],
+    [
+      -12161000000.0,
+      0.0
+    ],
+    [
+      -13043800000.0,
+      0.0
+    ],
+    [
+      -13966700000.0,
+      0.0
+    ],
+    [
+      -16670300000.0,
+      0.0
+    ],
+    [
+      -27011300000.0,
+      0.0
+    ]
+  ],
+  "all_reported_poles_LHP": true,
+  "four_dominant_real_poles": true,
+  "pole_caveat": "Arnoldi finite pole set; installed BSIM3 PZ analysis approximates frequency-dependent terms at 1 Hz. Not a proof of unrestricted stability.",
+  "DM": {
+    "actual_input_step_V": 9.999999999998899e-05,
+    "channels": {
+      "A_DM": {
+        "initial_V": -3.707702798116941e-07,
+        "final_V": 0.00010628255848765811,
+        "delta_V": 0.0001066533287674698,
+        "ac_predicted_delta_V": 0.00010665319999998826,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "A_CM": {
+        "initial_V": 0.5249043473472245,
+        "final_V": 0.5248984528100634,
+        "delta_V": -5.8945371610441555e-06,
+        "ac_predicted_delta_V": -5.893199999999352e-06,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_DM": {
+        "initial_V": -7.509500956626169e-07,
+        "final_V": 0.00011027539144481402,
+        "delta_V": 0.00011102634154047664,
+        "ac_predicted_delta_V": 0.00011102519999998778,
+        "tail_pp_V": 2.55351295663786e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_CM": {
+        "initial_V": 0.5238314694236914,
+        "final_V": 0.5238266199088373,
+        "delta_V": -4.849514854132764e-06,
+        "ac_predicted_delta_V": -4.846799999999462e-06,
+        "tail_pp_V": 1.5543122344752192e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_DM": {
+        "initial_V": -1.1479274488745972e-06,
+        "final_V": 0.00011457367232503568,
+        "delta_V": 0.00011572159977391028,
+        "ac_predicted_delta_V": 0.00011571949999998725,
+        "tail_pp_V": 6.5503158452884236e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_CM": {
+        "initial_V": 0.5238748771965244,
+        "final_V": 0.5238697213879899,
+        "delta_V": -5.155808534440531e-06,
+        "ac_predicted_delta_V": -5.152949999999433e-06,
+        "tail_pp_V": 1.3322676295501878e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_DM": {
+        "initial_V": -1.1043548047151575e-06,
+        "final_V": 0.00011950538474914119,
+        "delta_V": 0.00012060973955385634,
+        "ac_predicted_delta_V": 0.0001206065999999867,
+        "tail_pp_V": 2.0317081350640365e-14,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_CM": {
+        "initial_V": 0.5238731305531196,
+        "final_V": 0.5238677629820582,
+        "delta_V": -5.367571061398735e-06,
+        "ac_predicted_delta_V": -5.364399999999406e-06,
+        "tail_pp_V": 2.9976021664879227e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BN": {
+        "initial_V": 0.6134473912952363,
+        "final_V": 0.6134473912952269,
+        "delta_V": -9.43689570931383e-15,
+        "ac_predicted_delta_V": -7.833609999999137e-15,
+        "tail_pp_V": 1.9984014443252818e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BP": {
+        "initial_V": 0.4729524555200704,
+        "final_V": 0.4729524555200506,
+        "delta_V": -1.9817480989559044e-14,
+        "ac_predicted_delta_V": -2.135389999999765e-14,
+        "tail_pp_V": 8.326672684688674e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.FB": {
+        "initial_V": 0.6345327742406195,
+        "final_V": 0.6344422183534201,
+        "delta_V": -9.05558871994172e-05,
+        "ac_predicted_delta_V": -9.057129999999003e-05,
+        "tail_pp_V": 3.3306690738754696e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.N": {
+        "initial_V": 0.3047739789086351,
+        "final_V": 0.3047848206137381,
+        "delta_V": 1.0841705103015187e-05,
+        "ac_predicted_delta_V": 1.0838399999998805e-05,
+        "tail_pp_V": 5.551115123125783e-17,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BN": {
+        "initial_V": 0.6134473912936177,
+        "final_V": 0.6134473912936063,
+        "delta_V": -1.1435297153639112e-14,
+        "ac_predicted_delta_V": -8.1587999999991e-15,
+        "tail_pp_V": 2.3314683517128287e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BP": {
+        "initial_V": 0.472952455516265,
+        "final_V": 0.4729524555162493,
+        "delta_V": -1.5709655798445965e-14,
+        "ac_predicted_delta_V": -1.6829999999998147e-14,
+        "tail_pp_V": 8.881784197001252e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.FB": {
+        "initial_V": 0.6542491621760324,
+        "final_V": 0.6541346298163614,
+        "delta_V": -0.0001145323596709602,
+        "ac_predicted_delta_V": -0.0001145649999999874,
+        "tail_pp_V": 8.881784197001252e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.N": {
+        "initial_V": 0.2782252329205039,
+        "final_V": 0.2782411535596893,
+        "delta_V": 1.5920639185429408e-05,
+        "ac_predicted_delta_V": 1.5912599999998246e-05,
+        "tail_pp_V": 2.1094237467877974e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BN": {
+        "initial_V": 0.6134473912936923,
+        "final_V": 0.6134473912936826,
+        "delta_V": -9.658940314238862e-15,
+        "ac_predicted_delta_V": -8.596689999999052e-15,
+        "tail_pp_V": 3.1086244689504383e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BP": {
+        "initial_V": 0.4729524555164147,
+        "final_V": 0.4729524555163981,
+        "delta_V": -1.659783421814609e-14,
+        "ac_predicted_delta_V": -1.7925999999998028e-14,
+        "tail_pp_V": 1.7763568394002505e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.FB": {
+        "initial_V": 0.6534572500993125,
+        "final_V": 0.6533395635018153,
+        "delta_V": -0.0001176865974972241,
+        "ac_predicted_delta_V": -0.00011771899999998703,
+        "tail_pp_V": 8.992806499463768e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.N": {
+        "initial_V": 0.2793749449116479,
+        "final_V": 0.2793902338085357,
+        "delta_V": 1.528889688784396e-05,
+        "ac_predicted_delta_V": 1.5278899999998316e-05,
+        "tail_pp_V": 1.9984014443252818e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BN": {
+        "initial_V": 0.6134473912937717,
+        "final_V": 0.6134473912937635,
+        "delta_V": -8.215650382226158e-15,
+        "ac_predicted_delta_V": -8.952999999999014e-15,
+        "tail_pp_V": 2.220446049250313e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BP": {
+        "initial_V": 0.4729524555164092,
+        "final_V": 0.4729524555163899,
+        "delta_V": -1.9262369477246466e-14,
+        "ac_predicted_delta_V": -1.8660099999997943e-14,
+        "tail_pp_V": 1.1102230246251565e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.FB": {
+        "initial_V": 0.6534890735041309,
+        "final_V": 0.6533663116371131,
+        "delta_V": -0.00012276186701776215,
+        "ac_predicted_delta_V": -0.00012279599999998647,
+        "tail_pp_V": 2.220446049250313e-14,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.N": {
+        "initial_V": 0.279328574908445,
+        "final_V": 0.2793446152788683,
+        "delta_V": 1.604037042329809e-05,
+        "ac_predicted_delta_V": 1.6029599999998235e-05,
+        "tail_pp_V": 3.9968028886505635e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      }
+    },
+    "within_rails": true,
+    "screen_pass": true,
+    "samples": 100001,
+    "max_step_s": 5.000000038307441e-12
+  },
+  "CM": {
+    "actual_input_step_V": 9.999999999998899e-05,
+    "channels": {
+      "A_DM": {
+        "initial_V": -3.707702798116941e-07,
+        "final_V": -3.707463398505695e-07,
+        "delta_V": 2.3939961124597176e-11,
+        "ac_predicted_delta_V": 3.0000000000165475e-11,
+        "tail_pp_V": 0.0,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "A_CM": {
+        "initial_V": 0.5249043473472245,
+        "final_V": 0.524899696422136,
+        "delta_V": -4.650925088500735e-06,
+        "ac_predicted_delta_V": -4.652444999999487e-06,
+        "tail_pp_V": 1.1102230246251565e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_DM": {
+        "initial_V": -7.509500956626169e-07,
+        "final_V": -7.509283207474127e-07,
+        "delta_V": 2.1774915204275658e-11,
+        "ac_predicted_delta_V": 2.199999999999703e-11,
+        "tail_pp_V": 0.0,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_CM": {
+        "initial_V": 0.5238314694236914,
+        "final_V": 0.5238316572072435,
+        "delta_V": 1.877835520414095e-07,
+        "ac_predicted_delta_V": 1.8784399999997932e-07,
+        "tail_pp_V": 0.0,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_DM": {
+        "initial_V": -1.1479274488745972e-06,
+        "final_V": -1.1479045242124286e-06,
+        "delta_V": 2.292466216857747e-11,
+        "ac_predicted_delta_V": 2.2909999999998244e-11,
+        "tail_pp_V": 1.9984014443252818e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_CM": {
+        "initial_V": 0.5238748771965244,
+        "final_V": 0.5238748695879483,
+        "delta_V": -7.608576102491327e-09,
+        "ac_predicted_delta_V": -7.611014999999162e-09,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_DM": {
+        "initial_V": -1.1043548047151575e-06,
+        "final_V": -1.1043308552061148e-06,
+        "delta_V": 2.3949509042608952e-11,
+        "ac_predicted_delta_V": 2.386599999999734e-11,
+        "tail_pp_V": 6.217248937900877e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_CM": {
+        "initial_V": 0.5238731305531196,
+        "final_V": 0.5238731308602066,
+        "delta_V": 3.070870224775035e-10,
+        "ac_predicted_delta_V": 3.0719099999996615e-10,
+        "tail_pp_V": 6.661338147750939e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BN": {
+        "initial_V": 0.6134473912952363,
+        "final_V": 0.6134473912952281,
+        "delta_V": -8.215650382226158e-15,
+        "ac_predicted_delta_V": -6.186919999999319e-15,
+        "tail_pp_V": 1.7763568394002505e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BP": {
+        "initial_V": 0.4729524555200704,
+        "final_V": 0.4729524555200555,
+        "delta_V": -1.4932499681208355e-14,
+        "ac_predicted_delta_V": -1.6856899999998144e-14,
+        "tail_pp_V": 7.771561172376096e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.FB": {
+        "initial_V": 0.6345327742406195,
+        "final_V": 0.6346187533125054,
+        "delta_V": 8.597907188589993e-05,
+        "ac_predicted_delta_V": 8.600919999999052e-05,
+        "tail_pp_V": 1.1102230246251565e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.N": {
+        "initial_V": 0.3047739789086351,
+        "final_V": 0.3046682571419679,
+        "delta_V": -0.00010572176666723276,
+        "ac_predicted_delta_V": -0.00010571699999998835,
+        "tail_pp_V": 5.551115123125783e-17,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BN": {
+        "initial_V": 0.6134473912936177,
+        "final_V": 0.613447391293618,
+        "delta_V": 3.3306690738754696e-16,
+        "ac_predicted_delta_V": 3.1647299999996514e-16,
+        "tail_pp_V": 5.551115123125783e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BP": {
+        "initial_V": 0.472952455516265,
+        "final_V": 0.472952455516266,
+        "delta_V": 9.992007221626409e-16,
+        "ac_predicted_delta_V": 6.521579999999281e-16,
+        "tail_pp_V": 3.885780586188048e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.FB": {
+        "initial_V": 0.6542491621760324,
+        "final_V": 0.6542457341568978,
+        "delta_V": -3.428019134554816e-06,
+        "ac_predicted_delta_V": -3.429109999999622e-06,
+        "tail_pp_V": 6.661338147750939e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.N": {
+        "initial_V": 0.2782252329205039,
+        "final_V": 0.2782302173742701,
+        "delta_V": 4.984453766232466e-06,
+        "ac_predicted_delta_V": 4.98607999999945e-06,
+        "tail_pp_V": 1.6653345369377348e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BN": {
+        "initial_V": 0.6134473912936923,
+        "final_V": 0.6134473912936936,
+        "delta_V": 1.3322676295501878e-15,
+        "ac_predicted_delta_V": -1.2713699999998601e-17,
+        "tail_pp_V": 2.4424906541753444e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BP": {
+        "initial_V": 0.4729524555164147,
+        "final_V": 0.4729524555164148,
+        "delta_V": 1.1102230246251565e-16,
+        "ac_predicted_delta_V": -2.6470099999997084e-17,
+        "tail_pp_V": 5.551115123125783e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.FB": {
+        "initial_V": 0.6534572500993125,
+        "final_V": 0.6534573890327685,
+        "delta_V": 1.3893345596205364e-07,
+        "ac_predicted_delta_V": 1.389779999999847e-07,
+        "tail_pp_V": 4.440892098500626e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.N": {
+        "initial_V": 0.2793749449116479,
+        "final_V": 0.2793747436901948,
+        "delta_V": -2.012214530555667e-07,
+        "ac_predicted_delta_V": -2.0128599999997784e-07,
+        "tail_pp_V": 5.551115123125783e-17,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BN": {
+        "initial_V": 0.6134473912937717,
+        "final_V": 0.6134473912937698,
+        "delta_V": -1.887379141862766e-15,
+        "ac_predicted_delta_V": 5.133199999999434e-19,
+        "tail_pp_V": 2.220446049250313e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BP": {
+        "initial_V": 0.4729524555164092,
+        "final_V": 0.4729524555164102,
+        "delta_V": 9.992007221626409e-16,
+        "ac_predicted_delta_V": 1.0682899999998823e-18,
+        "tail_pp_V": 1.27675647831893e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.FB": {
+        "initial_V": 0.6534890735041309,
+        "final_V": 0.6534890678512859,
+        "delta_V": -5.652844969894488e-09,
+        "ac_predicted_delta_V": -5.654589999999377e-09,
+        "tail_pp_V": 2.3314683517128287e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.N": {
+        "initial_V": 0.279328574908445,
+        "final_V": 0.2793285830637174,
+        "delta_V": 8.155272401833003e-09,
+        "ac_predicted_delta_V": 8.157869999999103e-09,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      }
+    },
+    "within_rails": true,
+    "screen_pass": true,
+    "samples": 100001,
+    "max_step_s": 5.000000038307441e-12
+  },
+  "physical_screen_pass": true
+}

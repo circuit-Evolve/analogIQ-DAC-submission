@@ -1,0 +1,49 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt gain_boosted_folded_cascode_full (VDD VSS VINM VINP VOUTM VOUTP Vb1 VCM N_VB1 N_VB2 N_VB3 N_VB4 P_VB1 P_VB2 P_VB3 P_VB4)
+M_Mp1 (A1 Vb1 VDD VDD) pmos1 w=50u l=720n m=3.0 ad=30p as=30p pd=101.2u ps=101.2u
+M_Mp2 (A1p Vb1 VDD VDD) pmos1 w=50u l=720n m=3.0 ad=30p as=30p pd=101.2u ps=101.2u
+M_Mp3 (VOUTP NOUTM A1 VDD) pmos1 w=20u l=720n m=1.0 ad=12p as=12p pd=41.2u ps=41.2u
+M_Mp4 (VOUTM NOUTP A1p VDD) pmos1 w=20u l=720n m=1.0 ad=12p as=12p pd=41.2u ps=41.2u
+M_Mp5 (CM_L Vb1 VDD VDD) pmos1 w=4.8u l=1u m=1.0 ad=2.88p as=2.88p pd=10.8u ps=10.8u
+M_Mp6 (CM_R Vb1 VDD VDD) pmos1 w=4.8u l=1u m=1.0 ad=2.88p as=2.88p pd=10.8u ps=10.8u
+M_Mp7 (CM_OUTER VOUTM CM_L VDD) pmos1 w=2.4u l=1u m=1.0 ad=1.44p as=1.44p pd=6u ps=6u
+M_Mp8 (CMFB VCM CM_L VDD) pmos1 w=2.4u l=1u m=1.0 ad=1.44p as=1.44p pd=6u ps=6u
+M_Mp9 (CMFB VCM CM_R VDD) pmos1 w=2.4u l=1u m=1.0 ad=1.44p as=1.44p pd=6u ps=6u
+M_Mp10 (CM_OUTER VOUTP CM_R VDD) pmos1 w=2.4u l=1u m=1.0 ad=1.44p as=1.44p pd=6u ps=6u
+M_Mp11 (B1p VINM TAIL_P VDD) pmos1 w=27.5u l=180n m=4.0 ad=16.5p as=16.5p pd=56.2u ps=56.2u
+M_Mp12 (B1 VINP TAIL_P VDD) pmos1 w=27.5u l=180n m=4.0 ad=16.5p as=16.5p pd=56.2u ps=56.2u
+M_Mp13 (TAIL_P Vb1 VDD VDD) pmos1 w=45u l=180n m=4.0 ad=27p as=27p pd=91.2u ps=91.2u
+M_Mn1 (VOUTP POUTM B1 VSS) nmos1 w=10u l=180n m=1.0 ad=6p as=6p pd=21.2u ps=21.2u
+M_Mn2 (VOUTM POUTP B1p VSS) nmos1 w=10u l=180n m=1.0 ad=6p as=6p pd=21.2u ps=21.2u
+M_Mn3 (B1 CMFB VSS VSS) nmos1 w=50u l=180n m=3.0 ad=30p as=30p pd=101.2u ps=101.2u
+M_Mn4 (B1p CMFB VSS VSS) nmos1 w=50u l=180n m=3.0 ad=30p as=30p pd=101.2u ps=101.2u
+M_Mn9 (CMFB CMFB VSS VSS) nmos1 w=720n l=1u m=1.0 ad=432f as=432f pd=2.64u ps=2.64u
+M_Mn10 (CM_OUTER CM_OUTER VSS VSS) nmos1 w=720n l=1u m=1.0 ad=432f as=432f pd=2.64u ps=2.64u
+N_Mp1 (N_FOLD_L N_VB1 VDD VDD) pmos1 w=9u l=1u m=1.0 ad=5.4p as=5.4p pd=19.2u ps=19.2u
+N_Mp2 (N_FOLD_R N_VB1 VDD VDD) pmos1 w=9u l=1u m=1.0 ad=5.4p as=5.4p pd=19.2u ps=19.2u
+N_Mp3 (NOUTP N_VB2 N_FOLD_L VDD) pmos1 w=1.8u l=180n m=1.0 ad=1.08p as=1.08p pd=4.8u ps=4.8u
+N_Mp4 (NOUTM N_VB2 N_FOLD_R VDD) pmos1 w=1.8u l=180n m=1.0 ad=1.08p as=1.08p pd=4.8u ps=4.8u
+N_Mn1 (NOUTP N_VB3 N_NSTACK_L VSS) nmos1 w=900n l=1u m=1.0 ad=540f as=540f pd=3u ps=3u
+N_Mn2 (NOUTM N_VB3 N_NSTACK_R VSS) nmos1 w=900n l=1u m=1.0 ad=540f as=540f pd=3u ps=3u
+N_Mn3 (N_NSTACK_L N_VB4 VSS VSS) nmos1 w=900n l=1u m=1.0 ad=540f as=540f pd=3u ps=3u
+N_Mn4 (N_NSTACK_R N_VB4 VSS VSS) nmos1 w=900n l=1u m=1.0 ad=540f as=540f pd=3u ps=3u
+N_Mn5 (N_CMFB_SUM NOUTM VSS VSS) nmos1 w=20u l=1u m=1.0 ad=12p as=12p pd=41.2u ps=41.2u
+N_Mn6 (N_CMFB_SUM NOUTP VSS VSS) nmos1 w=20u l=1u m=1.0 ad=12p as=12p pd=41.2u ps=41.2u
+N_Mn7 (N_FOLD_R A1 N_INPUT_TAIL VSS) nmos1 w=1.8u l=180n m=1.0 ad=1.08p as=1.08p pd=4.8u ps=4.8u
+N_Mn8 (N_FOLD_L A1p N_INPUT_TAIL VSS) nmos1 w=1.8u l=180n m=1.0 ad=1.08p as=1.08p pd=4.8u ps=4.8u
+N_Mn9 (N_INPUT_TAIL N_VB4 N_CMFB_SUM VSS) nmos1 w=5.4u l=1u m=1.0 ad=3.24p as=3.24p pd=12u ps=12u
+P_Mp1 (P_PSTACK_L P_VB1 VDD VDD) pmos1 w=2.41u l=1u m=1.0 ad=1.446p as=1.446p pd=6.02u ps=6.02u
+P_Mp2 (P_PSTACK_R P_VB1 VDD VDD) pmos1 w=2.41u l=1u m=1.0 ad=1.446p as=1.446p pd=6.02u ps=6.02u
+P_Mp3 (POUTP P_VB2 P_PSTACK_L VDD) pmos1 w=2.41u l=1u m=1.0 ad=1.446p as=1.446p pd=6.02u ps=6.02u
+P_Mp4 (POUTM P_VB2 P_PSTACK_R VDD) pmos1 w=2.41u l=1u m=1.0 ad=1.446p as=1.446p pd=6.02u ps=6.02u
+P_Mp5 (P_FOLD_R B1 P_INPUT_TAIL VDD) pmos1 w=4.82u l=180n m=1.0 ad=2.892p as=2.892p pd=10.84u ps=10.84u
+P_Mp6 (P_FOLD_L B1p P_INPUT_TAIL VDD) pmos1 w=4.82u l=180n m=1.0 ad=2.892p as=2.892p pd=10.84u ps=10.84u
+P_Mp7 (P_CMFB_SUM POUTM VDD VDD) pmos1 w=26.82u l=1u m=2.0 ad=16.092p as=16.092p pd=54.84u ps=54.84u
+P_Mp8 (P_CMFB_SUM POUTP VDD VDD) pmos1 w=26.82u l=1u m=2.0 ad=16.092p as=16.092p pd=54.84u ps=54.84u
+P_Mp9 (P_INPUT_TAIL P_VB1 P_CMFB_SUM VDD) pmos1 w=14.46u l=1u m=1.0 ad=8.676p as=8.676p pd=30.12u ps=30.12u
+P_Mn1 (POUTP P_VB3 P_FOLD_L VSS) nmos1 w=670n l=180n m=1.0 ad=402f as=402f pd=2.54u ps=2.54u
+P_Mn2 (POUTM P_VB3 P_FOLD_R VSS) nmos1 w=670n l=180n m=1.0 ad=402f as=402f pd=2.54u ps=2.54u
+P_Mn3 (P_FOLD_L P_VB4 VSS VSS) nmos1 w=3.4u l=1u m=1.0 ad=2.04p as=2.04p pd=8u ps=8u
+P_Mn4 (P_FOLD_R P_VB4 VSS VSS) nmos1 w=3.4u l=1u m=1.0 ad=2.04p as=2.04p pd=8u ps=8u
+ends gain_boosted_folded_cascode_full

@@ -1,0 +1,330 @@
+{
+ "task": "temp_sensor_101126_task_001",
+ "mc_samples": 100,
+ "score": 1.0,
+ "targets_met": 18,
+ "targets": 18,
+ "valid": true,
+ "params": {
+  "W_BP": 5.743144398780067e-07,
+  "L_BP": 3.2554516043467816e-07,
+  "M_BP": 56.0,
+  "W_BC": 2.223837128011811e-06,
+  "L_BC": 4.3390716056224455e-06,
+  "M_BC": 55.0,
+  "W_BN": 7.089679024739377e-07,
+  "L_BN": 1.6870614941588565e-07,
+  "M_BN": 25.0,
+  "W_P7": 3.7386049443301284e-06,
+  "L_P7": 1.705581890549679e-05,
+  "M_P7": 5.0,
+  "W_N8": 3.0827366251379244e-06,
+  "L_N8": 1.3127099846482667e-06,
+  "M_N8": 10.0,
+  "W_N9": 7.0692384920021975e-06,
+  "L_N9": 6.049048544391181e-07,
+  "M_N9": 25.0,
+  "W_LD": 1.316927646263345e-05,
+  "L_LD": 1.9379132122487653e-06,
+  "M_LD": 48.0,
+  "W_I12": 2.9893737988858594e-06,
+  "L_I12": 2.8124101964379974e-06,
+  "M_I12": 25.0,
+  "W_I13": 7.840688485698501e-07,
+  "L_I13": 5.84670717023343e-07,
+  "M_I13": 64.0,
+  "W_TL": 6.853684822831485e-06,
+  "L_TL": 1.764703320803231e-06,
+  "M_TL": 99.0
+ },
+ "feasible": true,
+ "objective": null,
+ "constraints": {
+  "vout0_tt": {
+   "lower": 0.25689762055934157,
+   "upper": 0.3139859806836397,
+   "metric": "Vout_0C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.2586435271165032,
+   "unit": "V",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.001745906557161614,
+   "normalized_margin": 0.006796118054189302,
+   "satisfied": true
+  },
+  "vout0_fs": {
+   "lower": 0.1450820023061246,
+   "upper": 0.17732244726304122,
+   "metric": "Vout_0C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.1658386423759656,
+   "unit": "V",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.011483804887075622,
+   "normalized_margin": 0.0647622738368847,
+   "satisfied": true
+  },
+  "vout0_sf": {
+   "lower": 0.3428206041478368,
+   "upper": 0.4190029606251339,
+   "metric": "Vout_0C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.3875757203693217,
+   "unit": "V",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.03142724025581223,
+   "normalized_margin": 0.07500481669371542,
+   "satisfied": true
+  },
+  "vout27_tt": {
+   "lower": 0.20555155156773333,
+   "upper": 0.25122967413834074,
+   "metric": "Vout_27C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.2119430778383469,
+   "unit": "V",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.006391526270613568,
+   "normalized_margin": 0.03109451727250734,
+   "satisfied": true
+  },
+  "vout27_fs": {
+   "lower": 0.10078569442021991,
+   "upper": 0.123182515402491,
+   "metric": "Vout_27C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.1207385332367621,
+   "unit": "V",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0024439821657289,
+   "normalized_margin": 0.01984033332769139,
+   "satisfied": true
+  },
+  "vout27_sf": {
+   "lower": 0.2956793448595393,
+   "upper": 0.36138586593943695,
+   "metric": "Vout_27C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.3380325699999888,
+   "unit": "V",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.023353295939448127,
+   "normalized_margin": 0.0646214977963798,
+   "satisfied": true
+  },
+  "vout100_tt": {
+   "lower": 0.08613268949013919,
+   "upper": 0.10527328715461458,
+   "metric": "Vout_100C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.08686988542897765,
+   "unit": "V",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0007371959388384614,
+   "normalized_margin": 0.00855884035669011,
+   "satisfied": true
+  },
+  "vout100_fs": {
+   "lower": 0.05602858974451732,
+   "upper": 0.06847938746552118,
+   "metric": "Vout_100C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.05765949518139014,
+   "unit": "V",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0016309054368728176,
+   "normalized_margin": 0.029108450601907393,
+   "satisfied": true
+  },
+  "vout100_sf": {
+   "lower": 0.16402053564440477,
+   "upper": 0.20046954356538363,
+   "metric": "Vout_100C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.199367133406305,
+   "unit": "V",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0011024101590786373,
+   "normalized_margin": 0.00549914036552432,
+   "satisfied": true
+  },
+  "sens_tt": {
+   "lower": -2.087126935290251,
+   "upper": -1.7076493106920234,
+   "metric": "Sensitivity_mV_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": -1.7177364168752554,
+   "unit": "mV/degC",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.010087106183231942,
+   "normalized_margin": 0.005907012710440032,
+   "satisfied": true
+  },
+  "sens_fs": {
+   "lower": -1.0884305979752005,
+   "upper": -0.890534125616073,
+   "metric": "Sensitivity_mV_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": -1.0817914719457546,
+   "unit": "mV/degC",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.00663912602944583,
+   "normalized_margin": 0.006099723805814122,
+   "satisfied": true
+  },
+  "sens_sf": {
+   "lower": -2.185334170597503,
+   "upper": -1.7880006850343206,
+   "metric": "Sensitivity_mV_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": -1.882085869630167,
+   "unit": "mV/degC",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.09408518459584636,
+   "normalized_margin": 0.05262032916617165,
+   "satisfied": true
+  },
+  "span_tt": {
+   "lower": 170.76493106920233,
+   "upper": 208.7126935290251,
+   "metric": "Output_span_mV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 171.77364168752553,
+   "unit": "mV",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.0087106183231924,
+   "normalized_margin": 0.0059070127104400225,
+   "satisfied": true
+  },
+  "span_fs": {
+   "lower": 89.0534125616073,
+   "upper": 108.84305979752004,
+   "metric": "Output_span_mV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 108.17914719457546,
+   "unit": "mV",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.6639126029445777,
+   "normalized_margin": 0.006099723805814073,
+   "satisfied": true
+  },
+  "span_sf": {
+   "lower": 178.80006850343207,
+   "upper": 218.53341705975032,
+   "metric": "Output_span_mV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 188.2085869630167,
+   "unit": "mV",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 9.408518459584627,
+   "normalized_margin": 0.052620329166171605,
+   "satisfied": true
+  },
+  "lin_tt": {
+   "upper": 8.371677349998413,
+   "metric": "Endpoint_linearity_percent_FS",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.9037780415045606,
+   "unit": "%FS",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 7.467899308493852,
+   "normalized_margin": 0.8920433738998873,
+   "satisfied": true
+  },
+  "lin_fs": {
+   "upper": 26.69619155338015,
+   "metric": "Endpoint_linearity_percent_FS",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 20.715683130820935,
+   "unit": "%FS",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.980508422559215,
+   "normalized_margin": 0.2240210335096277,
+   "satisfied": true
+  },
+  "lin_sf": {
+   "upper": 0.8483541205432532,
+   "metric": "Endpoint_linearity_percent_FS",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.8254586451854942,
+   "unit": "%FS",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.022895475357759043,
+   "normalized_margin": 0.026988111218340834,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": 0.00549914036552432
+}

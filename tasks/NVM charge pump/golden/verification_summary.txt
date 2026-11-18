@@ -1,0 +1,85 @@
+NVM CHARGE PUMP - VERIFIED CANDIDATE COMPARISON
+==============================================================================================================
+Candidate: scalar_match_all27. Complete scalar passes: 27/27. Physical qualification NOT established.
+Figure12 corner set: TT/FF/SS x 3.0/3.3/3.6V x -40/27/125C. One identical sizing throughout.
+Targets: Figure13 Pin maximum, Pout/efficiency minima and rise range; Table1 Vout +/-10%, ripple upper-only +10%.
+No added tolerance on Figure13 bounds. Better power/efficiency/ripple accepted.
+
+Metric                    Paper nominal  Candidate nominal   Corner minimum   Corner maximum     Pass
+output_voltage_V                     19            19.0907          17.1878           20.842    27/27
+ripple_mV                         4.069            2.85422          1.81491           4.3042    27/27
+input_power_mW                    1.017           0.790252         0.581322          1.04575    27/27
+output_power_uW                   355.6            364.454          295.421          434.389    27/27
+efficiency_percent                34.96            46.1187          40.9577          50.8868    27/27
+rise_time_us                      14.68            32.4169          30.1293          35.5518    27/27
+
+ACCEPTED LIMITS
+output_voltage_V: min=17.1; max=20.9
+ripple_mV: min=None; max=4.4759
+input_power_mW: min=None; max=1.119
+output_power_uW: min=292.1; max=None
+efficiency_percent: min=31.86; max=None
+rise_time_us: min=9.24; max=39.29
+
+PER-CORNER RESULTS
+Corner                    Vout(V) Ripple(mV)  Pin(mW)  Pout(uW)   Eff(%)  Rise(us) Pass
+tt_3.0V_-40C              17.4855     2.5950   0.6416   305.741   47.649   33.1770 6/6
+tt_3.0V_27C               17.4086     2.2982   0.6233   303.058   48.621   33.7775 6/6
+tt_3.0V_125C              17.2133     2.0430   0.6076   296.297   48.766   34.3846 6/6
+tt_3.3V_-40C              19.1386     3.2332   0.8156   366.284   44.911   31.7722 6/6
+tt_3.3V_27C               19.0907     2.8542   0.7903   364.454   46.119   32.4169 6/6
+tt_3.3V_125C              18.9323     2.5238   0.7667   358.433   46.748   33.1317 6/6
+tt_3.6V_-40C              20.7786     3.9101   1.0113   431.750   42.693   30.7347 6/6
+tt_3.6V_27C               20.7608     3.4495   0.9779   431.010   44.074   31.3878 6/6
+tt_3.6V_125C              20.6364     3.0515   0.9465   425.861   44.991   32.1597 6/6
+ff_3.0V_-40C              17.4283     2.8986   0.6660   303.745   45.604   32.3119 6/6
+ff_3.0V_27C               17.3635     2.5795   0.6512   301.492   46.295   32.7987 6/6
+ff_3.0V_125C              17.1878     2.2969   0.6399   295.421   46.164   33.2649 6/6
+ff_3.3V_-40C              19.0682     3.5828   0.8447   363.597   43.047   31.0594 6/6
+ff_3.3V_27C               19.0321     3.1800   0.8232   362.221   44.000   31.5904 6/6
+ff_3.3V_125C              18.8932     2.8171   0.8045   356.953   44.368   32.1649 6/6
+ff_3.6V_-40C              20.6958     4.3042   1.0457   428.316   40.958   30.1293 6/6
+ff_3.6V_27C               20.6875     3.8180   1.0169   427.975   42.088   30.6731 6/6
+ff_3.6V_125C              20.5835     3.3849   0.9898   423.682   42.804   31.3039 6/6
+ss_3.0V_-40C              17.5241     2.3147   0.6201   307.093   49.521   34.0963 6/6
+ss_3.0V_27C               17.4248     2.0438   0.5999   303.625   50.612   34.8000 6/6
+ss_3.0V_125C              17.1993     1.8149   0.5813   295.816   50.887   35.5518 6/6
+ss_3.3V_-40C              19.1909     2.9086   0.7894   368.292   46.653   32.5183 6/6
+ss_3.3V_27C               19.1212     2.5574   0.7619   365.620   47.991   33.2616 6/6
+ss_3.3V_125C              18.9325     2.2588   0.7352   358.440   48.757   34.1186 6/6
+ss_3.6V_-40C              20.8420     3.5405   0.9809   434.389   44.284   31.3650 6/6
+ss_3.6V_27C               20.8037     3.1104   0.9448   432.794   45.807   32.1150 6/6
+ss_3.6V_125C              20.6517     2.7501   0.9094   426.495   46.901   33.0203 6/6
+
+SIZING (stages1-6)
+wn_um: [0.6, 0.6, 0.6, 0.6, 0.6, 0.6]
+wp_um: [1.95, 1.95, 1.95, 1.95, 1.95, 0.8]
+ln_um: [0.9, 0.9, 0.9, 0.9, 0.9, 0.9]
+lp_um: [0.6, 0.6, 0.6, 0.6, 0.6, 0.6]
+cf_pF: [1.17, 1.17, 1.17, 1.17, 1.17, 1.17]
+cs_pF: [2.1, 2.1, 2.1, 2.1, 2.1, 120.0]
+
+NMOS terminal-voltage screen: 26/27 have max|VGS|>3.3V. Screen uses all saved points and all6stages; includes startup. This is not layout/reliability signoff.
+Device types and topology preserved. 24MOS(12N/12P),12flying capacitors,6holding capacitors;20MHz complementary clocks and1Mohm load unchanged.
+Power includes DC and BOTH clock sources. Ripple is settled peak-to-peak over final5us. Rise uses10%-90% of cycle-averaged startup envelope; raw-crossing result retained in JSON.
+Paper Figure13 extrema are measured results adopted as benchmark limits by user; its Spec/Pass-Fail columns are blank. They are not author-defined per-corner thresholds.
+Paper4.069mV ripple markers lie on a rising trace; our ripple is settled. This definition discrepancy remains disclosed.
+Sizing/output reports and full source decks/logs/scalars/compact traces are on persistent. Full selected raw results onSSD2. Parent project holds paper and unchanged model snapshot.
+No curator dataset updates. Previous sizing and reports preserved.
+
+VERIFICATION AND INTERPRETATION
+Full 27-corner sweep: 300 us, maxstep 0.5 ns. Seven nominal/limiting corners repeated at 0.25 ns; these finer results replace their coarse counterparts in this report.
+Maximum metric difference on timestep refinement: 0.04939014717225565 percent. All classifications unchanged.
+Passing means the accepted limits above; it does not mean all nominal values are within 10% of the paper nominal. In particular, nominal rise time is approximately 32.42 us versus 14.68 us, but inside the adopted Figure13 range 9.24-39.29 us.
+Figure12 set is reconstructed from a clipped screenshot: TT/FF/SS x 3.0/3.3/3.6 V x -40/27/125 C. The user confirmed Figure12, not a subset of12 corners.
+Steady-state max|VGS| exceeds 3.3 V in 26/27 corners; per-corner maximum range is 3.291918 to 4.169371 V. This is not merely a startup effect.
+The official native-NMOS model validity range specifies VGS 0..3.3 V. Negative VGS also occurs during startup; the >3.3 V count is only an upper-magnitude screen, not a complete model-validity count.
+Source: https://skywater-pdk.readthedocs.io/en/main/rules/device-details.html#v-native-nmos-fet
+The preserved paper-device candidate meets scalar performance criteria in simulation; physical/model-range qualification remains unresolved.
+
+FINAL VERIFICATION
+All162 scalar checks pass (6metrics x27corners); all27 traces settled. Native schematic audit:42core components across6stages. Maestro27corners and all6specs checked against canonical definitions.
+Fresh native netlist nominal transient matches canonical nominal; actual OCEAN expressions also evaluated and checked, including raw rise crossing.
+Seven finer-step checks: max metric change<0.05%. Both raw and envelope rise satisfy adopted limits at all27 corners.
+All174 installed model-source files and persistent snapshot hashes verified unchanged. Run decks, logs, metrics, compact traces, native schematics, setup and sizing retained on persistent.
+Scalar sizing search finished; no sizing workers intentionally left running. See final_audit.json and independent_review.txt for checks and review.

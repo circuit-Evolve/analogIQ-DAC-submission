@@ -1,0 +1,23 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt three_stage_ota (VIP VIN VO VDD VSS VB1 VB2 VB3)
+M0 (TAIL VB1 VDD VDD) pmos1 w=7.7u l=8.6u m=1 ad=4.62p as=4.62p pd=16.6u ps=16.6u
+M1a (FOLD_A VIP TAIL TAIL) pmos1 w=11.1u l=5.9u m=1 ad=6.66p as=6.66p pd=23.4u ps=23.4u
+M1b (FOLD_B VIN TAIL TAIL) pmos1 w=11.1u l=5.9u m=1 ad=6.66p as=6.66p pd=23.4u ps=23.4u
+M2a (FOLD_A VB2 VSS VSS) nmos1 w=12.3u l=6.6u m=1 ad=7.38p as=7.38p pd=25.8u ps=25.8u
+M2b (FOLD_B VB2 VSS VSS) nmos1 w=12.3u l=6.6u m=1 ad=7.38p as=7.38p pd=25.8u ps=25.8u
+M3a (VO1 VB3 FOLD_A VSS) nmos1 w=9.5u l=2.9u m=1 ad=5.7p as=5.7p pd=20.2u ps=20.2u
+M3b (MIRROR_P VB3 FOLD_B VSS) nmos1 w=9.5u l=2.9u m=1 ad=5.7p as=5.7p pd=20.2u ps=20.2u
+M4a (VO1 MIRROR_P VDD VDD) pmos1 w=7.5u l=1.4u m=1 ad=4.5p as=4.5p pd=16.2u ps=16.2u
+M4b (MIRROR_P MIRROR_P VDD VDD) pmos1 w=7.5u l=1.4u m=1 ad=4.5p as=4.5p pd=16.2u ps=16.2u
+M5 (MIRROR_N VO1 VDD VDD) pmos1 w=1.3u l=200n m=1 ad=780f as=780f pd=3.8u ps=3.8u
+M6a (VO2 MIRROR_N VSS VSS) nmos1 w=1.6u l=2.6u m=1 ad=960f as=960f pd=4.4u ps=4.4u
+M6b (MIRROR_N MIRROR_N VSS VSS) nmos1 w=4.8u l=2.6u m=1 ad=2.88p as=2.88p pd=10.8u ps=10.8u
+M7 (VO2 VB1 VDD VDD) pmos1 w=14.7u l=9.8u m=1 ad=8.82p as=8.82p pd=30.6u ps=30.6u
+M8 (VO VO2 VSS VSS) nmos1 w=24.8u l=200n m=1 ad=14.88p as=14.88p pd=50.8u ps=50.8u
+M9 (VO VO1 VDD VDD) pmos1 w=22.4u l=200n m=1 ad=13.44p as=13.44p pd=46u ps=46u
+RD (VO1 RD_CD) resistor r=27K m=1
+CD (RD_CD VSS) capacitor c=280f m=1
+CC1 (FOLD_B VO2) capacitor c=90f m=1
+CC2 (FOLD_A VO) capacitor c=500f m=1
+ends three_stage_ota

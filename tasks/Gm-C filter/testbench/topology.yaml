@@ -1,0 +1,58 @@
+schema_version: 1
+topology_id: gmc_reconstructed_131126
+family: filter
+interface_type: fully_differential_fourth_order_lowpass
+technology_id: gpdk090
+approval_status: unapproved
+source:
+  title: "Design of Fourth Order Gm-C Low-Pass Filter for Microsensor Readout (Pugazhenthi R, Ananiah Durai S, Nabihah\
+    \ Ahmad; IJIE 18(1), 2026, 59\u201371)"
+  doi: 10.30880/ijie.2026.18.01.005
+  figure: Fig.2 interpreted OTA; experimental four-state replacement of ambiguous Fig.3
+  paper_exact: false
+  modifications:
+  - M3/M4 drain/gate interpretation retained from verified candidate.
+  - Four 32-MOS OTAs, four differential capacitors and sixteen physical diode-feedback MOS; not a recovered paper-exact
+    Fig.3.
+  - Source final.scs uses standard-start geometry. Golden values are curator-only. No sizing or connection changes during
+    import.
+dut:
+  netlist: final.scs
+  subckt_name: gmc_filter
+  port_order:
+  - VIP
+  - VIM
+  - VOP
+  - VOM
+  - VT
+  - VREF
+  - VDD
+  - GND
+  net_map: {}
+ports:
+  input: VIP
+  input_negative: VIM
+  output: VOP
+  output_negative: VOM
+  output_common_mode_reference: VREF
+  supply_positive: VDD
+external_bias:
+  VT:
+    kind: voltage
+    value: 0.5
+    provenance: Sizing variable, common at every condition
+  GND:
+    kind: voltage
+    value: 0.0
+    provenance: Ground reference, benchmark rule G3
+probes: []
+op_check:
+  exclude: []
+  note: Nominal complete-filter operating point; every transistor retained in diagnostics. Saturation acceptance waived
+    by user2026-11-13, not passed. Junction and voltage gates remain enforced.
+known_issues:
+- Not paper-exact; reconstructed filter explicitly authorized for task import.
+- Input noise density evaluated at assumed1MHz; PM is isolated OTA unity-feedback estimate, not STB.
+- "Limits reproduce user-approved15% literal-dB values (exception to general linear-domain dB rule); cutoff explicitly10\u2013\
+  20MHz."
+- Stored golden has very narrow margins; retain full precision.

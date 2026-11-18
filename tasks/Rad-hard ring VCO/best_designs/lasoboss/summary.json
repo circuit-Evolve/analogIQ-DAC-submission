@@ -1,0 +1,103 @@
+{
+ "task": "rvco24_um_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 4002,
+ "wall_s": 28334.7,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.410723,
+ "llm_cost_usd_recorded": 0.20536160000000003,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.9423807655119354
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.9480857662725775
+  },
+  {
+   "phase": 3,
+   "evals": 501,
+   "best_score": 0.9847695976658147
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.9897251575082485
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 0.997415162476683
+  }
+ ],
+ "best": {
+  "eval": 1985,
+  "round": 5,
+  "f": 0.002067870018653606,
+  "loss": 0.002584837523316952,
+  "reward": 0.997415162476683,
+  "score": 0.997415162476683,
+  "targets_met": 7,
+  "targets": 8,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -0.020678700186535393,
+  "objective": null,
+  "params": {
+   "N_PI": 66.0,
+   "W_PI": 1.12174588951706e-06,
+   "L_PI": 8.120234094688158e-07,
+   "N_NI": 81.0,
+   "W_NI": 6.415246930805895e-07,
+   "L_NI": 3.0433263501537646e-07,
+   "N_PS": 13.0,
+   "W_PS": 3.048406864216564e-06,
+   "L_PS": 4.5144403691529095e-06,
+   "N_NS": 42.0,
+   "W_NS": 5.454206519535554e-07,
+   "L_NS": 5.976760159882258e-06,
+   "N_SW1": 46.0,
+   "W_SW1": 7.208517332153116e-07,
+   "L_SW1": 3.438964807435304e-07,
+   "N_SW2": 43.0,
+   "W_SW2": 4.178621249595405e-07,
+   "L_SW2": 4.6879468522538764e-07,
+   "N_LHD": 78.0,
+   "W_LHD": 2.1060791047333043e-05,
+   "L_LHD": 5.642733721497269e-07,
+   "N_HSW": 23.0,
+   "W_HSW": 4.2311009283560044e-07,
+   "L_HSW": 2.521018908626042e-07,
+   "N_SW5": 74.0,
+   "W_SW5": 1.4189480816057646e-06,
+   "L_SW5": 5.660575517815025e-07,
+   "N_SW6": 39.0,
+   "W_SW6": 1.0034599667028875e-06,
+   "L_SW6": 2.6765212584457065e-07,
+   "N_LSW": 37.0,
+   "W_LSW": 6.089391198953509e-07,
+   "L_LSW": 2.4250072767417927e-06,
+   "N_LLD": 93.0,
+   "W_LLD": 1.986462947219102e-06,
+   "L_LLD": 7.10272618410626e-07,
+   "C_LOAD": 1.4571008922011715e-14,
+   "V_BP": 1.6005352834968938,
+   "V_BN": 0.3307906227679021
+  }
+ }
+}

@@ -1,0 +1,286 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "fs_T27_S1p06_kfs_vh/lelo30_ccmp_tran_v1",
+ "recipe_id": "lelo30_ccmp_tran_v1",
+ "recipe_version": 1,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "raw/tran1.tran.tran"
+ ],
+ "context": {
+  "job_id": "fs_T27_S1p06_kfs_vh/lelo30_ccmp_tran_v1",
+  "condition": {
+   "id": "fs_T27_S1p06_kfs_vh",
+   "model_set": "fs",
+   "temperature_C": 27.0,
+   "supply_scale": 1.055556,
+   "supply_V": 1.9000008,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+     "section": "fs"
+    }
+   ],
+   "label": "kfs_vh",
+   "is_nominal": false,
+   "supply_span_V": 1.9000008
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "threshold_V": 0.75,
+   "ramp_current_A": 1e-06
+  },
+  "recipe_settings": {
+   "t_release_s": 2e-07,
+   "rst_edge_s": 1e-10,
+   "t_stop_s": 6e-07,
+   "max_step_s": 1e-10,
+   "t_measure_reset_s": 1.5e-07
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ccmp_lelo",
+   "family": "ct_comparator",
+   "interface_type": "continuous_time_open_loop_comparator_with_integrating_node",
+   "technology_id": "sky130",
+   "approval_status": "unapproved",
+   "source": {
+    "title": "lelo_temp_sky130a LELOTEMP_CCMP: timing comparator of the relaxation oscillator (repository documentation and simulation summaries; commit e439fe6)",
+    "doi": "none (repository: https://github.com/wulffern/lelo_temp_sky130a)",
+    "figure": "schematics/01_LELOTEMP_CCMP.png, 02_LELOTEMP_CMP.png (xschem renders of LELOTEMP_CCMP.sch / LELOTEMP_CMP.sch)",
+    "netlist_origin": "final.scs (dataset export, export e4308e9)",
+    "modifications": [
+     "dut_benchmark.scs = final.scs plus one added top-level `parameters W_...` line (per-finger widths bound by variables.yaml); no device, connection or value changed.",
+     "Device-by-device check against the figures and the Sizing sheet: 31 devices = 5 MIM + 26 MOSFET (13 NMOS unit 1.92/0.94 nf2, 1 NMOS 1.92/0.22, 6 PMOS 1.92/0.94, 6 PMOS 1.92/0.22 incl. 5 dummies); complete, no export error."
+    ]
+   },
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ccmp_lelo_dut",
+    "port_order": [
+     "VDD_1V8",
+     "PWRUP_B_1V8",
+     "PWRUP_N_1V8",
+     "VSS",
+     "IBP_1U_1",
+     "IBP_1U_0",
+     "CMPO",
+     "VC",
+     "RST"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input_positive": "IBP_1U_0",
+    "input_negative": "VC",
+    "reset": "RST",
+    "output_positive": "CMPO",
+    "supply_positive": "VDD_1V8",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "PWRUP_B_1V8": {
+     "kind": "voltage",
+     "value": 0.0,
+     "relative_to": "supply_positive",
+     "provenance": "repository tran.spi: VPWRB PWRUP_B_1V8 = AVDD (powered up: PMOS tail switch off)"
+    },
+    "PWRUP_N_1V8": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "repository tran.spi: VPWRN PWRUP_N_1V8 = 0 (powered up: clamp / power-down NMOS off)"
+    },
+    "IBP_1U_1": {
+     "kind": "current",
+     "value": 1e-06,
+     "from": "supply_positive",
+     "provenance": "repository replace.yaml line 3 (ibias 1u) injected by ICMP VDD_1V8 IBP_1U<1>; README: 'ibias = 1u per bias leg'; fixed by the documentation, not a sizing variable"
+    }
+   },
+   "op_check": {
+    "exclude": [
+     "x1_cmp_xp_diff3_M1",
+     "x1_cmp_xn_mirr_load0_M1",
+     "x1_cmp_xp_mirr_tail1_0__M1",
+     "x1_cmp_xn_mirr_load1_M1",
+     "x1_cmp_xn_mirr_load4_M1",
+     "x1_cmp_xn_mirr_bias3_M1",
+     "xg4_M1",
+     "xg1_M1",
+     "x1_cmp_xp_mirr_tail3_M1"
+    ],
+    "note": "off by design: reset NMOS xg1 (RST low in the op test), power-down NMOS / PMOS switches, dummies (all terminals on a rail). x1_cmp_xp_mirr_tail3_M1 (PMOS tail) excluded by owner decision 2026-11-01: in the published design it runs in triode at the balanced point (1.8 V - VC 0.75 V - input |VGS| 0.93 V leaves 0.12 V, Vdsat 0.23 V), the comparator still trips correctly at all 12 task corners and in Monte Carlo, and its delay consequences are measured by the delay / overshoot targets (curator analysis scratch/curator/ccmp_gate_2026-11-01)"
+   },
+   "known_issues": [
+    "The integrating node IBP_1U_0 is driven by the testbench current source IRAMP (documented), so a DC operating point exists only with the node forced to VC (lelo30_ccmp_op_v1)."
+   ]
+  },
+  "subckt_name": "ccmp_lelo_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_DIFF": 9.6e-07,
+   "L_DIFF": 2.2e-07,
+   "NF_DIFF": 2.0,
+   "W_PTAIL": 9.6e-07,
+   "L_PTAIL": 9.4e-07,
+   "NF_PTAIL": 2.0,
+   "W_NLOAD": 9.6e-07,
+   "L_NLOAD": 9.4e-07,
+   "NF_NLOAD": 2.0,
+   "W_CS": 9.6e-07,
+   "L_CS": 2.2e-07,
+   "NF_CS": 2.0,
+   "W_BIAS": 9.6e-07,
+   "L_BIAS": 9.4e-07,
+   "NF_BIAS": 2.0,
+   "W_RST": 9.6e-07,
+   "L_RST": 9.4e-07,
+   "NF_RST": 2.0,
+   "W_CAP": 5e-06,
+   "L_CAP": 5e-06
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "sky130_fd_pr__nfet_01v8": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__nfet_01v8_lvt": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8_lvt": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 3.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__res_high_po": {
+    "kind": "resistor",
+    "min_w_m": 3.5e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__cap_mim_m3_1": {
+    "kind": "capacitor",
+    "min_w_m": 1e-06,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-06,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__pnp_05v5_W3p40L3p40": {
+    "kind": "bjt",
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__nfet_g5v0d10v5": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_g5v0d10v5": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__diode_pd2nw_05v5": {
+    "kind": "bjt",
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5
+   }
+  },
+  "length_unit_m": 1e-06
+ }
+}

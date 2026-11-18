@@ -1,0 +1,156 @@
+{
+  "schema": "analogiq.job_context/1",
+  "job_id": "C4_2/Load_reg",
+  "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+  "recipe_version": 1,
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "scalars.tsv"
+  ],
+  "extractor": "../../../runner.py (pack-local OCEAN; not in shared RECIPES)",
+  "context": {
+    "job_id": "C4_2/Load_reg",
+    "condition": {
+      "id": "C4_2",
+      "model_set": "tt",
+      "temperature_C": 125.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 15,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "tt"
+        }
+      ]
+    },
+    "operating": {
+      "supply_V": 1.8
+    },
+    "recipe_settings": {
+      "analyses": [
+        {
+          "name": "stb",
+          "type": "stb",
+          "statement": "stb stb start=0.1 stop=1G dec=100 probe=I8.IPRB0 annotate=status "
+        },
+        {
+          "name": "tran",
+          "type": "tran",
+          "statement": "tran tran stop=1 write=\"spectre.ic\" writefinal=\"spectre.fc\"  annotate=status maxiters=5 "
+        },
+        {
+          "name": "ac",
+          "type": "ac",
+          "statement": "ac ac start=1 stop=100M dec=100 annotate=status "
+        },
+        {
+          "name": "dcOp",
+          "type": "dc",
+          "statement": "dcOp dc write=\"spectre.dc\" maxiters=150 maxsteps=10000 annotate=status"
+        },
+        {
+          "name": "dc",
+          "type": "dc",
+          "statement": "dc dc param=i_load start=0 stop=50m oppoint=rawfile maxiters=150  maxsteps=10000 annotate=status"
+        }
+      ],
+      "saved_parameters": {
+        "i_load": "25m"
+      },
+      "sweep_statements": []
+    },
+    "topology": {
+      "topology_id": "ldo_erroramp_dac",
+      "source": {
+        "library": "test",
+        "cell": "LDO_with_erroramp_tb_dac",
+        "view": "maestro",
+        "history": "Interactive.20",
+        "dut_cell": "LDO_with_erroramp",
+        "dut_view": "schematic_golden"
+      }
+    },
+    "subckt_name": "LDO_with_erroramp",
+    "dut_file": "dut.scs",
+    "candidate": {
+      "LDO_with_erroramp.I0.dc": "25u",
+      "LDO_with_erroramp.M10.w": "350u",
+      "LDO_with_erroramp.M10.l": "150n",
+      "LDO_with_erroramp.M10.nf": "35",
+      "LDO_with_erroramp.M10.m": "1",
+      "LDO_with_erroramp.M14.w": "350u",
+      "LDO_with_erroramp.M14.l": "150n",
+      "LDO_with_erroramp.M14.nf": "35",
+      "LDO_with_erroramp.M14.m": "1",
+      "LDO_with_erroramp.M12.w": "350u",
+      "LDO_with_erroramp.M12.l": "150n",
+      "LDO_with_erroramp.M12.nf": "35",
+      "LDO_with_erroramp.M12.m": "1",
+      "LDO_with_erroramp.M13.w": "350u",
+      "LDO_with_erroramp.M13.l": "150n",
+      "LDO_with_erroramp.M13.nf": "35",
+      "LDO_with_erroramp.M13.m": "1",
+      "LDO_with_erroramp.M11.w": "350u",
+      "LDO_with_erroramp.M11.l": "150n",
+      "LDO_with_erroramp.M11.nf": "35",
+      "LDO_with_erroramp.M11.m": "1",
+      "LDO_with_erroramp.M9.w": "3u",
+      "LDO_with_erroramp.M9.l": "150n",
+      "LDO_with_erroramp.M9.nf": "1",
+      "LDO_with_erroramp.M9.m": "2",
+      "LDO_with_erroramp.C2.c": "12p",
+      "LDO_with_erroramp.C0.c": "10p",
+      "LDO_with_erroramp.C1.c": "50p",
+      "LDO_with_erroramp.M5.w": "6u",
+      "LDO_with_erroramp.M5.l": "500n",
+      "LDO_with_erroramp.M5.nf": "1",
+      "LDO_with_erroramp.M5.m": "3",
+      "LDO_with_erroramp.M6.w": "6u",
+      "LDO_with_erroramp.M6.l": "500n",
+      "LDO_with_erroramp.M6.nf": "1",
+      "LDO_with_erroramp.M6.m": "3",
+      "LDO_with_erroramp.M7.w": "250u",
+      "LDO_with_erroramp.M7.l": "180n",
+      "LDO_with_erroramp.M7.nf": "25",
+      "LDO_with_erroramp.M7.m": "1",
+      "LDO_with_erroramp.M0.w": "4u",
+      "LDO_with_erroramp.M0.l": "1u",
+      "LDO_with_erroramp.M0.nf": "1",
+      "LDO_with_erroramp.M0.m": "6",
+      "LDO_with_erroramp.M1.w": "4u",
+      "LDO_with_erroramp.M1.l": "1u",
+      "LDO_with_erroramp.M1.nf": "1",
+      "LDO_with_erroramp.M1.m": "6",
+      "LDO_with_erroramp.M2.w": "4u",
+      "LDO_with_erroramp.M2.l": "1u",
+      "LDO_with_erroramp.M2.nf": "1",
+      "LDO_with_erroramp.M2.m": "6",
+      "LDO_with_erroramp.M3.w": "50u",
+      "LDO_with_erroramp.M3.l": "1u",
+      "LDO_with_erroramp.M3.nf": "5",
+      "LDO_with_erroramp.M3.m": "6",
+      "LDO_with_erroramp.M4.w": "4u",
+      "LDO_with_erroramp.M4.l": "1u",
+      "LDO_with_erroramp.M4.nf": "1",
+      "LDO_with_erroramp.M4.m": "6",
+      "LDO_with_erroramp.R10.r": "150",
+      "LDO_with_erroramp.R9.r": "10k",
+      "LDO_with_erroramp.R8.r": "50",
+      "LDO_with_erroramp.R7.r": "16700",
+      "LDO_with_erroramp.R11.r": "50",
+      "LDO_with_erroramp.R0.r": "2700"
+    },
+    "numerics": {
+      "authoritative_file": "input.scs",
+      "source": "verified full-corner simulation"
+    },
+    "tb_variables": {
+      "i_load": "25m"
+    }
+  }
+}

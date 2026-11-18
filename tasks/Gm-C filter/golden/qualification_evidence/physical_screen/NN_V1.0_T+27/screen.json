@@ -1,0 +1,692 @@
+{
+  "corner": {
+    "id": "NN_V1.0_T+27",
+    "model_set": "NN",
+    "process": "NN",
+    "supply_V": 1.0,
+    "temperature_C": 27,
+    "VREF_V": 0.5,
+    "input_common_mode_V": 0.5,
+    "nominal": true
+  },
+  "design_sha256": "7f88aea73747453a5c85bf9f4543102a8a49c2fec0d169fb4248babf13732b0b",
+  "jobs": {
+    "PZ": {
+      "returncode": 0,
+      "error": null,
+      "wall_s": 0.36501046400371706,
+      "corner": {
+        "id": "NN_V1.0_T+27",
+        "model_set": "NN",
+        "process": "NN",
+        "supply_V": 1.0,
+        "temperature_C": 27,
+        "VREF_V": 0.5,
+        "input_common_mode_V": 0.5,
+        "nominal": true
+      },
+      "job": "PZ",
+      "deck_sha256": "810309d1dc57b94654cc348957a06ea92f7316335dd084869d07237a33bda55f",
+      "command": [
+        "/opt/cadence/bin/spectre",
+        "input.scs",
+        "-format",
+        "psfascii",
+        "-raw",
+        "raw",
+        "+log",
+        "spectre.log"
+      ],
+      "nominal_only": false,
+      "launched": true,
+      "effective_timeout_s": 180.0,
+      "evaluator_deadline_monotonic": 43278.450827258
+    },
+    "DM": {
+      "returncode": 0,
+      "error": null,
+      "wall_s": 20.291613528999733,
+      "corner": {
+        "id": "NN_V1.0_T+27",
+        "model_set": "NN",
+        "process": "NN",
+        "supply_V": 1.0,
+        "temperature_C": 27,
+        "VREF_V": 0.5,
+        "input_common_mode_V": 0.5,
+        "nominal": true
+      },
+      "job": "DM",
+      "deck_sha256": "3f0e7d792e1cbec77f2e89fb73d02782c67ce369293dd590f30eed4014328634",
+      "command": [
+        "/opt/cadence/bin/spectre",
+        "input.scs",
+        "-format",
+        "psfascii",
+        "-raw",
+        "raw",
+        "+log",
+        "spectre.log"
+      ],
+      "nominal_only": false,
+      "launched": true,
+      "effective_timeout_s": 180.0,
+      "evaluator_deadline_monotonic": 43278.816308171
+    },
+    "CM": {
+      "returncode": 0,
+      "error": null,
+      "wall_s": 20.741606862997287,
+      "corner": {
+        "id": "NN_V1.0_T+27",
+        "model_set": "NN",
+        "process": "NN",
+        "supply_V": 1.0,
+        "temperature_C": 27,
+        "VREF_V": 0.5,
+        "input_common_mode_V": 0.5,
+        "nominal": true
+      },
+      "job": "CM",
+      "deck_sha256": "cb161122237ac25366db72686100dd59ffc3416aa61451752a0265be32c163b8",
+      "command": [
+        "/opt/cadence/bin/spectre",
+        "input.scs",
+        "-format",
+        "psfascii",
+        "-raw",
+        "raw",
+        "+log",
+        "spectre.log"
+      ],
+      "nominal_only": false,
+      "launched": true,
+      "effective_timeout_s": 180.0,
+      "evaluator_deadline_monotonic": 43299.1083013
+    }
+  },
+  "paper_exact": false,
+  "errors": {},
+  "golden_verified": false,
+  "requested_DM_step_V": 0.0001,
+  "poles_Hz": [
+    [
+      -23914100.0,
+      0.0
+    ],
+    [
+      -24497400.0,
+      0.0
+    ],
+    [
+      -94858000.0,
+      0.0
+    ],
+    [
+      -99699400.0,
+      0.0
+    ],
+    [
+      -810941000.0,
+      706283000.0
+    ],
+    [
+      -810941000.0,
+      -706283000.0
+    ],
+    [
+      -852090000.0,
+      694350000.0
+    ],
+    [
+      -852090000.0,
+      -694350000.0
+    ],
+    [
+      -884958000.0,
+      682607000.0
+    ],
+    [
+      -884958000.0,
+      -682607000.0
+    ],
+    [
+      -852325000.0,
+      867288000.0
+    ],
+    [
+      -852325000.0,
+      -867288000.0
+    ],
+    [
+      -2371560000.0,
+      0.0
+    ],
+    [
+      -2372040000.0,
+      0.0
+    ],
+    [
+      -2372900000.0,
+      0.0
+    ],
+    [
+      -2374100000.0,
+      0.0
+    ],
+    [
+      -7314540000.0,
+      0.0
+    ],
+    [
+      -8132050000.0,
+      0.0
+    ],
+    [
+      -8437310000.0,
+      0.0
+    ],
+    [
+      -8552090000.0,
+      0.0
+    ],
+    [
+      -9362240000.0,
+      0.0
+    ],
+    [
+      -10442400000.0,
+      0.0
+    ],
+    [
+      -12797100000.0,
+      0.0
+    ],
+    [
+      -20808200000.0,
+      0.0
+    ]
+  ],
+  "all_reported_poles_LHP": true,
+  "pole_caveat": "Arnoldi finite pole set; installed BSIM3 PZ analysis approximates frequency-dependent terms at 1 Hz. Not a proof of unrestricted stability.",
+  "DM": {
+    "actual_input_step_V": 9.999999999998899e-05,
+    "channels": {
+      "A_DM": {
+        "initial_V": -5.997832955850768e-07,
+        "final_V": 0.00010469042744398749,
+        "delta_V": 0.00010529021073957257,
+        "ac_predicted_delta_V": 0.00010528999999998842,
+        "tail_pp_V": 4.440892098500626e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "A_CM": {
+        "initial_V": 0.5417138458749855,
+        "final_V": 0.5417054786722111,
+        "delta_V": -8.367202774417493e-06,
+        "ac_predicted_delta_V": -8.36639999999908e-06,
+        "tail_pp_V": 3.3306690738754696e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_DM": {
+        "initial_V": -1.1815088278854802e-06,
+        "final_V": 0.00010431919396702849,
+        "delta_V": 0.00010550070279491397,
+        "ac_predicted_delta_V": 0.00010549879999998839,
+        "tail_pp_V": 4.440892098500626e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_CM": {
+        "initial_V": 0.5393583273992018,
+        "final_V": 0.5393522602165601,
+        "delta_V": -6.067182641622537e-06,
+        "ac_predicted_delta_V": -6.064299999999332e-06,
+        "tail_pp_V": 5.551115123125783e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_DM": {
+        "initial_V": -1.7696282880175218e-06,
+        "final_V": 0.00010430553485296645,
+        "delta_V": 0.00010607516314098397,
+        "ac_predicted_delta_V": 0.00010607209999998832,
+        "tail_pp_V": 3.219646771412954e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_CM": {
+        "initial_V": 0.5395029032011449,
+        "final_V": 0.539496518483823,
+        "delta_V": -6.384717321950006e-06,
+        "ac_predicted_delta_V": -6.382149999999297e-06,
+        "tail_pp_V": 1.5543122344752192e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_DM": {
+        "initial_V": -1.6454660651810116e-06,
+        "final_V": 0.00010498542688264223,
+        "delta_V": 0.00010663089294782324,
+        "ac_predicted_delta_V": 0.00010662649999998826,
+        "tail_pp_V": 3.530509218307998e-14,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_CM": {
+        "initial_V": 0.5394941403517173,
+        "final_V": 0.5394877479133287,
+        "delta_V": -6.39243838862491e-06,
+        "ac_predicted_delta_V": -6.389749999999293e-06,
+        "tail_pp_V": 4.884981308350689e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BN": {
+        "initial_V": 0.6226139285382484,
+        "final_V": 0.6226139285382318,
+        "delta_V": -1.6542323066914832e-14,
+        "ac_predicted_delta_V": -1.4290999999998427e-14,
+        "tail_pp_V": 2.886579864025407e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BP": {
+        "initial_V": 0.4949779880571198,
+        "final_V": 0.4949779880570838,
+        "delta_V": -3.597122599785507e-14,
+        "ac_predicted_delta_V": -3.7176199999995906e-14,
+        "tail_pp_V": 1.3322676295501878e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.FB": {
+        "initial_V": 0.6313015514056167,
+        "final_V": 0.6312177425975204,
+        "delta_V": -8.380880809633062e-05,
+        "ac_predicted_delta_V": -8.381769999999077e-05,
+        "tail_pp_V": 6.661338147750939e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.N": {
+        "initial_V": 0.3232122531384425,
+        "final_V": 0.3232265269522457,
+        "delta_V": 1.4273813803200586e-05,
+        "ac_predicted_delta_V": 1.427109999999843e-05,
+        "tail_pp_V": 3.3306690738754696e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BN": {
+        "initial_V": 0.6226139285328922,
+        "final_V": 0.6226139285328731,
+        "delta_V": -1.9095836023552692e-14,
+        "ac_predicted_delta_V": -1.7191899999998106e-14,
+        "tail_pp_V": 1.5543122344752192e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BP": {
+        "initial_V": 0.4949779880471823,
+        "final_V": 0.4949779880471587,
+        "delta_V": -2.3592239273284576e-14,
+        "ac_predicted_delta_V": -2.425099999999733e-14,
+        "tail_pp_V": 7.216449660063518e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.FB": {
+        "initial_V": 0.6742335223082107,
+        "final_V": 0.6741158370676419,
+        "delta_V": -0.00011768524056876561,
+        "ac_predicted_delta_V": -0.00011771299999998703,
+        "tail_pp_V": 1.9984014443252818e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.N": {
+        "initial_V": 0.282517744973427,
+        "final_V": 0.2825372807565797,
+        "delta_V": 1.9535783152668795e-05,
+        "ac_predicted_delta_V": 1.9527899999997852e-05,
+        "tail_pp_V": 9.43689570931383e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BN": {
+        "initial_V": 0.6226139285332964,
+        "final_V": 0.6226139285332791,
+        "delta_V": -1.7319479184152442e-14,
+        "ac_predicted_delta_V": -1.7646199999998055e-14,
+        "tail_pp_V": 1.6653345369377348e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BP": {
+        "initial_V": 0.4949779880477618,
+        "final_V": 0.494977988047737,
+        "delta_V": -2.475797344914099e-14,
+        "ac_predicted_delta_V": -2.5694399999997168e-14,
+        "tail_pp_V": 7.771561172376096e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.FB": {
+        "initial_V": 0.6716518644483348,
+        "final_V": 0.6715379472994583,
+        "delta_V": -0.00011391714887654114,
+        "ac_predicted_delta_V": -0.00011393899999998744,
+        "tail_pp_V": 5.329070518200751e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.N": {
+        "initial_V": 0.2847696635525,
+        "final_V": 0.2847873018691104,
+        "delta_V": 1.7638316610391058e-05,
+        "ac_predicted_delta_V": 1.7628799999998058e-05,
+        "tail_pp_V": 2.4980018054066022e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BN": {
+        "initial_V": 0.6226139285333913,
+        "final_V": 0.6226139285333723,
+        "delta_V": -1.8984813721090177e-14,
+        "ac_predicted_delta_V": -1.769529999999805e-14,
+        "tail_pp_V": 1.2212453270876722e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BP": {
+        "initial_V": 0.494977988047727,
+        "final_V": 0.4949779880477024,
+        "delta_V": -2.4646951146678475e-14,
+        "ac_predicted_delta_V": -2.5713999999997167e-14,
+        "tail_pp_V": 9.992007221626409e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.FB": {
+        "initial_V": 0.6718083858593353,
+        "final_V": 0.6716934514815887,
+        "delta_V": -0.00011493437774667825,
+        "ac_predicted_delta_V": -0.00011495599999998733,
+        "tail_pp_V": 3.674838211509268e-14,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.N": {
+        "initial_V": 0.2846314228147814,
+        "final_V": 0.2846494132932769,
+        "delta_V": 1.799047849554425e-05,
+        "ac_predicted_delta_V": 1.798099999999802e-05,
+        "tail_pp_V": 9.2148511043888e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      }
+    },
+    "within_rails": true,
+    "screen_pass": true,
+    "samples": 100001,
+    "max_step_s": 5.000000038307441e-12
+  },
+  "CM": {
+    "actual_input_step_V": 9.999999999998899e-05,
+    "channels": {
+      "A_DM": {
+        "initial_V": -5.997832955850768e-07,
+        "final_V": -5.997386390843573e-07,
+        "delta_V": 4.465650071949767e-11,
+        "ac_predicted_delta_V": 4.000000000045193e-11,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "A_CM": {
+        "initial_V": 0.5417138458749855,
+        "final_V": 0.5417083353830086,
+        "delta_V": -5.510491976945531e-06,
+        "ac_predicted_delta_V": -5.510769999999393e-06,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_DM": {
+        "initial_V": -1.1815088278854802e-06,
+        "final_V": -1.1814717123526108e-06,
+        "delta_V": 3.711553286933622e-11,
+        "ac_predicted_delta_V": 3.699999999999303e-11,
+        "tail_pp_V": 1.1102230246251565e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "B_CM": {
+        "initial_V": 0.5393583273992018,
+        "final_V": 0.5393586689849701,
+        "delta_V": 3.4158576833753784e-07,
+        "ac_predicted_delta_V": 3.4161149999996235e-07,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_DM": {
+        "initial_V": -1.7696282880175218e-06,
+        "final_V": -1.7695901991521268e-06,
+        "delta_V": 3.8088865395025095e-11,
+        "ac_predicted_delta_V": 3.809999999999397e-11,
+        "tail_pp_V": 1.3322676295501878e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "D_CM": {
+        "initial_V": 0.5395029032011449,
+        "final_V": 0.5395028824444599,
+        "delta_V": -2.0756685037426337e-08,
+        "ac_predicted_delta_V": -2.0758249999997714e-08,
+        "tail_pp_V": 5.551115123125783e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_DM": {
+        "initial_V": -1.6454660651810116e-06,
+        "final_V": -1.6454277483868296e-06,
+        "delta_V": 3.831679418198064e-11,
+        "ac_predicted_delta_V": 3.821999999999574e-11,
+        "tail_pp_V": 8.659739592076221e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "OUT_CM": {
+        "initial_V": 0.5394941403517173,
+        "final_V": 0.5394941416118997,
+        "delta_V": 1.260182402873511e-09,
+        "ac_predicted_delta_V": 1.2602799999998614e-09,
+        "tail_pp_V": 5.551115123125783e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BN": {
+        "initial_V": 0.6226139285382484,
+        "final_V": 0.6226139285382392,
+        "delta_V": -9.2148511043888e-15,
+        "ac_predicted_delta_V": -9.418239999998962e-15,
+        "tail_pp_V": 1.887379141862766e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.BP": {
+        "initial_V": 0.4949779880571198,
+        "final_V": 0.4949779880570949,
+        "delta_V": -2.4868995751603507e-14,
+        "ac_predicted_delta_V": -2.4485299999997304e-14,
+        "tail_pp_V": 1.2212453270876722e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.FB": {
+        "initial_V": 0.6313015514056167,
+        "final_V": 0.6314036895911943,
+        "delta_V": 0.0001021381855775827,
+        "ac_predicted_delta_V": 0.00010214599999998876,
+        "tail_pp_V": 1.1102230246251565e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA1.N": {
+        "initial_V": 0.3232122531384425,
+        "final_V": 0.3231135804338206,
+        "delta_V": -9.867270462188271e-05,
+        "ac_predicted_delta_V": -9.867369999998913e-05,
+        "tail_pp_V": 2.220446049250313e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BN": {
+        "initial_V": 0.6226139285328922,
+        "final_V": 0.6226139285328923,
+        "delta_V": 1.1102230246251565e-16,
+        "ac_predicted_delta_V": 9.692809999998932e-16,
+        "tail_pp_V": 1.4432899320127035e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.BP": {
+        "initial_V": 0.4949779880471823,
+        "final_V": 0.4949779880471834,
+        "delta_V": 1.1102230246251565e-15,
+        "ac_predicted_delta_V": 1.3657699999998496e-15,
+        "tail_pp_V": 5.551115123125783e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.FB": {
+        "initial_V": 0.6742335223082107,
+        "final_V": 0.6742274295020423,
+        "delta_V": -6.092806168367382e-06,
+        "ac_predicted_delta_V": -6.093239999999329e-06,
+        "tail_pp_V": 6.661338147750939e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA2.N": {
+        "initial_V": 0.282517744973427,
+        "final_V": 0.2825230024739633,
+        "delta_V": 5.25750053625984e-06,
+        "ac_predicted_delta_V": 5.257739999999421e-06,
+        "tail_pp_V": 2.7755575615628914e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BN": {
+        "initial_V": 0.6226139285332964,
+        "final_V": 0.6226139285332959,
+        "delta_V": -5.551115123125783e-16,
+        "ac_predicted_delta_V": -5.746769999999367e-17,
+        "tail_pp_V": 1.887379141862766e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.BP": {
+        "initial_V": 0.4949779880477618,
+        "final_V": 0.4949779880477624,
+        "delta_V": 6.106226635438361e-16,
+        "ac_predicted_delta_V": -8.35439999999908e-17,
+        "tail_pp_V": 9.43689570931383e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.FB": {
+        "initial_V": 0.6716518644483348,
+        "final_V": 0.6716522357887736,
+        "delta_V": 3.713404388427932e-07,
+        "ac_predicted_delta_V": 3.713679999999591e-07,
+        "tail_pp_V": 4.218847493575595e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA3.N": {
+        "initial_V": 0.2847696635525,
+        "final_V": 0.2847693363348468,
+        "delta_V": -3.2721765319543294e-07,
+        "ac_predicted_delta_V": -3.2724199999996396e-07,
+        "tail_pp_V": 1.2212453270876722e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BN": {
+        "initial_V": 0.6226139285333913,
+        "final_V": 0.6226139285333898,
+        "delta_V": -1.4432899320127035e-15,
+        "ac_predicted_delta_V": 3.494279999999615e-18,
+        "tail_pp_V": 1.2212453270876722e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.BP": {
+        "initial_V": 0.494977988047727,
+        "final_V": 0.494977988047728,
+        "delta_V": 9.992007221626409e-16,
+        "ac_predicted_delta_V": 5.070129999999442e-18,
+        "tail_pp_V": 6.106226635438361e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.FB": {
+        "initial_V": 0.6718083858593353,
+        "final_V": 0.6718083632314155,
+        "delta_V": -2.2627919871176516e-08,
+        "ac_predicted_delta_V": -2.262949999999751e-08,
+        "tail_pp_V": 5.218048215738236e-15,
+        "settled": true,
+        "small_signal_agreement": true
+      },
+      "DUT.OTA4.N": {
+        "initial_V": 0.2846314228147814,
+        "final_V": 0.2846314426982032,
+        "delta_V": 1.9883421797928236e-08,
+        "ac_predicted_delta_V": 1.988489999999781e-08,
+        "tail_pp_V": 3.885780586188048e-16,
+        "settled": true,
+        "small_signal_agreement": true
+      }
+    },
+    "within_rails": true,
+    "screen_pass": true,
+    "samples": 100001,
+    "max_step_s": 5.000000038307441e-12
+  },
+  "legacy_fixed_200MHz_four_poles": true,
+  "legacy_physical_screen_pass": true,
+  "four_dominant_real_poles": true,
+  "dominant_pole_screen": {
+    "first_four_poles_Hz": [
+      [
+        -23914100.0,
+        0.0
+      ],
+      [
+        -24497400.0,
+        0.0
+      ],
+      [
+        -94858000.0,
+        0.0
+      ],
+      [
+        -99699400.0,
+        0.0
+      ]
+    ],
+    "fifth_pole_magnitude_Hz": 1075388758.342768,
+    "fifth_to_fourth_magnitude_ratio": 10.78631123500009,
+    "required_ratio": 3,
+    "real_pole_imaginary_tolerance_Hz": 1,
+    "finite_pole_count": 24,
+    "pass_screen": true
+  },
+  "physical_screen_pass": true
+}

@@ -1,0 +1,2408 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_nclna01_task_001",
+  "task_id": "nclna01_task_001",
+  "topology_id": "nclna01_alinejad_2024",
+  "candidate_hash": "24790ee525e5a537409618eed0ff91d80857bbc14aa225613ee8d75358bf9434",
+  "evaluator_hash": "e997867c07a1e5debff2822592890bc9a791612f783acd4acc94a2219774992d",
+  "digests": {
+    "task": "7f1c12f48a13904e56628f39b1aa0680d66463d8d5cf8324609fc7745fb2af3f",
+    "candidate": "24790ee525e5a537409618eed0ff91d80857bbc14aa225613ee8d75358bf9434",
+    "parameterization": "79fdf168b8852f5e25ffa4ddcaec0d4733d2964a7f93c94caa7c0d41738fec0d",
+    "dut_source_netlist": "c5091f4da969b7a5de24f68e565cf0d9ebcc4b872daeefd8e72f64235d3a3ca2",
+    "dut_subckt": "7515c659cf78cb6260cfd9851a296f6f20a7730fb5cdb54a55dea056852c3358",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "d959331ff616d624edeff5c7b1452afc8e938b77c986612e909bac63824736dd",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "e997867c07a1e5debff2822592890bc9a791612f783acd4acc94a2219774992d"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 23,
+    "completed_measurement_checks": 23,
+    "valid_measurement_checks": 23
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "s11_dB",
+      "value": -9.566988061711543,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_dB",
+      "value": 12.301515617869821,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s12_dB",
+      "value": -30.70866955367564,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_dB",
+      "value": -9.225230963403286,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_dB",
+      "value": 3.9982943885951725,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_dB",
+      "value": 3.95197267507445,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_max_in_band_dB",
+      "value": -8.479345315259616,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s11_max_in_band_dB"
+      ],
+      "constraint": {
+        "upper": -8.412146296835498
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s21_min_in_band_dB",
+      "value": 9.143770866740784,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_max_in_band_dB",
+      "value": 25.13247820417179,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s21_max_in_band_dB"
+      ],
+      "constraint": {
+        "lower": 16.574850188786495
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s12_max_in_band_dB",
+      "value": -27.69903934556047,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s12_max_in_band_dB"
+      ],
+      "constraint": {
+        "upper": -27.6721462968355
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "nf_max_in_band_dB",
+      "value": 4.77043158264756,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_max_in_band_dB"
+      ],
+      "constraint": {
+        "upper": 4.913926851582251
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "nf_min_in_band_dB",
+      "value": 3.71994561897767,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_min_in_band_dB"
+      ],
+      "constraint": {
+        "upper": 4.013926851582251
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "k_factor",
+      "value": 3.2142989227465733,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "delta_mag",
+      "value": 0.04759832997107808,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "k_min_in_band",
+      "value": 1.7672840040720021,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "k_min_in_band"
+      ],
+      "constraint": {
+        "lower": 1.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mu_min_in_band",
+      "value": 1.851978570365874,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "mu_min_in_band"
+      ],
+      "constraint": {
+        "lower": 1.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s22_max_in_band_dB",
+      "value": -9.163001775819392,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s22_max_in_band_dB"
+      ],
+      "constraint": {
+        "upper": -8.912146296835498
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s21_3db_low_Hz",
+      "value": 1133756506.951719,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_high_Hz",
+      "value": 1190316535.820106,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.002990508992088068,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "dc",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.005379
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.3884454548916835,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "iip3_dBm",
+      "value": 2.919687739721148,
+      "unit": "dBm",
+      "status": "valid",
+      "point": {
+        "pin_dBm": -40.0,
+        "f1_Hz": 7400000000.0,
+        "f2_Hz": 7480000000.0
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_ip3_v1",
+      "constraints": [
+        "iip3_dBm"
+      ],
+      "constraint": {
+        "lower": -3.877574905606751
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "oip3_dBm",
+      "value": 15.221335964537676,
+      "unit": "dBm",
+      "status": "valid",
+      "point": {
+        "pin_dBm": -40.0,
+        "f1_Hz": 7400000000.0,
+        "f2_Hz": 7480000000.0
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_ip3_v1"
+    },
+    {
+      "metric": "two_tone_gain_dB",
+      "value": 12.301648224816528,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "pin_dBm": -40.0,
+        "f1_Hz": 7400000000.0,
+        "f2_Hz": 7480000000.0
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "lna_ip3_v1"
+    },
+    {
+      "metric": "s11_dB",
+      "value": -16.670308050510677,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_dB",
+      "value": 15.726124430932874,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s12_dB",
+      "value": -30.89908134978796,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_dB",
+      "value": -10.21584516781574,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_dB",
+      "value": 3.9347576025897655,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_dB",
+      "value": 3.9085907717329715,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_max_in_band_dB",
+      "value": -10.894187254928747,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_min_in_band_dB",
+      "value": 12.405783354366198,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_max_in_band_dB",
+      "value": 27.9746172270201,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s21_FF_m20"
+      ],
+      "constraint": {
+        "lower": 16.244850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s12_max_in_band_dB",
+      "value": -27.981386686457657,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_max_in_band_dB",
+      "value": 4.83075691173684,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_in_band_dB",
+      "value": 3.56365230220381,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_FF_m20"
+      ],
+      "constraint": {
+        "upper": 3.663926851582251
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "k_factor",
+      "value": 2.5819872507188384,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "delta_mag",
+      "value": 0.12989235623716855,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "k_min_in_band",
+      "value": 1.6292737033040936,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "mu_min_in_band",
+      "value": 1.8857984035820046,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_max_in_band_dB",
+      "value": -10.169446941355078,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_low_Hz",
+      "value": 1056792728.2659326,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_high_Hz",
+      "value": 1163618903.8170059,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.006383943379580499,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "dc",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.09701326885245731,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 1.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_dB",
+      "value": -11.79832488922289,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_dB",
+      "value": 13.779090564964388,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s12_dB",
+      "value": -30.759495552971536,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_dB",
+      "value": -9.530868763614786,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_dB",
+      "value": 4.474160051619417,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_dB",
+      "value": 4.442311113069324,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_max_in_band_dB",
+      "value": -9.081446855634848,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_min_in_band_dB",
+      "value": 10.371568842334069,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_max_in_band_dB",
+      "value": 26.66053093061283,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s21_FF_85"
+      ],
+      "constraint": {
+        "lower": 11.084850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s12_max_in_band_dB",
+      "value": -27.70229411277,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_max_in_band_dB",
+      "value": 5.50603307005903,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_in_band_dB",
+      "value": 3.73352697945443,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_FF_85"
+      ],
+      "constraint": {
+        "upper": 4.523926851582251
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "k_factor",
+      "value": 2.9159201559162162,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "delta_mag",
+      "value": 0.05596271682052483,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "k_min_in_band",
+      "value": 1.7502283627670305,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "mu_min_in_band",
+      "value": 1.8419566200131248,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_max_in_band_dB",
+      "value": -9.478468882083858,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_low_Hz",
+      "value": 1093701172.1080925,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_high_Hz",
+      "value": 1259661940.404821,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.006455705814490991,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "dc",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0378485215167533,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 1.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_dB",
+      "value": -3.203581521034564,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_dB",
+      "value": 5.608518696184717,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s12_dB",
+      "value": -31.87747241940825,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_dB",
+      "value": -7.624379849238332,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_dB",
+      "value": 5.346092494086552,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_dB",
+      "value": 3.9473251268905085,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_max_in_band_dB",
+      "value": -2.8678426168574007,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_min_in_band_dB",
+      "value": 3.216595919282132,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_max_in_band_dB",
+      "value": 20.65340921979933,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s21_SF_m20"
+      ],
+      "constraint": {
+        "lower": 15.184850188786498
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s12_max_in_band_dB",
+      "value": -27.26427945153358,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_max_in_band_dB",
+      "value": 6.14332820188453,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_in_band_dB",
+      "value": 3.18923212986323,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_SF_m20"
+      ],
+      "constraint": {
+        "upper": 3.5539268515822506
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "k_factor",
+      "value": 4.204940686945213,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "delta_mag",
+      "value": 0.24430317965347548,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "k_min_in_band",
+      "value": 2.1279271477776804,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "mu_min_in_band",
+      "value": 1.749723899668464,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_max_in_band_dB",
+      "value": -7.609618993510168,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_low_Hz",
+      "value": 1311246783.9753256,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_high_Hz",
+      "value": 1323807617.2764702,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0006550719966064637,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "dc",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.6331887142413286,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_dB",
+      "value": -3.203581521034564,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_dB",
+      "value": 5.608518696184717,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s12_dB",
+      "value": -31.87747241940825,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_dB",
+      "value": -7.624379849238332,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_dB",
+      "value": 5.346092494086552,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_dB",
+      "value": 3.9473251268905085,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_max_in_band_dB",
+      "value": -2.8678426168574007,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_min_in_band_dB",
+      "value": 3.216595919282132,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_max_in_band_dB",
+      "value": 20.65340921979933,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s21_SS_m20"
+      ],
+      "constraint": {
+        "lower": 15.054850188786498
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s12_max_in_band_dB",
+      "value": -27.26427945153358,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_max_in_band_dB",
+      "value": 6.14332820188453,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_in_band_dB",
+      "value": 3.18923212986323,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_SS_m20"
+      ],
+      "constraint": {
+        "upper": 3.663926851582251
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "k_factor",
+      "value": 4.204940686945213,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "delta_mag",
+      "value": 0.24430317965347548,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "k_min_in_band",
+      "value": 2.1279271477776804,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "mu_min_in_band",
+      "value": 1.749723899668464,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_max_in_band_dB",
+      "value": -7.609618993510168,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_low_Hz",
+      "value": 1311246783.9753256,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_high_Hz",
+      "value": 1323807617.2764702,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0006550719966064637,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "dc",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.6331887142413286,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm20_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_dB",
+      "value": -4.3767959958559794,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_dB",
+      "value": 6.110344979274292,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s12_dB",
+      "value": -31.066645754589615,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_dB",
+      "value": -6.41795449518959,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_dB",
+      "value": 5.672134503577029,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_dB",
+      "value": 4.7225848778737385,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s11_max_in_band_dB",
+      "value": -3.959388248943366,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_min_in_band_dB",
+      "value": 3.170918207856533,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_max_in_band_dB",
+      "value": 20.77034130520742,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "s21_SS_85"
+      ],
+      "constraint": {
+        "lower": 11.584850188786497
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "s12_max_in_band_dB",
+      "value": -27.16319422591205,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_max_in_band_dB",
+      "value": 6.79839632677785,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "nf_min_in_band_dB",
+      "value": 4.49494443218756,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1",
+      "constraints": [
+        "nf_SS_85"
+      ],
+      "constraint": {
+        "upper": 4.593926851582251
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "k_factor",
+      "value": 4.1016034827621874,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "delta_mag",
+      "value": 0.23831005608348363,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "k_min_in_band",
+      "value": 2.0763586138478733,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "mu_min_in_band",
+      "value": 1.6088587823353406,
+      "unit": "",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s22_max_in_band_dB",
+      "value": -6.400225543171716,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_low_Hz",
+      "value": 1262462830.169826,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "s21_3db_high_Hz",
+      "value": 1331008911.3897407,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "sp",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0011882630718913793,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "dc",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.5759434321991083,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T85_S1p00",
+      "recipe_id": "lna_sp_ext_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "s21_max_in_band_dB": {
+      "value": 25.13247820417179,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_max_in_band_dB": {
+      "value": 4.77043158264756,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_min_in_band_dB": {
+      "value": 3.71994561897767,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s11_max_in_band_dB": {
+      "value": -8.479345315259616,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s22_max_in_band_dB": {
+      "value": -9.163001775819392,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s12_max_in_band_dB": {
+      "value": -27.69903934556047,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "quiescent_power_W": {
+      "value": 0.002990508992088068,
+      "unit": "W",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "k_min_in_band": {
+      "value": 1.7672840040720021,
+      "unit": "",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "mu_min_in_band": {
+      "value": 1.851978570365874,
+      "unit": "",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "iip3_dBm": {
+      "value": 2.919687739721148,
+      "unit": "dBm",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "pin_dBm": -40.0,
+        "f1_Hz": 7400000000.0,
+        "f2_Hz": 7480000000.0
+      },
+      "complete": true
+    },
+    "s21_FF_m20": {
+      "value": 27.9746172270201,
+      "unit": "dB",
+      "condition_id": "FF_Tm20_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_FF_m20": {
+      "value": 3.56365230220381,
+      "unit": "dB",
+      "condition_id": "FF_Tm20_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s21_FF_85": {
+      "value": 26.66053093061283,
+      "unit": "dB",
+      "condition_id": "FF_T85_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_FF_85": {
+      "value": 3.73352697945443,
+      "unit": "dB",
+      "condition_id": "FF_T85_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s21_SF_m20": {
+      "value": 20.65340921979933,
+      "unit": "dB",
+      "condition_id": "SF_Tm20_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_SF_m20": {
+      "value": 3.18923212986323,
+      "unit": "dB",
+      "condition_id": "SF_Tm20_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s21_SS_m20": {
+      "value": 20.65340921979933,
+      "unit": "dB",
+      "condition_id": "SS_Tm20_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_SS_m20": {
+      "value": 3.18923212986323,
+      "unit": "dB",
+      "condition_id": "SS_Tm20_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "s21_SS_85": {
+      "value": 20.77034130520742,
+      "unit": "dB",
+      "condition_id": "SS_T85_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "nf_SS_85": {
+      "value": 4.49494443218756,
+      "unit": "dB",
+      "condition_id": "SS_T85_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "f0_Hz": 7400000000.0
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/lna_sp_ext_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.335,
+      "cpu_s": 0.137
+    },
+    {
+      "job_id": "NN_T27_S1p00/lna_ip3_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 0.379,
+      "cpu_s": 0.177
+    },
+    {
+      "job_id": "FF_Tm20_S1p00/lna_sp_ext_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.39,
+      "cpu_s": 0.133
+    },
+    {
+      "job_id": "FF_T85_S1p00/lna_sp_ext_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.335,
+      "cpu_s": 0.12
+    },
+    {
+      "job_id": "SF_Tm20_S1p00/lna_sp_ext_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.294,
+      "cpu_s": 0.146
+    },
+    {
+      "job_id": "SS_Tm20_S1p00/lna_sp_ext_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.226,
+      "cpu_s": 0.10400000000000001
+    },
+    {
+      "job_id": "SS_T85_S1p00/lna_sp_ext_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.214,
+      "cpu_s": 0.11
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 7,
+    "analysis_executions": 13,
+    "condition_evaluations": 6,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 0.927,
+    "execution_wall_s": 0.92,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/NN_T27_S1p00/lna_sp_ext_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/NN_T27_S1p00/lna_ip3_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/FF_Tm20_S1p00/lna_sp_ext_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/FF_T85_S1p00/lna_sp_ext_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/SF_Tm20_S1p00/lna_sp_ext_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/SS_Tm20_S1p00/lna_sp_ext_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/nclna01_task_001/SS_T85_S1p00/lna_sp_ext_v1"
+    ]
+  }
+}

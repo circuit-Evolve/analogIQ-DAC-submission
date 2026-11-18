@@ -1,0 +1,19 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt gc_083253da8d49_278af4a1 (VDD VSS Vin_m Vin_p Vout VB1 VB2)
+CC (COMP Vout) capacitor c=390.4f
+RZ (STAGE1 COMP) resistor r=2.54k
+IB (VDD IBIAS) isource type=dc dc=IBIAS_DC
+M2 (N_RIGHT Vin_p TAIL VSS) nmos1 w=7u l=500n m=1 as=4.2p ad=4.2p ps=15.2u pd=15.2u
+M1 (N_LEFT Vin_m TAIL VSS) nmos1 w=7u l=500n m=1 as=4.2p ad=4.2p ps=15.2u pd=15.2u
+M12 (STAGE1 VB2 N_RIGHT VSS) nmos1 w=7u l=500n m=1 as=4.2p ad=4.2p ps=15.2u pd=15.2u
+M11 (MIRROR VB2 N_LEFT VSS) nmos1 w=7u l=500n m=1 as=4.2p ad=4.2p ps=15.2u pd=15.2u
+M7 (Vout IBIAS VSS VSS) nmos1 w=30u l=600n m=1 as=18p ad=18p ps=61.2u pd=61.2u
+M6 (IBIAS IBIAS VSS VSS) nmos1 w=1u l=500n m=1 as=600f ad=600f ps=3.2u pd=3.2u
+M5 (TAIL IBIAS VSS VSS) nmos1 w=7u l=500n m=1 as=4.2p ad=4.2p ps=15.2u pd=15.2u
+M4 (P_RIGHT MIRROR VDD VDD) pmos1 w=9u l=300n m=1 as=5.4p ad=5.4p ps=19.2u pd=19.2u
+M3 (P_LEFT MIRROR VDD VDD) pmos1 w=9u l=300n m=1 as=5.4p ad=5.4p ps=19.2u pd=19.2u
+M9 (MIRROR VB1 P_LEFT VDD) pmos1 w=5u l=300n m=1 as=3p ad=3p ps=11.2u pd=11.2u
+M10 (STAGE1 VB1 P_RIGHT VDD) pmos1 w=5u l=300n m=1 as=3p ad=3p ps=11.2u pd=11.2u
+M8 (Vout STAGE1 VDD VDD) pmos1 w=36u l=500n m=2 as=21.6p ad=10.8p ps=73.2u pd=36.6u
+ends gc_083253da8d49_278af4a1

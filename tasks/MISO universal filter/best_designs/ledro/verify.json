@@ -1,0 +1,212 @@
+{
+ "task": "miso_universal_111126_task_001",
+ "mc_samples": 100,
+ "score": 0.9506958522968314,
+ "targets_met": 6,
+ "targets": 9,
+ "valid": true,
+ "params": {
+  "A2_W_IN": 4.96184770441158e-06,
+  "A2_L_IN": 3.6556628738799084e-07,
+  "A2_M_IN": 62.0,
+  "A2_W_PMIR": 2.8794527379622668e-05,
+  "A2_L_PMIR": 4.890036835160231e-07,
+  "A2_M_PMIR": 44.0,
+  "A2_W_PLD": 2.7496824516359063e-06,
+  "A2_L_PLD": 3.4782183909528544e-07,
+  "A2_W_NMIR": 1.5530657372566567e-05,
+  "A2_L_NMIR": 1.899406446467026e-06,
+  "A2_W_NDIO": 3.352739802387381e-05,
+  "A2_L_NDIO": 3.2927946329112936e-07,
+  "A2_IBIAS": 6.244621909991735e-06,
+  "A1_W_IN": 3.1541349266801987e-06,
+  "A1_L_IN": 2.7705891921390156e-07,
+  "A1_M_IN": 86.0,
+  "A1_W_PMIR": 2.1397456903459097e-05,
+  "A1_L_PMIR": 6.298699116534062e-07,
+  "A1_M_PMIR": 92.0,
+  "A1_W_PLD": 9.579371907293254e-06,
+  "A1_L_PLD": 2.0832454963449488e-06,
+  "A1_W_NMIR": 1.3923891804259289e-05,
+  "A1_L_NMIR": 7.281874876016977e-07,
+  "A1_W_NDIO": 2.383505011891735e-06,
+  "A1_L_NDIO": 7.152272960960589e-07,
+  "A1_IBIAS": 2.416164234972394e-06,
+  "FE_W_IN": 3.2990095942638617e-06,
+  "FE_L_IN": 2.011943944179829e-06,
+  "FE_W_PMIR": 8.102579260260472e-06,
+  "FE_L_PMIR": 1.2666548820832075e-06,
+  "FE_W_POUT": 2.8041634144208426e-05,
+  "FE_L_POUT": 4.3670468602578394e-07,
+  "FE_W_NTAIL": 1.5141109055030444e-05,
+  "FE_L_NTAIL": 1.6483119585727558e-06,
+  "FE_W_NOUT": 8.203446818415453e-07,
+  "FE_L_NOUT": 1.8597903160437715e-06,
+  "R1_W": 1.177818234411075e-05,
+  "R1_L": 8.729699411295279e-07,
+  "R2_W": 1.4516743207837593e-05,
+  "R2_L": 5.852535326583751e-07,
+  "R3": 216.08998018846842,
+  "C1": 1.0178067613361047e-14,
+  "C2": 1.4952756247173404e-14,
+  "V_BIAS": -0.31578240684044495,
+  "V_CTRL": 0.8871694466062657,
+  "A2_M_PLD": 73.0,
+  "A2_M_NMIR": 92.0,
+  "A2_M_NDIO": 29.0,
+  "A1_M_PLD": 38.0,
+  "A1_M_NMIR": 73.0,
+  "A1_M_NDIO": 58.0,
+  "FE_M_IN": 1.0,
+  "FE_M_PMIR": 61.0,
+  "FE_M_POUT": 55.0,
+  "FE_M_NTAIL": 86.0,
+  "FE_M_NOUT": 27.0,
+  "R1_M": 39.0,
+  "R2_M": 72.0
+ },
+ "feasible": false,
+ "objective": null,
+ "constraints": {
+  "Y1_gain": {
+   "lower": 0.8415,
+   "upper": 1.1384999999999998,
+   "metric": "y1_voltage_gain_VperV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.9985070000000007,
+   "unit": "V/V",
+   "condition": "FS_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.13999299999999915,
+   "normalized_margin": 0.12296267018006075,
+   "satisfied": true
+  },
+  "Y2_gain": {
+   "lower": 0.8415,
+   "upper": 1.1384999999999998,
+   "metric": "y2_voltage_gain_VperV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.9336020000001543,
+   "unit": "V/V",
+   "condition": "SF_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.09210200000015423,
+   "normalized_margin": 0.1094497920382106,
+   "satisfied": true
+  },
+  "IZP_gain": {
+   "lower": 0.8482999999999999,
+   "upper": 1.1477,
+   "metric": "zp_current_gain_AperA",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 1.00066,
+   "unit": "A/A",
+   "condition": "SF_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.14703999999999984,
+   "normalized_margin": 0.12811710377276278,
+   "satisfied": true
+  },
+  "MISO_BP_frequency": {
+   "lower": 3383000.0,
+   "upper": 4577000.0,
+   "metric": "bp_center_frequency_Hz",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 1839705.130365714,
+   "unit": "Hz",
+   "condition": "SS_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -1543294.869634286,
+   "normalized_margin": -0.45619121183395983,
+   "satisfied": false
+  },
+  "MISO_quiescent_power": {
+   "upper": 0.005393499999999999,
+   "metric": "quiescent_power_W",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.004830940847558025,
+   "unit": "W",
+   "condition": "FF_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0005625591524419738,
+   "normalized_margin": 0.10430317093575116,
+   "satisfied": true
+  },
+  "BP_noise_in": {
+   "upper": 7.5946e-08,
+   "metric": "input_noise_V_per_rtHz",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 9.027107446540856e-06,
+   "unit": "V/sqrt(Hz)",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -8.951161446540857e-06,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "BP_noise_out": {
+   "upper": 6.536599999999999e-08,
+   "metric": "output_noise_V_per_rtHz",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 5.882472786360493e-10,
+   "unit": "V/sqrt(Hz)",
+   "condition": "SF_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 6.477775272136394e-08,
+   "normalized_margin": 0.9910007147655348,
+   "satisfied": true
+  },
+  "LP_THD": {
+   "upper": 6.0,
+   "metric": "thd_pct",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 10.851542531716873,
+   "unit": "%",
+   "condition": "FS_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -4.851542531716873,
+   "normalized_margin": -0.8085904219528123,
+   "satisfied": false
+  },
+  "BP_THD": {
+   "upper": 6.0,
+   "metric": "thd_pct",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.9926406017528213,
+   "unit": "%",
+   "condition": "FS_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.0073593982471785,
+   "normalized_margin": 0.834559899707863,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": -1.0
+}

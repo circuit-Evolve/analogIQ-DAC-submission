@@ -1,0 +1,454 @@
+{
+  "task": "LDO seven paper metrics across original fifteen corners",
+  "status": "Fresh full verification passes all seven frozen metrics across all 15 corners (105/105 checks).",
+  "selected_candidate": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15",
+  "frozen_contract": "<WORK>/paper-sizing-20261105/ldo/target_contract.json",
+  "baseline_identity_evidence": "<WORK>/paper-sizing-20261105/ldo/baseline_identity_review.json",
+  "starting_baseline": "Exact current _dac golden parameters and DUT subcircuit, not a generic sizing",
+  "all_corner_assessment": {
+    "candidate": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15",
+    "physical_parameter_path": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15/parameters.json",
+    "metrics_coverage": 15,
+    "passed": 105,
+    "required": 105,
+    "all_metric_passing_corners": 15,
+    "per_metric": {
+      "PM @ 25mA (best)": {
+        "pass_count": 15,
+        "minimum": [
+          "C2_0",
+          65.24916336805785
+        ],
+        "maximum": [
+          "C2_2",
+          70.38015470319996
+        ]
+      },
+      "GBW": {
+        "pass_count": 15,
+        "minimum": [
+          "C3_2",
+          25233018.92753366
+        ],
+        "maximum": [
+          "C2_0",
+          69209055.84027635
+        ]
+      },
+      "PSR (100 Hz)": {
+        "pass_count": 15,
+        "minimum": [
+          "C0_2",
+          73.19571164468924
+        ],
+        "maximum": [
+          "C4_1",
+          103.8291352233034
+        ]
+      },
+      "PSR (1 MHz)": {
+        "pass_count": 15,
+        "minimum": [
+          "C3_2",
+          19.72380490820637
+        ],
+        "maximum": [
+          "C2_0",
+          26.79046212046457
+        ]
+      },
+      "Load Regulation (mV/V)": {
+        "pass_count": 15,
+        "minimum": [
+          "C2_0",
+          1.010638068037473
+        ],
+        "maximum": [
+          "C3_2",
+          1.853051738409661
+        ]
+      },
+      "Vout": {
+        "pass_count": 15,
+        "minimum": [
+          "C3_0",
+          1.195964817324948
+        ],
+        "maximum": [
+          "C2_1",
+          1.196591075046403
+        ]
+      },
+      "PM @ 100uA (worst)": {
+        "pass_count": 15,
+        "minimum": [
+          "C2_0",
+          57.79402873579532
+        ],
+        "maximum": [
+          "C3_2",
+          63.09219423602555
+        ]
+      }
+    },
+    "per_corner": {
+      "C0_0": 7,
+      "C0_1": 7,
+      "C0_2": 7,
+      "C1_0": 7,
+      "C1_1": 7,
+      "C1_2": 7,
+      "C2_0": 7,
+      "C2_1": 7,
+      "C2_2": 7,
+      "C3_0": 7,
+      "C3_1": 7,
+      "C3_2": 7,
+      "C4_0": 7,
+      "C4_1": 7,
+      "C4_2": 7
+    },
+    "unresolved_metrics": {
+      "C0_0": [],
+      "C0_1": [],
+      "C0_2": [],
+      "C1_0": [],
+      "C1_1": [],
+      "C1_2": [],
+      "C2_0": [],
+      "C2_1": [],
+      "C2_2": [],
+      "C3_0": [],
+      "C3_1": [],
+      "C3_2": [],
+      "C4_0": [],
+      "C4_1": [],
+      "C4_2": []
+    },
+    "all_processes_completed_successfully": true,
+    "numerical_settings": {
+      "reltol": 1e-06,
+      "vabstol": 1e-09,
+      "iabstol": 1e-12,
+      "stb_points_per_decade": 100,
+      "same_analysis_grid_stimuli_and_expressions": false,
+      "same_stimuli_models_and_expressions": true
+    }
+  },
+  "parameter_delta": {
+    "LDO_with_erroramp.M9.m": {
+      "original": "1",
+      "candidate": "2"
+    },
+    "LDO_with_erroramp.C2.c": {
+      "original": "25p",
+      "candidate": "12p"
+    },
+    "LDO_with_erroramp.C1.c": {
+      "original": "4p",
+      "candidate": "50p"
+    },
+    "LDO_with_erroramp.M5.l": {
+      "original": "180n",
+      "candidate": "500n"
+    },
+    "LDO_with_erroramp.M5.m": {
+      "original": "1",
+      "candidate": "3"
+    },
+    "LDO_with_erroramp.M6.l": {
+      "original": "180n",
+      "candidate": "500n"
+    },
+    "LDO_with_erroramp.M6.m": {
+      "original": "1",
+      "candidate": "3"
+    },
+    "LDO_with_erroramp.M0.l": {
+      "original": "180n",
+      "candidate": "1u"
+    },
+    "LDO_with_erroramp.M0.m": {
+      "original": "1",
+      "candidate": "6"
+    },
+    "LDO_with_erroramp.M1.l": {
+      "original": "180n",
+      "candidate": "1u"
+    },
+    "LDO_with_erroramp.M1.m": {
+      "original": "1",
+      "candidate": "6"
+    },
+    "LDO_with_erroramp.M2.l": {
+      "original": "180n",
+      "candidate": "1u"
+    },
+    "LDO_with_erroramp.M2.m": {
+      "original": "1",
+      "candidate": "6"
+    },
+    "LDO_with_erroramp.M3.l": {
+      "original": "180n",
+      "candidate": "1u"
+    },
+    "LDO_with_erroramp.M3.m": {
+      "original": "1",
+      "candidate": "6"
+    },
+    "LDO_with_erroramp.M4.l": {
+      "original": "180n",
+      "candidate": "1u"
+    },
+    "LDO_with_erroramp.M4.m": {
+      "original": "1",
+      "candidate": "6"
+    },
+    "LDO_with_erroramp.R10.r": {
+      "original": "300",
+      "candidate": "150"
+    },
+    "LDO_with_erroramp.R8.r": {
+      "original": "60k",
+      "candidate": "50"
+    },
+    "LDO_with_erroramp.R7.r": {
+      "original": "33.4k",
+      "candidate": "16700"
+    },
+    "LDO_with_erroramp.R11.r": {
+      "original": "60k",
+      "candidate": "50"
+    },
+    "LDO_with_erroramp.R0.r": {
+      "original": "2k",
+      "candidate": "2700"
+    }
+  },
+  "diagnostic_only_tradeoffs": {
+    "equal_feedback_resistors_ohm": 50.0,
+    "nominal_divider_current_A": 0.0119644464342519,
+    "nominal_no_load_input_current_A": 0.01250453939968513,
+    "nominal_no_load_input_power_W": 0.02250817091943324,
+    "explanation": "Resizing the feedback divider raises internal standing load from approximately 10 \u00b5A to 11.96 mA. The external load sources remain unchanged, so total output loading differs from the paper\u2019s original conditions. Current and power are diagnostics, not acceptance metrics."
+  },
+  "numerical_accuracy": {
+    "original": {
+      "reltol": 0.001,
+      "vabstol": 1e-06,
+      "iabstol": 1e-12,
+      "stb_points_per_decade": "saveddefaultapprox5"
+    },
+    "qualification": {
+      "reltol": 1e-06,
+      "vabstol": 1e-09,
+      "iabstol": 1e-12,
+      "stb_points_per_decade": 100
+    },
+    "reason": "The original DC tolerances produced load-regulation artifacts. Tightened tolerances preserve all seven expressions and physical stimuli. The original sparse STB grid also overstated the previous candidate\u2019s worst bandwidth (23.498 MHz versus 22.739 MHz at 100 points per decade). Compensation was resized; the final fresh dense-grid result has 25.233 MHz minimum bandwidth."
+  },
+  "writes": "Only private workspace; no curator or nativeCadencecells changed",
+  "remaining": "User review before any promotion. Physical search and final verification are complete.",
+  "integrity": {
+    "job_checks": [
+      {
+        "job": "C0_0/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C0_0/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C0_1/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C0_1/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C0_2/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C0_2/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C1_0/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C1_0/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C1_1/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C1_1/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C1_2/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C1_2/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C2_0/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C2_0/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C2_1/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C2_1/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C2_2/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C2_2/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C3_0/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C3_0/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C3_1/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C3_1/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C3_2/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C3_2/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C4_0/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C4_0/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C4_1/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C4_1/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C4_2/Load_reg",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      },
+      {
+        "job": "C4_2/PM_min",
+        "only_declared_numerical_settings_changed": true,
+        "identical_fixed_dut": true
+      }
+    ],
+    "topology_and_models_identical": false,
+    "topology_matches_authorized_reference": true,
+    "topology_amendment": {
+      "buffer_body_to_VIN": true,
+      "scope_authorization": "User directive Do everything according to the paper; root authorized precise M9bulkcorrection after schematic confirmation",
+      "only_connectivity_delta": "M9 bulk net10 -> VIN"
+    },
+    "numerical_settings": {
+      "reltol": 1e-06,
+      "vabstol": 1e-09,
+      "iabstol": 1e-12,
+      "stb_points_per_decade": 100,
+      "same_analysis_grid_stimuli_and_expressions": false,
+      "same_stimuli_models_and_expressions": true
+    },
+    "target_contract_sha256": "45c1f4a4728dc5218c0042c83fe7e9ec48de1d349e28f74c43df0e0156f6e15a",
+    "dut_sha256": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06",
+    "parameter_count": 66,
+    "modified_parameter_count": 22
+  },
+  "qualification_review_status": "Passed with 100 STB points per decade after compensation resizing and the authorized buffer-body correction.",
+  "reference_divider_comparison": "<WORK>/paper-sizing-20261105/ldo/runs/paper_bodyVIN_60k_dense100_fresh_all15/assessment.json",
+  "source_conformance_review": "<WORK>/paper-sizing-20261105/ldo/source_conformance_review.json",
+  "topology_amendment": {
+    "buffer_body_to_VIN": true,
+    "scope_authorization": "User directive Do everything according to the paper; root authorized precise M9bulkcorrection after schematic confirmation",
+    "only_connectivity_delta": "M9 bulk net10 -> VIN"
+  },
+  "load_conditions_disclosure": {
+    "divider_resistors_ohm": [
+      50,
+      50
+    ],
+    "approx_divider_current_A": 0.0119644464342519,
+    "approx_total_output_current_at_external_100uA_A": 0.0120644464342519,
+    "approx_total_output_current_at_external_25mA_A": 0.0369644464342519,
+    "approx_total_output_current_dc_sweep_A": [
+      0.0119644464342519,
+      0.061964446434251905
+    ],
+    "acceptance_note": "Passive resizing was authorized and no quiescent-power limit is active. This contract-passing design has a substantial internal-preload tradeoff; it does not reproduce the paper\u2019s original total output current exactly."
+  },
+  "retained_reference_comparison": {
+    "bodyVIN_and_original_60k_divider": "<WORK>/paper-sizing-20261105/ldo/runs/paper_bodyVIN_60k_dense100_fresh_all15/assessment.json",
+    "passed_checks": 71,
+    "required_checks": 105,
+    "all_metric_passing_corners": 0,
+    "not_an_added_acceptance_constraint": true
+  }
+}

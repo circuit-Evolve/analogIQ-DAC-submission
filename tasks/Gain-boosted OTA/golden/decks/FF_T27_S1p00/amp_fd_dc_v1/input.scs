@@ -1,0 +1,58 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task gbfc21_task_001  topology gbfc21
+// recipe amp_fd_dc_v1 v1  condition FF_T27_S1p00 (models FF, 27 C, supply 1.8 V)
+// request golden_gbfc21_task_001  candidate b2e5c7227f264828
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters vcm=0.8 cl=1e-12 rin=100000.0 rf=100000.0 vsup=1.8 vneg=0.0
+// Sizing variables set in the testbench (external-bias values).
+parameters I_B1=7.692696677771688e-05 I_NB1=1.1974625875826328e-06 I_NB2=1.6549231294444968e-06 I_NB3=4.997756440349983e-06 I_NB4=1.2995731452904424e-06 I_PB1=2.2098647673401837e-06 I_PB2=2.7806452593422e-06 I_PB3=1.0060275353744458e-05 I_PB4=6.952205839674927e-06
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+IB_Vb1 (b_Vb1 vss) isource dc=I_B1
+MREF_Vb1 (b_Vb1 b_Vb1 vdd vdd) pmos1 w=1.8e-05 l=1.8e-07 as=((1.8e-05)*6e-07) ad=((1.8e-05)*6e-07) ps=((1.8e-05)+1.2e-06) pd=((1.8e-05)+1.2e-06)
+IB_N_VB1 (b_N_VB1 vss) isource dc=I_NB1
+MREF_N_VB1 (b_N_VB1 b_N_VB1 vdd vdd) pmos1 w=1.8e-06 l=1e-06 as=((1.8e-06)*6e-07) ad=((1.8e-06)*6e-07) ps=((1.8e-06)+1.2e-06) pd=((1.8e-06)+1.2e-06)
+IB_N_VB2 (b_N_VB2 vss) isource dc=I_NB2
+MREF_N_VB2 (b_N_VB2 b_N_VB2 vdd vdd) pmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_N_VB3 (vdd b_N_VB3) isource dc=I_NB3
+MREF_N_VB3 (b_N_VB3 b_N_VB3 vss vss) nmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_N_VB4 (vdd b_N_VB4) isource dc=I_NB4
+MREF_N_VB4 (b_N_VB4 b_N_VB4 vss vss) nmos1 w=9e-07 l=1e-06 as=((9e-07)*6e-07) ad=((9e-07)*6e-07) ps=((9e-07)+1.2e-06) pd=((9e-07)+1.2e-06)
+IB_P_VB1 (b_P_VB1 vss) isource dc=I_PB1
+MREF_P_VB1 (b_P_VB1 b_P_VB1 vdd vdd) pmos1 w=2.41e-06 l=1e-06 as=((2.41e-06)*6e-07) ad=((2.41e-06)*6e-07) ps=((2.41e-06)+1.2e-06) pd=((2.41e-06)+1.2e-06)
+IB_P_VB2 (b_P_VB2 vss) isource dc=I_PB2
+MREF_P_VB2 (b_P_VB2 b_P_VB2 vdd vdd) pmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_P_VB3 (vdd b_P_VB3) isource dc=I_PB3
+MREF_P_VB3 (b_P_VB3 b_P_VB3 vss vss) nmos1 w=5e-07 l=1e-06 as=((5e-07)*6e-07) ad=((5e-07)*6e-07) ps=((5e-07)+1.2e-06) pd=((5e-07)+1.2e-06)
+IB_P_VB4 (vdd b_P_VB4) isource dc=I_PB4
+MREF_P_VB4 (b_P_VB4 b_P_VB4 vss vss) nmos1 w=3.4e-06 l=1e-06 as=((3.4e-06)*6e-07) ad=((3.4e-06)*6e-07) ps=((3.4e-06)+1.2e-06) pd=((3.4e-06)+1.2e-06)
+
+// Inverting resistive feedback per side: gain -Rf/Rin, inputs biased at vcm.
+VCMI (vcmi 0) vsource dc=vcm
+VDP (vsp vcmi) vsource dc=0
+VDN (vsn vcmi) vsource dc=0
+RIN1 (vsp inn) resistor r=rin
+RF1 (inn out) resistor r=rf
+RIN2 (vsn inp) resistor r=rin
+RF2 (inp outn) resistor r=rf
+CL1 (out 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+VOCM (vocm 0) vsource dc=1.09
+
+XDUT (vdd vss inn inp out outn vocm b_Vb1 b_N_VB1 b_N_VB2 b_N_VB3 b_N_VB4 b_P_VB1 b_P_VB2 b_P_VB3 b_P_VB4) gbfc21_dut L_N1=1.833671576266807e-07 L_N10=1.1261634269250477e-06 L_N3=2.3024167195286244e-07 L_N9=1.2329778919446686e-06 L_NA1=1.196261612484985e-06 L_NA3=2.3965777609117113e-07 L_NA5=1.1265811533411335e-06 L_NA7=2.393542757725299e-07 L_NA9=9.588063424213262e-07 L_NA_C=1.6674313559396812e-06 L_NA_S=1.2784377851590638e-06 L_P1=7.491337573184951e-07 L_P11=1.8042848782219106e-07 L_P13=2.683289566236754e-07 L_P3=7.190303663850801e-07 L_P5=9.402550972815747e-07 L_P7=1.0071535034980243e-06 L_P8=7.961068171362562e-07 L_PA1=1.5232825585925327e-06 L_PA3=1.2490152299025404e-06 L_PA5=2.00785890338564e-07 L_PA7=1.0420907964771762e-06 L_PA9=9.84035080858604e-07 L_PA_C=2.2933452167914513e-07 L_PA_S=1.0653172985212379e-06 M_N3=2.0 M_P1=4.0 M_P11=7.0 M_P13=5.0 M_PA7=3.0 W_N1=1.7062649186963613e-05 W_N10=6.638347305959683e-07 W_N3=4.8040870914085316e-05 W_N9=6.723831456800867e-07 W_NA1=8.850519176426786e-06 W_NA3=2.7629685411850235e-06 W_NA5=1.3278495109903709e-05 W_NA7=1.961120001091517e-06 W_NA9=6.817267432829173e-06 W_NA_C=1.6568058512711616e-06 W_NA_S=9.148793647305493e-07 W_P1=4.4693471404332474e-05 W_P11=2.6963274866122663e-05 W_P13=5.0354033340228764e-05 W_P3=1.9945905676852887e-05 W_P5=4.235494258179319e-06 W_P7=3.1716790541058182e-06 W_P8=3.4953154851122517e-06 W_PA1=2.2928860571630774e-06 W_PA3=2.350074687607823e-06 W_PA5=3.1748823451840748e-06 W_PA7=2.7660622902621976e-05 W_PA9=1.6046988218807006e-05 W_PA_C=6.166900005899355e-07 W_PA_S=3.3672382503423904e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p inn inp out outn vdd vocm vss
+
+dc1 dc param=vcm start=0.799 stop=0.801 step=1e-3
+simulator lang=spice
+.include 'measures.sp'
+.end

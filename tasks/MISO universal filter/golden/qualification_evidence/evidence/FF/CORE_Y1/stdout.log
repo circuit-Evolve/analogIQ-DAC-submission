@@ -1,0 +1,214 @@
+WARNING: HOST <g4-vm> DOES NOT APPEAR TO BE A CADENCE SUPPORTED LINUX CONFIGURATION.
+         For More Info,  Please Run '<cdsroot>/tools.lnx86/bin/checkSysConf' <productId>.
+
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved
+        worldwide. Cadence, Virtuoso and Spectre are registered trademarks of
+        Cadence Design Systems, Inc. All others are the property of their
+        respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA
+        Security, Inc.
+
+User: curator   Host: g4-vm   HostID: 8E0A0200   PID: 2787362
+Memory  available: 3.7741 GB  physical: 189.5854 GB
+sh: lsb_release: command not found
+CPU Type: AMD EPYC 9B45
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [4134.6] ( 24 ),  1 [2700.0] ( 25 ),  2 [2700.0] ( 26 )
+                 3 [2700.0] ( 27 ),  4 [2700.0] ( 28 ),  5 [2700.0] ( 29 )
+                 6 [4122.7] ( 30 ),  7 [2700.0] ( 31 ),  8 [2700.0] ( 32 )
+                 9 [2700.0] ( 33 ), 10 [4144.3] ( 34 ), 11 [2700.0] ( 35 )
+                12 [2700.0] ( 36 ), 13 [2700.0] ( 37 ), 14 [2700.0] ( 38 )
+                15 [2700.0] ( 39 ), 16 [2700.0] ( 40 ), 17 [2700.0] ( 41 )
+                18 [2700.0] ( 42 ), 19 [2700.0] ( 43 ), 20 [2700.0] ( 44 )
+                21 [2700.0] ( 45 ), 22 [2700.0] ( 46 ), 23 [2700.0] ( 47 )
+        
+System load averages (1min, 5min, 15min) : 4.6 %, 4.3 %, 4.3 %
+Hyperthreading is enabled
+
+
+Simulating `input.scs' on g4-vm at 7:25:09 PM, Tue Nov 10, 2026 (process id:
+        2787362).
+Current working directory:
+        <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/FF/CORE_Y1
+Command line:
+    /opt/cadence/rootfs/opt/MMSIM151/tools/bin/spectre -64 input.scs  \
+        -format psfascii -raw raw +log spectre.log
+sh: lsb_release: command not found
+Reading file: 
+        <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/FF/CORE_Y1/input.scs
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/gpdk.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/mos25gen.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/nmos1.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/pmos1.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/resistor.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/capacitor.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/diode.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/bipolar.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/rfmos.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/xjvar_nf36.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/xjvar_w40.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/snacapacitor.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/cmodel.scs
+Time for NDB Parsing: CPU = 69.673 ms, elapsed = 82.691 ms.
+Time accumulated: CPU = 79.254 ms, elapsed = 82.6929 ms.
+Peak resident memory used = 72.7 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre 12 (11.1 %)     17 (11.1 %)     20 (11.1 %)     23 (12.5 %)
+                24 (14.3 %)     27 (11.1 %)     28 (77.8 %)     30 (75.0 %)
+                34 (70.0 %)     40 (20.0 %)     41 (20.0 %)     42 (11.1 %)
+                47 (77.8 %)     
+        Other   
+Reading link: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+Time for Elaboration: CPU = 9.189 ms, elapsed = 9.20606 ms.
+Time accumulated: CPU = 88.499 ms, elapsed = 91.954 ms.
+Peak resident memory used = 79.6 Mbytes.
+
+Time for EDB Visiting: CPU = 362 us, elapsed = 362.158 us.
+Time accumulated: CPU = 88.922 ms, elapsed = 92.376 ms.
+Peak resident memory used = 80.1 Mbytes.
+
+
+Warning from spectre during initial setup.
+    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rd' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rs' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.M2: Parasitic resistor `rd' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+Notice from spectre during topology check.
+    Only one connection to node `VCTRL'.
+
+Global user options:
+             reltol = 1e-06
+            vabstol = 1e-09
+            iabstol = 1e-14
+               temp = 27
+               tnom = 27
+               save = allpub
+           currents = all
+     subcktprobelvl = 5
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 23
+             iprobe 134   
+            bsim3v3 30    
+            isource 1     
+           resistor 1     
+            vsource 13    
+
+Analysis and control statement inventory:
+                 ac 1     
+                 dc 2     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 0     
+
+
+Warning from spectre during initial setup.
+    WARNING (CMI-2666): DUT.M1: Parasitic resistor `rs' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+        Further occurrences of this warning will be suppressed.
+Notice from spectre.
+    3 warnings suppressed.
+
+Time for parsing: CPU = 2.49 ms, elapsed = 5.09906 ms.
+Time accumulated: CPU = 91.449 ms, elapsed = 97.513 ms.
+Peak resident memory used = 82.2 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+
+******************
+DC Analysis `dcOp'
+******************
+
+Opening the PSFASCII file raw/dcOp.dc ...
+Important parameter values:
+    reltol = 1e-06
+    abstol(V) = 1 nV
+    abstol(I) = 10 fA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    gmindc = 1 pS
+Convergence achieved in 10 iterations.
+Total time required for dc analysis `dcOp': CPU = 1.82 ms, elapsed = 3.23796
+        ms.
+Time accumulated: CPU = 93.494 ms, elapsed = 102.219 ms.
+Peak resident memory used = 84 Mbytes.
+
+
+*****************************************
+AC Analysis `ac': freq = (1 Hz -> 10 GHz)
+*****************************************
+
+Notice from spectre during AC analysis `ac'.
+    Operating points will not be recomputed: the circuit and conditions were
+        not changed since previous analysis.
+
+
+Opening the PSFASCII file raw/ac.ac ...
+......9......8......7......6......5......4......3......2......1......0
+Accumulated DC solution time = 0 s.
+Intrinsic ac analysis time =              0 s.
+Total time required for ac analysis `ac': CPU = 199.677 ms, elapsed = 201.314
+        ms.
+Time accumulated: CPU = 294.217 ms, elapsed = 447.912 ms.
+Peak resident memory used = 84.3 Mbytes.
+
+
+****************************************************
+DC Analysis `range': Y1_SRC:dc = (-800 mV -> 800 mV)
+****************************************************
+
+Opening the PSFASCII file raw/range.dc ...
+Important parameter values:
+    reltol = 1e-06
+    abstol(V) = 1 nV
+    abstol(I) = 10 fA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    gmindc = 1 pS
+......9......8......7......6......5......4......3......2......1......0
+Total time required for dc analysis `range': CPU = 121.411 ms, elapsed = 122.69
+        ms.
+Time accumulated: CPU = 416.411 ms, elapsed = 673.53 ms.
+Peak resident memory used = 84.3 Mbytes.
+
+
+Aggregate audit (7:25:10 PM, Tue Nov 10, 2026):
+Time used: CPU = 421 ms, elapsed = 679 ms, util. = 62%.
+Time spent in licensing: elapsed = 44.9 ms, percentage of total = 6.61%.
+Peak memory used = 84.3 Mbytes.
+Simulation started at: 7:25:09 PM, Tue Nov 10, 2026, ended at: 7:25:10 PM, Tue
+        Nov 10, 2026, with elapsed time (wall clock): 679 ms.
+spectre completes with 0 errors, 5 warnings, and 3 notices.

@@ -1,0 +1,665 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "nclna02_task_001",
+ "topology_id": "nclna02_das_2021",
+ "family": "lna",
+ "technology_id": "gpdk180",
+ "parameterization_id": "nclna02_p1",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). Fully differential partial noise-canceling CCG LNA (thesis Fig. 4.3) in its low-noise mode (DS1b) at the thesis's conditions: 1.5 V, 50 ohm per side through ideal baluns, band 0.1-1.1 GHz, two-tone IIP3 at 500 MHz with 10 MHz spacing, outputs loaded by CL = 200 fF (DS2a), gpdk180 NN, 27 C. Nominal only: the thesis reports no PVT or Monte Carlo for this circuit. Targets are the thesis's values with 10 % linear tolerance.",
+ "source": {
+  "doi": null,
+  "title": "Investigations on Noise Cancellation and Linearity Improvement in Low Power LNAs and Receivers (I. Das, PhD thesis, IIT Guwahati, 2021), Chapter 4: low-power partial noise-canceling complementary common-gate LNA",
+  "figure": "Fig. 4.3(a) (fully differential CCG LNA: stacked nMOS/pMOS common-gate pairs M1n,p / M2n,p, capacitor cross-coupling Cc/Rc, loads RL, output combining Co, buffer-input load CL) and its values table Fig. 4.3(b) (PDF p. 82); test setup Fig. 4.9 (PDF p. 89)"
+ },
+ "variables": [
+  {
+   "name": "W_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "nMOS common-gate pair M1n/M2n finger width (gmn: input match Zin = 1/(2 (gmn+gmp)), noise, gain)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1n",
+     "M2n"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "M1n/M2n length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1n",
+     "M2n"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "M1n/M2n finger count (Spectre m)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1n",
+     "M2n"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "pMOS common-gate pair M1p/M2p finger width (gmp; current reuse with the nMOS pair)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1p",
+     "M2p"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "M1p/M2p length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1p",
+     "M2p"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "M1p/M2p finger count (Spectre m)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1p",
+     "M2p"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "C_C",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "cross-coupling capacitors Cc (gm boosting; with Rc sets the lower band edge 1/ (Rc Cc))",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "Cc1n",
+     "Cc1p",
+     "Cc2n",
+     "Cc2p"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_C",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "gate bias resistors Rc (feed Vbn/Vbp; noise term Rs/ of Eq. 4.7a)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "Rc1n",
+     "Rc1p",
+     "Rc2n",
+     "Rc2p"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R_L",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "load resistors RL (gain g1*RL, noise, DC drop)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RL1n",
+     "RL1p",
+     "RL2n",
+     "RL2p"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_O",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "output combining capacitors Co (sum the nMOS and pMOS drain signals at vop/von)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "Co1n",
+     "Co1p",
+     "Co2n",
+     "Co2p"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "V_BN",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.5,
+   "scale": "lin",
+   "start": 0.75,
+   "quantity": "bias_voltage",
+   "role": "nMOS gate bias Vbn (with Vbp sets the stack current: mode, NF vs IIP3)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "Vbn"
+   }
+  },
+  {
+   "name": "V_BP",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.5,
+   "scale": "lin",
+   "start": 0.75,
+   "quantity": "bias_voltage",
+   "role": "pMOS gate bias Vbp",
+   "binding": {
+    "type": "external_bias",
+    "pin": "Vbp"
+   }
+  }
+ ],
+ "dependent_parameters": {},
+ "conditions": [
+  {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 1.5,
+   "supply_scale": 1.0,
+   "nominal": true
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.5,
+   "provenance": "paper: PDF p. 89 (1.5 V supply)"
+  },
+  "center_frequency_Hz": {
+   "value": 500000000.0,
+   "provenance": "paper: PDF p. 90-91 (IIP3 at 500 MHz; single-frequency metrics reported at this point)"
+  },
+  "port_impedance_ohm": {
+   "value": 50.0,
+   "provenance": "paper: PDF p. 89 (50-ohm instruments through TCM2-33X+ 1:2 baluns: 50 ohm per side, 100 ohm differential)"
+  }
+ },
+ "constraints": [
+  {
+   "name": "voltage_gain_max_in_band_dB",
+   "metric": "voltage_gain_max_in_band_dB",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 16.584850188786497,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 17.5,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.1 / PDF p. 90 (peak voltage gain 17.5 dB, low-noise mode; differential voltage gain into CL, DS3a)",
+   "source": "native"
+  },
+  {
+   "name": "nf_max_in_band_dB",
+   "metric": "nf_max_in_band_dB",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": 4.223926851582251,
+   "target": {
+    "kind": "power_db",
+    "paper_value": 3.81,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.1 / PDF p. 90 (NF 3.41-3.81 dB over 0.1-1.1 GHz, low-noise mode): upper end over the band",
+   "source": "native"
+  },
+  {
+   "name": "nf_min_in_band_dB",
+   "metric": "nf_min_in_band_dB",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": 3.823926851582251,
+   "target": {
+    "kind": "power_db",
+    "paper_value": 3.41,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.1 / PDF p. 90 / summary PDF p. 92 (minimum NF 3.41 dB, low-noise mode); read like NC2a (range -> max and min)",
+   "source": "native"
+  },
+  {
+   "name": "s11_max_in_band_dB",
+   "metric": "s11_max_in_band_dB",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": -9.172146296835498,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -10.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: PDF p. 89 (|S11| < -10 dB over the frequency range of interest, both modes)",
+   "source": "native"
+  },
+  {
+   "name": "iip3_dBm",
+   "metric": "iip3_dBm",
+   "recipe": "lna_diff_ip3_v1",
+   "point": {},
+   "unit": "dBm",
+   "lower": -0.6575749056067512,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -0.2,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: PDF p. 91 / Table 4.1 (IIP3 -0.2 dBm at 500 MHz, 10 MHz tone spacing, low-noise mode)",
+   "source": "native"
+  },
+  {
+   "name": "quiescent_power_W",
+   "metric": "quiescent_power_W",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.00132,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0012,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: PDF p. 89 / Table 4.1 (800 uA from 1.5 V = 1.2 mW, low-noise mode)",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8: no device out of saturation (all four common-gate devices saturated by design)",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "lna_diff_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "lna_diff_ip3_v1",
+   "iip3_dBm"
+  ],
+  [
+   "lna_diff_ip3_v1",
+   "two_tone_voltage_gain_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "lna_diff_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "lna_diff_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "lna_diff_v1",
+   "nf_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "nf_max_in_band_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "nf_min_in_band_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "quiescent_power_W"
+  ],
+  [
+   "lna_diff_v1",
+   "s11_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "s11_max_in_band_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "lna_diff_v1",
+   "voltage_gain_3db_high_Hz"
+  ],
+  [
+   "lna_diff_v1",
+   "voltage_gain_3db_low_Hz"
+  ],
+  [
+   "lna_diff_v1",
+   "voltage_gain_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "voltage_gain_max_in_band_dB"
+  ],
+  [
+   "lna_diff_v1",
+   "voltage_gain_min_in_band_dB"
+  ]
+ ],
+ "simulations_per_design": 2,
+ "analysis_executions_per_design": 5,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "lna_diff_v1",
+   "folder": "testbenches/NN_T27_S1p00/lna_diff_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/op1.dc",
+    "raw/sp1.sp.ascii",
+    "raw/ac1.ac",
+    "raw/nz1.noise",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "s11_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "voltage_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "nf_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "s11_max_in_band_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "voltage_gain_max_in_band_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "voltage_gain_min_in_band_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "nf_max_in_band_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "nf_min_in_band_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "voltage_gain_3db_low_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "voltage_gain_3db_high_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "f0_Hz": 500000000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "lna_diff_ip3_v1",
+   "folder": "testbenches/NN_T27_S1p00/lna_diff_ip3_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/hb1.fd.qpss_hb"
+   ],
+   "metrics": {
+    "iip3_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "two_tone_voltage_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pin_dBm": -40.0,
+     "f1_Hz": 500000000.0,
+     "f2_Hz": 510000000.0
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "nclna02_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('nclna02_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

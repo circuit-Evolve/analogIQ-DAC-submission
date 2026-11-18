@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task tia02_task_001  topology tia02_singh_2018
+// recipe tia_ac_v1 v1  condition SF_T27_S1p00 (models SF, 27 C, supply 1.8 V)
+// request tia02_task_001__plan  candidate b4979bc7899dfdaa
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=SF
+include "dut.scs"
+
+parameters vsup=1.8 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+// Photodetector model: ideal current source (AC 1 A) and its capacitance.
+IIN (0 iin) isource dc=-2e-05 mag=1
+CIN (iin 0) capacitor c=0.0
+CL (out 0) capacitor c=1e-14
+
+XDUT (vdd vss iin out) tia02_dut C_FB={{C_FB}} C_NCG={{C_NCG}} I_BIAS1={{I_BIAS1}} I_BIAS2={{I_BIAS2}} L_M1={{L_M1}} L_M23={{L_M23}} L_M45={{L_M45}} L_M6={{L_M6}} N_M1={{N_M1}} N_M23={{N_M23}} N_M45={{N_M45}} N_M6={{N_M6}} R_F={{R_F}} V_BIAS={{V_BIAS}} W_M1={{W_M1}} W_M23={{W_M23}} W_M45={{W_M45}} W_M6={{W_M6}}
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p iin out vdd vss
+
+ac1 ac start=1000000.0 stop=100000000000.0 dec=50
+simulator lang=spice
+.include 'measures.sp'
+.end

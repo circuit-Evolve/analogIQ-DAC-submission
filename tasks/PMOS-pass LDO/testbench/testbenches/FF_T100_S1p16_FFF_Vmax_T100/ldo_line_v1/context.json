@@ -1,0 +1,215 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "FF_T100_S1p16_FFF_Vmax_T100/ldo_line_v1",
+ "recipe_id": "ldo_line_v1",
+ "recipe_version": 4,
+ "points": [
+  {
+   "vin_V": 1.9799985000000002
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "FF_T100_S1p16_FFF_Vmax_T100/ldo_line_v1",
+  "condition": {
+   "id": "FF_T100_S1p16_FFF_Vmax_T100",
+   "model_set": "FF",
+   "temperature_C": 100.0,
+   "supply_scale": 1.164705,
+   "supply_V": 1.9799985000000002,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "FF"
+    }
+   ],
+   "label": "FFF_Vmax_T100",
+   "is_nominal": false,
+   "supply_span_V": 1.9799985000000002
+  },
+  "operating": {
+   "input_voltage_V": 1.7,
+   "reference_V": 1.2,
+   "load_current_A": 0.0011,
+   "load_capacitance_F": 0.0,
+   "output_voltage_V": 1.5
+  },
+  "recipe_settings": {
+   "sweep_start_V": 1.3,
+   "sweep_stop_V": 1.98,
+   "sweep_step_V": 0.005,
+   "line_low_V": 1.7,
+   "line_high_V": 1.98,
+   "dropout_fraction": 0.00667,
+   "dropout_reference": "nominal_output"
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ldo24c_conventional",
+   "family": "ldo",
+   "interface_type": "pmos_pass_ldo",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ldo24c_conventional_dut",
+    "port_order": [
+     "VIN",
+     "VSS",
+     "VREF",
+     "VOUT"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "supply_input": "VIN",
+    "output": "VOUT",
+    "reference": "VREF"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    }
+   },
+   "dut_parameters": {
+    "RPAD": {
+     "value": 0.2,
+     "provenance": "paper: Table 5.3 / p.46 (Rpad 0.2-0.5 ohm, test element); nominal value not stated: 0.2 ohm (range minimum) chosen 2026-10-26 (reference_audit_2026_10_26): it reproduces the thesis Fig. 5.10 absolute Vout (1.4992 V at 27 C, 1.1 mA), Fig. 5.14 load step (1.3-1.4 mV) and Table 5.4 PSR at UGBW (57.8 dB); the earlier mid-range 0.35 ohm fitted them less well (notes: docs/benchmark/fix_2026-10-26/check-ldo24c.md)"
+    },
+    "RESR_VALUE": {
+     "value": 0.01,
+     "provenance": "paper: Fig. A.1 testbench (ESR 10 mohm; Table 5.3 range 10-300 mohm)"
+    }
+   },
+   "probes": [
+    "VFB",
+    "EAOUT",
+    "VBUF",
+    "TAIL"
+   ],
+   "loop_probe": {
+    "instance": "M2",
+    "terminal": 1
+   },
+   "op_check": {
+    "exclude": []
+   }
+  },
+  "subckt_name": "ldo24c_conventional_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_IN": 1e-06,
+   "L_IN": 1e-06,
+   "M_IN": 1.0,
+   "W_BD": 1e-06,
+   "L_BD": 1e-06,
+   "W_TL": 1e-06,
+   "L_TL": 1e-06,
+   "M_TL": 1.0,
+   "W_ML": 1e-06,
+   "L_ML": 1e-06,
+   "W_MS": 1e-06,
+   "L_MS": 1e-06,
+   "W_NM": 1e-06,
+   "L_NM": 1e-06,
+   "W_CS": 1e-06,
+   "L_CS": 1e-06,
+   "W_FOL": 1e-06,
+   "L_FOL": 1e-06,
+   "W_PASS": 1e-06,
+   "L_PASS": 1e-06,
+   "M_PASS": 1.0,
+   "R_FB1": 10000.0,
+   "R_FB2": 10000.0,
+   "C_FF": 1e-12,
+   "I_BIAS": 1e-05,
+   "M_BD": 1.0,
+   "M_ML": 1.0,
+   "M_MS": 1.0,
+   "M_NM": 1.0,
+   "M_CS": 1.0,
+   "M_FOL": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

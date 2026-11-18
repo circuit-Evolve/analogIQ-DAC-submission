@@ -1,0 +1,126 @@
+{
+ "task": "ccmp_lelo_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 30015,
+ "wall_s": 15633.4,
+ "feasible_designs": 257,
+ "first_feasible_eval": 1627,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 4.610746,
+ "llm_cost_usd_recorded": 2.3053730000000003,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "best": {
+  "eval": 1848,
+  "round": 10,
+  "f": 0.0,
+  "reward": 1.0,
+  "score": 1.0,
+  "targets_met": 35,
+  "targets": 35,
+  "feasible": true,
+  "worst_margin": 0.03926655358652269,
+  "objective": null,
+  "params": {
+   "W_DIFF": 1.6532778272999999e-06,
+   "L_DIFF": 2.3955478520089614e-07,
+   "NF_DIFF": 1.0,
+   "W_PTAIL": 1.2044282962892059e-06,
+   "L_PTAIL": 2.3881725070728e-07,
+   "NF_PTAIL": 13.0,
+   "W_NLOAD": 5.91094649778881e-07,
+   "L_NLOAD": 4.951807850417776e-07,
+   "NF_NLOAD": 2.0,
+   "W_CS": 4.6852492223796557e-07,
+   "L_CS": 1.821727327373018e-07,
+   "NF_CS": 1.0,
+   "W_BIAS": 3.2073326281990353e-06,
+   "L_BIAS": 1.0437309943968676e-05,
+   "NF_BIAS": 24.0,
+   "W_RST": 1.1773724435326543e-05,
+   "L_RST": 1.0585960562599188e-06,
+   "NF_RST": 11.0,
+   "W_CAP": 1.1667054512723983e-06,
+   "L_CAP": 5.028694195909043e-06
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 200,
+   "best_f": 0.009204358163604764,
+   "elapsed_s": 1401.4,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 200,
+   "best_f": 0.006467585671755427,
+   "elapsed_s": 1552.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 200,
+   "best_f": 0.006459498102561079,
+   "elapsed_s": 1521.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 200,
+   "best_f": 0.005809718448694823,
+   "elapsed_s": 1626.1,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 200,
+   "best_f": 0.004575792232921816,
+   "elapsed_s": 1621.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 200,
+   "best_f": 0.0029069840418900483,
+   "elapsed_s": 1522.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 200,
+   "best_f": 0.0016992880891008033,
+   "elapsed_s": 1524.5,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 200,
+   "best_f": 0.000620213353798027,
+   "elapsed_s": 1545.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 1580.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 1646.8,
+   "best_feasible_objective": null
+  }
+ ]
+}

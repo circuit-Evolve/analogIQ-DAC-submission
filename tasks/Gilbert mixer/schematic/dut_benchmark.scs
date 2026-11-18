@@ -1,0 +1,23 @@
+simulator lang=spice
+.lib "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" tt
+simulator lang=spectre
+parameters W_SW W_BB W_T
+subckt patulea_carleton_2015 (VDD VSS RF_P RF_N LO_P LO_N BB_P BB_N TAIL_BIAS)
+CV0 (BIAS_DIV VSS) capacitor c=10.2971p
+CV1 (VDD VSS) capacitor c=10.2971p
+CV2 (TAIL_BIAS VSS) capacitor c=10.2971p
+RP0 (BIAS_DIV VSS) resistor r=6.50298k
+RP1 (VDD BIAS_DIV) resistor r=2.85207k
+RP2 (BB_P BIAS_DIV) resistor r=1.02981k
+RP3 (BB_N BIAS_DIV) resistor r=1.02981k
+T1 (RF_P LO_P X_P VSS) sky130_fd_pr__nfet_01v8 w=20 l=0.15 nf=20 mult=1 ad=2.9 as=3.19 pd=25.8 ps=28.38 sa=0 sb=0 sd=0
+T10 (X_N BB_N TAIL VSS) sky130_fd_pr__nfet_01v8 w=30 l=0.15 nf=30 mult=1 ad=4.35 as=4.64 pd=38.7 ps=41.28 sa=0 sb=0 sd=0
+T11 (X_P BB_P TAIL VSS) sky130_fd_pr__nfet_01v8 w=30 l=0.15 nf=30 mult=1 ad=4.35 as=4.64 pd=38.7 ps=41.28 sa=0 sb=0 sd=0
+T3 (RF_N LO_N X_P VSS) sky130_fd_pr__nfet_01v8 w=20 l=0.15 nf=20 mult=1 ad=2.9 as=3.19 pd=25.8 ps=28.38 sa=0 sb=0 sd=0
+T6 (TAIL TAIL_BIAS VSS VSS) sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=50 mult=1 ad=14.5 as=15.08 pd=114.5 ps=119.08 sa=0 sb=0 sd=0
+T8 (RF_P LO_N X_N VSS) sky130_fd_pr__nfet_01v8 w=20 l=0.15 nf=20 mult=1 ad=2.9 as=3.19 pd=25.8 ps=28.38 sa=0 sb=0 sd=0
+T9 (RF_N LO_P X_N VSS) sky130_fd_pr__nfet_01v8 w=20 l=0.15 nf=20 mult=1 ad=2.9 as=3.19 pd=25.8 ps=28.38 sa=0 sb=0 sd=0
+// benchmark addition (owner answer PT2a): drain load RD = 339 ohm from each output to VDD (thesis eq. 68, PDF 90); RD is a sizing variable
+RD_P (VDD RF_P) resistor r=339
+RD_N (VDD RF_N) resistor r=339
+ends patulea_carleton_2015

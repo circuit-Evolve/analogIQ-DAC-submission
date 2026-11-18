@@ -1,0 +1,64 @@
+schema_version: 1
+topology_id: ccmp_lelo
+family: ct_comparator
+interface_type: continuous_time_open_loop_comparator_with_integrating_node
+technology_id: sky130
+approval_status: unapproved
+source:
+  title: 'lelo_temp_sky130a LELOTEMP_CCMP: timing comparator of the relaxation oscillator (repository documentation and simulation summaries; commit e439fe6)'
+  doi: 'none (repository: https://github.com/wulffern/lelo_temp_sky130a)'
+  figure: schematics/01_LELOTEMP_CCMP.png, 02_LELOTEMP_CMP.png (xschem renders of LELOTEMP_CCMP.sch / LELOTEMP_CMP.sch)
+  netlist_origin: final.scs (dataset export, export e4308e9)
+  modifications:
+  - dut_benchmark.scs = final.scs plus one added top-level `parameters W_...` line (per-finger widths bound by variables.yaml); no device, connection or value changed.
+  - 'Device-by-device check against the figures and the Sizing sheet: 31 devices = 5 MIM + 26 MOSFET (13 NMOS unit 1.92/0.94 nf2, 1 NMOS 1.92/0.22, 6 PMOS 1.92/0.94, 6 PMOS 1.92/0.22 incl. 5 dummies); complete, no export error.'
+dut:
+  netlist: dut_benchmark.scs
+  subckt_name: ccmp_lelo_dut
+  port_order:
+  - VDD_1V8
+  - PWRUP_B_1V8
+  - PWRUP_N_1V8
+  - VSS
+  - IBP_1U_1
+  - IBP_1U_0
+  - CMPO
+  - VC
+  - RST
+  net_map: {}
+ports:
+  input_positive: IBP_1U_0
+  input_negative: VC
+  reset: RST
+  output_positive: CMPO
+  supply_positive: VDD_1V8
+  supply_negative: VSS
+external_bias:
+  PWRUP_B_1V8:
+    kind: voltage
+    value: 0.0
+    relative_to: supply_positive
+    provenance: 'repository tran.spi: VPWRB PWRUP_B_1V8 = AVDD (powered up: PMOS tail switch off)'
+  PWRUP_N_1V8:
+    kind: voltage
+    value: 0.0
+    provenance: 'repository tran.spi: VPWRN PWRUP_N_1V8 = 0 (powered up: clamp / power-down NMOS off)'
+  IBP_1U_1:
+    kind: current
+    value: 1.0e-06
+    from: supply_positive
+    provenance: 'repository replace.yaml line 3 (ibias 1u) injected by ICMP VDD_1V8 IBP_1U<1>; README: ''ibias = 1u per bias leg''; fixed by the documentation, not a sizing variable'
+op_check:
+  exclude:
+  - x1_cmp_xp_diff3_M1
+  - x1_cmp_xn_mirr_load0_M1
+  - x1_cmp_xp_mirr_tail1_0__M1
+  - x1_cmp_xn_mirr_load1_M1
+  - x1_cmp_xn_mirr_load4_M1
+  - x1_cmp_xn_mirr_bias3_M1
+  - xg4_M1
+  - xg1_M1
+  - x1_cmp_xp_mirr_tail3_M1
+  note: 'off by design: reset NMOS xg1 (RST low in the op test), power-down NMOS / PMOS switches, dummies (all terminals on a rail). x1_cmp_xp_mirr_tail3_M1 (PMOS tail) excluded by owner decision 2026-11-01: in the published design it runs in triode at the balanced point (1.8 V - VC 0.75 V - input |VGS| 0.93 V leaves 0.12 V, Vdsat 0.23 V), the comparator still trips correctly at all 12 task corners and in Monte Carlo, and its delay consequences are measured by the delay / overshoot targets (curator analysis scratch/curator/ccmp_gate_2026-11-01)'
+known_issues:
+- The integrating node IBP_1U_0 is driven by the testbench current source IRAMP (documented), so a DC operating point exists only with the node forced to VC (lelo30_ccmp_op_v1).

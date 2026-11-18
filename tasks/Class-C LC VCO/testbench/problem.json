@@ -1,0 +1,1524 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "lcvco24_sheikhahmadi_task_001",
+ "topology_id": "lcvco24_sheikhahmadi",
+ "family": "oscillator",
+ "technology_id": "sky130",
+ "parameterization_id": "lcvco24_sheikhahmadi_p1",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). 3.4 GHz class-C cross-coupled LC oscillator with the improved coupled-inductor resonator and the auxiliary class-B start-up pair (paper Fig. 5), the 130 nm paper circuit as the exporter's sky130 netlist (rule D7): nominal TT, 25 C, 1.2 V (the paper shows 1.0 / 1.2 / 1.4 V, nominal not stated: curator choice), 10 fF per output. Conditions: nominal, and the paper's Fig. 9 PVT combinations TT 25 C / FF -20 C / SS 75 C at 1.0 / 1.2 / 1.4 V (9 in all), plus a start-up condition with the comparator output VCOM held at the supply (auxiliary pair on). Phase noise, FoM and power from autonomous PSS + pnoise (steady state: aux pair off, VCOM = 0 V). Targets are the paper's post-layout values with 10 % linear tolerance, each where the paper reports it. No Monte Carlo (the paper reports none). G8 at the DC equilibrium (owner 2026-10-23 for LC oscillators), the off-by-design auxiliary pair excluded.",
+ "source": {
+  "doi": "10.1109/TCSII.2020.3005251",
+  "title": "Sheikhahmadi, Moezzi, Ghafoorifard, 'A Low Phase Noise Class-C Oscillator With Improved Resonator and Robust Start-Up', IEEE TCAS-II 68(1):92-96, Jan 2021",
+  "figure": "Fig. 5 (class-C core M1/M2 with CB/RB gate bias, tail MT with CT, improved coupled-inductor resonator, auxiliary class-B start-up pair M3/M4 + MT1 switched by the comparator output VCOM); sizes: Fig. 5 inset"
+ },
+ "variables": [
+  {
+   "name": "W_CORE",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "class-C core pair M1/M2 (negative gm, swing; gates biased through RB from VBIAS): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_CORE",
+    "instances": [
+     "M1",
+     "M2"
+    ]
+   }
+  },
+  {
+   "name": "L_CORE",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "class-C core pair M1/M2 (negative gm, swing; gates biased through RB from VBIAS): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_CORE",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "class-C core pair M1/M2 (negative gm, swing; gates biased through RB from VBIAS): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "N_CORE",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "class-C core pair M1/M2 (negative gm, swing; gates biased through RB from VBIAS): multiplicity",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "W_AUX",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "auxiliary class-B start-up pair M3/M4 (switched off by VCOM in steady state): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_AUX",
+    "instances": [
+     "M3",
+     "M4"
+    ]
+   }
+  },
+  {
+   "name": "L_AUX",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "auxiliary class-B start-up pair M3/M4 (switched off by VCOM in steady state): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_AUX",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "auxiliary class-B start-up pair M3/M4 (switched off by VCOM in steady state): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "N_AUX",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "auxiliary class-B start-up pair M3/M4 (switched off by VCOM in steady state): multiplicity",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "W_MT1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "auxiliary tail MT1 (gate VCOM): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MT1",
+    "instances": [
+     "MT1"
+    ]
+   }
+  },
+  {
+   "name": "L_MT1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "auxiliary tail MT1 (gate VCOM): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MT1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "auxiliary tail MT1 (gate VCOM): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "N_MT1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "auxiliary tail MT1 (gate VCOM): multiplicity",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT1"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "W_MT",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "class-C tail MT (gate VTAIL; tail current and bias, shunted by CT): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MT",
+    "instances": [
+     "MT"
+    ]
+   }
+  },
+  {
+   "name": "L_MT",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "class-C tail MT (gate VTAIL; tail current and bias, shunted by CT): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MT",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "class-C tail MT (gate VTAIL; tail current and bias, shunted by CT): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "N_MT",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "class-C tail MT (gate VTAIL; tail current and bias, shunted by CT): multiplicity",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "L_MAIN",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "main resonator inductors LP = LN (the improved resonator's two series-coupled inductors)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "LP",
+     "LN"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "LI_AUX",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "auxiliary-pair inductors LAP = LAN",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "LAP",
+     "LAN"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_COUP",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C1 = C1P = C1N series coupling capacitors (OUT to AUX, paper C1 = k C)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C1P",
+     "C1N"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_PAR",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "C2 = C2P = C2N parallel capacitors VDD-OUT (paper C2 =/ C)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C2P",
+     "C2N"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_BIAS",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "CB = CBP = CBN gate coupling capacitors",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CBP",
+     "CBN"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_BIAS",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "RB = RBP = RBN gate bias resistors",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RBP",
+     "RBN"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_FILT",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "CF comparator filter capacitor (VCOM to VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CF"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_TAIL",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "CT tail capacitor (class-C source node to VSS)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CT"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "V_BIAS",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.2,
+   "scale": "lin",
+   "start": 0.6,
+   "quantity": "bias_voltage",
+   "role": "class-C gate bias VBIAS (through RB to the M1/M2 gates; not reported by the paper)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VBIAS"
+   }
+  },
+  {
+   "name": "V_TAIL",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.2,
+   "scale": "lin",
+   "start": 0.6,
+   "quantity": "bias_voltage",
+   "role": "tail gate bias VTAIL (sets the class-C tail current; not reported by the paper)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VTAIL"
+   }
+  }
+ ],
+ "dependent_parameters": {
+  "R_ESR_MAIN": {
+   "expression": "2*3.14159265*3.4e9*L_MAIN/10",
+   "role": "series loss of each main inductor LP / LN, R = 2 pi f0 L / Q with f0 = 3.4 GHz and Q = 10 (paper Secs. II-III: 'Assuming Q = 10'; Eq. (5) series resistance R)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RLP",
+     "RLN"
+    ],
+    "parameter": "r"
+   }
+  },
+  "R_ESR_AUX": {
+   "expression": "2*3.14159265*3.4e9*LI_AUX/10",
+   "role": "series loss of each auxiliary inductor LAP / LAN, R = 2 pi f0 L / Q with f0 = 3.4 GHz and Q = 10 (same Q as the main inductors)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RLAP",
+     "RLAN"
+    ],
+    "parameter": "r"
+   }
+  },
+  "W_CORE_TOTAL": {
+   "expression": "W_CORE*NF_CORE",
+   "role": "M1 total width = per-finger width W_CORE x fingers NF_CORE (SKY130 bins on width per finger; owner 2026-10-24)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_AUX_TOTAL": {
+   "expression": "W_AUX*NF_AUX",
+   "role": "M3 total width = per-finger width W_AUX x fingers NF_AUX (SKY130 bins on width per finger; owner 2026-10-24)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_MT1_TOTAL": {
+   "expression": "W_MT1*NF_MT1",
+   "role": "MT1 total width = per-finger width W_MT1 x fingers NF_MT1 (SKY130 bins on width per finger; owner 2026-10-24)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_MT_TOTAL": {
+   "expression": "W_MT*NF_MT",
+   "role": "MT total width = per-finger width W_MT x fingers NF_MT (SKY130 bins on width per finger; owner 2026-10-24)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MT"
+    ],
+    "parameter": "w"
+   }
+  }
+ },
+ "conditions": [
+  {
+   "id": "tt_T25_S1p00",
+   "model_set": "tt",
+   "temperature_C": 25.0,
+   "supply_V": 1.2,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "tt_T25_S0p83",
+   "model_set": "tt",
+   "temperature_C": 25.0,
+   "supply_V": 0.99999996,
+   "supply_scale": 0.8333333,
+   "nominal": false
+  },
+  {
+   "id": "tt_T25_S1p17",
+   "model_set": "tt",
+   "temperature_C": 25.0,
+   "supply_V": 1.40000004,
+   "supply_scale": 1.1666667,
+   "nominal": false
+  },
+  {
+   "id": "ff_Tm20_S0p83",
+   "model_set": "ff",
+   "temperature_C": -20.0,
+   "supply_V": 0.99999996,
+   "supply_scale": 0.8333333,
+   "nominal": false
+  },
+  {
+   "id": "ff_Tm20_S1p00",
+   "model_set": "ff",
+   "temperature_C": -20.0,
+   "supply_V": 1.2,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ff_Tm20_S1p17",
+   "model_set": "ff",
+   "temperature_C": -20.0,
+   "supply_V": 1.40000004,
+   "supply_scale": 1.1666667,
+   "nominal": false
+  },
+  {
+   "id": "ss_T75_S0p83",
+   "model_set": "ss",
+   "temperature_C": 75.0,
+   "supply_V": 0.99999996,
+   "supply_scale": 0.8333333,
+   "nominal": false
+  },
+  {
+   "id": "ss_T75_S1p00",
+   "model_set": "ss",
+   "temperature_C": 75.0,
+   "supply_V": 1.2,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ss_T75_S1p17",
+   "model_set": "ss",
+   "temperature_C": 75.0,
+   "supply_V": 1.40000004,
+   "supply_scale": 1.1666667,
+   "nominal": false
+  },
+  {
+   "id": "tt_T25_S1p00_startup",
+   "model_set": "tt",
+   "temperature_C": 25.0,
+   "supply_V": 1.2,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.2,
+   "provenance": "curator_choice: Fig. 9 shows 1.0 / 1.2 / 1.4 V, nominal not stated (middle value, 'likely 1.2 V' in metrics.xlsx); within the sky130 01v8 rating (D7)"
+  },
+  "load_capacitance_F": {
+   "value": 1e-14,
+   "provenance": "curator_choice: 10 fF per output (paper: differential output Vout, no load reported; as the earlier LC-VCO tasks, owner answer LC3)"
+  }
+ },
+ "constraints": [
+  {
+   "name": "f_lower",
+   "metric": "pss_frequency_Hz",
+   "recipe": "osc_pnoise_v1",
+   "point": {
+    "pss": true
+   },
+   "unit": "Hz",
+   "lower": 3060000000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3400000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract / Table I (3.4 GHz; Table I range 3.3-3.5 GHz); two-sided: within 10 %",
+   "source": "native"
+  },
+  {
+   "name": "f_upper",
+   "metric": "pss_frequency_Hz",
+   "recipe": "osc_pnoise_v1",
+   "point": {
+    "pss": true
+   },
+   "unit": "Hz",
+   "upper": 3740000000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3400000000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract / Table I (3.4 GHz); two-sided",
+   "source": "native"
+  },
+  {
+   "name": "pn_3MHz",
+   "metric": "phase_noise_dBc_per_Hz",
+   "recipe": "osc_pnoise_v1",
+   "point": {
+    "offset_Hz": 3000000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -136.38607314841775,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -136.8,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract, Sec. IV, Table I (-136.8 dBc/Hz at 3 MHz, post-layout)",
+   "source": "native"
+  },
+  {
+   "name": "fom_3MHz",
+   "metric": "fom_dBc_per_Hz",
+   "recipe": "osc_pnoise_v1",
+   "point": {
+    "offset_Hz": 3000000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -187.68607314841773,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -188.1,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract, Table I (FoM 188.1 dBc/Hz at 3 MHz, Eq. 14; analysis convention FoM = -L + 20log(f0/df) - 10log(P/mW), here negative)",
+   "source": "native"
+  },
+  {
+   "name": "power",
+   "metric": "pss_power_W",
+   "recipe": "osc_pnoise_v1",
+   "point": {
+    "pss": true
+   },
+   "unit": "W",
+   "upper": 0.01045,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0095,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: abstract, Table I (9.5 mW DC power, auxiliary class-B pair off in steady state)",
+   "source": "native"
+  },
+  {
+   "name": "pn_10MHz_pvt",
+   "metric": "phase_noise_dBc_per_Hz",
+   "recipe": "osc_pnoise_v1",
+   "point": {
+    "offset_Hz": 10000000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -145.58607314841774,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -146.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal",
+    {
+     "model_set": "tt",
+     "temperature_C": 25,
+     "supply_scale": 0.8333333
+    },
+    {
+     "model_set": "tt",
+     "temperature_C": 25,
+     "supply_scale": 1.1666667
+    },
+    {
+     "model_set": "ff",
+     "temperature_C": -20,
+     "supply_scale": 0.8333333
+    },
+    {
+     "model_set": "ff",
+     "temperature_C": -20,
+     "supply_scale": 1.0
+    },
+    {
+     "model_set": "ff",
+     "temperature_C": -20,
+     "supply_scale": 1.1666667
+    },
+    {
+     "model_set": "ss",
+     "temperature_C": 75,
+     "supply_scale": 0.8333333
+    },
+    {
+     "model_set": "ss",
+     "temperature_C": 75,
+     "supply_scale": 1.0
+    },
+    {
+     "model_set": "ss",
+     "temperature_C": 75,
+     "supply_scale": 1.1666667
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 9, read from plot (metrics.xlsx / pvt_corners.xlsx: all 9 PVT combinations -146 to -150 dBc/Hz at 10 MHz; the worst, -146, is the bound)",
+   "source": "native"
+  },
+  {
+   "name": "startup",
+   "metric": "startup_time_s",
+   "recipe": "osc_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 1.1000000000000001e-08,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1e-08,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "startup"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 7, read from plot (start-up ~8-10 ns with the auxiliary pair on; conventional class-C ~60 ns); measured with VCOM held at the supply because the comparator is not in the netlist, start-up time from the kick",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "osc_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 at the DC equilibrium (start-up point); the off-by-design auxiliary pair M3/M4/MT1 and the class-C tail MT (triode at the DC equilibrium) excluded, see topology op_check",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "osc_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "osc_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "osc_dc_v1",
+   "dc_power_W"
+  ],
+  [
+   "osc_dc_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "osc_dc_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "osc_dc_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "osc_dc_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "osc_pnoise_v1",
+   "fom_dBc_per_Hz"
+  ],
+  [
+   "osc_pnoise_v1",
+   "phase_noise_dBc_per_Hz"
+  ],
+  [
+   "osc_pnoise_v1",
+   "pss_frequency_Hz"
+  ],
+  [
+   "osc_pnoise_v1",
+   "pss_power_W"
+  ],
+  [
+   "osc_tran_v1",
+   "amplitude_Vpp"
+  ],
+  [
+   "osc_tran_v1",
+   "average_power_W"
+  ],
+  [
+   "osc_tran_v1",
+   "kvco_Hz_per_V"
+  ],
+  [
+   "osc_tran_v1",
+   "oscillation_frequency_Hz"
+  ],
+  [
+   "osc_tran_v1",
+   "probe_current_avg_A"
+  ],
+  [
+   "osc_tran_v1",
+   "probe_current_pp_A"
+  ],
+  [
+   "osc_tran_v1",
+   "startup_time_s"
+  ],
+  [
+   "osc_tran_v1",
+   "tuning_range_Hz"
+  ]
+ ],
+ "simulations_per_design": 11,
+ "analysis_executions_per_design": 20,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "tt_T25_S1p00",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/tt_T25_S1p00/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T25_S1p00",
+   "recipe": "osc_dc_v1",
+   "folder": "testbenches/tt_T25_S1p00/osc_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/op_info.info",
+    "raw/dc1.dc"
+   ],
+   "metrics": {
+    "dc_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T25_S0p83",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/tt_T25_S0p83/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T25_S1p17",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/tt_T25_S1p17/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "ff_Tm20_S0p83",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/ff_Tm20_S0p83/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "ff_Tm20_S1p00",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/ff_Tm20_S1p00/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "ff_Tm20_S1p17",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/ff_Tm20_S1p17/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "ss_T75_S0p83",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/ss_T75_S0p83/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "ss_T75_S1p00",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/ss_T75_S1p00/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "ss_T75_S1p17",
+   "recipe": "osc_pnoise_v1",
+   "folder": "testbenches/ss_T75_S1p17/osc_pnoise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/pss1.fd.pss",
+    "raw/pss1.td.pss",
+    "raw/pn1.pnoise"
+   ],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "pss": true
+    },
+    {
+     "offset_Hz": 1000000.0
+    },
+    {
+     "offset_Hz": 3000000.0
+    },
+    {
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T25_S1p00_startup",
+   "recipe": "osc_tran_v1",
+   "folder": "testbenches/tt_T25_S1p00_startup/osc_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/transient1.tran.tran"
+   ],
+   "metrics": {
+    "oscillation_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "amplitude_Vpp": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "average_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "startup_time_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "probe_current_pp_A": {
+     "unit": "A",
+     "source": "native"
+    },
+    "probe_current_avg_A": {
+     "unit": "A",
+     "source": "native"
+    },
+    "tuning_range_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "kvco_Hz_per_V": {
+     "unit": "Hz/V",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {}
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "lcvco24_sheikhahmadi_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('lcvco24_sheikhahmadi_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

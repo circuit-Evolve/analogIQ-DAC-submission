@@ -1,0 +1,148 @@
+{
+  "tag": "low_candidate_all27",
+  "key": "9ab27c8c6ec6e4b59996",
+  "design": {
+    "wn_um": [
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6
+    ],
+    "wp_um": [
+      1.95,
+      1.95,
+      1.95,
+      1.95,
+      1.95,
+      0.8
+    ],
+    "ln_um": [
+      0.9,
+      0.9,
+      0.9,
+      0.9,
+      0.9,
+      0.9
+    ],
+    "lp_um": [
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6
+    ],
+    "cf_pF": [
+      1.17,
+      1.17,
+      1.17,
+      1.17,
+      1.17,
+      1.17
+    ],
+    "cs_pF": [
+      2.1,
+      2.1,
+      2.1,
+      2.1,
+      2.1,
+      120.0
+    ]
+  },
+  "corner": {
+    "process": "ff",
+    "voltage": 3.6,
+    "temp": 27,
+    "name": "ff_3.6V_27C"
+  },
+  "returncode": 0,
+  "elapsed_s": 182.23616790771484,
+  "step_ns": 0.5,
+  "stop_us": 300,
+  "deck_sha256": "9ab27c8c6ec6e4b59996e3af1910ec1ef5286f8c122374d857124083b7f2e2c2",
+  "metrics": {
+    "output_voltage_V": 20.687548657866273,
+    "ripple_mV": 3.8180338102904443,
+    "input_power_mW": 1.0168635747268286,
+    "output_power_uW": 427.9746707000527,
+    "efficiency_percent": 42.08771769753128,
+    "rise_time_us": 30.673138729899037,
+    "raw_rise_time_us": 30.67743055839815,
+    "dc_input_power_mW": 0.07441221951672297,
+    "clock_A_power_mW": 0.4712256776097937,
+    "clock_B_power_mW": 0.4712256776003119,
+    "settled": true,
+    "settling_drift_fraction": 7.14336341281276e-11,
+    "final_window_us": [
+      294.99999999999994,
+      300.0
+    ],
+    "startup_voltage_V": 0.0
+  },
+  "stress": {
+    "all_stages": [
+      {
+        "stage": 1,
+        "nmos_max_abs_vgs_V": 3.8201022529629047,
+        "nmos_min_vgs_V": -3.6,
+        "nmos_max_abs_vgs_steady_V": 3.8201022529629047,
+        "pmos_max_abs_vgs_V": 3.3716792358261416
+      },
+      {
+        "stage": 2,
+        "nmos_max_abs_vgs_V": 4.121717974335353,
+        "nmos_min_vgs_V": -1.687405395050256,
+        "nmos_max_abs_vgs_steady_V": 4.121717974335353,
+        "pmos_max_abs_vgs_V": 3.375321888655969
+      },
+      {
+        "stage": 3,
+        "nmos_max_abs_vgs_V": 4.122627287659574,
+        "nmos_min_vgs_V": -1.6319598372903332,
+        "nmos_max_abs_vgs_steady_V": 4.122627287659574,
+        "pmos_max_abs_vgs_V": 3.375436518753082
+      },
+      {
+        "stage": 4,
+        "nmos_max_abs_vgs_V": 4.122618356798341,
+        "nmos_min_vgs_V": -1.6235817932020713,
+        "nmos_max_abs_vgs_steady_V": 4.122618356798341,
+        "pmos_max_abs_vgs_V": 3.3755288454823837
+      },
+      {
+        "stage": 5,
+        "nmos_max_abs_vgs_V": 4.12344763323288,
+        "nmos_min_vgs_V": -1.619485855866042,
+        "nmos_max_abs_vgs_steady_V": 4.12344763323288,
+        "pmos_max_abs_vgs_V": 3.3771544823928394
+      },
+      {
+        "stage": 6,
+        "nmos_max_abs_vgs_V": 4.047100109511682,
+        "nmos_min_vgs_V": -1.626411811906691,
+        "nmos_max_abs_vgs_steady_V": 4.047100109511682,
+        "pmos_max_abs_vgs_V": 3.3983595720176716
+      }
+    ],
+    "nmos_max_abs_vgs_V": 4.12344763323288,
+    "nmos_above_3p3": true,
+    "nmos_max_abs_vgs_steady_V": 4.12344763323288,
+    "nmos_above_3p3_steady": true,
+    "screen_only": true
+  },
+  "target_policy": "figure13_pvt_upper_ripple_v2",
+  "passes": {
+    "output_voltage_V": true,
+    "ripple_mV": true,
+    "input_power_mW": true,
+    "output_power_uW": true,
+    "efficiency_percent": true,
+    "rise_time_us": true
+  },
+  "pass_count": 6,
+  "all_pass": true,
+  "score": 0.0,
+  "measurement_sha256": "43899677cb697a62efd61f2f57027a691a0814ef1a66271ff71c4baa1646508c"
+}

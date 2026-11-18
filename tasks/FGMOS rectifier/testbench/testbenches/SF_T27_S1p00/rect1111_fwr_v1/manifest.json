@@ -1,0 +1,53 @@
+{
+  "job_id": "SF_T27_S1p00/rect1111_fwr_v1",
+  "recipe_id": "rect1111_fwr_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "SF_T27_S1p00",
+    "model_set": "SF",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 0.7,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "SF"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 0.7
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/dcsw.dc",
+    "raw/ac1.ac",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "static_power_W",
+    "max_power_W",
+    "max_deviation_fullscale_pct",
+    "bandwidth_Hz",
+    "low_frequency_gain_dB",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "8d06beda040fa23c3ad5b84c870a2095cf6510febcdfdfa8e88ff47399c28666",
+    "candidate": "9e687d0324f827aa5abcb82d8ee69b0b39be9db2b0bf380d9b603aa82eb2efde",
+    "parameterization": "15478aeea4141cef1ae89ff639c93c37c8b3ffc1fc145b0f43fe6b3f70701e7f",
+    "dut_source_netlist": "a80b6b75d775d6387d2ab7d3aea3cbf667d3f654ad9ad735952e1e01cf6f77ba",
+    "dut_subckt": "eab2c2935c3d8a8a3a5f0aab3dd22426ce13e22a8719b7c98f65cd21d2a92472",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "08b0acc2749c37064e4415bb5b93d7ad44167fb33551c7ce46420c778eeed36c",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "06704732eba71e857dbbdbc9b9420f03e250e04a564ad22612f0fca702ecbc66"
+  },
+  "state": "rendered"
+}

@@ -1,0 +1,37 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task fcrobust01_task_001  topology fcrobust01_arxiv_2207
+// recipe amp_fd_dc_v1 v1  condition SS_T100_S0p89 (models SS, 100 C, supply 1.6 V)
+// request golden_fcrobust01_task_001  candidate eaebf39efa854825
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=SS
+include "dut.scs"
+
+parameters vcm=1.2 cl=1e-12 rin=100000.0 rf=100000.0 vsup=1.6000002000000002 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+// Inverting resistive feedback per side: gain -Rf/Rin, inputs biased at vcm.
+VCMI (vcmi 0) vsource dc=vcm
+VDP (vsp vcmi) vsource dc=0
+VDN (vsn vcmi) vsource dc=0
+RIN1 (vsp inn) resistor r=rin
+RF1 (inn out) resistor r=rf
+RIN2 (vsn inp) resistor r=rin
+RF2 (inp outn) resistor r=rf
+CL1 (out 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+VOCM (vocm 0) vsource dc=0.7
+
+XDUT (vdd vss inp inn out outn vocm) fcrobust01_dut C_COMP=1.3552971065120634e-13 I_BIAS=4.144154674863611e-06 L_B15=2.3276926076416978e-07 L_B5=5.204783177990777e-07 L_B6=1.2058896038340272e-06 L_B9=4.1852046342456203e-07 L_BX0=8.828755788976787e-07 L_BX1=1.9651639535008034e-06 L_CMDIO=4.466184713146856e-06 L_CMIN=6.181579379898664e-07 L_CMTAIL=4.65916436816158e-06 L_CS=6.413414351539381e-07 L_IN=1.2781305644576157e-06 L_NBOT=2.9278479893759537e-07 L_NCAS=9.99721524582168e-07 L_P13=1.808844914253336e-05 L_P2=2.6580936790747357e-07 L_P25=6.577877956317699e-07 L_PCAS=2.1365049978610163e-07 L_SINK=1.6127153936292393e-06 L_TAIL=4.726446053846039e-06 L_TOP=2.627011904939889e-07 R_SENSE=28541.084332490485 W_B15=4.647681193388753e-05 W_B5=1.0508962007075856e-06 W_B6=7.5292099224681086e-06 W_B9=1.395887534364419e-05 W_BX0=2.535209067927858e-06 W_BX1=3.1441790536203074e-05 W_CMDIO=1.7320047270450245e-06 W_CMIN=8.707641159611446e-06 W_CMTAIL=9.03251294652229e-06 W_CS=6.197393272281429e-06 W_IN=1.4363869637043722e-05 W_NBOT=1.5656356852240995e-05 W_NCAS=1.468911880011994e-06 W_P13=5.60695945437082e-06 W_P2=5.524382705082382e-06 W_P25=1.087075943680119e-06 W_PCAS=6.5923941329221776e-06 W_SINK=3.517797633178804e-05 W_TAIL=8.712758413886145e-06 W_TOP=1.0249167746717064e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=100.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p inn inp out outn vdd vocm vss
+
+dc1 dc param=vcm start=1.199 stop=1.2009999999999998 step=1e-3
+simulator lang=spice
+.include 'measures.sp'
+.end

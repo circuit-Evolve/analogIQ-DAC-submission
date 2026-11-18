@@ -1,0 +1,23 @@
+Independent final review — 2026-11-10
+Scope: read-only inspection and recomputation of saved artifacts; no new Spectre/LEDRO runs, no original/curator/shared-pack writes. This review file is the only reviewer-created artifact.
+
+Critical findings: none.
+
+Important finding — canonical aggregate “worst” values are not always directionally worst.
+Location: pack/corner_judge.py:15–23 and :35–37, surfaced in both candidate_full/metrics.json files.
+The generic margin includes distance from lower=0 even for lower-is-better metrics. Thus the aggregate may select a small TC, THD, line sensitivity, or startup score as “worst.” Boolean feasibility and all per-corner values remain correct. In the canonical bandgap aggregate, TC=2.712367015 is selected although actual maximum TC=17.122567352 ppm/C; line sensitivity=3.300351826 is selected although actual maximum=3.994152987%; startup score=0.055939493 is selected although actual maximum=0.641575445. DTMOS THD aggregate selects 1.255716848%, while actual maximum=1.410214934%. Final reporting must derive directional maxima/minima directly from per-corner values. Parent has committed to adding local golden_qualification.json and preserving original metrics as audit evidence. This reporting mitigation does not require a simulation rerun or shared-pack change.
+
+Minor findings: none requiring correction for the frozen candidate reproduction. The evaluators are frozen-artifact reproducers, and the exact-deck audit is the relevant acceptance check.
+
+Verified evidence:
+1. Bandgap study.py regenerates all 50 canonical input decks byte-for-byte from the same 23 physical/passive parameters. New golden_task.py correctly applies SI-meter to SKY130-micron conversions and independent M4 W/L, M13 W, M11 W overrides; gain multiplicity experiment keys are not admitted. Original connectivity is retained, and canonical decks have all mult=1.
+2. All 15 bandgap corners independently rejudged: 90/90 checks, including 15 startup guards. All 15 archived canonical temperature curves and five archived line sweeps independently re-extracted. Numeric differences from stored metrics are at most 4e-15 ppm/C for TC and zero for line sensitivity. The nominal-DC versus sweep-27C TC normalization difference is below 7.2e-8 ppm/C.
+3. Bandgap tight_full has the identical design, corners, and constraint bounds. Independently rejudged 90/90 checks. All 15 dense 0.25C temperature curves independently re-extracted from raw data and pass TC<=21.23; maximum is 17.122596769827755 ppm/C. Tight versus canonical maximum metric movements: PSRR 0.0003373933 dB, TC 0.0000295343 ppm/C, power 0.00000125734 uW, line 0.00000078185 percentage points.
+4. DTMOS reproduce.py ran without simulation and reproduced all 12 canonical input decks byte-for-byte, preserving the original 17 named MOS instances and four gate-body ties. Per-finger units, total-width M3 binding, native m=242 folding, and diffusion scaling are consistent with saved decks and physical-cost evidence.
+5. All 12 DTMOS canonical corners independently rejudged: 48/48 checks. Strict THD<6% is retained. Tight AC/DC rows independently rejudged 36/36, confirming maximum gain200 movement 0.000336420999 dB and cutoff movement 0.0157195605 Hz. Canonical full transients and extraction require 60ms completion and use the last 40–60ms window.
+6. Both evaluators distinguish simulator execution from scalar feasibility. Aggregation rejects missing corners and masks scalar passes for rows with execution failure. No evidence of per-corner retuning or target relaxation in the reviewed artifacts.
+
+Required qualification of any golden label:
+Bandgap is simulation-qualified for the stated 15 process/supply points, TC characterization and startup recipe. DTMOS is scalar-qualified only under fixed-200-Hz gain; the same band applied to passband gain fails all 12 points. DTMOS has 500 physical parallel unit devices represented by 17 names, total MOS gate area 9547.35812 um^2 (9.78969x previous, 19.0566x paper core), ideal C1~70.67nF and C2~908.08nF, and M2 weak inversion at 100C (ids~0.108407uA, VGS−VTH~-0.128122V). These qualifications are already explicit in round2_dtmos/REPORT.txt and candidate_full/qualification_summary.json. Layout/parasitics, mismatch/yield, fractional-order equivalence, paper gain-frequency ambiguity and broader PVT coverage remain unestablished.
+
+Conclusion: no blocking defect in the two frozen candidates under these explicit simulation scopes. Preserve the directional reporting correction and DTMOS qualifications in the final result.

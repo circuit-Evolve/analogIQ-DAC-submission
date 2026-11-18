@@ -1,0 +1,1394 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_lcvco24_sheikhahmadi_task_001",
+  "task_id": "lcvco24_sheikhahmadi_task_001",
+  "topology_id": "lcvco24_sheikhahmadi",
+  "candidate_hash": "18ad42aa3d408742a8d662a911b7c36b7e1d56fb4ec23b122681ae1e8a9ecbb7",
+  "evaluator_hash": "3a6c02bf23028bd7b139dc8432ac8727aef67a8a969c9e738cde064c9fe08f23",
+  "digests": {
+    "task": "a83b094f77058c3808327783ca14f012527afcf9b1813c949fd42317a6bdce10",
+    "candidate": "18ad42aa3d408742a8d662a911b7c36b7e1d56fb4ec23b122681ae1e8a9ecbb7",
+    "parameterization": "28ab63d559503da613f54408b6c01a6ea16e22bf93f58a0bd7ea19c63a03e010",
+    "dut_source_netlist": "23c8236977d815cf2fb949a6ccd0f37875a1b498371abd89d588c95f42c7bdf6",
+    "dut_subckt": "ab16a4b2b8070438192baf261890b0710a0fc77c82cbdcfbcdaf6f83f44ccfed",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "169af2d925c7a57e6d0bf0c39834b7836075353c4c6dc8fe7458c0cb28d9d70d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "3a6c02bf23028bd7b139dc8432ac8727aef67a8a969c9e738cde064c9fe08f23"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 18,
+    "completed_measurement_checks": 18,
+    "valid_measurement_checks": 18
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3212845557.912342,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "f_lower",
+        "f_upper"
+      ],
+      "constraint": {
+        "upper": 3740000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.010286079859480522,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "power"
+      ],
+      "constraint": {
+        "upper": 0.01045
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -123.56446500988348,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -183.57976308069613,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -137.24719605735808,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_3MHz"
+      ],
+      "constraint": {
+        "upper": -136.38607314841775
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -187.7200690337775,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "fom_3MHz"
+      ],
+      "constraint": {
+        "upper": -187.68607314841773
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -149.2255837911216,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.24088186193424,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "dc_power_W",
+      "value": 0.008108367886135583,
+      "unit": "W",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 1.0779893393248932,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T25_S1p00",
+      "recipe_id": "osc_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3202427561.015347,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.007159306099860306,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -121.89769408988869,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -183.45857107240786,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -135.60156253155426,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -187.6200144196802,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -147.5793599186086,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.14023690112776,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3219727300.069099,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.014002571305392876,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -125.06604954004773,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -183.7603534107894,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -138.677910721576,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -187.82978949792442,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -150.6341902994333,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -189.32849417017496,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T25_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3209126627.043392,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.007109810948365073,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -122.71926079644632,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -184.3284173476838,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -136.55368131171502,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.62041276855928,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.6347182850044,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.2438748362419,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3217234307.808972,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.010231869046025676,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -122.3822499522686,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -182.4323540463112,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -135.673821144128,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -186.18150014377733,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -147.6612358090194,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -187.71133990306197,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3222253237.088548,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.01394810331606253,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -125.89679511034899,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -184.61483692734467,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -139.5771403148999,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.75275703750233,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -151.6013214463867,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -190.31936326338237,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ff_Tm20_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3196879646.664892,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.007193471849482059,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -121.12632476557842,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -182.6514650143634,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -134.70064763836655,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -186.6833627927583,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -146.58457974326822,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.10971999205321,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S0p83",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3210081767.761808,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.010303222311565809,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -122.76466417202833,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -182.76525536489567,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -136.32526985068242,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -186.7834359491565,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -148.21366379509396,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.21425498796128,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p00",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 3219281894.109892,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.013994782939925862,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "pss": true
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -124.22967119996014,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -182.92518967150716,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -137.73062905526413,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -186.8837224324179,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -149.604363081516,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1",
+      "constraints": [
+        "pn_10MHz_pvt"
+      ],
+      "constraint": {
+        "upper": -145.58607314841774
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -188.29988155306302,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "ss_T75_S1p17",
+      "recipe_id": "osc_pnoise_v1"
+    },
+    {
+      "metric": "oscillation_frequency_Hz",
+      "value": 3216034618.709293,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T25_S1p00_startup",
+      "recipe_id": "osc_tran_v1"
+    },
+    {
+      "metric": "amplitude_Vpp",
+      "value": 6.2285336984,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T25_S1p00_startup",
+      "recipe_id": "osc_tran_v1"
+    },
+    {
+      "metric": "average_power_W",
+      "value": 0.10076114054,
+      "unit": "W",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T25_S1p00_startup",
+      "recipe_id": "osc_tran_v1"
+    },
+    {
+      "metric": "startup_time_s",
+      "value": 5.2868533804e-10,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T25_S1p00_startup",
+      "recipe_id": "osc_tran_v1",
+      "constraints": [
+        "startup"
+      ],
+      "constraint": {
+        "upper": 1.1000000000000001e-08
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "f_lower": {
+      "value": 3212845557.912342,
+      "unit": "Hz",
+      "condition_id": "tt_T25_S1p00",
+      "point": {
+        "pss": true
+      },
+      "complete": true
+    },
+    "f_upper": {
+      "value": 3212845557.912342,
+      "unit": "Hz",
+      "condition_id": "tt_T25_S1p00",
+      "point": {
+        "pss": true
+      },
+      "complete": true
+    },
+    "pn_3MHz": {
+      "value": -137.24719605735808,
+      "unit": "dBc/Hz",
+      "condition_id": "tt_T25_S1p00",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "complete": true
+    },
+    "fom_3MHz": {
+      "value": -187.7200690337775,
+      "unit": "dBc/Hz",
+      "condition_id": "tt_T25_S1p00",
+      "point": {
+        "offset_Hz": 3000000.0
+      },
+      "complete": true
+    },
+    "power": {
+      "value": 0.010286079859480522,
+      "unit": "W",
+      "condition_id": "tt_T25_S1p00",
+      "point": {
+        "pss": true
+      },
+      "complete": true
+    },
+    "pn_10MHz_pvt": {
+      "value": -146.58457974326822,
+      "unit": "dBc/Hz",
+      "condition_id": "ss_T75_S0p83",
+      "point": {
+        "offset_Hz": 10000000.0
+      },
+      "complete": true
+    },
+    "startup": {
+      "value": 5.2868533804e-10,
+      "unit": "s",
+      "condition_id": "tt_T25_S1p00_startup",
+      "point": {},
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T25_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T25_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T25_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "tt_T25_S1p00/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 1.616,
+      "cpu_s": 1.45
+    },
+    {
+      "job_id": "tt_T25_S1p00/osc_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 0.476,
+      "cpu_s": 0.34400000000000003
+    },
+    {
+      "job_id": "tt_T25_S0p83/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 1.425,
+      "cpu_s": 1.26
+    },
+    {
+      "job_id": "tt_T25_S1p17/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 1.433,
+      "cpu_s": 1.3
+    },
+    {
+      "job_id": "ff_Tm20_S0p83/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.395,
+      "cpu_s": 1.24
+    },
+    {
+      "job_id": "ff_Tm20_S1p00/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.512,
+      "cpu_s": 1.33
+    },
+    {
+      "job_id": "ff_Tm20_S1p17/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.664,
+      "cpu_s": 1.45
+    },
+    {
+      "job_id": "ss_T75_S0p83/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 1.437,
+      "cpu_s": 1.28
+    },
+    {
+      "job_id": "ss_T75_S1p00/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 1.702,
+      "cpu_s": 1.53
+    },
+    {
+      "job_id": "ss_T75_S1p17/osc_pnoise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 2.046,
+      "cpu_s": 1.5
+    },
+    {
+      "job_id": "tt_T25_S1p00_startup/osc_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 7 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 2.714,
+      "cpu_s": 2.04
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 11,
+    "analysis_executions": 20,
+    "condition_evaluations": 10,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 14.724,
+    "execution_wall_s": 9.448,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/tt_T25_S1p00/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/tt_T25_S1p00/osc_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/tt_T25_S0p83/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/tt_T25_S1p17/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/ff_Tm20_S0p83/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/ff_Tm20_S1p00/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/ff_Tm20_S1p17/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/ss_T75_S0p83/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/ss_T75_S1p00/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/ss_T75_S1p17/osc_pnoise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/lcvco24_sheikhahmadi_task_001/tt_T25_S1p00_startup/osc_tran_v1"
+    ]
+  }
+}

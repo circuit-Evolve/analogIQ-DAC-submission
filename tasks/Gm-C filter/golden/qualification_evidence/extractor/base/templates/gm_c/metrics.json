@@ -1,0 +1,73 @@
+[
+  {
+    "name": "OTA_differential_gain_dB",
+    "test": "OTA_DIFF",
+    "paper_value": 39,
+    "unit": "dB",
+    "expression": "value(db20((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1)",
+    "reference": "Table2; Fig4; conclusion"
+  },
+  {
+    "name": "OTA_unity_gain_frequency_Hz",
+    "test": "OTA_DIFF",
+    "paper_value": 10000000000.0,
+    "unit": "Hz",
+    "expression": "cross(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1 1 \"falling\")",
+    "reference": "Conclusion p70"
+  },
+  {
+    "name": "OTA_phase_margin_deg",
+    "test": "OTA_DIFF",
+    "paper_value": 79,
+    "unit": "deg",
+    "expression": "180+value(phase((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) cross(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1 1 \"falling\"))",
+    "reference": "Table2; abstract; conclusion",
+    "note": "Unity-feedback phase-margin proxy of differential open-loop transfer; no published loop breaking or load."
+  },
+  {
+    "name": "OTA_common_mode_gain_dB",
+    "test": "OTA_CM",
+    "paper_value": -24,
+    "unit": "dB",
+    "expression": "value(db20(((getData(\"VOP\" ?result \"ac\")+getData(\"VOM\" ?result \"ac\"))/2)) 1)",
+    "reference": "Table2 and p70; p61 omits negative sign"
+  },
+  {
+    "name": "Filter_cutoff_Hz",
+    "test": "FILTER_AC_NOISE",
+    "paper_value": 15000000.0,
+    "unit": "Hz",
+    "expression": "cross(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) (value(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1)/sqrt(2)) 1 \"falling\")",
+    "reference": "Fig9; Table2; conclusion",
+    "note": "First falling -3dB crossing relative to DC; substantial peaking must also be disclosed."
+  },
+  {
+    "name": "Filter_input_noise_nV_sqrtHz",
+    "test": "FILTER_AC_NOISE",
+    "paper_value": 85,
+    "unit": "nV/sqrt(Hz)",
+    "expression": "1e9*value(getData(\"out\" ?result \"noise\") 1e6)/value(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1e6)",
+    "reference": "Fig10; p69-p70",
+    "note": "Differential output noise divided by measured differential gain at assumed midband 1MHz; paper provides no exact extraction frequency."
+  },
+  {
+    "name": "OTA_input_P1dB_dBm",
+    "test": "OTA_NONLINEAR",
+    "paper_value": -2.86026,
+    "unit": "dBm",
+    "expression": "10*log10(A_1dB**2/(2*50*1e-3)); A_1dB=exp(interp(1,gain_drop_dB,log(input_peak_V)))",
+    "reference": "Text p65; Fig6 shows -2.8606",
+    "note": "dBm inferred from plot axes; 50ohm power reference and 1MHz frequency assumed, no physical resistive output load.",
+    "expression_language": "Python report.py, after nominal amplitude characterization in nonlinear.py"
+  },
+  {
+    "name": "OTA_IIP3_dBm",
+    "test": "OTA_NONLINEAR",
+    "paper_value": 13.2497,
+    "unit": "dBm",
+    "expression": "Pin_dBm+10*log10(Vfundamental/V_IM3); Pin_dBm=-50",
+    "reference": "Prose pp66-67 explicitly states IP3 value 13.2497; plot calls input-referred, prose also says OIP3",
+    "note": "Assumed two tones 1MHz/1.1MHz, 1mV peak per-tone differential; 50ohm power reference. Paper lacks tones, amplitude, impedance and contradicts IIP3/OIP3.",
+    "expression_language": "Python nonlinear.py Fourier integral; actual OCEAN DFT expression saved in native/setup.ocn"
+  }
+]

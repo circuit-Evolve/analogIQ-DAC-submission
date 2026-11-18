@@ -1,0 +1,62 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt repaired_core VDD_CORE VSS VB_TANK VDD_AUX VC VBUF VDD_DIG S0 S1 S2 S3 RFL RFR
+M2 (D2 G2 VSS VSS) nmos1 w=38u l=180n m=4 ad=11.4p as=22.8p pd=38.6u ps=77.2u
+M1 (D1 G1 VSS VSS) nmos1 w=38u l=180n m=4 ad=11.4p as=22.8p pd=38.6u ps=77.2u
+CSL (D2 G1) capacitor c=4.8p
+CSR (D1 G2) capacitor c=4.8p
+CPFL (D2 CPF_MID) capacitor c=6.7p
+CPFR (CPF_MID D1) capacitor c=6.7p
+CPSL (D2 VSS) capacitor c=3.3p
+CPSR (D1 VSS) capacitor c=3.3p
+LPL (D2 VDD_CORE) inductor l=290p r=531.976356008000m
+LPR (VDD_CORE D1) inductor l=290p r=531.976356008000m
+LSL (G1 VB_TANK) inductor l=259p r=475.109917952000m
+LSR (VB_TANK G2) inductor l=259p r=475.109917952000m
+KL () mutual_inductor ind1=LPL ind2=LSL k=.41
+KR () mutual_inductor ind1=LPR ind2=LSR k=.41
+CCVARL (D2 VARL) capacitor c=500f
+MVARL (VC VARL VC VC) nmos1 w=10u l=10u m=1
+RBVARL (VDD_AUX VARL) resistor r=RBVAR
+MBUFL (RFL BUFGL VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CBUFL (D2 BUFGL) capacitor c=CBUF
+RBUFL (VBUF BUFGL) resistor r=RBUF
+CCVARR (D1 VARR) capacitor c=500f
+MVARR (VC VARR VC VC) nmos1 w=10u l=10u m=1
+RBVARR (VDD_AUX VARR) resistor r=RBVAR
+MBUFR (RFR BUFGR VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CBUFR (D1 BUFGR) capacitor c=CBUF
+RBUFR (VBUF BUFGR) resistor r=RBUF
+MIN0 (SB0 S0 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MIP0 (SB0 S0 VDD_DIG VDD_DIG) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MS0L (BANK0L S0 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB0L (D2 BANK0L) capacitor c=240f
+RS0L (SB0 BANK0L) resistor r=RSBANK
+MS0R (BANK0R S0 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB0R (D1 BANK0R) capacitor c=240f
+RS0R (SB0 BANK0R) resistor r=RSBANK
+MIN1 (SB1 S1 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MIP1 (SB1 S1 VDD_DIG VDD_DIG) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MS1L (BANK1L S1 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB1L (D2 BANK1L) capacitor c=480f
+RS1L (SB1 BANK1L) resistor r=RSBANK
+MS1R (BANK1R S1 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB1R (D1 BANK1R) capacitor c=480f
+RS1R (SB1 BANK1R) resistor r=RSBANK
+MIN2 (SB2 S2 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MIP2 (SB2 S2 VDD_DIG VDD_DIG) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MS2L (BANK2L S2 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB2L (D2 BANK2L) capacitor c=960f
+RS2L (SB2 BANK2L) resistor r=RSBANK
+MS2R (BANK2R S2 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB2R (D1 BANK2R) capacitor c=960f
+RS2R (SB2 BANK2R) resistor r=RSBANK
+MIN3 (SB3 S3 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MIP3 (SB3 S3 VDD_DIG VDD_DIG) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MS3L (BANK3L S3 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB3L (D2 BANK3L) capacitor c=1.92p
+RS3L (SB3 BANK3L) resistor r=RSBANK
+MS3R (BANK3R S3 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CB3R (D1 BANK3R) capacitor c=1.92p
+RS3R (SB3 BANK3R) resistor r=RSBANK
+ends repaired_core

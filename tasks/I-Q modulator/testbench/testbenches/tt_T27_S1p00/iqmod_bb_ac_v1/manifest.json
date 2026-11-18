@@ -1,0 +1,69 @@
+{
+  "job_id": "tt_T27_S1p00/iqmod_bb_ac_v1",
+  "recipe_id": "iqmod_bb_ac_v1",
+  "recipe_version": 2,
+  "condition": {
+    "id": "tt_T27_S1p00",
+    "model_set": "tt",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.5,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "tt"
+      }
+    ],
+    "is_nominal": true,
+    "supply_span_V": 1.5
+  },
+  "points": [
+    {},
+    {
+      "freq_Hz": 1000000.0
+    },
+    {
+      "freq_Hz": 4000000.0
+    },
+    {
+      "freq_Hz": 28000000.0
+    },
+    {
+      "freq_Hz": 56000000.0
+    }
+  ],
+  "expected_outputs": [
+    "raw/ac1.ac",
+    "raw/ac2.ac",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "passband_gain_dB",
+    "cutoff_frequency_Hz",
+    "phase_at_cutoff_deg",
+    "attenuation_dB",
+    "stopband_slope_dB_per_decade",
+    "input_impedance_dm_ohm",
+    "cmrr_dB",
+    "common_mode_gain_dB",
+    "input_impedance_cm_ohm",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "4e69c603fc61468374abc6067025f3689dfff3bbac238bd4520e2d9baa1081bb",
+    "candidate": "29459f7bd384e82987e34e564477fd15e3d8e27c1e604ea7562676b0d447ee20",
+    "parameterization": "8b569a3b991549ad18fb4cad8058cee599d8de9a109ed54ace6b7efd2921a2ef",
+    "dut_source_netlist": "3724a25a7582d0d1626f1b75c33841c8f274aa60c1414815e746714ac4c3191c",
+    "dut_subckt": "5d26e03521824568ae9fc415ecf74254bfd8566e18ecc4e54ab777a4bf68cd18",
+    "models": "cf0800bd8572a6c9379d777f9608319fdad8b069992de6d70b98c4dbbc642c8e",
+    "recipes": "12d0f71199733a9081a19302fab3fe5dff07ecaefafb33e2d5a8ebd290923995",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "158064e960e3178dac316ea962d15049fff3dd0b96def3a877dae4450c4b5d86"
+  },
+  "state": "rendered"
+}

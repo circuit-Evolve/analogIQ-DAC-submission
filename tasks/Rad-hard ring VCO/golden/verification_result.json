@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_rvco24_um_task_001",
+  "task_id": "rvco24_um_task_001",
+  "topology_id": "rvco24_um",
+  "candidate_hash": "ed6eb33a715bf8001c3110bbc5e703fd54910e2883342625bde7138373c39bf5",
+  "evaluator_hash": "0e99bfca06693e106d8fce7f93da70a45dd8b7f176377897ebef8001a45f320f",
+  "digests": {
+    "task": "6297b8174b9ffcddc7188443e9e448137126ba0e045dbc3f25114896dbabefb9",
+    "candidate": "ed6eb33a715bf8001c3110bbc5e703fd54910e2883342625bde7138373c39bf5",
+    "parameterization": "910b50add857399bab57a7ae22b414de52463361893525260377c26fab55ae0b",
+    "dut_source_netlist": "51cdc89ccb539fbcfaed4bd8611a748b512f69ed61a35a81e7ad522c90b5f32c",
+    "dut_subckt": "510aa9b50926e0c60b6b4f934dcd4d9805b9e0247d2f1b8a6688861ceb728944",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "59a1fa709c1029d90dabd2ce2f3ce144a7b0b31b46941e8b8977e7e22387cc29",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "0e99bfca06693e106d8fce7f93da70a45dd8b7f176377897ebef8001a45f320f"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 8,
+    "completed_measurement_checks": 8,
+    "valid_measurement_checks": 8
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "pss_frequency_Hz",
+      "value": 13537920.61413677,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1",
+      "constraints": [
+        "f_lower",
+        "f_upper"
+      ],
+      "constraint": {
+        "upper": 16500000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "pss_power_W",
+      "value": 0.00019606575329711483,
+      "unit": "W",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1",
+      "constraints": [
+        "power"
+      ],
+      "constraint": {
+        "upper": 0.00019679000000000002
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 1.2469410332110356,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1",
+      "constraints": [
+        "swing"
+      ],
+      "constraint": {
+        "lower": 1.1223
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_min_V",
+      "value": 0.4368053370440414,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1"
+    },
+    {
+      "metric": "output_max_V",
+      "value": 1.683746370255077,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "pss",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1"
+    },
+    {
+      "metric": "phase_noise_dBc_per_Hz",
+      "value": -128.31354510845833,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1",
+      "constraints": [
+        "pn_1MHz"
+      ],
+      "constraint": {
+        "upper": -95.01607314841776
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "fom_dBc_per_Hz",
+      "value": -158.0205669470848,
+      "unit": "dBc/Hz",
+      "status": "valid",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "osc_pnoise_se_v1"
+    },
+    {
+      "metric": "free_frequency_Hz",
+      "value": 13537138.68795371,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "output_vpp_V",
+      "value": 1.246989792996679,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "see_dev_max_pct",
+      "value": 3.0869330803608763,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 0.25
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1",
+      "constraints": [
+        "see_pos_025pC"
+      ],
+      "constraint": {
+        "upper": 12.1
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "see_dev_min_pct",
+      "value": -2.7318410723544795,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 0.25
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "see_dev_neg_pct",
+      "value": 2.7318410723544795,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 0.25
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1",
+      "constraints": [
+        "see_neg_025pC"
+      ],
+      "constraint": {
+        "upper": 5.5
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "see_dev_abs_pct",
+      "value": 3.0869330803608763,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 0.25
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "see_dev_max_pct",
+      "value": 19.80192817757662,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 1.3
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "see_dev_min_pct",
+      "value": -7.501899781163834,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 1.3
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "see_dev_neg_pct",
+      "value": 7.501899781163834,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 1.3
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1"
+    },
+    {
+      "metric": "see_dev_abs_pct",
+      "value": 19.80192817757662,
+      "unit": "%",
+      "status": "valid",
+      "point": {
+        "charge_pC": 1.3
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "vco_see_v1",
+      "constraints": [
+        "see_abs_13pC"
+      ],
+      "constraint": {
+        "upper": 33.0
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "f_lower": {
+      "value": 13537920.61413677,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "f_upper": {
+      "value": 13537920.61413677,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "power": {
+      "value": 0.00019606575329711483,
+      "unit": "W",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "pn_1MHz": {
+      "value": -128.31354510845833,
+      "unit": "dBc/Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "offset_Hz": 1000000.0
+      },
+      "complete": true
+    },
+    "swing": {
+      "value": 1.2469410332110356,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "see_pos_025pC": {
+      "value": 3.0869330803608763,
+      "unit": "%",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "charge_pC": 0.25
+      },
+      "complete": true
+    },
+    "see_neg_025pC": {
+      "value": 2.7318410723544795,
+      "unit": "%",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "charge_pC": 0.25
+      },
+      "complete": true
+    },
+    "see_abs_13pC": {
+      "value": 19.80192817757662,
+      "unit": "%",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "charge_pC": 1.3
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/osc_pnoise_se_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 5 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 2.133,
+      "cpu_s": 1.5
+    },
+    {
+      "job_id": "NN_T27_S1p00/vco_see_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 5 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 19.577,
+      "cpu_s": 17.4
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 2,
+    "analysis_executions": 7,
+    "condition_evaluations": 1,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 18.9,
+    "execution_wall_s": 22.936,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/rvco24_um_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/rvco24_um_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/rvco24_um_task_001/NN_T27_S1p00/osc_pnoise_se_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/rvco24_um_task_001/NN_T27_S1p00/vco_see_v1"
+    ]
+  }
+}

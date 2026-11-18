@@ -1,0 +1,25 @@
+{
+  "authorization": "User: Do everything according to the paper; root authorized separatepaper-modelbranch",
+  "source": "Jolley2017 PDFpage29 AppendixEq22\u201323",
+  "changes": [
+    {
+      "model": "mmbt6429_kn_approx",
+      "parameter": "Vaf",
+      "old": 100,
+      "new": 804,
+      "unit": "V"
+    }
+  ],
+  "original_model_sha256": "be6c18b8e690853d01674f8ef3f5defbec103744f11e4901947cf2d1e4ac1fb8",
+  "paper_corrected_model_sha256": "cf7fd07e37dea0c6e3b7068949071243c6eb3a1bf02e4b1fa673ac660265cf9c",
+  "all_other_model_parameters_unchanged": true,
+  "output_models_unchanged": true,
+  "note": "Paperstatesapproximately200nominalcurrentgain, not temperature-independentBF/XTB parameters; nooutputmodelchangejustified.",
+  "scope_limitation": "This corrects one explicitly documented model parameter; it does not reconstruct the complete original paper model library. Other approximation parameters are preserved.",
+  "additional_paper_data_audit": {
+    "output_capacitance": "400pF at VCB10V is a bias-dependent characteristic, not a direct CJC parameter; no unsourced replacement made.",
+    "driver_capacitance": "19pF at VCB10V is bias-dependent; no direct CJC substitution made.",
+    "output_current_gain": "approximately200 at VCE40V is effective beta, not BF; existing model low-bias OP agrees nominally.",
+    "temperature_coefficients": "No explicit XTB or complete temperature model provided by paper; existing output-model values retained."
+  }
+}

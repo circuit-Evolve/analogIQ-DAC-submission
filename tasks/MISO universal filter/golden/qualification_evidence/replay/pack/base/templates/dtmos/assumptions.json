@@ -1,0 +1,17 @@
+[
+  "First rising half-power crossing relative to measured passband gain. Provisional passband qualification window: 2-20 kHz (10-100 times the 200 Hz target), at most 1 dB peak-to-peak variation; reference gain at the geometric centre, 6.3246 kHz. The low-frequency gain must be below the half-power level. Window and flatness are measurement assumptions, not paper specifications; a failed qualification produces no fc. Target band: 180-220 Hz.",
+  "Paper Fig1(b) visually inspected from page2; Table I and Fig2 inspected from page3. Source images retained in paper/. No graph values digitized.",
+  "Nominal process NN of installed gpdk180 v3.2; paper does not identify PDK revision or temperature. Assumed27C. Supply +/-0.9V; bias IB1=250uA, IB2=15uA, I0=60uA exactly as Section III.",
+  "C1=70nF, C2=120nF retained from Section III.B nominal setting. No corner, capacitance sweep, optimization, or Monte Carlo performed.",
+  "Every total W/L equals Table I. M3 total150u/2u is two75u/2u parallel devices (m=2) because installed PMOS model bins stop at100u. This is documented model-compatible decomposition, not tuned width.",
+  "Unspecified junction geometry is derived using0.4um diffusion extension: AD=AS=W*0.4um, PD=PS=2*(W+0.4um), per parallel device. No post-layout parasitics.",
+  "Four DTMOS bias PMOS Mpb1-4 retain actual B=G connections. Other NMOS bodies=VSS and PMOS bodies=VDD assumed because figure omits their bulk terminals. M2 source=GND follows its explicit ground symbol; it is not connected toVSS.",
+  "Figure1b output NMOS directly below Mpb6 has no printed label. It is assigned Mnb5 by elimination; the printed rightmost bottom Mnb4 retains3u/2u fromTableI. This ambiguity is not silently corrected.",
+  "Current sources connect toground symbols as drawn. OUT is clamped to0V using an ideal voltage-source current meter; output load and input DC offset are unspecified. Input DC=0A assumed.",
+  "HPF Fig2 gives only block-level negative current feedback; no feedback transistor circuit. Derived cell duplicates Mpb6,Mpb8,Mnb5 with identical sizes and gates/sources/bodies, tying their drains toIN. Core output atOUT remains measured. This20-device extension is a physical mirror-copy interpretation, not an exact paper17-device HPF; insufficient copy compliance is measured.",
+  "All active transfer functions use physical gpdk180 transistors. There is no ideal fractional operator, fitted rational controlled source, or surrogate active core.",
+  "THD uses paper500Hz and10uApp stimulus, harmonics2-20 over last10cycles. Paper does not specify THD harmonic count, analysis window, output load, or input DC. Full1-20uA THD range is not established by thissingle point.",
+  "Claimed fractional-order ranges0.6-1 and0.7-1 are not numerical point targets: paper does not provide unique alpha mapping, tau, coefficient-setting rule, or extraction window. The100-1000Hz slope is diagnostic only; negative measured slope fails the qualitative claimed behavior.",
+  "Published1kHz differentiation-range statement lacks numerical error threshold and cannot be certified as a scalar bandwidth. Area2245.55um2 and53.25x42.7um are layout-only and inconsistent (product2273.775um2); no layout target is claimed.",
+  "Power rail definition follows both external supplies. Ideal current-source realization power/overhead is not modeled, matching the drawn ideal-source abstraction; exact paper power definition is absent."
+]

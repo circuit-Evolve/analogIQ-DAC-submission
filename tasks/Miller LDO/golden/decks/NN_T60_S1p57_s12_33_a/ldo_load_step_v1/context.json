@@ -1,0 +1,252 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T60_S1p57_s12_33_a/ldo_load_step_v1",
+ "recipe_id": "ldo_load_step_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "load_low_A": 0.0,
+   "load_high_A": 0.001
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "NN_T60_S1p57_s12_33_a/ldo_load_step_v1",
+  "condition": {
+   "id": "NN_T60_S1p57_s12_33_a",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_scale": 1.571428,
+   "supply_V": 3.2999988000000005,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "label": "s12_33_a",
+   "operating": {
+    "load_step_low_A": 0,
+    "load_step_high_A": 0.001,
+    "output_voltage_V": 1.2
+   },
+   "external_bias": {
+    "ENABLE": 3.3
+   },
+   "is_nominal": false,
+   "supply_span_V": 3.2999988000000005
+  },
+  "operating": {
+   "input_voltage_V": 2.1,
+   "reference_V": 1.2,
+   "load_current_A": 0.07,
+   "load_capacitance_F": 5e-11,
+   "output_voltage_V": 1.2,
+   "load_step_low_A": 0,
+   "load_step_high_A": 0.001
+  },
+  "recipe_settings": {
+   "edge_time_s": 2e-06,
+   "interval_s": 4e-05,
+   "settle_band_V": 0.0018,
+   "settle_band_fraction": 0.001,
+   "overshoot_reference": "final",
+   "max_step_s": 1e-08
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ldo24m_miller",
+   "family": "ldo",
+   "interface_type": "pmos_pass_ldo",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "title": "A 0.18um CMOS Internally-Compensated Low-Dropout Voltage Regulator (C. F. Ventura Arizmendi, INAOE MSc thesis, 2014)",
+    "figure": "Fig. 4.1 (LDO), Fig. 4.4 (AC test setup, source/testbench.png), Tables 3.2-3.7, 4.2-4.8",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (thesis PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, schematics, testbench.png; see source/ORIGIN.txt)",
+    "modifications": [
+     "None to final.scs (schemgen export, the uninstantiated subckt repaired_core is the DUT body). Devices are the gpdk180 thick-oxide nmos25/pmos25 (the paper is UMC 0.18 um with 3.3 V devices, supply 2.1-3.3 V); all devices of the netlist are 25 classes, so no device-type swap.",
+     "Pins VBIAS (gate bias of the NMOS current sources M5/M6/MAB, never given in the paper) and ENABLE (gate of Ms, selects Vout 1.8 V / 1.2 V) are driven by testbench voltage sources."
+    ]
+   },
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "ldo24m_miller_dut",
+    "port_order": [
+     "VIN",
+     "VSS",
+     "VREF",
+     "VBIAS",
+     "ENABLE",
+     "VOUT"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "supply_input": "VIN",
+    "output": "VOUT",
+    "reference": "VREF"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VBIAS": {
+     "kind": "voltage",
+     "value": 0.61,
+     "provenance": "benchmark_default_unreviewed (sizing variable V_BIAS, this is its initial value): gate bias of the NMOS current sources M5 (3.3 uA), M6 (13.1 uA) and MAB (0.5 uA); the paper never gives it (Fig. 3.1 'VBias not reported'). Chosen by simulation so that the no-load quiescent current is about the paper's 47 uA (curator_choice_pending_owner_review)"
+    },
+    "ENABLE": {
+     "kind": "voltage",
+     "value": 3.3,
+     "provenance": "paper: p.62 / p.89 (ENABLE low = Ms off = Vout 1.8 V, the nominal mode); the 1.2 V mode (ENABLE = VIN) is the labelled conditions v12 / v12_V33"
+    }
+   },
+   "probes": [
+    "VFB",
+    "N2",
+    "VG",
+    "NCF"
+   ],
+   "loop_probe": {
+    "instance": "M4",
+    "terminal": 1
+   },
+   "op_check": {
+    "exclude": [
+     "MC",
+     "M7",
+     "MS",
+     "MRFB1",
+     "MRFB2",
+     "MRFB3"
+    ],
+    "note": "MC is the MOS compensation resistor (triode by design, paper Table 3.2), M7 is at the triode edge at no load (Table 3.2), Ms is the enable switch (off in the nominal mode); the diode-connected feedback PMOS MRFB1-3 are always saturated"
+   },
+   "known_issues": [
+    "loop_probe: gate of M4 (error-amplifier input from the feedback node VFB): breaks the whole regulation loop at a high-impedance point (the paper breaks it at the feedback node with LBIG/CBIG, Fig. 4.4).",
+    "IBIAS-like currents: the error amplifier and current amplifier are biased by the gate voltage VBIAS (no current source in final.scs); the paper's branch currents (EA 16.4 uA, Table 4.6) are checked against the start values by the reference.",
+    "Paper inconsistencies (thesis): load regulation 0.6 mV/mA (text, Table 4.7) vs 0.714 (Table 4.8); dropout 342 mV (Table 4.7, Fig. 4.3) vs 350 mV (Table 4.8); Vout=1.2 V dropout 534 mV (text) vs 940 mV (Table 4.7); compensation cap Cf 1.5 pF (design) vs <=5 pF (Table 4.8)."
+   ]
+  },
+  "subckt_name": "ldo24m_miller_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_EAL": 1.239447261577426e-06,
+   "L_EAL": 1.2333384268444895e-06,
+   "W_EAIN": 1.417535532684865e-05,
+   "L_EAIN": 2.24880190566467e-06,
+   "W_EAT": 1.379967110649612e-05,
+   "L_EAT": 2.9970193646535408e-06,
+   "W_EAS": 2.241586840284553e-06,
+   "L_EAS": 1.616078556483745e-06,
+   "W_EA2": 4.8813348474016104e-05,
+   "L_EA2": 1.99915252261674e-06,
+   "W_MCR": 1.4050021313860443e-06,
+   "L_MCR": 7.603922072908872e-06,
+   "C_EA": 3.559701666949974e-13,
+   "W_PASS": 1.6922855977643836e-05,
+   "N_PASS": 243.0,
+   "L_PASS": 3.0031879113208985e-07,
+   "W_RFB": 1.3620807697516766e-05,
+   "L_RFB": 7.371708438376383e-07,
+   "W_MSW": 5.010609552037965e-05,
+   "L_MSW": 4.186824600793429e-07,
+   "W_CM": 3.3838201067244906e-06,
+   "L_CM": 5.184219043653652e-07,
+   "W_WLS": 6.4959250892237435e-06,
+   "L_WLS": 1.3360342093575552e-06,
+   "W_WLB": 1.5486743372861277e-05,
+   "L_WLB": 9.458726116173424e-07,
+   "W_MAB": 5.869974442355513e-06,
+   "L_MAB": 6.798880437184044e-07,
+   "C_F": 1.2109464612028442e-11
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BIAS": 0.5366334571987345
+  },
+  "bias_variables": {
+   "VBIAS": "V_BIAS"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

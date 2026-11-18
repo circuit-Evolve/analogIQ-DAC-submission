@@ -1,0 +1,77 @@
+// Generated for: spectre
+// Generated on: Nov  3 04:34:06 2026
+// Design library name: test
+// Design cell name: LDO_with_erroramp_tb_dac
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters i_load=25m
+include "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs" section=tt
+
+// Library name: test
+// Cell name: LDO_with_erroramp
+// View name: schematic_golden
+simulator lang=spectre
+subckt LDO_with_erroramp VDD_core VIN VOUT VREF gnd
+    I0 (VDD_core net3) isource dc=(25u) type=dc
+    M10 (VOUT net13 VIN VIN) g45p2svt w=(350u) l=(150n) nf=(35) as=35.5p          ad=35.5p ps=367.1u pd=367.1u nrd=289.796u nrs=289.796u sa=150n          sb=150n sd=200n sca=10.31048 scb=0.00999 scc=0.00014 m=(1)
+    M14 (VOUT net13 VIN VIN) g45p2svt w=(350u) l=(150n) nf=(35) as=35.5p          ad=35.5p ps=367.1u pd=367.1u nrd=289.796u nrs=289.796u sa=150n          sb=150n sd=200n sca=10.31048 scb=0.00999 scc=0.00014 m=(1)
+    M12 (VOUT net13 VIN VIN) g45p2svt w=(350u) l=(150n) nf=(35) as=35.5p          ad=35.5p ps=367.1u pd=367.1u nrd=289.796u nrs=289.796u sa=150n          sb=150n sd=200n sca=10.31048 scb=0.00999 scc=0.00014 m=(1)
+    M13 (VOUT net13 VIN VIN) g45p2svt w=(350u) l=(150n) nf=(35) as=35.5p          ad=35.5p ps=367.1u pd=367.1u nrd=289.796u nrs=289.796u sa=150n          sb=150n sd=200n sca=10.31048 scb=0.00999 scc=0.00014 m=(1)
+    M11 (VOUT net13 VIN VIN) g45p2svt w=(350u) l=(150n) nf=(35) as=35.5p          ad=35.5p ps=367.1u pd=367.1u nrd=289.796u nrs=289.796u sa=150n          sb=150n sd=200n sca=10.31048 scb=0.00999 scc=0.00014 m=(1)
+    M9 (net12 net11 net10 VIN) g45p2svt w=(3u) l=(150n) nf=(1) as=450f          ad=450f ps=6.3u pd=6.3u nrd=50m nrs=50m sa=150n sb=150n sd=200n          sca=12.06869 scb=0.01143 scc=0.00019 m=(2)
+    C2 (net4 net11) capacitor c=(12p)
+    C0 (net13 net12) capacitor c=(10p)
+    C1 (VOUT net6) capacitor c=(50p)
+    M5 (net1 net2 VDD_core VDD_core) g45p1svt w=(6u) l=(500n) nf=(1) as=840f          ad=840f ps=12.28u pd=12.28u nrd=23.3333m nrs=23.3333m sa=140n          sb=140n sd=160n sca=31.81634 scb=0.03611 scc=0.00298 m=(3)
+    M6 (net2 net2 VDD_core VDD_core) g45p1svt w=(6u) l=(500n) nf=(1) as=840f          ad=840f ps=12.28u pd=12.28u nrd=23.3333m nrs=23.3333m sa=140n          sb=140n sd=160n sca=31.81634 scb=0.03611 scc=0.00298 m=(3)
+    M7 (net11 net1 VDD_core VDD_core) g45p1svt w=(250u) l=(180n) nf=(25)          as=20.6p ad=20.6p ps=264.12u pd=264.12u nrd=329.6u nrs=329.6u          sa=140n sb=140n sd=160n sca=29.62924 scb=0.03494 scc=0.00276 m=(1)
+    M0 (net3 net3 gnd gnd) g45n1svt w=(4u) l=(1u) nf=(1) as=560f ad=560f          ps=8.28u pd=8.28u nrd=35m nrs=35m sa=140n sb=140n sd=160n          sca=34.52597 scb=0.03757 scc=0.00325 m=(6)
+    M1 (net5 net3 gnd gnd) g45n1svt w=(4u) l=(1u) nf=(1) as=560f ad=560f          ps=8.28u pd=8.28u nrd=35m nrs=35m sa=140n sb=140n sd=160n          sca=34.52597 scb=0.03757 scc=0.00325 m=(6)
+    M2 (net1 VREF net5 gnd) g45n1svt w=(4u) l=(1u) nf=(1) as=560f ad=560f          ps=8.28u pd=8.28u nrd=35m nrs=35m sa=140n sb=140n sd=160n          sca=34.52597 scb=0.03757 scc=0.00325 m=(6)
+    M3 (net11 net3 gnd gnd) g45n1svt w=(50u) l=(1u) nf=(5) as=4.6p ad=4.6p          ps=60.92u pd=60.92u nrd=1.84m nrs=1.84m sa=140n sb=140n sd=160n          sca=29.62924 scb=0.03494 scc=0.00276 m=(6)
+    M4 (net2 net7 net5 gnd) g45n1svt w=(4u) l=(1u) nf=(1) as=560f ad=560f          ps=8.28u pd=8.28u nrd=35m nrs=35m sa=140n sb=140n sd=160n          sca=34.52597 scb=0.03757 scc=0.00325 m=(6)
+    IPRB0 (net7 net6) iprobe
+    R10 (VIN net10) resistor r=(150)
+    R9 (net13 net12) resistor r=(10k)
+    R8 (net6 gnd) resistor r=(50)
+    R7 (net12 gnd) resistor r=(16700)
+    R11 (VOUT net6) resistor r=(50)
+    R0 (net4 net1) resistor r=(2700)
+ends LDO_with_erroramp
+
+// End of subcircuit definition.
+
+// Library name: test
+// Cell name: LDO_with_erroramp_tb_dac
+// View name: schematic
+I7 (VOUT 0) bsource i=i_load*0.5*(1+tanh((v(VOUT)-100m)/20m))
+C0 (VOUT 0) capacitor c=100p
+V0 (net2 0) vsource dc=1.8 mag=1 phase=0 type=sine
+V1 (net3 0) vsource dc=600.0m type=sine
+I8 (net2 net2 VOUT net3 0) LDO_with_erroramp
+simulatorOptions options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="sens.output" \
+    checklimitdest=psf 
+stb stb start=0.1 stop=1G dec=100 probe=I8.IPRB0 annotate=status 
+tran tran stop=1 write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+ac ac start=1 stop=100M dec=100 annotate=status 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+dc dc param=i_load start=0 stop=50m oppoint=rawfile maxiters=150 \
+    maxsteps=10000 annotate=status
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+asserts info what=assert where=rawfile
+extremeinfo info what=all where=logfile extremes=yes
+allcap info what=allcap where=file
+simStatistics info what=simstat where=rawfile
+saveOptions options save=all pwr=all currents=all useprobes=yes \
+    saveahdlvars=all

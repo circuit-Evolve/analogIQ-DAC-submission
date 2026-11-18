@@ -1,0 +1,34 @@
+schema_version: 1
+topology_id: rvco24_um
+family: oscillator
+interface_type: single_ended_ring_vco
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: 10.1109/TCSII.2022.3219159
+  title: "Um and Lee, 'A Fault-Tolerant Current-Starved Ring Oscillator With Signal-Flip Protection Delay Cells Against Radiation Effects', IEEE TCAS-II 70(3):880-884, Mar 2023"
+  figure: "Fig. 6 (three-stage current-starved ring with signal-flip protection delay cells SPDC-1..3, VBP/VBN bias, output VRO); test setup Fig. 7 (built-in SEE emulator injecting an exponential current ISEE into each SPDC output node)"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, FINAL_MAIN_SCHEMATIC.png, testbench.png = Fig. 7, testbench_2.png = Fig. 14a alpha-source setup; see source/ORIGIN.txt)"
+  modifications:
+    - "None to final.scs. CLOAD1/2/3 (undeclared symbols, no paper value) are ideal capacitors C1/C2/C3 bound to one sizing variable."
+dut:
+  netlist: final.scs
+  subckt_name: repaired_core
+  port_order: [VDD, VSS, VBP, VBN, VRO]
+  net_map: {}
+ports:
+  output_positive: VRO
+  supply_positive: VDD
+external_bias:
+  VSS: {kind: voltage, value: 0.0, provenance: "benchmark rule G3: ground pin without a family role driven by a 0 V source"}
+  VBP: {kind: voltage, value: 0.8, provenance: "paper Sec. III-A: VBP / VBN externally adjustable, value not reported; the sizing variable V_BP (curator reference 0.8 V sets ~15 MHz)"}
+  VBN: {kind: voltage, value: 1.0, provenance: "paper Sec. III-A: externally adjustable, value not reported; sizing variable V_BN (curator reference 1.0 V)"}
+op_check:
+  enabled: false
+  note: "G8 is not applicable to ring oscillators (owner decision 2026-10-23: the DC equilibrium of a ring is not its operating point)."
+known_issues:
+  - "The paper has no device sizes, no simulated results other than the Table I comparison, and no PVT sweep; every number is a measured chip value (Table I, Figs. 10-13). Targets are those measured values."
+  - "The paper's output VOUT is the ring output VRO through two buffers (Fig. 7a); the netlist has VRO only, which is the measured node here."
+  - "Table I power 178.9 uW (proposed); text says +24.5 uW for the SP blocks over the conventional 154.4 uW (consistent). Phase noise -95.43 dBc/Hz at 1 MHz is measured on silicon."
+  - "SEE metrics are measured over 10,000 random emulator strikes and an alpha source; the benchmark uses a deterministic strike set (recipe vco_see_v1), see onboarding_status."

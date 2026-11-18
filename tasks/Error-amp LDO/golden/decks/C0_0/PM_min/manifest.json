@@ -1,0 +1,48 @@
+{
+  "job_id": "C0_0/PM_min",
+  "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "C0_0",
+    "model_set": "fs",
+    "temperature_C": -40.0,
+    "supply_V": 1.8,
+    "supply_scale": 1.0,
+    "is_nominal": false,
+    "supply_span_V": 1.8,
+    "source_point_id": 1,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+        "section": "fs"
+      }
+    ]
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "scalars.tsv"
+  ],
+  "expected_metrics": [
+    "PM @ 100uA (worst)"
+  ],
+  "state": "rendered",
+  "source_netlist": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15/jobs/C0_0/PM_min/input.scs",
+  "source_sha256": "4a28a4e4f31c9abd2cb201beb5bdcb097ca14e6dbc92f5e1ca6a7883105c7346",
+  "transformations": [
+    "R8 and R11 are each 50 ohm, producing approximately 11.964 mA internal divider preload. The external 100 uA and 25 mA tests therefore have about 12.064 mA and 36.964 mA total load. Nominal no-external-load input is 12.504539 mA / 22.508171 mW; this is not a low-quiescent-current qualification.",
+    "M9 bulk is tied to VIN, with its source still at net10. This documented connectivity correction follows the reference.",
+    "PSR at 1 MHz uses the adopted 20 dB source design goal, not the source achieved -0.2 dB. Other target references and directions are explicit in targets.json.",
+    "The retained legacy metric name Load Regulation (mV/V) has the corrected unit mV/A. Line regulation and unreferenced power/current/efficiency outputs are not active metrics.",
+    "Verified numerical settings: reltol=1e-6, vabstol=1e-9, iabstol=1e-12, STB 100 points/decade."
+  ],
+  "digests": {
+    "input.scs": "4a28a4e4f31c9abd2cb201beb5bdcb097ca14e6dbc92f5e1ca6a7883105c7346",
+    "dut.scs": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06",
+    "template.scs": "4a28a4e4f31c9abd2cb201beb5bdcb097ca14e6dbc92f5e1ca6a7883105c7346",
+    "measures.ocn": "f029c8fa8e5f7c96f88686215cb9e47a4f5c7a00a590400a49de9da0e142ed89",
+    "context.json": "e7e9a889aafc7f5b91e70b9d2a040af298217fbedfc40d84edc680a7e6647bcc",
+    "scalars.tsv": "004e48d3c0be9c5a796a05d80f7179eab8e32cadb1b1f8bb9a8589a13f29704b"
+  }
+}

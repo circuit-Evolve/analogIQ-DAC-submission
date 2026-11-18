@@ -1,0 +1,201 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00_Cpd200/tia_ac_v1",
+ "recipe_id": "tia_ac_v1",
+ "recipe_version": 1,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "input.measure",
+  "raw/op_info.info"
+ ],
+ "context": {
+  "job_id": "NN_T27_S1p00_Cpd200/tia_ac_v1",
+  "condition": {
+   "id": "NN_T27_S1p00_Cpd200",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "label": "Cpd200",
+   "operating": {
+    "input_capacitance_F": 1.5e-13
+   },
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "supply_negative_V": 0.0,
+   "input_capacitance_F": 1.5e-13,
+   "load_capacitance_F": 1e-14,
+   "input_bias_current_A": -2e-05
+  },
+  "recipe_settings": {
+   "start_Hz": 1000000.0,
+   "stop_Hz": 100000000000.0,
+   "low_frequency_Hz": 1000000.0,
+   "_op_point": {
+    "exclude": []
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "tia02_singh_2018",
+   "family": "tia",
+   "interface_type": "shunt_feedback_tia",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": "10.1007/s10470-018-1246-x",
+    "title": "Wideband transimpedance amplifier using negative capacitance and capacitive feedback (Singh, Gupta, Bansal; Analog Integr. Circ. Sig. Process. 97:269-279, 2018)",
+    "figure": "Fig. 4 (shunt-feedback CS TIA M1/RF/CF with PMOS mirror load M2/M3 fed by Ibias2, followed by the negative-capacitance generator M4/M5 (tail Ibias1), diode load M6 and capacitor C from VY to Vout)",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (paper PDF, Metrics.xlsx, Corners.xlsx, Fig. 4, cadence schematic; see source/ORIGIN.txt)",
+    "modifications": [
+     "None to final.scs. Its symbols C_FB, C_NCG, V_BIAS, I_PHOTO are used but never declared; the flow makes undeclared netlist symbols DUT parameters (TI2b, netlist.py): C_FB, C_NCG, V_BIAS are sizing variables, I_PHOTO a fixed dut_parameter.",
+     "The netlist embeds the photodiode (IPHOTO current source, CPD 50 fF). TI1a: I_PHOTO = 0 and the netlist's 50 fF CPD is the photodiode; the fixture's own input capacitance is 0 at nominal (Cpd variants add Cpd - 50 fF in the fixture, TI6a)."
+    ]
+   },
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "tia02_dut",
+    "port_order": [
+     "VDD",
+     "GND",
+     "IIN",
+     "VOUT"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input": "IIN",
+    "output": "VOUT",
+    "supply_positive": "VDD",
+    "supply_negative": "GND"
+   },
+   "dut_parameters": {
+    "I_PHOTO": {
+     "value": 0.0,
+     "provenance": "owner answer TI1a: the netlist's embedded photocurrent source IPHOTO is neutralised (I_PHOTO = 0); the fixture's IIN supplies the photocurrent"
+    }
+   },
+   "op_check": {
+    "exclude": [],
+    "note": "Paper p. 4: 'Biasing is provided to drive all transistors into saturation region': all six devices are checked."
+   },
+   "known_issues": [
+    "Power: the paper reports 0.81 mW (Table 2), but the circuit's ideal bias currents alone draw ~0.81 mA from 1.8 V (Ibias2 0.4 mA in M3, ~0.4 mA mirrored into M1/M2, Ibias1 7 uA), i.e. ~1.45 mW; the paper's figure looks like a current quoted as power. Targeted at 0.81 mW anyway (TI7a, margin scoring).",
+    "The paper does not give CF, C (NCG) or Vbias (Sizing row 8 'not given'): they are sizing variables (D6/D14); the curator's reference values were chosen by simulation (reference_candidate.json), never part of the task.",
+    "Fixture photocurrent direction: the tia family's IIN pushes the DC photocurrent (20 uA, TI3c) into the input pin.",
+    "Monte Carlo (paper Fig. 13: 5 % width mismatch, 200 runs) reports only an overlaid band of curves (~44.5-47 dB), no mean or sigma: no Monte Carlo target (D18 needs mean/sigma)."
+   ]
+  },
+  "subckt_name": "tia02_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M1": 3.657458195642558e-06,
+   "L_M1": 1.8000000000000013e-07,
+   "W_M23": 1.4016309970338957e-06,
+   "L_M23": 1.9069871673236854e-07,
+   "W_M45": 4e-07,
+   "L_M45": 1.01327771772505e-06,
+   "W_M6": 4e-07,
+   "L_M6": 3.2755420534706423e-07,
+   "R_F": 10.000000000000002,
+   "C_FB": 1.6704328827205776e-13,
+   "C_NCG": 1.8654253068635632e-12,
+   "I_BIAS1": 1.2452370327579653e-05,
+   "I_BIAS2": 0.00036323944511449757,
+   "V_BIAS": 1.2102881986767737,
+   "N_M1": 1.0,
+   "N_M23": 1.0,
+   "N_M45": 1.0,
+   "N_M6": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

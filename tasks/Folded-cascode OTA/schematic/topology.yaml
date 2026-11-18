@@ -1,0 +1,39 @@
+schema_version: 1
+topology_id: fcrobust01_arxiv_2207
+family: amplifier
+interface_type: differential_input_differential_output
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: null
+  title: "Shi, Wang, Gu, Liu, Pan, Han, Sun: RobustAnalog: Fast Variation-Aware Analog Circuit Design Via Multi-task RL (arXiv 2207.06412v1; folded-cascode OTA benchmark, Fig. 3 right drawing)"
+  figure: "Fig. 3 (p. 5) Folded-Cascode OTA (NMOS-input folded cascode, PMOS common-source output stage, Miller-type caps to the NMOS cascode sources, bias block, CM amplifier); requirements p. 6 Sec. 4.1"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, Metrics.xlsx, Corners.xlsx, Fig. 3 PNG; see source/ORIGIN.txt)"
+  modifications:
+    - "dut_benchmark.scs = final.scs plus a documented rewiring (owner decision B2, 2026-10-25); final.scs is untouched."
+    - "B2: the exported netlist leaves the bias generator (I_BIAS, NMOS_15/6/CROSS_1/CROSS_0/9/5, PMOS_25/13/2) and the common-mode amplifier (PMOS_26/24/21, NMOS_8/10) driving nothing (the paper's Fig. 3 drawing has the same open ends) and ends the CM sense resistors on two pins. Rewired as the analyst read it: BIAS_NCAS = BN_UPPER, BIAS_TAIL = BN_LOWER, BIAS_OUT_L/R = BN_LOWER, BIAS_PTOP = BP_SINGLE, BIAS_PCAS = BP_CASCADE, BIAS_NBOTTOM = CM_R (CM amplifier sense-side diode), SENSE_L/SENSE_R = OUT_L/OUT_R. The eight bias pins and the two sense pins are no longer ports; VCM_REF remains the CM reference pin (role output_common_mode_reference)."
+    - "Assumptions of the rewiring: BIAS_CM = BP_SINGLE (the analyst left it open; PMOS tail mirrored from the same PMOS diode as the top sources) and the CM-amplifier actuator = the bottom sinks NMOS_11/7 through CM_R (the analyst favoured this; verified negative feedback by simulation: output CM follows VCM_REF at a roughly constant offset over the whole input CM range, output CM 0.60 V for VCM_REF 0.7 V). Mirror ratios are set by the sized devices (variables). NMOS_8 (CM_L diode) is a replica and drives nothing else."
+dut:
+  netlist: dut_benchmark.scs
+  subckt_name: fcrobust01_dut
+  port_order: [VDD, VSS, VIN_L, VIN_R, OUT_L, OUT_R, VCM_REF]
+  net_map: {}
+ports:
+  input_positive: VIN_L        # VIN_L -> NMOS_22 -> FOLD_L -> PMOS_17 -> CAS_L -> PMOS_14 -> OUT_L: non-inverting (two inversions)
+  input_negative: VIN_R
+  output: OUT_L
+  output_negative: OUT_R
+  supply_positive: VDD
+  supply_negative: VSS
+  output_common_mode_reference: VCM_REF   # gate of PMOS_24, the CM amplifier reference
+external_bias: {}
+op_check:
+  exclude: [PMOS_13]
+  note: "PMOS_13 is the top device of the PMOS cascode-bias stack PMOS_13 / PMOS_2 (gate = BP_CASCADE): its Vds = Vsg13 - Vsg2 sits at the triode edge by construction of a wide-swing cascode bias (about 20-50 mV short of Vdsat at TT for every sizing tried)."
+known_issues:
+  - "The paper is a sizing-method paper: it prints requirements only (power <= 1 mW, ugb >= 30 MHz, phm >= 60 deg, noise <= 30 'mV', gain >= 60 dB, CMRR >= 80 dB, PSRR >= 80 dB at 20 corners), no result values, no device sizes, no loads and no nominal corner. Targets are the requirements with the 10 % tolerance (X4/Q9a)."
+  - "Noise is printed as 30 'mV' (unit probably uV; the strongARM latch of the same paper prints uV): taken literally (33 mV rms limit, nearly vacuous), integrated differential input-referred over 1 Hz - 30 MHz (Q6a); flagged to the dataset team. 'Gain g' is labelled 'unity gain' in the text: DC differential open-loop gain (Q8a)."
+  - "CMRR/PSRR at 20 corners cannot be taken from a symmetric simulation (numerical floor): they are the Monte Carlo (mismatch) mean at the nominal condition only (TT, 1.8 V, 0 C = the first corner, flagged nominal; the paper has no nominal corner, Q3c), DC (1 Hz), both PSRR polarities (Q7b)."
+  - "The paper's 'transistor ratios n' (4 parameters) and its caps' two ranges (0.1-2 / 0.1-10 pF) have no counterpart here: C_L and C_R are one tied variable (D14) within the standard 10 fF-100 pF range."
+  - "Curator reference design (found by simulation at TT/1.8 V/27 C-ish; the paper has none) meets every requirement at all 20 corners except the saturation check at a few corners; see onboarding_status.yaml."

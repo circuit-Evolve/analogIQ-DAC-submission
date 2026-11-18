@@ -1,0 +1,25 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task temp_sensor_101126_task_001  topology ts1111_ptat_sensor
+// recipe ts1111_tsweep_v1 v1  condition fs_binned_T27_S1p00 (models fs_binned, 27 C, supply 1.8 V)
+// request temp_sensor_101126_task_001__plan  candidate b9e94b889d74eaf0
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice" section=fs
+include "dut.scs"
+
+parameters vsup=1.8 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+// no load and no stimulus: the output is read open (replay deck)
+
+XDUT (vdd vss out) ts1111_sensor_dut L_BC=1e-06 L_BN=1e-06 L_BP=1e-06 L_I12=1e-06 L_I13=1e-06 L_LD=1e-06 L_N8=1e-06 L_N9=1e-06 L_P7=1e-06 L_TL=1e-06 M_BC=1.0 M_BN=1.0 M_BP=1.0 M_I12=1.0 M_I13=1.0 M_LD=1.0 M_N8=1.0 M_N9=1.0 M_P7=1.0 M_TL=1.0 W_BC=1e-06 W_BN=1e-06 W_BP=1e-06 W_I12=1e-06 W_I13=1e-06 W_LD=1e-06 W_N8=1e-06 W_N9=1e-06 W_P7=1e-06 W_TL=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p out vdd vss
+
+tstol options vabstol=1e-09 iabstol=1e-14 soft_bin=allmodels
+tsweep dc param=temp start=0.0 stop=100.0 step=1.0

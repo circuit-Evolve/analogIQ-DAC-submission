@@ -1,0 +1,241 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00/osc_pnoise_se_v1",
+ "recipe_id": "osc_pnoise_se_v1",
+ "recipe_version": 1,
+ "points": [
+  {},
+  {
+   "offset_Hz": 1000000.0
+  }
+ ],
+ "expected_outputs": [],
+ "context": {
+  "job_id": "NN_T27_S1p00/osc_pnoise_se_v1",
+  "condition": {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "is_nominal": true,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "load_capacitance_F": 1e-14
+  },
+  "recipe_settings": {
+   "fund_estimate_Hz": [
+    15000000.0,
+    3000000.0,
+    60000000.0
+   ],
+   "harmonics": 30,
+   "tstab_s": 2e-06,
+   "offsets_Hz": [
+    1000000.0
+   ],
+   "min_amplitude_V": 0.05,
+   "kick_current_A": 0.0001,
+   "kick_width_s": 5e-11,
+   "pss_errpreset": "conservative",
+   "estimate": {
+    "tstop_s": 8e-06,
+    "maxstep_s": 1e-09,
+    "errpreset": "liberal"
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "rvco24_um",
+   "family": "oscillator",
+   "interface_type": "single_ended_ring_vco",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": "10.1109/TCSII.2022.3219159",
+    "title": "Um and Lee, 'A Fault-Tolerant Current-Starved Ring Oscillator With Signal-Flip Protection Delay Cells Against Radiation Effects', IEEE TCAS-II 70(3):880-884, Mar 2023",
+    "figure": "Fig. 6 (three-stage current-starved ring with signal-flip protection delay cells SPDC-1..3, VBP/VBN bias, output VRO); test setup Fig. 7 (built-in SEE emulator injecting an exponential current ISEE into each SPDC output node)",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (paper PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, FINAL_MAIN_SCHEMATIC.png, testbench.png = Fig. 7, testbench_2.png = Fig. 14a alpha-source setup; see source/ORIGIN.txt)",
+    "modifications": [
+     "None to final.scs. CLOAD1/2/3 (undeclared symbols, no paper value) are ideal capacitors C1/C2/C3 bound to one sizing variable."
+    ]
+   },
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "repaired_core",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "VBP",
+     "VBN",
+     "VRO"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "output_positive": "VRO",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VBP": {
+     "kind": "voltage",
+     "value": 0.8,
+     "provenance": "paper Sec. III-A: VBP / VBN externally adjustable, value not reported; the sizing variable V_BP (curator reference 0.8 V sets ~15 MHz)"
+    },
+    "VBN": {
+     "kind": "voltage",
+     "value": 1.0,
+     "provenance": "paper Sec. III-A: externally adjustable, value not reported; sizing variable V_BN (curator reference 1.0 V)"
+    }
+   },
+   "op_check": {
+    "enabled": false,
+    "note": "G8 is not applicable to ring oscillators (owner decision 2026-10-23: the DC equilibrium of a ring is not its operating point)."
+   },
+   "known_issues": [
+    "The paper has no device sizes, no simulated results other than the Table I comparison, and no PVT sweep; every number is a measured chip value (Table I, Figs. 10-13). Targets are those measured values.",
+    "The paper's output VOUT is the ring output VRO through two buffers (Fig. 7a); the netlist has VRO only, which is the measured node here.",
+    "Table I power 178.9 uW (proposed); text says +24.5 uW for the SP blocks over the conventional 154.4 uW (consistent). Phase noise -95.43 dBc/Hz at 1 MHz is measured on silicon.",
+    "SEE metrics are measured over 10,000 random emulator strikes and an alpha source; the benchmark uses a deterministic strike set (recipe vco_see_v1), see onboarding_status."
+   ]
+  },
+  "subckt_name": "repaired_core",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "N_PI": 74.0,
+   "W_PI": 6.564379300655872e-07,
+   "L_PI": 4.156082742628978e-06,
+   "N_NI": 29.0,
+   "W_NI": 5.63207128117874e-07,
+   "L_NI": 3.1349370984381273e-07,
+   "N_PS": 55.0,
+   "W_PS": 3.3820383226788845e-06,
+   "L_PS": 3.861470061639868e-06,
+   "N_NS": 26.0,
+   "W_NS": 7.753727049941577e-07,
+   "L_NS": 6.9405055889100745e-06,
+   "N_SW1": 2.0,
+   "W_SW1": 1.2048546856972925e-05,
+   "L_SW1": 5.051669376067145e-07,
+   "N_SW2": 17.0,
+   "W_SW2": 1.68853262143759e-06,
+   "L_SW2": 2.964002408012654e-07,
+   "N_LHD": 82.0,
+   "W_LHD": 2.5131068755474398e-05,
+   "L_LHD": 7.240568194703897e-07,
+   "N_HSW": 45.0,
+   "W_HSW": 4.468956667061474e-07,
+   "L_HSW": 1.2251676722594025e-06,
+   "N_SW5": 18.0,
+   "W_SW5": 4.199791247184124e-07,
+   "L_SW5": 3.4271855601367294e-06,
+   "N_SW6": 19.0,
+   "W_SW6": 4.833093877591236e-07,
+   "L_SW6": 2.633613904061225e-07,
+   "N_LSW": 4.0,
+   "W_LSW": 1.616431117045658e-06,
+   "L_LSW": 8.149822520588248e-07,
+   "N_LLD": 96.0,
+   "W_LLD": 2.449635772454497e-06,
+   "L_LLD": 2.4919711216528e-06,
+   "C_LOAD": 2.2333992836044953e-14
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BP": 1.1706370880180252,
+   "V_BN": 0.233039876179482
+  },
+  "bias_variables": {
+   "VBP": "V_BP",
+   "VBN": "V_BN"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

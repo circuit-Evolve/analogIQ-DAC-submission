@@ -1,0 +1,14 @@
+* analogiq 0.1.0 testbench - generated, do not edit
+* task telescopic01_scl180_task_001  topology telescopic01_scl180
+* recipe amp_ol_v1 v3  condition FF_T100_S1p00 (models FF, 100 C, supply 1.8 V)
+* request telescopic01_scl180_task_001__plan  candidate 1ad1a1f9b5e47ce6
+* execution profile search_full
+* .measure statements (SPICE syntax), included by input.scs. Results: input.measure.
+.option measdgt=10
+.measure ac g_lf find vdb(out) at=1.0
+.measure ac f3db when vdb(out)='g_lf-3' fall=1
+.measure ac ugf when vdb(out)=0 fall=1
+.measure ac pm find vp(outinv) when vdb(out)=0 fall=1
+.measure ac g_180 find vdb(out) when vp(outinv)=0 fall=1
+.measure ac ph_lf find vp(out) at=1.0
+.measure ac g01 find vdb(out) at=1.0

@@ -1,0 +1,33 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task poweramp_dac_task_001  topology poweramp_dac
+// recipe poweramp_slew_v1 v1  condition fixed_models_T85_S1p00_VT_V42_T85 (models fixed_models, 85 C, supply 42 V)
+// request poweramp_dac_task_001__plan  candidate 5d2d8bf27fc11fc9
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<ANALOGIQ>/circuits/02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac/model_library/models.scs"
+include "dut.scs"
+
+parameters vsup=42.0
+// Sizing variables set in the testbench (external-bias values).
+parameters V_REF6={{V_REF6}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_GND (b_GND 0) vsource dc=0.0
+VB_ERROR (b_ERROR 0) vsource dc=0.0
+VB_inh_bulk_n (b_inh_bulk_n 0) vsource dc=0.0
+VB_VN (b_VN 0) vsource dc=-42.0
+VB_V15 (b_V15 0) vsource dc=15.0
+VB_VN7 (b_VN7 0) vsource dc=-7.0
+VB_REF6 (b_REF6 0) vsource dc=V_REF6
+
+VIN (rfin b_ERROR) vsource dc=0 type=pulse val0=0 val1=0.87 delay=0.0005 rise=1e-09 fall=1e-09 width=0.0001 period=2.0
+
+XDUT (b_ERROR b_GND rfin open_LOAD rfout b_REF6 b_V15 b_VN b_VN7 vdd b_inh_bulk_n) poweramp C1={{C1}} C10={{C10}} C11={{C11}} C12={{C12}} C13={{C13}} C14={{C14}} C15={{C15}} C16={{C16}} C17={{C17}} C18={{C18}} C2={{C2}} C3={{C3}} C4={{C4}} C5={{C5}} C6={{C6}} C7={{C7}} C8={{C8}} C9={{C9}} L1={{L1}} N_Q10_Q11={{N_Q10_Q11}} N_Q12_Q13={{N_Q12_Q13}} N_Q14={{N_Q14}} N_Q15={{N_Q15}} N_Q16={{N_Q16}} N_Q17={{N_Q17}} N_Q18={{N_Q18}} N_Q19={{N_Q19}} N_Q1_Q2={{N_Q1_Q2}} N_Q20={{N_Q20}} N_Q21={{N_Q21}} N_Q22={{N_Q22}} N_Q3={{N_Q3}} N_Q4_Q5={{N_Q4_Q5}} N_Q6={{N_Q6}} N_Q7={{N_Q7}} N_Q8={{N_Q8}} N_Q9={{N_Q9}} R1={{R1}} R10={{R10}} R11={{R11}} R12={{R12}} R13={{R13}} R14={{R14}} R15={{R15}} R16={{R16}} R17={{R17}} R18={{R18}} R19={{R19}} R20={{R20}} R21={{R21}} R22={{R22}} R23={{R23}} R24={{R24}} R25={{R25}} R26={{R26}} R27={{R27}} R28={{R28}} R29={{R29}} R3={{R3}} R30={{R30}} R31={{R31}} R32={{R32}} R33={{R33}} R34={{R34}} R4={{R4}} R5={{R5}} R6={{R6}} R7={{R7}} R8={{R8}} R9={{R9}} input_filter_scale=0
+
+opts options temp=85.0 tnom=27 reltol=0.0001 save=selected
+save VB_ERROR:p VB_GND:p VB_REF6:p VB_V15:p VB_VN7:p VB_VN:p VB_inh_bulk_n:p VSUP:p rfin rfout vdd
+
+replayopts options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 gmin=1e-12 minr=1u pivotdc=yes dc_pivot_check=yes pivrel=0.1
+tr1 tran stop=0.00065 maxstep=2e-09 errpreset=conservative relref=sigglobal maxiters=50

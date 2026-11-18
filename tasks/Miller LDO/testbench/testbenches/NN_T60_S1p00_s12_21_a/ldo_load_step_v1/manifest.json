@@ -1,0 +1,58 @@
+{
+  "job_id": "NN_T60_S1p00_s12_21_a/ldo_load_step_v1",
+  "recipe_id": "ldo_load_step_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T60_S1p00_s12_21_a",
+    "model_set": "NN",
+    "temperature_C": 60.0,
+    "supply_scale": 1.0,
+    "supply_V": 2.1,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "label": "s12_21_a",
+    "operating": {
+      "load_step_low_A": 0,
+      "load_step_high_A": 0.001,
+      "output_voltage_V": 1.2
+    },
+    "external_bias": {
+      "ENABLE": 2.1
+    },
+    "is_nominal": false,
+    "supply_span_V": 2.1
+  },
+  "points": [
+    {
+      "load_low_A": 0.0,
+      "load_high_A": 0.001
+    }
+  ],
+  "expected_outputs": [
+    "input.measure"
+  ],
+  "expected_metrics": [
+    "undershoot_V",
+    "overshoot_V",
+    "settling_time_up_s",
+    "settling_time_down_s"
+  ],
+  "digests": {
+    "task": "ef5f09b39669e5aa2626909451896c599683f38910432596936933912671115a",
+    "candidate": "ac77f2a3c8da6cc8bffb7c23b1fc9b51da539214605705f93d41af750fe4d04b",
+    "parameterization": "0c1e962b69d7baf9f89e4c7e71b41a3663428aed70fbe027fc4056c2afad59b3",
+    "dut_source_netlist": "273b9afac138e670d60be74bb167613e4f9fbb2d16161de696d71552c34b072b",
+    "dut_subckt": "25a4fdf5abe266d6d5ed0c93c3c4aebe24eda7ef1c580a3ca897c7261bc505bb",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "63e3f5b0976de52c7c3ad9f72948e15701822c8bbf2297d8e2505b0fd371383d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "ea74587204503ee7d9139d241c9ab6b6d7ccc1c5fbd4e2e809c93f01494f27a8"
+  },
+  "state": "rendered"
+}

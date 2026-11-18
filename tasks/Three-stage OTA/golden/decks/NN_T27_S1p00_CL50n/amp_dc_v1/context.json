@@ -1,0 +1,230 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00_CL50n/amp_dc_v1",
+ "recipe_id": "amp_dc_v1",
+ "recipe_version": 3,
+ "points": [
+  {
+   "vcm_V": 0.45
+  }
+ ],
+ "expected_outputs": [
+  "input.measure",
+  "raw/op_info.info"
+ ],
+ "context": {
+  "job_id": "NN_T27_S1p00_CL50n/amp_dc_v1",
+  "condition": {
+   "id": "NN_T27_S1p00_CL50n",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "label": "CL50n",
+   "operating": {
+    "load_capacitance_F": 5e-08
+   },
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "supply_negative_V": 0.0,
+   "input_common_mode_V": 0.45,
+   "load_capacitance_F": 5e-08
+  },
+  "recipe_settings": {
+   "sweep_start_V": 0.0,
+   "sweep_stop_V": 1.2,
+   "sweep_step_V": 0.01,
+   "tracking_tolerance_V": 0.05,
+   "_op_point": {
+    "exclude": []
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ota3s24",
+   "family": "amplifier",
+   "interface_type": "differential_input_single_output",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": "10.47176/TMI.2024.286",
+    "title": "BelghisAzar: A Novel Frequency Compensation Scheme for Stabilizing Three-Stage Amplifiers for a Wide Range of Load Capacitors (Transactions on Machine Intelligence 7(4), 2024, 286-295)",
+    "figure": "Fig. 1 (p. 288, schematic of the proposed OTA), Fig. 2 (small-signal block diagram), Table 1 (sizes), Table 2 (performance)",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (paper PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, Fig. 1/Fig. 2 PNGs; see source/ORIGIN.txt)",
+    "modifications": [
+     "dut_benchmark.scs = final.scs minus two lines: `parameters CLOAD=500p` (a parameters statement inside the subckt, which the netlist parser does not support) and the load capacitor `CL (VO VSS) capacitor c=CLOAD`. CL is the paper's EXTERNAL load capacitor (0 .. 100 nF, Figs. 4-6, Table 2: 'external loadings'), not part of the amplifier; the task's testbench fixture supplies it per condition as operating load_capacitance_F (out -> ground), so the circuit is unchanged. Everything else is byte-identical to final.scs."
+    ]
+   },
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ota3s24_dut",
+    "port_order": [
+     "VIP",
+     "VIN",
+     "VO",
+     "VDD",
+     "VSS",
+     "VB1",
+     "VB2",
+     "VB3"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input_positive": "VIP",
+    "input_negative": "VIN",
+    "output": "VO",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "VB1": {
+     "kind": "voltage",
+     "value": 1.15,
+     "provenance": "paper: p. 291 'bias voltages set to 1.15 V, 0.5 V, and 0.75 V for VB1, VB2, VB3' (gates of the PMOS tail M0 and the second-stage PMOS source M7)"
+    },
+    "VB2": {
+     "kind": "voltage",
+     "value": 0.5,
+     "provenance": "paper: p. 291 (gates of the NMOS fold sources M2a/M2b)"
+    },
+    "VB3": {
+     "kind": "voltage",
+     "value": 0.75,
+     "provenance": "paper: p. 291 (gates of the NMOS cascode / current buffers M3a/M3b)"
+    }
+   },
+   "op_check": {
+    "exclude": [],
+    "note": "no device is meant to leave saturation (class-AB output M8/M9 are in saturation in the paper's bias)"
+   },
+   "known_issues": [
+    "The paper's Fig. 5 corners (process and temperature, CL = 500 pF) are plots only, with no corner names, temperatures or values: not covered (onboarding_status.yaml)."
+   ]
+  },
+  "subckt_name": "ota3s24_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M0": 8.098029815012366e-06,
+   "L_M0": 7.667849810308635e-06,
+   "W_M1": 1.7229516936130143e-05,
+   "L_M1": 4.912088701060295e-06,
+   "W_M2": 1.3128449910518226e-05,
+   "L_M2": 5.22412495444643e-06,
+   "W_M3": 8.380017783938899e-06,
+   "L_M3": 3.1104574530227926e-06,
+   "W_M4": 2.0066084087538857e-05,
+   "L_M4": 1.2293584650483118e-06,
+   "W_M5": 2.5919623511007866e-06,
+   "L_M5": 1.968240141992717e-07,
+   "W_M7": 1.4376240939872487e-05,
+   "L_M7": 1.038032655793574e-05,
+   "W_M8": 1.858061284684332e-05,
+   "L_M8": 1.8000000000000013e-07,
+   "W_M9": 5.935517818924883e-06,
+   "L_M9": 1.8000000000000013e-07,
+   "W_M6A": 2.0837504240408397e-06,
+   "W_M6B": 4.281114771658617e-06,
+   "L_M6": 3.1157676023169295e-06,
+   "RD": 54413.34118674204,
+   "CD": 1.6491454828373294e-13,
+   "CC1": 8.174308274866054e-14,
+   "CC2": 5.143722960283856e-13
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "VB1": 1.15,
+   "VB2": 0.5015188074390404,
+   "VB3": 0.7631974858463328
+  },
+  "bias_variables": {
+   "VB1": "VB1",
+   "VB2": "VB2",
+   "VB3": "VB3"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

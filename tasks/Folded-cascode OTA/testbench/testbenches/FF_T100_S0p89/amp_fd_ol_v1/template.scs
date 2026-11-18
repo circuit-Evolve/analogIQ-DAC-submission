@@ -1,0 +1,49 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task fcrobust01_task_001  topology fcrobust01_arxiv_2207
+// recipe amp_fd_ol_v1 v3  condition FF_T100_S0p89 (models FF, 100 C, supply 1.6 V)
+// request fcrobust01_task_001__plan  candidate bb6894fc5155c810
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters cl=1e-12 vcm=1.2 a_p=0.5 a_m=-0.5 a_vdd=0.0 a_vss=0.0 vsup=1.6000002000000002 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup mag=a_vdd
+VNEG (vss 0) vsource dc=vneg mag=a_vss
+
+// Open loop: DC from the opposite outputs through LF, AC into the inputs through CF.
+VACP (acp 0) vsource dc=0 mag=a_p
+VACM (acm 0) vsource dc=0 mag=a_m
+CFP (acp inp) capacitor c=1e+18
+CFM (acm inn) capacitor c=1e+18
+VCMI (vcmi 0) vsource dc=vcm
+EFBP (fbp vcmi outn out) vcvs gain=0.5
+EFBN (fbn vcmi out outn) vcvs gain=0.5
+LFP (fbp inp) inductor l=1e+18
+LFM (fbn inn) inductor l=1e+18
+CL1 (out 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+EOD (od 0 out outn) vcvs gain=1
+EODN (odn 0 out outn) vcvs gain=-1
+VOCM (vocm 0) vsource dc=0.7
+
+XDUT (vdd vss inp inn out outn vocm) fcrobust01_dut C_COMP={{C_COMP}} I_BIAS={{I_BIAS}} L_B15={{L_B15}} L_B5={{L_B5}} L_B6={{L_B6}} L_B9={{L_B9}} L_BX0={{L_BX0}} L_BX1={{L_BX1}} L_CMDIO={{L_CMDIO}} L_CMIN={{L_CMIN}} L_CMTAIL={{L_CMTAIL}} L_CS={{L_CS}} L_IN={{L_IN}} L_NBOT={{L_NBOT}} L_NCAS={{L_NCAS}} L_P13={{L_P13}} L_P2={{L_P2}} L_P25={{L_P25}} L_PCAS={{L_PCAS}} L_SINK={{L_SINK}} L_TAIL={{L_TAIL}} L_TOP={{L_TOP}} M_B15={{M_B15}} M_B5={{M_B5}} M_B6={{M_B6}} M_B9={{M_B9}} M_BX0={{M_BX0}} M_BX1={{M_BX1}} M_CMDIO={{M_CMDIO}} M_CMIN={{M_CMIN}} M_CMTAIL={{M_CMTAIL}} M_CS={{M_CS}} M_IN={{M_IN}} M_NBOT={{M_NBOT}} M_NCAS={{M_NCAS}} M_P13={{M_P13}} M_P2={{M_P2}} M_P25={{M_P25}} M_PCAS={{M_PCAS}} M_SINK={{M_SINK}} M_TAIL={{M_TAIL}} M_TOP={{M_TOP}} R_SENSE={{R_SENSE}} W_B15={{W_B15}} W_B5={{W_B5}} W_B6={{W_B6}} W_B9={{W_B9}} W_BX0={{W_BX0}} W_BX1={{W_BX1}} W_CMDIO={{W_CMDIO}} W_CMIN={{W_CMIN}} W_CMTAIL={{W_CMTAIL}} W_CS={{W_CS}} W_IN={{W_IN}} W_NBOT={{W_NBOT}} W_NCAS={{W_NCAS}} W_P13={{W_P13}} W_P2={{W_P2}} W_P25={{W_P25}} W_PCAS={{W_PCAS}} W_SINK={{W_SINK}} W_TAIL={{W_TAIL}} W_TOP={{W_TOP}}
+
+opts options temp=100.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p inn inp od out outn vdd vocm vss
+
+ac1 ac start=0.1 stop=1000000000.0 dec=20
+simulator lang=spice
+.include 'measures.sp'
+.alter
+* point p001
+.param a_p=1 a_m=1 a_vdd=0 a_vss=0
+.alter
+* point p002
+.param a_p=0 a_m=0 a_vdd=1 a_vss=0
+.alter
+* point p003
+.param a_p=0 a_m=0 a_vdd=0 a_vss=1
+.end

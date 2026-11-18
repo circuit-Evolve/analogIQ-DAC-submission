@@ -1,0 +1,37 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task gmix04_task_001  topology gmix04_patulea_2015
+// recipe mixer_ip3_sb_v1 v1  condition tt_T27_S1p00 (models tt, 27 C, supply 1.8 V)
+// request golden_gmix04_task_001  candidate 3bdec38cbb5c8fb6
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+include "dut.scs"
+
+parameters vsup=1.8
+// Sizing variables set in the testbench (external-bias values).
+parameters V_LO=1.6510714775927517 V_TAIL=0.8850105699360672
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_TAIL_BIAS (b_TAIL_BIAS 0) vsource dc=V_TAIL
+
+// Ideal LO drive (large signal).
+VLOP (lop 0) vsource type=sine sinedc=V_LO ampl=0.34 freq=5000000000.0 fundname="lo"
+VLON (lon 0) vsource type=sine sinedc=V_LO ampl=0.34 freq=5000000000.0 sinephase=180 fundname="lo"
+// RF: matched port, noiseless termination, ideal balun AC-coupled through ideal DC blocks (instrumentation).
+PRF (rfi 0) port r=50.0 num=1 type=sine freq=20000000.0 dbm=-40.0 fundname="rf1" freq2=30000100.0 dbm2=-40.0 fundname2="rf2"
+RT (rfi 0) resistor r=50.0 isnoisy=no
+ERP (rfsp 0 rfi 0) vcvs gain=0.5
+ERN (rfsn 0 rfi 0) vcvs gain=-0.5
+CBP (rfsp rfp) capacitor c=1e-08
+CBN (rfsn rfn) capacitor c=1e-08
+EIF (vif 0 ifp ifn) vcvs gain=1
+
+XDUT (vdd b_VSS ifp ifn lop lon rfp rfn b_TAIL_BIAS) gmix04_dut C_DIV=1.7671008928870212e-11 C_TAIL=6.4017835960250715e-12 C_VDD=3.955866907406885e-11 L_BB=1.9243114048022646e-07 L_SW=1.643548515933251e-07 L_T=1.7157063295728973e-07 NF_BB=35.0 NF_SW=40.0 NF_T=35.0 N_BB=4.0 N_SW=7.0 N_T=6.0 R_BB=961.5728300253633 R_D=95.0411223204154 R_DIV_BOT=13308.583612898425 R_DIV_TOP=3312.20785948124 W_BB=1.0834419975758535e-06 W_SW=1.18998834999351e-06 W_T=1.8388871128264066e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_TAIL_BIAS:p VB_VSS:p VSUP:p ifn ifp lon lop rfi rfn rfp vdd vif
+
+hb1 hb funds=["lo" "rf1" "rf2"] maxharms=[7 3 3] errpreset=moderate

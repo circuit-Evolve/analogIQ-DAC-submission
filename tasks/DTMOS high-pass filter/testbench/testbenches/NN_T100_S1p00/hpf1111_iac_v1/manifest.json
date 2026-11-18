@@ -1,0 +1,57 @@
+{
+  "job_id": "NN_T100_S1p00/hpf1111_iac_v1",
+  "recipe_id": "hpf1111_iac_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T100_S1p00",
+    "model_set": "NN",
+    "temperature_C": 100.0,
+    "supply_scale": 1.0,
+    "supply_V": 0.9,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "is_nominal": false,
+    "supply_negative_V": -0.9,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {},
+    {
+      "freq_Hz": 200.0
+    }
+  ],
+  "expected_outputs": [
+    "raw/dc1.dc",
+    "raw/ac1.ac",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "quiescent_power_W",
+    "cutoff_frequency_Hz",
+    "passband_gain_dB",
+    "passband_ripple_dB",
+    "current_gain_dB",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "b93bb139f6cfa7e034fd6a2718cc3a547a83a28bc26bcc6bbb297bf619b18f11",
+    "candidate": "eac6ca687d6d919de9ee0562e6bb30d6c49a659708de83ff044395f5f9af2435",
+    "parameterization": "0df9ced570cb6443efdb6d3a56eb4067108da6ba309cddcaf06059e4697172b8",
+    "dut_source_netlist": "ab39d29eead65829a490e98c5c1d5c75a371caf26a6b308a0239844ec4a7616b",
+    "dut_subckt": "e4b123a8cbe626ca447cff81f16b74df2bd46e5d8630bf518ec0f4529b774cdc",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "2e0218e23a814adf0b9edb953be517e70bcec47c363104a23733f054f7ec160d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "ecdb834b1e820149bf663d2d1072c5cd7ec81658db26c945246c43b01580c700"
+  },
+  "state": "rendered"
+}

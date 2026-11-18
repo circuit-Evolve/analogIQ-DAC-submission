@@ -1,0 +1,54 @@
+{
+  "job_id": "tt_T27_S1p00/mixer_cg_sb_v1",
+  "recipe_id": "mixer_cg_sb_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "tt_T27_S1p00",
+    "model_set": "tt",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "tt"
+      }
+    ],
+    "is_nominal": true,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {
+      "f_lo_Hz": 5000000000.0,
+      "f_rf_Hz": 20000000.0,
+      "f_if_Hz": 5020000000.0,
+      "sideband": 1
+    }
+  ],
+  "expected_outputs": [
+    "raw/pss1.td.pss",
+    "raw/pac1.pac",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "conversion_gain_dB",
+    "average_power_W",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "f5df7e05f8476b2ec2468baf1c222b02919259fa4f7f2d77e248ded36b6b6999",
+    "candidate": "4ebbce2762a48315c4e86d8a312647e876a94708342bafea8cce7ed44c2b5a73",
+    "parameterization": "ed178fc981eaa5f157a31ed8e0c5a3786f613cf1380ece4e28ece3d56f0e06b6",
+    "dut_source_netlist": "da9cdaf9df568c60b9de4575d9a19be0f6e448e052299bdb0bfbd3f23f04b74c",
+    "dut_subckt": "b562fc179f972e9a7de52ce33515ffcb9b9332d3e9a370b3ce843ceb6445fc7d",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "7bf2c9359c8c02aff6d893886b440a3761f876390ff3c5ad727fc709c2b8088c",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "8ec38d4a5960bd6f9d5fd844c18bf80bcb7ac06db1dd219b75a160e7ffdcc16c"
+  },
+  "state": "rendered"
+}

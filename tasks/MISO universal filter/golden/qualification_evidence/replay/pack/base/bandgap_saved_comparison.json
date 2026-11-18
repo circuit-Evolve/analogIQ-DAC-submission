@@ -1,0 +1,71 @@
+{
+  "circuit": "SKY130 bandgap",
+  "process": "tt",
+  "temperature_C": 27,
+  "supply_V": 1.8,
+  "native_library": "DAC_20261107_BGR",
+  "comparison": [
+    {
+      "metric": "Vref_V",
+      "paper_value": 1.2,
+      "simulated_value": 1.187834522456848,
+      "deviation_percent": -1.0137897952626578,
+      "passed": true,
+      "expression": "getData(\"VREF\" ?result \"dcOp\")",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "metric": "Power_uW",
+      "paper_value": 257.47,
+      "simulated_value": 98.55369008927147,
+      "deviation_percent": -61.72226275322505,
+      "passed": false,
+      "expression": "-1e6*average(1.8*getData(\"VDD_SRC:p\" ?result \"tran\"))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "metric": "PSRR_LF_dB",
+      "paper_value": 23.89,
+      "simulated_value": 25.454088492996277,
+      "deviation_percent": 6.5470426663720245,
+      "passed": true,
+      "expression": "-value(dB20(getData(\"VREF\" ?result \"ac\")) 1)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "metric": "Line_sensitivity_percent",
+      "paper_value": 6.7,
+      "simulated_value": 5.3853127611449825,
+      "deviation_percent": -19.62219759485101,
+      "passed": false,
+      "expression": "100*(ymax(getData(\"VREF\" ?result \"dc\"))-ymin(getData(\"VREF\" ?result \"dc\")))/(1.89-1.71)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "metric": "TC_19_120_ppm_C",
+      "paper_value": 19.3,
+      "simulated_value": 108.98022637115658,
+      "deviation_percent": 464.66438534278024,
+      "passed": false,
+      "expression": "1e6*(ymax(clip(getData(\"VREF\" ?result \"dc\") 19 120))-ymin(clip(getData(\"VREF\" ?result \"dc\") 19 120)))/(value(getData(\"VREF\" ?result \"dc\") 27)*(120-19))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    }
+  ],
+  "assumptions": [
+    "R4=100kohm: approximate0.6V/6uA bias, not specified in paper.",
+    "CC=1pF, not specified in paper.",
+    "Source/drain diffusion length0.29um, not given by paper.",
+    "No output load specified; unloaded except paper R3.",
+    "M5 implemented as10 parallel copies at TableIV75.13/.4um.",
+    "PSRR uses positive rejection -20log10; printed Eq5 has opposite sign to reported positive23.89dB.",
+    "Line sensitivity100*deltaVref/deltaVDD; printed Eq4 omits factor100.",
+    "Nominal temperature27C; PSRR low-frequency point1Hz per axis.",
+    "Schematic simulation; installed SKY130 Spectre conversion may differ from paper NGSpice revision."
+  ],
+  "diagnostics": {
+    "cold_TC_ppm_C": 52.53572659932541,
+    "steady_output_vpp_V": 1.9984014443252818e-15
+  },
+  "passes": 2,
+  "total": 5
+}

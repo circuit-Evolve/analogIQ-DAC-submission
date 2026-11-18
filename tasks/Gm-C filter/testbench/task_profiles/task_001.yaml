@@ -1,0 +1,136 @@
+schema_version: 1
+task_id: gmc_reconstructed_131126_task_001
+approval_status: unapproved
+description: "Reconstructed four-stage Gm-C low-pass filter; retained six scalars,9independentP/V/T conditions, explicit10\u2013\
+  20MHzcutoff and15%otherlimits. Scalar comparison is not paper-exact reproduction. Standard-start69-variable sizing\
+  \ benchmark with nominal G8. User decision2026-11-13: saturation gate waived,notpassed; junction and rail gates remain\
+  \ enforced at nominal."
+topology_id: gmc_reconstructed_131126
+parameterization_id: gmc_reconstructed_131126_p1
+technology_id: gpdk090
+pvt_profile:
+  name: independent_nine
+  list:
+  - model_set: NN
+    temperature_C: 27
+    supply_scale: 0.9
+    nominal: false
+  - model_set: NN
+    temperature_C: -40
+    supply_scale: 1.0
+    nominal: false
+  - model_set: NN
+    temperature_C: 27
+    supply_scale: 1.0
+    nominal: true
+  - model_set: NN
+    temperature_C: 85
+    supply_scale: 1.0
+    nominal: false
+  - model_set: NN
+    temperature_C: 27
+    supply_scale: 1.1
+    nominal: false
+  - model_set: SS
+    temperature_C: 27
+    supply_scale: 1.0
+    nominal: false
+  - model_set: SF
+    temperature_C: 27
+    supply_scale: 1.0
+    nominal: false
+  - model_set: FS
+    temperature_C: 27
+    supply_scale: 1.0
+    nominal: false
+  - model_set: FF
+    temperature_C: 27
+    supply_scale: 1.0
+    nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.0
+    provenance: Paper nominal1V; independent voltage tests0.9/1.1V user-approved
+  input_common_mode_ratio:
+    value: 0.5
+    provenance: Retained fixture VREF/input common-mode=VDD/2; not sizing variables
+recipes:
+  gmc1113_ota_diff_v1: {}
+  gmc1113_ota_cm_v1: {}
+  gmc1113_filter_v1: {}
+constraints:
+  OTA_differential_gain_dB:
+    recipe: gmc1113_ota_diff_v1
+    metric: OTA_differential_gain_dB
+    lower: 33.15
+    provenance: "User-approved retained limit,2026-11-13. Paper reference 39; cutoff explicit10\u201320MHz; other15%\
+      \ directions and literal-dB limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py;\
+      \ reconstructed topology, not paper-exact."
+  OTA_unity_gain_frequency_Hz:
+    recipe: gmc1113_ota_diff_v1
+    metric: OTA_unity_gain_frequency_Hz
+    lower: 8500000000.0
+    provenance: "User-approved retained limit,2026-11-13. Paper reference 10000000000.0; cutoff explicit10\u201320MHz;\
+      \ other15% directions and literal-dB limits preserved. All nine independently varied conditions. Definitions in\
+      \ recipes/gmc1113_ext.py; reconstructed topology, not paper-exact."
+  OTA_phase_margin_deg:
+    recipe: gmc1113_ota_diff_v1
+    metric: OTA_phase_margin_deg
+    lower: 67.15
+    upper: 90.85
+    provenance: "User-approved retained limit,2026-11-13. Paper reference 79; cutoff explicit10\u201320MHz; other15%\
+      \ directions and literal-dB limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py;\
+      \ reconstructed topology, not paper-exact."
+  OTA_common_mode_gain_dB:
+    recipe: gmc1113_ota_cm_v1
+    metric: OTA_common_mode_gain_dB
+    upper: -20.4
+    provenance: "User-approved retained limit,2026-11-13. Paper reference -24; cutoff explicit10\u201320MHz; other15%\
+      \ directions and literal-dB limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py;\
+      \ reconstructed topology, not paper-exact."
+  Filter_cutoff_Hz:
+    recipe: gmc1113_filter_v1
+    metric: Filter_cutoff_Hz
+    lower: 10000000.0
+    upper: 20000000.0
+    provenance: "User-approved retained limit,2026-11-13. Paper reference 15000000.0; cutoff explicit10\u201320MHz; other15%\
+      \ directions and literal-dB limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py;\
+      \ reconstructed topology, not paper-exact."
+  Filter_input_noise_nV_sqrtHz:
+    recipe: gmc1113_filter_v1
+    metric: Filter_input_noise_nV_sqrtHz
+    upper: 97.75
+    provenance: "User-approved retained limit,2026-11-13. Paper reference 85; cutoff explicit10\u201320MHz; other15%\
+      \ directions and literal-dB limits preserved. All nine independently varied conditions. Definitions in recipes/gmc1113_ext.py;\
+      \ reconstructed topology, not paper-exact."
+  forward_biased_junctions:
+    recipe: gmc1113_filter_v1
+    metric: forward_biased_junctions
+    conditions:
+    - nominal
+    upper: 0
+    provenance: Benchmark G8 nominal-only validity gate; not a paper target. All144transistors checked; no waiver.
+  devices_outside_rails:
+    recipe: gmc1113_filter_v1
+    metric: devices_outside_rails
+    conditions:
+    - nominal
+    upper: 0
+    provenance: Benchmark G8 nominal-only validity gate; not a paper target. All144transistors checked; no waiver.
+not_targeted:
+- No new power,THD,IP3 or transient performance targets; definitions absent or not retained.
+- No Monte Carlo or Cartesian PVT grid.
+objective: null
+validity_gate_waiver:
+  date: '2026-11-13'
+  authority: explicit user instruction in this conversation
+  instruction: Apply the same bypass; preserve the sizing
+  classification: sizing_task_with_user_waived_saturation_gate
+  status: waived_not_passed
+  waived_metrics:
+  - devices_out_of_saturation
+  reason: "Nominal OTA2.M19,OTA3.M19,OTA4.M19 triode; worst saturation margin\u22126.1825mV. All54performancechecks pass.\
+    \ No device or target changes."
+  remaining_validity_metrics:
+  - forward_biased_junctions
+  - devices_outside_rails

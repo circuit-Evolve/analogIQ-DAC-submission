@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task nclna01_task_001  topology nclna01_alinejad_2024
+// recipe lna_ip3_v1 v1  condition NN_T27_S1p00 (models NN, 27 C, supply 0.8 V)
+// request golden_nclna01_task_001  candidate 24790ee525e5a537
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vsup=0.8
+// Sizing variables set in the testbench (external-bias values).
+parameters V_B1=0.6836488719179036 V_B2=0.6982607115827679
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VB1 (b_VB1 0) vsource dc=V_B1
+VB_VB2 (b_VB2 0) vsource dc=V_B2
+
+// Measurement instrumentation: 50-ohm style ports and ideal DC blocks.
+P1 (rfin 0) port r=50.0 num=1 type=sine freq=7400000000.0 dbm=-40.0 fundname="f1" freq2=7480000000.0 dbm2=-40.0 fundname2="f2"
+VP2N (rfout p2n) vsource dc=0
+P2 (p2n 0) port r=50.0 num=2
+
+XDUT (rfin rfout b_VB1 b_VB2 vdd) nclna01_dut C_FB=1.4333963407592512e-14 C_GB1=7.880491483319733e-14 C_GB2=2.0613311137757753e-12 C_IN=1.9922987566116098e-12 C_OUT=2.546127454435552e-12 L_IN_SH=7.746635036831963e-09 L_IS=1.0050965136965608e-10 L_LD1=1.0647775410951928e-10 L_LD2=1.8612834194755287e-08 L_LD3=4.754193388932272e-09 L_M1=1.919186687309567e-07 L_M2=9.390793033481495e-07 L_M3=1.8452704108145634e-07 L_M4=1.8151429969154623e-07 L_OUT=3.4546124664767727e-10 L_SRC=8.141491842571061e-10 N_M1=3.0 N_M2=3.0 N_M3=7.0 N_M4=4.0 R_B1=414.0291283455854 R_B2=28002.462474215343 R_FB=3653.1176337540587 R_L1=767.91999691407 R_L2=23.338867641473545 W_M1=4.482909123499092e-06 W_M2=4.658532434141864e-06 W_M3=2.7659602058891925e-05 W_M4=2.5386594515528445e-05
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VB1:p VB_VB2:p VSUP:p p2n rfin rfout vdd
+
+hb1 hb funds=["f1" "f2"] maxharms=[3 3] errpreset=moderate

@@ -1,0 +1,34 @@
+schema_version: 1
+topology_id: ota3s24
+family: amplifier
+interface_type: differential_input_single_output
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: 10.47176/TMI.2024.286
+  title: "BelghisAzar: A Novel Frequency Compensation Scheme for Stabilizing Three-Stage Amplifiers for a Wide Range of Load Capacitors (Transactions on Machine Intelligence 7(4), 2024, 286-295)"
+  figure: "Fig. 1 (p. 288, schematic of the proposed OTA), Fig. 2 (small-signal block diagram), Table 1 (sizes), Table 2 (performance)"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, Fig. 1/Fig. 2 PNGs; see source/ORIGIN.txt)"
+  modifications:
+    - "dut_benchmark.scs = final.scs minus two lines: `parameters CLOAD=500p` (a parameters statement inside the subckt, which the netlist parser does not support) and the load capacitor `CL (VO VSS) capacitor c=CLOAD`. CL is the paper's EXTERNAL load capacitor (0 .. 100 nF, Figs. 4-6, Table 2: 'external loadings'), not part of the amplifier; the task's testbench fixture supplies it per condition as operating load_capacitance_F (out -> ground), so the circuit is unchanged. Everything else is byte-identical to final.scs."
+dut:
+  netlist: dut_benchmark.scs
+  subckt_name: ota3s24_dut
+  port_order: [VIP, VIN, VO, VDD, VSS, VB1, VB2, VB3]
+  net_map: {}
+ports:
+  input_positive: VIP      # M1a gate = vi+ of Fig. 1 (checked by simulation: VIP up -> VO up)
+  input_negative: VIN      # M1b gate = vi-
+  output: VO
+  supply_positive: VDD
+  supply_negative: VSS
+external_bias:
+  VB1: {kind: voltage, value: 1.15, provenance: "paper: p. 291 'bias voltages set to 1.15 V, 0.5 V, and 0.75 V for VB1, VB2, VB3' (gates of the PMOS tail M0 and the second-stage PMOS source M7)"}
+  VB2: {kind: voltage, value: 0.5, provenance: "paper: p. 291 (gates of the NMOS fold sources M2a/M2b)"}
+  VB3: {kind: voltage, value: 0.75, provenance: "paper: p. 291 (gates of the NMOS cascode / current buffers M3a/M3b)"}
+op_check:
+  exclude: []
+  note: "no device is meant to leave saturation (class-AB output M8/M9 are in saturation in the paper's bias)"
+known_issues:
+  - "The paper's Fig. 5 corners (process and temperature, CL = 500 pF) are plots only, with no corner names, temperatures or values: not covered (onboarding_status.yaml)."

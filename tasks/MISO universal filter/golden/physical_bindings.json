@@ -1,0 +1,1030 @@
+{
+  "variables": [
+    {
+      "name": "ota_input_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 9.048377875713427e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 0.0001,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_input_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 5.1358989641628e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.8e-07,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_pmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 8.890153308676776e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.4125913941239434e-05,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_pmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 6.13127511872975e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.22625502374595e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_pload_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 1.9282306423871436e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 6.1419282065741296e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_pload_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 4.520815013867216e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.8e-07,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_nmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 1.4924392079796416e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 3.980932864884151e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_nmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 1.2884759453474346e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.2884759453474346e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_input_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 4.514077766175776e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M15",
+          "M16",
+          "M17",
+          "M18"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.0374492223376236e-05,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_input_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 5.024781576824688e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M15",
+          "M16",
+          "M17",
+          "M18"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 5.909020196389747e-07,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_pmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 1.8997377542294348e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M19",
+          "M20"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 8.546493639963264e-06,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_pmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 3.780101152335231e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M19",
+          "M20"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.8000000017999998e-07,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_pout_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 8.86237875648566e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M21",
+          "M22",
+          "M23",
+          "M24"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 6.3380058004214616e-06,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_pout_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 2.883931564905267e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M21",
+          "M22",
+          "M23",
+          "M24"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 2.8438908761359876e-07,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_ntail_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 2.86922761020893e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 4.127970700626665e-06,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_ntail_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 4.5069175902493606e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 1.8987855409287907e-06,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_nout_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 1.5847553183214265e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M27",
+          "M28",
+          "M29",
+          "M30"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 4.000000004e-07,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "frontend_nout_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 8.846575046769214e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M27",
+          "M28",
+          "M29",
+          "M30"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies.",
+      "selected_value": 8.376747565031263e-07,
+      "explicitly_selected": true,
+      "effective_scope": "Identical A1 and A2 frontend sizes, all current copies retained",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "resistor_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 2.071012806969947e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "grounded_resistor_fig8a",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Disclosed assumed Fig8a geometry, not paper dimensions.",
+      "selected_value": 9e-06,
+      "explicitly_selected": true,
+      "effective_scope": "R1 only; R2 has explicit independent override",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "resistor_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 3.084191919919904e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "grounded_resistor_fig8a",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Disclosed assumed Fig8a geometry, not paper dimensions.",
+      "selected_value": 1.8e-05,
+      "explicitly_selected": true,
+      "effective_scope": "R1 only; R2 has explicit independent override",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "C1",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-12,
+      "upper": 2e-10,
+      "initial": 2.015316575633965e-11,
+      "scale": "log",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "C1"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Published Section 6.1 initial capacitance.",
+      "selected_value": 4.341334867929787e-12,
+      "explicitly_selected": true,
+      "effective_scope": "Shared filter component or control",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "C2",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-12,
+      "upper": 2e-10,
+      "initial": 2.940700767853721e-11,
+      "scale": "log",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "C2"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Published Section 6.1 initial capacitance.",
+      "selected_value": 8.698304155954874e-11,
+      "explicitly_selected": true,
+      "effective_scope": "Shared filter component or control",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "R3",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 500,
+      "upper": 75000,
+      "initial": 3906.8347257624605,
+      "scale": "log",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "R3"
+        ],
+        "parameter": "r"
+      },
+      "provenance": "Published Section 6.1; existing passive only.",
+      "selected_value": 7245.0,
+      "explicitly_selected": true,
+      "effective_scope": "Shared filter component or control",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "OTA_IBIAS",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1e-05,
+      "upper": 0.0005,
+      "initial": 6.109511780963952e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "IBIAS"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Published 47 uA; shared across both cores.",
+      "selected_value": 0.00014662828274313486,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "VBIAS",
+      "kind": "real",
+      "unit": "V",
+      "lower": -0.55,
+      "upper": 0.6,
+      "initial": -0.27567737156559907,
+      "scale": "linear",
+      "binding": {
+        "cell": "__top__",
+        "instances": [
+          "VBIAS_SRC"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Disclosed missing-data assumption VSS+0.6 V.",
+      "selected_value": 0.49140457613450667,
+      "explicitly_selected": true,
+      "effective_scope": "Shared filter component or control",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "VCTRL",
+      "kind": "real",
+      "unit": "V",
+      "lower": 0.5,
+      "upper": 0.9,
+      "initial": 0.7042596453528347,
+      "scale": "linear",
+      "binding": {
+        "cell": "__top__",
+        "instances": [
+          "VCTRL_SRC"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Disclosed resistor characterization derived 2 kohm baseline; no optimized sizing.",
+      "selected_value": 0.9,
+      "explicitly_selected": true,
+      "effective_scope": "Shared filter component or control",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "R2_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": -1.0,
+      "scale": "log",
+      "binding": {
+        "cell": "grounded_resistor_fig8a_R2",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "IndependentexistingR2geometry, same2MOSconnectivity;R1originalcell unchanged",
+      "selected_value": 3.24074074074074e-05,
+      "explicitly_selected": true,
+      "effective_scope": "R2 only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "R2_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": -1.0,
+      "scale": "log",
+      "binding": {
+        "cell": "grounded_resistor_fig8a_R2",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "IndependentexistingR2geometry, same2MOSconnectivity;R1originalcell unchanged",
+      "selected_value": 1.8e-05,
+      "explicitly_selected": true,
+      "effective_scope": "R2 only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "OTA_input_m",
+      "kind": "integer",
+      "lower": 1,
+      "upper": 16,
+      "initial": 1,
+      "scale": "linear",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "m"
+      },
+      "provenance": "Native matchedinputpairmultiplicity, unchangedports/connectivity andPDKper-devicegeometry",
+      "selected_value": 16,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "OTA_pmirror_m",
+      "kind": "integer",
+      "lower": 1,
+      "upper": 8,
+      "initial": 1,
+      "scale": "linear",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "m"
+      },
+      "provenance": "Native equal multiplicity onallmatchedPMOSOTAcurrentmirrorbranches",
+      "selected_value": 3,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_ndiode_w",
+      "kind": "real",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": -1,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Separate existing matched NMOS diode pair sizing; M10/M12/M13 output copies remain matched",
+      "selected_value": 6.254809608352391e-07,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "ota_ndiode_l",
+      "kind": "real",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": -1,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Separate existing matched NMOS diode pair sizing; M10/M12/M13 output copies remain matched",
+      "selected_value": 1.8e-07,
+      "explicitly_selected": true,
+      "effective_scope": "A2 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_input_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 9.048377875713427e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 0.0001,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_input_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 5.1358989641628e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 1.8e-07,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_pmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 8.890153308676776e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 5.92720633909253e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_pmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 6.13127511872975e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 1.22625502374595e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_pload_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 1.9282306423871436e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 1.5354820516435323e-05,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_pload_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 4.520815013867216e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 4.5e-07,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_nmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": 1.4924392079796416e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 4.4773176239389246e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_nmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": 1.2884759453474346e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 1.2884759453474346e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_OTA_IBIAS",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1e-05,
+      "upper": 0.0005,
+      "initial": 6.109511780963952e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "IBIAS"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 0.00039999999999999996,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_OTA_input_m",
+      "kind": "integer",
+      "lower": 1,
+      "upper": 16,
+      "initial": 1,
+      "scale": "linear",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "m"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 16,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_OTA_pmirror_m",
+      "kind": "integer",
+      "lower": 1,
+      "upper": 8,
+      "initial": 1,
+      "scale": "linear",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "m"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 1,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_ndiode_w",
+      "kind": "real",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "initial": -1,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 4.4773176239389246e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    },
+    {
+      "name": "A1_ota_ndiode_l",
+      "kind": "real",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "initial": -1,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2_A1",
+        "instances": [
+          "M11",
+          "M14"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Existing A1 OTA independent sizing, identical device/port connectivity; A2 retains common base OTA",
+      "selected_value": 1.2884759453474346e-06,
+      "explicitly_selected": true,
+      "effective_scope": "A1 OTA only",
+      "historical_provenance_note": "Original variable provenance may describe prior grouping; effective_scope and saved decks describe current binding."
+    }
+  ],
+  "VM_BP_AC_points_per_decade": 600,
+  "all_selected_fields_bound": true,
+  "notes": [
+    "A1-specific OTA parameters bind the unchanged cloned A1 device graph. Base OTA parameters bind A2.",
+    "ota_ndiode binds M11/M14; ota_nmirror binds matched M10/M12/M13. A1 prefixes bind A1 equivalents.",
+    "Native input m16 is explicit on both OTA matched input pairs; every original device and all four frontend copies remain.",
+    "R2 is an unchanged two-MOS clone with independent W/L; R1 uses resistor_w/l.",
+    "Legacy pack/miso_problem.json is optimizer-only historical metadata; engine9.py and physical.py supply expanded valid bounds and bindings."
+  ]
+}

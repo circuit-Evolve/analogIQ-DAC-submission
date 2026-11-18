@@ -1,0 +1,4742 @@
+schema: analogiq.sizing_problem/1
+task_id: ptat_lelo_task_001
+topology_id: ptat_lelo
+family: bias_generator
+technology_id: sky130
+parameterization_id: ptat_lelo_p1
+execution_profile: search_full
+description: 'LELOTEMP_BIAS_IBP (wulffern/lelo_temp_sky130a, commit e439fe6): PTAT current generator of the lelo_temp temperature sensor: OTA
+  LELOTEMP_OTAR forces V(R1) = V(D1), 8:1 PMOS mirror, 1:8 substrate PNPs, resistor ladder, four cascoded IBP_1U outputs. Tests = the repository''s
+  lstb (loop gain, Tian probe -> Spectre stb), tran (power-up) and dc (temperature sweep) testbenches. Targets = the documented simulated results
+  (typical, min/max over the 16 process x temperature x supply corners, Monte Carlo mean / sigma from the 3-sigma rows); the repository''s spec
+  rows (partly inconsistent, e.g. DC gain min 50 > typ 40) are not used since a result is documented for every metric. The ''model estimate''
+  rows of the README (Python model, not simulations) are not targets.'
+source:
+  title: 'lelo_temp_sky130a LELOTEMP_BIAS_IBP: PTAT current generator (repository documentation and simulation summaries; commit e439fe6)'
+  doi: 'none (repository: https://github.com/wulffern/lelo_temp_sky130a)'
+  figure: schematics/01_LELOTEMP_BIAS_IBP.png, 02_LELOTEMP_OTAR.png, 03_LELOTEMP_BIPOLAR.png
+variables:
+- name: W_MIR
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS PTAT mirror: xca1 (x8), xca2 (x1) and the four output devices xca3[3:0] (documented 8:1 ratio by multiplier, fixed): width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_MIR
+    instances:
+    - xca2_M1
+    - xca1_M1
+    - xca3_3__M1
+    - xca3_2__M1
+    - xca3_1__M1
+    - xca3_0__M1
+- name: L_MIR
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS PTAT mirror: xca1 (x8), xca2 (x1) and the four output devices xca3[3:0] (documented 8:1 ratio by multiplier, fixed): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xca2_M1
+    - xca1_M1
+    - xca3_3__M1
+    - xca3_2__M1
+    - xca3_1__M1
+    - xca3_0__M1
+    parameter: l
+- name: NF_MIR
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'PMOS PTAT mirror: xca1 (x8), xca2 (x1) and the four output devices xca3[3:0] (documented 8:1 ratio by multiplier, fixed): finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xca2_M1
+    - xca1_M1
+    - xca3_3__M1
+    - xca3_2__M1
+    - xca3_1__M1
+    - xca3_0__M1
+    parameter: nf
+- name: W_CAS
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS cascodes (gate VCP): xca5 (x8) on VD1, xca4 on VR1 and the four output cascodes xca2[3:0]: width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_CAS
+    instances:
+    - xca2_3__M1
+    - xca2_2__M1
+    - xca2_1__M1
+    - xca2_0__M1
+    - xca4_M1
+    - xca5_M1
+- name: L_CAS
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS cascodes (gate VCP): xca5 (x8) on VD1, xca4 on VR1 and the four output cascodes xca2[3:0]: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xca2_3__M1
+    - xca2_2__M1
+    - xca2_1__M1
+    - xca2_0__M1
+    - xca4_M1
+    - xca5_M1
+    parameter: l
+- name: NF_CAS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'PMOS cascodes (gate VCP): xca5 (x8) on VD1, xca4 on VR1 and the four output cascodes xca2[3:0]: finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xca2_3__M1
+    - xca2_2__M1
+    - xca2_1__M1
+    - xca2_0__M1
+    - xca4_M1
+    - xca5_M1
+    parameter: nf
+- name: W_NLD
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'OTA NMOS diode loads xnd1/xnd2 (x4) and their mirrored outputs xnd3/xnd4 (x1): width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_NLD
+    instances:
+    - xad6_xnd1_M1
+    - xad6_xnd2_M1
+    - xad6_xnd3_M1
+    - xad6_xnd4_M1
+- name: L_NLD
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'OTA NMOS diode loads xnd1/xnd2 (x4) and their mirrored outputs xnd3/xnd4 (x1): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xnd1_M1
+    - xad6_xnd2_M1
+    - xad6_xnd3_M1
+    - xad6_xnd4_M1
+    parameter: l
+- name: NF_NLD
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'OTA NMOS diode loads xnd1/xnd2 (x4) and their mirrored outputs xnd3/xnd4 (x1): finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xnd1_M1
+    - xad6_xnd2_M1
+    - xad6_xnd3_M1
+    - xad6_xnd4_M1
+    parameter: nf
+- name: W_PMIR
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'OTA PMOS output mirror xba6 (diode) / xba8 (output LPO): width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_PMIR
+    instances:
+    - xad6_xba6_M1
+    - xad6_xba8_M1
+- name: L_PMIR
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'OTA PMOS output mirror xba6 (diode) / xba8 (output LPO): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xba6_M1
+    - xad6_xba8_M1
+    parameter: l
+- name: NF_PMIR
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'OTA PMOS output mirror xba6 (diode) / xba8 (output LPO): finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xba6_M1
+    - xad6_xba8_M1
+    parameter: nf
+- name: W_LVT
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'OTA low-Vt PMOS input pair xbl1/xbl2 (x4, VD1 / VR1) and the replica pair xbl4/xbl5 (x1) for the VCP bias: width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_LVT
+    instances:
+    - xad6_xbl1_M1
+    - xad6_xbl2_M1
+    - xad6_xbl4_M1
+    - xad6_xbl5_M1
+- name: L_LVT
+  kind: real
+  unit: m
+  lower: 3.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'OTA low-Vt PMOS input pair xbl1/xbl2 (x4, VD1 / VR1) and the replica pair xbl4/xbl5 (x1) for the VCP bias: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xbl1_M1
+    - xad6_xbl2_M1
+    - xad6_xbl4_M1
+    - xad6_xbl5_M1
+    parameter: l
+- name: NF_LVT
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'OTA low-Vt PMOS input pair xbl1/xbl2 (x4, VD1 / VR1) and the replica pair xbl4/xbl5 (x1) for the VCP bias: finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xbl1_M1
+    - xad6_xbl2_M1
+    - xad6_xbl4_M1
+    - xad6_xbl5_M1
+    parameter: nf
+- name: W_NCR
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'VCP replica NMOS diode xnc0 / mirror xnc1 (x3): width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_NCR
+    instances:
+    - xad6_xnc0_M1
+    - xad6_xnc1_M1
+- name: L_NCR
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'VCP replica NMOS diode xnc0 / mirror xnc1 (x3): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xnc0_M1
+    - xad6_xnc1_M1
+    parameter: l
+- name: NF_NCR
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'VCP replica NMOS diode xnc0 / mirror xnc1 (x3): finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xnc0_M1
+    - xad6_xnc1_M1
+    parameter: nf
+- name: W_BS
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'VCP cascode-bias replica stack xbs6, xbs1, xbs2, xbs4, xbs7, xbs8 (PMOS stack, gate VCP): width per finger'
+  binding:
+    type: dut_parameter
+    parameter: W_BS
+    instances:
+    - xad6_xbs6_M1
+    - xad6_xbs1_M1
+    - xad6_xbs2_M1
+    - xad6_xbs4_M1
+    - xad6_xbs7_M1
+    - xad6_xbs8_M1
+- name: L_BS
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'VCP cascode-bias replica stack xbs6, xbs1, xbs2, xbs4, xbs7, xbs8 (PMOS stack, gate VCP): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xbs6_M1
+    - xad6_xbs1_M1
+    - xad6_xbs2_M1
+    - xad6_xbs4_M1
+    - xad6_xbs7_M1
+    - xad6_xbs8_M1
+    parameter: l
+- name: NF_BS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'VCP cascode-bias replica stack xbs6, xbs1, xbs2, xbs4, xbs7, xbs8 (PMOS stack, gate VCP): finger count'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xbs6_M1
+    - xad6_xbs1_M1
+    - xad6_xbs2_M1
+    - xad6_xbs4_M1
+    - xad6_xbs7_M1
+    - xad6_xbs8_M1
+    parameter: nf
+- name: W_RLAD
+  kind: real
+  unit: m
+  lower: 3.5e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'resistor ladder xd3[5:0] (12 high-resistance poly units between VR1 and VD2: sets the PTAT current I = dV/(12 R)), tied: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - xd3_5__R1_0
+    - xd3_5__R1_1
+    - xd3_4__R1_0
+    - xd3_4__R1_1
+    - xd3_3__R1_0
+    - xd3_3__R1_1
+    - xd3_2__R1_0
+    - xd3_2__R1_1
+    - xd3_1__R1_0
+    - xd3_1__R1_1
+    - xd3_0__R1_0
+    - xd3_0__R1_1
+    parameter: w
+- name: L_RLAD
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'resistor ladder xd3[5:0] (12 high-resistance poly units between VR1 and VD2: sets the PTAT current I = dV/(12 R)), tied: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xd3_5__R1_0
+    - xd3_5__R1_1
+    - xd3_4__R1_0
+    - xd3_4__R1_1
+    - xd3_3__R1_0
+    - xd3_3__R1_1
+    - xd3_2__R1_0
+    - xd3_2__R1_1
+    - xd3_1__R1_0
+    - xd3_1__R1_1
+    - xd3_0__R1_0
+    - xd3_0__R1_1
+    parameter: l
+- name: W_RTAIL
+  kind: real
+  unit: m
+  lower: 3.5e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'OTA tail resistor xd2[1:0] (4 poly units), tied: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xd2_1__R1_0
+    - xad6_xd2_1__R1_1
+    - xad6_xd2_0__R1_0
+    - xad6_xd2_0__R1_1
+    parameter: w
+- name: L_RTAIL
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'OTA tail resistor xd2[1:0] (4 poly units), tied: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xad6_xd2_1__R1_0
+    - xad6_xd2_1__R1_1
+    - xad6_xd2_0__R1_0
+    - xad6_xd2_0__R1_1
+    parameter: l
+- name: W_CLPI
+  kind: real
+  unit: m
+  lower: 1.0e-06
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'MIM capacitor on LPI (10 units, count fixed): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - xd1_C1
+    parameter: w
+- name: L_CLPI
+  kind: real
+  unit: m
+  lower: 1.0e-06
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'MIM capacitor on LPI (10 units, count fixed): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xd1_C1
+    parameter: l
+- name: W_CVCP
+  kind: real
+  unit: m
+  lower: 1.0e-06
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'MIM capacitor on VCP (3 units, count fixed): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - xd2_C1
+    parameter: w
+- name: L_CVCP
+  kind: real
+  unit: m
+  lower: 1.0e-06
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'MIM capacitor on VCP (3 units, count fixed): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - xd2_C1
+    parameter: l
+dependent_parameters:
+  W_MIR_TOTAL:
+    expression: W_MIR*NF_MIR
+    role: MIR total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xca2_M1
+      - xca1_M1
+      - xca3_3__M1
+      - xca3_2__M1
+      - xca3_1__M1
+      - xca3_0__M1
+      parameter: w
+  W_CAS_TOTAL:
+    expression: W_CAS*NF_CAS
+    role: CAS total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xca2_3__M1
+      - xca2_2__M1
+      - xca2_1__M1
+      - xca2_0__M1
+      - xca4_M1
+      - xca5_M1
+      parameter: w
+  W_NLD_TOTAL:
+    expression: W_NLD*NF_NLD
+    role: NLD total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xad6_xnd1_M1
+      - xad6_xnd2_M1
+      - xad6_xnd3_M1
+      - xad6_xnd4_M1
+      parameter: w
+  W_PMIR_TOTAL:
+    expression: W_PMIR*NF_PMIR
+    role: PMIR total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xad6_xba6_M1
+      - xad6_xba8_M1
+      parameter: w
+  W_LVT_TOTAL:
+    expression: W_LVT*NF_LVT
+    role: LVT total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xad6_xbl1_M1
+      - xad6_xbl2_M1
+      - xad6_xbl4_M1
+      - xad6_xbl5_M1
+      parameter: w
+  W_NCR_TOTAL:
+    expression: W_NCR*NF_NCR
+    role: NCR total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xad6_xnc0_M1
+      - xad6_xnc1_M1
+      parameter: w
+  W_BS_TOTAL:
+    expression: W_BS*NF_BS
+    role: BS total width = per-finger width x fingers (sky130 bins on width per finger)
+    binding:
+      type: instance_parameter
+      instances:
+      - xad6_xbs6_M1
+      - xad6_xbs1_M1
+      - xad6_xbs2_M1
+      - xad6_xbs4_M1
+      - xad6_xbs7_M1
+      - xad6_xbs8_M1
+      parameter: w
+conditions:
+- id: tt_T27_S1p00
+  model_set: tt
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+- id: ss_hh_T125_S0p94_kss_th_vl
+  model_set: ss_hh
+  temperature_C: 125.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: ss_hh_T125_S1p06_kss_th_vh
+  model_set: ss_hh
+  temperature_C: 125.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: ss_hh_Tm40_S0p94_kss_tl_vl
+  model_set: ss_hh
+  temperature_C: -40.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: ss_hh_Tm40_S1p06_kss_tl_vh
+  model_set: ss_hh
+  temperature_C: -40.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: ff_ll_T125_S0p94_kff_th_vl
+  model_set: ff_ll
+  temperature_C: 125.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: ff_ll_T125_S1p06_kff_th_vh
+  model_set: ff_ll
+  temperature_C: 125.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: ff_ll_Tm40_S0p94_kff_tl_vl
+  model_set: ff_ll
+  temperature_C: -40.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: ff_ll_Tm40_S1p06_kff_tl_vh
+  model_set: ff_ll
+  temperature_C: -40.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: sf_T125_S0p94_ksf_th_vl
+  model_set: sf
+  temperature_C: 125.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: sf_T125_S1p06_ksf_th_vh
+  model_set: sf
+  temperature_C: 125.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: sf_Tm40_S0p94_ksf_tl_vl
+  model_set: sf
+  temperature_C: -40.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: sf_Tm40_S1p06_ksf_tl_vh
+  model_set: sf
+  temperature_C: -40.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: fs_T125_S0p94_kfs_th_vl
+  model_set: fs
+  temperature_C: 125.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: fs_T125_S1p06_kfs_th_vh
+  model_set: fs
+  temperature_C: 125.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: fs_Tm40_S0p94_kfs_tl_vl
+  model_set: fs
+  temperature_C: -40.0
+  supply_V: 1.6999992
+  supply_scale: 0.944444
+  nominal: false
+- id: fs_Tm40_S1p06_kfs_tl_vh
+  model_set: fs
+  temperature_C: -40.0
+  supply_V: 1.9000008
+  supply_scale: 1.055556
+  nominal: false
+- id: tt_T27_S1p00_MC
+  model_set: tt
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'repository: Vt = 1.8 V (tech_sky130A supply.spi, README corner setup); Vl/Vh = 1.7/1.9 V as supply_scale'
+  output_hold_V_0:
+    value: 0.5
+    provenance: 'repository tran.spi line 34: V0 IBP_1U<0> dc 0.5 (power-up test; the lstb and dc tests hold IBP_1U<0> at 0.6 V, recipe setting)  https://github.com/wulffern/lelo_temp_sky130a/blob/e439fe6b9351ea47a288847131337f483b2dbfcd/sim/LELOTEMP_BIAS_IBP/tran.spi#L34'
+  output_hold_V_1:
+    value: 0.6
+    provenance: 'repository tran.spi: V1 IBP_1U<1> dc 0.6'
+  output_hold_V_2:
+    value: 0.7
+    provenance: 'repository tran.spi: V2 IBP_1U<2> dc 0.7'
+  output_hold_V_3:
+    value: 0.8
+    provenance: 'repository tran.spi: V3 IBP_1U<3> dc 0.8'
+constraints:
+- name: lf_gain_typ_lo
+  metric: loop_gain_lf_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: dB
+  lower: 41.5148501887865
+  target:
+    kind: voltage_db
+    paper_value: 42.43
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'DC gain (lf_gain): loop gain |T| at 1 kHz of the PTAT regulation loop (Tian probe LPI-LPO, lstb.meas). README results table, row
+    Sch_typ (single typical run tt, 27 C, 1.8 V) = 42.43'
+  source: native
+- name: lf_gain_corner_lo
+  metric: loop_gain_lf_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: dB
+  lower: 39.8548501887865
+  target:
+    kind: voltage_db
+    paper_value: 40.77
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'DC gain (lf_gain): loop gain |T| at 1 kHz of the PTAT regulation loop (Tian probe LPI-LPO, lstb.meas). README row Sch_etc = min
+    / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition;
+    min = 40.77.'
+  source: native
+- name: mc_mean_lf_gain_lo
+  metric: mc_mean.loop_gain_lf_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  lower: 41.314850188786494
+  target:
+    kind: voltage_db
+    paper_value: 42.23
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'DC gain (lf_gain): loop gain |T| at 1 kHz of the PTAT regulation loop (Tian probe LPI-LPO, lstb.meas). README row Sch_3std = mean
+    -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 42.23'
+  source: native
+- name: mc_sigma_lf_gain
+  metric: mc_sigma.loop_gain_lf_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.6160000000000001
+  target:
+    kind: linear
+    paper_value: 0.56
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'DC gain (lf_gain): loop gain |T| at 1 kHz of the PTAT regulation loop (Tian probe LPI-LPO, lstb.meas). README row Sch_3std = mean
+    -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (43.91 - (40.55))/6 = 0.56'
+  source: native
+- name: gm_typ_up
+  metric: loop_gain_at_phase_crossover_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: dB
+  upper: -14.532146296835498
+  target:
+    kind: voltage_db
+    paper_value: -15.36
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Gain margin (gm_db): loop gain in dB where the loop phase reaches 0 deg (negative = stable). README results table, row Sch_typ
+    (single typical run tt, 27 C, 1.8 V) = -15.36'
+  source: native
+- name: gm_corner_up
+  metric: loop_gain_at_phase_crossover_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: dB
+  upper: -11.312146296835499
+  target:
+    kind: voltage_db
+    paper_value: -12.14
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Gain margin (gm_db): loop gain in dB where the loop phase reaches 0 deg (negative = stable). README row Sch_etc = min / median
+    / max over the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max
+    = -12.14.'
+  source: native
+- name: mc_mean_gm_up
+  metric: mc_mean.loop_gain_at_phase_crossover_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: -14.562146296835499
+  target:
+    kind: voltage_db
+    paper_value: -15.39
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Gain margin (gm_db): loop gain in dB where the loop phase reaches 0 deg (negative = stable). README row Sch_3std = mean -/+ 3 sigma
+    over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = -15.39'
+  source: native
+- name: mc_sigma_gm
+  metric: mc_sigma.loop_gain_at_phase_crossover_dB
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.3446663
+  target:
+    kind: linear
+    paper_value: 0.313333
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Gain margin (gm_db): loop gain in dB where the loop phase reaches 0 deg (negative = stable). README row Sch_3std = mean -/+ 3 sigma
+    over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (-14.45 - (-16.33))/6 = 0.3133'
+  source: native
+- name: pm_typ_lo
+  metric: phase_margin_deg
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: deg
+  lower: 52.181999999999995
+  target:
+    kind: linear
+    paper_value: 57.98
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Phase margin (pm_deg): loop phase at unity loop gain. README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) =
+    57.98'
+  source: native
+- name: pm_corner_lo
+  metric: phase_margin_deg
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: deg
+  lower: 40.635
+  target:
+    kind: linear
+    paper_value: 45.15
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Phase margin (pm_deg): loop phase at unity loop gain. README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff,
+    Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 45.15.'
+  source: native
+- name: mc_mean_pm_lo
+  metric: mc_mean.phase_margin_deg
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  lower: 52.452
+  target:
+    kind: linear
+    paper_value: 58.28
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Phase margin (pm_deg): loop phase at unity loop gain. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27
+    C, 1.8 V); sigma = (hi - lo)/6; mean = 58.28'
+  source: native
+- name: mc_sigma_pm
+  metric: mc_sigma.phase_margin_deg
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 1.428163
+  target:
+    kind: linear
+    paper_value: 1.29833
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Phase margin (pm_deg): loop phase at unity loop gain. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27
+    C, 1.8 V); sigma = (hi - lo)/6; sigma = (62.18 - (54.39))/6 = 1.298'
+  source: native
+- name: ug_typ_lo
+  metric: loop_unity_gain_frequency_Hz
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: Hz
+  lower: 5445000.0
+  target:
+    kind: linear
+    paper_value: 6050000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Unity gain frequency (ug) of the loop gain. README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 6.05
+  source: native
+- name: ug_corner_lo
+  metric: loop_unity_gain_frequency_Hz
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: Hz
+  lower: 2061000.0
+  target:
+    kind: linear
+    paper_value: 2290000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Unity gain frequency (ug) of the loop gain. README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 2.29.
+  source: native
+- name: mc_mean_ug_lo
+  metric: mc_mean.loop_unity_gain_frequency_Hz
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  lower: 5346000.0
+  target:
+    kind: linear
+    paper_value: 5940000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Unity gain frequency (ug) of the loop gain. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 5.94
+  source: native
+- name: mc_sigma_ug
+  metric: mc_sigma.loop_unity_gain_frequency_Hz
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 375833.7
+  target:
+    kind: linear
+    paper_value: 341667.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Unity gain frequency (ug) of the loop gain. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; sigma = (6.97 - (4.92))/6 = 0.3417
+  source: native
+- name: lpo_typ_up
+  metric: lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  upper: 0.8360000000000001
+  target:
+    kind: linear
+    paper_value: 0.76
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 0.76 (value
+    to hit, two-sided)
+  source: native
+- name: lpo_corner_up
+  metric: lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  upper: 1.155
+  target:
+    kind: linear
+    paper_value: 1.05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.05.
+  source: native
+- name: mc_mean_lpo_up
+  metric: mc_mean.lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.8360000000000001
+  target:
+    kind: linear
+    paper_value: 0.76
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 0.76
+  source: native
+- name: lpo_typ_lo
+  metric: lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  lower: 0.6839999999999999
+  target:
+    kind: linear
+    paper_value: 0.76
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 0.76 (value
+    to hit, two-sided)
+  source: native
+- name: lpo_corner_lo
+  metric: lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  lower: 0.468
+  target:
+    kind: linear
+    paper_value: 0.52
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.52.
+  source: native
+- name: mc_mean_lpo_lo
+  metric: mc_mean.lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  lower: 0.6839999999999999
+  target:
+    kind: linear
+    paper_value: 0.76
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 0.76
+  source: native
+- name: mc_sigma_lpo
+  metric: mc_sigma.lpo_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.0073333370000000005
+  target:
+    kind: linear
+    paper_value: 0.00666667
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PMOS gate voltage v(lpo) (operating point). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; sigma = (0.78 - (0.74))/6 = 0.006667
+  source: native
+- name: vd_typ_up
+  metric: delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  upper: 0.12019700000000001
+  target:
+    kind: linear
+    paper_value: 0.10927
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README results table, row Sch_typ (single typical
+    run tt, 27 C, 1.8 V) = 109.27 (value to hit, two-sided)
+  source: native
+- name: vd_corner_up
+  metric: delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  upper: 0.16047899999999998
+  target:
+    kind: linear
+    paper_value: 0.14589
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README row Sch_etc = min / median / max over
+    the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 145.89.
+  source: native
+- name: mc_mean_vd_up
+  metric: mc_mean.delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.119867
+  target:
+    kind: linear
+    paper_value: 0.10897
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README row Sch_3std = mean -/+ 3 sigma over 30
+    Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 108.97
+  source: native
+- name: vd_typ_lo
+  metric: delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  lower: 0.098343
+  target:
+    kind: linear
+    paper_value: 0.10927
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README results table, row Sch_typ (single typical
+    run tt, 27 C, 1.8 V) = 109.27 (value to hit, two-sided)
+  source: native
+- name: vd_corner_lo
+  metric: delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  lower: 0.076167
+  target:
+    kind: linear
+    paper_value: 0.08463
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README row Sch_etc = min / median / max over
+    the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 84.63.
+  source: native
+- name: mc_mean_vd_lo
+  metric: mc_mean.delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  lower: 0.098073
+  target:
+    kind: linear
+    paper_value: 0.10897
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README row Sch_3std = mean -/+ 3 sigma over 30
+    Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 108.97
+  source: native
+- name: mc_sigma_vd
+  metric: mc_sigma.delta_diode_voltage_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.001466663
+  target:
+    kind: linear
+    paper_value: 0.00133333
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Delta diode voltage vd = v(vd1) - v(xdut.vd2), the PTAT voltage across the ladder. README row Sch_3std = mean -/+ 3 sigma over 30
+    Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (112.97 - (104.97))/6 = 1.333
+  source: native
+- name: i_v1_typ_up
+  metric: output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: A
+  upper: 1.1989999999999999e-06
+  target:
+    kind: linear
+    paper_value: 1.09e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README results table, row Sch_typ (single
+    typical run tt, 27 C, 1.8 V) = 1.09 (value to hit, two-sided)
+  source: native
+- name: i_v1_corner_up
+  metric: output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: A
+  upper: 1.969e-06
+  target:
+    kind: linear
+    paper_value: 1.79e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README row Sch_etc = min / median / max
+    over the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.79.
+  source: native
+- name: mc_mean_i_v1_up
+  metric: mc_mean.output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 1.155e-06
+  target:
+    kind: linear
+    paper_value: 1.05e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README row Sch_3std = mean -/+ 3 sigma over
+    30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.05
+  source: native
+- name: i_v1_typ_lo
+  metric: output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: A
+  lower: 9.81e-07
+  target:
+    kind: linear
+    paper_value: 1.09e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README results table, row Sch_typ (single
+    typical run tt, 27 C, 1.8 V) = 1.09 (value to hit, two-sided)
+  source: native
+- name: i_v1_corner_lo
+  metric: output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: A
+  lower: 6.57e-07
+  target:
+    kind: linear
+    paper_value: 7.3e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README row Sch_etc = min / median / max
+    over the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.73.
+  source: native
+- name: mc_mean_i_v1_lo
+  metric: mc_mean.output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  lower: 9.449999999999998e-07
+  target:
+    kind: linear
+    paper_value: 1.05e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README row Sch_3std = mean -/+ 3 sigma over
+    30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.05
+  source: native
+- name: mc_sigma_i_v1
+  metric: mc_sigma.output_current_A
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 1.21e-07
+  target:
+    kind: linear
+    paper_value: 1.1e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i(v1) into the source holding IBP_1U<0> at 0.6 V (lstb operating point). README row Sch_3std = mean -/+ 3 sigma over
+    30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (1.38 - (0.72))/6 = 0.11
+  source: native
+- name: vdiff_nom_lo
+  metric: diode_error_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  lower: -3.3e-05
+  target:
+    kind: linear
+    paper_value: -3.0e-05
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'VD error vdiff = v(vd1) - v(xdut.vr1), the residual of the OTA-forced V(VD1) = V(VR1). curator choice (signed error near 0: a +-10
+    % window on 0.22 would be meaningless): the documented corner range [-0.03, 0.67] (README row Sch_etc = min / median / max over the 16 corner
+    runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition) is applied as bounds at the
+    nominal condition'
+  source: native
+- name: vdiff_corner_lo
+  metric: diode_error_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  lower: -3.3e-05
+  target:
+    kind: linear
+    paper_value: -3.0e-05
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: VD error vdiff = v(vd1) - v(xdut.vr1), the residual of the OTA-forced V(VD1) = V(VR1). README row Sch_etc = min / median / max over
+    the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = -0.03
+  source: native
+- name: vdiff_nom_up
+  metric: diode_error_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  upper: 0.000737
+  target:
+    kind: linear
+    paper_value: 0.00067
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'VD error vdiff = v(vd1) - v(xdut.vr1), the residual of the OTA-forced V(VD1) = V(VR1). curator choice (signed error near 0: a +-10
+    % window on 0.22 would be meaningless): the documented corner range [-0.03, 0.67] (README row Sch_etc = min / median / max over the 16 corner
+    runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition) is applied as bounds at the
+    nominal condition'
+  source: native
+- name: vdiff_corner_up
+  metric: diode_error_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: V
+  upper: 0.000737
+  target:
+    kind: linear
+    paper_value: 0.00067
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: VD error vdiff = v(vd1) - v(xdut.vr1), the residual of the OTA-forced V(VD1) = V(VR1). README row Sch_etc = min / median / max over
+    the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 0.67
+  source: native
+- name: mc_sigma_vdiff
+  metric: mc_sigma.diode_error_V
+  recipe: lelo30_ptat_lstb_v1
+  point: {}
+  unit: ''
+  upper: 0.008933837
+  target:
+    kind: linear
+    paper_value: 0.00812167
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: VD error vdiff = v(vd1) - v(xdut.vr1), the residual of the OTA-forced V(VD1) = V(VR1). README row Sch_3std = mean -/+ 3 sigma over
+    30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (26.62 - (-22.11))/6 = 8.122. The mean (2.26) is not targeted (offset-like
+    quantity, the documented Sch_3std mean is a 30-sample estimate of ~0).
+  source: native
+- name: t_settle_typ_up
+  metric: settling_time_s
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: s
+  upper: 5.389999999999999e-07
+  target:
+    kind: linear
+    paper_value: 4.9e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 't_settle: time from PWRUP until i(IBP_1U<0>) stays within 1 % of its final value. README results table, row Sch_typ (single typical
+    run tt, 27 C, 1.8 V) = 0.49'
+  source: native
+- name: t_settle_corner_up
+  metric: settling_time_s
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: s
+  upper: 1.166e-06
+  target:
+    kind: linear
+    paper_value: 1.06e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 't_settle: time from PWRUP until i(IBP_1U<0>) stays within 1 % of its final value. README row Sch_etc = min / median / max over
+    the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.06.'
+  source: native
+- name: mc_mean_t_settle_up
+  metric: mc_mean.settling_time_s
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 5.5e-07
+  target:
+    kind: linear
+    paper_value: 5.0e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 't_settle: time from PWRUP until i(IBP_1U<0>) stays within 1 % of its final value. README row Sch_3std = mean -/+ 3 sigma over 30
+    Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 0.5'
+  source: native
+- name: mc_sigma_t_settle
+  metric: mc_sigma.settling_time_s
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 4.216663e-08
+  target:
+    kind: linear
+    paper_value: 3.83333e-08
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 't_settle: time from PWRUP until i(IBP_1U<0>) stays within 1 % of its final value. README row Sch_3std = mean -/+ 3 sigma over 30
+    Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (0.62 - (0.39))/6 = 0.03833'
+  source: native
+- name: i0_typ_up
+  metric: output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.3046e-06
+  target:
+    kind: linear
+    paper_value: 1.186e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README results table, row Sch_typ (single typical run tt,
+    27 C, 1.8 V) = 1.186 (value to hit, two-sided)
+  source: native
+- name: i0_corner_up
+  metric: output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.8766e-06
+  target:
+    kind: linear
+    paper_value: 1.706e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README row Sch_etc = min / median / max over the 16 corner
+    runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.706.
+  source: native
+- name: mc_mean_i0_up
+  metric: mc_mean.output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.2562e-06
+  target:
+    kind: linear
+    paper_value: 1.142e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo
+    runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.142
+  source: native
+- name: i0_typ_lo
+  metric: output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 1.0674e-06
+  target:
+    kind: linear
+    paper_value: 1.186e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README results table, row Sch_typ (single typical run tt,
+    27 C, 1.8 V) = 1.186 (value to hit, two-sided)
+  source: native
+- name: i0_corner_lo
+  metric: output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 7.461e-07
+  target:
+    kind: linear
+    paper_value: 8.29e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README row Sch_etc = min / median / max over the 16 corner
+    runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.829.
+  source: native
+- name: mc_mean_i0_lo
+  metric: mc_mean.output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  lower: 1.0278000000000001e-06
+  target:
+    kind: linear
+    paper_value: 1.142e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo
+    runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.142
+  source: native
+- name: mc_sigma_i0
+  metric: mc_sigma.output_current_0_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.213663e-07
+  target:
+    kind: linear
+    paper_value: 1.10333e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i0 (IBP_1U<0> held at 0.5 V) in the power-up transient. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo
+    runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (1.473 - (0.811))/6 = 0.1103
+  source: native
+- name: i1_typ_up
+  metric: output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.3035e-06
+  target:
+    kind: linear
+    paper_value: 1.185e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 1.185 (value
+    to hit, two-sided)
+  source: native
+- name: i1_corner_up
+  metric: output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.8766e-06
+  target:
+    kind: linear
+    paper_value: 1.706e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.706.
+  source: native
+- name: mc_mean_i1_up
+  metric: mc_mean.output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.2583999999999999e-06
+  target:
+    kind: linear
+    paper_value: 1.144e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 1.144
+  source: native
+- name: i1_typ_lo
+  metric: output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 1.0665e-06
+  target:
+    kind: linear
+    paper_value: 1.185e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 1.185 (value
+    to hit, two-sided)
+  source: native
+- name: i1_corner_lo
+  metric: output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 7.452e-07
+  target:
+    kind: linear
+    paper_value: 8.28e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.828.
+  source: native
+- name: mc_mean_i1_lo
+  metric: mc_mean.output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  lower: 1.0296e-06
+  target:
+    kind: linear
+    paper_value: 1.144e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 1.144
+  source: native
+- name: mc_sigma_i1
+  metric: mc_sigma.output_current_1_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.232e-07
+  target:
+    kind: linear
+    paper_value: 1.12e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i1 (IBP_1U<1> held at 0.6 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; sigma = (1.48 - (0.808))/6 = 0.112
+  source: native
+- name: i2_typ_up
+  metric: output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.3035e-06
+  target:
+    kind: linear
+    paper_value: 1.185e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 1.185 (value
+    to hit, two-sided)
+  source: native
+- name: i2_corner_up
+  metric: output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.8766e-06
+  target:
+    kind: linear
+    paper_value: 1.706e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.706.
+  source: native
+- name: mc_mean_i2_up
+  metric: mc_mean.output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.2705e-06
+  target:
+    kind: linear
+    paper_value: 1.155e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 1.155
+  source: native
+- name: i2_typ_lo
+  metric: output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 1.0665e-06
+  target:
+    kind: linear
+    paper_value: 1.185e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 1.185 (value
+    to hit, two-sided)
+  source: native
+- name: i2_corner_lo
+  metric: output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 7.452e-07
+  target:
+    kind: linear
+    paper_value: 8.28e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.828.
+  source: native
+- name: mc_mean_i2_lo
+  metric: mc_mean.output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  lower: 1.0395e-06
+  target:
+    kind: linear
+    paper_value: 1.155e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 1.155
+  source: native
+- name: mc_sigma_i2
+  metric: mc_sigma.output_current_2_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.21e-07
+  target:
+    kind: linear
+    paper_value: 1.1e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i2 (IBP_1U<2> held at 0.7 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; sigma = (1.485 - (0.825))/6 = 0.11
+  source: native
+- name: i3_typ_up
+  metric: output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.3035e-06
+  target:
+    kind: linear
+    paper_value: 1.185e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 1.185 (value
+    to hit, two-sided)
+  source: native
+- name: i3_corner_up
+  metric: output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 1.8755e-06
+  target:
+    kind: linear
+    paper_value: 1.705e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.705.
+  source: native
+- name: mc_mean_i3_up
+  metric: mc_mean.output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.2672e-06
+  target:
+    kind: linear
+    paper_value: 1.152e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 1.152
+  source: native
+- name: i3_typ_lo
+  metric: output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 1.0665e-06
+  target:
+    kind: linear
+    paper_value: 1.185e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 1.185 (value
+    to hit, two-sided)
+  source: native
+- name: i3_corner_lo
+  metric: output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  lower: 7.452e-07
+  target:
+    kind: linear
+    paper_value: 8.28e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.828.
+  source: native
+- name: mc_mean_i3_lo
+  metric: mc_mean.output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  lower: 1.0368e-06
+  target:
+    kind: linear
+    paper_value: 1.152e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 1.152
+  source: native
+- name: mc_sigma_i3
+  metric: mc_sigma.output_current_3_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.285163e-07
+  target:
+    kind: linear
+    paper_value: 1.16833e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Output current i3 (IBP_1U<3> held at 0.8 V). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; sigma = (1.503 - (0.802))/6 = 0.1168
+  source: native
+- name: idd_typ_up
+  metric: supply_current_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 4.5365100000000004e-05
+  target:
+    kind: linear
+    paper_value: 4.1241e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Supply current idd including the four 1 uA outputs. README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 41.241
+  source: native
+- name: idd_corner_up
+  metric: supply_current_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: A
+  upper: 8.009210000000001e-05
+  target:
+    kind: linear
+    paper_value: 7.2811e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_th_vl
+  - label: kss_th_vh
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_th_vl
+  - label: kff_th_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_th_vl
+  - label: ksf_th_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_th_vl
+  - label: kfs_th_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: Supply current idd including the four 1 uA outputs. README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf,
+    Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 72.811.
+  source: native
+- name: mc_mean_idd_up
+  metric: mc_mean.supply_current_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 4.49988e-05
+  target:
+    kind: linear
+    paper_value: 4.0908e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Supply current idd including the four 1 uA outputs. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C,
+    1.8 V); sigma = (hi - lo)/6; mean = 40.908
+  source: native
+- name: mc_sigma_idd
+  metric: mc_sigma.supply_current_A
+  recipe: lelo30_ptat_tran_v1
+  point: {}
+  unit: ''
+  upper: 1.432563e-06
+  target:
+    kind: linear
+    paper_value: 1.30233e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Supply current idd including the four 1 uA outputs. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C,
+    1.8 V); sigma = (hi - lo)/6; sigma = (44.815 - (37.001))/6 = 1.302
+  source: native
+- name: imax_typ_up
+  metric: max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  upper: 1.6389999999999999e-06
+  target:
+    kind: linear
+    paper_value: 1.49e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Max output current over the temperature sweep -40..125 C (dc.meas imax). README results table, row Sch_typ (single typical run tt,
+    27 C, 1.8 V) = 1.49 (value to hit, two-sided)
+  source: native
+- name: imax_corner_up
+  metric: max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  upper: 1.8809999999999999e-06
+  target:
+    kind: linear
+    paper_value: 1.71e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Max output current over the temperature sweep -40..125 C (dc.meas imax). README row Sch_etc = min / median / max over the 16 corner
+    runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.71. The dc temperature
+    sweep overrides the corner temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_imax_up
+  metric: mc_mean.max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 1.584e-06
+  target:
+    kind: linear
+    paper_value: 1.44e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Max output current over the temperature sweep -40..125 C (dc.meas imax). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo
+    runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.44
+  source: native
+- name: imax_typ_lo
+  metric: max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  lower: 1.341e-06
+  target:
+    kind: linear
+    paper_value: 1.49e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Max output current over the temperature sweep -40..125 C (dc.meas imax). README results table, row Sch_typ (single typical run tt,
+    27 C, 1.8 V) = 1.49 (value to hit, two-sided)
+  source: native
+- name: imax_corner_lo
+  metric: max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  lower: 1.188e-06
+  target:
+    kind: linear
+    paper_value: 1.32e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Max output current over the temperature sweep -40..125 C (dc.meas imax). README row Sch_etc = min / median / max over the 16 corner
+    runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 1.32. The dc temperature
+    sweep overrides the corner temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_imax_lo
+  metric: mc_mean.max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  lower: 1.296e-06
+  target:
+    kind: linear
+    paper_value: 1.44e-06
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Max output current over the temperature sweep -40..125 C (dc.meas imax). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo
+    runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.44
+  source: native
+- name: mc_sigma_imax
+  metric: mc_sigma.max_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 1.21e-07
+  target:
+    kind: linear
+    paper_value: 1.1e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Max output current over the temperature sweep -40..125 C (dc.meas imax). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo
+    runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (1.77 - (1.11))/6 = 0.11
+  source: native
+- name: imin_typ_up
+  metric: min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  upper: 1.034e-06
+  target:
+    kind: linear
+    paper_value: 9.4e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Min output current over the temperature sweep (dc.meas imin). README results table, row Sch_typ (single typical run tt, 27 C, 1.8
+    V) = 0.94 (value to hit, two-sided)
+  source: native
+- name: imin_corner_up
+  metric: min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  upper: 1.177e-06
+  target:
+    kind: linear
+    paper_value: 1.07e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Min output current over the temperature sweep (dc.meas imin). README row Sch_etc = min / median / max over the 16 corner runs (Kss,
+    Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 1.07. The dc temperature sweep overrides
+    the corner temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_imin_up
+  metric: mc_mean.min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 9.9e-07
+  target:
+    kind: linear
+    paper_value: 9.0e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Min output current over the temperature sweep (dc.meas imin). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm,
+    27 C, 1.8 V); sigma = (hi - lo)/6; mean = 0.9
+  source: native
+- name: imin_typ_lo
+  metric: min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  lower: 8.46e-07
+  target:
+    kind: linear
+    paper_value: 9.4e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Min output current over the temperature sweep (dc.meas imin). README results table, row Sch_typ (single typical run tt, 27 C, 1.8
+    V) = 0.94 (value to hit, two-sided)
+  source: native
+- name: imin_corner_lo
+  metric: min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  lower: 7.47e-07
+  target:
+    kind: linear
+    paper_value: 8.3e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'Min output current over the temperature sweep (dc.meas imin). README row Sch_etc = min / median / max over the 16 corner runs (Kss,
+    Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 0.83. The dc temperature sweep overrides
+    the corner temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_imin_lo
+  metric: mc_mean.min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  lower: 8.1e-07
+  target:
+    kind: linear
+    paper_value: 9.0e-07
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Min output current over the temperature sweep (dc.meas imin). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm,
+    27 C, 1.8 V); sigma = (hi - lo)/6; mean = 0.9
+  source: native
+- name: mc_sigma_imin
+  metric: mc_sigma.min_output_current_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 1.21e-07
+  target:
+    kind: linear
+    paper_value: 1.1e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: Min output current over the temperature sweep (dc.meas imin). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm,
+    27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (1.23 - (0.57))/6 = 0.11
+  source: native
+- name: slope_typ_up
+  metric: ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A/C
+  upper: 3.6849999999999996e-09
+  target:
+    kind: linear
+    paper_value: 3.35e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PTAT slope a_per_c = (imax - imin)/(165 C). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 3.35 (value
+    to hit, two-sided)
+  source: native
+- name: slope_corner_up
+  metric: ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A/C
+  upper: 4.224e-09
+  target:
+    kind: linear
+    paper_value: 3.84e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'PTAT slope a_per_c = (imax - imin)/(165 C). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 3.84. The dc temperature sweep overrides the corner
+    temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_slope_up
+  metric: mc_mean.ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 3.619e-09
+  target:
+    kind: linear
+    paper_value: 3.29e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PTAT slope a_per_c = (imax - imin)/(165 C). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 3.29
+  source: native
+- name: slope_typ_lo
+  metric: ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A/C
+  lower: 3.015e-09
+  target:
+    kind: linear
+    paper_value: 3.35e-09
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PTAT slope a_per_c = (imax - imin)/(165 C). README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = 3.35 (value
+    to hit, two-sided)
+  source: native
+- name: slope_corner_lo
+  metric: ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A/C
+  lower: 2.6729999999999998e-09
+  target:
+    kind: linear
+    paper_value: 2.97e-09
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'PTAT slope a_per_c = (imax - imin)/(165 C). README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs
+    x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; min = 2.97. The dc temperature sweep overrides the corner
+    temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_slope_lo
+  metric: mc_mean.ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  lower: 2.961e-09
+  target:
+    kind: linear
+    paper_value: 3.29e-09
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PTAT slope a_per_c = (imax - imin)/(165 C). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; mean = 3.29
+  source: native
+- name: mc_sigma_slope
+  metric: mc_sigma.ptat_slope_A_per_C
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 1.686663e-10
+  target:
+    kind: linear
+    paper_value: 1.53333e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: PTAT slope a_per_c = (imax - imin)/(165 C). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V);
+    sigma = (hi - lo)/6; sigma = (3.75 - (2.83))/6 = 0.1533
+  source: native
+- name: err_max_typ_up
+  metric: linearity_error_max_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  upper: 9.064e-09
+  target:
+    kind: linear
+    paper_value: 8.24e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: IBP linearity error, max, relative to the line a_per_c*T + I(0 C). README results table, row Sch_typ (single typical run tt, 27
+    C, 1.8 V) = 8.24
+  source: native
+- name: err_max_corner_up
+  metric: linearity_error_max_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  upper: 1.0351e-08
+  target:
+    kind: linear
+    paper_value: 9.41e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'IBP linearity error, max, relative to the line a_per_c*T + I(0 C). README row Sch_etc = min / median / max over the 16 corner runs
+    (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh); the documented min and max are applied at every corner condition; max = 9.41. The dc temperature sweep
+    overrides the corner temperature, so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_err_max_up
+  metric: mc_mean.linearity_error_max_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 8.536e-09
+  target:
+    kind: linear
+    paper_value: 7.76e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: IBP linearity error, max, relative to the line a_per_c*T + I(0 C). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs
+    (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 7.76
+  source: native
+- name: mc_sigma_err_max
+  metric: mc_sigma.linearity_error_max_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 1.162337e-09
+  target:
+    kind: linear
+    paper_value: 1.05667e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: IBP linearity error, max, relative to the line a_per_c*T + I(0 C). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs
+    (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (10.93 - (4.59))/6 = 1.057
+  source: native
+- name: err_min_typ_lo
+  metric: linearity_error_min_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  lower: -2.0185e-08
+  target:
+    kind: linear
+    paper_value: -1.835e-08
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: IBP linearity error, min. README results table, row Sch_typ (single typical run tt, 27 C, 1.8 V) = -18.35
+  source: native
+- name: err_min_corner_lo
+  metric: linearity_error_min_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: A
+  lower: -2.3023e-08
+  target:
+    kind: linear
+    paper_value: -2.093e-08
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: kss_tl_vl
+  - label: kss_tl_vh
+  - label: kff_tl_vl
+  - label: kff_tl_vh
+  - label: ksf_tl_vl
+  - label: ksf_tl_vh
+  - label: kfs_tl_vl
+  - label: kfs_tl_vh
+  aggregate: worst case over all conditions and matching points
+  provenance: 'IBP linearity error, min. README row Sch_etc = min / median / max over the 16 corner runs (Kss, Kff, Ksf, Kfs x Th, Tl x Vl, Vh);
+    the documented min and max are applied at every corner condition; min = -20.93. The dc temperature sweep overrides the corner temperature,
+    so Th and Tl runs are identical: only the Tl corners are simulated.'
+  source: native
+- name: mc_mean_err_min_lo
+  metric: mc_mean.linearity_error_min_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  lower: -1.7842e-08
+  target:
+    kind: linear
+    paper_value: -1.622e-08
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: IBP linearity error, min. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6;
+    mean = -16.22
+  source: native
+- name: mc_sigma_err_min
+  metric: mc_sigma.linearity_error_min_A
+  recipe: lelo30_ptat_dc_v1
+  point: {}
+  unit: ''
+  upper: 4.4055e-09
+  target:
+    kind: linear
+    paper_value: 4.005e-09
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: IBP linearity error, min. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6;
+    sigma = (-4.2 - (-28.23))/6 = 4.005
+  source: native
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: lelo30_ptat_op_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'rule G8 validity gate (owner 2026-10-30), not a documented result: running circuit (all four outputs held at 0.5/0.6/0.7/0.8 V),
+    by-design off / triode devices excluded (topology op_check), the xbs* PMOS stack judged as one composite device'
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: lelo30_ptat_op_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: lelo30_ptat_op_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - lelo30_ptat_dc_v1
+  - linearity_error_max_A
+- - lelo30_ptat_dc_v1
+  - linearity_error_min_A
+- - lelo30_ptat_dc_v1
+  - max_output_current_A
+- - lelo30_ptat_dc_v1
+  - mc_mean.linearity_error_max_A
+- - lelo30_ptat_dc_v1
+  - mc_mean.linearity_error_min_A
+- - lelo30_ptat_dc_v1
+  - mc_mean.max_output_current_A
+- - lelo30_ptat_dc_v1
+  - mc_mean.min_output_current_A
+- - lelo30_ptat_dc_v1
+  - mc_mean.ptat_slope_A_per_C
+- - lelo30_ptat_dc_v1
+  - mc_sigma.linearity_error_max_A
+- - lelo30_ptat_dc_v1
+  - mc_sigma.linearity_error_min_A
+- - lelo30_ptat_dc_v1
+  - mc_sigma.max_output_current_A
+- - lelo30_ptat_dc_v1
+  - mc_sigma.min_output_current_A
+- - lelo30_ptat_dc_v1
+  - mc_sigma.ptat_slope_A_per_C
+- - lelo30_ptat_dc_v1
+  - min_output_current_A
+- - lelo30_ptat_dc_v1
+  - ptat_slope_A_per_C
+- - lelo30_ptat_lstb_v1
+  - delta_diode_voltage_V
+- - lelo30_ptat_lstb_v1
+  - diode_error_V
+- - lelo30_ptat_lstb_v1
+  - loop_gain_at_phase_crossover_dB
+- - lelo30_ptat_lstb_v1
+  - loop_gain_lf_dB
+- - lelo30_ptat_lstb_v1
+  - loop_unity_gain_frequency_Hz
+- - lelo30_ptat_lstb_v1
+  - lpo_voltage_V
+- - lelo30_ptat_lstb_v1
+  - mc_mean.delta_diode_voltage_V
+- - lelo30_ptat_lstb_v1
+  - mc_mean.diode_error_V
+- - lelo30_ptat_lstb_v1
+  - mc_mean.loop_gain_at_phase_crossover_dB
+- - lelo30_ptat_lstb_v1
+  - mc_mean.loop_gain_lf_dB
+- - lelo30_ptat_lstb_v1
+  - mc_mean.loop_unity_gain_frequency_Hz
+- - lelo30_ptat_lstb_v1
+  - mc_mean.lpo_voltage_V
+- - lelo30_ptat_lstb_v1
+  - mc_mean.output_current_A
+- - lelo30_ptat_lstb_v1
+  - mc_mean.phase_margin_deg
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.delta_diode_voltage_V
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.diode_error_V
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.loop_gain_at_phase_crossover_dB
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.loop_gain_lf_dB
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.loop_unity_gain_frequency_Hz
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.lpo_voltage_V
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.output_current_A
+- - lelo30_ptat_lstb_v1
+  - mc_sigma.phase_margin_deg
+- - lelo30_ptat_lstb_v1
+  - output_current_A
+- - lelo30_ptat_lstb_v1
+  - phase_margin_deg
+- - lelo30_ptat_op_v1
+  - devices_out_of_saturation
+- - lelo30_ptat_op_v1
+  - devices_outside_rails
+- - lelo30_ptat_op_v1
+  - forward_biased_junctions
+- - lelo30_ptat_op_v1
+  - saturation_margin_min_V
+- - lelo30_ptat_tran_v1
+  - mc_mean.output_current_0_A
+- - lelo30_ptat_tran_v1
+  - mc_mean.output_current_1_A
+- - lelo30_ptat_tran_v1
+  - mc_mean.output_current_2_A
+- - lelo30_ptat_tran_v1
+  - mc_mean.output_current_3_A
+- - lelo30_ptat_tran_v1
+  - mc_mean.settling_time_s
+- - lelo30_ptat_tran_v1
+  - mc_mean.supply_current_A
+- - lelo30_ptat_tran_v1
+  - mc_sigma.output_current_0_A
+- - lelo30_ptat_tran_v1
+  - mc_sigma.output_current_1_A
+- - lelo30_ptat_tran_v1
+  - mc_sigma.output_current_2_A
+- - lelo30_ptat_tran_v1
+  - mc_sigma.output_current_3_A
+- - lelo30_ptat_tran_v1
+  - mc_sigma.settling_time_s
+- - lelo30_ptat_tran_v1
+  - mc_sigma.supply_current_A
+- - lelo30_ptat_tran_v1
+  - output_current_0_A
+- - lelo30_ptat_tran_v1
+  - output_current_1_A
+- - lelo30_ptat_tran_v1
+  - output_current_2_A
+- - lelo30_ptat_tran_v1
+  - output_current_3_A
+- - lelo30_ptat_tran_v1
+  - settling_time_s
+- - lelo30_ptat_tran_v1
+  - supply_current_A
+simulations_per_design: 47
+analysis_executions_per_design: 141
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: tt_T27_S1p00
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/tt_T27_S1p00/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00
+  recipe: lelo30_ptat_op_v1
+  folder: testbenches/tt_T27_S1p00/lelo30_ptat_op_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op_info.info
+  - raw/dc1.dc
+  metrics:
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/tt_T27_S1p00/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/tt_T27_S1p00/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ss_hh_T125_S0p94_kss_th_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ss_hh_T125_S0p94_kss_th_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ss_hh_T125_S0p94_kss_th_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ss_hh_T125_S0p94_kss_th_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ss_hh_T125_S1p06_kss_th_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ss_hh_T125_S1p06_kss_th_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ss_hh_T125_S1p06_kss_th_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ss_hh_T125_S1p06_kss_th_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ss_hh_Tm40_S0p94_kss_tl_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ss_hh_Tm40_S0p94_kss_tl_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ss_hh_Tm40_S0p94_kss_tl_vl
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ss_hh_Tm40_S1p06_kss_tl_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ss_hh_Tm40_S1p06_kss_tl_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ss_hh_Tm40_S1p06_kss_tl_vh
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ff_ll_T125_S0p94_kff_th_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ff_ll_T125_S0p94_kff_th_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ff_ll_T125_S0p94_kff_th_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ff_ll_T125_S0p94_kff_th_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ff_ll_T125_S1p06_kff_th_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ff_ll_T125_S1p06_kff_th_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ff_ll_T125_S1p06_kff_th_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ff_ll_T125_S1p06_kff_th_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ff_ll_Tm40_S0p94_kff_tl_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ff_ll_Tm40_S0p94_kff_tl_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ff_ll_Tm40_S0p94_kff_tl_vl
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ff_ll_Tm40_S1p06_kff_tl_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: ff_ll_Tm40_S1p06_kff_tl_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: ff_ll_Tm40_S1p06_kff_tl_vh
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: sf_T125_S0p94_ksf_th_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/sf_T125_S0p94_ksf_th_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: sf_T125_S0p94_ksf_th_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/sf_T125_S0p94_ksf_th_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: sf_T125_S1p06_ksf_th_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/sf_T125_S1p06_ksf_th_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: sf_T125_S1p06_ksf_th_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/sf_T125_S1p06_ksf_th_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: sf_Tm40_S0p94_ksf_tl_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: sf_Tm40_S0p94_ksf_tl_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: sf_Tm40_S0p94_ksf_tl_vl
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: sf_Tm40_S1p06_ksf_tl_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: sf_Tm40_S1p06_ksf_tl_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: sf_Tm40_S1p06_ksf_tl_vh
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: fs_T125_S0p94_kfs_th_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/fs_T125_S0p94_kfs_th_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: fs_T125_S0p94_kfs_th_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/fs_T125_S0p94_kfs_th_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: fs_T125_S1p06_kfs_th_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/fs_T125_S1p06_kfs_th_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: fs_T125_S1p06_kfs_th_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/fs_T125_S1p06_kfs_th_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: fs_Tm40_S0p94_kfs_tl_vl
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: fs_Tm40_S0p94_kfs_tl_vl
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: fs_Tm40_S0p94_kfs_tl_vl
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: fs_Tm40_S1p06_kfs_tl_vh
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dc1.dc
+  - raw/stb1.stb.ascii
+  metrics:
+    loop_gain_lf_dB:
+      unit: dB
+      source: native
+    loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    phase_margin_deg:
+      unit: deg
+      source: native
+    loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    lpo_voltage_V:
+      unit: V
+      source: native
+    delta_diode_voltage_V:
+      unit: V
+      source: native
+    output_current_A:
+      unit: A
+      source: native
+    diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: fs_Tm40_S1p06_kfs_tl_vh
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tran1.tran.tran
+  metrics:
+    settling_time_s:
+      unit: s
+      source: native
+    output_current_0_A:
+      unit: A
+      source: native
+    output_current_1_A:
+      unit: A
+      source: native
+    output_current_2_A:
+      unit: A
+      source: native
+    output_current_3_A:
+      unit: A
+      source: native
+    supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: fs_Tm40_S1p06_kfs_tl_vh
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dct.dc
+  metrics:
+    max_output_current_A:
+      unit: A
+      source: native
+    min_output_current_A:
+      unit: A
+      source: native
+    ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    linearity_error_max_A:
+      unit: A
+      source: native
+    linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00_MC
+  recipe: lelo30_ptat_lstb_v1
+  folder: testbenches/tt_T27_S1p00_MC/lelo30_ptat_lstb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    mc_mean.loop_gain_lf_dB:
+      unit: dB
+      source: native
+    mc_sigma.loop_gain_lf_dB:
+      unit: dB
+      source: native
+    mc_mean.loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    mc_sigma.loop_gain_at_phase_crossover_dB:
+      unit: dB
+      source: native
+    mc_mean.phase_margin_deg:
+      unit: deg
+      source: native
+    mc_sigma.phase_margin_deg:
+      unit: deg
+      source: native
+    mc_mean.loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    mc_sigma.loop_unity_gain_frequency_Hz:
+      unit: Hz
+      source: native
+    mc_mean.lpo_voltage_V:
+      unit: V
+      source: native
+    mc_sigma.lpo_voltage_V:
+      unit: V
+      source: native
+    mc_mean.delta_diode_voltage_V:
+      unit: V
+      source: native
+    mc_sigma.delta_diode_voltage_V:
+      unit: V
+      source: native
+    mc_mean.output_current_A:
+      unit: A
+      source: native
+    mc_sigma.output_current_A:
+      unit: A
+      source: native
+    mc_mean.diode_error_V:
+      unit: V
+      source: native
+    mc_sigma.diode_error_V:
+      unit: V
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00_MC
+  recipe: lelo30_ptat_tran_v1
+  folder: testbenches/tt_T27_S1p00_MC/lelo30_ptat_tran_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    mc_mean.settling_time_s:
+      unit: s
+      source: native
+    mc_sigma.settling_time_s:
+      unit: s
+      source: native
+    mc_mean.output_current_0_A:
+      unit: A
+      source: native
+    mc_sigma.output_current_0_A:
+      unit: A
+      source: native
+    mc_mean.output_current_1_A:
+      unit: A
+      source: native
+    mc_sigma.output_current_1_A:
+      unit: A
+      source: native
+    mc_mean.output_current_2_A:
+      unit: A
+      source: native
+    mc_sigma.output_current_2_A:
+      unit: A
+      source: native
+    mc_mean.output_current_3_A:
+      unit: A
+      source: native
+    mc_sigma.output_current_3_A:
+      unit: A
+      source: native
+    mc_mean.supply_current_A:
+      unit: A
+      source: native
+    mc_sigma.supply_current_A:
+      unit: A
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00_MC
+  recipe: lelo30_ptat_dc_v1
+  folder: testbenches/tt_T27_S1p00_MC/lelo30_ptat_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    mc_mean.max_output_current_A:
+      unit: A
+      source: native
+    mc_sigma.max_output_current_A:
+      unit: A
+      source: native
+    mc_mean.min_output_current_A:
+      unit: A
+      source: native
+    mc_sigma.min_output_current_A:
+      unit: A
+      source: native
+    mc_mean.ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    mc_sigma.ptat_slope_A_per_C:
+      unit: A/C
+      source: native
+    mc_mean.linearity_error_max_A:
+      unit: A
+      source: native
+    mc_sigma.linearity_error_max_A:
+      unit: A
+      source: native
+    mc_mean.linearity_error_min_A:
+      unit: A
+      source: native
+    mc_sigma.linearity_error_min_A:
+      unit: A
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - ptat_lelo_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('ptat_lelo_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

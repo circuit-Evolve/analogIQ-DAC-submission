@@ -1,0 +1,36 @@
+// dut_benchmark.scs = final.scs (unchanged copy in this folder) plus ONE added line: the top-level declaration
+// `parameters W_CORE W_AUX W_MT1 W_MT` of the per-finger widths that variables.yaml binds (sky130 netlist width = W per finger x nf;
+// owner rule 2026-10-24, same mechanism as the mixer packages).
+// Paper-fidelity fix 2026-10-27: inductor loss. final.scs has ideal inductors; the paper (Sec. II-III, Figs. 3 / 4(a), "Assuming Q = 10, the resonant
+// frequency of 3.5 GHz ...") states the inductor quality factor Q = 10 for its resonator simulations and Eq. (5) models the inductors with a series
+// resistance R. A series resistor R = 2 pi f0 L / Q (f0 = 3.4 GHz, the oscillation frequency of Sec. IV, Q = 10) is added in each of the four inductor
+// branches (RLP, RLN, RLAP, RLAN); the values are dependent parameters of L_MAIN / LI_AUX (variables.yaml R_ESR_MAIN / R_ESR_AUX).
+simulator lang=spectre
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+parameters W_CORE W_AUX W_MT1 W_MT
+subckt repaired_core VDD VSS VBIAS VTAIL VCOM CMP_SENSE OUTP OUTN AUXP AUXN
+M1 (OUTP G1 CMP_SENSE VSS) sky130_fd_pr__nfet_01v8 w=94.5 l=.15 nf=18 mult=1 ad=13.7025 as=15.225 pd=99.72 ps=110.8 sa=0 sb=0 sd=0 m=1
+M2 (OUTN G2 CMP_SENSE VSS) sky130_fd_pr__nfet_01v8 w=94.5 l=.15 nf=18 mult=1 ad=13.7025 as=15.225 pd=99.72 ps=110.8 sa=0 sb=0 sd=0 m=1
+M3 (AUXP AUXN AUXTAIL VSS) sky130_fd_pr__nfet_01v8 w=9 l=.15 nf=2 mult=1 ad=1.305 as=2.61 pd=9.58 ps=19.16 sa=0 sb=0 sd=0 m=1
+M4 (AUXN AUXP AUXTAIL VSS) sky130_fd_pr__nfet_01v8 w=9 l=.15 nf=2 mult=1 ad=1.305 as=2.61 pd=9.58 ps=19.16 sa=0 sb=0 sd=0 m=1
+MT1 (AUXTAIL VCOM VSS VSS) sky130_fd_pr__nfet_01v8 w=48 l=.35 nf=12 mult=1 ad=6.96 as=8.12 pd=51.48 ps=60.06 sa=0 sb=0 sd=0 m=1
+MT (CMP_SENSE VTAIL VSS VSS) sky130_fd_pr__nfet_01v8 w=512 l=.35 nf=128 mult=1 ad=74.24 as=75.4 pd=549.12 ps=557.7 sa=0 sb=0 sd=0 m=1
+LP (VDD XLP) inductor l=1.6n
+RLP (XLP OUTP) resistor r=3.42
+LAP (VDD XLAP) inductor l=1.6n
+RLAP (XLAP AUXP) resistor r=3.42
+LAN (VDD XLAN) inductor l=1.6n
+RLAN (XLAN AUXN) resistor r=3.42
+LN (VDD XLN) inductor l=1.6n
+RLN (XLN OUTN) resistor r=3.42
+C2P (VDD OUTP) capacitor c=2.5p
+C2N (VDD OUTN) capacitor c=2.5p
+C1P (OUTP AUXP) capacitor c=3p
+C1N (OUTN AUXN) capacitor c=3p
+CBP (OUTP G2) capacitor c=420f
+CBN (OUTN G1) capacitor c=420f
+RBP (VBIAS G1) resistor r=2.5K
+RBN (VBIAS G2) resistor r=2.5K
+CF (VCOM VSS) capacitor c=645f
+CT (CMP_SENSE VSS) capacitor c=23.3p
+ends repaired_core

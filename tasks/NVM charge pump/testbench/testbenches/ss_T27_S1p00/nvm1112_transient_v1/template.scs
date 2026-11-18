@@ -1,0 +1,26 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task nvm_chargepump_111126_task_001  topology nvm_chargepump_111126
+// recipe nvm1112_transient_v1 v2  condition ss_T27_S1p00 (models ss, 27 C, supply 3.3 V)
+// request nvm_chargepump_111126_task_001__plan  candidate f0334ec74b509af0
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=ss
+include "dut.scs"
+
+parameters vsup=3.3 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+CLK_A (upin 0) vsource type=pulse val0=0 val1=vsup delay=1e-09 rise=1e-09 fall=1e-09 width=2.2e-08 period=5e-08
+CLK_B (dnin 0) vsource type=pulse val0=0 val1=vsup delay=2.5999999999999998e-08 rise=1e-09 fall=1e-09 width=2.2e-08 period=5e-08
+RLOAD (out 0) resistor r=1000000.0
+
+XDUT (vdd upin dnin out vss) NVM_CP S1_CF={{S1_CF}} S1_CS={{S1_CS}} S1_LN={{S1_LN}} S1_LP={{S1_LP}} S1_N_M={{S1_N_M}} S1_N_NF={{S1_N_NF}} S1_P_M={{S1_P_M}} S1_P_NF={{S1_P_NF}} S1_WN={{S1_WN}} S1_WP={{S1_WP}} S2_CF={{S2_CF}} S2_CS={{S2_CS}} S2_LN={{S2_LN}} S2_LP={{S2_LP}} S2_N_M={{S2_N_M}} S2_N_NF={{S2_N_NF}} S2_P_M={{S2_P_M}} S2_P_NF={{S2_P_NF}} S2_WN={{S2_WN}} S2_WP={{S2_WP}} S3_CF={{S3_CF}} S3_CS={{S3_CS}} S3_LN={{S3_LN}} S3_LP={{S3_LP}} S3_N_M={{S3_N_M}} S3_N_NF={{S3_N_NF}} S3_P_M={{S3_P_M}} S3_P_NF={{S3_P_NF}} S3_WN={{S3_WN}} S3_WP={{S3_WP}} S4_CF={{S4_CF}} S4_CS={{S4_CS}} S4_LN={{S4_LN}} S4_LP={{S4_LP}} S4_N_M={{S4_N_M}} S4_N_NF={{S4_N_NF}} S4_P_M={{S4_P_M}} S4_P_NF={{S4_P_NF}} S4_WN={{S4_WN}} S4_WP={{S4_WP}} S5_CF={{S5_CF}} S5_CS={{S5_CS}} S5_LN={{S5_LN}} S5_LP={{S5_LP}} S5_N_M={{S5_N_M}} S5_N_NF={{S5_N_NF}} S5_P_M={{S5_P_M}} S5_P_NF={{S5_P_NF}} S5_WN={{S5_WN}} S5_WP={{S5_WP}} S6_CF={{S6_CF}} S6_CS={{S6_CS}} S6_LN={{S6_LN}} S6_LP={{S6_LP}} S6_N_M={{S6_N_M}} S6_N_NF={{S6_N_NF}} S6_P_M={{S6_P_M}} S6_P_NF={{S6_P_NF}} S6_WN={{S6_WN}} S6_WP={{S6_WP}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save CLK_A:p CLK_B:p VNEG:p VSUP:p XDUT.A1 XDUT.A2 XDUT.A3 XDUT.A4 XDUT.A5 XDUT.A6 XDUT.B1 XDUT.B2 XDUT.B3 XDUT.B4 XDUT.B5 XDUT.B6 XDUT.S1 XDUT.S2 XDUT.S3 XDUT.S4 XDUT.S5 dnin out upin vdd vss
+
+nvmopts options scale=1e-6 reltol=1e-5 vabstol=1e-8 iabstol=1e-13 soft_bin=allmodels
+tran tran stop=0.0003 maxstep=5e-10 skipdc=yes errpreset=conservative

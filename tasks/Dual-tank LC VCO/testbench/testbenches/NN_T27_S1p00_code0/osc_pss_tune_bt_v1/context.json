@@ -1,0 +1,379 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00_code0/osc_pss_tune_bt_v1",
+ "recipe_id": "osc_pss_tune_bt_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "vctrl_V": 0.0
+  },
+  {
+   "vctrl_V": 0.3
+  },
+  {
+   "vctrl_V": 0.6
+  },
+  {
+   "vctrl_V": 0.9
+  },
+  {
+   "vctrl_V": 1.2
+  },
+  {
+   "vctrl_V": 0.0,
+   "offset_Hz": 100000.0
+  },
+  {
+   "vctrl_V": 0.0,
+   "offset_Hz": 800000.0
+  },
+  {
+   "vctrl_V": 0.0,
+   "offset_Hz": 10000000.0
+  },
+  {
+   "vctrl_V": 0.3,
+   "offset_Hz": 100000.0
+  },
+  {
+   "vctrl_V": 0.3,
+   "offset_Hz": 800000.0
+  },
+  {
+   "vctrl_V": 0.3,
+   "offset_Hz": 10000000.0
+  },
+  {
+   "vctrl_V": 0.6,
+   "offset_Hz": 100000.0
+  },
+  {
+   "vctrl_V": 0.6,
+   "offset_Hz": 800000.0
+  },
+  {
+   "vctrl_V": 0.6,
+   "offset_Hz": 10000000.0
+  },
+  {
+   "vctrl_V": 0.9,
+   "offset_Hz": 100000.0
+  },
+  {
+   "vctrl_V": 0.9,
+   "offset_Hz": 800000.0
+  },
+  {
+   "vctrl_V": 0.9,
+   "offset_Hz": 10000000.0
+  },
+  {
+   "vctrl_V": 1.2,
+   "offset_Hz": 100000.0
+  },
+  {
+   "vctrl_V": 1.2,
+   "offset_Hz": 800000.0
+  },
+  {
+   "vctrl_V": 1.2,
+   "offset_Hz": 10000000.0
+  },
+  {
+   "curve": "tuning"
+  },
+  {
+   "target": "tuned"
+  },
+  {
+   "target": "tuned",
+   "offset_Hz": 100000.0
+  },
+  {
+   "target": "tuned",
+   "offset_Hz": 800000.0
+  },
+  {
+   "target": "tuned",
+   "offset_Hz": 10000000.0
+  }
+ ],
+ "expected_outputs": [],
+ "context": {
+  "job_id": "NN_T27_S1p00_code0/osc_pss_tune_bt_v1",
+  "condition": {
+   "id": "NN_T27_S1p00_code0",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 0.85,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "label": "code0",
+   "external_bias": {
+    "S0": 0.0,
+    "S1": 0.0,
+    "S2": 0.0,
+    "S3": 0.0
+   },
+   "is_nominal": false,
+   "supply_span_V": 0.85
+  },
+  "operating": {
+   "supply_V": 0.85,
+   "load_capacitance_F": 1e-14,
+   "tuning_voltage_V": 0.6
+  },
+  "recipe_settings": {
+   "tuning_voltages_V": [
+    0.0,
+    0.3,
+    0.6,
+    0.9,
+    1.2
+   ],
+   "target_frequency_Hz": 5080000000.0,
+   "fund_estimate_Hz": 5080000000.0,
+   "harmonics": 10,
+   "tstab_s": 3e-08,
+   "offsets_Hz": [
+    100000.0,
+    800000.0,
+    10000000.0
+   ],
+   "min_amplitude_V": 0.001,
+   "kick_current_A": 0.001,
+   "kick_width_s": 5e-11,
+   "pss_errpreset": "conservative",
+   "bias_tee": {
+    "net": "b_VDD_AUX",
+    "r_ohm": 50.0
+   },
+   "kick_node": "XDUT.D1"
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "lcvco24_lohrabipour",
+   "family": "oscillator",
+   "interface_type": "differential_lc_vco",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "repaired_core",
+    "port_order": [
+     "VDD_CORE",
+     "VSS",
+     "VB_TANK",
+     "VDD_AUX",
+     "VC",
+     "VBUF",
+     "VDD_DIG",
+     "S0",
+     "S1",
+     "S2",
+     "S3",
+     "RFL",
+     "RFR"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "output_positive": "RFL",
+    "output_negative": "RFR",
+    "supply_positive": "VDD_CORE",
+    "tuning": "VC"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VB_TANK": {
+     "kind": "voltage",
+     "value": 0.425,
+     "provenance": "sizing variable V_TANK"
+    },
+    "VDD_AUX": {
+     "kind": "voltage",
+     "value": 1.8,
+     "provenance": "paper: Fig. 10 / Sec. IV (1.8 V varactor bias and buffer drain, via bias-T); a supply rail, fixed"
+    },
+    "VBUF": {
+     "kind": "voltage",
+     "value": 0.425,
+     "provenance": "sizing variable V_BUF"
+    },
+    "VDD_DIG": {
+     "kind": "voltage",
+     "value": 1.8,
+     "provenance": "curator_choice: digital supply of the cap-bank switch-control inverters; not stated in the paper, the paper's other rail (1.8 V)"
+    },
+    "S0": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "curator_choice: cap-bank code bit 0 (LSB); nominal code 8 = mid-range of the 16 states, S3 high; the extreme codes are the labelled conditions"
+    },
+    "S1": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "curator_choice: cap-bank code bit 1 (nominal code 8)"
+    },
+    "S2": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "curator_choice: cap-bank code bit 2 (nominal code 8)"
+    },
+    "S3": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "curator_choice: cap-bank code bit 3 (MSB, high in the nominal code 8)"
+    }
+   },
+   "probes": [],
+   "op_check": {
+    "exclude": [
+     "MVARL",
+     "MVARR",
+     "MS0L",
+     "MS0R",
+     "MS1L",
+     "MS1R",
+     "MS2L",
+     "MS2R",
+     "MS3L",
+     "MS3R",
+     "MIN0",
+     "MIN1",
+     "MIN2",
+     "MIN3",
+     "MIP0",
+     "MIP1",
+     "MIP2",
+     "MIP3"
+    ]
+   }
+  },
+  "subckt_name": "repaired_core",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "N_CORE": 1.0,
+   "W_CORE": 1e-06,
+   "L_CORE": 1e-06,
+   "N_MVAR": 1.0,
+   "W_MVAR": 1e-06,
+   "L_MVAR": 1e-06,
+   "N_BUF": 1.0,
+   "W_BUF": 1e-06,
+   "L_BUF": 1e-06,
+   "N_MIN": 1.0,
+   "W_MIN": 1e-06,
+   "L_MIN": 1e-06,
+   "N_MIP": 1.0,
+   "W_MIP": 1e-06,
+   "L_MIP": 1e-06,
+   "N_MS": 1.0,
+   "W_MS": 1e-06,
+   "L_MS": 1e-06,
+   "C_S": 1e-12,
+   "C_PF": 1e-12,
+   "C_PS": 1e-12,
+   "L_P": 1e-09,
+   "L_S": 1e-09,
+   "C_CVAR": 1e-12,
+   "R_BVAR": 10000.0,
+   "C_BUF": 1e-12,
+   "R_BUF": 10000.0,
+   "C_BANK": 1e-12,
+   "R_SBANK": 10000.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_TANK": 0.425,
+   "V_BUF": 0.425
+  },
+  "bias_variables": {
+   "VB_TANK": "V_TANK",
+   "VBUF": "V_BUF"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

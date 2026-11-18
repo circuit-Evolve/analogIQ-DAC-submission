@@ -1,0 +1,43 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt repaired_core VDD VSS VBP VBN VRO
+MP2 (PT1 VBP VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MP1 (N1 VRO PT1 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN1 (N1 VRO NT1 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN2 (NT1 VBN VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M1 (DH1 VSS VRO VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M2 (VRO VDD DH1 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M3 (LH1 LH1 VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M4 (N1 DH1 LH1 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M5 (DL1 VDD VRO VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M6 (VRO VSS DL1 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M7 (N1 DL1 LL1 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M8 (LL1 LL1 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+C1 (N1 VSS) capacitor c=CLOAD1
+MP4 (PT2 VBP VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MP3 (N2 N1 PT2 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN3 (N2 N1 NT2 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN4 (NT2 VBN VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M9 (DH2 VSS N1 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M10 (N1 VDD DH2 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M11 (LH2 LH2 VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M12 (N2 DH2 LH2 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M13 (DL2 VDD N1 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M14 (N1 VSS DL2 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M15 (N2 DL2 LL2 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M16 (LL2 LL2 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+C2 (N2 VSS) capacitor c=CLOAD2
+MP6 (PT3 VBP VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MP5 (VRO N2 PT3 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN5 (VRO N2 NT3 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN6 (NT3 VBN VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M17 (DH3 VSS N2 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M18 (N2 VDD DH3 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M19 (LH3 LH3 VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M20 (VRO DH3 LH3 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M21 (DL3 VDD N2 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M22 (N2 VSS DL3 VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M23 (VRO DL3 LL3 VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+M24 (LL3 LL3 VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+C3 (VRO VSS) capacitor c=CLOAD3
+ends repaired_core

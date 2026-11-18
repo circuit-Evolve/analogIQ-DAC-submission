@@ -1,0 +1,140 @@
+{
+  "status": "CONDITIONAL_GOLDEN_8_OF_8",
+  "counts": {
+    "verified": {
+      "metric_pass_count": 32,
+      "complete_condition_count": 8
+    },
+    "guard": {
+      "metric_pass_count": 32,
+      "complete_condition_count": 8
+    }
+  },
+  "topology_connections_unchanged": true,
+  "guard_max_relative_difference": {
+    "static_vdd_power_uW": 1.682914464488492e-08,
+    "max_vdd_power_uW": 1.3366025767574974e-11,
+    "ac_bandwidth_MHz": 1.192305642189352e-06,
+    "max_deviation_fullscale_percent": 1.888842861871078e-09
+  },
+  "numerical_guard": "reltol1e-7,iabstol1e-16; original gmin1e-15 retained",
+  "fullresolution": "DC0.25uA step; AC100points/decade",
+  "unique_candidates": 1280,
+  "objective_calls": 1283,
+  "stages": {
+    "local0": 209,
+    "local1": 396,
+    "local2": 582,
+    "margin": 93,
+    "seed0": 1,
+    "seed1": 1,
+    "seed2": 1
+  },
+  "limits": {
+    "static_vdd_power_uW_max": 2.068,
+    "max_vdd_power_uW_max": 126.94,
+    "bandwidth_MHz": [
+      15.633,
+      19.107
+    ],
+    "fullscale_error_percent_max": 12.1
+  },
+  "conditional_definitions": {
+    "scope": "Fig4 only; Fig3 standalone squarer is not built",
+    "paper_sizes": "Baseline paper reference only: Table I M1-M9,M11-M13 16u/.18u; M10 32u/.18u; M14 45u/.18u. Active selected sizing differs; see parameters.json and exact verified decks.",
+    "figure_connectivity": "M10 gate connects SQ gate bus of M9/M11/M14 in Fig4, unlike Fig3 where M10 gate connects M2 diode node. Fig4 crossing of gate bus with M1/M2 intermediate node has no dot.",
+    "bulk": "NMOS to GND and PMOS to VDD; figure omits bulk terminals",
+    "floating_gate": "Baseline paper reference: two100fF input capacitors. Active selected C1=1442.0fF,C2=1170.0fF in each M7/M8 instance, each still paralleled by the original1T resistor. Resistor placement remains the existing reproducible DC-convergence interpretation. Intrinsic model parasitics retained.",
+    "startup": "Normal Spectre DC equilibrium before transient; no forced floating gate charge, no startup circuitry, no initial condition. The 1T resistors enforce equal-weight external-input DC average, while transient retains MOS capacitances. This does not independently establish trapped charge QFG=0 in physical fabrication.",
+    "supply": "VDD=.7V; V1=.2V, explicit paper values",
+    "output_compliance": "OUT drain clamped .7V by independent voltage source. Paper does not provide output voltage or loading. Diagnostic .35V compliance run is separate.",
+    "input": "Single scalar current source from Y to X, equivalent to equal and opposite indicated input currents",
+    "ac": "AC magnitude 1A small-signal linearization at +17.5uA DC input by assumption; paper does not give AC operating current. Bias sensitivity saved separately. Zero-bias AC is symmetric and cannot represent full-wave rectification bandwidth.",
+    "transient": "Both text 35uA peak-to-peak (17.5uA peak), and Fig13 \u00b135uA (35uA peak), 1MHz, preserved separately",
+    "power": "Report VDD-only and sum of VDD,V1,output-compliance source delivered powers. Paper boundary and input condition for static/max not defined. Static evaluated Iin=0 and maximum over \u00b135uA DC sweep. Input current-source power excluded from these two reported supply sums.",
+    "linearity": "Paper says maximum deviation 11% without formula or normalization. Report maximum |Iout-|Iin|| /35uA fullscale and pointwise deviation for |Iin|>1uA separately; these are not asserted identical to paper metric.",
+    "process": "NN,FF,SS,FS,SF at27C; first letter NMOS,second PMOS per gpdk.scs",
+    "temperature": "NN at -27,0,27,100C from Fig17/18; no Cartesian process-temperature sweep",
+    "model": "Installed gpdk180; paper does not state PDK revision. Nominal NN. gmin=1e-15 to avoid conductance comparable to explicit 1T resistors; all tolerances saved.",
+    "debug_history": "Initial diagnosis used Fig3 M10 gate mapping; superseded run preserved under debug_prefig4_correction and excluded from final comparisons. Corrected native schematic follows Fig4."
+  },
+  "selected_precision": "W/L1nm;capacitors1fF;existing M14 W retuned to36.656um after direct rounding shifted FF/SS gain",
+  "native_validation": {
+    "status": "PASS",
+    "library": "DAC_20261110_FWR_GOLD",
+    "schematic_inventory_checks": 72,
+    "native_extracted_metric_passes": 32,
+    "native_extracted_complete_conditions": 8,
+    "max_relative_metric_delta": 2.4891823473518427e-14,
+    "relative_metric_deltas": [
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 6.064775983583125e-16,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 2.4891823473518427e-14
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      },
+      {
+        "static_vdd_power_uW": 0.0,
+        "max_vdd_power_uW": 0.0,
+        "ac_bandwidth_MHz": 0.0,
+        "max_deviation_fullscale_percent": 0.0
+      }
+    ],
+    "rounding": "W/L1nm;capacitors1fF;existing M14 W retuned to36.656um after direct rounding shifted FF/SS gain",
+    "private_cds_lib": "<WORK>/four_papers_20261109/fgmos_full_wave_rectifier/sizing_round2/native/cds.lib"
+  },
+  "equilibrium_validation": {
+    "max_forward_reverse_output_difference_A": 2.590321603453084e-13,
+    "max_standalone_zero_static_relative_delta": 1.683168025028742e-08
+  },
+  "baseline_unchanged": [
+    {
+      "path": "<WORK>/four_papers_20261109/fgmos_full_wave_rectifier/design_inventory.json",
+      "unchanged": true
+    },
+    {
+      "path": "<WORK>/four_papers_20261109/fgmos_full_wave_rectifier/netlists/DC_AC_tb/spectre/schematic/netlist/input.scs",
+      "unchanged": true
+    },
+    {
+      "path": "<WORK>/four_papers_20261109/fgmos_full_wave_rectifier/results.json",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "tt_T27_S1p00/mixer_nf_sb_v1",
+ "recipe_id": "mixer_nf_sb_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "f_lo_Hz": 5000000000.0,
+   "f_rf_Hz": 20000000.0,
+   "f_if_Hz": 5020000000.0,
+   "sideband": 1,
+   "refsideband": -1
+  }
+ ],
+ "expected_outputs": [
+  "raw/pss1.td.pss",
+  "raw/pn1.pnoise"
+ ],
+ "context": {
+  "job_id": "tt_T27_S1p00/mixer_nf_sb_v1",
+  "condition": {
+   "id": "tt_T27_S1p00",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+     "section": "tt"
+    }
+   ],
+   "is_nominal": true,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "lo_frequency_Hz": 5000000000.0,
+   "rf_frequency_Hz": 20000000.0,
+   "lo_amplitude_V": 0.34,
+   "port_impedance_ohm": 50.0,
+   "lo_bias_V": 0.9
+  },
+  "recipe_settings": {
+   "rf_termination": "direct",
+   "harmonics": 10,
+   "sideband": 1,
+   "rf_dc_block_F": 1e-08
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "gmix04_patulea_2015",
+   "family": "mixer",
+   "interface_type": "double_balanced_active_mixer_upconverter",
+   "technology_id": "sky130",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "gmix04_dut",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "RF_P",
+     "RF_N",
+     "LO_P",
+     "LO_N",
+     "BB_P",
+     "BB_N",
+     "TAIL_BIAS"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "rf_input_positive": "BB_P",
+    "rf_input_negative": "BB_N",
+    "lo_positive": "LO_P",
+    "lo_negative": "LO_N",
+    "if_output_positive": "RF_P",
+    "if_output_negative": "RF_N",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "rule G3: DUT ground pin without a family role, held at 0 V"
+    },
+    "TAIL_BIAS": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable V_TAIL"
+    }
+   },
+   "op_check": {
+    "exclude": []
+   }
+  },
+  "subckt_name": "gmix04_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_SW": 1e-06,
+   "L_SW": 1e-06,
+   "NF_SW": 1.0,
+   "N_SW": 1.0,
+   "W_BB": 1e-06,
+   "L_BB": 1e-06,
+   "NF_BB": 1.0,
+   "N_BB": 1.0,
+   "W_T": 1e-06,
+   "L_T": 1e-06,
+   "NF_T": 1.0,
+   "N_T": 1.0,
+   "R_D": 10000.0,
+   "R_DIV_TOP": 10000.0,
+   "R_DIV_BOT": 10000.0,
+   "R_BB": 10000.0,
+   "C_DIV": 1e-12,
+   "C_VDD": 1e-12,
+   "C_TAIL": 1e-12
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_TAIL": 0.9,
+   "V_LO": 0.9
+  },
+  "bias_variables": {
+   "TAIL_BIAS": "V_TAIL",
+   "lo_bias_V": "V_LO"
+  },
+  "devices": {
+   "sky130_fd_pr__nfet_01v8": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__nfet_01v8_lvt": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8_lvt": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 3.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__res_high_po": {
+    "kind": "resistor",
+    "min_w_m": 3.5e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__cap_mim_m3_1": {
+    "kind": "capacitor",
+    "min_w_m": 1e-06,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-06,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__pnp_05v5_W3p40L3p40": {
+    "kind": "bjt",
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__nfet_g5v0d10v5": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_g5v0d10v5": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__diode_pd2nw_05v5": {
+    "kind": "bjt",
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5
+   }
+  },
+  "length_unit_m": 1e-06
+ }
+}

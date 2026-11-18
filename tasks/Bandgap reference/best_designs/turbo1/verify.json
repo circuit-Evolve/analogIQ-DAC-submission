@@ -1,0 +1,198 @@
+{
+ "task": "sky130_bandgap_101126_task_001",
+ "mc_samples": 100,
+ "score": 0.5077617144617458,
+ "targets_met": 2,
+ "targets": 6,
+ "valid": true,
+ "params": {
+  "W_PMIR": 4.014970449253019e-05,
+  "L_PMIR": 1.0595513491303874e-05,
+  "W_PTAT": 4.8096863451710517e-05,
+  "L_PTAT": 7.286829069893095e-07,
+  "W_M4": 1.199153351547457e-05,
+  "L_M4": 1.4450039459052317e-06,
+  "W_PBIAS": 6.41249872640805e-06,
+  "L_PBIAS": 4.552580375313583e-06,
+  "W_M8": 4.964223384290404e-06,
+  "L_M8": 1.4686487439581887e-05,
+  "W_M9": 1.9713081546443102e-06,
+  "L_M9": 6.821996040162074e-07,
+  "W_M10": 4.229701264773085e-06,
+  "W_M11": 2.5292048440196165e-06,
+  "L_PIN": 7.7074638611195e-07,
+  "W_M12": 2.3589555342084286e-06,
+  "W_M13": 2.4963685863113233e-06,
+  "L_NLD": 3.1039569479013925e-07,
+  "R1": 512986.73278814554,
+  "R2": 77.63660792259829,
+  "R3": 111.18020204597877,
+  "R4": 799.8850818035091,
+  "CC": 4.649195607265153e-13,
+  "M_PMIR": 35.0,
+  "NF_PMIR": 42.0,
+  "M_PTAT": 12.0,
+  "NF_PTAT": 82.0,
+  "M_M4": 38.0,
+  "NF_M4": 90.0,
+  "M_PBIAS": 88.0,
+  "NF_PBIAS": 51.0,
+  "M_M8": 89.0,
+  "NF_M8": 9.0,
+  "M_M9": 20.0,
+  "NF_M9": 18.0,
+  "M_M10": 73.0,
+  "NF_M10": 21.0,
+  "M_M11": 85.0,
+  "NF_M11": 84.0,
+  "M_M12": 89.0,
+  "NF_M12": 18.0,
+  "M_M13": 3.0,
+  "NF_M13": 33.0
+ },
+ "feasible": false,
+ "objective": null,
+ "constraints": {
+  "Vref_V": {
+   "lower": 1.08,
+   "upper": 1.3199999999999998,
+   "metric": "Vref_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 1.078125844244647,
+   "unit": "V",
+   "condition": "sf_binned_T27_S0p95",
+   "point": {},
+   "complete": true,
+   "margin": -0.0018741557553529908,
+   "normalized_margin": -0.001735329403104621,
+   "satisfied": false
+  },
+  "Power_uW": {
+   "lower": 0,
+   "upper": 283.21700000000004,
+   "metric": "Power_uW",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 66574.27334523361,
+   "unit": "uW",
+   "condition": "fs_binned_T27_S1p05",
+   "point": {},
+   "complete": true,
+   "margin": -66291.0563452336,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "PSRR_LF_dB": {
+   "lower": 21.501,
+   "metric": "PSRR_LF_dB",
+   "target": {
+    "kind": "voltage_db"
+   },
+   "value": 22.890392230780595,
+   "unit": "dB",
+   "condition": "ss_binned_T27_S0p95",
+   "point": {},
+   "complete": true,
+   "margin": 1.3893922307805937,
+   "normalized_margin": 0.17346357000539658,
+   "satisfied": true
+  },
+  "Line_sensitivity_percent": {
+   "lower": 0,
+   "upper": 7.37,
+   "metric": "Line_sensitivity_percent",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 4.645941214423844,
+   "unit": "%/V",
+   "condition": "ss_binned_T27_S0p95",
+   "point": {},
+   "complete": true,
+   "margin": 2.7240587855761564,
+   "normalized_margin": 0.3696144892233591,
+   "satisfied": true
+  },
+  "TC_19_120_ppm_C": {
+   "lower": 0,
+   "upper": 21.23,
+   "metric": "TC_19_120_ppm_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 563.3013824692267,
+   "unit": "ppm/C",
+   "condition": "sf_binned_T27_S0p95",
+   "point": {},
+   "complete": true,
+   "margin": -542.0713824692267,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "Startup_qualification": {
+   "lower": 0,
+   "upper": 1,
+   "metric": "Startup_qualification",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 1.0156179646279593,
+   "unit": "normalized error",
+   "condition": "sf_binned_T27_S0p95",
+   "point": {},
+   "complete": true,
+   "margin": -0.01561796462795928,
+   "normalized_margin": -0.01561796462795928,
+   "satisfied": false
+  },
+  "saturation": {
+   "upper": 0,
+   "metric": "devices_out_of_saturation",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  },
+  "forward_biased_junctions": {
+   "upper": 0,
+   "metric": "forward_biased_junctions",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  },
+  "devices_outside_rails": {
+   "upper": 0,
+   "metric": "devices_outside_rails",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": -1.0
+}

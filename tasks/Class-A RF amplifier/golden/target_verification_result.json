@@ -1,0 +1,2369 @@
+{
+  "schema": "analogiq.sizing_metrics/1",
+  "task_id": "pa1088_dac_task_001",
+  "execution_status": "completed",
+  "verification_status": "fresh_full_corner_verified_snapshot",
+  "feasibility": "feasible",
+  "constraints": {
+    "metric_1": {
+      "lower": 416805150.0,
+      "upper": 563912850.0,
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 484069625.3934273,
+      "condition": "C1_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 67264475.39342731,
+      "normalized_margin": 0.14158787941536125,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_2": {
+      "lower": 322647250.0,
+      "upper": 436522749.99999994,
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 384591479.7919412,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 51931270.208058715,
+      "normalized_margin": 0.1189657817560682,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_3": {
+      "lower": 95.00789999999999,
+      "upper": 128.5401,
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 95.08646434111094,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.07856434111094757,
+      "normalized_margin": 0.0008269242990419489,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_4": {
+      "upper": -67.63654319292776,
+      "metric": "S12_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": -69.93467901339817,
+      "condition": "C2_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 2.2981358204704065,
+      "normalized_margin": 0.232473800613196,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_5": {
+      "lower": 21.807078514285852,
+      "metric": "S21_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": 22.67528666209316,
+      "condition": "C2_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.8682081478073087,
+      "normalized_margin": 0.10512246506057643,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_6": {
+      "upper": -12.162643192927767,
+      "metric": "S11_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": -17.83463893455768,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 5.671995741629914,
+      "normalized_margin": 0.47952459365971956,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_7": {
+      "upper": 1,
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": "<",
+      "value": 0.9706380338982596,
+      "condition": "C1_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.029361966101740355,
+      "normalized_margin": 0.029361966101740355,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_8": {
+      "upper": 0.029439999999999997,
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 0.02878592126480881,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.0006540787351911881,
+      "normalized_margin": 0.022217348342091988,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_9": {
+      "lower": 1,
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": ">",
+      "value": 20.1046925081647,
+      "condition": "C2_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 19.1046925081647,
+      "normalized_margin": 19.1046925081647,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_10": {
+      "upper": 16.76697840353612,
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "power_db"
+      },
+      "strict": null,
+      "value": 13.20093343754828,
+      "condition": "C2_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 3.566044965987839,
+      "normalized_margin": 0.5600579203804235,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_11": {
+      "lower": 98.362,
+      "metric": "K_433MHz",
+      "unit": "1",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 98.70707330688458,
+      "condition": "C1_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.3450733068845864,
+      "normalized_margin": 0.0035081973412962974,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_12": {
+      "lower": 22.717189257142927,
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "power_db"
+      },
+      "strict": null,
+      "value": 22.72786915159512,
+      "condition": "C2_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.010679894452191974,
+      "normalized_margin": 0.002462162732455475,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_13": {
+      "upper": 362.64099999999996,
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 344.0068162862073,
+      "condition": "C1_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 18.634183713792652,
+      "normalized_margin": 0.051384657867678096,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_14": {
+      "upper": 28.278499999999998,
+      "metric": "IC_mA",
+      "unit": "mA",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 27.77414429450208,
+      "condition": "C1_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.5043557054979182,
+      "normalized_margin": 0.017835306168924033,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_15": {
+      "lower": 7.5514,
+      "upper": 10.2166,
+      "metric": "VCE_V",
+      "unit": "V",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 10.11685890969862,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.09974109030138045,
+      "normalized_margin": 0.009762650030477894,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_16": {
+      "upper": -12.217143192927768,
+      "metric": "S22_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": -12.23944394308588,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.02230075015811117,
+      "normalized_margin": 0.0025641756148954142,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_17": {
+      "lower": 16.32718925714293,
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "target": {
+        "kind": "power_db"
+      },
+      "strict": null,
+      "value": 18.55583244664064,
+      "condition": "C2_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 2.22864318949771,
+      "normalized_margin": 0.6705686184652437,
+      "required": 9,
+      "valid": 9
+    },
+    "metric_18": {
+      "lower": 35.955,
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 47.11606943285741,
+      "condition": "C1_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 11.16106943285741,
+      "normalized_margin": 0.3104177286290477,
+      "required": 9,
+      "valid": 9
+    }
+  },
+  "objective": null,
+  "worst_constraint_margin": 0.0008269242990419489,
+  "metrics": {
+    "fH_3dB_Hz@C0_0": 481565076.4295127,
+    "fL_3dB_Hz@C0_0": 381274638.5553807,
+    "Bandwidth_MHz@C0_0": 100.290437874132,
+    "S12_dB@C0_0": -74.50482169241346,
+    "S21_dB@C0_0": 24.07340381459666,
+    "S11_dB@C0_0": -17.87791784327484,
+    "Delta_max_1MHz_1GHz@C0_0": 0.9691782300730386,
+    "Delta_abs_433MHz@C0_0": 0.02198682474366972,
+    "K_min_1MHz_1GHz@C0_0": 39.25541359085593,
+    "NF_433MHz_dB@C0_0": 12.81419432031678,
+    "K_433MHz@C0_0": 157.8683962983492,
+    "Power_gain_dB@C0_0": 24.14484108375105,
+    "PDC_mW@C0_0": 277.1926531923979,
+    "IC_mA@C0_0": 22.17651682892084,
+    "VCE_V@C0_0": 9.742266113382142,
+    "S22_dB@C0_0": -14.67367543951947,
+    "Psat_dBm@C0_0": 18.6944108402486,
+    "PAE_peak_percent@C0_0": 47.99659164178822,
+    "fH_3dB_Hz@C0_1": 481515052.7474521,
+    "fL_3dB_Hz@C0_1": 381161379.6367004,
+    "Bandwidth_MHz@C0_1": 100.3536731107517,
+    "S12_dB@C0_1": -74.77014392707217,
+    "S21_dB@C0_1": 24.06943186343956,
+    "S11_dB@C0_1": -18.57425520625366,
+    "Delta_max_1MHz_1GHz@C0_1": 0.9698722823050522,
+    "Delta_abs_433MHz@C0_1": 0.01937706959248418,
+    "K_min_1MHz_1GHz@C0_1": 29.5871701430359,
+    "NF_433MHz_dB@C0_1": 12.87810077803964,
+    "K_433MHz@C0_1": 163.2737679684373,
+    "Power_gain_dB@C0_1": 24.13022871626953,
+    "PDC_mW@C0_1": 282.4813469437225,
+    "IC_mA@C0_1": 22.61311367022955,
+    "VCE_V@C0_1": 9.698987504000815,
+    "S22_dB@C0_1": -14.70241220055576,
+    "Psat_dBm@C0_1": 18.70730217687964,
+    "PAE_peak_percent@C0_1": 47.79535482634076,
+    "fH_3dB_Hz@C0_2": 481514655.3389711,
+    "fL_3dB_Hz@C0_2": 381097769.1130478,
+    "Bandwidth_MHz@C0_2": 100.4168862259232,
+    "S12_dB@C0_2": -73.72795968786673,
+    "S21_dB@C0_2": 24.07326318027616,
+    "S11_dB@C0_2": -19.30599795279708,
+    "Delta_max_1MHz_1GHz@C0_2": 0.9705880338579963,
+    "Delta_abs_433MHz@C0_2": 0.01677856348628519,
+    "K_min_1MHz_1GHz@C0_2": 23.64669719168677,
+    "NF_433MHz_dB@C0_2": 12.9471313130346,
+    "K_433MHz@C0_2": 145.1013659841143,
+    "Power_gain_dB@C0_2": 24.12459696761829,
+    "PDC_mW@C0_2": 288.5618576024655,
+    "IC_mA@C0_2": 23.11511054796994,
+    "VCE_V@C0_2": 9.64922877376182,
+    "S22_dB@C0_2": -14.73515381888039,
+    "Psat_dBm@C0_2": 18.72748463367086,
+    "PAE_peak_percent@C0_2": 47.5417041811025,
+    "fH_3dB_Hz@C1_0": 484069625.3934273,
+    "fL_3dB_Hz@C1_0": 376368876.1591118,
+    "Bandwidth_MHz@C1_0": 107.7007492343155,
+    "S12_dB@C1_0": -71.42925821431224,
+    "S21_dB@C1_0": 25.27263280279668,
+    "S11_dB@C1_0": -17.93016615013228,
+    "Delta_max_1MHz_1GHz@C1_0": 0.9691927532655453,
+    "Delta_abs_433MHz@C1_0": 0.01416098069022007,
+    "K_min_1MHz_1GHz@C1_0": 51.99023068701059,
+    "NF_433MHz_dB@C1_0": 12.56243723303251,
+    "K_433MHz@C1_0": 98.70707330688458,
+    "Power_gain_dB@C1_0": 25.34321019812858,
+    "PDC_mW@C1_0": 328.9955950339518,
+    "IC_mA@C1_0": 26.52956118491326,
+    "VCE_V@C1_0": 9.317202164501568,
+    "S22_dB@C1_0": -19.08850962781526,
+    "Psat_dBm@C1_0": 18.9482183887429,
+    "PAE_peak_percent@C1_0": 47.84410346793059,
+    "fH_3dB_Hz@C1_1": 484004498.0345609,
+    "fL_3dB_Hz@C1_1": 376236378.7110211,
+    "Bandwidth_MHz@C1_1": 107.7681193235398,
+    "S12_dB@C1_1": -72.9358799925084,
+    "S21_dB@C1_1": 25.28943292128273,
+    "S11_dB@C1_1": -18.65758998284513,
+    "Delta_max_1MHz_1GHz@C1_1": 0.9699035510044111,
+    "Delta_abs_433MHz@C1_1": 0.01236193166467455,
+    "K_min_1MHz_1GHz@C1_1": 37.97614288114399,
+    "NF_433MHz_dB@C1_1": 12.62215905294062,
+    "K_433MHz@C1_1": 117.4799962806997,
+    "Power_gain_dB@C1_1": 25.34906851027715,
+    "PDC_mW@C1_1": 335.9815483212982,
+    "IC_mA@C1_1": 27.10875583715903,
+    "VCE_V@C1_1": 9.259997223604072,
+    "S22_dB@C1_1": -19.11793218762941,
+    "Psat_dBm@C1_1": 18.96679398627703,
+    "PAE_peak_percent@C1_1": 47.4972037514602,
+    "fH_3dB_Hz@C1_2": 483988436.0451978,
+    "fL_3dB_Hz@C1_2": 376150650.2104747,
+    "Bandwidth_MHz@C1_2": 107.8377858347232,
+    "S12_dB@C1_2": -74.25224671312144,
+    "S21_dB@C1_2": 25.31641552638746,
+    "S11_dB@C1_2": -19.41906535692225,
+    "Delta_max_1MHz_1GHz@C1_2": 0.9706380338982596,
+    "Delta_abs_433MHz@C1_2": 0.01061197631967424,
+    "K_min_1MHz_1GHz@C1_2": 29.58677499705362,
+    "NF_433MHz_dB@C1_2": 12.68649360753175,
+    "K_433MHz@C1_2": 136.5975050666954,
+    "Power_gain_dB@C1_2": 25.36642558292242,
+    "PDC_mW@C1_2": 344.0068162862073,
+    "IC_mA@C1_2": 27.77414429450208,
+    "VCE_V@C1_2": 9.19428139834325,
+    "S22_dB@C1_2": -19.1604480435679,
+    "Psat_dBm@C1_2": 18.98701668587681,
+    "PAE_peak_percent@C1_2": 47.11606943285741,
+    "fH_3dB_Hz@C2_0": 479677944.1330522,
+    "fL_3dB_Hz@C2_0": 384591479.7919412,
+    "Bandwidth_MHz@C2_0": 95.08646434111094,
+    "S12_dB@C2_0": -74.09332968167679,
+    "S21_dB@C2_0": 22.71064722356958,
+    "S11_dB@C2_0": -17.83463893455768,
+    "Delta_max_1MHz_1GHz@C2_0": 0.9691443421473322,
+    "Delta_abs_433MHz@C2_0": 0.02878592126480881,
+    "K_min_1MHz_1GHz@C2_0": 32.22361574524403,
+    "NF_433MHz_dB@C2_0": 13.06079636787462,
+    "K_433MHz@C2_0": 171.425574808564,
+    "Power_gain_dB@C2_0": 22.78280437538861,
+    "PDC_mW@C2_0": 231.5406840769951,
+    "IC_mA@C2_0": 18.34034052055107,
+    "VCE_V@C2_0": 10.11685890969862,
+    "S22_dB@C2_0": -12.23944394308588,
+    "Psat_dBm@C2_0": 18.55894400755736,
+    "PAE_peak_percent@C2_0": 47.66352180311684,
+    "fH_3dB_Hz@C2_1": 479636961.0192373,
+    "fL_3dB_Hz@C2_1": 384494769.0399882,
+    "Bandwidth_MHz@C2_1": 95.14219197924912,
+    "S12_dB@C2_1": -72.05841305066481,
+    "S21_dB@C2_1": 22.69005418446245,
+    "S11_dB@C2_1": -18.50104408727126,
+    "Delta_max_1MHz_1GHz@C2_1": 0.9698242665275568,
+    "Delta_abs_433MHz@C2_1": 0.02556675693682978,
+    "K_min_1MHz_1GHz@C2_1": 24.78006300854852,
+    "NF_433MHz_dB@C2_1": 13.12809344078315,
+    "K_433MHz@C2_1": 136.3095301567768,
+    "Power_gain_dB@C2_1": 22.75188973049941,
+    "PDC_mW@C2_1": 235.5176263370637,
+    "IC_mA@C2_1": 18.6667300393699,
+    "VCE_V@C2_1": 10.08434344455933,
+    "S22_dB@C2_1": -12.26255950659246,
+    "Psat_dBm@C2_1": 18.55662973096573,
+    "PAE_peak_percent@C2_1": 47.49640743856837,
+    "fH_3dB_Hz@C2_2": 479644445.1421978,
+    "fL_3dB_Hz@C2_2": 384450664.9528472,
+    "Bandwidth_MHz@C2_2": 95.1937801893506,
+    "S12_dB@C2_2": -69.93467901339817,
+    "S21_dB@C2_2": 22.67528666209316,
+    "S11_dB@C2_2": -19.20198235930964,
+    "Delta_max_1MHz_1GHz@C2_2": 0.970524346692569,
+    "Delta_abs_433MHz@C2_2": 0.02234102260982301,
+    "K_min_1MHz_1GHz@C2_2": 20.1046925081647,
+    "NF_433MHz_dB@C2_2": 13.20093343754828,
+    "K_433MHz@C2_2": 107.1870325221774,
+    "Power_gain_dB@C2_2": 22.72786915159512,
+    "PDC_mW@C2_2": 240.092304249011,
+    "IC_mA@C2_2": 19.04221363017903,
+    "VCE_V@C2_2": 10.04694033055634,
+    "S22_dB@C2_2": -12.2864258467031,
+    "Psat_dBm@C2_2": 18.55583244664064,
+    "PAE_peak_percent@C2_2": 47.33727473162459
+  },
+  "measurements": [
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 481565076.4295127,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 381274638.5553807,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 100.290437874132,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -74.50482169241346,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 24.07340381459666,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -17.87791784327484,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9691782300730386,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.02198682474366972,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 39.25541359085593,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 12.81419432031678,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 157.8683962983492,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 24.14484108375105,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 277.1926531923979,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 22.17651682892084,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 9.742266113382142,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -14.67367543951947,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.6944108402486,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.99659164178822,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 481515052.7474521,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 381161379.6367004,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 100.3536731107517,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -74.77014392707217,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 24.06943186343956,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -18.57425520625366,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9698722823050522,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.01937706959248418,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 29.5871701430359,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 12.87810077803964,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 163.2737679684373,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 24.13022871626953,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 282.4813469437225,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 22.61311367022955,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 9.698987504000815,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -14.70241220055576,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.70730217687964,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.79535482634076,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 481514655.3389711,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 381097769.1130478,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 100.4168862259232,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -73.72795968786673,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 24.07326318027616,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -19.30599795279708,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9705880338579963,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.01677856348628519,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 23.64669719168677,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 12.9471313130346,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 145.1013659841143,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 24.12459696761829,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 288.5618576024655,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 23.11511054796994,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 9.64922877376182,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -14.73515381888039,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.72748463367086,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.5417041811025,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 484069625.3934273,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 376368876.1591118,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 107.7007492343155,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -71.42925821431224,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 25.27263280279668,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -17.93016615013228,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9691927532655453,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.01416098069022007,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 51.99023068701059,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 12.56243723303251,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 98.70707330688458,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 25.34321019812858,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 328.9955950339518,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 26.52956118491326,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 9.317202164501568,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -19.08850962781526,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.9482183887429,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.84410346793059,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 484004498.0345609,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 376236378.7110211,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 107.7681193235398,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -72.9358799925084,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 25.28943292128273,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -18.65758998284513,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9699035510044111,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.01236193166467455,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 37.97614288114399,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 12.62215905294062,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 117.4799962806997,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 25.34906851027715,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 335.9815483212982,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 27.10875583715903,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 9.259997223604072,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -19.11793218762941,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.96679398627703,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.4972037514602,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 483988436.0451978,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 376150650.2104747,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 107.8377858347232,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -74.25224671312144,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 25.31641552638746,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -19.41906535692225,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9706380338982596,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.01061197631967424,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 29.58677499705362,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 12.68649360753175,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 136.5975050666954,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 25.36642558292242,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 344.0068162862073,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 27.77414429450208,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 9.19428139834325,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -19.1604480435679,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.98701668587681,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.11606943285741,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 479677944.1330522,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 384591479.7919412,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 95.08646434111094,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -74.09332968167679,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 22.71064722356958,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -17.83463893455768,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9691443421473322,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.02878592126480881,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 32.22361574524403,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 13.06079636787462,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 171.425574808564,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 22.78280437538861,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 231.5406840769951,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 18.34034052055107,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 10.11685890969862,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -12.23944394308588,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.55894400755736,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.66352180311684,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 479636961.0192373,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 384494769.0399882,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 95.14219197924912,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -72.05841305066481,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 22.69005418446245,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -18.50104408727126,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.9698242665275568,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.02556675693682978,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 24.78006300854852,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 13.12809344078315,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 136.3095301567768,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 22.75188973049941,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 235.5176263370637,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 18.6667300393699,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 10.08434344455933,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -12.26255950659246,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.55662973096573,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.49640743856837,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fH_3dB_Hz",
+      "unit": "Hz",
+      "value": 479644445.1421978,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "fL_3dB_Hz",
+      "unit": "Hz",
+      "value": 384450664.9528472,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Bandwidth_MHz",
+      "unit": "MHz",
+      "value": 95.1937801893506,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S12_dB",
+      "unit": "dB",
+      "value": -69.93467901339817,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S21_dB",
+      "unit": "dB",
+      "value": 22.67528666209316,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S11_dB",
+      "unit": "dB",
+      "value": -19.20198235930964,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_max_1MHz_1GHz",
+      "unit": "1",
+      "value": 0.970524346692569,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Delta_abs_433MHz",
+      "unit": "1",
+      "value": 0.02234102260982301,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_min_1MHz_1GHz",
+      "unit": "1",
+      "value": 20.1046925081647,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "NF_433MHz_dB",
+      "unit": "dB",
+      "value": 13.20093343754828,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "K_433MHz",
+      "unit": "1",
+      "value": 107.1870325221774,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Power_gain_dB",
+      "unit": "dB",
+      "value": 22.72786915159512,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PDC_mW",
+      "unit": "mW",
+      "value": 240.092304249011,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "IC_mA",
+      "unit": "mA",
+      "value": 19.04221363017903,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "VCE_V",
+      "unit": "V",
+      "value": 10.04694033055634,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "S22_dB",
+      "unit": "dB",
+      "value": -12.2864258467031,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_dc_sp_noise_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Psat_dBm",
+      "unit": "dBm",
+      "value": 18.55583244664064,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PAE_peak_percent",
+      "unit": "%",
+      "value": 47.33727473162459,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "pa1088_dac_hb_saved_v1",
+      "point": {}
+    }
+  ],
+  "coverage": {
+    "required_measurement_checks": 162,
+    "valid_measurement_checks": 162
+  },
+  "note": "Fixed-sizing replay with explicit acceptance targets; targets.json records paper-referenced limits with the approved 15% allowance and explicit reference exceptions.",
+  "target_coverage": {
+    "required": 162,
+    "valid": 162,
+    "missing_or_invalid": 0
+  },
+  "target_violations": [],
+  "unavailable_target_checks": [],
+  "corner_results": [
+    {
+      "condition_id": "C0_0",
+      "condition": {
+        "id": "C0_0",
+        "model_set": "highperf_bjt_t",
+        "temperature_C": -40.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 1,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_t"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C0_1",
+      "condition": {
+        "id": "C0_1",
+        "model_set": "highperf_bjt_t",
+        "temperature_C": 27.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": true,
+        "supply_span_V": 12.0,
+        "source_point_id": 2,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_t"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C0_2",
+      "condition": {
+        "id": "C0_2",
+        "model_set": "highperf_bjt_t",
+        "temperature_C": 100.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 3,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_t"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C1_0",
+      "condition": {
+        "id": "C1_0",
+        "model_set": "highperf_bjt_f",
+        "temperature_C": -40.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 4,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_f"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C1_1",
+      "condition": {
+        "id": "C1_1",
+        "model_set": "highperf_bjt_f",
+        "temperature_C": 27.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 5,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_f"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C1_2",
+      "condition": {
+        "id": "C1_2",
+        "model_set": "highperf_bjt_f",
+        "temperature_C": 100.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 6,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_f"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C2_0",
+      "condition": {
+        "id": "C2_0",
+        "model_set": "highperf_bjt_s",
+        "temperature_C": -40.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 7,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_s"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C2_1",
+      "condition": {
+        "id": "C2_1",
+        "model_set": "highperf_bjt_s",
+        "temperature_C": 27.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 8,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_s"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C2_2",
+      "condition": {
+        "id": "C2_2",
+        "model_set": "highperf_bjt_s",
+        "temperature_C": 100.0,
+        "supply_V": 12.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 12.0,
+        "source_point_id": 9,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+            "section": "highperf_bjt_s"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    }
+  ],
+  "corner_summary": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "unavailable": 0
+  },
+  "source_run": "<WORK>/paper-sizing-20261105/round15/pa1088/continue15/trials/canonical_cont15_all9",
+  "simulation_jobs": 18,
+  "source_audit": {
+    "source_audit": {
+      "date_utc": "2026-11-05T08:02:40.065401+00:00",
+      "all162_pass": true,
+      "all9_corners_pass": true,
+      "all162_finite": true,
+      "simulator_jobs": 18,
+      "all_simulator_exits_zero": true,
+      "extraction_exit": 0,
+      "dut_sha256": "f5e595b9ee56bc8a20f07d547841ca8e4c2d262fd3d0cfc3d4b7539af5773f71",
+      "all18_duts_identical": true,
+      "all18_testbench_decks_identical_to_source": true,
+      "topology_generated_by_parameter_substitution_only": true,
+      "contract_sha256": "18a9aad8e1eb49d558695c178a8e1154d81880e886794bb190a660a1e2b765e6",
+      "model_sha256": "0149a2a1a0557cfe0410a6efeb234848355889023eba1f474ae8568ee5d520e8",
+      "smallest_margins": {
+        "Bandwidth_MHz": 0.07856434111093336,
+        "Power_gain_dB": 0.010679894452191974
+      }
+    },
+    "report_time_fixed_dut_check": true,
+    "dut_files": 18,
+    "dut_sha256": "f5e595b9ee56bc8a20f07d547841ca8e4c2d262fd3d0cfc3d4b7539af5773f71"
+  }
+}

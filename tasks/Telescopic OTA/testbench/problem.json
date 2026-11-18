@@ -1,0 +1,1743 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "telescopic01_scl180_task_001",
+ "topology_id": "telescopic01_scl180",
+ "family": "amplifier",
+ "technology_id": "gpdk180",
+ "parameterization_id": "telescopic01_scl180_p1_counts_20261112",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). Two-stage telescopic OTA with Miller (CC + RZ) compensation (Soman et al., ICNWC 2023, Fig. 2/4), gpdk180, 1.8 V, CL 1 pF, unity-gain follower at 0.9 V input common mode. Conditions: nominal (TT 27 C) plus Table V's four corners (SS/FF at 0 and 100 C; gain, UGF, PM only). Targets are Table IV's values (10 % linear tolerance), each only where the paper reports it. No Monte Carlo (the paper reports none). No objective.",
+ "source": {
+  "doi": null,
+  "title": "Soman, Gandhi, Baskaran M.: Analysis and Design of a Two stage Telescopic OTA using SCL 180nm CMOS Technology (ICNWC 2023)",
+  "figure": "Fig. 2 (p.2) / Fig. 4 (p.5, operating-point schematic): telescopic first stage (M1/M2, cascodes M11/M12 and M9/M10, mirror M3/M4, tail M5) and PMOS common-source second stage M8 with sink M7, CC + RZ Miller compensation"
+ },
+ "variables": [
+  {
+   "name": "W_M1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS input pair M1/M2 width (gm, input capacitance, noise)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "input pair M1/M2 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS mirror load M3/M4 width (first-stage load, headroom)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS mirror load M3/M4 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS cascodes M9/M10 width (gates at VB1, first-stage output resistance)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9",
+     "M10"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS cascodes M9/M10 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9",
+     "M10"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M11",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS cascodes M11/M12 width (gates at VB2, first-stage output resistance)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M11",
+     "M12"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M11",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS cascodes M11/M12 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M11",
+     "M12"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "tail current source M5 width (ISS = IBIAS x (W/L)5 / (W/L)6)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "tail current source M5 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M6",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "bias diode M6 width (mirror reference for M5 and M7)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M6",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "bias diode M6 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "second-stage current sink M7 width (IOSS = IBIAS x (W/L)7 / (W/L)6)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "second-stage current sink M7 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_M8",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "second-stage PMOS common-source M8 width per finger (gm8, output stage)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M8"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_M8",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "second-stage PMOS M8 length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M8"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_M8",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier of M8",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M8"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "CC",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "Miller compensation capacitor",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CC"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "RZ",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "Miller nulling resistor in series with CC",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RZ"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "IBIAS",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current IBIAS_DC into the M6 diode (sets ISS and IOSS through the mirrors; not given by the paper)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "IBIAS_DC"
+   }
+  },
+  {
+   "name": "VB1",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.8,
+   "scale": "lin",
+   "start": 0.9,
+   "quantity": "bias_voltage",
+   "role": "gate bias of the PMOS cascodes M9/M10 (absolute)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VB1"
+   }
+  },
+  {
+   "name": "VB2",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 1.8,
+   "scale": "lin",
+   "start": 0.9,
+   "quantity": "bias_voltage",
+   "role": "gate bias of the NMOS cascodes M11/M12 (absolute)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VB2"
+   }
+  },
+  {
+   "name": "M_M1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M1, M2; preserves matched width/length group W_M1",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_M3",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M3, M4; preserves matched width/length group W_M3",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_M9",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M9, M10; preserves matched width/length group W_M9",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9",
+     "M10"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_M11",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M11, M12; preserves matched width/length group W_M11",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M11",
+     "M12"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_M5",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M5; preserves matched width/length group W_M5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_M6",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M6; preserves matched width/length group W_M6",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_M7",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M7; preserves matched width/length group W_M7",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "m"
+   }
+  }
+ ],
+ "dependent_parameters": {},
+ "conditions": [
+  {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "SS_T0_S1p00",
+   "model_set": "SS",
+   "temperature_C": 0.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "SS_T100_S1p00",
+   "model_set": "SS",
+   "temperature_C": 100.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "FF_T0_S1p00",
+   "model_set": "FF",
+   "temperature_C": 0.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "FF_T100_S1p00",
+   "model_set": "FF",
+   "temperature_C": 100.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.8,
+   "provenance": "paper: p.1-2 (Cadence SCL 180 nm, VDD 1.8 V)"
+  },
+  "supply_negative_V": {
+   "value": 0.0,
+   "provenance": "paper: Fig. 4 (VSS = ground)"
+  },
+  "input_common_mode_V": {
+   "value": 0.9,
+   "provenance": "paper: Fig. 4 p.5 (IN_N / IN_P = 899.9 / 900 mV; owner Q2a: 0.9 V, unity-gain follower)"
+  },
+  "load_capacitance_F": {
+   "value": 1e-12,
+   "provenance": "paper: Table I p.2 (CL = 1 pF)"
+  }
+ },
+ "constraints": [
+  {
+   "name": "open_loop_gain_dB",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 98.26905018878651,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 99.1842,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) DC gain 99.1842 dB (Table V TT agrees; Table VI 99.5 / conclusion 99.43 / spec >100 dB differ: Table IV used, G6, Q7a)",
+   "source": "measure"
+  },
+  {
+   "name": "ugf_Hz",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 123307200.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 137008000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) unity-gain frequency 137.008 MHz (Fig. 5/9 loop gain; amp_ol_v1 per Q4a)",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 54.15102,
+   "target": {
+    "kind": "linear",
+    "paper_value": 60.1678,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) phase margin 60.1678 deg",
+   "source": "measure"
+  },
+  {
+   "name": "sr_rise_V_per_s",
+   "metric": "slew_rate_rise_V_per_s",
+   "recipe": "amp_step_v1",
+   "point": {},
+   "unit": "V/s",
+   "lower": 186912900.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 207681000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) slew rate 207.681 (printed mV/us, read as V/us = 2.07681e8 V/s, Fig. 7 '207.618 MV/s'; Q1a); rising-output PEAK slope (definition audit 2026-10-27: the paper reads it with two cursors on the steep part of the edge, Fig. 7, dy = 365 mV of a 0 -> 1.8 V input step: slew_window 0.2 = the steepest average slope over 20 % of the output swing, unity-gain follower, 0 -> 1.8 V step as in Fig. 7; the earlier 20-80 % average of a 0.86 V step was 24 % below the peak slope on the reference (143 vs 188 V/us) and depends on the step size)",
+   "source": "measure"
+  },
+  {
+   "name": "cmrr_dB",
+   "metric": "cmrr_dB",
+   "recipe": "amp_ol_v1",
+   "point": {
+    "freq_Hz": 1.0
+   },
+   "unit": "dB",
+   "lower": 128.5408501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 129.456,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) CMRR 129.456 dB (Fig. 6 marker near 12 Hz; read at 1 Hz)",
+   "source": "measure"
+  },
+  {
+   "name": "tracking_range_V",
+   "metric": "tracking_range_V",
+   "recipe": "amp_dc_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 0.8955,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.995,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) ICMR 0.995 V (Fig. 8 follower sweep); amp_dc_v1 tracking_range_V with a 3 mV tracking tolerance (definition audit 2026-10-27: Fig. 8 shows the follower error V(OUT)-V(IN) = 3 mV at 0.27 V and 1.27 V, i.e. 0.995 V wide at that tolerance; the earlier 50 mV default measured 1.64 V on the figure and 1.72 V on the reference; paper silent, Q6a)",
+   "source": "native"
+  },
+  {
+   "name": "quiescent_power_W",
+   "metric": "quiescent_power_W",
+   "recipe": "amp_dc_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.00154,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0014,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) power 1.4 mW (Table I spec 2 mW; Table IV result used, Q8a; IBIAS_DC is a variable, Q10a)",
+   "source": "measure"
+  },
+  {
+   "name": "input_noise_1MHz",
+   "metric": "input_noise_V_per_rtHz",
+   "recipe": "amp_noise_ext_v1",
+   "point": {
+    "freq_Hz": 1000000.0
+   },
+   "unit": "V/sqrt(Hz)",
+   "upper": 2.14148e-08,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.9468e-08,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table IV p.4 (nominal, TT 27 C, 1.8 V, CL 1 pF) input-referred noise 19.468 nV/rtHz (frequency unstated; open loop at 1 MHz, above the flicker corner and below the 137 MHz UGF, Q3a)",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_SS_T0",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 100.09485018878651,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 101.01,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS",
+     "temperature_C": 0
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner SS_T0 DC gain (Q11a: Table V's four corners, gain/UGF/PM only)",
+   "source": "measure"
+  },
+  {
+   "name": "ugf_Hz_SS_T0",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 135279000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 150310000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS",
+     "temperature_C": 0
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner SS_T0 unity-gain frequency",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_SS_T0",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 54.810900000000004,
+   "target": {
+    "kind": "linear",
+    "paper_value": 60.901,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS",
+     "temperature_C": 0
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner SS_T0 phase margin",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_SS_T100",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 93.51485018878651,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 94.43,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS",
+     "temperature_C": 100
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner SS_T100 DC gain (Q11a: Table V's four corners, gain/UGF/PM only)",
+   "source": "measure"
+  },
+  {
+   "name": "ugf_Hz_SS_T100",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 109098000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 121220000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS",
+     "temperature_C": 100
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner SS_T100 unity-gain frequency",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_SS_T100",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 56.5497,
+   "target": {
+    "kind": "linear",
+    "paper_value": 62.833,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS",
+     "temperature_C": 100
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner SS_T100 phase margin",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_FF_T0",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 100.88685018878651,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 101.802,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF",
+     "temperature_C": 0
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner FF_T0 DC gain (Q11a: Table V's four corners, gain/UGF/PM only)",
+   "source": "measure"
+  },
+  {
+   "name": "ugf_Hz_FF_T0",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 136125000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 151250000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF",
+     "temperature_C": 0
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner FF_T0 unity-gain frequency",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_FF_T0",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 56.2347,
+   "target": {
+    "kind": "linear",
+    "paper_value": 62.483,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF",
+     "temperature_C": 0
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner FF_T0 phase margin",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_FF_T100",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 92.33675018878651,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 93.2519,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF",
+     "temperature_C": 100
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner FF_T100 DC gain (Q11a: Table V's four corners, gain/UGF/PM only)",
+   "source": "measure"
+  },
+  {
+   "name": "ugf_Hz_FF_T100",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 115802999.99999999,
+   "target": {
+    "kind": "linear",
+    "paper_value": 128669999.99999999,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF",
+     "temperature_C": 100
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner FF_T100 unity-gain frequency",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_FF_T100",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 57.5892,
+   "target": {
+    "kind": "linear",
+    "paper_value": 63.988,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF",
+     "temperature_C": 100
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table V p.5 (VDD 1.8 V, CL 1 pF assumed), corner FF_T100 phase margin",
+   "source": "measure"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "amp_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8: no device out of saturation at the quiescent point (Fig. 4 operating point; exclusions in topology op_check)",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "amp_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "amp_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "amp_dc_v1",
+   "bias_power_W"
+  ],
+  [
+   "amp_dc_v1",
+   "buffer_offset_V"
+  ],
+  [
+   "amp_dc_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "amp_dc_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "amp_dc_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "amp_dc_v1",
+   "output_at_sweep_start_V"
+  ],
+  [
+   "amp_dc_v1",
+   "output_at_sweep_stop_V"
+  ],
+  [
+   "amp_dc_v1",
+   "output_swing_V"
+  ],
+  [
+   "amp_dc_v1",
+   "quiescent_power_W"
+  ],
+  [
+   "amp_dc_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "amp_dc_v1",
+   "supply_current_A"
+  ],
+  [
+   "amp_dc_v1",
+   "tracking_range_V"
+  ],
+  [
+   "amp_dc_v1",
+   "tracking_range_high_V"
+  ],
+  [
+   "amp_dc_v1",
+   "tracking_range_low_V"
+  ],
+  [
+   "amp_noise_ext_v1",
+   "flicker_corner_Hz"
+  ],
+  [
+   "amp_noise_ext_v1",
+   "input_noise_V_per_rtHz"
+  ],
+  [
+   "amp_noise_ext_v1",
+   "output_noise_V_per_rtHz"
+  ],
+  [
+   "amp_ol_v1",
+   "cmrr_dB"
+  ],
+  [
+   "amp_ol_v1",
+   "gain_bandwidth_product_Hz"
+  ],
+  [
+   "amp_ol_v1",
+   "gain_margin_dB"
+  ],
+  [
+   "amp_ol_v1",
+   "open_loop_bandwidth_Hz"
+  ],
+  [
+   "amp_ol_v1",
+   "open_loop_gain_dB"
+  ],
+  [
+   "amp_ol_v1",
+   "phase_margin_deg"
+  ],
+  [
+   "amp_ol_v1",
+   "psrr_neg_dB"
+  ],
+  [
+   "amp_ol_v1",
+   "psrr_pos_dB"
+  ],
+  [
+   "amp_ol_v1",
+   "unity_gain_frequency_Hz"
+  ],
+  [
+   "amp_step_v1",
+   "final_error_fall_V"
+  ],
+  [
+   "amp_step_v1",
+   "final_error_rise_V"
+  ],
+  [
+   "amp_step_v1",
+   "overshoot_fall_V"
+  ],
+  [
+   "amp_step_v1",
+   "overshoot_max_V"
+  ],
+  [
+   "amp_step_v1",
+   "overshoot_rise_V"
+  ],
+  [
+   "amp_step_v1",
+   "settling_time_fall_s"
+  ],
+  [
+   "amp_step_v1",
+   "settling_time_rise_s"
+  ],
+  [
+   "amp_step_v1",
+   "settling_time_to_final_avg_s"
+  ],
+  [
+   "amp_step_v1",
+   "settling_time_to_final_fall_s"
+  ],
+  [
+   "amp_step_v1",
+   "settling_time_to_final_rise_s"
+  ],
+  [
+   "amp_step_v1",
+   "slew_rate_avg_V_per_s"
+  ],
+  [
+   "amp_step_v1",
+   "slew_rate_fall_V_per_s"
+  ],
+  [
+   "amp_step_v1",
+   "slew_rate_rise_V_per_s"
+  ]
+ ],
+ "simulations_per_design": 8,
+ "analysis_executions_per_design": 23,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_dc_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "supply_current_A": {
+     "unit": "A",
+     "source": "measure"
+    },
+    "bias_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "buffer_offset_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "output_at_sweep_start_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "output_at_sweep_stop_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "output_swing_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "tracking_range_low_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "tracking_range_high_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "tracking_range_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vcm_V": 0.9
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_ol_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_step_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "slew_rate_rise_V_per_s": {
+     "unit": "V/s",
+     "source": "measure"
+    },
+    "slew_rate_fall_V_per_s": {
+     "unit": "V/s",
+     "source": "measure"
+    },
+    "slew_rate_avg_V_per_s": {
+     "unit": "V/s",
+     "source": "measure"
+    },
+    "settling_time_to_final_rise_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_to_final_fall_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_to_final_avg_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_rise_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_fall_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "final_error_rise_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "final_error_fall_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_rise_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_fall_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_max_V": {
+     "unit": "V",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "step_V": 1.8
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_noise_ext_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_noise_ext_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "input_noise_V_per_rtHz": {
+     "unit": "V/sqrt(Hz)",
+     "source": "measure"
+    },
+    "output_noise_V_per_rtHz": {
+     "unit": "V/sqrt(Hz)",
+     "source": "measure"
+    },
+    "flicker_corner_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "freq_Hz": 1000000.0
+    }
+   ]
+  },
+  {
+   "condition": "SS_T0_S1p00",
+   "recipe": "amp_ol_v1",
+   "folder": "testbenches/SS_T0_S1p00/amp_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1.0
+    }
+   ]
+  },
+  {
+   "condition": "SS_T100_S1p00",
+   "recipe": "amp_ol_v1",
+   "folder": "testbenches/SS_T100_S1p00/amp_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1.0
+    }
+   ]
+  },
+  {
+   "condition": "FF_T0_S1p00",
+   "recipe": "amp_ol_v1",
+   "folder": "testbenches/FF_T0_S1p00/amp_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1.0
+    }
+   ]
+  },
+  {
+   "condition": "FF_T100_S1p00",
+   "recipe": "amp_ol_v1",
+   "folder": "testbenches/FF_T100_S1p00/amp_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1.0
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "telescopic01_scl180_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('telescopic01_scl180_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

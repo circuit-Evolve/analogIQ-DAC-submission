@@ -1,0 +1,56 @@
+// Generated for: spectre
+// Generated on: Nov  9 17:26:36 2026
+// Design library name: DAC_20261109_FWR
+// Design cell name: DC_AC_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=FF
+
+// Library name: DAC_20261109_FWR
+// Cell name: fgpmos
+// View name: schematic
+subckt fgpmos B D GBIAS GSIGNAL S
+    MP (D FG S B) pmos1 w=7.8883e-05 l=2.96e-07 as=4.73298e-11 ad=4.73298e-11 ps=0.000158966 pd=0.000158966 m=1
+    C2 (GSIGNAL FG) capacitor c=1.17e-12
+    C1 (GBIAS FG) capacitor c=1.442e-12
+    R2 (GSIGNAL FG) resistor r=1T
+    R1 (GBIAS FG) resistor r=1T
+ends fgpmos
+// End of subcircuit definition.
+
+// Library name: DAC_20261109_FWR
+// Cell name: fwr_fig4
+// View name: schematic
+subckt fwr_fig4 GND OUT VBIAS VDD X Y
+    M14 (OUT SQ GND GND) nmos1 w=3.6656e-05 l=3.46e-07 as=2.19936e-11 ad=2.19936e-11 ps=7.4512e-05          pd=7.4512e-05 m=1
+    M11 (PMBIAS SQ GND GND) nmos1 w=4.2713e-05 l=6.37e-07 as=2.56278e-11 ad=2.56278e-11 ps=8.6626e-05          pd=8.6626e-05 m=1
+    M10 (SQ SQ GND GND) nmos1 w=2.1464e-05 l=3.03e-07 as=1.28784e-11 ad=1.28784e-11 ps=4.4128e-05          pd=4.4128e-05 m=1
+    M9 (SQ SQ GND GND) nmos1 w=1.0732e-05 l=3.03e-07 as=6.4392e-12 ad=6.4392e-12 ps=2.2664e-05          pd=2.2664e-05 m=1
+    M6 (Z C Y GND) nmos1 w=2.518e-06 l=3.205e-06 as=1.5108e-12 ad=1.5108e-12 ps=6.236e-06 pd=6.236e-06          m=1
+    M5 (Y Y GND GND) nmos1 w=1.1858e-05 l=2.485e-06 as=7.1148e-12 ad=7.1148e-12 ps=2.4916e-05 pd=2.4916e-05          m=1
+    M4 (Z C X GND) nmos1 w=2.518e-06 l=3.205e-06 as=1.5108e-12 ad=1.5108e-12 ps=6.236e-06 pd=6.236e-06          m=1
+    M3 (X X GND GND) nmos1 w=1.1858e-05 l=2.485e-06 as=7.1148e-12 ad=7.1148e-12 ps=2.4916e-05 pd=2.4916e-05          m=1
+    M2 (BIAS BIAS GND GND) nmos1 w=2.0996e-05 l=2.22e-07 as=1.25976e-11 ad=1.25976e-11 ps=4.3192e-05          pd=4.3192e-05 m=1
+    M1 (C C BIAS GND) nmos1 w=1.4709e-05 l=4.29e-07 as=8.8254e-12 ad=8.8254e-12 ps=3.0618e-05 pd=3.0618e-05          m=1
+    M8 (VDD SQ VBIAS Z VDD) fgpmos
+    M7 (VDD Z VBIAS Z VDD) fgpmos
+    M13 (C PMBIAS VDD VDD) pmos1 w=5.899e-06 l=7.51e-07 as=3.5394e-12 ad=3.5394e-12 ps=1.2998e-05          pd=1.2998e-05 m=1
+    M12 (PMBIAS PMBIAS VDD VDD) pmos1 w=1.6953e-05 l=2.74e-07 as=1.01718e-11 ad=1.01718e-11          ps=3.5106e-05 pd=3.5106e-05 m=1
+ends fwr_fig4
+// End of subcircuit definition.
+
+// Library name: DAC_20261109_FWR
+// Cell name: DC_AC_tb
+// View name: schematic
+DUT (0 OUT VBIAS VDD X Y) fwr_fig4
+OUT_SRC (OUT 0) vsource dc=.7 type=dc
+VBIAS_SRC (VBIAS 0) vsource dc=.2 type=dc
+VDD_SRC (VDD 0) vsource dc=.7 type=dc
+IIN (Y X) isource dc=17.5u mag=1 type=dc
+simulatorOptions options reltol=1e-6 vabstol=1e-9 iabstol=1e-15 temp=27 tnom=27 gmin=1e-15 maxwarns=20
+saveOptions options save=selected currents=selected
+save OUT_SRC:p VDD_SRC:p VBIAS_SRC:p
+dcOp dc
+dc dc dev=IIN param=dc start=-35u stop=35u step=.25u
+ac ac start=10 stop=1G dec=100

@@ -1,0 +1,127 @@
+{
+ "task": "gmix04_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 8004,
+ "wall_s": 11305.7,
+ "feasible_designs": 2,
+ "first_feasible_eval": 182,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 3.667124,
+ "llm_cost_usd_recorded": 1.8335618,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "best": {
+  "eval": 182,
+  "round": 1,
+  "f": 0.0,
+  "reward": 1.0,
+  "score": 1.0,
+  "targets_met": 4,
+  "targets": 4,
+  "feasible": true,
+  "worst_margin": 0.724425304206366,
+  "objective": null,
+  "params": {
+   "W_SW": 1.2782640762049314e-06,
+   "L_SW": 1.5690605483115215e-05,
+   "NF_SW": 95.0,
+   "N_SW": 52.0,
+   "W_BB": 1.4578701550023007e-05,
+   "L_BB": 5.1776616656258665e-06,
+   "NF_BB": 87.0,
+   "N_BB": 84.0,
+   "W_T": 1.3418006330164814e-06,
+   "L_T": 6.099158976626437e-07,
+   "NF_T": 61.0,
+   "N_T": 53.0,
+   "R_D": 79851.11524365295,
+   "R_DIV_TOP": 259307.2638201456,
+   "R_DIV_BOT": 18988.919805336966,
+   "R_BB": 137.74102644146137,
+   "C_DIV": 5.8072016729298095e-11,
+   "C_VDD": 2.0086356076969823e-11,
+   "C_TAIL": 4.473312784331998e-13,
+   "V_TAIL": 0.06517447168647954,
+   "V_LO": 0.8139375397777651
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 200,
+   "best_f": 0.0,
+   "elapsed_s": 556.4,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 200,
+   "best_f": 0.08333333333333334,
+   "elapsed_s": 579.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 200,
+   "best_f": 0.08333333333333334,
+   "elapsed_s": 593.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 200,
+   "best_f": 0.08333333333333334,
+   "elapsed_s": 591.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 200,
+   "best_f": 0.08333333333333334,
+   "elapsed_s": 546.4,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 200,
+   "best_f": 0.29492415908696157,
+   "elapsed_s": 556.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 200,
+   "best_f": 0.3005662506451395,
+   "elapsed_s": 569.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 200,
+   "best_f": 0.16666666666666669,
+   "elapsed_s": 1467.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 200,
+   "best_f": 0.3423564242223494,
+   "elapsed_s": 2194.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 200,
+   "best_f": 0.36158644636007015,
+   "elapsed_s": 3584.8,
+   "best_feasible_objective": null
+  }
+ ]
+}

@@ -1,0 +1,221 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00/lna_ip3_v1",
+ "recipe_id": "lna_ip3_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "pin_dBm": -40.0,
+   "f1_Hz": 7400000000.0,
+   "f2_Hz": 7480000000.0
+  }
+ ],
+ "expected_outputs": [
+  "raw/hb1.fd.qpss_hb"
+ ],
+ "context": {
+  "job_id": "NN_T27_S1p00/lna_ip3_v1",
+  "condition": {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 0.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "is_nominal": true,
+   "supply_span_V": 0.8
+  },
+  "operating": {
+   "supply_V": 0.8,
+   "center_frequency_Hz": 7400000000.0,
+   "port_impedance_ohm": 50.0
+  },
+  "recipe_settings": {
+   "tone_spacing_Hz": 80000000.0,
+   "input_power_dBm": -40.0,
+   "harmonics": 3,
+   "output_dc_coupled": true
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "nclna01_alinejad_2024",
+   "family": "lna",
+   "interface_type": "single_ended_lna",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": "10.22075/jme.2023.28966.2361",
+    "title": "A Low Power CMOS UWB LNA with Sub-1V Supply Voltage and Noise Cancellation Technique (J. Modeling in Engineering 22(77), 2024)",
+    "figure": "p. 5 schematic (common-gate M1 + noise-cancelling common-source M2/M4, gm-boosting C1/C2, output buffer M3); Table 1 sizing (schematic)",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (paper PDF, schematic, metrics_sizing.xlsx, operating_conditions.xlsx, pvt_corners.xlsx; see source/ORIGIN.txt)",
+    "technology_check": "Paper: TSMC 0.18 um RF-CMOS, 0.8 V core (abstract, p. 7). Netlist: gpdk180 nmos1 (same node; 0.8 V < 1.98 V rating). No mismatch.",
+    "modifications": [
+     "paper_fidelity_2026_10_27 (real components): dut_benchmark.scs = final.scs with C1, C2 and C3 as the PDK's gpdk180 `mimcap` (paper Table 1: 'MIM', C1 = C3 = 20.28 fF Lt = Wt = 4 um, C2 = 951 fF 30 x 30 um). The paper's capacitance values are kept (the paper's process is TSMC 0.18 um RF-CMOS: its 4 x 4 um plate gives 20.28 fF, the PDK mimcap model 17.6 fF; the plate is a square computed from the capacitance variables C_GB1 / C_GB2 / C_FB (initial = the paper values: side 4.40 um / 30.9 um; the PDK model's cj 1 fF/um2 + cjsw 0.1 fF/um). Adds the model's tc1 9e-4/K and 1 % mismatch. The spiral inductors L1-L3 (Table 1: 'Spiral-sym', nr = 2/4/2, rad 81-94 um) stay ideal: gpdk180 has no inductor model (the PDK inductor is an ideal Spectre inductor) and the paper states neither Q nor series resistance. CIN, C4 (type not stated) stay ideal.",
+     "None to final.scs otherwise. Its 11 unvalued element parameters (CIN, LIN, L0, L4, L5, C4, R1, RB1, RB2, RL1, RL2: '<name>_value') are bound to sizing variables (the paper gives none of them; Table 1 lists only M1-M4, L1-L3, C1-C3)."
+    ]
+   },
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "nclna01_dut",
+    "port_order": [
+     "VIN",
+     "VOUT",
+     "VB1",
+     "VB2",
+     "VDD"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "rf_input": "VIN",
+    "rf_output": "VOUT",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VB1": {
+     "kind": "voltage",
+     "value": 0.6715,
+     "provenance": "benchmark_default_unreviewed (curator search): Vb1 (M1 common-gate bias through RB1) is only labelled in the schematic; a sizing variable (D14); the value is the curator's reference check only"
+    },
+    "VB2": {
+     "kind": "voltage",
+     "value": 0.7064,
+     "provenance": "benchmark_default_unreviewed (curator search): Vb2 (M4 noise-cancelling CS bias through RB2) is only labelled in the schematic; a sizing variable (D14); curator reference check only"
+    }
+   },
+   "op_check": {
+    "note": "M1 (common gate), M2/M4 (common source) and the buffer M3 are all meant to operate in saturation; no exclusions."
+   },
+   "known_issues": [
+    "Body text is Persian; values come from the English abstract, tables and figure labels (spreadsheet notes).",
+    "The netlist has one supply pin. The paper's core runs at 0.8 V and its output buffer (M3) is 'designed for 1 V' (7.93 mW); here core and buffer both run from 0.8 V (owner answer NC1a). Power target: the summary-table 4.89 mW (Table 4).",
+    "Eleven element values (input match CIN/LIN/L0, interstage L4/L5/C4, buffer feedback R1, bias resistors RB1/RB2, the RL1/RL2 resistors in series with L1/L2) and both gate biases are not given by the paper; they are sizing variables like every other element.",
+    "Folder in the dataset was 'Inductively degenerated CS cascode LNA' but the circuit is a common-gate/common-source noise-cancelling LNA (spreadsheet folder_mismatch); onboarded under Common_gate_noise_cancelling_LNA.",
+    "Post-layout sizes differ (Table 2); the schematic design (Table 1) and schematic results are used (G5).",
+    "Table 3 gives one S21 and one NF per corner; they are read as the in-band peak gain and the in-band minimum NF (FF/-20 C: 17.16 dB ~ the nominal peak 17.49 dB; NF 3.25 dB below the nominal in-band minimum 3.59 dB)."
+   ]
+  },
+  "subckt_name": "nclna01_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M1": 4.482909123499092e-06,
+   "L_M1": 1.919186687309567e-07,
+   "N_M1": 3.0,
+   "W_M2": 4.658532434141864e-06,
+   "L_M2": 9.390793033481495e-07,
+   "N_M2": 3.0,
+   "W_M3": 2.7659602058891925e-05,
+   "L_M3": 1.8452704108145634e-07,
+   "N_M3": 7.0,
+   "W_M4": 2.5386594515528445e-05,
+   "L_M4": 1.8151429969154623e-07,
+   "N_M4": 4.0,
+   "L_LD1": 1.0647775410951928e-10,
+   "L_LD2": 1.8612834194755287e-08,
+   "L_LD3": 4.754193388932272e-09,
+   "C_GB1": 7.880491483319733e-14,
+   "C_GB2": 2.0613311137757753e-12,
+   "C_FB": 1.4333963407592512e-14,
+   "C_IN": 1.9922987566116098e-12,
+   "L_IN_SH": 7.746635036831963e-09,
+   "L_SRC": 8.141491842571061e-10,
+   "L_IS": 1.0050965136965608e-10,
+   "L_OUT": 3.4546124664767727e-10,
+   "C_OUT": 2.546127454435552e-12,
+   "R_FB": 3653.1176337540587,
+   "R_B1": 414.0291283455854,
+   "R_B2": 28002.462474215343,
+   "R_L1": 767.91999691407,
+   "R_L2": 23.338867641473545
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_B1": 0.6836488719179036,
+   "V_B2": 0.6982607115827679
+  },
+  "bias_variables": {
+   "VB1": "V_B1",
+   "VB2": "V_B2"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

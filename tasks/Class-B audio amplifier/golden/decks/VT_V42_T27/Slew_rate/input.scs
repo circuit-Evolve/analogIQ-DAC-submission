@@ -1,0 +1,69 @@
+// Generated for: spectre
+// Generated on: Nov  3 05:31:16 2026
+// Design library name: test
+// Design cell name: poweramp_tb_dac
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters DPAR_4=42 DPAR_3=42 DPAR_2=42 DPAR_1=42 vin_pk=0.174216 \
+    pa_L1=10e-6 pa_R24=2200 pa_R19=470 pa_C5=1e-9 pa_C18=10e-9 pa_R22=2200 \
+    pa_R21=150 pa_R25=47 pa_C16=100e-9 pa_R17=470 pa_R12=47000 pa_R32=1 \
+    pa_C9=1e-9 pa_R15=68000 pa_R14=150 pa_R35=8 sr_edge=1n pa_R2=1000 \
+    pa_R9=4700 pa_C12=330e-12 pa_R11=0.33 pa_R34=22 pa_R29=2200 \
+    sr_enable=1 pa_R7=10 pa_C19=1e-9 pa_C13=100e-9 pa_R5=1000 pa_R28=2200 \
+    pa_R30=2200 pa_C11=100e-9 pa_C7=470e-12 sr_amp=0.87 pa_C8=470e-12 \
+    pa_R18=330 pa_R20=47000 pa_C6=100e-12 pa_C3=1e-9 pa_R27=105 pa_R3=3300 \
+    pa_R13=220 pa_C2=22e-9 pa_C14=1e-9 pa_R23=2200 pa_R8=4700 pa_R10=10 \
+    pa_C15=10e-12 pa_C17=1e-6 pa_R16=330 pa_R4=1000 sr_delay=500u \
+    sr_width=100u pa_R1=1000 pa_C10=1e-9 sr_period=2 pa_R26=202.5 \
+    pa_R6=15000 pa_C4=100e-12 pa_R31=47 pa_R33=1 pa_C1=10e-9
+include "models.scs"
+
+// Library name: test
+// Cell name: poweramp
+// View name: schematic_golden
+include "dut.scs"
+// End of subcircuit definition.
+
+// Library name: test
+// Cell name: poweramp_tb_dac
+// View name: schematic
+SR_V6 (sr_in sr_error) vsource dc=0 type=pulse delay=sr_delay val0=0 \
+        val1=sr_enable*sr_amp period=sr_period rise=sr_edge fall=sr_edge \
+        width=sr_width mag=0
+SR_V5 (sr_ref6 0) vsource dc=6 type=dc
+SR_V7 (sr_error 0) vsource dc=0 type=dc freq=100 ampl=0 sinedc=0 mag=0
+SR_V1 (sr_vp 0) vsource dc=DPAR_1 type=dc
+SR_V2 (0 sr_vn) vsource dc=DPAR_2 type=dc
+SR_V3 (sr_v15 0) vsource dc=15 type=dc
+SR_V4 (0 sr_vn7) vsource dc=7 type=dc
+V5 (ref6 0) vsource dc=6 type=dc
+V4 (0 vn7) vsource dc=7 type=dc
+V3 (v15 0) vsource dc=15 type=dc
+V2 (0 vn) vsource dc=DPAR_4 type=dc
+V1 (vp 0) vsource dc=DPAR_3 type=dc
+V7 (error 0) vsource dc=0 type=dc freq=100 ampl=0 sinedc=0 mag=0
+V6 (in error) vsource dc=0 type=sine freq=50 ampl=vin_pk sinedc=0 mag=1
+XSR (sr_error 0 sr_in sr_load sr_out sr_ref6 sr_v15 sr_vn sr_vn7 sr_vp 0) \
+        poweramp input_filter_scale=0
+XAMP (error 0 in load out ref6 v15 vn vn7 vp 0) poweramp \
+        input_filter_scale=1
+simulatorOptions options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 minr=1u maxnotes=5 \
+    maxwarns=5 digits=5 cols=80 pivotdc=yes dc_pivot_check=yes pivrel=0.1 \
+    sensfile="sens.output" checklimitdest=psf 
+tran tran stop=650u errpreset=conservative maxstep=2n write="spectre.ic" \
+    writefinal="spectre.fc" relref=sigglobal annotate=status maxiters=50 
+finalTimeOP info what=oppoint where=rawfile
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+asserts info what=assert where=rawfile
+extremeinfo info what=all where=logfile extremes=yes
+saveOptions options save=selected currents=selected
+save out sr_out XAMP.stage1 XAMP.input_base XAMP.Q11:c XAMP.Q13:c XAMP.Q17:c XAMP.Q22:c XAMP.Q18:c XAMP.Q19:c XAMP.Q18:b XAMP.Q19:b

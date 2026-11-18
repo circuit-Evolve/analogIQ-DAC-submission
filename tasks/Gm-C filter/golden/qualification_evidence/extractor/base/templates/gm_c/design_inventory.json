@@ -1,0 +1,2397 @@
+{
+  "ota_fig2_literal": {
+    "name": "ota_fig2_literal",
+    "ports": [
+      "VIP",
+      "VIM",
+      "VOP",
+      "VOM",
+      "VT",
+      "VREF",
+      "VDD",
+      "GND"
+    ],
+    "note": "Fig2 literal 32 devices; duplicate red labels suffixed R. Right input label connects M3/M4 drains. Table1 sizes. Ambiguous crossings treated without junction unless terminating/dot.",
+    "devices": [
+      {
+        "name": "M1",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "VIP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          24
+        ]
+      },
+      {
+        "name": "M2",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "VIP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "M3",
+        "kind": "p",
+        "nodes": [
+          "VIM",
+          "VOP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "M4",
+        "kind": "n",
+        "nodes": [
+          "VIM",
+          "VOP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "M5",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "VOM",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "M6",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "VOM",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "M7",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "BN",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          18
+        ]
+      },
+      {
+        "name": "M8",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          18
+        ]
+      },
+      {
+        "name": "M9",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "VOP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          18
+        ]
+      },
+      {
+        "name": "M10",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "VOP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          18
+        ]
+      },
+      {
+        "name": "M11",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "BN",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          18
+        ]
+      },
+      {
+        "name": "M12",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          18
+        ]
+      },
+      {
+        "name": "M13",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          12
+        ]
+      },
+      {
+        "name": "M14",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          12
+        ]
+      },
+      {
+        "name": "M15",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          12
+        ]
+      },
+      {
+        "name": "M16",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          12
+        ]
+      },
+      {
+        "name": "M17",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          12
+        ]
+      },
+      {
+        "name": "M18",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          12
+        ]
+      },
+      {
+        "name": "M19",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "VIP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          6
+        ]
+      },
+      {
+        "name": "M20",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "VIM",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          6
+        ]
+      },
+      {
+        "name": "M21",
+        "kind": "n",
+        "nodes": [
+          "FB",
+          "VOM",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          6
+        ]
+      },
+      {
+        "name": "M22",
+        "kind": "p",
+        "nodes": [
+          "FB",
+          "VOP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          6
+        ]
+      },
+      {
+        "name": "M23",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "VREF",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          6
+        ]
+      },
+      {
+        "name": "M24",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "FB",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          6
+        ]
+      },
+      {
+        "name": "M25",
+        "kind": "n",
+        "nodes": [
+          "BP",
+          "VT",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M26",
+        "kind": "n",
+        "nodes": [
+          "BN",
+          "BN",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          0
+        ]
+      },
+      {
+        "name": "M27",
+        "kind": "p",
+        "nodes": [
+          "BP",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "M28",
+        "kind": "p",
+        "nodes": [
+          "BN",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          0
+        ]
+      },
+      {
+        "name": "M25R",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          0
+        ]
+      },
+      {
+        "name": "M26R",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          0
+        ]
+      },
+      {
+        "name": "M27R",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          -6
+        ]
+      },
+      {
+        "name": "M28R",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          -6
+        ]
+      }
+    ]
+  },
+  "ota_fig2_interpreted": {
+    "name": "ota_fig2_interpreted",
+    "ports": [
+      "VIP",
+      "VIM",
+      "VOP",
+      "VOM",
+      "VT",
+      "VREF",
+      "VDD",
+      "GND"
+    ],
+    "note": "Fig2 interpretation: correct right inverter semantic Vi-/Vo+ labels by swapping M3/M4 gate/drain nets. All 32 MOS Table1 sizes unchanged. Assumption-dependent.",
+    "devices": [
+      {
+        "name": "M1",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "VIP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          24
+        ]
+      },
+      {
+        "name": "M2",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "VIP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "M3",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "VIM",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "M4",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "VIM",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "M5",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "VOM",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "M6",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "VOM",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "M7",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "BN",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          18
+        ]
+      },
+      {
+        "name": "M8",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          18
+        ]
+      },
+      {
+        "name": "M9",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "VOP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          18
+        ]
+      },
+      {
+        "name": "M10",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "VOP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          18
+        ]
+      },
+      {
+        "name": "M11",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "BN",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.13u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          18
+        ]
+      },
+      {
+        "name": "M12",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "0.365u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          18
+        ]
+      },
+      {
+        "name": "M13",
+        "kind": "n",
+        "nodes": [
+          "VOM",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          12
+        ]
+      },
+      {
+        "name": "M14",
+        "kind": "p",
+        "nodes": [
+          "VOM",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          12
+        ]
+      },
+      {
+        "name": "M15",
+        "kind": "n",
+        "nodes": [
+          "VOP",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          12
+        ]
+      },
+      {
+        "name": "M16",
+        "kind": "p",
+        "nodes": [
+          "VOP",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          12
+        ]
+      },
+      {
+        "name": "M17",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          12
+        ]
+      },
+      {
+        "name": "M18",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          12
+        ]
+      },
+      {
+        "name": "M19",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "VIP",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          6
+        ]
+      },
+      {
+        "name": "M20",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "VIM",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          6
+        ]
+      },
+      {
+        "name": "M21",
+        "kind": "n",
+        "nodes": [
+          "FB",
+          "VOM",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          6
+        ]
+      },
+      {
+        "name": "M22",
+        "kind": "p",
+        "nodes": [
+          "FB",
+          "VOP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          6
+        ]
+      },
+      {
+        "name": "M23",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "VREF",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          6
+        ]
+      },
+      {
+        "name": "M24",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "FB",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          6
+        ]
+      },
+      {
+        "name": "M25",
+        "kind": "n",
+        "nodes": [
+          "BP",
+          "VT",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M26",
+        "kind": "n",
+        "nodes": [
+          "BN",
+          "BN",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          0
+        ]
+      },
+      {
+        "name": "M27",
+        "kind": "p",
+        "nodes": [
+          "BP",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "M28",
+        "kind": "p",
+        "nodes": [
+          "BN",
+          "BP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          0
+        ]
+      },
+      {
+        "name": "M25R",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          0
+        ]
+      },
+      {
+        "name": "M26R",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          0
+        ]
+      },
+      {
+        "name": "M27R",
+        "kind": "p",
+        "nodes": [
+          "N",
+          "N",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "1.18u",
+          "l": "0.1u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          -6
+        ]
+      },
+      {
+        "name": "M28R",
+        "kind": "n",
+        "nodes": [
+          "N",
+          "N",
+          "GND",
+          "GND"
+        ],
+        "parameters": {
+          "w": "0.6u",
+          "l": "0.12u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          -6
+        ]
+      }
+    ]
+  },
+  "ota_side_sum_assumption": {
+    "name": "ota_side_sum_assumption",
+    "ports": [
+      "VIP",
+      "VIM",
+      "SUMP",
+      "SUMM",
+      "VOP",
+      "VOM",
+      "VT",
+      "VREF",
+      "VDD",
+      "GND"
+    ],
+    "note": "NON-PAPER adapter: four 1k resistors average main and side differential inputs. Fig3 side-terminal function absent in Fig2; disclosed executable hypothesis, not paper-exact.",
+    "devices": [
+      {
+        "name": "RIP",
+        "kind": "res",
+        "nodes": [
+          "VIP",
+          "GP"
+        ],
+        "parameters": {
+          "r": "1k"
+        },
+        "xy": [
+          0,
+          20
+        ]
+      },
+      {
+        "name": "RSP",
+        "kind": "res",
+        "nodes": [
+          "SUMP",
+          "GP"
+        ],
+        "parameters": {
+          "r": "1k"
+        },
+        "xy": [
+          6,
+          20
+        ]
+      },
+      {
+        "name": "RIM",
+        "kind": "res",
+        "nodes": [
+          "VIM",
+          "GM"
+        ],
+        "parameters": {
+          "r": "1k"
+        },
+        "xy": [
+          0,
+          14
+        ]
+      },
+      {
+        "name": "RSM",
+        "kind": "res",
+        "nodes": [
+          "SUMM",
+          "GM"
+        ],
+        "parameters": {
+          "r": "1k"
+        },
+        "xy": [
+          6,
+          14
+        ]
+      },
+      {
+        "name": "CORE",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "GP",
+          "GM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          6
+        ]
+      }
+    ]
+  },
+  "filter_fig3_reconstruction": {
+    "name": "filter_fig3_reconstruction",
+    "ports": [
+      "VIP",
+      "VIM",
+      "VOP",
+      "VOM",
+      "VT",
+      "VREF",
+      "VDD",
+      "GND"
+    ],
+    "note": "Four physical OTA cores and C1-C4. Fig3 side feedback realized by explicitly non-paper passive input-summing adapters. No fourth-order accuracy claim. All capacitor values derived once from gm/(2*pi*15MHz).",
+    "devices": [
+      {
+        "name": "OTA1",
+        "kind": "ota_side_sum_assumption",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "BM",
+          "BP",
+          "AP",
+          "AM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          20
+        ]
+      },
+      {
+        "name": "OTA2",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "AP",
+          "AM",
+          "BP",
+          "BM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          14,
+          20
+        ]
+      },
+      {
+        "name": "OTA4",
+        "kind": "ota_side_sum_assumption",
+        "nodes": [
+          "AP",
+          "AM",
+          "DM",
+          "DP",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          14,
+          0
+        ]
+      },
+      {
+        "name": "OTA3",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "VOP",
+          "VOM",
+          "DP",
+          "DM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "C1",
+        "kind": "cap",
+        "nodes": [
+          "BP",
+          "GND"
+        ],
+        "parameters": {
+          "c": "7.65804778642e-12"
+        },
+        "xy": [
+          8,
+          28
+        ]
+      },
+      {
+        "name": "C2",
+        "kind": "cap",
+        "nodes": [
+          "BM",
+          "GND"
+        ],
+        "parameters": {
+          "c": "7.65804778642e-12"
+        },
+        "xy": [
+          8,
+          14
+        ]
+      },
+      {
+        "name": "C3",
+        "kind": "cap",
+        "nodes": [
+          "DP",
+          "GND"
+        ],
+        "parameters": {
+          "c": "7.65804778642e-12"
+        },
+        "xy": [
+          8,
+          8
+        ]
+      },
+      {
+        "name": "C4",
+        "kind": "cap",
+        "nodes": [
+          "DM",
+          "GND"
+        ],
+        "parameters": {
+          "c": "7.65804778642e-12"
+        },
+        "xy": [
+          8,
+          -6
+        ]
+      }
+    ]
+  },
+  "OTA_DIFF_tb": {
+    "name": "OTA_DIFF_tb",
+    "ports": [],
+    "note": "OTA_DIFF nominal NN 1V 27C; Vt=Vref=Vcm=0.5V assumed; no external OTA load. Nonlinear 1MHz/1.1MHz diagnostic tones, not specified by paper.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vdc",
+        "nodes": [
+          "VIP",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": ".5"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vdc",
+        "nodes": [
+          "VIM",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "-.5"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      }
+    ]
+  },
+  "OTA_CM_tb": {
+    "name": "OTA_CM_tb",
+    "ports": [],
+    "note": "OTA_CM nominal NN 1V 27C; Vt=Vref=Vcm=0.5V assumed; no external OTA load. Nonlinear 1MHz/1.1MHz diagnostic tones, not specified by paper.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vdc",
+        "nodes": [
+          "VIP",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "1"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vdc",
+        "nodes": [
+          "VIM",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "1"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      }
+    ]
+  },
+  "OTA_LITERAL_tb": {
+    "name": "OTA_LITERAL_tb",
+    "ports": [],
+    "note": "OTA_LITERAL nominal NN 1V 27C; Vt=Vref=Vcm=0.5V assumed; no external OTA load. Nonlinear 1MHz/1.1MHz diagnostic tones, not specified by paper.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "ota_fig2_literal",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vdc",
+        "nodes": [
+          "VIP",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": ".5"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vdc",
+        "nodes": [
+          "VIM",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "-.5"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      }
+    ]
+  },
+  "OTA_GM_tb": {
+    "name": "OTA_GM_tb",
+    "ports": [],
+    "note": "OTA_GM nominal NN 1V 27C; Vt=Vref=Vcm=0.5V assumed; no external OTA load. Nonlinear 1MHz/1.1MHz diagnostic tones, not specified by paper.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vdc",
+        "nodes": [
+          "VIP",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": ".5"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vdc",
+        "nodes": [
+          "VIM",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "-.5"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "VCP",
+        "kind": "vdc",
+        "nodes": [
+          "VOP",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5"
+        },
+        "xy": [
+          0,
+          18
+        ]
+      },
+      {
+        "name": "VCM",
+        "kind": "vdc",
+        "nodes": [
+          "VOM",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5"
+        },
+        "xy": [
+          6,
+          18
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      }
+    ]
+  },
+  "FILTER_AC_NOISE_tb": {
+    "name": "FILTER_AC_NOISE_tb",
+    "ports": [],
+    "note": "FILTER_AC_NOISE nominal NN 1V 27C; Vt=Vref=Vcm=0.5V assumed; no external OTA load. Nonlinear 1MHz/1.1MHz diagnostic tones, not specified by paper.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "filter_fig3_reconstruction",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vdc",
+        "nodes": [
+          "VIP",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": ".5"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vdc",
+        "nodes": [
+          "VIM",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "-.5"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      }
+    ]
+  },
+  "OTA_NONLINEAR_tb": {
+    "name": "OTA_NONLINEAR_tb",
+    "ports": [],
+    "note": "OTA_NONLINEAR nominal NN 1V 27C; Vt=Vref=Vcm=0.5V assumed; no external OTA load. Nonlinear 1MHz/1.1MHz diagnostic tones, not specified by paper.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vsin",
+        "nodes": [
+          "VIP",
+          "GND"
+        ],
+        "parameters": {
+          "vo": ".5",
+          "va": "VAMP/2",
+          "freq": "1M"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vsin",
+        "nodes": [
+          "VIM",
+          "GND"
+        ],
+        "parameters": {
+          "vo": ".5",
+          "va": "-VAMP/2",
+          "freq": "1M"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      }
+    ]
+  },
+  "OTA_IP3_tb": {
+    "name": "OTA_IP3_tb",
+    "ports": [],
+    "note": "Assumed 1MHz + 1.1MHz, 1mV differential peak each; no physical 50ohm load. 50ohm only power reference.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "ota_fig2_interpreted",
+        "nodes": [
+          "VIP",
+          "VIM",
+          "VOP",
+          "VOM",
+          "VT",
+          "VREF",
+          "VDD",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          0
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "1",
+          "acm": "0"
+        },
+        "xy": [
+          6,
+          24
+        ]
+      },
+      {
+        "name": "VT_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          12,
+          24
+        ]
+      },
+      {
+        "name": "VREF_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VREF",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".5",
+          "acm": "0"
+        },
+        "xy": [
+          18,
+          24
+        ]
+      },
+      {
+        "name": "VINP",
+        "kind": "vsin",
+        "nodes": [
+          "VIP",
+          "VIPMID"
+        ],
+        "parameters": {
+          "vo": ".5",
+          "va": "VAMP/2",
+          "freq": "1M"
+        },
+        "xy": [
+          24,
+          24
+        ]
+      },
+      {
+        "name": "VINM",
+        "kind": "vsin",
+        "nodes": [
+          "VIM",
+          "VIMMID"
+        ],
+        "parameters": {
+          "vo": ".5",
+          "va": "-VAMP/2",
+          "freq": "1M"
+        },
+        "xy": [
+          30,
+          24
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -14
+        ]
+      },
+      {
+        "name": "VINPT",
+        "kind": "vsin",
+        "nodes": [
+          "VIPMID",
+          "GND"
+        ],
+        "parameters": {
+          "vo": "0",
+          "va": ".0005",
+          "freq": "1.1M"
+        },
+        "xy": [
+          30,
+          12
+        ]
+      },
+      {
+        "name": "VINMT",
+        "kind": "vsin",
+        "nodes": [
+          "VIMMID",
+          "GND"
+        ],
+        "parameters": {
+          "vo": "0",
+          "va": "-.0005",
+          "freq": "1.1M"
+        },
+        "xy": [
+          30,
+          6
+        ]
+      }
+    ]
+  }
+}

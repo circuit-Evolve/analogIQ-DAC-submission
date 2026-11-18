@@ -1,0 +1,26 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt das2021_ccg_lna (vip vin vop von VDD VSS Vbn Vbp)
+CLn (von VSS) capacitor c=CL
+CLp (vop VSS) capacitor c=CL
+Cc1n (gn1 vin) capacitor c=3p
+Cc1p (gp1 vin) capacitor c=3p
+Cc2n (gn2 vip) capacitor c=3p
+Cc2p (gp2 vip) capacitor c=3p
+Co1n (dn1 vop) capacitor c=1p
+Co1p (vop dp1) capacitor c=1p
+Co2n (dn2 von) capacitor c=1p
+Co2p (von dp2) capacitor c=1p
+M1n (dn1 gn1 vip VSS) nmos1 w=40.6u l=180n m=1 as=24.36p ad=24.36p ps=82.4u pd=82.4u
+M1p (dp1 gp1 vip VDD) pmos1 w=40.6u l=180n m=3 as=16.24p ad=16.24p ps=54.9333u pd=54.9333u
+M2n (dn2 gn2 vin VSS) nmos1 w=40.6u l=180n m=1 as=24.36p ad=24.36p ps=82.4u pd=82.4u
+M2p (dp2 gp2 vin VDD) pmos1 w=40.6u l=180n m=3 as=16.24p ad=16.24p ps=54.9333u pd=54.9333u
+RL1n (VDD dn1) resistor r=850
+RL1p (dp1 VSS) resistor r=850
+RL2n (VDD dn2) resistor r=850
+RL2p (dp2 VSS) resistor r=850
+Rc1n (Vbn gn1) resistor r=21.8K
+Rc1p (gp1 Vbp) resistor r=21.8K
+Rc2n (Vbn gn2) resistor r=21.8K
+Rc2p (gp2 Vbp) resistor r=21.8K
+ends das2021_ccg_lna

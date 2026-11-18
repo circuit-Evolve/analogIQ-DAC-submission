@@ -1,0 +1,2541 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "ccmp_lelo_task_001",
+ "topology_id": "ccmp_lelo",
+ "family": "ct_comparator",
+ "technology_id": "sky130",
+ "parameterization_id": "ccmp_lelo_p1",
+ "execution_profile": "search_full",
+ "description": "LELOTEMP_CCMP (wulffern/lelo_temp_sky130a, commit e439fe6): timing comparator of the relaxation oscillator: a continuous-time two-stage comparator with a 5-unit MIM integrating capacitor, reset NMOS and power-down clamp. Test = the repository's tran testbench (sim/LELOTEMP_CCMP/tran.spi, tran.meas): ibias 1 uA charges the integrating node after RST releases at 200 ns, threshold VC = 0.75 V, 600 ns window. Targets = the documented simulated results (typical, min/max over the 12 process x supply corners, Monte Carlo mean / 3-sigma-derived sigma); the repository's spec rows are not used (documented results exist for every metric). Variables: 6 tied transistor groups (W per finger, L, fingers) + the MIM unit W, L.",
+ "source": {
+  "title": "lelo_temp_sky130a LELOTEMP_CCMP: timing comparator of the relaxation oscillator (repository documentation and simulation summaries; commit e439fe6)",
+  "doi": "none (repository: https://github.com/wulffern/lelo_temp_sky130a)",
+  "figure": "schematics/01_LELOTEMP_CCMP.png, 02_LELOTEMP_CMP.png (xschem renders of LELOTEMP_CCMP.sch / LELOTEMP_CMP.sch)"
+ },
+ "variables": [
+  {
+   "name": "W_DIFF",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS input pair xp_diff1/xp_diff2 (gm, offset, input capacitance on the integrating node): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_DIFF",
+    "instances": [
+     "x1_cmp_xp_diff1_M1",
+     "x1_cmp_xp_diff2_M1"
+    ]
+   }
+  },
+  {
+   "name": "L_DIFF",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS input pair xp_diff1/xp_diff2 (gm, offset, input capacitance on the integrating node): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xp_diff1_M1",
+     "x1_cmp_xp_diff2_M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_DIFF",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS input pair xp_diff1/xp_diff2 (gm, offset, input capacitance on the integrating node): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xp_diff1_M1",
+     "x1_cmp_xp_diff2_M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_PTAIL",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS current mirror: diode xp_mirr_tail1 (VBP2), tail xp_mirr_tail3 (x3) and second-stage load xp_mirr_tail2 (matched mirror, ratios fixed by their multipliers): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_PTAIL",
+    "instances": [
+     "x1_cmp_xp_mirr_tail1_M1",
+     "x1_cmp_xp_mirr_tail3_M1",
+     "x1_cmp_xp_mirr_tail2_M1"
+    ]
+   }
+  },
+  {
+   "name": "L_PTAIL",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS current mirror: diode xp_mirr_tail1 (VBP2), tail xp_mirr_tail3 (x3) and second-stage load xp_mirr_tail2 (matched mirror, ratios fixed by their multipliers): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xp_mirr_tail1_M1",
+     "x1_cmp_xp_mirr_tail3_M1",
+     "x1_cmp_xp_mirr_tail2_M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_PTAIL",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS current mirror: diode xp_mirr_tail1 (VBP2), tail xp_mirr_tail3 (x3) and second-stage load xp_mirr_tail2 (matched mirror, ratios fixed by their multipliers): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xp_mirr_tail1_M1",
+     "x1_cmp_xp_mirr_tail3_M1",
+     "x1_cmp_xp_mirr_tail2_M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_NLOAD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "first-stage NMOS mirror load xn_mirr_load2 (diode) / xn_mirr_load3: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_NLOAD",
+    "instances": [
+     "x1_cmp_xn_mirr_load2_M1",
+     "x1_cmp_xn_mirr_load3_M1"
+    ]
+   }
+  },
+  {
+   "name": "L_NLOAD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "first-stage NMOS mirror load xn_mirr_load2 (diode) / xn_mirr_load3: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_load2_M1",
+     "x1_cmp_xn_mirr_load3_M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_NLOAD",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "first-stage NMOS mirror load xn_mirr_load2 (diode) / xn_mirr_load3: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_load2_M1",
+     "x1_cmp_xn_mirr_load3_M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_CS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "second-stage NMOS common-source device xn_mirr_load5 (gain, trip delay): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_CS",
+    "instances": [
+     "x1_cmp_xn_mirr_load5_M1"
+    ]
+   }
+  },
+  {
+   "name": "L_CS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "second-stage NMOS common-source device xn_mirr_load5 (gain, trip delay): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_load5_M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_CS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "second-stage NMOS common-source device xn_mirr_load5 (gain, trip delay): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_load5_M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_BIAS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS bias mirror xn_mirr_bias1 (diode on IBP_1U[1]) / xn_mirr_bias2 (x4): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_BIAS",
+    "instances": [
+     "x1_cmp_xn_mirr_bias1_M1",
+     "x1_cmp_xn_mirr_bias2_M1"
+    ]
+   }
+  },
+  {
+   "name": "L_BIAS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS bias mirror xn_mirr_bias1 (diode on IBP_1U[1]) / xn_mirr_bias2 (x4): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_bias1_M1",
+     "x1_cmp_xn_mirr_bias2_M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_BIAS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS bias mirror xn_mirr_bias1 (diode on IBP_1U[1]) / xn_mirr_bias2 (x4): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_bias1_M1",
+     "x1_cmp_xn_mirr_bias2_M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_RST",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "reset NMOS xg1 on the integrating node (residual level v_reset, charge injection, node capacitance): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_RST",
+    "instances": [
+     "xg1_M1"
+    ]
+   }
+  },
+  {
+   "name": "L_RST",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "reset NMOS xg1 on the integrating node (residual level v_reset, charge injection, node capacitance): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "xg1_M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_RST",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "reset NMOS xg1 on the integrating node (residual level v_reset, charge injection, node capacitance): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "xg1_M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_CAP",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1e-06,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "integrating MIM capacitor unit xd1 (5 units in parallel, fixed count): width (c_eff, ramp slope)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "xd1_C1"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_CAP",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1e-06,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "integrating MIM capacitor unit xd1: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "xd1_C1"
+    ],
+    "parameter": "l"
+   }
+  }
+ ],
+ "dependent_parameters": {
+  "W_DIFF_TOTAL": {
+   "expression": "W_DIFF*NF_DIFF",
+   "role": "DIFF total width = per-finger width x fingers (sky130 bins on width per finger)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xp_diff1_M1",
+     "x1_cmp_xp_diff2_M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_PTAIL_TOTAL": {
+   "expression": "W_PTAIL*NF_PTAIL",
+   "role": "PTAIL total width = per-finger width x fingers (sky130 bins on width per finger)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xp_mirr_tail1_M1",
+     "x1_cmp_xp_mirr_tail3_M1",
+     "x1_cmp_xp_mirr_tail2_M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_NLOAD_TOTAL": {
+   "expression": "W_NLOAD*NF_NLOAD",
+   "role": "NLOAD total width = per-finger width x fingers (sky130 bins on width per finger)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_load2_M1",
+     "x1_cmp_xn_mirr_load3_M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_CS_TOTAL": {
+   "expression": "W_CS*NF_CS",
+   "role": "CS total width = per-finger width x fingers (sky130 bins on width per finger)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_load5_M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_BIAS_TOTAL": {
+   "expression": "W_BIAS*NF_BIAS",
+   "role": "BIAS total width = per-finger width x fingers (sky130 bins on width per finger)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "x1_cmp_xn_mirr_bias1_M1",
+     "x1_cmp_xn_mirr_bias2_M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_RST_TOTAL": {
+   "expression": "W_RST*NF_RST",
+   "role": "RST total width = per-finger width x fingers (sky130 bins on width per finger)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "xg1_M1"
+    ],
+    "parameter": "w"
+   }
+  }
+ },
+ "conditions": [
+  {
+   "id": "tt_T27_S1p00",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "ss_hh_T27_S0p94_kss_vl",
+   "model_set": "ss_hh",
+   "temperature_C": 27.0,
+   "supply_V": 1.6999992,
+   "supply_scale": 0.944444,
+   "nominal": false
+  },
+  {
+   "id": "ss_hh_T27_S1p00_kss_vt",
+   "model_set": "ss_hh",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ss_hh_T27_S1p06_kss_vh",
+   "model_set": "ss_hh",
+   "temperature_C": 27.0,
+   "supply_V": 1.9000008,
+   "supply_scale": 1.055556,
+   "nominal": false
+  },
+  {
+   "id": "ff_ll_T27_S0p94_kff_vl",
+   "model_set": "ff_ll",
+   "temperature_C": 27.0,
+   "supply_V": 1.6999992,
+   "supply_scale": 0.944444,
+   "nominal": false
+  },
+  {
+   "id": "ff_ll_T27_S1p00_kff_vt",
+   "model_set": "ff_ll",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ff_ll_T27_S1p06_kff_vh",
+   "model_set": "ff_ll",
+   "temperature_C": 27.0,
+   "supply_V": 1.9000008,
+   "supply_scale": 1.055556,
+   "nominal": false
+  },
+  {
+   "id": "sf_T27_S0p94_ksf_vl",
+   "model_set": "sf",
+   "temperature_C": 27.0,
+   "supply_V": 1.6999992,
+   "supply_scale": 0.944444,
+   "nominal": false
+  },
+  {
+   "id": "sf_T27_S1p00_ksf_vt",
+   "model_set": "sf",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "sf_T27_S1p06_ksf_vh",
+   "model_set": "sf",
+   "temperature_C": 27.0,
+   "supply_V": 1.9000008,
+   "supply_scale": 1.055556,
+   "nominal": false
+  },
+  {
+   "id": "fs_T27_S0p94_kfs_vl",
+   "model_set": "fs",
+   "temperature_C": 27.0,
+   "supply_V": 1.6999992,
+   "supply_scale": 0.944444,
+   "nominal": false
+  },
+  {
+   "id": "fs_T27_S1p00_kfs_vt",
+   "model_set": "fs",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "fs_T27_S1p06_kfs_vh",
+   "model_set": "fs",
+   "temperature_C": 27.0,
+   "supply_V": 1.9000008,
+   "supply_scale": 1.055556,
+   "nominal": false
+  },
+  {
+   "id": "tt_T27_S1p00_MC",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.8,
+   "provenance": "repository: Vt = 1.8 V (tech_sky130A supply.spi), README corner setup; Vl/Vh = 1.7/1.9 V as supply_scale"
+  },
+  "threshold_V": {
+   "value": 0.75,
+   "provenance": "repository replace.yaml line 7 (vc: 0.75, DC on VC)  https://github.com/wulffern/lelo_temp_sky130a/blob/e439fe6b9351ea47a288847131337f483b2dbfcd/sim/LELOTEMP_CCMP/replace.yaml#L7"
+  },
+  "ramp_current_A": {
+   "value": 1e-06,
+   "provenance": "repository replace.yaml line 3 (ibias: 1u) injected by IRAMP, tran.spi lines 57-58  https://github.com/wulffern/lelo_temp_sky130a/blob/e439fe6b9351ea47a288847131337f483b2dbfcd/sim/LELOTEMP_CCMP/tran.spi#L57-L58"
+  }
+ },
+ "constraints": [
+  {
+   "name": "t_half_typ_hi",
+   "metric": "t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.395778e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.17798e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 217.798",
+   "source": "native"
+  },
+  {
+   "name": "t_half_typ_lo",
+   "metric": "t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "s",
+   "lower": 1.960182e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.17798e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 217.798 (value to hit, two-sided)",
+   "source": "native"
+  },
+  {
+   "name": "t_half_corner_hi",
+   "metric": "t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.738571e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.48961e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 248.961",
+   "source": "native"
+  },
+  {
+   "name": "t_half_corner_lo",
+   "metric": "t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "s",
+   "lower": 1.6901189999999999e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.87791e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; min = 187.791",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_t_half_hi",
+   "metric": "mc_mean.t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 2.3838759999999998e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.16716e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 216.716",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_t_half_lo",
+   "metric": "mc_mean.t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "lower": 1.950444e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.16716e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 216.716",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_t_half",
+   "metric": "mc_sigma.t_half_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 5.2484630000000004e-09,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.77133e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "half period, reset release to comparator trip (README table, tran.meas). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (231.03 - (202.402))/6 = 4.771",
+   "source": "native"
+  },
+  {
+   "name": "freq_typ_hi",
+   "metric": "freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "Hz",
+   "upper": 2525600.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2296000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 2.296",
+   "source": "native"
+  },
+  {
+   "name": "freq_typ_lo",
+   "metric": "freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 2066400.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2296000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 2.296 (value to hit, two-sided)",
+   "source": "native"
+  },
+  {
+   "name": "freq_corner_hi",
+   "metric": "freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "Hz",
+   "upper": 2929300.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2663000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 2.663",
+   "source": "native"
+  },
+  {
+   "name": "freq_corner_lo",
+   "metric": "freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 1807200.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2008000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; min = 2.008",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_freq_hi",
+   "metric": "mc_mean.freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 2538800.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2308000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 2.308",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_freq_lo",
+   "metric": "mc_mean.freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "lower": 2077200.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2308000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 2.308",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_freq",
+   "metric": "mc_sigma.freq_Hz",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 55733.369999999995,
+   "target": {
+    "kind": "linear",
+    "paper_value": 50666.7,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "equivalent oscillator frequency 1/(2 t_half). README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (2.46 - (2.156))/6 = 0.05067",
+   "source": "native"
+  },
+  {
+   "name": "t_delay_typ_hi",
+   "metric": "t_delay_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 5.0599999999999995e-09,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.6e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "comparator delay from the ramp crossing VC to CMPO rising. README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 4.6",
+   "source": "native"
+  },
+  {
+   "name": "t_delay_corner_hi",
+   "metric": "t_delay_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 1.03235e-08,
+   "target": {
+    "kind": "linear",
+    "paper_value": 9.385e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "comparator delay from the ramp crossing VC to CMPO rising. README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 9.385",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_t_delay",
+   "metric": "mc_sigma.t_delay_s",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 5.4208e-09,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.928e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "comparator delay from the ramp crossing VC to CMPO rising. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (18.269 - (-11.299))/6 = 4.928",
+   "source": "native"
+  },
+  {
+   "name": "v_over_typ_hi",
+   "metric": "v_over_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.0184822,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.016802,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "ramp overshoot past VC caused by the comparator delay. README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 16.802",
+   "source": "native"
+  },
+  {
+   "name": "v_over_corner_hi",
+   "metric": "v_over_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.0377157,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.034287,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "ramp overshoot past VC caused by the comparator delay. README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 34.287",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_v_over",
+   "metric": "mc_sigma.v_over_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 0.0198011,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.018001,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "ramp overshoot past VC caused by the comparator delay. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (66.758 - (-41.248))/6 = 18",
+   "source": "native"
+  },
+  {
+   "name": "v_reset_typ_hi",
+   "metric": "v_reset_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.0021747,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.001977,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "residual level on the integrating node while RST is high. README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 1.977",
+   "source": "native"
+  },
+  {
+   "name": "v_reset_corner_hi",
+   "metric": "v_reset_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.0027544,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.002504,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "residual level on the integrating node while RST is high. README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 2.504",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_v_reset_hi",
+   "metric": "mc_mean.v_reset_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 0.0021736,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.001976,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "residual level on the integrating node while RST is high. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 1.976",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_v_reset",
+   "metric": "mc_sigma.v_reset_V",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 6.6e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 6e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "residual level on the integrating node while RST is high. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (1.994 - (1.958))/6 = 0.006",
+   "source": "native"
+  },
+  {
+   "name": "c_eff_typ_hi",
+   "metric": "c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "F",
+   "upper": 3.135165e-13,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.85015e-13,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 285.015",
+   "source": "native"
+  },
+  {
+   "name": "c_eff_typ_lo",
+   "metric": "c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "F",
+   "lower": 2.5651350000000004e-13,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.85015e-13,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 285.015 (value to hit, two-sided)",
+   "source": "native"
+  },
+  {
+   "name": "c_eff_corner_hi",
+   "metric": "c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "F",
+   "upper": 3.5698740000000004e-13,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.24534e-13,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 324.534",
+   "source": "native"
+  },
+  {
+   "name": "c_eff_corner_lo",
+   "metric": "c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "F",
+   "lower": 2.2076370000000003e-13,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.45293e-13,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; min = 245.293",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_c_eff_hi",
+   "metric": "mc_mean.c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 3.135649e-13,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.85059e-13,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 285.059",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_c_eff_lo",
+   "metric": "mc_mean.c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "lower": 2.5655309999999997e-13,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.85059e-13,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 285.059",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_c_eff",
+   "metric": "mc_sigma.c_eff_F",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 6.592662999999999e-16,
+   "target": {
+    "kind": "linear",
+    "paper_value": 5.99333e-16,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "effective integrating capacitance back-calculated from the ramp. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (286.857 - (283.261))/6 = 0.5993",
+   "source": "native"
+  },
+  {
+   "name": "idd_avg_typ_hi",
+   "metric": "idd_avg_A",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "A",
+   "upper": 1.84294e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.6754e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "average supply current including both injected bias legs. README results table row Sch_typ (corners.xlsx / metrics.xlsx), single typical run tt, 27 C, 1.8 V = 16.754",
+   "source": "native"
+  },
+  {
+   "name": "idd_avg_corner_hi",
+   "metric": "idd_avg_A",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "A",
+   "upper": 2.2473e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.043e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "kss_vl"
+    },
+    {
+     "label": "kss_vt"
+    },
+    {
+     "label": "kss_vh"
+    },
+    {
+     "label": "kff_vl"
+    },
+    {
+     "label": "kff_vt"
+    },
+    {
+     "label": "kff_vh"
+    },
+    {
+     "label": "ksf_vl"
+    },
+    {
+     "label": "ksf_vt"
+    },
+    {
+     "label": "ksf_vh"
+    },
+    {
+     "label": "kfs_vl"
+    },
+    {
+     "label": "kfs_vt"
+    },
+    {
+     "label": "kfs_vh"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "average supply current including both injected bias legs. README row Sch_etc = min / median / max over the 12 corner runs (Kss, Kff, Ksf, Kfs x Vt, Vl, Vh at Tt = 27 C); the documented min and max are applied at every corner condition; max = 20.43",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_idd_avg_hi",
+   "metric": "mc_mean.idd_avg_A",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 1.83447e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.6677e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "average supply current including both injected bias legs. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; mean = 16.677",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_idd_avg",
+   "metric": "mc_sigma.idd_avg_A",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "point": {},
+   "unit": "",
+   "upper": 7.962163e-07,
+   "target": {
+    "kind": "linear",
+    "paper_value": 7.23833e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "average supply current including both injected bias legs. README row Sch_3std = mean -/+ 3 sigma over 30 Monte Carlo runs (Kttmm, 27 C, 1.8 V); sigma = (hi - lo)/6; sigma = (18.849 - (14.506))/6 = 0.7238",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "lelo30_ccmp_op_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "rule G8 validity gate (owner 2026-10-30), not a documented result: the comparator balanced at its trip point (integrating node forced to VC), by-design off devices excluded (topology op_check)",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "lelo30_ccmp_op_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "lelo30_ccmp_op_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "lelo30_ccmp_op_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "lelo30_ccmp_op_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "lelo30_ccmp_op_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "lelo30_ccmp_op_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "c_eff_F"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "freq_Hz"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "idd_avg_A"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.c_eff_F"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.freq_Hz"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.idd_avg_A"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.t_delay_s"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.t_half_s"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.v_over_V"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_mean.v_reset_V"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.c_eff_F"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.freq_Hz"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.idd_avg_A"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.t_delay_s"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.t_half_s"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.v_over_V"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "mc_sigma.v_reset_V"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "t_delay_s"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "t_half_s"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "v_over_V"
+  ],
+  [
+   "lelo30_ccmp_tran_v1",
+   "v_reset_V"
+  ]
+ ],
+ "simulations_per_design": 15,
+ "analysis_executions_per_design": 34,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "tt_T27_S1p00",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/tt_T27_S1p00/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00",
+   "recipe": "lelo30_ccmp_op_v1",
+   "folder": "testbenches/tt_T27_S1p00/lelo30_ccmp_op_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/op_info.info",
+    "raw/dc1.dc"
+   ],
+   "metrics": {
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ss_hh_T27_S0p94_kss_vl",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/ss_hh_T27_S0p94_kss_vl/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ss_hh_T27_S1p00_kss_vt",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/ss_hh_T27_S1p00_kss_vt/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ss_hh_T27_S1p06_kss_vh",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/ss_hh_T27_S1p06_kss_vh/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ff_ll_T27_S0p94_kff_vl",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/ff_ll_T27_S0p94_kff_vl/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ff_ll_T27_S1p00_kff_vt",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/ff_ll_T27_S1p00_kff_vt/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ff_ll_T27_S1p06_kff_vh",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/ff_ll_T27_S1p06_kff_vh/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "sf_T27_S0p94_ksf_vl",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/sf_T27_S0p94_ksf_vl/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "sf_T27_S1p00_ksf_vt",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/sf_T27_S1p00_ksf_vt/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "sf_T27_S1p06_ksf_vh",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/sf_T27_S1p06_ksf_vh/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "fs_T27_S0p94_kfs_vl",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/fs_T27_S0p94_kfs_vl/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "fs_T27_S1p00_kfs_vt",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/fs_T27_S1p00_kfs_vt/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "fs_T27_S1p06_kfs_vh",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/fs_T27_S1p06_kfs_vh/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/tran1.tran.tran"
+   ],
+   "metrics": {
+    "t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00_MC",
+   "recipe": "lelo30_ccmp_tran_v1",
+   "folder": "testbenches/tt_T27_S1p00_MC/lelo30_ccmp_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [],
+   "metrics": {
+    "mc_mean.t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "mc_sigma.t_half_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "mc_mean.freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "mc_sigma.freq_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "mc_mean.t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "mc_sigma.t_delay_s": {
+     "unit": "s",
+     "source": "native"
+    },
+    "mc_mean.v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "mc_sigma.v_over_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "mc_mean.v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "mc_sigma.v_reset_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "mc_mean.c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "mc_sigma.c_eff_F": {
+     "unit": "F",
+     "source": "native"
+    },
+    "mc_mean.idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    },
+    "mc_sigma.idd_avg_A": {
+     "unit": "A",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "ccmp_lelo_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('ccmp_lelo_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

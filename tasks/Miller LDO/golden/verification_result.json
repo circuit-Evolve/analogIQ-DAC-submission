@@ -1,0 +1,3303 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_ldo24m_miller_task_001",
+  "task_id": "ldo24m_miller_task_001",
+  "topology_id": "ldo24m_miller",
+  "candidate_hash": "92722af89d1a640374bcc7fb0259472255f0ade2dc0b0b6d2cacac59490d41e9",
+  "evaluator_hash": "a51515b811c6b7f83472988ef3961362af956371334bea765bca51e45da1b92f",
+  "digests": {
+    "task": "e8ca0d548753b43348dfbc9b73f95bef80ef92350e12fa1c7c5857b398294f09",
+    "candidate": "92722af89d1a640374bcc7fb0259472255f0ade2dc0b0b6d2cacac59490d41e9",
+    "parameterization": "db4808725f039cb23f8f6fd10d52f91b5241fe7a098574a88f1816cef7f24f43",
+    "dut_source_netlist": "273b9afac138e670d60be74bb167613e4f9fbb2d16161de696d71552c34b072b",
+    "dut_subckt": "105b922644fbbbbfa4e3a434d53530650c2130e5e6b7123aa3aa5c56b81a556a",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "63e3f5b0976de52c7c3ad9f72948e15701822c8bbf2297d8e2505b0fd371383d",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "a51515b811c6b7f83472988ef3961362af956371334bea765bca51e45da1b92f"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 94,
+    "completed_measurement_checks": 94,
+    "valid_measurement_checks": 94
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "output_voltage_V",
+      "value": 1.7990014627,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "output_voltage_V_lo",
+        "output_voltage_V_hi"
+      ],
+      "constraint": {
+        "upper": 1.9338
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 2.3135497781e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 9.716985475249909e-05,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "line_regulation_pos",
+        "line_regulation_neg"
+      ],
+      "constraint": {
+        "lower": -0.000264
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": 0.30099853730000015,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "dropout_voltage_V"
+      ],
+      "constraint": {
+        "upper": 0.38499999999999995
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "load_regulation_V_per_A",
+      "value": -0.00014496000000046344,
+      "unit": "V/A",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_load_v1",
+      "constraints": [
+        "load_regulation_pos",
+        "load_regulation_neg"
+      ],
+      "constraint": {
+        "lower": -0.6599999999999999
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_min_load_A",
+      "value": 2.314655381e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_load_v1",
+      "constraints": [
+        "quiescent_current_A"
+      ],
+      "constraint": {
+        "upper": 5.1699999999999996e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 74.588411386,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psrr_1kHz_dB_18_21"
+      ],
+      "constraint": {
+        "lower": 56.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 95.54766230300473,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_0"
+      ],
+      "constraint": {
+        "lower": 89.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 1239521.98944088,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_0"
+      ],
+      "constraint": {
+        "lower": 720000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 42.2842711854483,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_0"
+      ],
+      "constraint": {
+        "lower": 36.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 5.65631525078074,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 108.62794521429066,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_70"
+      ],
+      "constraint": {
+        "lower": 107.6848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 1772942.47215739,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_70"
+      ],
+      "constraint": {
+        "lower": 855000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 81.3400644715035,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_70"
+      ],
+      "constraint": {
+        "lower": 81.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 26.3090668880271,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.18615380709134552,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "devices_out_of_saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 96.670247837,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psrr_1kHz_dB_18_33"
+      ],
+      "constraint": {
+        "lower": 89.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 88.85675649159252,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_0_18_33"
+      ],
+      "constraint": {
+        "lower": 87.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 1056759.95637507,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_0_18_33"
+      ],
+      "constraint": {
+        "lower": 540000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 32.0558834597366,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_0_18_33"
+      ],
+      "constraint": {
+        "lower": 10.8
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.3195291539409,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 138.3501392587368,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_70_18_33"
+      ],
+      "constraint": {
+        "lower": 119.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 1781225.92800508,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_70_18_33"
+      ],
+      "constraint": {
+        "lower": 730800.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 78.4365094653166,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_70_18_33"
+      ],
+      "constraint": {
+        "lower": 50.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 24.8526501360426,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.45318673445374713,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "output_voltage_V",
+      "value": 1.2101757178,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "output_voltage_V_lo_v12",
+        "output_voltage_V_hi_v12"
+      ],
+      "constraint": {
+        "upper": 1.2815
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 2.3136270045e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 8.716893206657993e-05,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "line_regulation_pos_v12",
+        "line_regulation_neg_v12"
+      ],
+      "constraint": {
+        "lower": -0.00011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": 0.8898242822,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 2.1
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "dropout_voltage_V_v12"
+      ],
+      "constraint": {
+        "upper": 1.034
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "load_regulation_V_per_A",
+      "value": -0.00013220857142710277,
+      "unit": "V/A",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_load_v1",
+      "constraints": [
+        "load_regulation_pos_v12",
+        "load_regulation_neg_v12"
+      ],
+      "constraint": {
+        "lower": -0.55
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_min_load_A",
+      "value": 2.3146674362e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_load_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 77.031620554,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psrr_1kHz_dB_12_21"
+      ],
+      "constraint": {
+        "lower": 66.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 94.64678533609423,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_0_12_21"
+      ],
+      "constraint": {
+        "lower": 87.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 1386938.82765249,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_0_12_21"
+      ],
+      "constraint": {
+        "lower": 900000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 40.463414719111,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_0_12_21"
+      ],
+      "constraint": {
+        "lower": 21.6
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 4.83598287569852,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 136.02702707064438,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_70_12_21"
+      ],
+      "constraint": {
+        "lower": 116.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 2568024.53903839,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_70_12_21"
+      ],
+      "constraint": {
+        "lower": 2520000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 90.2030445159417,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_70_12_21"
+      ],
+      "constraint": {
+        "lower": 81.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 22.7559903553664,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.44377197107152166,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p00_v12",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 100.03462984,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psrr_1kHz_dB_12_33"
+      ],
+      "constraint": {
+        "lower": 94.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 87.87070713637335,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_0_12_33"
+      ],
+      "constraint": {
+        "lower": 86.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 1422953.34390458,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_0_12_33"
+      ],
+      "constraint": {
+        "lower": 720000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 27.7027013030516,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_0_12_33"
+      ],
+      "constraint": {
+        "lower": 1.8
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 7.34776978963975,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 143.2793448177993,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_70_12_33"
+      ],
+      "constraint": {
+        "lower": 119.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 2753528.5728852,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_70_12_33"
+      ],
+      "constraint": {
+        "lower": 990000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 85.7559234544362,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_70_12_33"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 22.7137076161301,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.07
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.45318683682148614,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.043936654699999966,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s18_21_a"
+      ],
+      "constraint": {
+        "upper": 0.11000000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.02531232530000005,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s18_21_a"
+      ],
+      "constraint": {
+        "upper": 0.066
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 1.1556444089999958e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s18_21_a"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.7678460199999963e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s18_21_a"
+      ],
+      "constraint": {
+        "upper": 5.5e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.2455922963999999,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s18_21_b"
+      ],
+      "constraint": {
+        "upper": 0.6050000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.14543763459999992,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s18_21_b"
+      ],
+      "constraint": {
+        "upper": 0.31899999999999995
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.0245502829999935e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s18_21_b"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 5.106234079e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s18_21_b"
+      ],
+      "constraint": {
+        "upper": 5.5e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.0543376148000001,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s18_21_c"
+      ],
+      "constraint": {
+        "upper": 0.15400000000000003
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.044134286399999834,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s18_21_c"
+      ],
+      "constraint": {
+        "upper": 0.121
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.0245929829999963e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s18_21_c"
+      ],
+      "constraint": {
+        "upper": 3.3e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.2732715109999996e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s18_21_c"
+      ],
+      "constraint": {
+        "upper": 4.4e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.03877129980000005,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s18_33_a"
+      ],
+      "constraint": {
+        "upper": 0.132
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.02702236289999993,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s18_33_a"
+      ],
+      "constraint": {
+        "upper": 0.088
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 7.366746999999994e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s18_33_a"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 3.205877819999992e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s18_33_a"
+      ],
+      "constraint": {
+        "upper": 1.1e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.2322783020000001,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s18_33_b"
+      ],
+      "constraint": {
+        "upper": 0.5940000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.14532359669999995,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s18_33_b"
+      ],
+      "constraint": {
+        "upper": 0.275
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.008714245999996e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s18_33_b"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 4.889061202999998e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s18_33_b"
+      ],
+      "constraint": {
+        "upper": 2.2e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.04749518490000004,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s18_33_c"
+      ],
+      "constraint": {
+        "upper": 0.16499999999999998
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.044915107800000076,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s18_33_c"
+      ],
+      "constraint": {
+        "upper": 0.176
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.0085681009999974e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s18_33_c"
+      ],
+      "constraint": {
+        "upper": 3.3e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.477284422999987e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s18_33_c"
+      ],
+      "constraint": {
+        "upper": 4.4e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.04835892139999998,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s12_21_a"
+      ],
+      "constraint": {
+        "upper": 0.09625
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.024688582400000048,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s12_21_a"
+      ],
+      "constraint": {
+        "upper": 0.027500000000000004
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 1.451514297999997e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s12_21_a"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.7131285249999953e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s12_21_a"
+      ],
+      "constraint": {
+        "upper": 6.6e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.24391192211,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s12_21_b"
+      ],
+      "constraint": {
+        "upper": 0.6050000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.16037420599999996,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s12_21_b"
+      ],
+      "constraint": {
+        "upper": 0.275
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.0215196169999944e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s12_21_b"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 5.157765407999993e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s12_21_b"
+      ],
+      "constraint": {
+        "upper": 6.6e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.05342256310000004,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s12_21_c"
+      ],
+      "constraint": {
+        "upper": 0.1375
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.044210894899999964,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s12_21_c"
+      ],
+      "constraint": {
+        "upper": 0.088
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.0222688489999967e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s12_21_c"
+      ],
+      "constraint": {
+        "upper": 3.3e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.2780521419999946e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s12_21_c"
+      ],
+      "constraint": {
+        "upper": 2.5058000000000002e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.034971674800000185,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s12_33_a"
+      ],
+      "constraint": {
+        "upper": 0.121
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.021353426099999906,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s12_33_a"
+      ],
+      "constraint": {
+        "upper": 0.0605
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 1.1720820689999943e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s12_33_a"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.9146262249999896e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s12_33_a"
+      ],
+      "constraint": {
+        "upper": 1.32e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.22945597242000004,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s12_33_b"
+      ],
+      "constraint": {
+        "upper": 0.6050000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.12335709329999989,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s12_33_b"
+      ],
+      "constraint": {
+        "upper": 0.31899999999999995
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.020871526e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s12_33_b"
+      ],
+      "constraint": {
+        "upper": 2.2e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 4.462413745999998e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s12_33_b"
+      ],
+      "constraint": {
+        "upper": 3.2999999999999996e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.04624539329999999,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_undershoot_V_s12_33_c"
+      ],
+      "constraint": {
+        "upper": 0.16499999999999998
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.03493204620000001,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_overshoot_V_s12_33_c"
+      ],
+      "constraint": {
+        "upper": 0.15400000000000003
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.005940377999996e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_up_s_s12_33_c"
+      ],
+      "constraint": {
+        "upper": 3.3e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.3322646539999996e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "recipe_id": "ldo_load_step_v1",
+      "constraints": [
+        "load_settling_down_s_s12_33_c"
+      ],
+      "constraint": {
+        "upper": 2.5652e-06
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "output_voltage_V_lo": {
+      "value": 1.7990014627,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "output_voltage_V_hi": {
+      "value": 1.7990014627,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "output_voltage_V_lo_v12": {
+      "value": 1.2101757178,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "output_voltage_V_hi_v12": {
+      "value": 1.2101757178,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "dropout_voltage_V": {
+      "value": 0.30099853730000015,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "dropout_voltage_V_v12": {
+      "value": 0.8898242822,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "line_regulation_pos": {
+      "value": 9.716985475249909e-05,
+      "unit": "V/V",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "line_regulation_neg": {
+      "value": 9.716985475249909e-05,
+      "unit": "V/V",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "line_regulation_pos_v12": {
+      "value": 8.716893206657993e-05,
+      "unit": "V/V",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "line_regulation_neg_v12": {
+      "value": 8.716893206657993e-05,
+      "unit": "V/V",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "vin_V": 2.1
+      },
+      "complete": true
+    },
+    "load_regulation_pos": {
+      "value": -0.00014496000000046344,
+      "unit": "V/A",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_regulation_neg": {
+      "value": -0.00014496000000046344,
+      "unit": "V/A",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_regulation_pos_v12": {
+      "value": -0.00013220857142710277,
+      "unit": "V/A",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_regulation_neg_v12": {
+      "value": -0.00013220857142710277,
+      "unit": "V/A",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "quiescent_current_A": {
+      "value": 2.314655381e-05,
+      "unit": "A",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_0": {
+      "value": 95.54766230300473,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_0": {
+      "value": 1239521.98944088,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "phase_margin_deg_0": {
+      "value": 42.2842711854483,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_70": {
+      "value": 108.62794521429066,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_70": {
+      "value": 1772942.47215739,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "phase_margin_deg_70": {
+      "value": 81.3400644715035,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_0_18_33": {
+      "value": 88.85675649159252,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_0_18_33": {
+      "value": 1056759.95637507,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "phase_margin_deg_0_18_33": {
+      "value": 32.0558834597366,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_70_18_33": {
+      "value": 138.3501392587368,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_70_18_33": {
+      "value": 1781225.92800508,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "phase_margin_deg_70_18_33": {
+      "value": 78.4365094653166,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_0_12_21": {
+      "value": 94.64678533609423,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_0_12_21": {
+      "value": 1386938.82765249,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "phase_margin_deg_0_12_21": {
+      "value": 40.463414719111,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_70_12_21": {
+      "value": 136.02702707064438,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_70_12_21": {
+      "value": 2568024.53903839,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "phase_margin_deg_70_12_21": {
+      "value": 90.2030445159417,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_0_12_33": {
+      "value": 87.87070713637335,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_0_12_33": {
+      "value": 1422953.34390458,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "phase_margin_deg_0_12_33": {
+      "value": 27.7027013030516,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_70_12_33": {
+      "value": 143.2793448177993,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_70_12_33": {
+      "value": 2753528.5728852,
+      "unit": "Hz",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "phase_margin_deg_70_12_33": {
+      "value": 85.7559234544362,
+      "unit": "deg",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "load_A": 0.07
+      },
+      "complete": true
+    },
+    "psrr_1kHz_dB_18_21": {
+      "value": 74.588411386,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "complete": true
+    },
+    "psrr_1kHz_dB_18_33": {
+      "value": 96.670247837,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p57_V33",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "complete": true
+    },
+    "psrr_1kHz_dB_12_21": {
+      "value": 77.031620554,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p00_v12",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "complete": true
+    },
+    "psrr_1kHz_dB_12_33": {
+      "value": 100.03462984,
+      "unit": "dB",
+      "condition_id": "NN_T60_S1p57_v12_V33",
+      "point": {
+        "freq_Hz": 1000.0
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s18_21_a": {
+      "value": 0.043936654699999966,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s18_21_a": {
+      "value": 1.1556444089999958e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s18_21_a": {
+      "value": 0.02531232530000005,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s18_21_a": {
+      "value": 2.7678460199999963e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s18_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s18_21_b": {
+      "value": 0.2455922963999999,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s18_21_b": {
+      "value": 2.0245502829999935e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s18_21_b": {
+      "value": 0.14543763459999992,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s18_21_b": {
+      "value": 5.106234079e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s18_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s18_21_c": {
+      "value": 0.0543376148000001,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s18_21_c": {
+      "value": 2.0245929829999963e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s18_21_c": {
+      "value": 0.044134286399999834,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s18_21_c": {
+      "value": 2.2732715109999996e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s18_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s18_33_a": {
+      "value": 0.03877129980000005,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s18_33_a": {
+      "value": 7.366746999999994e-07,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s18_33_a": {
+      "value": 0.02702236289999993,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s18_33_a": {
+      "value": 3.205877819999992e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s18_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s18_33_b": {
+      "value": 0.2322783020000001,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s18_33_b": {
+      "value": 2.008714245999996e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s18_33_b": {
+      "value": 0.14532359669999995,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s18_33_b": {
+      "value": 4.889061202999998e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s18_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s18_33_c": {
+      "value": 0.04749518490000004,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s18_33_c": {
+      "value": 2.0085681009999974e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s18_33_c": {
+      "value": 0.044915107800000076,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s18_33_c": {
+      "value": 2.477284422999987e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s18_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s12_21_a": {
+      "value": 0.04835892139999998,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s12_21_a": {
+      "value": 1.451514297999997e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s12_21_a": {
+      "value": 0.024688582400000048,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s12_21_a": {
+      "value": 2.7131285249999953e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s12_21_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s12_21_b": {
+      "value": 0.24391192211,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s12_21_b": {
+      "value": 2.0215196169999944e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s12_21_b": {
+      "value": 0.16037420599999996,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s12_21_b": {
+      "value": 5.157765407999993e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s12_21_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s12_21_c": {
+      "value": 0.05342256310000004,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s12_21_c": {
+      "value": 2.0222688489999967e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s12_21_c": {
+      "value": 0.044210894899999964,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s12_21_c": {
+      "value": 2.2780521419999946e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p00_s12_21_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s12_33_a": {
+      "value": 0.034971674800000185,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s12_33_a": {
+      "value": 1.1720820689999943e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s12_33_a": {
+      "value": 0.021353426099999906,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s12_33_a": {
+      "value": 2.9146262249999896e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s12_33_a",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.001
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s12_33_b": {
+      "value": 0.22945597242000004,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s12_33_b": {
+      "value": 2.020871526e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s12_33_b": {
+      "value": 0.12335709329999989,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s12_33_b": {
+      "value": 4.462413745999998e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s12_33_b",
+      "point": {
+        "load_low_A": 0.0,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_undershoot_V_s12_33_c": {
+      "value": 0.04624539329999999,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_up_s_s12_33_c": {
+      "value": 2.005940377999996e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_overshoot_V_s12_33_c": {
+      "value": 0.03493204620000001,
+      "unit": "V",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "load_settling_down_s_s12_33_c": {
+      "value": 2.3322646539999996e-06,
+      "unit": "s",
+      "condition_id": "NN_T60_S1p57_s12_33_c",
+      "point": {
+        "load_low_A": 0.001,
+        "load_high_A": 0.07
+      },
+      "complete": true
+    },
+    "devices_out_of_saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T60_S1p00",
+      "point": {
+        "load_A": 0.0
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T60_S1p00/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 9 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.529,
+      "cpu_s": 0.28500000000000003
+    },
+    {
+      "job_id": "NN_T60_S1p00/ldo_load_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 9 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.379,
+      "cpu_s": 0.182
+    },
+    {
+      "job_id": "NN_T60_S1p00/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.329,
+      "cpu_s": 0.188
+    },
+    {
+      "job_id": "NN_T60_S1p00/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.454,
+      "cpu_s": 0.152
+    },
+    {
+      "job_id": "NN_T60_S1p57_V33/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.279,
+      "cpu_s": 0.147
+    },
+    {
+      "job_id": "NN_T60_S1p57_V33/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.269,
+      "cpu_s": 0.137
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 9 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.474,
+      "cpu_s": 0.276
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_load_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 9 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.377,
+      "cpu_s": 0.198
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.279,
+      "cpu_s": 0.136
+    },
+    {
+      "job_id": "NN_T60_S1p00_v12/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.319,
+      "cpu_s": 0.153
+    },
+    {
+      "job_id": "NN_T60_S1p57_v12_V33/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.323,
+      "cpu_s": 0.184
+    },
+    {
+      "job_id": "NN_T60_S1p57_v12_V33/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.22,
+      "cpu_s": 0.112
+    },
+    {
+      "job_id": "NN_T60_S1p00_s18_21_a/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.834,
+      "cpu_s": 0.711
+    },
+    {
+      "job_id": "NN_T60_S1p00_s18_21_b/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.896,
+      "cpu_s": 0.74
+    },
+    {
+      "job_id": "NN_T60_S1p00_s18_21_c/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.035,
+      "cpu_s": 0.862
+    },
+    {
+      "job_id": "NN_T60_S1p57_s18_33_a/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.125,
+      "cpu_s": 0.9400000000000001
+    },
+    {
+      "job_id": "NN_T60_S1p57_s18_33_b/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.876,
+      "cpu_s": 0.738
+    },
+    {
+      "job_id": "NN_T60_S1p57_s18_33_c/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.872,
+      "cpu_s": 0.705
+    },
+    {
+      "job_id": "NN_T60_S1p00_s12_21_a/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.091,
+      "cpu_s": 0.9450000000000001
+    },
+    {
+      "job_id": "NN_T60_S1p00_s12_21_b/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.832,
+      "cpu_s": 0.686
+    },
+    {
+      "job_id": "NN_T60_S1p00_s12_21_c/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.824,
+      "cpu_s": 0.684
+    },
+    {
+      "job_id": "NN_T60_S1p57_s12_33_a/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.109,
+      "cpu_s": 0.9580000000000001
+    },
+    {
+      "job_id": "NN_T60_S1p57_s12_33_b/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.081,
+      "cpu_s": 0.9560000000000001
+    },
+    {
+      "job_id": "NN_T60_S1p57_s12_33_c/ldo_load_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.836,
+      "cpu_s": 0.681
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 24,
+    "analysis_executions": 28,
+    "condition_evaluations": 16,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 11.756,
+    "execution_wall_s": 4.3,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00/ldo_load_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_V33/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_V33/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_v12/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_v12/ldo_load_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_v12/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_v12/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_v12_V33/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_v12_V33/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_s18_21_a/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_s18_21_b/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_s18_21_c/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_s18_33_a/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_s18_33_b/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_s18_33_c/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_s12_21_a/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_s12_21_b/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p00_s12_21_c/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_s12_33_a/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_s12_33_b/ldo_load_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24m_miller_task_001/NN_T60_S1p57_s12_33_c/ldo_load_step_v1"
+    ]
+  }
+}

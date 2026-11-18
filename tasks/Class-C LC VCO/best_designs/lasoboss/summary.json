@@ -1,0 +1,90 @@
+{
+ "task": "lcvco24_sheikhahmadi_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 22011,
+ "wall_s": 12744.7,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.187348,
+ "llm_cost_usd_recorded": 0.0936738,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": -0.7142857142857143
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": -0.7142857142857143
+  },
+  {
+   "phase": 3,
+   "evals": 501,
+   "best_score": -0.7142857142857143
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.3769019385149396
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 0.49658331284995355
+  }
+ ],
+ "best": {
+  "eval": 1977,
+  "round": 5,
+  "f": 0.3638432566695262,
+  "loss": 0.5034166871500465,
+  "reward": 0.49658331284995355,
+  "score": 0.49658331284995355,
+  "targets_met": 2,
+  "targets": 7,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_CORE": 7.151001035348136e-07,
+   "L_CORE": 1.3835747234345136e-06,
+   "NF_CORE": 39.0,
+   "N_CORE": 6.0,
+   "W_AUX": 4.154949605791906e-05,
+   "L_AUX": 3.123252690829275e-07,
+   "NF_AUX": 76.0,
+   "N_AUX": 93.0,
+   "W_MT1": 7.786016991634527e-05,
+   "L_MT1": 4.769650847070514e-06,
+   "NF_MT1": 14.0,
+   "N_MT1": 79.0,
+   "W_MT": 7.815916553296964e-05,
+   "L_MT": 9.520106397388011e-07,
+   "NF_MT": 44.0,
+   "N_MT": 21.0,
+   "L_MAIN": 5.432623102508225e-10,
+   "LI_AUX": 2.2897725870046163e-09,
+   "C_COUP": 4.5630344381833775e-14,
+   "C_PAR": 7.41498688406834e-13,
+   "C_BIAS": 1.6927785411056915e-11,
+   "R_BIAS": 796008.785573089,
+   "C_FILT": 7.425237480664013e-12,
+   "C_TAIL": 4.409200287317795e-12,
+   "V_BIAS": 1.1071045530432004,
+   "V_TAIL": 0.9601041540736756
+  }
+ }
+}

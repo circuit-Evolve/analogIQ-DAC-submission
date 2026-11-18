@@ -1,0 +1,307 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "tt_T25_S1p17/osc_pnoise_v1",
+ "recipe_id": "osc_pnoise_v1",
+ "recipe_version": 3,
+ "points": [
+  {
+   "pss": true
+  },
+  {
+   "offset_Hz": 1000000.0
+  },
+  {
+   "offset_Hz": 3000000.0
+  },
+  {
+   "offset_Hz": 10000000.0
+  }
+ ],
+ "expected_outputs": [
+  "raw/pss1.fd.pss",
+  "raw/pss1.td.pss",
+  "raw/pn1.pnoise"
+ ],
+ "context": {
+  "job_id": "tt_T25_S1p17/osc_pnoise_v1",
+  "condition": {
+   "id": "tt_T25_S1p17",
+   "model_set": "tt",
+   "temperature_C": 25.0,
+   "supply_scale": 1.1666667,
+   "supply_V": 1.40000004,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+     "section": "tt"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.40000004
+  },
+  "operating": {
+   "supply_V": 1.2,
+   "load_capacitance_F": 1e-14
+  },
+  "recipe_settings": {
+   "fund_estimate_Hz": 3800000000.0,
+   "harmonics": 10,
+   "tstab_s": 6e-08,
+   "offsets_Hz": [
+    1000000.0,
+    3000000.0,
+    10000000.0
+   ],
+   "min_amplitude_V": 0.05,
+   "kick_current_A": 0.001,
+   "kick_width_s": 5e-11,
+   "pss_errpreset": "conservative",
+   "estimate": {
+    "tstop_s": 8e-08,
+    "maxstep_s": 2e-11,
+    "errpreset": "liberal"
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "lcvco24_sheikhahmadi",
+   "family": "oscillator",
+   "interface_type": "differential_lc_vco",
+   "technology_id": "sky130",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "repaired_core",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "VBIAS",
+     "VTAIL",
+     "VCOM",
+     "CMP_SENSE",
+     "OUTP",
+     "OUTN",
+     "AUXP",
+     "AUXN"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "output_positive": "OUTP",
+    "output_negative": "OUTN",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VBIAS": {
+     "kind": "voltage",
+     "value": 0.6,
+     "provenance": "sizing variable V_BIAS"
+    },
+    "VTAIL": {
+     "kind": "voltage",
+     "value": 0.6,
+     "provenance": "sizing variable V_TAIL"
+    },
+    "VCOM": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "paper Fig. 7: the comparator output VCOM falls to ~0 V within ~20 ns once the oscillation has built up, switching the auxiliary class-B pair off; the comparator is not in the netlist, so the steady state (aux pair off) is VCOM = 0 V; the start-up condition sets it to the supply"
+    }
+   },
+   "open_pins": {
+    "CMP_SENSE": "internal source node of M1/M2 (tail node, CT / MT drain) exported as a port because the missing comparator senses it (paper Fig. 5, Vs ~ 0.2 V in Fig. 7)",
+    "AUXP": "internal drain node of the auxiliary class-B pair M3 (LAP, C1P) exported as a port by the schematic exporter",
+    "AUXN": "internal drain node of the auxiliary class-B pair M4 (LAN, C1N) exported as a port by the schematic exporter"
+   },
+   "probes": [],
+   "op_check": {
+    "exclude": [
+     "M3",
+     "M4",
+     "MT1",
+     "MT"
+    ]
+   }
+  },
+  "subckt_name": "repaired_core",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_CORE": 1e-06,
+   "L_CORE": 1e-06,
+   "NF_CORE": 1.0,
+   "N_CORE": 1.0,
+   "W_AUX": 1e-06,
+   "L_AUX": 1e-06,
+   "NF_AUX": 1.0,
+   "N_AUX": 1.0,
+   "W_MT1": 1e-06,
+   "L_MT1": 1e-06,
+   "NF_MT1": 1.0,
+   "N_MT1": 1.0,
+   "W_MT": 1e-06,
+   "L_MT": 1e-06,
+   "NF_MT": 1.0,
+   "N_MT": 1.0,
+   "L_MAIN": 1e-09,
+   "LI_AUX": 1e-09,
+   "C_COUP": 1e-12,
+   "C_PAR": 1e-12,
+   "C_BIAS": 1e-12,
+   "R_BIAS": 10000.0,
+   "C_FILT": 1e-12,
+   "C_TAIL": 1e-12
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BIAS": 0.6,
+   "V_TAIL": 0.6
+  },
+  "bias_variables": {
+   "VBIAS": "V_BIAS",
+   "VTAIL": "V_TAIL"
+  },
+  "devices": {
+   "sky130_fd_pr__nfet_01v8": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__nfet_01v8_lvt": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8_lvt": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 3.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__res_high_po": {
+    "kind": "resistor",
+    "min_w_m": 3.5e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__cap_mim_m3_1": {
+    "kind": "capacitor",
+    "min_w_m": 1e-06,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-06,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__pnp_05v5_W3p40L3p40": {
+    "kind": "bjt",
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__nfet_g5v0d10v5": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_g5v0d10v5": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__diode_pd2nw_05v5": {
+    "kind": "bjt",
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5
+   }
+  },
+  "length_unit_m": 1e-06
+ }
+}

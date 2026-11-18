@@ -1,0 +1,94 @@
+schema_version: 1
+topology_id: sar24_liang
+family: sar_adc
+interface_type: differential_sar_adc_analog_core
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: 10.1109/TCSII.2025.3541236
+  title: "An 8-to-12-Bit Resolution-Reconfigurable SAR ADC With Fast-Window-Switching Technique (Liang, Song, Zhu, TCAS-II 2025)"
+  figure: "Fig. 7 (CDAC architecture), Fig. 11 (dynamic comparator)"
+  netlist_origin: final.scs
+  modifications:
+    - "None to final.scs. The netlist is the analog core only (dual-reference differential CDAC capacitors + dynamic comparator with SR latch). Bootstrap switches, resolution switches RSP/RSN, reference switches and the SAR/FWS logic are NOT in the netlist: the testbench adds them as fixed behavioural instrumentation (Verilog-A sequencer, recipes/sar_ext.py)."
+
+dut:
+  netlist: final.scs
+  subckt_name: sar24_liang_dut
+  port_order: [BP_CP11a, BP_CP11b, BP_CP10a, BP_CP10b, BP_CP9a, BP_CP9b, BP_CP8a, BP_CP8b, BP_CP7a, BP_CP7b, BP_CP6a, BP_CP6b, BP_CP5a, BP_CP5b, BP_CP5ac, BP_CP5bc, BP_CP4, BP_CP3, BP_CP2, BP_CP1, VXP_MSB, VXP_MID, VXP, BP_CN11a, BP_CN11b, BP_CN10a, BP_CN10b, BP_CN9a, BP_CN9b, BP_CN8a, BP_CN8b, BP_CN7a, BP_CN7b, BP_CN6a, BP_CN6b, BP_CN5a, BP_CN5b, BP_CN5ac, BP_CN5bc, BP_CN4, BP_CN3, BP_CN2, BP_CN1, VXN_MSB, VXN_MID, VXN, VDD, VSS, CKC, COP, CON]
+  net_map: {}
+ports:
+  supply_positive: VDD
+  supply_negative: VSS
+  clock: CKC
+  output_positive: COP
+  output_negative: CON
+  dac_top_positive: VXP
+  dac_top_negative: VXN
+  dac_top_positive_aux1: VXP_MID
+  dac_top_positive_aux2: VXP_MSB
+  dac_top_negative_aux1: VXN_MID
+  dac_top_negative_aux2: VXN_MSB
+external_bias:
+  BP_CP11a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP11b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP10a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP10b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP9a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP9b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP8a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP8b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP7a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP7b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP6a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP6b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP5a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP5b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP5ac: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP5bc: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP4: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP3: {kind: voltage, value: 0.225, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR2; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP2: {kind: voltage, value: 0.225, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR2; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CP1: {kind: voltage, value: 0.225, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR2; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN11a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN11b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN10a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN10b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN9a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN9b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN8a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN8b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN7a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN7b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN6a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN6b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN5a: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN5b: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN5ac: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN5bc: {kind: voltage, value: 0.0, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level 0 V; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN4: {kind: voltage, value: 1.8, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR1; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN3: {kind: voltage, value: 0.225, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR2; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN2: {kind: voltage, value: 0.225, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR2; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+  BP_CN1: {kind: voltage, value: 0.225, provenance: "DAC bottom plate: level set by the fixed behavioural sequencer (sampling level VR2; the static source is replaced in the sar_adc fixture, see topology.sar)"}
+sar:
+  # Fixed behavioural SAR logic of the testbench (recipes/sar_ext.py). Bit trials in order after the polarity comparison.
+  # split: p/n = [half that starts at the reference and falls, half that starts at 0 and rises]; weights are the
+  # integer code weights in units of the smallest weight (1/8 Cu at the low reference VR2 = VR1/8).
+  offset_code: 2063
+  lsb_reference_fraction: 4.734848484848485e-4   # (1/8 Cu) / (264 Cu): the nominal LSB as a fraction of VR1
+  trials:
+    - {name: CP11, kind: split, p: [BP_CP11a, BP_CP11b], n: [BP_CN11a, BP_CN11b], reference: high, weight: 1024}
+    - {name: CP10, kind: split, p: [BP_CP10a, BP_CP10b], n: [BP_CN10a, BP_CN10b], reference: high, weight: 512}
+    - {name: CP9, kind: split, p: [BP_CP9a, BP_CP9b], n: [BP_CN9a, BP_CN9b], reference: high, weight: 256}
+    - {name: CP8, kind: split, p: [BP_CP8a, BP_CP8b], n: [BP_CN8a, BP_CN8b], reference: high, weight: 128}
+    - {name: CP7, kind: split, p: [BP_CP7a, BP_CP7b], n: [BP_CN7a, BP_CN7b], reference: high, weight: 64}
+    - {name: CP6, kind: split, p: [BP_CP6a, BP_CP6b], n: [BP_CN6a, BP_CN6b], reference: high, weight: 32}
+    - {name: CP5c, kind: split, p: [BP_CP5ac, BP_CP5bc], n: [BP_CN5ac, BP_CN5bc], reference: high, weight: 16}
+    - {name: CP5, kind: split, p: [BP_CP5a, BP_CP5b], n: [BP_CN5a, BP_CN5b], reference: high, weight: 16}
+    - {name: CP4, kind: single, p: [BP_CP4], n: [BP_CN4], reference: high, weight: 8}
+    - {name: CP3, kind: single, p: [BP_CP3], n: [BP_CN3], reference: low, weight: 4}
+    - {name: CP2, kind: single, p: [BP_CP2], n: [BP_CN2], reference: low, weight: 2}
+    - {name: CP1, kind: single, p: [BP_CP1], n: [BP_CN1], reference: low, weight: 1}
+known_issues:
+  - "VXP_MSB / VXP_MID (and the N side) are separate top-plate pins in the netlist: the resolution switches RSP1/RSP2 are not in it; the 12-bit mode (all switches on) is modelled by 10 ohm resistors tying them to VXP / VXN."
+  - "The comparator's latch devices (MPH_*, MNR_*, MPL_*, MNL_*, MND_*, MP_/MN_COP/CON) have 1 um / 1 um placeholder sizes in the netlist (paper: not reported)."

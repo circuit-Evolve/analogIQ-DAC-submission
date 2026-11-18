@@ -1,0 +1,7 @@
+70/70 retained checks pass; 10/10 saved condition rows pass; 7 metrics.
+Paper-referenced targets with the approved 15% allowance, using explicit minimum/maximum/range directions. dB limits use the underlying voltage or power ratio; strict stability limits remain K>1 and |Delta|<1. No limits were recalibrated to these golden results. See qualifications.json for reference exceptions.
+The approximate MMBT6429 model uses the paper VAF=804 V (previously 100 V); remaining model parameters are unchanged. The supplied models are not the exact author model library.
+Transresistance rm was removed at the user request after failing its target. Its output-stage ratio remains inlined in the retained original total-gain expression; no standalone rm metric is scored.
+Ten saved condition rows represent nine unique voltage/temperature conditions: Nominal duplicates VT_V42_T27. These are fixed-model VT corners, not process corners. Auxiliary +15 V, -7 V and +6 V supplies remain fixed.
+Q11 maximum absolute VCE is 49.2683 V versus the BC857C 45 V metadata. This is outside the seven retained metric checks; passing them is not hardware-stress qualification.
+All ten slew settling diagnostics passed. Physical component values in dut.scs are authoritative; legacy pa_* testbench declarations are retained for reproducibility and do not override literal DUT sizes.

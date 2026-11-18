@@ -1,0 +1,341 @@
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence, Virtuoso and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: curator   Host: g4-vm   HostID: 8E0A0200   PID: 924258
+Memory  available: 22.0962 GB  physical: 189.5854 GB
+CPU Type: AMD EPYC 9B45
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [4065.8] ( 24 ),  1 [2700.0] ( 25 ),  2 [4060.2] ( 26 )
+                 3 [4065.8] ( 27 ),  4 [2700.0] ( 28 ),  5 [4065.8] ( 29 )
+                 6 [4065.8] ( 30 ),  7 [4065.8] ( 31 ),  8 [4094.4] ( 32 )
+                 9 [4092.8] ( 33 ), 10 [4088.7] ( 34 ), 11 [4094.4] ( 35 )
+                12 [4094.4] ( 36 ), 13 [4092.3] ( 37 ), 14 [4092.6] ( 38 )
+                15 [4094.4] ( 39 ), 16 [2700.0] ( 40 ), 17 [4056.9] ( 41 )
+                18 [4056.9] ( 42 ), 19 [4056.5] ( 43 ), 20 [2700.0] ( 44 )
+                21 [4056.9] ( 45 ), 22 [4054.8] ( 46 ), 23 [4056.9] ( 47 )
+        
+System load averages (1min, 5min, 15min) : 74.9 %, 64.8 %, 49.7 %
+Hyperthreading is enabled
+
+
+Simulating `<WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs' on g4-vm at 2:03:50 PM, Wed Nov 11, 2026 (process id: 924258).
+Current working directory: <WORK>/four_papers_20261109/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/2322c358817b72fbfe52
+Command line:
+    /opt/cadence/rootfs/opt/MMSIM151/tools/bin/spectre -64  \
+        <WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs  \
+        -format psfascii -raw  \
+        <WORK>/four_papers_20261109/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/2322c358817b72fbfe52/raw  \
+        +log  \
+        <WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/spectre.log
+
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  <WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/parameters_fet_tt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/parameters_res_nom.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/parameters_cap_nom.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_global.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__esd_nfet_05v0_nvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__esd_nfet_g5v0d10v5.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__esd_pfet_g5v0d10v5.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_01v8.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_01v8_esd.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_01v8_lvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_03v3_nvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_05v0_nvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_20v0.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_20v0_iso.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_20v0_nvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_20v0_zvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_g5v0d10v5.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_g5v0d16v0.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__nfet_g5v0d16v0_base.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_01v8.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_01v8_hvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_01v8_lvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_20v0.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_g5v0d10v5.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_g5v0d16v0.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_fet/sky130_fd_pr__pfet_g5v0d16v0_base.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_bjt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_diodes.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_resistors.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_capacitors.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/tt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_01v8__tt.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_01v8__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_pfet_01v8_hvt__tt.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_pfet_01v8_hvt__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/all.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sonos_p/begin_of_life/mm.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sonos_e/begin_of_life/mm.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__diode_pd2nw_11v0.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__diode_pd2nw_11v0_no_rs.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_rf_diode_pd2nw_11v0_100.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_rf_diode_pd2nw_11v0_200.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_rf_diode_pd2nw_11v0_300.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__diode_pw2nd_11v0.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__diode_pw2nd_11v0_no_rs.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_rf_diode_pw2nd_11v0_100.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_rf_diode_pw2nd_11v0_200.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_rf_diode_pw2nd_11v0_300.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_var_hvt.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_var_lvt.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_pass.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_latch.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_pfet_latch.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_pass_flash.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_g5v0d10v5.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8_lvt.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8_mvt.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/tt/legacy.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_nfet_01v8__tt.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__esd_nfet_01v8.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/tt/legacy_nfet_05v0_nvt.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/tt/nonfet.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/tt/rf.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8_b__tt.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8_b.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8_lvt_b__tt.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8_lvt_b.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_g5v0d10v5_b__tt.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_g5v0d10v5_b.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8_b__tt.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8_b.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_01v8_lvt__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_nfet_g5v0d10v5__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8_mvt__tt_discrete.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8_mvt.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__rf_pfet_01v8_mvt__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/tt/specialized_cells.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_latch__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_pass__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_pass_flash__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_pfet_latch__mismatch.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_pass_lvt__tt.corner.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__special_nfet_pass_lvt.pm3.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/res_typical__cap_typical.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/sky130_fd_pr__model__res.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/res_typical__cap_typical__lin.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/sky130_fd_pr__model__cap_vpp.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_l1m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_l1m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_01p8x01p8_m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_m1m2_shieldl1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2_shieldl1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m2_shieldl1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_l1m1m2_shieldpo_floatm3.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_l1m1m2_shieldpo_floatm3.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2_shieldpom3.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_03p9x03p9_m1m2_shieldl1_floatm3.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_l1m1m2_noshield_o1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_l1m1m2_noshield_o1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2_noshield_o2.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_02p4x04p6_m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m2_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/sky130_fd_pr__model__cap_vpp_only_mos.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2_noshield_o1nhv.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2_noshield_o1phv.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/sky130_fd_pr__model__cap_vpp_only_p.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2m3m4_shieldm5.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2m3m4_shieldpom5.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m2m3m4_shieldl1m5.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m4_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m2m3m4_shieldm5.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_m1m2m3_shieldl1m5_floatm4.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2m3_shieldl1m5_floatm4.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m2m3_shieldl1m5_floatm4.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p3x11p8_l1m1m2m3m4_shieldm5_nhv.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p3x11p8_l1m1m2m3m4_shieldm5_nhv__base.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2m3m4_shieldpom5_x.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_02p9x06p1_m1m2m3m4_shieldl1_fingercap2.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_02p7x11p1_m1m2m3m4_shieldl1_fingercap.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_02p7x21p1_m1m2m3m4_shieldl1_fingercap.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_02p7x41p1_m1m2m3m4_shieldl1_fingercap.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_02p7x06p1_m1m2m3m4_shieldl1_fingercap.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p3x11p3_m1m2m3m4_shieldl1_wafflecap.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_05p9x05p9_m1m2m3m4_shieldl1_wafflecap.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_44p7x23p1_pol1m1m2m3m4m5_noshield.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/rescap/sky130_fd_pr__model__cap_vpp_only_pq.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_08p6x07p8_m1m2m3_shieldl1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_04p4x04p6_m1m2m3_shieldl1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_m1m2m3_shieldl1.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2m3_shieldm4.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_11p5x11p7_l1m1m2m3_shieldpom4.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_06p8x06p1_l1m1m2m3_shieldpom4.model.spice
+Reading file:  <PDK_ROOT>/sky130_cds/spectre/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__cap_vpp_06p8x06p1_m1m2m3_shieldl1m4.model.spice
+Time for NDB Parsing: CPU = 307.732 ms, elapsed = 312.406 ms.
+Time accumulated: CPU = 319.414 ms, elapsed = 312.409 ms.
+Peak resident memory used = 83.1 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre  0 (100.0 %)     1 (66.7 %)      2 (100.0 %)     3 (100.0 %)
+                 4 (16.1 %)      5 (100.0 %)     6 (100.0 %)     7 (100.0 %)
+                 8 (100.0 %)     9 (100.0 %)    10 (100.0 %)    11 (100.0 %)
+                12 (87.5 %)     13 (16.7 %)     14 (100.0 %)    15 (100.0 %)
+                16 (93.5 %)     17 (100.0 %)    18 (100.0 %)    19 (9.7 %)
+                20 (12.5 %)     21 (100.0 %)    22 (97.0 %)     23 (100.0 %)
+                24 (77.4 %)     25 (50.0 %)     26 (100.0 %)    27 (34.4 %)
+                28 (100.0 %)    29 (93.9 %)     30 (96.8 %)     31 (96.8 %)
+                32 (10.0 %)     33 (100.0 %)    34 (100.0 %)    35 (96.7 %)
+                36 (26.7 %)     37 (100.0 %)    38 (100.0 %)    39 (100.0 %)
+                40 (100.0 %)    41 (100.0 %)    42 (6.5 %)      43 (100.0 %)
+                44 (100.0 %)    45 (6.2 %)      46 (100.0 %)    47 (6.5 %)
+        Other   
+Reading link:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+
+Warning from spectre during hierarchy flattening.
+    WARNING (SFE-884): "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_global.spice" 21: The option 'scale' is deleted because it is redefined at '<WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs':line '53'.
+    WARNING (SFE-884): "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/continuous/models_global.spice" 22: The option 'scale' is deleted because it is redefined at '<WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs':line '53'.
+    WARNING (SFE-884): "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/all.spice" 29: The option 'scale' is deleted because it is redefined at '<WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs':line '53'.
+    WARNING (SFE-884): "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/corners/all.spice" 30: The option 'scale' is deleted because it is redefined at '<WORK>/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/runs/2322c358817b72fbfe52/input.scs':line '53'.
+
+Time for Elaboration: CPU = 22.276 ms, elapsed = 22.4421 ms.
+Time accumulated: CPU = 341.778 ms, elapsed = 334.937 ms.
+Peak resident memory used = 91.7 Mbytes.
+
+Time for EDB Visiting: CPU = 596 us, elapsed = 595.093 us.
+Time accumulated: CPU = 342.472 ms, elapsed = 335.629 ms.
+Peak resident memory used = 91.7 Mbytes.
+
+
+Global user options:
+              scale = 1e-06
+              scale = 1e-06
+              scale = 1e-06
+              scale = 1e-06
+              scale = 1e-06
+             reltol = 1e-05
+            vabstol = 1e-08
+            iabstol = 1e-13
+               temp = 125
+               tnom = 27
+               save = selected
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 21
+              bsim4 24    
+          capacitor 18    
+           resistor 1     
+            vsource 3     
+
+Analysis and control statement inventory:
+               tran 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 1     
+
+Time for parsing: CPU = 1.758 ms, elapsed = 18.07 ms.
+Time accumulated: CPU = 344.293 ms, elapsed = 353.763 ms.
+Peak resident memory used = 94.5 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+
+*************************************************
+Transient Analysis `tran': time = (0 s -> 300 us)
+*************************************************
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/nvm_chargepump_20261111/corner_sizing_upper_ripple_20261111/2322c358817b72fbfe52/raw/tran.tran.tran ...
+Important parameter values:
+    start = 0 s
+    outputstart = 0 s
+    stop = 300 us
+    step = 300 ns
+    maxstep = 500 ps
+    ic = all
+    useprevic = no
+    skipdc = yes
+    reltol = 1e-06
+    abstol(V) = 10 nV
+    abstol(I) = 100 fA
+    temp = 125 C
+    tnom = 27 C
+    tempeffects = all
+    errpreset = conservative
+    method = gear2only
+    lteratio = 10
+    relref = alllocal
+    cmin = 0 F
+    gmin = 1 pS
+
+
+Output and IC/nodeset summary:
+                 save   3       (current)
+                 save   21      (voltage)
+
+
+Warning from spectre at time = 61.0352 fs during transient analysis `tran'.
+    WARNING (SPECTRE-16780): LTE tolerance was temporarily relaxed to step over a discontinuity in the signal: DUT.M1NA.Msky130_fd_pr__nfet_03v3_nvt:sbnode.
+
+......9......8......7......6......5......4......3......2......1......0
+Number of accepted tran steps =             2212709
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Post-Transient Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -   To further speed up simulation, consider
+          add ++aps on command line
+   -   Non-default settings that could significantly slow down simulation
+          errpreset = conservative, default moderate
+          maxstep = 500 ps, default 3 us (conservative)
+          reltol = 1e-06, default 100e-06 (conservative)
+          abstol(V) = 10 nV, default 1 uV
+          abstol(I) = 100 fA, default 1 pA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+During simulation, the CPU load for active processors is :
+        Spectre  0 (77.4 %)      1 (81.3 %)      2 (69.7 %)      3 (80.2 %)
+                 4 (68.7 %)      5 (88.6 %)      6 (80.0 %)      7 (68.3 %)
+                 8 (73.2 %)      9 (70.5 %)     10 (90.2 %)     11 (82.7 %)
+                12 (73.8 %)     13 (71.5 %)     14 (68.0 %)     15 (81.9 %)
+                16 (82.0 %)     17 (89.3 %)     18 (67.0 %)     19 (68.4 %)
+                20 (69.8 %)     21 (79.5 %)     22 (57.1 %)     23 (83.2 %)
+                24 (74.8 %)     25 (64.1 %)     26 (64.5 %)     27 (54.6 %)
+                28 (62.4 %)     29 (52.7 %)     30 (61.8 %)     31 (62.8 %)
+                32 (73.2 %)     33 (55.9 %)     34 (50.1 %)     35 (49.8 %)
+                36 (65.2 %)     37 (73.9 %)     38 (68.1 %)     39 (75.8 %)
+                40 (67.2 %)     41 (61.7 %)     42 (85.1 %)     43 (60.5 %)
+                44 (71.4 %)     45 (51.9 %)     46 (68.2 %)     47 (51.5 %)
+        Other   
+Initial condition solution time: CPU = 0 s, elapsed = 0 s.
+Intrinsic tran analysis time:    CPU = 175.345 s, elapsed = 176.503 s.
+Total time required for tran analysis `tran': CPU = 175.345 s (2m  55.3s), elapsed = 176.503 s (2m  56.5s).
+Time accumulated: CPU = 175.729 s (2m  55.7s), elapsed = 179.617 s (2m  59.6s).
+Peak resident memory used = 96.1 Mbytes.
+
+
+Aggregate audit (2:06:50 PM, Wed Nov 11, 2026):
+Time used: CPU = 176 s (2m  55.8s), elapsed = 180 s (2m  59.8s), util. = 97.8%.
+Time spent in licensing: elapsed = 71.3 ms.
+Peak memory used = 96.1 Mbytes.
+Simulation started at: 2:03:50 PM, Wed Nov 11, 2026, ended at: 2:06:50 PM, Wed Nov 11, 2026, with elapsed time (wall clock): 180 s (2m  59.8s).
+spectre completes with 0 errors, 5 warnings, and 0 notices.

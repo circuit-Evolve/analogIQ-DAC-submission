@@ -1,0 +1,2659 @@
+schema: analogiq.sizing_problem/1
+task_id: rvco_khan2025_task_001
+topology_id: rvco_khan2025_gpdk090
+family: oscillator
+technology_id: gpdk090
+parameterization_id: rvco_khan2025_p1
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). Five-stage current-starved ring VCO with diode source degeneration and ''charge-pump''
+  stages (paper Fig. 5), gpdk090, run at 1.2 V instead of the paper''s 1.8 V (device rating, D9), 10 fF load (RV5), control range 0.45-1.2 V chosen
+  by simulation (RV2). Conditions: nominal (TT = NN, 27 C) plus the paper''s two one-at-a-time sweeps: process FF / FS / SS / SF at 27 C (Figs.
+  9-10) and temperature -65 / -45 / 45 / 65 C at TT (Figs. 11, 12, 14). Phase noise / FoM / power at the Vcon giving the mid frequency (f(0.45
+  V) + f(1.2 V)) / 2, found per design and condition from a PSS sweep (RV4). Frequency targets are the paper''s 1.8 V values scaled to 1.2 V by
+  k_f = 0.5880 (RV3b; owner-approved 2026-10-23: k_f = reference design''s simulated f at the top of the control range, 368.15 MHz at VDD 1.2
+  V / Vcon 1.2 V, divided by 626.08 MHz at VDD 1.8 V / Vcon 1.6 V; same PSS testbench, NN, 27 C, 10 fF). Ratio targets (fmax/fmin, TR %) are supply-invariant
+  and not scaled; power and phase-noise targets are not scaled (owner answer scales frequency only; the Monte Carlo power mean is an upper bound,
+  owner 2026-10-23). Monte Carlo (mismatch) at the fixed control voltage 0.825 V, the middle of the control range (paper Figs. 15-17: fixed Vcon
+  1.05 V; definition audit 2026-10-27). G8 does not apply to the ring (its DC equilibrium is not its operating point; owner 2026-10-23).'
+source:
+  doi: 10.1109/QPAIN66474.2025.11171774
+  title: Khan et al., 'Wideband and Linear Current Starved VCO with Source Degeneration and Integrated Charge Pump for ADC Front Ends', QPAIN
+    2025
+  figure: 'Fig. 5 (five-stage current-starved ring: global bias M11/M22/M23, starving M1/3/5 and M17/19/21, ''charge-pump'' stages 2/4 with M2/M4/M18/M20,
+    diode degeneration M24-M28, C1/C3/C5 = CLOAD, C2/C4 = CPUMP to VCON); sizes Table I (p. 3)'
+variables:
+- name: N_M11
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of M11 (diode-connected PMOS of the global bias, sets PBIAS for the PMOS starving mirror)
+  binding:
+    type: instance_parameter
+    instances:
+    - M11
+    parameter: m
+- name: W_M11
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M11 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M11
+    parameter: w
+- name: L_M11
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M11 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M11
+    parameter: l
+- name: N_PS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the PMOS starving devices M1 = M3 = M5 (gate PBIAS)
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    - M3
+    - M5
+    parameter: m
+- name: W_PS
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M1/M3/M5 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    - M3
+    - M5
+    parameter: w
+- name: L_PS
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M1/M3/M5 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    - M3
+    - M5
+    parameter: l
+- name: N_PCP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the charge-pump PMOS M2 = M4 (gate VSS, fully on)
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M4
+    parameter: m
+- name: W_PCP
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M2/M4 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M4
+    parameter: w
+- name: L_PCP
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M2/M4 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M4
+    parameter: l
+- name: N_PI
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the inverter PMOS M6-M10 (Table I group, incl. charge-pump switches M7/M9)
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    - M7
+    - M8
+    - M9
+    - M10
+    parameter: m
+- name: W_PI
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M6-M10 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    - M7
+    - M8
+    - M9
+    - M10
+    parameter: w
+- name: L_PI
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M6-M10 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    - M7
+    - M8
+    - M9
+    - M10
+    parameter: l
+- name: N_NI
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the inverter NMOS M12-M16 (Table I group)
+  binding:
+    type: instance_parameter
+    instances:
+    - M12
+    - M13
+    - M14
+    - M15
+    - M16
+    parameter: m
+- name: W_NI
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M12-M16 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M12
+    - M13
+    - M14
+    - M15
+    - M16
+    parameter: w
+- name: L_NI
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M12-M16 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M12
+    - M13
+    - M14
+    - M15
+    - M16
+    parameter: l
+- name: N_NS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the NMOS starving devices M17 = M19 = M21 (gate VCON, the tuning)
+  binding:
+    type: instance_parameter
+    instances:
+    - M17
+    - M19
+    - M21
+    parameter: m
+- name: W_NS
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M17/M19/M21 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M17
+    - M19
+    - M21
+    parameter: w
+- name: L_NS
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M17/M19/M21 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M17
+    - M19
+    - M21
+    parameter: l
+- name: N_NCP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the charge-pump NMOS M18 = M20 (gate VDD, fully on)
+  binding:
+    type: instance_parameter
+    instances:
+    - M18
+    - M20
+    parameter: m
+- name: W_NCP
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M18/M20 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M18
+    - M20
+    parameter: w
+- name: L_NCP
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M18/M20 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M18
+    - M20
+    parameter: l
+- name: N_M22
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of M22 (global current sink, gate VCON, converts VCON into the PBIAS mirror current)
+  binding:
+    type: instance_parameter
+    instances:
+    - M22
+    parameter: m
+- name: W_M22
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M22 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M22
+    parameter: w
+- name: L_M22
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M22 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M22
+    parameter: l
+- name: N_DG
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of the diode-connected degeneration NMOS M24-M28 (linearise f (VCON))
+  binding:
+    type: instance_parameter
+    instances:
+    - M24
+    - M25
+    - M26
+    - M27
+    - M28
+    parameter: m
+- name: W_DG
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M24-M28 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M24
+    - M25
+    - M26
+    - M27
+    - M28
+    parameter: w
+- name: L_DG
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M24-M28 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M24
+    - M25
+    - M26
+    - M27
+    - M28
+    parameter: l
+- name: N_M23
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: fingers of M23 (diode-connected degeneration of the global bias branch)
+  binding:
+    type: instance_parameter
+    instances:
+    - M23
+    parameter: m
+- name: W_M23
+  kind: real
+  unit: m
+  lower: 1.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: M23 width
+  binding:
+    type: instance_parameter
+    instances:
+    - M23
+    parameter: w
+- name: L_M23
+  kind: real
+  unit: m
+  lower: 1.0e-07
+  upper: 1.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M23 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M23
+    parameter: l
+- name: C_LOAD
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: C1 = C3 = C5 stage load capacitors (set the tuning range with the starved current)
+  binding:
+    type: instance_parameter
+    instances:
+    - C1
+    - C3
+    - C5
+    parameter: c
+- name: C_PUMP
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: C2 = C4 charge-pump stage capacitors (N2/N4 to VCON, as drawn, RV1)
+  binding:
+    type: instance_parameter
+    instances:
+    - C2
+    - C4
+    parameter: c
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: true
+- id: FF_T27_S1p00
+  model_set: FF
+  temperature_C: 27.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T27_S1p00
+  model_set: FS
+  temperature_C: 27.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T27_S1p00
+  model_set: SS
+  temperature_C: 27.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T27_S1p00
+  model_set: SF
+  temperature_C: 27.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: NN_Tm65_S1p00
+  model_set: NN
+  temperature_C: -65.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: NN_Tm45_S1p00
+  model_set: NN
+  temperature_C: -45.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T45_S1p00
+  model_set: NN
+  temperature_C: 45.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T65_S1p00
+  model_set: NN
+  temperature_C: 65.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00_MC
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.2
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.2
+    provenance: 'owner decision D9: legal 1.2 V supply on the gpdk090 1.2 V devices (paper 1.8 V, Table II)'
+  load_capacitance_F:
+    value: 1.0e-14
+    provenance: owner answer RV5 (10 fF; the paper has no buffer / FDC load)
+  tuning_voltage_V:
+    value: 0.825
+    provenance: 'benchmark_default_unreviewed: middle of the 0.45-1.2 V control range, used only for the DC-equilibrium G8 check'
+constraints:
+- name: f_low_end
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: Hz
+  upper: 25226300.0
+  target:
+    kind: linear
+    paper_value: 22933000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Sec. IV p. 3 schematic tuning range 39-697 MHz (G5: schematic value), 39 MHz at Vcon 0.52 V (1.8 V); x k_f 0.5880 (RV3b,
+    owner_approved_2026-10-23) -> 22.93 MHz at the 1.2 V range''s low end'
+  source: native
+- name: f_high_end
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 368867700.0
+  target:
+    kind: linear
+    paper_value: 409853000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Sec. IV p. 3 schematic 697 MHz at Vcon 1.6 V (G5); x k_f 0.5880 (RV3b, owner_approved_2026-10-23) -> 409.85 MHz'
+  source: native
+- name: fmax_fmin
+  metric: max_min_frequency_ratio
+  recipe: osc_pss_tune_v1
+  point: {}
+  unit: ''
+  lower: 14.4
+  target:
+    kind: linear
+    paper_value: 16.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  - model_set: FF
+  - model_set: FS
+  - model_set: SS
+  - model_set: SF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract / p. 4 (highest frequency 16 x the lowest, 4-bit ADC), met at all process corners (p. 4, Fig. 9); ratio, not scaled'
+  source: native
+- name: tuning_pct
+  metric: tuning_range_pct
+  recipe: osc_pss_tune_v1
+  point: {}
+  unit: '%'
+  lower: 84.96000000000001
+  target:
+    kind: linear
+    paper_value: 94.4
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 3 schematic tuning range 39-697 MHz (G5: schematic value) -> (697 - 39)/697 = 94.40 %, ratio, not scaled. Definition
+    audit 2026-10-27: Table II''s 93.86 % = (619 - 38)/619 is the POST-LAYOUT 38-619 MHz range, not the schematic one (was 93.86)'
+  source: native
+- name: centre_f_lower
+  metric: target_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+  unit: Hz
+  lower: 194745600.0
+  target:
+    kind: linear
+    paper_value: 216384000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'consolidation_2026_10_27 (rule G5, schematic over post-layout): the paper''s centre frequency is the middle of the tuning range
+    (329 MHz = (38 + 619)/2 post-layout, abstract / p. 4; Table II 323 MHz), so the schematic centre is (39 + 697)/2 = 368 MHz (p. 3 schematic
+    range, the same range as the f_low_end / f_high_end targets); x k_f 0.5880 (RV3b, owner_approved_2026-10-23) -> 216.38 MHz; two-sided. Was
+    189.93 MHz = Table II''s post-layout 323 x k_f, which with the schematic end targets forced f_low <= 8 MHz'
+  source: native
+- name: centre_f_upper
+  metric: target_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+  unit: Hz
+  upper: 238022400.0
+  target:
+    kind: linear
+    paper_value: 216384000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as centre_f_lower; two-sided (was 189.93 MHz)
+  source: native
+- name: pn_centre
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -87.50607314841776
+  target:
+    kind: power_db
+    paper_value: -87.92
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 4 (phase noise -87.92 dBc/Hz at 1 MHz at the centre frequency); not scaled (see open questions; Table II lists -88.63,
+    the best of the Vcon range)'
+  source: native
+- name: pn_low_end
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -87.24607314841775
+  target:
+    kind: power_db
+    paper_value: -87.66
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract / Fig. 8 (PN -88.63 to -87.66 dBc/Hz at 1 MHz ''for two terminal control voltage''; which end is which is not stated:
+    both ends <= the worse value -87.66)'
+  source: native
+- name: pn_high_end
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -87.24607314841775
+  target:
+    kind: power_db
+    paper_value: -87.66
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract / Fig. 8 (see pn_low_end)'
+  source: native
+- name: fom_centre
+  metric: fom_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -137.01607314841775
+  target:
+    kind: power_db
+    paper_value: -137.43
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'consolidation_2026_10_27 (G6 step 2): the paper''s -141.15 dBc/Hz is a VDD 1.8 V figure (L -87.92, Pdiss 524.4 uW, centre 329 MHz:
+    -87.92 + 10 log(0.5244) - 20 log(329) = -141.07) and is not like-for-like at the task''s 1.2 V supply, where the frequency targets are scaled
+    by k_f. Target = the paper''s FoM formula (abstract / p. 4 eq., FoM = L + 10 log(Pdiss/1 mW) - 20 log(f0/df)) applied to the paper''s phase
+    noise -87.92 dBc/Hz and power 524.4 uW (both unscaled targets of this task) at the task''s centre-frequency target 216.38 MHz: -137.43 dBc/Hz.
+    Was -141.15'
+  source: native
+- name: power_centre
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+  unit: W
+  upper: 0.0005768399999999999
+  target:
+    kind: linear
+    paper_value: 0.0005244
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract / p. 4 (DC power 524.4 uW at the centre frequency; consistent with the FoM); not scaled'
+  source: native
+- name: power_low_end
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: W
+  upper: 0.000319
+  target:
+    kind: linear
+    paper_value: 0.00029
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 27 C curve read from the plot (about 0.29 mW at Vcon 0.5 V), the same figure as the temperature targets; not scaled.
+    consolidation_2026_10_27 (G6 step 4): the abstract''s 220.9-354.6 uW range contradicts Fig. 14 (0.29-0.70 mW at 27 C), the 524.4 uW centre
+    (text, Fig. 15 mean, FoM arithmetic: 354.6 uW would give -142.8 dBc/Hz, not -141.15) and Fig. 14 at Vcon 1.05 V (0.52 mW); Fig. 14 and the
+    centre corroborate each other, so the abstract / Table II end values are not targeted (not_covered). Was 220.9 uW'
+  source: native
+- name: power_high_end
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: W
+  upper: 0.00077
+  target:
+    kind: linear
+    paper_value: 0.0007
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 27 C curve read from the plot (about 0.70 mW at Vcon 1.6 V); not scaled. consolidation_2026_10_27 (G6 step 4): see
+    power_low_end; the abstract / Table II 354.6 uW is not targeted (not_covered). Was 354.6 uW'
+  source: native
+- name: f_low_FF
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: Hz
+  upper: 39798000.0
+  target:
+    kind: linear
+    paper_value: 36180000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'CURATOR-SCALED 2026-10-27 from paper value 3.2341e+07 to the witness value 3.618e+07 (not reached by an 8 h search, a local refinement
+    and hand sizing; the FF-corner low end of the tuning range stays 1.7 % above its limit). paper: Fig. 9 read from plot (FF ~55-910 MHz); 55
+    MHz x k_f 0.5880 (RV3b, owner-approved 2026-10-23)'
+  source: native
+- name: f_high_FF
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 481591800.0
+  target:
+    kind: linear
+    paper_value: 535102000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (FF 910 MHz) x k_f'
+  source: native
+- name: f_low_FS
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: Hz
+  upper: 35575100.0
+  target:
+    kind: linear
+    paper_value: 32341000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (FS ~55-890 MHz); 55 MHz x k_f'
+  source: native
+- name: f_high_FS
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 471006900.0
+  target:
+    kind: linear
+    paper_value: 523341000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (FS 890 MHz) x k_f'
+  source: native
+- name: f_low_SS
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: Hz
+  upper: 16171100.0
+  target:
+    kind: linear
+    paper_value: 14701000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (SS ~25-440 MHz); 25 MHz x k_f'
+  source: native
+- name: f_high_SS
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 232857900.0
+  target:
+    kind: linear
+    paper_value: 258731000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (SS 440 MHz) x k_f'
+  source: native
+- name: f_low_SF
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: Hz
+  upper: 16171100.0
+  target:
+    kind: linear
+    paper_value: 14701000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (SF ~25-460 MHz); 25 MHz x k_f'
+  source: native
+- name: f_high_SF
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 243441900.0
+  target:
+    kind: linear
+    paper_value: 270491000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 read from plot (SF 460 MHz) x k_f'
+  source: native
+- name: pn_FF
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -83.58607314841775
+  target:
+    kind: power_db
+    paper_value: -84.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 10 read from plot (FF ~-84 dBc/Hz at 1 MHz, centre frequency)'
+  source: native
+- name: pn_FS
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -84.58607314841775
+  target:
+    kind: power_db
+    paper_value: -85.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 10 read from plot (FS ~-85)'
+  source: native
+- name: pn_SS
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -88.58607314841775
+  target:
+    kind: power_db
+    paper_value: -89.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 10 read from plot (SS ~-89)'
+  source: native
+- name: pn_SF
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -86.58607314841775
+  target:
+    kind: power_db
+    paper_value: -87.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 10 read from plot (SF ~-87)'
+  source: native
+- name: f_high_Tm65
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 574205400.0
+  target:
+    kind: linear
+    paper_value: 638006000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 11 read from plot (~1.085 GHz at Vcon 1.6 V, -65 C) x k_f 0.5880 (RV3b, owner-approved 2026-10-23)'
+  source: native
+- name: f_high_Tm45
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 515990700.0
+  target:
+    kind: linear
+    paper_value: 573323000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -45
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 11 read from plot (~0.975 GHz, -45 C) x k_f'
+  source: native
+- name: f_high_T45
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 341347500.0
+  target:
+    kind: linear
+    paper_value: 379275000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 45
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 11 read from plot (~0.645 GHz, 45 C) x k_f'
+  source: native
+- name: f_high_T65
+  metric: pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: Hz
+  lower: 312240600.0
+  target:
+    kind: linear
+    paper_value: 346934000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 11 read from plot (~0.59 GHz, 65 C) x k_f'
+  source: native
+- name: pn_Tm65
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -85.87607314841776
+  target:
+    kind: power_db
+    paper_value: -86.29
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 4 text / Fig. 12 (-86.29 dBc/Hz at -65 C)'
+  source: native
+- name: pn_T65
+  metric: phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    target: tuned
+    offset_Hz: 1000000.0
+  unit: dBc/Hz
+  upper: -86.51607314841776
+  target:
+    kind: power_db
+    paper_value: -86.93
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 4 text / Fig. 12 (''86.93 dBc/Hz'' at 65 C, minus sign missing in print)'
+  source: native
+- name: p_low_Tm65
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: W
+  upper: 0.0006655
+  target:
+    kind: linear
+    paper_value: 0.000605
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (-65 C: ~0.605 mW at the low end); not scaled'
+  source: native
+- name: p_high_Tm65
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: W
+  upper: 0.001089
+  target:
+    kind: linear
+    paper_value: 0.00099
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (-65 C: ~0.99 mW at the high end); not scaled'
+  source: native
+- name: p_low_Tm45
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: W
+  upper: 0.0006050000000000001
+  target:
+    kind: linear
+    paper_value: 0.00055
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -45
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (-45 C: ~0.55 mW)'
+  source: native
+- name: p_high_Tm45
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: W
+  upper: 0.0010065
+  target:
+    kind: linear
+    paper_value: 0.000915
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: -45
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (-45 C: ~0.915 mW)'
+  source: native
+- name: p_low_T45
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: W
+  upper: 0.00028599999999999996
+  target:
+    kind: linear
+    paper_value: 0.00026
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 45
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (45 C: ~0.26 mW)'
+  source: native
+- name: p_high_T45
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: W
+  upper: 0.000726
+  target:
+    kind: linear
+    paper_value: 0.00066
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 45
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (45 C: ~0.66 mW)'
+  source: native
+- name: p_low_T65
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.45
+  unit: W
+  upper: 0.0002585
+  target:
+    kind: linear
+    paper_value: 0.000235
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (65 C: ~0.235 mW)'
+  source: native
+- name: p_high_T65
+  metric: pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 1.2
+  unit: W
+  upper: 0.000682
+  target:
+    kind: linear
+    paper_value: 0.00062
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - temperature_C: 65
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 read from plot (65 C: ~0.62 mW)'
+  source: native
+- name: mc_fc_mean_lower
+  metric: mc_mean.pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+  unit: ''
+  lower: 170811900.0
+  target:
+    kind: linear
+    paper_value: 189791000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 17 (Monte Carlo of the frequency at Vcon = 1.05 V, 100 runs, mean 322.76 MHz); x k_f 0.5880 (RV3b method, owner-approved
+    2026-10-23; paper MC at 1.8 V) -> 189.79 MHz; D18 two-sided mean; ours at the fixed control voltage 0.825 V (mid of the range)'
+  source: native
+- name: mc_fc_mean_upper
+  metric: mc_mean.pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+  unit: ''
+  upper: 208770100.0
+  target:
+    kind: linear
+    paper_value: 189791000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as mc_fc_mean_lower
+  source: native
+- name: mc_fc_sigma
+  metric: mc_sigma.pss_frequency_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+  unit: ''
+  upper: 15109600.0
+  target:
+    kind: linear
+    paper_value: 13736000.0
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 17 (sigma 23.36 MHz at Vcon = 1.05 V) x k_f 0.5880 -> 13.74 MHz (owner-approved 2026-10-23); D18 sigma <= paper + 10
+    %; ours at the fixed control voltage 0.825 V'
+  source: native
+- name: mc_p_mean
+  metric: mc_mean.pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+  unit: ''
+  upper: 0.0005768399999999999
+  target:
+    kind: linear
+    paper_value: 0.0005244
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 15 (200 runs at Vcon = 1.05 V, mean 524.4 uW at 1.8 V); not scaled; an upper bound (owner 2026-10-23: power targets
+    unscaled, the Monte Carlo power mean is an upper bound, not two-sided); ours at the fixed control voltage 0.825 V'
+  source: native
+- name: mc_p_sigma
+  metric: mc_sigma.pss_power_W
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+  unit: ''
+  upper: 2.5101999999999998e-05
+  target:
+    kind: linear
+    paper_value: 2.282e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 15 (sigma 22.82 uW); not scaled (owner 2026-10-23); ours at the fixed control voltage 0.825 V'
+  source: native
+- name: mc_pn_mean_upper
+  metric: mc_mean.phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  unit: ''
+  upper: -87.39607314841776
+  target:
+    kind: power_db
+    paper_value: -87.81
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as mc_pn_mean_lower
+  source: native
+- name: mc_pn_sigma
+  metric: mc_sigma.phase_noise_dBc_per_Hz
+  recipe: osc_pss_tune_v1
+  point:
+    vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  unit: ''
+  upper: 0.44000000000000006
+  target:
+    kind: linear
+    paper_value: 0.4
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 16 (sigma 0.4 dBc/Hz at Vcon = 1.05 V); ours at the fixed control voltage 0.825 V'
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - osc_pss_tune_v1
+  - fom_dBc_per_Hz
+- - osc_pss_tune_v1
+  - kvco_Hz_per_V
+- - osc_pss_tune_v1
+  - max_min_frequency_ratio
+- - osc_pss_tune_v1
+  - mc_mean.fom_dBc_per_Hz
+- - osc_pss_tune_v1
+  - mc_mean.kvco_Hz_per_V
+- - osc_pss_tune_v1
+  - mc_mean.max_min_frequency_ratio
+- - osc_pss_tune_v1
+  - mc_mean.output_max_V
+- - osc_pss_tune_v1
+  - mc_mean.output_min_V
+- - osc_pss_tune_v1
+  - mc_mean.output_vpp_V
+- - osc_pss_tune_v1
+  - mc_mean.phase_noise_dBc_per_Hz
+- - osc_pss_tune_v1
+  - mc_mean.pss_frequency_Hz
+- - osc_pss_tune_v1
+  - mc_mean.pss_power_W
+- - osc_pss_tune_v1
+  - mc_mean.target_frequency_Hz
+- - osc_pss_tune_v1
+  - mc_mean.tuning_range_Hz
+- - osc_pss_tune_v1
+  - mc_mean.tuning_range_pct
+- - osc_pss_tune_v1
+  - mc_mean.vctrl_at_target_V
+- - osc_pss_tune_v1
+  - mc_mean.vf_linearity_error_pct
+- - osc_pss_tune_v1
+  - mc_sigma.fom_dBc_per_Hz
+- - osc_pss_tune_v1
+  - mc_sigma.kvco_Hz_per_V
+- - osc_pss_tune_v1
+  - mc_sigma.max_min_frequency_ratio
+- - osc_pss_tune_v1
+  - mc_sigma.output_max_V
+- - osc_pss_tune_v1
+  - mc_sigma.output_min_V
+- - osc_pss_tune_v1
+  - mc_sigma.output_vpp_V
+- - osc_pss_tune_v1
+  - mc_sigma.phase_noise_dBc_per_Hz
+- - osc_pss_tune_v1
+  - mc_sigma.pss_frequency_Hz
+- - osc_pss_tune_v1
+  - mc_sigma.pss_power_W
+- - osc_pss_tune_v1
+  - mc_sigma.target_frequency_Hz
+- - osc_pss_tune_v1
+  - mc_sigma.tuning_range_Hz
+- - osc_pss_tune_v1
+  - mc_sigma.tuning_range_pct
+- - osc_pss_tune_v1
+  - mc_sigma.vctrl_at_target_V
+- - osc_pss_tune_v1
+  - mc_sigma.vf_linearity_error_pct
+- - osc_pss_tune_v1
+  - output_max_V
+- - osc_pss_tune_v1
+  - output_min_V
+- - osc_pss_tune_v1
+  - output_vpp_V
+- - osc_pss_tune_v1
+  - phase_noise_dBc_per_Hz
+- - osc_pss_tune_v1
+  - pss_frequency_Hz
+- - osc_pss_tune_v1
+  - pss_power_W
+- - osc_pss_tune_v1
+  - target_frequency_Hz
+- - osc_pss_tune_v1
+  - tuning_range_Hz
+- - osc_pss_tune_v1
+  - tuning_range_pct
+- - osc_pss_tune_v1
+  - vctrl_at_target_V
+- - osc_pss_tune_v1
+  - vf_linearity_error_pct
+simulations_per_design: 10
+analysis_executions_per_design: 1972
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/NN_T27_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: FF_T27_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/FF_T27_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: FS_T27_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/FS_T27_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: SS_T27_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/SS_T27_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: SF_T27_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/SF_T27_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: NN_Tm65_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/NN_Tm65_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: NN_Tm45_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/NN_Tm45_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: NN_T45_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/NN_T45_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: NN_T65_S1p00
+  recipe: osc_pss_tune_v1
+  folder: testbenches/NN_T65_S1p00/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    pss_frequency_Hz:
+      unit: Hz
+      source: native
+    pss_power_W:
+      unit: W
+      source: native
+    output_vpp_V:
+      unit: V
+      source: native
+    tuning_range_Hz:
+      unit: Hz
+      source: native
+    kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    max_min_frequency_ratio:
+      unit: ''
+      source: native
+    tuning_range_pct:
+      unit: '%'
+      source: native
+    vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    vctrl_at_target_V:
+      unit: V
+      source: native
+    target_frequency_Hz:
+      unit: Hz
+      source: native
+    output_min_V:
+      unit: V
+      source: native
+    output_max_V:
+      unit: V
+      source: native
+    phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+- condition: NN_T27_S1p00_MC
+  recipe: osc_pss_tune_v1
+  folder: testbenches/NN_T27_S1p00_MC/osc_pss_tune_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results: []
+  metrics:
+    mc_mean.pss_frequency_Hz:
+      unit: Hz
+      source: native
+    mc_sigma.pss_frequency_Hz:
+      unit: Hz
+      source: native
+    mc_mean.pss_power_W:
+      unit: W
+      source: native
+    mc_sigma.pss_power_W:
+      unit: W
+      source: native
+    mc_mean.output_vpp_V:
+      unit: V
+      source: native
+    mc_sigma.output_vpp_V:
+      unit: V
+      source: native
+    mc_mean.tuning_range_Hz:
+      unit: Hz
+      source: native
+    mc_sigma.tuning_range_Hz:
+      unit: Hz
+      source: native
+    mc_mean.kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    mc_sigma.kvco_Hz_per_V:
+      unit: Hz/V
+      source: native
+    mc_mean.max_min_frequency_ratio:
+      unit: ''
+      source: native
+    mc_sigma.max_min_frequency_ratio:
+      unit: ''
+      source: native
+    mc_mean.tuning_range_pct:
+      unit: '%'
+      source: native
+    mc_sigma.tuning_range_pct:
+      unit: '%'
+      source: native
+    mc_mean.vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    mc_sigma.vf_linearity_error_pct:
+      unit: '%'
+      source: native
+    mc_mean.vctrl_at_target_V:
+      unit: V
+      source: native
+    mc_sigma.vctrl_at_target_V:
+      unit: V
+      source: native
+    mc_mean.target_frequency_Hz:
+      unit: Hz
+      source: native
+    mc_sigma.target_frequency_Hz:
+      unit: Hz
+      source: native
+    mc_mean.output_min_V:
+      unit: V
+      source: native
+    mc_sigma.output_min_V:
+      unit: V
+      source: native
+    mc_mean.output_max_V:
+      unit: V
+      source: native
+    mc_sigma.output_max_V:
+      unit: V
+      source: native
+    mc_mean.phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    mc_sigma.phase_noise_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    mc_mean.fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+    mc_sigma.fom_dBc_per_Hz:
+      unit: dBc/Hz
+      source: native
+  points:
+  - vctrl_V: 0.45
+  - vctrl_V: 0.5
+  - vctrl_V: 0.55
+  - vctrl_V: 0.6
+  - vctrl_V: 0.65
+  - vctrl_V: 0.7
+  - vctrl_V: 0.75
+  - vctrl_V: 0.8
+  - vctrl_V: 0.825
+  - vctrl_V: 0.85
+  - vctrl_V: 0.9
+  - vctrl_V: 0.95
+  - vctrl_V: 1.0
+  - vctrl_V: 1.05
+  - vctrl_V: 1.1
+  - vctrl_V: 1.15
+  - vctrl_V: 1.2
+  - vctrl_V: 0.45
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.5
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.55
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.6
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.65
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.7
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.75
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.8
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.825
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.85
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.9
+    offset_Hz: 1000000.0
+  - vctrl_V: 0.95
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.0
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.05
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.1
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.15
+    offset_Hz: 1000000.0
+  - vctrl_V: 1.2
+    offset_Hz: 1000000.0
+  - curve: tuning
+  - target: tuned
+  - target: tuned
+    offset_Hz: 1000000.0
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - rvco_khan2025_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('rvco_khan2025_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

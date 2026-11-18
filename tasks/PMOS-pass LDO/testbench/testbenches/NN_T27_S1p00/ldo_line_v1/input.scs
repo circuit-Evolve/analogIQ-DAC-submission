@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ldo24c_conventional_task_001  topology ldo24c_conventional
+// recipe ldo_line_v1 v4  condition NN_T27_S1p00 (models NN, 27 C, supply 1.7 V)
+// request ldo24c_conventional_task_001__plan  candidate 164e80879370aa97
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vin=1.7 iload=0.0011 cout=0.0
+// Supplies (charged to the DUT power metrics).
+VIN (vin 0) vsource dc=vin
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+
+VREFS (vref 0) vsource dc=1.2
+// Load: ideal current sink out->ground and output capacitor (+ESR).
+ILOAD (out 0) isource dc=iload
+COUT (out 0) capacitor c=cout
+
+XDUT (vin b_VSS vref out) ldo24c_conventional_dut C_FF=1e-12 I_BIAS=1e-05 L_BD=1e-06 L_CS=1e-06 L_FOL=1e-06 L_IN=1e-06 L_ML=1e-06 L_MS=1e-06 L_NM=1e-06 L_PASS=1e-06 L_TL=1e-06 M_BD=1.0 M_CS=1.0 M_FOL=1.0 M_IN=1.0 M_ML=1.0 M_MS=1.0 M_NM=1.0 M_PASS=1.0 M_TL=1.0 R_FB1=10000.0 R_FB2=10000.0 W_BD=1e-06 W_CS=1e-06 W_FOL=1e-06 W_IN=1e-06 W_ML=1e-06 W_MS=1e-06 W_NM=1e-06 W_PASS=1e-06 W_TL=1e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VSS:p VIN:p XDUT.EAOUT XDUT.TAIL XDUT.VBUF XDUT.VFB out vin vref
+
+dc1 dc param=vin start=1.3 stop=1.98 step=0.005
+simulator lang=spice
+.include 'measures.sp'
+.end

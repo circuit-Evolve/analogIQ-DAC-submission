@@ -1,0 +1,244 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00_CL100p/amp30_step_v1",
+ "recipe_id": "amp30_step_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "step_V": 0.4
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "NN_T27_S1p00_CL100p/amp30_step_v1",
+  "condition": {
+   "id": "NN_T27_S1p00_CL100p",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "label": "CL100p",
+   "operating": {
+    "load_capacitance_F": 1e-10
+   },
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "supply_negative_V": 0.0,
+   "input_common_mode_V": 0.45,
+   "load_capacitance_F": 1e-10
+  },
+  "recipe_settings": {
+   "configuration": "follower",
+   "steps": [
+    [
+     0.4,
+     0.004
+    ]
+   ],
+   "step_centre_V": 0.6,
+   "edge_time_s": 1e-09,
+   "half_period_s": 1e-05,
+   "half_period_s_by_label": {
+    "CL0": 1e-05,
+    "CL100p": 1e-05,
+    "CL500p": 2e-05,
+    "CL50n": 0.00015,
+    "CL100n": 0.00015
+   },
+   "max_step_s": 1e-08,
+   "max_step_s_by_label": {
+    "CL0": 1e-08,
+    "CL100p": 1e-08,
+    "CL500p": 2e-08,
+    "CL50n": 1.5e-07,
+    "CL100n": 1.5e-07
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ota3s24",
+   "family": "amplifier",
+   "interface_type": "differential_input_single_output",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ota3s24_dut",
+    "port_order": [
+     "VIP",
+     "VIN",
+     "VO",
+     "VDD",
+     "VSS",
+     "VB1",
+     "VB2",
+     "VB3"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input_positive": "VIP",
+    "input_negative": "VIN",
+    "output": "VO",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "VB1": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable VB1"
+    },
+    "VB2": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable VB2"
+    },
+    "VB3": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable VB3"
+    }
+   },
+   "op_check": {
+    "exclude": []
+   }
+  },
+  "subckt_name": "ota3s24_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M0": 1e-06,
+   "L_M0": 1e-06,
+   "W_M1": 1e-06,
+   "L_M1": 1e-06,
+   "W_M2": 1e-06,
+   "L_M2": 1e-06,
+   "W_M3": 1e-06,
+   "L_M3": 1e-06,
+   "W_M4": 1e-06,
+   "L_M4": 1e-06,
+   "W_M5": 1e-06,
+   "L_M5": 1e-06,
+   "W_M7": 1e-06,
+   "L_M7": 1e-06,
+   "W_M8": 1e-06,
+   "L_M8": 1e-06,
+   "W_M9": 1e-06,
+   "L_M9": 1e-06,
+   "W_M6A": 1e-06,
+   "W_M6B": 1e-06,
+   "L_M6": 1e-06,
+   "RD": 10000.0,
+   "CD": 1e-12,
+   "CC1": 1e-12,
+   "CC2": 1e-12,
+   "M_M0": 1.0,
+   "M_M1": 1.0,
+   "M_M2": 1.0,
+   "M_M3": 1.0,
+   "M_M4": 1.0,
+   "M_M5": 1.0,
+   "M_M7": 1.0,
+   "M_M8": 1.0,
+   "M_M9": 1.0,
+   "M_M6A": 1.0,
+   "M_M6B": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "VB1": 0.9,
+   "VB2": 0.9,
+   "VB3": 0.9
+  },
+  "bias_variables": {
+   "VB1": "VB1",
+   "VB2": "VB2",
+   "VB3": "VB3"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

@@ -1,0 +1,15 @@
+design( "DAC_20261111_NVMCP_UPR" "nvm_chargepump_candidate_tb" "schematic")
+modelFile( 
+    '("<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" "tt")
+)
+analysis('tran ?stop "300u"  ?errpreset "conservative"  ?maxstep "0.5n"  
+		?skipdc "yes"  )
+desVar(	  "VS" 3.3	)
+option(	'scale  "1e-6" 
+	'iabstol  "1e-13" 
+	'vabstol  "1e-08" 
+	'reltol  "1e-05" 
+)
+saveOption( 'subcktprobelvl "5" )
+saveOption( 'currents "all" )
+temp( 27 ) 

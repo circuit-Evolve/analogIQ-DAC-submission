@@ -1,0 +1,8 @@
+Source of the files in this folder (ifx30 agent, 2026-10-30)
+Staging copy of origin/main 6ea9fbd final/29-10-2026/LDOs/Capless_FVF_LDO/Infineon_LDO/ :
+  <SCRATCH>/dataset_2026-10-30/main_final/final/29-10-2026/LDOs/Capless_FVF_LDO/Infineon_LDO/
+  README.md, metrics.xlsx, corners.xlsx, schematics/*.png, schematics/LDO.pdf (repo documentation = "the paper"),
+  schematics/netlist/ (unmodified copy of the repo src/: tb_ldo.hsp = original HSPICE netlist + testbench, top.hsp,
+  checker/ldo_checker.va = stimulus and pass/fail limits, model/ = PTM 130 nm models).
+Origin of the design: github.com/Infineon/adsbenchmark commit d1f5c9be021970e8c1fda5a2c5eea3987cb9667c (LDO/doc/LDO.pdf, LDO/src/).
+Netlist export: ../final.scs (export e4308e9 schematics, sky130 port: g5v0d10v5 devices, pd2nw diodes).

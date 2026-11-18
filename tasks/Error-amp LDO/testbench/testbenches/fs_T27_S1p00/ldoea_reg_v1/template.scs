@@ -1,0 +1,34 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ldo_erroramp_dac_task_001  topology ldo_erroramp_dac
+// recipe ldoea_reg_v1 v1  condition fs_T27_S1p00 (models fs, 27 C, supply 1.8 V)
+// request ldo_erroramp_dac_task_001__plan  candidate 81f2d7777703330d
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs" section=fs
+include "dut.scs"
+
+parameters vin=1.8 iload=0.025 cout=1e-10
+// Supplies (charged to the DUT power metrics).
+VIN (vin 0) vsource dc=vin mag=1
+// External bias (topology external_bias; reported separately as bias power).
+VB_VDD_core (vin b_VDD_core) vsource dc=0.0
+VB_gnd (b_gnd 0) vsource dc=0.0
+
+VREFS (vref 0) vsource dc=0.6
+// Load: behavioural current sink (replay I7, off below ~0.1 V) out->ground and output capacitor (+ESR).
+ILOAD (out 0) bsource i=iload*0.5*(1+tanh((v(out)-0.1)/0.02))
+COUT (out 0) capacitor c=cout
+
+XDUT (b_VDD_core vin out vref b_gnd) ldo_erroramp_dac_dut C_C={{C_C}} C_FF={{C_FF}} C_G={{C_G}} I_BIAS={{I_BIAS}} L_BUF={{L_BUF}} L_CS2={{L_CS2}} L_IN={{L_IN}} L_LD={{L_LD}} L_MIR={{L_MIR}} L_PASS={{L_PASS}} M_BUF={{M_BUF}} M_CS2={{M_CS2}} M_IN={{M_IN}} M_LD={{M_LD}} M_MIR={{M_MIR}} M_PASS={{M_PASS}} M_SNK={{M_SNK}} NF_BUF={{NF_BUF}} NF_CS2={{NF_CS2}} NF_IN={{NF_IN}} NF_LD={{NF_LD}} NF_MIR={{NF_MIR}} NF_PASS={{NF_PASS}} NF_SNK={{NF_SNK}} R_B={{R_B}} R_FB_BOT={{R_FB_BOT}} R_FB_TOP={{R_FB_TOP}} R_G={{R_G}} R_S={{R_S}} R_Z={{R_Z}} W_BUF={{W_BUF}} W_CS2={{W_CS2}} W_IN={{W_IN}} W_LD={{W_LD}} W_MIR={{W_MIR}} W_PASS={{W_PASS}} W_SNK={{W_SNK}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VDD_core:p VB_gnd:p VIN:p XDUT.net1 XDUT.net11 XDUT.net12 XDUT.net13 XDUT.net6 out vin vref
+
+ldoea_opts options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 gmin=1e-12
+stb1 stb start=0.1 stop=1000000000.0 dec=100 probe=XDUT.IPRB_LOOP
+ac1 ac start=1.0 stop=100000000.0 dec=100
+tran1 tran stop=1.0 maxiters=5
+dc1 dc param=iload start=0.0 stop=0.05
+ld2 alter param=iload value=0.0001
+stb2 stb start=0.1 stop=1000000000.0 dec=100 probe=XDUT.IPRB_LOOP

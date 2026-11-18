@@ -1,0 +1,193 @@
+{
+ "task": "sar24_liang_task_001",
+ "mc_samples": 100,
+ "score": 1.0,
+ "targets_met": 8,
+ "targets": 8,
+ "valid": true,
+ "params": {
+  "W_IN": 5.945687200906299e-06,
+  "L_IN": 2.6169532056932894e-07,
+  "W_PC": 2.903228373698315e-06,
+  "L_PC": 4.798401744079077e-07,
+  "W_TL": 5.04977927414848e-06,
+  "L_TL": 2.5375246486238494e-07,
+  "W_M6": 2.543394248990694e-06,
+  "L_M6": 2.5279294411282136e-07,
+  "W_PH": 2.7730771386668615e-06,
+  "L_PH": 2.4196066275994965e-07,
+  "W_NR": 2.5105707373535242e-06,
+  "L_NR": 3.0229231344656775e-07,
+  "W_PL": 9.698200326374438e-07,
+  "L_PL": 1.9357882205023017e-07,
+  "W_NL": 7.819544718939877e-07,
+  "L_NL": 2.746423134075772e-07,
+  "W_ND": 1.068933478445454e-06,
+  "L_ND": 2.5632070850708674e-07,
+  "W_OP": 4.935227952879303e-07,
+  "L_OP": 3.010980890186588e-07,
+  "W_ON": 4.577607327166526e-07,
+  "L_ON": 2.79563465082507e-07,
+  "CU": 1.2067332187344008e-14,
+  "M_IN": 2.0,
+  "M_PC": 2.0,
+  "M_TL": 10.0,
+  "M_M6": 2.0,
+  "M_PH": 2.0,
+  "M_NR": 1.0,
+  "M_PL": 7.0,
+  "M_NL": 7.0,
+  "M_ND": 1.0,
+  "M_OP": 5.0,
+  "M_ON": 6.0
+ },
+ "feasible": true,
+ "objective": null,
+ "constraints": {
+  "sndr": {
+   "lower": 65.04242509439325,
+   "metric": "sndr_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 65.5,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 74.16871191515145,
+   "unit": "dB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 9.126286820758196,
+   "normalized_margin": 7.177653070790294,
+   "satisfied": true
+  },
+  "snr": {
+   "lower": 65.24242509439325,
+   "metric": "snr_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 65.7,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 74.32496104568149,
+   "unit": "dB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 9.082535951288236,
+   "normalized_margin": 7.095684879507674,
+   "satisfied": true
+  },
+  "sfdr": {
+   "lower": 79.14242509439325,
+   "metric": "sfdr_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 79.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 86.68185242567168,
+   "unit": "dB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 7.539427331278432,
+   "normalized_margin": 4.674697728629924,
+   "satisfied": true
+  },
+  "enob": {
+   "lower": 9.54,
+   "metric": "enob_bit",
+   "target": {
+    "kind": "linear",
+    "paper_value": 10.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 12.028025235074992,
+   "unit": "bit",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.4880252350749927,
+   "normalized_margin": 0.26079929088836407,
+   "satisfied": true
+  },
+  "power": {
+   "upper": 0.00040040000000000003,
+   "metric": "power_W",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.000364,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.00038609500398950603,
+   "unit": "W",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.4304996010494001e-05,
+   "normalized_margin": 0.03572676326297203,
+   "satisfied": true
+  },
+  "comparator_delay": {
+   "upper": 4.4000000000000003e-10,
+   "metric": "comparator_delay_s",
+   "target": {
+    "kind": "linear",
+    "paper_value": 4e-10,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 4.11060040323703e-10,
+   "unit": "s",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.8939959676297015e-11,
+   "normalized_margin": 0.06577263562794776,
+   "satisfied": true
+  },
+  "inl": {
+   "upper": 1.0230000000000001,
+   "metric": "inl_abs_max_lsb",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.93,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.030905808952129674,
+   "unit": "LSB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.9920941910478704,
+   "normalized_margin": 0.9697890430575468,
+   "satisfied": true
+  },
+  "dnl": {
+   "upper": 0.8800000000000001,
+   "metric": "dnl_abs_max_lsb",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.8,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.0003523695396454585,
+   "unit": "LSB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.8796476304603547,
+   "normalized_margin": 0.9995995800685847,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": 0.03572676326297203
+}

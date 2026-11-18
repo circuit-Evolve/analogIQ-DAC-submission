@@ -1,0 +1,1666 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "lcvco24_lohrabipour_task_001",
+ "topology_id": "lcvco24_lohrabipour",
+ "family": "oscillator",
+ "technology_id": "gpdk180",
+ "parameterization_id": "lcvco24_lohrabipour_p1",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). 5.08 GHz dual-tank (transformer) cross-coupled NMOS LC-VCO with a 4-bit cap bank, varactor fine tuning and an output buffer (paper Fig. 10), gpdk180, 0.85 V core, 1.8 V varactor bias / buffer drain (bias-T, 50 ohm per output), 27 C (not reported: G2). Conditions: nominal (cap-bank code 8, NN, 0.85 V) and the two extreme codes (label code15: all bank bits on, label code0: all off) for the tuning-range end points; the paper reports no PVT table (post-layout PN change < 3 dB, no corners given) and a supply drift only graphically (Fig. 15), so no further conditions. Phase noise at 100 kHz / 800 kHz / 10 MHz, FoM and power are taken at the Vc that gives 5.08 GHz (PSS tuning sweep, found per design). The measured nodes are the buffer outputs RFL / RFR (differential) with the bias-T and 50 ohm load as testbench elements; the start-up kick goes into the tank node XDUT.D1. Targets are the paper's measured values with 10 % linear tolerance. No Monte Carlo (none reported). G8 at the DC equilibrium (owner 2026-10-23 for LC oscillators), varactors / bank switches / control inverters excluded.",
+ "source": {
+  "doi": "10.1109/TCSI.2024.3443752",
+  "title": "Lohrabi Pour, Ha, Nikpaik, 'An Ultra-Low Phase Noise Dual-Tank Oscillator Featuring Tank Impedance Scaling', IEEE TCAS-I 71(12):5657-5668, Dec 2024",
+  "figure": "Fig. 10 (cross-coupled NMOS M1/M2, transformer Lp/Ls dual tank with Cs, Cp,f, Cp,s, varactor network, 4-bit capacitor bank, output + dummy buffers); element values Table III and Sec. IV"
+ },
+ "variables": [
+  {
+   "name": "N_CORE",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of the cross-coupled core pair M1/M2 (negative gm, swing, current)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_CORE",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of the cross-coupled core pair M1/M2 (negative gm, swing, current)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_CORE",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of the cross-coupled core pair M1/M2 (negative gm, swing, current)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_MVAR",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of the varactor MOS devices MVARL/MVARR (pmos1 in the benchmark netlist; fine tuning by VC; paper: size optimised, not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MVARL",
+     "MVARR"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_MVAR",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of the varactor MOS devices MVARL/MVARR (pmos1 in the benchmark netlist; fine tuning by VC; paper: size optimised, not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MVARL",
+     "MVARR"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MVAR",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of the varactor MOS devices MVARL/MVARR (pmos1 in the benchmark netlist; fine tuning by VC; paper: size optimised, not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MVARL",
+     "MVARR"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_BUF",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of the output / dummy buffer transistors MBUFL/MBUFR (gate AC-coupled from the drain, drain fed by the bias-T; size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MBUFL",
+     "MBUFR"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_BUF",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of the output / dummy buffer transistors MBUFL/MBUFR (gate AC-coupled from the drain, drain fed by the bias-T; size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MBUFL",
+     "MBUFR"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_BUF",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of the output / dummy buffer transistors MBUFL/MBUFR (gate AC-coupled from the drain, drain fed by the bias-T; size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MBUFL",
+     "MBUFR"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_MIN",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of the NMOS of the cap-bank switch-control inverters MIN0-3 (size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MIN0",
+     "MIN1",
+     "MIN2",
+     "MIN3"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_MIN",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of the NMOS of the cap-bank switch-control inverters MIN0-3 (size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MIN0",
+     "MIN1",
+     "MIN2",
+     "MIN3"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MIN",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of the NMOS of the cap-bank switch-control inverters MIN0-3 (size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MIN0",
+     "MIN1",
+     "MIN2",
+     "MIN3"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_MIP",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of the PMOS of the cap-bank switch-control inverters MIP0-3 (size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MIP0",
+     "MIP1",
+     "MIP2",
+     "MIP3"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_MIP",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of the PMOS of the cap-bank switch-control inverters MIP0-3 (size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MIP0",
+     "MIP1",
+     "MIP2",
+     "MIP3"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MIP",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of the PMOS of the cap-bank switch-control inverters MIP0-3 (size not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MIP0",
+     "MIP1",
+     "MIP2",
+     "MIP3"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_MS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "multiplier m of the cap-bank switches MS0L-MS3R (Ron vs parasitic capacitance, tank Q; paper: optimised, not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MS0L",
+     "MS0R",
+     "MS1L",
+     "MS1R",
+     "MS2L",
+     "MS2R",
+     "MS3L",
+     "MS3R"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_MS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "width of the cap-bank switches MS0L-MS3R (Ron vs parasitic capacitance, tank Q; paper: optimised, not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MS0L",
+     "MS0R",
+     "MS1L",
+     "MS1R",
+     "MS2L",
+     "MS2R",
+     "MS3L",
+     "MS3R"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "length of the cap-bank switches MS0L-MS3R (Ron vs parasitic capacitance, tank Q; paper: optimised, not given)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MS0L",
+     "MS0R",
+     "MS1L",
+     "MS1R",
+     "MS2L",
+     "MS2R",
+     "MS3L",
+     "MS3R"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_S",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "Cs gate-drain cross-coupling capacitors CSL = CSR",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CSL",
+     "CSR"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_PF",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "Cp,f floating differential capacitors (each of the two series halves CPFL = CPFR)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CPFL",
+     "CPFR"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C_PS",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "Cp,s single-ended drain capacitors CPSL = CPSR",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CPSL",
+     "CPSR"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "L_P",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "primary inductors LPL = LPR (drain to centre tap at VDD; paper Fig. 10: Lp = 290 pH, used as the branch inductance of the paper's tank model, Fig. 2(b) / Appendix A)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "LPL",
+     "LPR"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "L_S",
+   "kind": "real",
+   "unit": "H",
+   "lower": 1e-10,
+   "upper": 1e-07,
+   "scale": "log",
+   "start": 1e-09,
+   "quantity": "inductance",
+   "role": "secondary inductors LSL = LSR (gate to centre tap at VB; paper Fig. 10: Ls = 259 pH, branch inductance of the paper's tank model)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "LSL",
+     "LSR"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_CVAR",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "varactor DC-blocking capacitors CCVARL = CCVARR",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CCVARL",
+     "CCVARR"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_BVAR",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "varactor bias resistors RBVARL = RBVARR (RB,VAR, value not reported)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RBVARL",
+     "RBVARR"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_BUF",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "buffer gate coupling capacitors CBUFL = CBUFR (CBuf, value not reported)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CBUFL",
+     "CBUFR"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_BUF",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "buffer gate bias resistors RBUFL = RBUFR (RBuf, value not reported)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RBUFL",
+     "RBUFR"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_BANK",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "LSB cell capacitor of the 4-bit binary cap bank (CB0L = CB0R, paper: binary)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CB0L",
+     "CB0R"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_SBANK",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "cap-bank switch bias resistors RS (Rs, value not reported)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RS0L",
+     "RS0R",
+     "RS1L",
+     "RS1R",
+     "RS2L",
+     "RS2R",
+     "RS3L",
+     "RS3R"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "V_TANK",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 0.85,
+   "scale": "lin",
+   "start": 0.425,
+   "quantity": "bias_voltage",
+   "role": "secondary centre-tap bias VB_TANK (gate bias of M1/M2 through Ls)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VB_TANK"
+   }
+  },
+  {
+   "name": "V_BUF",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 0.85,
+   "scale": "lin",
+   "start": 0.425,
+   "quantity": "bias_voltage",
+   "role": "buffer gate bias VBUF",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VBUF"
+   }
+  }
+ ],
+ "dependent_parameters": {
+  "R_ESR_P": {
+   "expression": "2*3.14159265*5.08e9*L_P/17.4",
+   "role": "series loss of each primary half-inductor, R = 2 pi f0 L / Q with f0 = 5.08 GHz and Q = 17.4 (paper Sec. IV; benchmark netlist change 2)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RPL",
+     "RPR"
+    ],
+    "parameter": "r"
+   }
+  },
+  "R_ESR_S": {
+   "expression": "2*3.14159265*5.08e9*L_S/16.7",
+   "role": "series loss of each secondary half-inductor, R = 2 pi f0 L / Q with f0 = 5.08 GHz and Q = 16.7 (paper Sec. IV CM Q; benchmark netlist change 2)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "RSL",
+     "RSR"
+    ],
+    "parameter": "r"
+   }
+  },
+  "C_BANK1": {
+   "expression": "2*C_BANK",
+   "role": "bit 1 of the binary cap bank: 2x the LSB cell (paper: 4-bit binary switchable bank)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CB1L",
+     "CB1R"
+    ],
+    "parameter": "c"
+   }
+  },
+  "C_BANK2": {
+   "expression": "4*C_BANK",
+   "role": "bit 2 of the binary cap bank: 4x the LSB cell (paper: 4-bit binary switchable bank)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CB2L",
+     "CB2R"
+    ],
+    "parameter": "c"
+   }
+  },
+  "C_BANK3": {
+   "expression": "8*C_BANK",
+   "role": "bit 3 of the binary cap bank: 8x the LSB cell (paper: 4-bit binary switchable bank)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CB3L",
+     "CB3R"
+    ],
+    "parameter": "c"
+   }
+  }
+ },
+ "conditions": [
+  {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 0.85,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "NN_T27_S1p00_code15",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 0.85,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T27_S1p00_code0",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 0.85,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 0.85,
+   "provenance": "paper: abstract, Sec. IV, Table II (0.85 V core supply at the Lp centre tap)"
+  },
+  "load_capacitance_F": {
+   "value": 1e-14,
+   "provenance": "curator_choice: 10 fF per buffer output (paper: RFout pad / 50 ohm instrument, load impedance not reported); the 50 ohm bias-T load is the recipe's bias_tee"
+  },
+  "tuning_voltage_V": {
+   "value": 0.6,
+   "provenance": "paper: Sec. IV (Vc 0-1.2 V); mid-range, used only for the DC-equilibrium G8 check"
+  }
+ },
+ "constraints": [
+  {
+   "name": "f_low_end",
+   "metric": "pss_frequency_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "vctrl_V": 0.0
+   },
+   "unit": "Hz",
+   "upper": 5280000000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4800000000.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "code15"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Sec. IV, Table II (fmin = 4.8 GHz: all 16 cap-bank states, Vc 0-1.2 V; lowest frequency = all bank capacitors on, Vc = 0 V)",
+   "source": "native"
+  },
+  {
+   "name": "f_high_end",
+   "metric": "pss_frequency_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "vctrl_V": 1.2
+   },
+   "unit": "Hz",
+   "lower": 4806000000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 5340000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "code0"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Sec. IV, Table II (fmax = 5.34 GHz: all bank capacitors off, Vc = 1.2 V)",
+   "source": "native"
+  },
+  {
+   "name": "fine_tuning",
+   "metric": "tuning_range_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 36000000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 40000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 12, read from plot (fine-tuning range per cap-bank state ~40-60 MHz over Vc 0-1.2 V; the lower end)",
+   "source": "native"
+  },
+  {
+   "name": "pn_100k",
+   "metric": "phase_noise_dBc_per_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "target": "tuned",
+    "offset_Hz": 100000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -109.38607314841775,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -109.8,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value -110.8 to the witness value -109.8 (gpdk180 flicker noise and the paper's resonator loss: phase noise stays 1-8 dB above the paper in every search and hand-sizing run; a PDK/model gap, not reachable by sizing). paper: Table II (-110.8 dBc/Hz at 100 kHz, f0 = 5.08 GHz, measured)",
+   "source": "native"
+  },
+  {
+   "name": "pn_800k",
+   "metric": "phase_noise_dBc_per_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "target": "tuned",
+    "offset_Hz": 800000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -127.58607314841775,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -128.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value -135.4 to the witness value -128 (gpdk180 flicker noise and the paper's resonator loss: phase noise stays 1-8 dB above the paper in every search and hand-sizing run; a PDK/model gap, not reachable by sizing). paper: Table II (-135.4 dBc/Hz at 800 kHz, marked 'estimated from the PN plot' in the table)",
+   "source": "native"
+  },
+  {
+   "name": "pn_10M",
+   "metric": "phase_noise_dBc_per_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "target": "tuned",
+    "offset_Hz": 10000000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -148.58607314841774,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -149.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value -157.2 to the witness value -149 (gpdk180 flicker noise and the paper's resonator loss: phase noise stays 1-8 dB above the paper in every search and hand-sizing run; a PDK/model gap, not reachable by sizing). paper: abstract, Table II, Fig. 13 (-157.2 dBc/Hz at 10 MHz)",
+   "source": "native"
+  },
+  {
+   "name": "fom_10M",
+   "metric": "fom_dBc_per_Hz",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "target": "tuned",
+    "offset_Hz": 10000000.0
+   },
+   "unit": "dBc/Hz",
+   "upper": -189.08607314841774,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -189.5,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value -193.2 to the witness value -189.5 (gpdk180 flicker noise and the paper's resonator loss: phase noise stays 1-8 dB above the paper in every search and hand-sizing run; a PDK/model gap, not reachable by sizing). paper: abstract, Table II (FoM 193.2 dBc/Hz at 10 MHz, Eq. 25, positive-better convention; here negative-better)",
+   "source": "native"
+  },
+  {
+   "name": "power",
+   "metric": "pss_power_W",
+   "recipe": "osc_pss_tune_bt_v1",
+   "point": {
+    "target": "tuned"
+   },
+   "unit": "W",
+   "upper": 0.0814,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.074,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Sec. IV, Table II (74 mW = 87 mA from 0.85 V at f0; core supply only)",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "osc_dc_bt_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 at the DC equilibrium (start-up point); varactors, bank switches and control inverters excluded, see topology op_check",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "osc_dc_bt_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "osc_dc_bt_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "osc_dc_bt_v1",
+   "dc_power_W"
+  ],
+  [
+   "osc_dc_bt_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "osc_dc_bt_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "osc_dc_bt_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "osc_dc_bt_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "amplitude_ratio"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "amplitude_ratio_max"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "amplitude_ratio_min"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "fom_dBc_per_Hz"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "kvco_Hz_per_V"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "max_min_frequency_ratio"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "output_max_V"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "output_min_V"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "output_vpp_V"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "phase_noise_dBc_per_Hz"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "pss_frequency_Hz"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "pss_power_W"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "target_frequency_Hz"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "tuning_range_Hz"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "tuning_range_pct"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "vctrl_at_target_V"
+  ],
+  [
+   "osc_pss_tune_bt_v1",
+   "vf_linearity_error_pct"
+  ]
+ ],
+ "simulations_per_design": 4,
+ "analysis_executions_per_design": 31,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "osc_pss_tune_bt_v1",
+   "folder": "testbenches/NN_T27_S1p00/osc_pss_tune_bt_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "output_vpp_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "amplitude_ratio": {
+     "unit": "",
+     "source": "native"
+    },
+    "tuning_range_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "kvco_Hz_per_V": {
+     "unit": "Hz/V",
+     "source": "native"
+    },
+    "max_min_frequency_ratio": {
+     "unit": "",
+     "source": "native"
+    },
+    "tuning_range_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "vf_linearity_error_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "amplitude_ratio_min": {
+     "unit": "",
+     "source": "native"
+    },
+    "amplitude_ratio_max": {
+     "unit": "",
+     "source": "native"
+    },
+    "vctrl_at_target_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "target_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "output_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "output_max_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vctrl_V": 0.0
+    },
+    {
+     "vctrl_V": 0.3
+    },
+    {
+     "vctrl_V": 0.6
+    },
+    {
+     "vctrl_V": 0.9
+    },
+    {
+     "vctrl_V": 1.2
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "curve": "tuning"
+    },
+    {
+     "target": "tuned"
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 100000.0
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 800000.0
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "osc_dc_bt_v1",
+   "folder": "testbenches/NN_T27_S1p00/osc_dc_bt_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/op_info.info",
+    "raw/dc1.dc"
+   ],
+   "metrics": {
+    "dc_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00_code15",
+   "recipe": "osc_pss_tune_bt_v1",
+   "folder": "testbenches/NN_T27_S1p00_code15/osc_pss_tune_bt_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "output_vpp_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "amplitude_ratio": {
+     "unit": "",
+     "source": "native"
+    },
+    "tuning_range_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "kvco_Hz_per_V": {
+     "unit": "Hz/V",
+     "source": "native"
+    },
+    "max_min_frequency_ratio": {
+     "unit": "",
+     "source": "native"
+    },
+    "tuning_range_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "vf_linearity_error_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "amplitude_ratio_min": {
+     "unit": "",
+     "source": "native"
+    },
+    "amplitude_ratio_max": {
+     "unit": "",
+     "source": "native"
+    },
+    "vctrl_at_target_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "target_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "output_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "output_max_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vctrl_V": 0.0
+    },
+    {
+     "vctrl_V": 0.3
+    },
+    {
+     "vctrl_V": 0.6
+    },
+    {
+     "vctrl_V": 0.9
+    },
+    {
+     "vctrl_V": 1.2
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "curve": "tuning"
+    },
+    {
+     "target": "tuned"
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 100000.0
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 800000.0
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00_code0",
+   "recipe": "osc_pss_tune_bt_v1",
+   "folder": "testbenches/NN_T27_S1p00_code0/osc_pss_tune_bt_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [],
+   "metrics": {
+    "pss_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "pss_power_W": {
+     "unit": "W",
+     "source": "native"
+    },
+    "output_vpp_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "amplitude_ratio": {
+     "unit": "",
+     "source": "native"
+    },
+    "tuning_range_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "kvco_Hz_per_V": {
+     "unit": "Hz/V",
+     "source": "native"
+    },
+    "max_min_frequency_ratio": {
+     "unit": "",
+     "source": "native"
+    },
+    "tuning_range_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "vf_linearity_error_pct": {
+     "unit": "%",
+     "source": "native"
+    },
+    "amplitude_ratio_min": {
+     "unit": "",
+     "source": "native"
+    },
+    "amplitude_ratio_max": {
+     "unit": "",
+     "source": "native"
+    },
+    "vctrl_at_target_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "target_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "output_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "output_max_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_noise_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    },
+    "fom_dBc_per_Hz": {
+     "unit": "dBc/Hz",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vctrl_V": 0.0
+    },
+    {
+     "vctrl_V": 0.3
+    },
+    {
+     "vctrl_V": 0.6
+    },
+    {
+     "vctrl_V": 0.9
+    },
+    {
+     "vctrl_V": 1.2
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.0,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.3,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.6,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 0.9,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 100000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 800000.0
+    },
+    {
+     "vctrl_V": 1.2,
+     "offset_Hz": 10000000.0
+    },
+    {
+     "curve": "tuning"
+    },
+    {
+     "target": "tuned"
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 100000.0
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 800000.0
+    },
+    {
+     "target": "tuned",
+     "offset_Hz": 10000000.0
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "lcvco24_lohrabipour_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('lcvco24_lohrabipour_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

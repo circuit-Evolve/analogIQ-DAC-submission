@@ -1,0 +1,1903 @@
+{
+  "request_id": "sky130_bandgap_101126_task_001__plan",
+  "task_id": "sky130_bandgap_101126_task_001",
+  "topology_id": "bgr1111_nmos_bandgap",
+  "execution_profile": "search_full",
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "digests": {
+    "task": "d315d13b0548aacc970e9edaf8a2502ea73f9e1e97ded061a35ada6afaded5a1",
+    "candidate": "810467665e3cbc941a6d005c4f0c73b7d1d86bbafe0e7008288581ede389e3f5",
+    "parameterization": "bb853d5517701b226341040281073930dc3d55a2eacad0d8389b683e1cd2ecc7",
+    "dut_source_netlist": "a0eca7b12eaa75384bb7c137205ad91c7b449254b4eb140de01cb73d8cd0e572",
+    "dut_subckt": "44aac52f9fd09024315a28e3197c2e0d06456662241249cacedf5322ccbfc3e3",
+    "models": "1e7c1af75bde4b1d694d93ab0bfbcbdbe41368cf09be0dc146a3088cb6c0f12a",
+    "recipes": "d7c1f9edcf552a1caac61d46fd979abc0e2230e6b38cef817f0083471d975c57",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "c909fb3291bdeb9928accd0e076e95a92a710e85f0e99f617a6e63c927469b79"
+  },
+  "candidate": {
+    "W_PMIR": 1e-06,
+    "L_PMIR": 1e-06,
+    "W_PTAT": 1e-06,
+    "L_PTAT": 1e-06,
+    "W_M4": 1e-06,
+    "L_M4": 1e-06,
+    "W_PBIAS": 1e-06,
+    "L_PBIAS": 1e-06,
+    "W_M8": 1e-06,
+    "L_M8": 1e-06,
+    "W_M9": 1e-06,
+    "L_M9": 1e-06,
+    "W_M10": 1e-06,
+    "W_M11": 1e-06,
+    "L_PIN": 1e-06,
+    "W_M12": 1e-06,
+    "W_M13": 1e-06,
+    "L_NLD": 1e-06,
+    "R1": 10000.0,
+    "R2": 10000.0,
+    "R3": 10000.0,
+    "R4": 10000.0,
+    "CC": 1e-12,
+    "M_PMIR": 1.0,
+    "NF_PMIR": 1.0,
+    "M_PTAT": 1.0,
+    "NF_PTAT": 1.0,
+    "M_M4": 1.0,
+    "NF_M4": 1.0,
+    "M_PBIAS": 1.0,
+    "NF_PBIAS": 1.0,
+    "M_M8": 1.0,
+    "NF_M8": 1.0,
+    "M_M9": 1.0,
+    "NF_M9": 1.0,
+    "M_M10": 1.0,
+    "NF_M10": 1.0,
+    "M_M11": 1.0,
+    "NF_M11": 1.0,
+    "M_M12": 1.0,
+    "NF_M12": 1.0,
+    "M_M13": 1.0,
+    "NF_M13": 1.0
+  },
+  "dut_transformations": [
+    "M11: mult bound to M_M11; Spectre multiplicity m follows it",
+    "M11: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M10: mult bound to M_M10; Spectre multiplicity m follows it",
+    "M10: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M8: mult bound to M_M8; Spectre multiplicity m follows it",
+    "M8: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M7: mult bound to M_PBIAS; Spectre multiplicity m follows it",
+    "M7: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M6: mult bound to M_PBIAS; Spectre multiplicity m follows it",
+    "M6: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M3: mult bound to M_PMIR; Spectre multiplicity m follows it",
+    "M3: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2: mult bound to M_PMIR; Spectre multiplicity m follows it",
+    "M2: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M1: mult bound to M_PMIR; Spectre multiplicity m follows it",
+    "M1: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M13: mult bound to M_M13; Spectre multiplicity m follows it",
+    "M13: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M12: mult bound to M_M12; Spectre multiplicity m follows it",
+    "M12: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M9: mult bound to M_M9; Spectre multiplicity m follows it",
+    "M9: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_10: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_10: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_9: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_9: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_8: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_8: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_7: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_7: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_6: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_6: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_5: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_5: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_4: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_4: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_3: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_3: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_2: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_2: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M5_1: mult bound to M_PTAT; Spectre multiplicity m follows it",
+    "M5_1: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M4: mult bound to M_M4; Spectre multiplicity m follows it",
+    "M4: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "netlist parameters bound to sizing variables: W_M10 <- W_M10, W_M11 <- W_M11, W_M12 <- W_M12, W_M13 <- W_M13, W_M4 <- W_M4, W_M8 <- W_M8, W_M9 <- W_M9, W_PBIAS <- W_PBIAS, W_PMIR <- W_PMIR, W_PTAT <- W_PTAT"
+  ],
+  "jobs": [
+    {
+      "job_id": "tt_binned_T27_S0p95/bgr1111_nominal_v1",
+      "condition": {
+        "id": "tt_binned_T27_S0p95",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S0p95/bgr1111_temperature_v1",
+      "condition": {
+        "id": "tt_binned_T27_S0p95",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S0p95/bgr1111_line_v1",
+      "condition": {
+        "id": "tt_binned_T27_S0p95",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S0p95/bgr1111_startup_v1",
+      "condition": {
+        "id": "tt_binned_T27_S0p95",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p00/bgr1111_nominal_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p00",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": true,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p00/bgr1111_temperature_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p00",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": true,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p00/bgr1111_line_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p00",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": true,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p00/bgr1111_startup_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p00",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": true,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p05/bgr1111_nominal_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p05",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p05/bgr1111_temperature_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p05",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p05/bgr1111_line_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p05",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "tt_binned_T27_S1p05/bgr1111_startup_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p05",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S0p95/bgr1111_nominal_v1",
+      "condition": {
+        "id": "ff_binned_T27_S0p95",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S0p95/bgr1111_temperature_v1",
+      "condition": {
+        "id": "ff_binned_T27_S0p95",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S0p95/bgr1111_line_v1",
+      "condition": {
+        "id": "ff_binned_T27_S0p95",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S0p95/bgr1111_startup_v1",
+      "condition": {
+        "id": "ff_binned_T27_S0p95",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p00/bgr1111_nominal_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p00",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p00/bgr1111_temperature_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p00",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p00/bgr1111_line_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p00",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p00/bgr1111_startup_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p00",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p05/bgr1111_nominal_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p05",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p05/bgr1111_temperature_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p05",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p05/bgr1111_line_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p05",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "ff_binned_T27_S1p05/bgr1111_startup_v1",
+      "condition": {
+        "id": "ff_binned_T27_S1p05",
+        "model_set": "ff_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ff"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S0p95/bgr1111_nominal_v1",
+      "condition": {
+        "id": "ss_binned_T27_S0p95",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S0p95/bgr1111_temperature_v1",
+      "condition": {
+        "id": "ss_binned_T27_S0p95",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S0p95/bgr1111_line_v1",
+      "condition": {
+        "id": "ss_binned_T27_S0p95",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S0p95/bgr1111_startup_v1",
+      "condition": {
+        "id": "ss_binned_T27_S0p95",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p00/bgr1111_nominal_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p00",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p00/bgr1111_temperature_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p00",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p00/bgr1111_line_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p00",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p00/bgr1111_startup_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p00",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p05/bgr1111_nominal_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p05",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p05/bgr1111_temperature_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p05",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p05/bgr1111_line_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p05",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "ss_binned_T27_S1p05/bgr1111_startup_v1",
+      "condition": {
+        "id": "ss_binned_T27_S1p05",
+        "model_set": "ss_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "ss"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S0p95/bgr1111_nominal_v1",
+      "condition": {
+        "id": "sf_binned_T27_S0p95",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S0p95/bgr1111_temperature_v1",
+      "condition": {
+        "id": "sf_binned_T27_S0p95",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S0p95/bgr1111_line_v1",
+      "condition": {
+        "id": "sf_binned_T27_S0p95",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S0p95/bgr1111_startup_v1",
+      "condition": {
+        "id": "sf_binned_T27_S0p95",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p00/bgr1111_nominal_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p00",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p00/bgr1111_temperature_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p00",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p00/bgr1111_line_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p00",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p00/bgr1111_startup_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p00",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p05/bgr1111_nominal_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p05",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p05/bgr1111_temperature_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p05",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p05/bgr1111_line_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p05",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p05/bgr1111_startup_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p05",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S0p95/bgr1111_nominal_v1",
+      "condition": {
+        "id": "fs_binned_T27_S0p95",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S0p95/bgr1111_temperature_v1",
+      "condition": {
+        "id": "fs_binned_T27_S0p95",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S0p95/bgr1111_line_v1",
+      "condition": {
+        "id": "fs_binned_T27_S0p95",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S0p95/bgr1111_startup_v1",
+      "condition": {
+        "id": "fs_binned_T27_S0p95",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 0.95,
+        "supply_V": 1.71,
+        "is_nominal": false,
+        "supply_span_V": 1.71
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p00/bgr1111_nominal_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p00",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p00/bgr1111_temperature_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p00",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p00/bgr1111_line_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p00",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p00/bgr1111_startup_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p00",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p05/bgr1111_nominal_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p05",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_nominal_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 3,
+      "expected_outputs": 4,
+      "expected_metrics": [
+        "Vref_V",
+        "PSRR_LF_dB",
+        "Power_uW",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p05/bgr1111_temperature_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p05",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_temperature_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Vref_spread_19_120_V"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p05/bgr1111_line_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p05",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_line_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Line_sensitivity_percent"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p05/bgr1111_startup_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p05",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.05,
+        "supply_V": 1.8900000000000001,
+        "is_nominal": false,
+        "supply_span_V": 1.8900000000000001
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "bgr1111_startup_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "Startup_tail_mean_V",
+        "Startup_tail_vpp_V"
+      ]
+    }
+  ]
+}

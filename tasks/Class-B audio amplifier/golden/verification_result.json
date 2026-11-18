@@ -1,0 +1,1605 @@
+{
+  "schema": "analogiq.sizing_metrics/1",
+  "task_id": "poweramp_dac_task_001",
+  "execution_status": "completed",
+  "verification_status": "fresh_full_corner_verified_snapshot",
+  "feasibility": "feasible",
+  "constraints": {
+    "metric_1": {
+      "lower": 195.5,
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 214.7595419289871,
+      "condition": "VT_V37p8_T85",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 19.25954192898709,
+      "normalized_margin": 0.09851428096668588,
+      "required": 10,
+      "valid": 10
+    },
+    "metric_2": {
+      "lower": 195.5,
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 260.0261806412009,
+      "condition": "VT_V37p8_T85",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 64.52618064120088,
+      "normalized_margin": 0.33005718998056716,
+      "required": 10,
+      "valid": 10
+    },
+    "metric_3": {
+      "lower": 8.5,
+      "upper": 11.5,
+      "metric": "Vout_pp",
+      "unit": "V",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 9.954706356938718,
+      "condition": "VT_V46p2_T27",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 1.4547063569387184,
+      "normalized_margin": 0.1343733602661984,
+      "required": 10,
+      "valid": 10
+    },
+    "metric_4": {
+      "lower": 6681.0,
+      "metric": "Av1",
+      "unit": "V/V",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 11485.21291002595,
+      "condition": "VT_V46p2_T85",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 4804.21291002595,
+      "normalized_margin": 0.7190859018149902,
+      "required": 10,
+      "valid": 10
+    },
+    "metric_5": {
+      "lower": 0.008584999999999999,
+      "metric": "gm2",
+      "unit": "A/V",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 0.01190221470476159,
+      "condition": "VT_V37p8_T85",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.0033172147047615917,
+      "normalized_margin": 0.38639658762511264,
+      "required": 10,
+      "valid": 10
+    },
+    "metric_6": {
+      "lower": 21.505,
+      "metric": "AI",
+      "unit": "A/A",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 29.53224961774564,
+      "condition": "VT_V37p8_Tm40",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 8.027249617745642,
+      "normalized_margin": 0.3732736395138639,
+      "required": 10,
+      "valid": 10
+    },
+    "metric_7": {
+      "lower": 127.98837851428586,
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": 136.3342570576778,
+      "condition": "VT_V37p8_Tm40",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 8.345878543391947,
+      "normalized_margin": 1.6139298435226435,
+      "required": 10,
+      "valid": 10
+    }
+  },
+  "objective": null,
+  "worst_constraint_margin": 0.09851428096668588,
+  "metrics": {
+    "SR_fall_V_per_us@Nominal": 262.1499122425357,
+    "SR_rise_V_per_us@Nominal": 340.5373946422037,
+    "Vout_pp@Nominal": 9.954702121959528,
+    "Av1@Nominal": 15242.40601250045,
+    "gm2@Nominal": 0.01213867072879036,
+    "AI@Nominal": 31.35833485928728,
+    "Total_gain_dB@Nominal": 138.7712283242299,
+    "SR_fall_V_per_us@VT_V37p8_T27": 252.0477341670333,
+    "SR_rise_V_per_us@VT_V37p8_T27": 330.0842945703664,
+    "Vout_pp@VT_V37p8_T27": 9.954701356306899,
+    "Av1@VT_V37p8_T27": 15301.06063147394,
+    "gm2@VT_V37p8_T27": 0.01213734160405912,
+    "AI@VT_V37p8_T27": 31.11905911877984,
+    "Total_gain_dB@VT_V37p8_T27": 138.249241504788,
+    "SR_fall_V_per_us@VT_V37p8_T85": 214.7595419289871,
+    "SR_rise_V_per_us@VT_V37p8_T85": 260.0261806412009,
+    "Vout_pp@VT_V37p8_T85": 9.954702495789864,
+    "Av1@VT_V37p8_T85": 11601.50598036825,
+    "gm2@VT_V37p8_T85": 0.01190221470476159,
+    "AI@VT_V37p8_T85": 31.16547767450692,
+    "Total_gain_dB@VT_V37p8_T85": 138.1596932994655,
+    "SR_fall_V_per_us@VT_V37p8_Tm40": 284.84646347621,
+    "SR_rise_V_per_us@VT_V37p8_Tm40": 406.6651636993731,
+    "Vout_pp@VT_V37p8_Tm40": 9.954689861724585,
+    "Av1@VT_V37p8_Tm40": 19151.0068297214,
+    "gm2@VT_V37p8_Tm40": 0.01231536840350678,
+    "AI@VT_V37p8_Tm40": 29.53224961774564,
+    "Total_gain_dB@VT_V37p8_Tm40": 136.3342570576778,
+    "SR_fall_V_per_us@VT_V42_T27": 262.1499122425357,
+    "SR_rise_V_per_us@VT_V42_T27": 340.5373946422037,
+    "Vout_pp@VT_V42_T27": 9.954702121959528,
+    "Av1@VT_V42_T27": 15242.40601250045,
+    "gm2@VT_V42_T27": 0.01213867072879036,
+    "AI@VT_V42_T27": 31.35833485928728,
+    "Total_gain_dB@VT_V42_T27": 138.7712283242299,
+    "SR_fall_V_per_us@VT_V42_T85": 223.1797747801026,
+    "SR_rise_V_per_us@VT_V42_T85": 266.4025131751297,
+    "Vout_pp@VT_V42_T85": 9.954704803588314,
+    "Av1@VT_V42_T85": 11543.061715306,
+    "gm2@VT_V42_T85": 0.0119037843263845,
+    "AI@VT_V42_T85": 31.33839582749033,
+    "Total_gain_dB@VT_V42_T85": 138.6521096023645,
+    "SR_fall_V_per_us@VT_V42_Tm40": 295.9610116396185,
+    "SR_rise_V_per_us@VT_V42_Tm40": 419.3135942072433,
+    "Vout_pp@VT_V42_Tm40": 9.954693028921936,
+    "Av1@VT_V42_Tm40": 19104.81420657938,
+    "gm2@VT_V42_Tm40": 0.01231650850892001,
+    "AI@VT_V42_Tm40": 29.84385029458735,
+    "Total_gain_dB@VT_V42_Tm40": 136.8936639147919,
+    "SR_fall_V_per_us@VT_V46p2_T27": 271.0098031784418,
+    "SR_rise_V_per_us@VT_V46p2_T27": 348.053612874697,
+    "Vout_pp@VT_V46p2_T27": 9.954706356938718,
+    "Av1@VT_V46p2_T27": 15184.15197992187,
+    "gm2@VT_V46p2_T27": 0.01213986208802673,
+    "AI@VT_V46p2_T27": 31.60490886298293,
+    "Total_gain_dB@VT_V46p2_T27": 139.2686423796895,
+    "SR_fall_V_per_us@VT_V46p2_T85": 230.5424276035243,
+    "SR_rise_V_per_us@VT_V46p2_T85": 270.8345584854097,
+    "Vout_pp@VT_V46p2_T85": 9.954706159711495,
+    "Av1@VT_V46p2_T85": 11485.21291002595,
+    "gm2@VT_V46p2_T85": 0.01190519789463155,
+    "AI@VT_V46p2_T85": 31.5221654436807,
+    "Total_gain_dB@VT_V46p2_T85": 139.1213679801591,
+    "SR_fall_V_per_us@VT_V46p2_Tm40": 305.7195119735241,
+    "SR_rise_V_per_us@VT_V46p2_Tm40": 426.5392162860624,
+    "Vout_pp@VT_V46p2_Tm40": 9.954695863504782,
+    "Av1@VT_V46p2_Tm40": 19058.83740639167,
+    "gm2@VT_V46p2_Tm40": 0.01231752880153308,
+    "AI@VT_V46p2_Tm40": 30.15838299028575,
+    "Total_gain_dB@VT_V46p2_Tm40": 137.4267989114424
+  },
+  "measurements": [
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 262.1499122425357,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 340.5373946422037,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954702121959528,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 15242.40601250045,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01213867072879036,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.35833485928728,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 138.7712283242299,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "Nominal",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 252.0477341670333,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 330.0842945703664,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954701356306899,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 15301.06063147394,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01213734160405912,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.11905911877984,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 138.249241504788,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 214.7595419289871,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 260.0261806412009,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954702495789864,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 11601.50598036825,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01190221470476159,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.16547767450692,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 138.1596932994655,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 284.84646347621,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 406.6651636993731,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954689861724585,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 19151.0068297214,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01231536840350678,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 29.53224961774564,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 136.3342570576778,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V37p8_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 262.1499122425357,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 340.5373946422037,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954702121959528,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 15242.40601250045,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01213867072879036,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.35833485928728,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 138.7712283242299,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 223.1797747801026,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 266.4025131751297,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954704803588314,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 11543.061715306,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.0119037843263845,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.33839582749033,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 138.6521096023645,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 295.9610116396185,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 419.3135942072433,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954693028921936,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 19104.81420657938,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01231650850892001,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 29.84385029458735,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 136.8936639147919,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V42_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 271.0098031784418,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 348.053612874697,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954706356938718,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 15184.15197992187,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01213986208802673,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.60490886298293,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 139.2686423796895,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T27",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 230.5424276035243,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 270.8345584854097,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954706159711495,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 11485.21291002595,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01190519789463155,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 31.5221654436807,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 139.1213679801591,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_T85",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_fall_V_per_us",
+      "unit": "V/us",
+      "value": 305.7195119735241,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "SR_rise_V_per_us",
+      "unit": "V/us",
+      "value": 426.5392162860624,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_slew_rate_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout_pp",
+      "unit": "V",
+      "value": 9.954695863504782,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Av1",
+      "unit": "V/V",
+      "value": 19058.83740639167,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "gm2",
+      "unit": "A/V",
+      "value": 0.01231752880153308,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "AI",
+      "unit": "A/A",
+      "value": 30.15838299028575,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Total_gain_dB",
+      "unit": "dB",
+      "value": 137.4267989114424,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "VT_V46p2_Tm40",
+      "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+      "point": {}
+    }
+  ],
+  "coverage": {
+    "required_measurement_checks": 70,
+    "valid_measurement_checks": 70
+  },
+  "note": "Fixed-sizing replay with explicit acceptance targets; targets.json records paper-referenced limits with the approved 15% allowance and explicit reference exceptions.",
+  "target_coverage": {
+    "required": 70,
+    "valid": 70,
+    "missing_or_invalid": 0
+  },
+  "target_violations": [],
+  "unavailable_target_checks": [],
+  "corner_results": [
+    {
+      "condition_id": "Nominal",
+      "condition": {
+        "id": "Nominal",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": true,
+        "supply_span_V": 84.0,
+        "source_point_id": 1,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V37p8_T27",
+      "condition": {
+        "id": "VT_V37p8_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 2,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V37p8_T85",
+      "condition": {
+        "id": "VT_V37p8_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 3,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V37p8_Tm40",
+      "condition": {
+        "id": "VT_V37p8_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 37.8,
+        "supply_scale": 0.8999999999999999,
+        "is_nominal": false,
+        "supply_span_V": 75.6,
+        "source_point_id": 4,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V42_T27",
+      "condition": {
+        "id": "VT_V42_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 5,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V42_T85",
+      "condition": {
+        "id": "VT_V42_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 6,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V42_Tm40",
+      "condition": {
+        "id": "VT_V42_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 42.0,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 84.0,
+        "source_point_id": 7,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V46p2_T27",
+      "condition": {
+        "id": "VT_V46p2_T27",
+        "model_set": "fixed_models",
+        "temperature_C": 27.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 8,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V46p2_T85",
+      "condition": {
+        "id": "VT_V46p2_T85",
+        "model_set": "fixed_models",
+        "temperature_C": 85.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 9,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "VT_V46p2_Tm40",
+      "condition": {
+        "id": "VT_V46p2_Tm40",
+        "model_set": "fixed_models",
+        "temperature_C": -40.0,
+        "supply_V": 46.2,
+        "supply_scale": 1.1,
+        "is_nominal": false,
+        "supply_span_V": 92.4,
+        "source_point_id": 10,
+        "includes": [
+          {
+            "path": "models.scs",
+            "section": null
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    }
+  ],
+  "corner_summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "unavailable": 0
+  },
+  "source_run": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh",
+  "simulation_jobs": 20,
+  "source_audit": {
+    "source_audit": {
+      "scalar_count": 70,
+      "finite_and_matching": 70,
+      "active_metrics": [
+        "AI",
+        "Av1",
+        "SR_fall_V_per_us",
+        "SR_rise_V_per_us",
+        "Total_gain_dB",
+        "Vout_pp",
+        "gm2"
+      ],
+      "retained_values_identical_to_prior_extraction": true,
+      "source_simulations": 20,
+      "all_source_simulations_exit_zero": true,
+      "all_input_stimuli_analysis_options_unchanged": true,
+      "model_include_files_unchanged": true,
+      "frozen_source_hashes_unchanged": true,
+      "settling_rows": 10,
+      "settling_passed": 10,
+      "diagnostic_extraction_exit": 0,
+      "all_retained_expressions_inlined": true,
+      "errors": [],
+      "checks": [
+        {
+          "condition": "Nominal",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 262.1499122425357,
+          "agrees": true
+        },
+        {
+          "condition": "Nominal",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 340.5373946422037,
+          "agrees": true
+        },
+        {
+          "condition": "Nominal",
+          "metric": "Vout_pp",
+          "scalar": 9.954702121959528,
+          "agrees": true
+        },
+        {
+          "condition": "Nominal",
+          "metric": "Av1",
+          "scalar": 15242.40601250045,
+          "agrees": true
+        },
+        {
+          "condition": "Nominal",
+          "metric": "gm2",
+          "scalar": 0.01213867072879036,
+          "agrees": true
+        },
+        {
+          "condition": "Nominal",
+          "metric": "AI",
+          "scalar": 31.35833485928728,
+          "agrees": true
+        },
+        {
+          "condition": "Nominal",
+          "metric": "Total_gain_dB",
+          "scalar": 138.7712283242299,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 252.0477341670333,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 330.0842945703664,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "Vout_pp",
+          "scalar": 9.954701356306899,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "Av1",
+          "scalar": 15301.06063147394,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "gm2",
+          "scalar": 0.01213734160405912,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "AI",
+          "scalar": 31.11905911877984,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T27",
+          "metric": "Total_gain_dB",
+          "scalar": 138.249241504788,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 214.7595419289871,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 260.0261806412009,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "Vout_pp",
+          "scalar": 9.954702495789864,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "Av1",
+          "scalar": 11601.50598036825,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "gm2",
+          "scalar": 0.01190221470476159,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "AI",
+          "scalar": 31.16547767450692,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_T85",
+          "metric": "Total_gain_dB",
+          "scalar": 138.1596932994655,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 284.84646347621,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 406.6651636993731,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "Vout_pp",
+          "scalar": 9.954689861724585,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "Av1",
+          "scalar": 19151.0068297214,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "gm2",
+          "scalar": 0.01231536840350678,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "AI",
+          "scalar": 29.53224961774564,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V37p8_Tm40",
+          "metric": "Total_gain_dB",
+          "scalar": 136.3342570576778,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 262.1499122425357,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 340.5373946422037,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "Vout_pp",
+          "scalar": 9.954702121959528,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "Av1",
+          "scalar": 15242.40601250045,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "gm2",
+          "scalar": 0.01213867072879036,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "AI",
+          "scalar": 31.35833485928728,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T27",
+          "metric": "Total_gain_dB",
+          "scalar": 138.7712283242299,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 223.1797747801026,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 266.4025131751297,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "Vout_pp",
+          "scalar": 9.954704803588314,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "Av1",
+          "scalar": 11543.061715306,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "gm2",
+          "scalar": 0.0119037843263845,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "AI",
+          "scalar": 31.33839582749033,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_T85",
+          "metric": "Total_gain_dB",
+          "scalar": 138.6521096023645,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 295.9610116396185,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 419.3135942072433,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "Vout_pp",
+          "scalar": 9.954693028921936,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "Av1",
+          "scalar": 19104.81420657938,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "gm2",
+          "scalar": 0.01231650850892001,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "AI",
+          "scalar": 29.84385029458735,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V42_Tm40",
+          "metric": "Total_gain_dB",
+          "scalar": 136.8936639147919,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 271.0098031784418,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 348.053612874697,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "Vout_pp",
+          "scalar": 9.954706356938718,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "Av1",
+          "scalar": 15184.15197992187,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "gm2",
+          "scalar": 0.01213986208802673,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "AI",
+          "scalar": 31.60490886298293,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T27",
+          "metric": "Total_gain_dB",
+          "scalar": 139.2686423796895,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 230.5424276035243,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 270.8345584854097,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "Vout_pp",
+          "scalar": 9.954706159711495,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "Av1",
+          "scalar": 11485.21291002595,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "gm2",
+          "scalar": 0.01190519789463155,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "AI",
+          "scalar": 31.5221654436807,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_T85",
+          "metric": "Total_gain_dB",
+          "scalar": 139.1213679801591,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "SR_fall_V_per_us",
+          "scalar": 305.7195119735241,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "SR_rise_V_per_us",
+          "scalar": 426.5392162860624,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "Vout_pp",
+          "scalar": 9.954695863504782,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "Av1",
+          "scalar": 19058.83740639167,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "gm2",
+          "scalar": 0.01231752880153308,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "AI",
+          "scalar": 30.15838299028575,
+          "agrees": true
+        },
+        {
+          "condition": "VT_V46p2_Tm40",
+          "metric": "Total_gain_dB",
+          "scalar": 137.4267989114424,
+          "agrees": true
+        }
+      ]
+    },
+    "report_time_fixed_dut_check": true,
+    "dut_files": 20,
+    "dut_sha256": "7b73a292f918cf41a24e2ea575c85f752145793930b3c8815da87286443734a1"
+  }
+}

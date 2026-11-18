@@ -1,0 +1,87 @@
+schema_version: 1
+topology_id: tinywhisper24_iqmod
+family: iq_modulator
+interface_type: iq_modulator_fully_differential_baseband
+technology_id: sky130
+approval_status: unapproved
+source:
+  doi: none (open-source design; github.com/iic-jku/TinyWhisper commit ad6cbaf, release v2026.08, Zenodo 10.5281/zenodo.22115125)
+  title: 'TinyWhisper iqmod_top: IQ modulator (2 x 3rd-order MFB Butterworth LPF, fc 400 kHz, inverter-based OTA; SPDT input switches; 2 passive mixers, 4-phase 25 % LO), S. Dorrer, JKU'
+  figure: 'source/Schematics/00_hierarchy.txt and 01_L0_iqmod_top.png (the netlist is the whole iqmod_top hierarchy: 48 device lines in 22 cells, 456 MOSFETs when expanded)'
+  netlist_origin: final.scs
+  inputs: source/ (README, Metrics.xlsx, Corners.xlsx, schematic images; see source/ORIGIN.txt) and source/repo_ad6cbaf/ (the repository's testbenches, PWM PWL data and coupled-resonator LC band-pass, commit
+    ad6cbaf, fetched 2026-10-25)
+  modifications: [dut_benchmark.scs = final.scs plus one appended line instantiating the exported top cell once (xiqmod_top ... iqmod_top) so the package has a top level; connectivity and devices unchanged
+      (documented export fix)., 'PDK port: IHP SG13G2 130 nm (sg13_lv MOS, rhigh, cap_cmim, VDD 1.5 V) -> sky130 01v8 devices (ideal resistor / capacitor), rule D7; supply kept at 1.5 V (legal).']
+dut:
+  netlist: dut_benchmark.scs
+  subckt_name: tinywhisper24_iqmod_dut
+  port_order: [di_ds_I_p, di_spdt_ctrl_I, di_ds_I_n, di_ds_Q_n, di_spdt_ctrl_Q, di_ds_Q_p, vinp_Q, vinn_Q, di_lo_I, di_lo_Ix, voutp_I_RF, vinp_I, vinn_I, di_lo_Q, di_lo_Qx, voutn_I_RF, voutp_Q_RF, voutn_Q_RF,
+    VDD, VSS, di_analog_en]
+  net_map: {}
+ports: {input_positive: vinp_I, input_negative: vinn_I, q_input_positive: vinp_Q, q_input_negative: vinn_Q, output: voutp_I_RF, output_negative: voutn_I_RF, q_output: voutp_Q_RF, q_output_negative: voutn_Q_RF,
+  lo_positive: di_lo_I, lo_negative: di_lo_Ix, lo_q_positive: di_lo_Q, lo_q_negative: di_lo_Qx, supply_positive: VDD, supply_negative: VSS, dac_input_positive: di_ds_I_p, dac_input_negative: di_ds_I_n,
+  q_dac_input_positive: di_ds_Q_p, q_dac_input_negative: di_ds_Q_n, spdt_control: di_spdt_ctrl_I, q_spdt_control: di_spdt_ctrl_Q}
+external_bias:
+  di_analog_en: {kind: voltage, value: 0.0, relative_to: supply_positive, provenance: 'repository: filters enabled (OTA enable at VDD); the digital control level tracks the supply'}
+op_check:
+  exclude: [xiqmod_top.x1.x3.x2.M1, xiqmod_top.x1.x3.x2.M2, xiqmod_top.x1.x3.x2.Mdummy2, xiqmod_top.x1.x3.x2.Mdummy1, xiqmod_top.x1.x3.x4.M1, xiqmod_top.x1.x3.x4.M2, xiqmod_top.x1.x3.x4.Mdummy2, xiqmod_top.x1.x3.x4.Mdummy1,
+    xiqmod_top.x1.x3.x1.x3.M2, xiqmod_top.x1.x3.x1.x3.M1, xiqmod_top.x1.x3.x1.x8.M1, xiqmod_top.x1.x3.x1.x8.M2, xiqmod_top.x1.x3.x1.x8.Mdummy1, xiqmod_top.x1.x3.x1.x8.Mdummy2, xiqmod_top.x1.x3.x1.x5.M1,
+    xiqmod_top.x1.x3.x1.x5.M2, xiqmod_top.x1.x3.x1.x5.Mdummy1, xiqmod_top.x1.x3.x1.x5.Mdummy2, xiqmod_top.x1.x3.x1.x6.M1, xiqmod_top.x1.x3.x1.x6.M2, xiqmod_top.x1.x3.x1.x6.Mdummy1, xiqmod_top.x1.x3.x1.x6.Mdummy2,
+    xiqmod_top.x1.x3.x1.x2.M1, xiqmod_top.x1.x3.x1.x2.M2, xiqmod_top.x1.x3.x1.x2.Mdummy1, xiqmod_top.x1.x3.x1.x2.Mdummy2, xiqmod_top.x1.x3.x1.x4.M1, xiqmod_top.x1.x3.x1.x4.M2, xiqmod_top.x1.x3.x1.x4.Mdummy1,
+    xiqmod_top.x1.x3.x1.x4.Mdummy2, xiqmod_top.x1.x3.x1.x7.M1, xiqmod_top.x1.x3.x1.x7.M2, xiqmod_top.x1.x3.x1.x7.Mdummy1, xiqmod_top.x1.x3.x1.x7.Mdummy2, xiqmod_top.x1.x3.x1.x1.M1, xiqmod_top.x1.x3.x1.x1.M2,
+    xiqmod_top.x1.x3.x1.x1.Mdummy1, xiqmod_top.x1.x3.x1.x1.Mdummy2, xiqmod_top.x1.x3.x1.x9.M1, xiqmod_top.x1.x3.x1.x9.M2, xiqmod_top.x1.x3.x1.x9.Mdummy1, xiqmod_top.x1.x3.x1.x9.Mdummy2, xiqmod_top.x1.x3.x1.x10.M1,
+    xiqmod_top.x1.x3.x1.x10.M2, xiqmod_top.x1.x3.x1.x10.Mdummy1, xiqmod_top.x1.x3.x1.x10.Mdummy2, xiqmod_top.x1.x3.x1.x11.M1, xiqmod_top.x1.x3.x1.x11.M2, xiqmod_top.x1.x3.x1.x11.Mdummy1, xiqmod_top.x1.x3.x1.x11.Mdummy2,
+    xiqmod_top.x1.x3.x1.x12.M1, xiqmod_top.x1.x3.x1.x12.M2, xiqmod_top.x1.x3.x1.x12.Mdummy1, xiqmod_top.x1.x3.x1.x12.Mdummy2, xiqmod_top.x1.x3.x1.x13.M1, xiqmod_top.x1.x3.x1.x13.M2, xiqmod_top.x1.x3.x1.x13.Mdummy1,
+    xiqmod_top.x1.x3.x1.x13.Mdummy2, xiqmod_top.x1.x3.x1.x14.M1, xiqmod_top.x1.x3.x1.x14.M2, xiqmod_top.x1.x3.x1.x14.Mdummy1, xiqmod_top.x1.x3.x1.x14.Mdummy2, xiqmod_top.x1.x3.x3.x3.M2, xiqmod_top.x1.x3.x3.x3.M1,
+    xiqmod_top.x1.x3.x3.x8.M1, xiqmod_top.x1.x3.x3.x8.M2, xiqmod_top.x1.x3.x3.x8.Mdummy1, xiqmod_top.x1.x3.x3.x8.Mdummy2, xiqmod_top.x1.x3.x3.x5.M1, xiqmod_top.x1.x3.x3.x5.M2, xiqmod_top.x1.x3.x3.x5.Mdummy1,
+    xiqmod_top.x1.x3.x3.x5.Mdummy2, xiqmod_top.x1.x3.x3.x6.M1, xiqmod_top.x1.x3.x3.x6.M2, xiqmod_top.x1.x3.x3.x6.Mdummy1, xiqmod_top.x1.x3.x3.x6.Mdummy2, xiqmod_top.x1.x3.x3.x2.M1, xiqmod_top.x1.x3.x3.x2.M2,
+    xiqmod_top.x1.x3.x3.x2.Mdummy1, xiqmod_top.x1.x3.x3.x2.Mdummy2, xiqmod_top.x1.x3.x3.x4.M1, xiqmod_top.x1.x3.x3.x4.M2, xiqmod_top.x1.x3.x3.x4.Mdummy1, xiqmod_top.x1.x3.x3.x4.Mdummy2, xiqmod_top.x1.x3.x3.x7.M1,
+    xiqmod_top.x1.x3.x3.x7.M2, xiqmod_top.x1.x3.x3.x7.Mdummy1, xiqmod_top.x1.x3.x3.x7.Mdummy2, xiqmod_top.x1.x3.x3.x1.M1, xiqmod_top.x1.x3.x3.x1.M2, xiqmod_top.x1.x3.x3.x1.Mdummy1, xiqmod_top.x1.x3.x3.x1.Mdummy2,
+    xiqmod_top.x1.x3.x3.x9.M1, xiqmod_top.x1.x3.x3.x9.M2, xiqmod_top.x1.x3.x3.x9.Mdummy1, xiqmod_top.x1.x3.x3.x9.Mdummy2, xiqmod_top.x1.x3.x3.x10.M1, xiqmod_top.x1.x3.x3.x10.M2, xiqmod_top.x1.x3.x3.x10.Mdummy1,
+    xiqmod_top.x1.x3.x3.x10.Mdummy2, xiqmod_top.x1.x3.x3.x11.M1, xiqmod_top.x1.x3.x3.x11.M2, xiqmod_top.x1.x3.x3.x11.Mdummy1, xiqmod_top.x1.x3.x3.x11.Mdummy2, xiqmod_top.x1.x3.x3.x12.M1, xiqmod_top.x1.x3.x3.x12.M2,
+    xiqmod_top.x1.x3.x3.x12.Mdummy1, xiqmod_top.x1.x3.x3.x12.Mdummy2, xiqmod_top.x1.x3.x3.x13.M1, xiqmod_top.x1.x3.x3.x13.M2, xiqmod_top.x1.x3.x3.x13.Mdummy1, xiqmod_top.x1.x3.x3.x13.Mdummy2, xiqmod_top.x1.x3.x3.x14.M1,
+    xiqmod_top.x1.x3.x3.x14.M2, xiqmod_top.x1.x3.x3.x14.Mdummy1, xiqmod_top.x1.x3.x3.x14.Mdummy2, xiqmod_top.x1.x1.x1.x6.Mdummy1, xiqmod_top.x1.x1.x1.x6.Mdummy2, xiqmod_top.x1.x1.x1.x7.Mdummy1, xiqmod_top.x1.x1.x1.x7.Mdummy2,
+    xiqmod_top.x1.x1.x1.x11.Mdummy1, xiqmod_top.x1.x1.x1.x11.Mdummy2, xiqmod_top.x1.x1.x1.x12.Mdummy1, xiqmod_top.x1.x1.x1.x12.Mdummy2, xiqmod_top.x1.x1.x1.x9.Mdummy1, xiqmod_top.x1.x1.x1.x9.Mdummy2, xiqmod_top.x1.x1.x1.x10.Mdummy1,
+    xiqmod_top.x1.x1.x1.x10.Mdummy2, xiqmod_top.x1.x1.x1.x5.Mdummy1, xiqmod_top.x1.x1.x1.x5.Mdummy2, xiqmod_top.x1.x1.x1.x1.Mdummy1, xiqmod_top.x1.x1.x1.x1.Mdummy2, xiqmod_top.x1.x1.x1.x4.Mdummy1, xiqmod_top.x1.x1.x1.x4.Mdummy2,
+    xiqmod_top.x1.x1.x1.x13.Mdummy1, xiqmod_top.x1.x1.x1.x13.Mdummy2, xiqmod_top.x1.x1.x1.x8.Mdummy1, xiqmod_top.x1.x1.x1.x8.Mdummy2, xiqmod_top.x1.x1.x1.x14.Mdummy1, xiqmod_top.x1.x1.x1.x14.Mdummy2, xiqmod_top.x1.x1.x1.x2.Mdummy1,
+    xiqmod_top.x1.x1.x1.x2.Mdummy2, xiqmod_top.x1.x1.x1.x3.Mdummy1, xiqmod_top.x1.x1.x1.x3.Mdummy2, xiqmod_top.x1.x1.x1.x16.x1.M1, xiqmod_top.x1.x1.x1.x16.x1.M2, xiqmod_top.x1.x1.x1.x16.x1.Mdummy1, xiqmod_top.x1.x1.x1.x16.x1.Mdummy2,
+    xiqmod_top.x1.x1.x1.x16.x2.M1, xiqmod_top.x1.x1.x1.x16.x2.M2, xiqmod_top.x1.x1.x1.x16.x2.Mdummy1, xiqmod_top.x1.x1.x1.x16.x2.Mdummy2, xiqmod_top.x1.x1.x1.x16.x3.M2, xiqmod_top.x1.x1.x1.x16.x3.M1, xiqmod_top.x1.x1.x1.x16.x4.M2,
+    xiqmod_top.x1.x1.x1.x16.x4.M1, xiqmod_top.x1.x1.x1.x17.x1.M1, xiqmod_top.x1.x1.x1.x17.x1.M2, xiqmod_top.x1.x1.x1.x17.x1.Mdummy1, xiqmod_top.x1.x1.x1.x17.x1.Mdummy2, xiqmod_top.x1.x1.x1.x17.x2.M1, xiqmod_top.x1.x1.x1.x17.x2.M2,
+    xiqmod_top.x1.x1.x1.x17.x2.Mdummy1, xiqmod_top.x1.x1.x1.x17.x2.Mdummy2, xiqmod_top.x1.x1.x1.x17.x3.M2, xiqmod_top.x1.x1.x1.x17.x3.M1, xiqmod_top.x1.x1.x1.x17.x4.M2, xiqmod_top.x1.x1.x1.x17.x4.M1, xiqmod_top.x1.x1.x1.x15.M2,
+    xiqmod_top.x1.x1.x1.x15.M1, xiqmod_top.x1.x1.x1.x18.M2, xiqmod_top.x1.x1.x1.x18.M1, xiqmod_top.x1.x1.x1.x20.M2, xiqmod_top.x1.x1.x1.x20.M1, xiqmod_top.x1.x1.x1.x23.M2, xiqmod_top.x1.x1.x1.x23.M1, xiqmod_top.x1.x5.x1.M1,
+    xiqmod_top.x1.x5.x1.M2, xiqmod_top.x1.x5.x1.Mdummy1, xiqmod_top.x1.x5.x1.Mdummy2, xiqmod_top.x1.x5.x2.M1, xiqmod_top.x1.x5.x2.M2, xiqmod_top.x1.x5.x2.Mdummy1, xiqmod_top.x1.x5.x2.Mdummy2, xiqmod_top.x1.x5.x3.M2,
+    xiqmod_top.x1.x5.x3.M1, xiqmod_top.x1.x5.x4.M2, xiqmod_top.x1.x5.x4.M1, xiqmod_top.x1.x6.x1.M1, xiqmod_top.x1.x6.x1.M2, xiqmod_top.x1.x6.x1.Mdummy1, xiqmod_top.x1.x6.x1.Mdummy2, xiqmod_top.x1.x6.x2.M1,
+    xiqmod_top.x1.x6.x2.M2, xiqmod_top.x1.x6.x2.Mdummy1, xiqmod_top.x1.x6.x2.Mdummy2, xiqmod_top.x1.x6.x3.M2, xiqmod_top.x1.x6.x3.M1, xiqmod_top.x1.x6.x4.M2, xiqmod_top.x1.x6.x4.M1, xiqmod_top.x2.x3.x2.M1,
+    xiqmod_top.x2.x3.x2.M2, xiqmod_top.x2.x3.x2.Mdummy2, xiqmod_top.x2.x3.x2.Mdummy1, xiqmod_top.x2.x3.x4.M1, xiqmod_top.x2.x3.x4.M2, xiqmod_top.x2.x3.x4.Mdummy2, xiqmod_top.x2.x3.x4.Mdummy1, xiqmod_top.x2.x3.x1.x3.M2,
+    xiqmod_top.x2.x3.x1.x3.M1, xiqmod_top.x2.x3.x1.x8.M1, xiqmod_top.x2.x3.x1.x8.M2, xiqmod_top.x2.x3.x1.x8.Mdummy1, xiqmod_top.x2.x3.x1.x8.Mdummy2, xiqmod_top.x2.x3.x1.x5.M1, xiqmod_top.x2.x3.x1.x5.M2,
+    xiqmod_top.x2.x3.x1.x5.Mdummy1, xiqmod_top.x2.x3.x1.x5.Mdummy2, xiqmod_top.x2.x3.x1.x6.M1, xiqmod_top.x2.x3.x1.x6.M2, xiqmod_top.x2.x3.x1.x6.Mdummy1, xiqmod_top.x2.x3.x1.x6.Mdummy2, xiqmod_top.x2.x3.x1.x2.M1,
+    xiqmod_top.x2.x3.x1.x2.M2, xiqmod_top.x2.x3.x1.x2.Mdummy1, xiqmod_top.x2.x3.x1.x2.Mdummy2, xiqmod_top.x2.x3.x1.x4.M1, xiqmod_top.x2.x3.x1.x4.M2, xiqmod_top.x2.x3.x1.x4.Mdummy1, xiqmod_top.x2.x3.x1.x4.Mdummy2,
+    xiqmod_top.x2.x3.x1.x7.M1, xiqmod_top.x2.x3.x1.x7.M2, xiqmod_top.x2.x3.x1.x7.Mdummy1, xiqmod_top.x2.x3.x1.x7.Mdummy2, xiqmod_top.x2.x3.x1.x1.M1, xiqmod_top.x2.x3.x1.x1.M2, xiqmod_top.x2.x3.x1.x1.Mdummy1,
+    xiqmod_top.x2.x3.x1.x1.Mdummy2, xiqmod_top.x2.x3.x1.x9.M1, xiqmod_top.x2.x3.x1.x9.M2, xiqmod_top.x2.x3.x1.x9.Mdummy1, xiqmod_top.x2.x3.x1.x9.Mdummy2, xiqmod_top.x2.x3.x1.x10.M1, xiqmod_top.x2.x3.x1.x10.M2,
+    xiqmod_top.x2.x3.x1.x10.Mdummy1, xiqmod_top.x2.x3.x1.x10.Mdummy2, xiqmod_top.x2.x3.x1.x11.M1, xiqmod_top.x2.x3.x1.x11.M2, xiqmod_top.x2.x3.x1.x11.Mdummy1, xiqmod_top.x2.x3.x1.x11.Mdummy2, xiqmod_top.x2.x3.x1.x12.M1,
+    xiqmod_top.x2.x3.x1.x12.M2, xiqmod_top.x2.x3.x1.x12.Mdummy1, xiqmod_top.x2.x3.x1.x12.Mdummy2, xiqmod_top.x2.x3.x1.x13.M1, xiqmod_top.x2.x3.x1.x13.M2, xiqmod_top.x2.x3.x1.x13.Mdummy1, xiqmod_top.x2.x3.x1.x13.Mdummy2,
+    xiqmod_top.x2.x3.x1.x14.M1, xiqmod_top.x2.x3.x1.x14.M2, xiqmod_top.x2.x3.x1.x14.Mdummy1, xiqmod_top.x2.x3.x1.x14.Mdummy2, xiqmod_top.x2.x3.x3.x3.M2, xiqmod_top.x2.x3.x3.x3.M1, xiqmod_top.x2.x3.x3.x8.M1,
+    xiqmod_top.x2.x3.x3.x8.M2, xiqmod_top.x2.x3.x3.x8.Mdummy1, xiqmod_top.x2.x3.x3.x8.Mdummy2, xiqmod_top.x2.x3.x3.x5.M1, xiqmod_top.x2.x3.x3.x5.M2, xiqmod_top.x2.x3.x3.x5.Mdummy1, xiqmod_top.x2.x3.x3.x5.Mdummy2,
+    xiqmod_top.x2.x3.x3.x6.M1, xiqmod_top.x2.x3.x3.x6.M2, xiqmod_top.x2.x3.x3.x6.Mdummy1, xiqmod_top.x2.x3.x3.x6.Mdummy2, xiqmod_top.x2.x3.x3.x2.M1, xiqmod_top.x2.x3.x3.x2.M2, xiqmod_top.x2.x3.x3.x2.Mdummy1,
+    xiqmod_top.x2.x3.x3.x2.Mdummy2, xiqmod_top.x2.x3.x3.x4.M1, xiqmod_top.x2.x3.x3.x4.M2, xiqmod_top.x2.x3.x3.x4.Mdummy1, xiqmod_top.x2.x3.x3.x4.Mdummy2, xiqmod_top.x2.x3.x3.x7.M1, xiqmod_top.x2.x3.x3.x7.M2,
+    xiqmod_top.x2.x3.x3.x7.Mdummy1, xiqmod_top.x2.x3.x3.x7.Mdummy2, xiqmod_top.x2.x3.x3.x1.M1, xiqmod_top.x2.x3.x3.x1.M2, xiqmod_top.x2.x3.x3.x1.Mdummy1, xiqmod_top.x2.x3.x3.x1.Mdummy2, xiqmod_top.x2.x3.x3.x9.M1,
+    xiqmod_top.x2.x3.x3.x9.M2, xiqmod_top.x2.x3.x3.x9.Mdummy1, xiqmod_top.x2.x3.x3.x9.Mdummy2, xiqmod_top.x2.x3.x3.x10.M1, xiqmod_top.x2.x3.x3.x10.M2, xiqmod_top.x2.x3.x3.x10.Mdummy1, xiqmod_top.x2.x3.x3.x10.Mdummy2,
+    xiqmod_top.x2.x3.x3.x11.M1, xiqmod_top.x2.x3.x3.x11.M2, xiqmod_top.x2.x3.x3.x11.Mdummy1, xiqmod_top.x2.x3.x3.x11.Mdummy2, xiqmod_top.x2.x3.x3.x12.M1, xiqmod_top.x2.x3.x3.x12.M2, xiqmod_top.x2.x3.x3.x12.Mdummy1,
+    xiqmod_top.x2.x3.x3.x12.Mdummy2, xiqmod_top.x2.x3.x3.x13.M1, xiqmod_top.x2.x3.x3.x13.M2, xiqmod_top.x2.x3.x3.x13.Mdummy1, xiqmod_top.x2.x3.x3.x13.Mdummy2, xiqmod_top.x2.x3.x3.x14.M1, xiqmod_top.x2.x3.x3.x14.M2,
+    xiqmod_top.x2.x3.x3.x14.Mdummy1, xiqmod_top.x2.x3.x3.x14.Mdummy2, xiqmod_top.x2.x1.x1.x6.Mdummy1, xiqmod_top.x2.x1.x1.x6.Mdummy2, xiqmod_top.x2.x1.x1.x7.Mdummy1, xiqmod_top.x2.x1.x1.x7.Mdummy2, xiqmod_top.x2.x1.x1.x11.Mdummy1,
+    xiqmod_top.x2.x1.x1.x11.Mdummy2, xiqmod_top.x2.x1.x1.x12.Mdummy1, xiqmod_top.x2.x1.x1.x12.Mdummy2, xiqmod_top.x2.x1.x1.x9.Mdummy1, xiqmod_top.x2.x1.x1.x9.Mdummy2, xiqmod_top.x2.x1.x1.x10.Mdummy1, xiqmod_top.x2.x1.x1.x10.Mdummy2,
+    xiqmod_top.x2.x1.x1.x5.Mdummy1, xiqmod_top.x2.x1.x1.x5.Mdummy2, xiqmod_top.x2.x1.x1.x1.Mdummy1, xiqmod_top.x2.x1.x1.x1.Mdummy2, xiqmod_top.x2.x1.x1.x4.Mdummy1, xiqmod_top.x2.x1.x1.x4.Mdummy2, xiqmod_top.x2.x1.x1.x13.Mdummy1,
+    xiqmod_top.x2.x1.x1.x13.Mdummy2, xiqmod_top.x2.x1.x1.x8.Mdummy1, xiqmod_top.x2.x1.x1.x8.Mdummy2, xiqmod_top.x2.x1.x1.x14.Mdummy1, xiqmod_top.x2.x1.x1.x14.Mdummy2, xiqmod_top.x2.x1.x1.x2.Mdummy1, xiqmod_top.x2.x1.x1.x2.Mdummy2,
+    xiqmod_top.x2.x1.x1.x3.Mdummy1, xiqmod_top.x2.x1.x1.x3.Mdummy2, xiqmod_top.x2.x1.x1.x16.x1.M1, xiqmod_top.x2.x1.x1.x16.x1.M2, xiqmod_top.x2.x1.x1.x16.x1.Mdummy1, xiqmod_top.x2.x1.x1.x16.x1.Mdummy2,
+    xiqmod_top.x2.x1.x1.x16.x2.M1, xiqmod_top.x2.x1.x1.x16.x2.M2, xiqmod_top.x2.x1.x1.x16.x2.Mdummy1, xiqmod_top.x2.x1.x1.x16.x2.Mdummy2, xiqmod_top.x2.x1.x1.x16.x3.M2, xiqmod_top.x2.x1.x1.x16.x3.M1, xiqmod_top.x2.x1.x1.x16.x4.M2,
+    xiqmod_top.x2.x1.x1.x16.x4.M1, xiqmod_top.x2.x1.x1.x17.x1.M1, xiqmod_top.x2.x1.x1.x17.x1.M2, xiqmod_top.x2.x1.x1.x17.x1.Mdummy1, xiqmod_top.x2.x1.x1.x17.x1.Mdummy2, xiqmod_top.x2.x1.x1.x17.x2.M1, xiqmod_top.x2.x1.x1.x17.x2.M2,
+    xiqmod_top.x2.x1.x1.x17.x2.Mdummy1, xiqmod_top.x2.x1.x1.x17.x2.Mdummy2, xiqmod_top.x2.x1.x1.x17.x3.M2, xiqmod_top.x2.x1.x1.x17.x3.M1, xiqmod_top.x2.x1.x1.x17.x4.M2, xiqmod_top.x2.x1.x1.x17.x4.M1, xiqmod_top.x2.x1.x1.x15.M2,
+    xiqmod_top.x2.x1.x1.x15.M1, xiqmod_top.x2.x1.x1.x18.M2, xiqmod_top.x2.x1.x1.x18.M1, xiqmod_top.x2.x1.x1.x20.M2, xiqmod_top.x2.x1.x1.x20.M1, xiqmod_top.x2.x1.x1.x23.M2, xiqmod_top.x2.x1.x1.x23.M1, xiqmod_top.x2.x5.x1.M1,
+    xiqmod_top.x2.x5.x1.M2, xiqmod_top.x2.x5.x1.Mdummy1, xiqmod_top.x2.x5.x1.Mdummy2, xiqmod_top.x2.x5.x2.M1, xiqmod_top.x2.x5.x2.M2, xiqmod_top.x2.x5.x2.Mdummy1, xiqmod_top.x2.x5.x2.Mdummy2, xiqmod_top.x2.x5.x3.M2,
+    xiqmod_top.x2.x5.x3.M1, xiqmod_top.x2.x5.x4.M2, xiqmod_top.x2.x5.x4.M1, xiqmod_top.x2.x6.x1.M1, xiqmod_top.x2.x6.x1.M2, xiqmod_top.x2.x6.x1.Mdummy1, xiqmod_top.x2.x6.x1.Mdummy2, xiqmod_top.x2.x6.x2.M1,
+    xiqmod_top.x2.x6.x2.M2, xiqmod_top.x2.x6.x2.Mdummy1, xiqmod_top.x2.x6.x2.Mdummy2, xiqmod_top.x2.x6.x3.M2, xiqmod_top.x2.x6.x3.M1, xiqmod_top.x2.x6.x4.M2, xiqmod_top.x2.x6.x4.M1]
+  note: 'Only the OTA unit inverters (x14 NF6/NF10/NF20 per filter, both filters) are checked. Excluded by design: transmission-gate / switch devices (triode or off), the digital SPDT control and LO-driver
+    inverters (rail-to-rail), and all dummies (rail-tied or charge-injection).'
+known_issues: ['PWM drive: the repository''s own PWL data files (source/repo_ad6cbaf/scripts/pwm_generator/data/pwm_100%_{cosine,sine}_pwl.txt); the coupled-resonator LC band-pass 1k_1k is testbench instrumentation
+    (values from its schematic).']

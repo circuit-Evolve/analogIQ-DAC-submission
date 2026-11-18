@@ -1,0 +1,6 @@
+162/162 retained checks pass; 9/9 saved condition rows pass; 18 metrics.
+Paper-referenced targets with the approved 15% allowance, using explicit minimum/maximum/range directions. dB limits use the underlying voltage or power ratio; strict stability limits remain K>1 and |Delta|<1. No limits were recalibrated to these golden results. See qualifications.json for reference exceptions.
+Full-precision sizing is required: worst bandwidth is 95.086464 MHz against 95.0079 MHz minimum, and worst power gain is 22.727869 dB against 22.717189257142927 dB minimum.
+The paper reports 111.774 MHz bandwidth while its reported edge difference is 110.774 MHz; the retained target uses the explicitly reported bandwidth.
+Stability is checked over the retained 1 MHz to 1 GHz span with strict K>1 and |Delta|<1. The source span begins at 1 Hz; no claim is made outside the simulated span.
+Psat and peak PAE are maxima over the retained input-power sweep. The paper uses the slow BJT section; all three supplied BJT model sections are tested here. Zin and Zout remain excluded.

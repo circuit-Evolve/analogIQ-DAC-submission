@@ -1,0 +1,277 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "SF_T27_S1p00/miso1111_lp_thd_v1",
+ "recipe_id": "miso1111_lp_thd_v1",
+ "recipe_version": 1,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "raw/tran1.tran.tran"
+ ],
+ "context": {
+  "job_id": "SF_T27_S1p00/miso1111_lp_thd_v1",
+  "condition": {
+   "id": "SF_T27_S1p00",
+   "model_set": "SF",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 0.9,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "SF"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 0.9,
+   "supply_negative_V": -0.9
+  },
+  "recipe_settings": {
+   "drive_role": "input_2",
+   "amplitude_V": 0.1,
+   "frequency_Hz": 500000.0,
+   "periods": 30,
+   "window_periods": 20,
+   "steps_per_period": 200,
+   "strobes_per_period": 256,
+   "dft_points": 8192
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "miso_universal_111126",
+   "family": "filter",
+   "interface_type": "mixed_mode_multi_input_single_output_filter",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "disable_finger_fold": "miso1111 2026-11-11 (same opt-in as hpf1111): the golden design (replay decks, authoritative) was qualified with unfolded 10-100 um devices (input pairs 100 um x16, mirrors 14-15 um, MOS resistor R2 32 um, DVCC inputs 10.4 um), which use the gpdk180 W > 10 um model bin. Built from 10 um fingers the same sizes bias differently: nominal quiescent power 3.454 vs 3.570 mW (unfolded reproduces the replay to 1e-11), BP centre frequency -1.6..-3.2 %, BP output noise +9..+12 %, and the golden design fails 3 of 45 targets at SF (BP frequency 3.342 MHz < 3.383 MHz, BP output noise, BP THD) (scratch/b1111/miso_universal_111126_task_001/refcheck_1, exp_nofold). Cost: the ~25-30 % current-per-width step at the 10 um bin edge is visible to the search (as on any unfolded device).",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "miso_fig3",
+    "port_order": [
+     "GND",
+     "I1",
+     "I2",
+     "I3",
+     "IOUT",
+     "V1",
+     "V2",
+     "V3",
+     "VBIAS",
+     "VCTRL",
+     "VDD",
+     "VOUT",
+     "VSS"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input": "V1",
+    "input_2": "V2",
+    "input_3": "V3",
+    "current_input_1": "I1",
+    "current_input_2": "I2",
+    "current_input_3": "I3",
+    "current_output": "IOUT",
+    "output": "VOUT",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "GND": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "replay decks: the DUT GND pin is the testbench ground net 0 (DUT (0 I1 ...) miso_fig3); here a 0 V source (rule G3 ground pin)"
+    },
+    "VBIAS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "sizing variable V_BIAS"
+    },
+    "VCTRL": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "sizing variable V_CTRL"
+    }
+   },
+   "probes": [
+    "X1",
+    "NOPA",
+    "NOPB",
+    "NOP2A",
+    "NOP2B",
+    "NC1A",
+    "NC2A",
+    "NC2B"
+   ],
+   "op_check": {
+    "exclude": [
+     "R1.MR1",
+     "R1.MR2",
+     "R2.MR1",
+     "R2.MR2",
+     "A1.M7",
+     "A1.M12",
+     "A1.M8",
+     "A1.M13",
+     "A1.M23",
+     "A1.M29",
+     "A1.M24",
+     "A1.M30",
+     "A2.M7",
+     "A2.M12",
+     "A2.M8",
+     "A2.M13",
+     "A2.M24",
+     "A2.M30"
+    ]
+   }
+  },
+  "subckt_name": "miso_fig3",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "A2_W_IN": 1e-06,
+   "A2_L_IN": 1e-06,
+   "A2_M_IN": 1.0,
+   "A2_W_PMIR": 1e-06,
+   "A2_L_PMIR": 1e-06,
+   "A2_M_PMIR": 1.0,
+   "A2_W_PLD": 1e-06,
+   "A2_L_PLD": 1e-06,
+   "A2_W_NMIR": 1e-06,
+   "A2_L_NMIR": 1e-06,
+   "A2_W_NDIO": 1e-06,
+   "A2_L_NDIO": 1e-06,
+   "A2_IBIAS": 1e-05,
+   "A1_W_IN": 1e-06,
+   "A1_L_IN": 1e-06,
+   "A1_M_IN": 1.0,
+   "A1_W_PMIR": 1e-06,
+   "A1_L_PMIR": 1e-06,
+   "A1_M_PMIR": 1.0,
+   "A1_W_PLD": 1e-06,
+   "A1_L_PLD": 1e-06,
+   "A1_W_NMIR": 1e-06,
+   "A1_L_NMIR": 1e-06,
+   "A1_W_NDIO": 1e-06,
+   "A1_L_NDIO": 1e-06,
+   "A1_IBIAS": 1e-05,
+   "FE_W_IN": 1e-06,
+   "FE_L_IN": 1e-06,
+   "FE_W_PMIR": 1e-06,
+   "FE_L_PMIR": 1e-06,
+   "FE_W_POUT": 1e-06,
+   "FE_L_POUT": 1e-06,
+   "FE_W_NTAIL": 1e-06,
+   "FE_L_NTAIL": 1e-06,
+   "FE_W_NOUT": 1e-06,
+   "FE_L_NOUT": 1e-06,
+   "R1_W": 1e-06,
+   "R1_L": 1e-06,
+   "R2_W": 1e-06,
+   "R2_L": 1e-06,
+   "R3": 10000.0,
+   "C1": 1e-12,
+   "C2": 1e-12,
+   "A2_M_PLD": 1.0,
+   "A2_M_NMIR": 1.0,
+   "A2_M_NDIO": 1.0,
+   "A1_M_PLD": 1.0,
+   "A1_M_NMIR": 1.0,
+   "A1_M_NDIO": 1.0,
+   "FE_M_IN": 1.0,
+   "FE_M_PMIR": 1.0,
+   "FE_M_POUT": 1.0,
+   "FE_M_NTAIL": 1.0,
+   "FE_M_NOUT": 1.0,
+   "R1_M": 1.0,
+   "R2_M": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BIAS": 0.0,
+   "V_CTRL": 0.0
+  },
+  "bias_variables": {
+   "VBIAS": "V_BIAS",
+   "VCTRL": "V_CTRL"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

@@ -1,0 +1,40 @@
+// Generated for: spectre
+// Generated on: Nov  2 06:24:43 2026
+// Design library name: test
+// Design cell name: pa1088_tb_hb_dac
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VCC=12 f0=4.33e+08 Pin_dBm=1
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs" section=highperf_bjt_s
+
+// Library name: test
+// Cell name: pa1088_fig3_dac
+// View name: schematic
+include "dut.scs"
+// End of subcircuit definition.
+
+// Library name: test
+// Cell name: pa1088_tb_hb_dac
+// View name: schematic
+VDD (VCC 0) vsource dc=VCC type=dc
+PORT_IN (RF_IN 0) port r=50 num=1 type=sine freq=f0 dbm=Pin_dBm
+PORT_OUT (RF_OUT 0) port r=50 x=0 num=2 dc=0 type=dc
+DUT (RF_IN RF_OUT VCC 0) pa1088_fig3_dac
+simulatorOptions options reltol=1e-05 vabstol=1e-6 iabstol=1e-12 temp=100 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="sens.output" \
+    checklimitdest=psf 
+sweephb  sweep  param=Pin_dBm  start=-40  stop=20  lin=600  {
+  hb  hb  fundfreqs=[f0]  maxharms=[25]  freqdivide=1
++   errpreset=conservative  annotate=status
+
+}
+
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub currents=all

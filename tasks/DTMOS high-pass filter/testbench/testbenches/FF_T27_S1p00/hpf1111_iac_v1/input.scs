@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task dtmos_hpf_101126_task_001  topology dtmos_hpf_101126
+// recipe hpf1111_iac_v1 v1  condition FF_T27_S1p00 (models FF, 27 C, supply 0.9 V)
+// request dtmos_hpf_101126_task_001__plan  candidate eac6ca687d6d919d
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters vsup=0.9 vneg=-0.9
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_GND (b_GND 0) vsource dc=0.0
+
+// Current-mode drive: ideal current source into the input (AC 1 A); output held by VOUT (current sense).
+IIN (0 iin) isource dc=0.0 mag=1
+VOUT (out 0) vsource dc=0.0
+
+XDUT (b_GND iin out vdd vss) dtmos_candidate_stb C1=1e-12 C2=1e-12 I0=1e-05 IB1=1e-05 IB2=1e-05 L_M1=1e-06 L_M24=1e-06 L_M3=1e-06 L_MNB12=1e-06 L_MNB3=1e-06 L_MNB4=1e-06 L_MNB5=1e-06 L_MPB12=1e-06 L_MPB34=1e-06 L_MPB56=1e-06 L_MPB78=1e-06 M_M1=1.0 M_M2=1.0 M_M3=1.0 M_M4=1.0 M_MNB12=1.0 M_MNB3=1.0 M_MNB4=1.0 M_MNB5=1.0 M_MPB12=1.0 M_MPB3=1.0 M_MPB4=1.0 M_MPB56=1.0 M_MPB7=1.0 M_MPB8=1.0 W_M1=1e-06 W_M2=1e-06 W_M3=1e-06 W_M4=1e-06 W_MNB12=1e-06 W_MNB3=1e-06 W_MNB4=1e-06 W_MNB5=1e-06 W_MPB12=1e-06 W_MPB3=1e-06 W_MPB4=1e-06 W_MPB56=1e-06 W_MPB7=1e-06 W_MPB8=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_GND:p VNEG:p VOUT:p VSUP:p iin out vdd vss
+
+hpfopts options iabstol=1e-14
+dc1 dc
+ac1 ac start=1.0 stop=10000000.0 dec=100

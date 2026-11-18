@@ -1,0 +1,46 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task lcvco24_lohrabipour_task_001  topology lcvco24_lohrabipour
+// recipe osc_pss_tune_bt_v1 v1  condition NN_T27_S1p00_code0 (models NN, 27 C, supply 0.85 V)
+// request lcvco24_lohrabipour_task_001__plan  candidate e3d3eb6b52c9bee3
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters cl=1e-14 vctrl=0.0 vsup=0.85
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BUF={{V_BUF}} V_TANK={{V_TANK}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_VB_TANK (b_VB_TANK 0) vsource dc=V_TANK
+VB_VDD_AUX (b_VDD_AUX 0) vsource dc=1.8
+VB_VBUF (b_VBUF 0) vsource dc=V_BUF
+VB_VDD_DIG (b_VDD_DIG 0) vsource dc=1.8
+VB_S0 (b_S0 0) vsource dc=0.0
+VB_S1 (b_S1 0) vsource dc=0.0
+VB_S2 (b_S2 0) vsource dc=0.0
+VB_S3 (b_S3 0) vsource dc=0.0
+
+VCTRL (vctrl 0) vsource dc=vctrl
+CL1 (outp 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+// Bias-T / 50 ohm instrument load on the open-drain buffer outputs.
+RBT1 (b_VDD_AUX outp) resistor r=50.0
+RBT2 (b_VDD_AUX outn) resistor r=50.0
+// Start-up kick: current pulse into a DUT-internal (tank) node.
+IKICK (0 XDUT.D1) isource type=pulse val0=0 val1=0.001 delay=0 rise=5.0000000000000005e-12 fall=5.0000000000000005e-12 width=5e-11
+
+XDUT (vdd b_VSS b_VB_TANK b_VDD_AUX vctrl b_VBUF b_VDD_DIG b_S0 b_S1 b_S2 b_S3 outp outn) repaired_core C_BANK={{C_BANK}} C_BUF={{C_BUF}} C_CVAR={{C_CVAR}} C_PF={{C_PF}} C_PS={{C_PS}} C_S={{C_S}} L_BUF={{L_BUF}} L_CORE={{L_CORE}} L_MIN={{L_MIN}} L_MIP={{L_MIP}} L_MS={{L_MS}} L_MVAR={{L_MVAR}} L_P={{L_P}} L_S={{L_S}} N_BUF={{N_BUF}} N_CORE={{N_CORE}} N_MIN={{N_MIN}} N_MIP={{N_MIP}} N_MS={{N_MS}} N_MVAR={{N_MVAR}} R_BUF={{R_BUF}} R_BVAR={{R_BVAR}} R_SBANK={{R_SBANK}} W_BUF={{W_BUF}} W_CORE={{W_CORE}} W_MIN={{W_MIN}} W_MIP={{W_MIP}} W_MS={{W_MS}} W_MVAR={{W_MVAR}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_S0:p VB_S1:p VB_S2:p VB_S3:p VB_VBUF:p VB_VB_TANK:p VB_VDD_AUX:p VB_VDD_DIG:p VB_VSS:p VSUP:p outn outp vctrl vdd
+
+// osc_sweep_begin (replaced by OscPssTune.prepare when the task has an `estimate` setting)
+sw sweep param=vctrl values=[0.0 0.3 0.6 0.9 1.2] {
+pss1 (outp outn) pss fund=5080000000.0 harms=10 tstab=3e-08 errpreset=conservative
+pn1 (outp outn) pnoise start=50000.0 stop=20000000.0 dec=10 maxsideband=10 sweeptype=relative relharmnum=1 noisetype=timeaverage
+}
+// osc_sweep_end

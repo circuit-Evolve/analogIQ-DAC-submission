@@ -1,0 +1,63 @@
+{
+  "job_id": "NN_T27_S1p00_CL50n/amp_dc_v1",
+  "recipe_id": "amp_dc_v1",
+  "recipe_version": 3,
+  "condition": {
+    "id": "NN_T27_S1p00_CL50n",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "label": "CL50n",
+    "operating": {
+      "load_capacitance_F": 5e-08
+    },
+    "is_nominal": false,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {
+      "vcm_V": 0.45
+    }
+  ],
+  "expected_outputs": [
+    "input.measure",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "quiescent_power_W",
+    "supply_current_A",
+    "bias_power_W",
+    "buffer_offset_V",
+    "output_at_sweep_start_V",
+    "output_at_sweep_stop_V",
+    "output_swing_V",
+    "tracking_range_low_V",
+    "tracking_range_high_V",
+    "tracking_range_V",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "b9d6cb1b447da9dc69f07033041e5e6acf081c227dc4b513c001919eef241f41",
+    "candidate": "25f7ea5cdf3edbba3186bdd0835e8155e4481ca4a5ddf2311bdd15f31862f823",
+    "parameterization": "64a5ea2559b777448b5be76350cb3850b6a25b8d07d8d4eb18763211fac6c99e",
+    "dut_source_netlist": "f8bd19a9e55b4a64f831b79de632f660cc9310efa2aecff9b4f593d04de1a369",
+    "dut_subckt": "b4e1359b313861999dab6dc7f27e158de28c3f34ef8d630249b096c5c484b867",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "72d431db0cd4c7387896b8294c9b07ee6fa0f75f29aa5cc7d50360ce2b46f5bc",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "8f91ce2043cdf410ec11750fbfa988dac928e126a71b02bab803108171183f39"
+  },
+  "state": "rendered"
+}

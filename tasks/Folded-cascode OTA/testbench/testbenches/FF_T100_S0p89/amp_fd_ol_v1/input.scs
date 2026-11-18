@@ -1,0 +1,49 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task fcrobust01_task_001  topology fcrobust01_arxiv_2207
+// recipe amp_fd_ol_v1 v3  condition FF_T100_S0p89 (models FF, 100 C, supply 1.6 V)
+// request fcrobust01_task_001__plan  candidate bb6894fc5155c810
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters cl=1e-12 vcm=1.2 a_p=0.5 a_m=-0.5 a_vdd=0.0 a_vss=0.0 vsup=1.6000002000000002 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup mag=a_vdd
+VNEG (vss 0) vsource dc=vneg mag=a_vss
+
+// Open loop: DC from the opposite outputs through LF, AC into the inputs through CF.
+VACP (acp 0) vsource dc=0 mag=a_p
+VACM (acm 0) vsource dc=0 mag=a_m
+CFP (acp inp) capacitor c=1e+18
+CFM (acm inn) capacitor c=1e+18
+VCMI (vcmi 0) vsource dc=vcm
+EFBP (fbp vcmi outn out) vcvs gain=0.5
+EFBN (fbn vcmi out outn) vcvs gain=0.5
+LFP (fbp inp) inductor l=1e+18
+LFM (fbn inn) inductor l=1e+18
+CL1 (out 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+EOD (od 0 out outn) vcvs gain=1
+EODN (odn 0 out outn) vcvs gain=-1
+VOCM (vocm 0) vsource dc=0.7
+
+XDUT (vdd vss inp inn out outn vocm) fcrobust01_dut C_COMP=1e-12 I_BIAS=1e-05 L_B15=1e-06 L_B5=1e-06 L_B6=1e-06 L_B9=1e-06 L_BX0=1e-06 L_BX1=1e-06 L_CMDIO=1e-06 L_CMIN=1e-06 L_CMTAIL=1e-06 L_CS=1e-06 L_IN=1e-06 L_NBOT=1e-06 L_NCAS=1e-06 L_P13=1e-06 L_P2=1e-06 L_P25=1e-06 L_PCAS=1e-06 L_SINK=1e-06 L_TAIL=1e-06 L_TOP=1e-06 M_B15=1.0 M_B5=1.0 M_B6=1.0 M_B9=1.0 M_BX0=1.0 M_BX1=1.0 M_CMDIO=1.0 M_CMIN=1.0 M_CMTAIL=1.0 M_CS=1.0 M_IN=1.0 M_NBOT=1.0 M_NCAS=1.0 M_P13=1.0 M_P2=1.0 M_P25=1.0 M_PCAS=1.0 M_SINK=1.0 M_TAIL=1.0 M_TOP=1.0 R_SENSE=10000.0 W_B15=1e-06 W_B5=1e-06 W_B6=1e-06 W_B9=1e-06 W_BX0=1e-06 W_BX1=1e-06 W_CMDIO=1e-06 W_CMIN=1e-06 W_CMTAIL=1e-06 W_CS=1e-06 W_IN=1e-06 W_NBOT=1e-06 W_NCAS=1e-06 W_P13=1e-06 W_P2=1e-06 W_P25=1e-06 W_PCAS=1e-06 W_SINK=1e-06 W_TAIL=1e-06 W_TOP=1e-06
+
+opts options temp=100.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p inn inp od out outn vdd vocm vss
+
+ac1 ac start=0.1 stop=1000000000.0 dec=20
+simulator lang=spice
+.include 'measures.sp'
+.alter
+* point p001
+.param a_p=1 a_m=1 a_vdd=0 a_vss=0
+.alter
+* point p002
+.param a_p=0 a_m=0 a_vdd=1 a_vss=0
+.alter
+* point p003
+.param a_p=0 a_m=0 a_vdd=0 a_vss=1
+.end

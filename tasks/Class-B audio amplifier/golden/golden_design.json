@@ -1,0 +1,228 @@
+{
+  "parameters": {
+    "N_Q1_Q2": 1,
+    "N_Q4_Q5": 1,
+    "N_Q10_Q11": 1,
+    "N_Q12_Q13": 1,
+    "N_Q18": 1,
+    "N_Q20": 1,
+    "N_Q22": 1,
+    "N_Q21": 1,
+    "N_Q15": 1,
+    "N_Q14": 1,
+    "N_Q7": 1,
+    "N_Q6": 1,
+    "N_Q19": 1,
+    "N_Q17": 1,
+    "N_Q16": 1,
+    "N_Q9": 1,
+    "N_Q8": 1,
+    "N_Q3": 1,
+    "L1": 2e-06,
+    "R34": 10.0,
+    "R33": 0.1,
+    "R32": 0.1,
+    "R27": 70.0,
+    "R26": 50.0,
+    "R31": 6.0,
+    "R30": 1330.0,
+    "R29": 1000.0,
+    "R28": 1330.0,
+    "R25": 6.0,
+    "R24": 1330.0,
+    "R23": 1000.0,
+    "R22": 1330.0,
+    "R21": 36.0,
+    "R20": 10000.0,
+    "R19": 100.0,
+    "R18": 56.0,
+    "R17": 100.0,
+    "R16": 56.0,
+    "R15": 22000.0,
+    "R14": 38.0,
+    "R13": 35.0,
+    "R12": 12000.0,
+    "R3": 2000.0,
+    "R1": 411.0,
+    "R11": 0.18,
+    "R10": 6.65,
+    "R9": 2700.0,
+    "R8": 3160.0,
+    "R7": 6.65,
+    "R6": 27000.0,
+    "R5": 470.0,
+    "R4": 470.0,
+    "C18": 5e-09,
+    "C11": 1e-06,
+    "C8": 1.8e-09,
+    "C10": 1e-08,
+    "C7": 1.8e-09,
+    "C9": 1e-08,
+    "C6": 2.7e-10,
+    "C5": 1e-08,
+    "C4": 2.7e-10,
+    "C3": 1e-08,
+    "C12": 4.7e-11,
+    "C2": 0.0001,
+    "C1": 6.8e-08,
+    "C14": 1e-08,
+    "C13": 1e-05,
+    "C15": 1.2e-12,
+    "C17": 3.3e-05,
+    "C16": 1.5e-08,
+    "V_REF6": 6.0
+  },
+  "parameterization_id": "poweramp_dac_p2",
+  "sizing_task_update": {
+    "date": "2026-11-12",
+    "physical_sizing_changed": false,
+    "search_bounds_legal": false,
+    "outside_bounds": [
+      {
+        "name": "L1",
+        "reference": 2e-06,
+        "lower": 1e-10,
+        "upper": 1e-07
+      },
+      {
+        "name": "R33",
+        "reference": 0.1,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "R32",
+        "reference": 0.1,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "R31",
+        "reference": 6.0,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "R25",
+        "reference": 6.0,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "R11",
+        "reference": 0.18,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "R10",
+        "reference": 6.65,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "R7",
+        "reference": 6.65,
+        "lower": 10.0,
+        "upper": 1000000.0
+      },
+      {
+        "name": "C18",
+        "reference": 5e-09,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C11",
+        "reference": 1e-06,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C8",
+        "reference": 1.8e-09,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C10",
+        "reference": 1e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C7",
+        "reference": 1.8e-09,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C9",
+        "reference": 1e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C6",
+        "reference": 2.7e-10,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C5",
+        "reference": 1e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C4",
+        "reference": 2.7e-10,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C3",
+        "reference": 1e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C2",
+        "reference": 0.0001,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C1",
+        "reference": 6.8e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C14",
+        "reference": 1e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C13",
+        "reference": 1e-05,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C17",
+        "reference": 3.3e-05,
+        "lower": 1e-14,
+        "upper": 1e-10
+      },
+      {
+        "name": "C16",
+        "reference": 1.5e-08,
+        "lower": 1e-14,
+        "upper": 1e-10
+      }
+    ],
+    "note": "Canonical task variable names and explicit unit device counts; original file in repair backups. This is curator evidence, not the standard start."
+  }
+}

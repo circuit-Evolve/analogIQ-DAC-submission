@@ -1,0 +1,36 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ldo24m_miller_task_001  topology ldo24m_miller
+// recipe ldo_stb_v1 v5  condition NN_T60_S1p00 (models NN, 60 C, supply 2.1 V)
+// request ldo24m_miller_task_001__plan  candidate ac77f2a3c8da6cc8
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vin=2.1 iload=0.0 cout=5e-11
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS={{V_BIAS}}
+// Supplies (charged to the DUT power metrics).
+VIN (vin 0) vsource dc=vin
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+VB_ENABLE (b_ENABLE 0) vsource dc=0.0
+
+VREFS (vref 0) vsource dc=1.2
+// Load: ideal current sink out->ground and output capacitor (+ESR).
+ILOAD (out 0) isource dc=iload
+COUT (out 0) capacitor c=cout
+
+XDUT (vin b_VSS vref b_VBIAS b_ENABLE out) ldo24m_miller_dut C_EA={{C_EA}} C_F={{C_F}} L_CM={{L_CM}} L_EA2={{L_EA2}} L_EAIN={{L_EAIN}} L_EAL={{L_EAL}} L_EAS={{L_EAS}} L_EAT={{L_EAT}} L_MAB={{L_MAB}} L_MCR={{L_MCR}} L_MSW={{L_MSW}} L_PASS={{L_PASS}} L_RFB={{L_RFB}} L_WLB={{L_WLB}} L_WLS={{L_WLS}} M_CM={{M_CM}} M_EA2={{M_EA2}} M_EAIN={{M_EAIN}} M_EAL={{M_EAL}} M_EAS={{M_EAS}} M_EAT={{M_EAT}} M_MAB={{M_MAB}} M_MCR={{M_MCR}} M_MSW={{M_MSW}} M_RFB={{M_RFB}} M_WLB={{M_WLB}} M_WLS={{M_WLS}} N_PASS={{N_PASS}} W_CM={{W_CM}} W_EA2={{W_EA2}} W_EAIN={{W_EAIN}} W_EAL={{W_EAL}} W_EAS={{W_EAS}} W_EAT={{W_EAT}} W_MAB={{W_MAB}} W_MCR={{W_MCR}} W_MSW={{W_MSW}} W_PASS={{W_PASS}} W_RFB={{W_RFB}} W_WLB={{W_WLB}} W_WLS={{W_WLS}}
+op_info info what=oppoint where=rawfile
+
+opts options temp=60.0 tnom=27 reltol=0.0001 save=selected
+save VB_ENABLE:p VB_VBIAS:p VB_VSS:p VIN:p XDUT.N2 XDUT.NCF XDUT.VFB XDUT.VG out vin vref
+
+regop1 dc
+stb1 stb start=1.0 stop=100000000.0 dec=20 probe=XDUT.IPRB_LOOP
+ld2 alter param=iload value=0.07
+regop2 dc
+stb2 stb start=1.0 stop=100000000.0 dec=20 probe=XDUT.IPRB_LOOP

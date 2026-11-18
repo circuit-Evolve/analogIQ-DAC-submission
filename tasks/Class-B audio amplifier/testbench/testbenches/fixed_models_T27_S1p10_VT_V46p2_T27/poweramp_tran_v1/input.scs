@@ -1,0 +1,34 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task poweramp_dac_task_001  topology poweramp_dac
+// recipe poweramp_tran_v1 v1  condition fixed_models_T27_S1p10_VT_V46p2_T27 (models fixed_models, 27 C, supply 46.2 V)
+// request poweramp_dac_task_001__plan  candidate 5d2d8bf27fc11fc9
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<ANALOGIQ>/circuits/02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac/model_library/models.scs"
+include "dut.scs"
+
+parameters vsup=46.2
+// Sizing variables set in the testbench (external-bias values).
+parameters V_REF6=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_GND (b_GND 0) vsource dc=0.0
+VB_ERROR (b_ERROR 0) vsource dc=0.0
+VB_inh_bulk_n (b_inh_bulk_n 0) vsource dc=0.0
+VB_VN (b_VN 0) vsource dc=-46.2
+VB_V15 (b_V15 0) vsource dc=15.0
+VB_VN7 (b_VN7 0) vsource dc=-7.0
+VB_REF6 (b_REF6 0) vsource dc=V_REF6
+
+VIN (rfin b_ERROR) vsource dc=0 type=sine freq=50.0 ampl=0.174216 sinedc=0
+
+XDUT (b_ERROR b_GND rfin open_LOAD rfout b_REF6 b_V15 b_VN b_VN7 vdd b_inh_bulk_n) poweramp C1=1e-12 C10=1e-12 C11=1e-12 C12=1e-12 C13=1e-12 C14=1e-12 C15=1e-12 C16=1e-12 C17=1e-12 C18=1e-12 C2=1e-12 C3=1e-12 C4=1e-12 C5=1e-12 C6=1e-12 C7=1e-12 C8=1e-12 C9=1e-12 L1=1e-09 N_Q10_Q11=1.0 N_Q12_Q13=1.0 N_Q14=1.0 N_Q15=1.0 N_Q16=1.0 N_Q17=1.0 N_Q18=1.0 N_Q19=1.0 N_Q1_Q2=1.0 N_Q20=1.0 N_Q21=1.0 N_Q22=1.0 N_Q3=1.0 N_Q4_Q5=1.0 N_Q6=1.0 N_Q7=1.0 N_Q8=1.0 N_Q9=1.0 R1=10000.0 R10=10000.0 R11=10000.0 R12=10000.0 R13=10000.0 R14=10000.0 R15=10000.0 R16=10000.0 R17=10000.0 R18=10000.0 R19=10000.0 R20=10000.0 R21=10000.0 R22=10000.0 R23=10000.0 R24=10000.0 R25=10000.0 R26=10000.0 R27=10000.0 R28=10000.0 R29=10000.0 R3=10000.0 R30=10000.0 R31=10000.0 R32=10000.0 R33=10000.0 R34=10000.0 R4=10000.0 R5=10000.0 R6=10000.0 R7=10000.0 R8=10000.0 R9=10000.0
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_ERROR:p VB_GND:p VB_REF6:p VB_V15:p VB_VN7:p VB_VN:p VB_inh_bulk_n:p VSUP:p XDUT.Q11:c XDUT.Q13:c XDUT.Q17:c XDUT.Q22:c XDUT.input_base XDUT.stage1 rfin rfout vdd
+
+replayopts options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 gmin=1e-12 minr=1u pivrel=1e-3
+tr1 tran stop=1.0 maxstep=5e-06 errpreset=conservative maxiters=5

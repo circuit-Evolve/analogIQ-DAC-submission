@@ -1,0 +1,50 @@
+{
+  "job_id": "NN_T27_S1p00_MC/cmp_pl_offset_ramp_v1",
+  "recipe_id": "cmp_pl_offset_ramp_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T27_S1p00_MC",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "stat"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 1.8,
+    "mc_of_nominal": true,
+    "monte_carlo": {
+      "samples": 20,
+      "seed": 1,
+      "variations": "mismatch"
+    }
+  },
+  "points": [
+    {
+      "vcm_V": 0.9
+    }
+  ],
+  "expected_outputs": [],
+  "expected_metrics": [
+    "mc_mean.offset_V",
+    "mc_sigma.offset_V"
+  ],
+  "digests": {
+    "task": "a61a9a62e2a2e518462123caa7964a646fedd052119a0fa941b53363c7f04af3",
+    "candidate": "bc912d1d411273e7dbedd56513df6d8d6024dd80d8630b9637f67f9bfa6c85e2",
+    "parameterization": "a44e23fbdcb4fed8c62e644137d0054ccf6a82a6364a1f16ca7efbde8e260d1a",
+    "dut_source_netlist": "5a7d124995243a4bd8ca386943193936d8879be907b7dc5dc886edd665babd2d",
+    "dut_subckt": "801e9b3193bd3e6e4155aa39287598ce34f4981460d2a43527ed9b95df805f3e",
+    "models": "bed33ed697b2dd877570379c9a01162dc37bf2c2654757e9e935af43b2047f72",
+    "recipes": "67ed8bc125507a31da6b0d7df6dafd8ace8c4769c9b8388bf4a13b55c7a88e47",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "716f3edd8ffcc34619839ff6db94761a33b9e4538499a1eac56221b4d268ad45"
+  },
+  "state": "rendered"
+}

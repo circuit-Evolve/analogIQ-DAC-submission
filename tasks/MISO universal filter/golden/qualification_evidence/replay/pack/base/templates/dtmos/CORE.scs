@@ -1,0 +1,52 @@
+// Generated for: spectre
+// Generated on: Nov  7 07:33:45 2026
+// Design library name: DAC_20261107_DTMOS
+// Design cell name: DTMOS_CORE_NOMINAL_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+
+// Library name: DAC_20261107_DTMOS
+// Cell name: dtmos_fig1b_paper
+// View name: schematic
+subckt dtmos_fig1b_paper GND IN OUT VDD VSS
+    M3 (NB3 IN N1 VDD) pmos1 w=75u l=2u as=30.0p ad=30.0p ps=150.8u          pd=150.8u m=2
+    Mpb8 (OUT PHP VDD VDD) pmos1 w=8u l=2u as=3.2p ad=3.2p ps=16.8u          pd=16.8u m=1
+    Mpb7 (PHP PHP VDD VDD) pmos1 w=8u l=2u as=3.2p ad=3.2p ps=16.8u          pd=16.8u m=1
+    Mpb6 (OUT PLP VDD VDD) pmos1 w=40u l=0.5u as=16.0p ad=16.0p ps=80.8u          pd=80.8u m=1
+    Mpb5 (PLP PLP VDD VDD) pmos1 w=40u l=0.5u as=16.0p ad=16.0p ps=80.8u          pd=80.8u m=1
+    Mpb4 (PB1 PB1 VDD PB1) pmos1 w=10u l=2u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mpb3 (N2 PB1 VDD PB1) pmos1 w=10u l=2u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mpb2 (PB2 PB2 VDD PB2) pmos1 w=10u l=2u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mpb1 (N1 PB2 VDD PB2) pmos1 w=10u l=2u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mnb5 (OUT N1 VSS VSS) nmos1 w=10u l=0.2u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mnb4 (PHP NB3 VSS VSS) nmos1 w=3u l=2u as=1.2000000000000002p          ad=1.2000000000000002p ps=6.8u pd=6.8u m=1
+    Mnb3 (NB3 NB3 VSS VSS) nmos1 w=10u l=0.5u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mnb2 (IN NB0 VSS VSS) nmos1 w=10u l=0.5u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    Mnb1 (NB0 NB0 VSS VSS) nmos1 w=10u l=0.5u as=4.0p ad=4.0p ps=20.8u          pd=20.8u m=1
+    M4 (VDD N2 IN VSS) nmos1 w=5u l=2u as=2.0p ad=2.0p ps=10.8u pd=10.8u          m=1
+    M2 (PLP N2 GND VSS) nmos1 w=5u l=2u as=2.0p ad=2.0p ps=10.8u pd=10.8u          m=1
+    M1 (N2 N1 VSS VSS) nmos1 w=3u l=2u as=1.2000000000000002p          ad=1.2000000000000002p ps=6.8u pd=6.8u m=1
+    I0 (GND NB0) isource dc=60u type=dc
+    IB2 (PB2 GND) isource dc=15u type=dc
+    IB1 (PB1 GND) isource dc=250u type=dc
+    C2 (N2 GND) capacitor c=120n
+    C1 (N1 GND) capacitor c=70n
+ends dtmos_fig1b_paper
+// End of subcircuit definition.
+
+// Library name: DAC_20261107_DTMOS
+// Cell name: DTMOS_CORE_NOMINAL_tb
+// View name: schematic
+DUT (0 IN OUT VDD VSS) dtmos_fig1b_paper
+VOUT_SENSE (OUT 0) vsource dc=0 type=dc
+VSS_SRC (VSS 0) vsource dc=-.9 type=dc
+VDD_SRC (VDD 0) vsource dc=.9 type=dc
+IIN_SRC (0 IN) isource mag=1 type=sine sinedc=0 ampl=5u freq=500
+simulatorOptions options reltol=1e-06 vabstol=1e-09 iabstol=1e-14 temp=27      tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5      digits=5 cols=80 pivrel=1e-3      sensfile="sens.output"      checklimitdest=psf 
+tran tran stop=60m errpreset=conservative maxstep=2u write="spectre.ic"      writefinal="spectre.fc" annotate=status strobeperiod=2u maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+ac ac start=1 stop=10M dec=100 annotate=status 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+saveOptions options save=allpub currents=all subcktprobelvl=5

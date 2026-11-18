@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task tia02_task_001  topology tia02_singh_2018
+// recipe tia_ac_v1 v1  condition NN_T81_S1p00 (models NN, 81 C, supply 1.8 V)
+// request tia02_task_001__plan  candidate b4979bc7899dfdaa
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vsup=1.8 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+// Photodetector model: ideal current source (AC 1 A) and its capacitance.
+IIN (0 iin) isource dc=-2e-05 mag=1
+CIN (iin 0) capacitor c=0.0
+CL (out 0) capacitor c=1e-14
+
+XDUT (vdd vss iin out) tia02_dut C_FB=1e-12 C_NCG=1e-12 I_BIAS1=1e-05 I_BIAS2=1e-05 L_M1=1e-06 L_M23=1e-06 L_M45=1e-06 L_M6=1e-06 N_M1=1.0 N_M23=1.0 N_M45=1.0 N_M6=1.0 R_F=10000.0 V_BIAS=0.9 W_M1=1e-06 W_M23=1e-06 W_M45=1e-06 W_M6=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=81.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p iin out vdd vss
+
+ac1 ac start=1000000.0 stop=100000000000.0 dec=50
+simulator lang=spice
+.include 'measures.sp'
+.end

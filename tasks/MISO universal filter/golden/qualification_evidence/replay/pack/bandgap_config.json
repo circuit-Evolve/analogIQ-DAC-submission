@@ -1,0 +1,732 @@
+{
+  "task_id": "bandgap",
+  "topology_id": "bgr_fig3_paper",
+  "family": "bandgap_reference",
+  "technology_id": "sky130",
+  "description": "All 15 process/supply corners at 27C; unchanged five two-sided paper-target bands. Temperature sweeps characterize TC; line sweeps shared per process. Scalar feasibility is not startup qualification.",
+  "variables": [
+    {
+      "name": "PMIRROR_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 4.146354212820748e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M1",
+          "bgr_fig3_paper.M2",
+          "bgr_fig3_paper.M3"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PMIRROR_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 4.787606428944923e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M1",
+          "bgr_fig3_paper.M2",
+          "bgr_fig3_paper.M3"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "NPTAT_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 8.527056648166571e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M4",
+          "bgr_fig3_paper.M5_1",
+          "bgr_fig3_paper.M5_2",
+          "bgr_fig3_paper.M5_3",
+          "bgr_fig3_paper.M5_4",
+          "bgr_fig3_paper.M5_5",
+          "bgr_fig3_paper.M5_6",
+          "bgr_fig3_paper.M5_7",
+          "bgr_fig3_paper.M5_8",
+          "bgr_fig3_paper.M5_9",
+          "bgr_fig3_paper.M5_10"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M4",
+        "M5_1",
+        "M5_2",
+        "M5_3",
+        "M5_4",
+        "M5_5",
+        "M5_6",
+        "M5_7",
+        "M5_8",
+        "M5_9",
+        "M5_10"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "NPTAT_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 6.179668782412741e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M4",
+          "bgr_fig3_paper.M5_1",
+          "bgr_fig3_paper.M5_2",
+          "bgr_fig3_paper.M5_3",
+          "bgr_fig3_paper.M5_4",
+          "bgr_fig3_paper.M5_5",
+          "bgr_fig3_paper.M5_6",
+          "bgr_fig3_paper.M5_7",
+          "bgr_fig3_paper.M5_8",
+          "bgr_fig3_paper.M5_9",
+          "bgr_fig3_paper.M5_10"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M4",
+        "M5_1",
+        "M5_2",
+        "M5_3",
+        "M5_4",
+        "M5_5",
+        "M5_6",
+        "M5_7",
+        "M5_8",
+        "M5_9",
+        "M5_10"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "PBIAS_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 8.266993618151556e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M6",
+          "bgr_fig3_paper.M7"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M6",
+        "M7"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PBIAS_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 1.635107529434532e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M6",
+          "bgr_fig3_paper.M7"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M6",
+        "M7"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "PGAIN_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 8.544203482113827e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M8"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M8"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PGAIN_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 1.7688141442476216e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M8"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M8"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "NGAIN_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 4.780396196304148e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M9"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M9"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "NGAIN_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 1.6414199089809286e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M9"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M9"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "PINPUT_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 3.76008512462372e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M10",
+          "bgr_fig3_paper.M11"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M10",
+        "M11"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PINPUT_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 2.956281728896501e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M10",
+          "bgr_fig3_paper.M11"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M10",
+        "M11"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "NLOAD_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 1.7719563442000414e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M12",
+          "bgr_fig3_paper.M13"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M12",
+        "M13"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "NLOAD_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 3.304431059638886e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M12",
+          "bgr_fig3_paper.M13"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M12",
+        "M13"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "R1_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 1000,
+      "upper": 1000000.0,
+      "initial": 36934.578259223235,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R1"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R1"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "R2_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 1000,
+      "upper": 1000000.0,
+      "initial": 86355.4413005106,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R2"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R2"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "R3_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 1000,
+      "upper": 2000000.0,
+      "initial": 138566.84647238834,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R3"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R3"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "R4_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 10000,
+      "upper": 2000000.0,
+      "initial": 125111.51239307807,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R4"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R4"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "CC_c",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "initial": 1.2745860068053358e-11,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.CC"
+        ],
+        "parameter": "c"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "CC"
+      ],
+      "parameter": "c"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "Vref_V",
+      "metric": "Vref_V",
+      "recipe": "retained_paper_nominal",
+      "lower": 1.08,
+      "upper": 1.3199999999999998,
+      "paper_value": 1.2,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst",
+      "expression": "getData(\"VREF\" ?result \"dcOp\")",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ]
+    },
+    {
+      "name": "Power_uW",
+      "metric": "Power_uW",
+      "recipe": "retained_paper_nominal",
+      "lower": 231.723,
+      "upper": 283.21700000000004,
+      "paper_value": 257.47,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst",
+      "expression": "-1e6*average(VS*getData(\"VDD_SRC:p\" ?result \"tran\"))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ]
+    },
+    {
+      "name": "PSRR_LF_dB",
+      "metric": "PSRR_LF_dB",
+      "recipe": "retained_paper_nominal",
+      "lower": 21.501,
+      "upper": 26.279,
+      "paper_value": 23.89,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst",
+      "expression": "-value(dB20(getData(\"VREF\" ?result \"ac\")) 1)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ]
+    },
+    {
+      "name": "Line_sensitivity_percent",
+      "metric": "Line_sensitivity_percent",
+      "recipe": "retained_paper_nominal",
+      "lower": 6.03,
+      "upper": 7.37,
+      "paper_value": 6.7,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst",
+      "expression": "100*(ymax(getData(\"VREF\" ?result \"dc\"))-ymin(getData(\"VREF\" ?result \"dc\")))/(1.89-1.71)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ]
+    },
+    {
+      "name": "TC_19_120_ppm_C",
+      "metric": "TC_19_120_ppm_C",
+      "recipe": "retained_paper_nominal",
+      "lower": 17.37,
+      "upper": 21.23,
+      "paper_value": 19.3,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst",
+      "expression": "1e6*(ymax(clip(getData(\"VREF\" ?result \"dc\") 19 120))-ymin(clip(getData(\"VREF\" ?result \"dc\") 19 120)))/(value(getData(\"VREF\" ?result \"dc\") 27)*(120-19))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "TT_1.71V_27C",
+      "model_set": "tt",
+      "supply_V": 1.71,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "TT_1.80V_27C",
+      "model_set": "tt",
+      "supply_V": 1.8,
+      "temperature_C": 27,
+      "nominal": true
+    },
+    {
+      "id": "TT_1.89V_27C",
+      "model_set": "tt",
+      "supply_V": 1.89,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FF_1.71V_27C",
+      "model_set": "ff",
+      "supply_V": 1.71,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FF_1.80V_27C",
+      "model_set": "ff",
+      "supply_V": 1.8,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FF_1.89V_27C",
+      "model_set": "ff",
+      "supply_V": 1.89,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SS_1.71V_27C",
+      "model_set": "ss",
+      "supply_V": 1.71,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SS_1.80V_27C",
+      "model_set": "ss",
+      "supply_V": 1.8,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SS_1.89V_27C",
+      "model_set": "ss",
+      "supply_V": 1.89,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SF_1.71V_27C",
+      "model_set": "sf",
+      "supply_V": 1.71,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SF_1.80V_27C",
+      "model_set": "sf",
+      "supply_V": 1.8,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SF_1.89V_27C",
+      "model_set": "sf",
+      "supply_V": 1.89,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FS_1.71V_27C",
+      "model_set": "fs",
+      "supply_V": 1.71,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FS_1.80V_27C",
+      "model_set": "fs",
+      "supply_V": 1.8,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FS_1.89V_27C",
+      "model_set": "fs",
+      "supply_V": 1.89,
+      "temperature_C": 27,
+      "nominal": false
+    }
+  ],
+  "operating_conditions": {
+    "supply_V": 1.8,
+    "line_sweep_min_V": 1.71,
+    "line_sweep_max_V": 1.89,
+    "temperature_sweep_min_C": -40,
+    "temperature_sweep_max_C": 120,
+    "TC_interval_min_C": 19,
+    "TC_interval_max_C": 120
+  },
+  "objective": null,
+  "startup_diagnostic": {
+    "search": "No extra startup job; existing constant-supply transient ripple recorded.",
+    "full_verify": "No nodeset; supply0V at0..1us, ramp toVS by2us, hold through1ms. Last900..1000us analyzed.",
+    "optimization_constraint": false
+  },
+  "evaluation_deadlines_s": {
+    "search_full": 900,
+    "full_verify": 1800
+  }
+}

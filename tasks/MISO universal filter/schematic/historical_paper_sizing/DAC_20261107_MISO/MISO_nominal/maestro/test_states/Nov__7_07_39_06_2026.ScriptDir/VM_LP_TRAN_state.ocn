@@ -1,0 +1,14 @@
+design( "DAC_20261107_MISO" "VM_LP_TRAN_tb" "schematic")
+modelFile( 
+    '("<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" "NN")
+)
+analysis('dc ?saveOppoint t  )
+analysis('tran ?stop "6e-05"  ?errpreset "conservative"  ?maxstep "1e-08"  
+		?strobeperiod "7.8125e-09"  )
+option(	'iabstol  "1e-14" 
+	'vabstol  "1e-09" 
+	'reltol  "1e-06" 
+)
+saveOption( 'subcktprobelvl "5" )
+saveOption( 'currents "all" )
+temp( 27 ) 

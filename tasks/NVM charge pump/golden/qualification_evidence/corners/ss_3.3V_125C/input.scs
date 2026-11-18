@@ -1,0 +1,56 @@
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=ss
+subckt NVM_CP VDD CLKA CLKB OUT GND
+M1NA (A1 B1 VDD VDD) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M1NB (B1 A1 VDD VDD) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M1PA (A1 B1 S1 S1) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+M1PB (B1 A1 S1 S1) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+C1A (A1 CLKA) capacitor c=1.17p
+C1B (B1 CLKB) capacitor c=1.17p
+C1S (S1 GND) capacitor c=2.1p
+M2NA (A2 B2 S1 S1) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M2NB (B2 A2 S1 S1) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M2PA (A2 B2 S2 S2) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+M2PB (B2 A2 S2 S2) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+C2A (A2 CLKA) capacitor c=1.17p
+C2B (B2 CLKB) capacitor c=1.17p
+C2S (S2 GND) capacitor c=2.1p
+M3NA (A3 B3 S2 S2) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M3NB (B3 A3 S2 S2) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M3PA (A3 B3 S3 S3) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+M3PB (B3 A3 S3 S3) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+C3A (A3 CLKA) capacitor c=1.17p
+C3B (B3 CLKB) capacitor c=1.17p
+C3S (S3 GND) capacitor c=2.1p
+M4NA (A4 B4 S3 S3) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M4NB (B4 A4 S3 S3) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M4PA (A4 B4 S4 S4) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+M4PB (B4 A4 S4 S4) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+C4A (A4 CLKA) capacitor c=1.17p
+C4B (B4 CLKB) capacitor c=1.17p
+C4S (S4 GND) capacitor c=2.1p
+M5NA (A5 B5 S4 S4) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M5NB (B5 A5 S4 S4) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M5PA (A5 B5 S5 S5) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+M5PB (B5 A5 S5 S5) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 m=1 ad=0.5655 as=0.5655 pd=4.48 ps=4.48
+C5A (A5 CLKA) capacitor c=1.17p
+C5B (B5 CLKB) capacitor c=1.17p
+C5S (S5 GND) capacitor c=2.1p
+M6NA (A6 B6 S5 S5) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M6NB (B6 A6 S5 S5) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 m=1 ad=0.174 as=0.174 pd=1.78 ps=1.78
+M6PA (A6 B6 OUT OUT) sky130_fd_pr__pfet_g5v0d10v5 w=0.8 l=0.6 nf=1 m=1 ad=0.232 as=0.232 pd=2.18 ps=2.18
+M6PB (B6 A6 OUT OUT) sky130_fd_pr__pfet_g5v0d10v5 w=0.8 l=0.6 nf=1 m=1 ad=0.232 as=0.232 pd=2.18 ps=2.18
+C6A (A6 CLKA) capacitor c=1.17p
+C6B (B6 CLKB) capacitor c=1.17p
+C6S (OUT GND) capacitor c=120p
+ends NVM_CP
+DUT (VDD CLKA CLKB OUT 0) NVM_CP
+VDD_SRC (VDD 0) vsource dc=3.3
+CLK_A (CLKA 0) vsource type=pulse val0=0 val1=3.3 delay=1n rise=1n fall=1n width=22n period=50n
+CLK_B (CLKB 0) vsource type=pulse val0=0 val1=3.3 delay=26n rise=1n fall=1n width=22n period=50n
+RLOAD (OUT 0) resistor r=1M
+simulatorOptions options scale=1e-6 reltol=1e-5 vabstol=1e-8 iabstol=1e-13 temp=125 tnom=27
+tran tran stop=300u maxstep=0.5n skipdc=yes errpreset=conservative
+save OUT VDD CLKA CLKB VDD_SRC:p CLK_A:p CLK_B:p DUT.S1 DUT.S2 DUT.S3 DUT.S4 DUT.S5 DUT.A1 DUT.B1 DUT.A2 DUT.B2 DUT.A3 DUT.B3 DUT.A4 DUT.B4 DUT.A5 DUT.B5 DUT.A6 DUT.B6
+saveOptions options save=selected

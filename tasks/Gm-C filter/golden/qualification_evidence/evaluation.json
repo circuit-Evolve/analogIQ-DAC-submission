@@ -1,0 +1,1622 @@
+{
+  "label": "longcross_dense_verify_7f88aea73747",
+  "design": {
+    "input_p_w": 1.616373198494229e-06,
+    "input_p_l": 1e-07,
+    "input_n_w": 6.91011125473508e-07,
+    "input_n_l": 1e-07,
+    "cross_n_w": 6.097387050451806e-07,
+    "cross_n_l": 2.1971700680460613e-07,
+    "cross_p_w": 5.76537527379325e-07,
+    "cross_p_l": 1.2761518665623804e-07,
+    "load_n_w": 3.312031907215333e-07,
+    "load_n_l": 1.0581221839827198e-07,
+    "load_p_w": 5.266863858166174e-07,
+    "load_p_l": 1.6428751788715384e-07,
+    "cm_out_n_w": 8.801419180712912e-07,
+    "cm_out_n_l": 2.1179831998512523e-07,
+    "cm_out_p_w": 2.460619766730277e-06,
+    "cm_out_p_l": 1.1757870980803943e-07,
+    "cm_node_n_w": 1.4197553124291605e-06,
+    "cm_node_n_l": 4.783452882664011e-07,
+    "cm_node_p_w": 8.748789928694398e-07,
+    "cm_node_p_l": 3.556196510507261e-07,
+    "cm_fb_n_w": 3.445955075140213e-07,
+    "cm_fb_n_l": 2.88066950542238e-07,
+    "cm_fb_p_w": 1.19871740118854e-06,
+    "cm_fb_p_l": 1.9370711174580699e-07,
+    "bias_n_w": 6.245442150019207e-07,
+    "bias_n_l": 2.1967325249632536e-07,
+    "bias_p_w": 2.922769224210927e-06,
+    "bias_p_l": 2.379293521829501e-07,
+    "cap_b_F": 7.884111169815835e-13,
+    "cap_d_F": 3.2331646491198457e-12,
+    "vt_bias_V": 0.5647580330549347,
+    "M19_w": 1.8948106084351113e-06,
+    "M19_l": 4.139611362942147e-07,
+    "M23_w": 2.5646499510126416e-06,
+    "M23_l": 4.7458098123342276e-07,
+    "M20_w": 1.4532706843959067e-06,
+    "M20_l": 2.697555715275229e-07,
+    "M24_w": 2.4142877712775313e-06,
+    "M24_l": 2.22979261268972e-07,
+    "M25_w": 7.145921500956735e-07,
+    "M25_l": 1.8376225872228054e-07,
+    "M28_w": 3.130736243000742e-06,
+    "M28_l": 2.511109326302167e-07,
+    "feedback_n_w": 6.834583309357679e-07,
+    "feedback_n_l": 1.0012820146194029e-07,
+    "feedback_p_w": 1.031433708291801e-06,
+    "feedback_p_l": 1e-07
+  },
+  "full": true,
+  "corners": [
+    {
+      "id": "NN_V0.9_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 44.37495223561594,
+        "OTA_unity_gain_frequency_Hz": 10596799440.073414,
+        "OTA_phase_margin_deg": 85.67984820634047,
+        "OTA_common_mode_gain_dB": -26.708420222227787,
+        "Filter_cutoff_Hz": 12914644.660112962,
+        "Filter_input_noise_nV_sqrtHz": 68.10425872367861
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 0.517057910735337,
+        "filter_peak_gain_dB": 0.5170642856000792,
+        "filter_peaking_above_dc_dB": 6.374864742238806e-06,
+        "corner": {
+          "id": "NN_V0.9_T+27",
+          "model_set": "NN",
+          "process": "NN",
+          "supply_V": 0.9,
+          "temperature_C": 27,
+          "VREF_V": 0.45,
+          "input_common_mode_V": 0.45,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 0.517057910735337,
+          "peak_gain_dB": 0.5170642856000792,
+          "peaking_above_dc_dB": 6.37486474219795e-06,
+          "peak_frequency_Hz": 10139.11385736803,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.16986223995826,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2646123950034962,
+            "corner": {
+              "id": "NN_V0.9_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 0.9,
+              "temperature_C": 27,
+              "VREF_V": 0.45,
+              "input_common_mode_V": 0.45,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "9ebb0e0f280763a5a6d2db7f286c942442df4339e17f6db8f757ecd98a9ee5f3",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.908272409
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.26401932499720715,
+            "corner": {
+              "id": "NN_V0.9_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 0.9,
+              "temperature_C": 27,
+              "VREF_V": 0.45,
+              "input_common_mode_V": 0.45,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "18bd17dcd95af781ab6ee817c13f3f2986a465f4e8d27200bf5d403ac1bed81a",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.908272409
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 2.003191821000655,
+            "corner": {
+              "id": "NN_V0.9_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 0.9,
+              "temperature_C": 27,
+              "VREF_V": 0.45,
+              "input_common_mode_V": 0.45,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "ecc3ee465ed9d61bf62eff8ad0edcd98da2aaaa0eb65dd8bd90a56277537b1fd",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.908272409
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "NN_V1.0_T-40",
+      "values": {
+        "OTA_differential_gain_dB": 33.915235522670216,
+        "OTA_unity_gain_frequency_Hz": 15796030159.333504,
+        "OTA_phase_margin_deg": 84.1806800592803,
+        "OTA_common_mode_gain_dB": -26.15072020090601,
+        "Filter_cutoff_Hz": 18596349.708503682,
+        "Filter_input_noise_nV_sqrtHz": 62.118438480356815
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 1.6274214902702642,
+        "filter_peak_gain_dB": 1.6274265907889829,
+        "filter_peaking_above_dc_dB": 5.100518719434576e-06,
+        "corner": {
+          "id": "NN_V1.0_T-40",
+          "model_set": "NN",
+          "process": "NN",
+          "supply_V": 1.0,
+          "temperature_C": -40,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 1.6274214902702624,
+          "peak_gain_dB": 1.6274265907889829,
+          "peaking_above_dc_dB": 5.1005187204911095e-06,
+          "peak_frequency_Hz": 13061.70888132006,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.07665453260192,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.26446291399770416,
+            "corner": {
+              "id": "NN_V1.0_T-40",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": -40,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "0c33e953dd7afa07dc3388e778d9c64617862e468efda31824699d83c64cfa80",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.908508159
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2644823750015348,
+            "corner": {
+              "id": "NN_V1.0_T-40",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": -40,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "4955553e2ef7d26741c97a8533a599b35cfc5becf5009e4a7cc6bc659bb6eecc",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.908508159
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.9202298279997194,
+            "corner": {
+              "id": "NN_V1.0_T-40",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": -40,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "0ea14435747037b3bb89dbcc387c741456db79c77ae9c8caa9f07c0d1903402d",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.908508159
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "NN_V1.0_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 47.892503776718456,
+        "OTA_unity_gain_frequency_Hz": 12370513694.965649,
+        "OTA_phase_margin_deg": 85.57332463569423,
+        "OTA_common_mode_gain_dB": -25.486642289642557,
+        "Filter_cutoff_Hz": 14948751.437032735,
+        "Filter_input_noise_nV_sqrtHz": 74.56601146187627
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 0.5573030757068358,
+        "filter_peak_gain_dB": 0.5573057327611205,
+        "filter_peaking_above_dc_dB": 2.6570542852772665e-06,
+        "corner": {
+          "id": "NN_V1.0_T+27",
+          "model_set": "NN",
+          "process": "NN",
+          "supply_V": 1.0,
+          "temperature_C": 27,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": true
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 0.5573030757068358,
+          "peak_gain_dB": 0.5573057327611205,
+          "peaking_above_dc_dB": 2.657054284704863e-06,
+          "peak_frequency_Hz": 15275.66058238268,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.135072690083845,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.21420164599840064,
+            "corner": {
+              "id": "NN_V1.0_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": true
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "9c6745189de10e7304afdfc9afa6af182a8c5001776a57b0f05cec67a7ed7735",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.912284018
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2642351350004901,
+            "corner": {
+              "id": "NN_V1.0_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": true
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "286c12350a7d89b7d20ba4aaded57c6face6b485c9194330fea9f11a4a90feb0",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.912284018
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.8160382800051593,
+            "corner": {
+              "id": "NN_V1.0_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": true
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "9610256c3c4906d1dbea51779822e19a8e7982b79ff94be0e4044aea32202b9c",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43166.912284018
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "NN_V1.0_T+85",
+      "values": {
+        "OTA_differential_gain_dB": 35.69555433252089,
+        "OTA_unity_gain_frequency_Hz": 10366095537.895893,
+        "OTA_phase_margin_deg": 86.29008895521503,
+        "OTA_common_mode_gain_dB": -24.800791543386957,
+        "Filter_cutoff_Hz": 12641013.319000144,
+        "Filter_input_noise_nV_sqrtHz": 83.53864975524566
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 0.03205252134626932,
+        "filter_peak_gain_dB": 0.032057045306873214,
+        "filter_peaking_above_dc_dB": 4.523960603316538e-06,
+        "corner": {
+          "id": "NN_V1.0_T+85",
+          "model_set": "NN",
+          "process": "NN",
+          "supply_V": 1.0,
+          "temperature_C": 85,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 0.0320525213462674,
+          "peak_gain_dB": 0.032057045306873214,
+          "peaking_above_dc_dB": 4.523960605816446e-06,
+          "peak_frequency_Hz": 8356.030182313478,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.1663474775018,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.23276748100033728,
+            "corner": {
+              "id": "NN_V1.0_T+85",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": 85,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "163e9e3b15bfa888579a7ef70c69890c7644f1eb71a43f6611056767f0c1b924",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43169.685288938
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2358794699975988,
+            "corner": {
+              "id": "NN_V1.0_T+85",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": 85,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "46bbff69b82c44fc8769141f65b41ac6c8eaad48d71a9bd6cac08b19adb3b634",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43169.685288938
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.7660103119997075,
+            "corner": {
+              "id": "NN_V1.0_T+85",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.0,
+              "temperature_C": 85,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "d34a007db8341ffa70bc44b629fe55061b11d98cc8d076c2b848966afe5f3787",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43169.685288938
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "NN_V1.1_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 45.923594750637534,
+        "OTA_unity_gain_frequency_Hz": 13710975272.61242,
+        "OTA_phase_margin_deg": 85.63966119028149,
+        "OTA_common_mode_gain_dB": -24.2150648966996,
+        "Filter_cutoff_Hz": 16577204.631331677,
+        "Filter_input_noise_nV_sqrtHz": 84.02191151059378
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 0.4329303033197129,
+        "filter_peak_gain_dB": 0.43293721948713676,
+        "filter_peaking_above_dc_dB": 6.916167423983225e-06,
+        "corner": {
+          "id": "NN_V1.1_T+27",
+          "model_set": "NN",
+          "process": "NN",
+          "supply_V": 1.1,
+          "temperature_C": 27,
+          "VREF_V": 0.55,
+          "input_common_mode_V": 0.55,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 0.4329303033197129,
+          "peak_gain_dB": 0.43293721948713676,
+          "peaking_above_dc_dB": 6.9161674238760185e-06,
+          "peak_frequency_Hz": 13551.89412351207,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.137836024384214,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2702197230028105,
+            "corner": {
+              "id": "NN_V1.1_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.1,
+              "temperature_C": 27,
+              "VREF_V": 0.55,
+              "input_common_mode_V": 0.55,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "fb909de836b8e6d7875a35b41fb3842dcc750f852354eab05ae232139d4829a2",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43170.350397099
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2696781330014346,
+            "corner": {
+              "id": "NN_V1.1_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.1,
+              "temperature_C": 27,
+              "VREF_V": 0.55,
+              "input_common_mode_V": 0.55,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "d2dd5dfc02901c7a5196534a7aa9f620486b76c1123b3341441faa2c96c032a6",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43170.350397099
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.8683190699957777,
+            "corner": {
+              "id": "NN_V1.1_T+27",
+              "model_set": "NN",
+              "process": "NN",
+              "supply_V": 1.1,
+              "temperature_C": 27,
+              "VREF_V": 0.55,
+              "input_common_mode_V": 0.55,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "9f82716f45c5e791675ee9de6e0e6006480809df605cf38ed490d8bf66c073b4",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43170.350397099
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "SS_V1.0_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 54.52161164862837,
+        "OTA_unity_gain_frequency_Hz": 8501410192.662767,
+        "OTA_phase_margin_deg": 85.08446376707197,
+        "OTA_common_mode_gain_dB": -26.10003840775733,
+        "Filter_cutoff_Hz": 10002115.427397707,
+        "Filter_input_noise_nV_sqrtHz": 71.24679859587586
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 0.6848422324368314,
+        "filter_peak_gain_dB": 0.6848483495426896,
+        "filter_peaking_above_dc_dB": 6.11710585831335e-06,
+        "corner": {
+          "id": "SS_V1.0_T+27",
+          "model_set": "SS",
+          "process": "SS",
+          "supply_V": 1.0,
+          "temperature_C": 27,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 0.6848422324368296,
+          "peak_gain_dB": 0.6848483495426896,
+          "peaking_above_dc_dB": 6.117105859959615e-06,
+          "peak_frequency_Hz": 11694.99391020016,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.11349977390646,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.26405832499585813,
+            "corner": {
+              "id": "SS_V1.0_T+27",
+              "model_set": "SS",
+              "process": "SS",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "8f1ce201e57be079322943afe043054c29446f6f2153a3f67d3552a3eddc4576",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43170.478966072
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2641591249994235,
+            "corner": {
+              "id": "SS_V1.0_T+27",
+              "model_set": "SS",
+              "process": "SS",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "ad1d3668d303f91dd3cefe7fcc602ef30fdbea1a601550408ad2b22c21723d32",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43170.478966072
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.7770678890010458,
+            "corner": {
+              "id": "SS_V1.0_T+27",
+              "model_set": "SS",
+              "process": "SS",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "05ca2709ebb7935309acd5f1f33b5a5c6c2a274afbc812bad8282d16d97bd37c",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43170.478966072
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "SF_V1.0_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 33.15570245586786,
+        "OTA_unity_gain_frequency_Hz": 12235846177.468985,
+        "OTA_phase_margin_deg": 86.54157976301954,
+        "OTA_common_mode_gain_dB": -25.48599704057481,
+        "Filter_cutoff_Hz": 12818212.508315269,
+        "Filter_input_noise_nV_sqrtHz": 60.040769309629034
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 2.5321598512951193,
+        "filter_peak_gain_dB": 2.532164766783847,
+        "filter_peaking_above_dc_dB": 4.915488726839266e-06,
+        "corner": {
+          "id": "SF_V1.0_T+27",
+          "model_set": "SF",
+          "process": "SF",
+          "supply_V": 1.0,
+          "temperature_C": 27,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 2.5321598512951176,
+          "peak_gain_dB": 2.532164766783847,
+          "peaking_above_dc_dB": 4.915488729384521e-06,
+          "peak_frequency_Hz": 8830.79900418669,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.17439723360016,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.27979169099853607,
+            "corner": {
+              "id": "SF_V1.0_T+27",
+              "model_set": "SF",
+              "process": "SF",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "2ab908648ecce67341ef0f33186d00403e4305886d6a4d8bf5bbbe09c85f46aa",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.31983624
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2296629819975351,
+            "corner": {
+              "id": "SF_V1.0_T+27",
+              "model_set": "SF",
+              "process": "SF",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "bd389276c0b4aad3ee9a2d34149ab7cd93b27c98e2ab007d3d12c0dd3d05a1c6",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.31983624
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.7661210520018358,
+            "corner": {
+              "id": "SF_V1.0_T+27",
+              "model_set": "SF",
+              "process": "SF",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "c71b05430079313c782b7463e977b6de678dcf6034e605c16f298cc3da7a0181",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.31983624
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "FS_V1.0_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 52.15450333712644,
+        "OTA_unity_gain_frequency_Hz": 12462397605.814075,
+        "OTA_phase_margin_deg": 85.14097415389999,
+        "OTA_common_mode_gain_dB": -20.402984534786775,
+        "Filter_cutoff_Hz": 15986851.593600355,
+        "Filter_input_noise_nV_sqrtHz": 80.86972482707837
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": -0.4106624012277069,
+        "filter_peak_gain_dB": -0.4106616173519389,
+        "filter_peaking_above_dc_dB": 7.838757677787465e-07,
+        "corner": {
+          "id": "FS_V1.0_T+27",
+          "model_set": "FS",
+          "process": "FS",
+          "supply_V": 1.0,
+          "temperature_C": 27,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": -0.4106624012277069,
+          "peak_gain_dB": -0.4106616173519389,
+          "peaking_above_dc_dB": 7.83875768017861e-07,
+          "peak_frequency_Hz": 4405.548635066019,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.04160988454713,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.23732829999789828,
+            "corner": {
+              "id": "FS_V1.0_T+27",
+              "model_set": "FS",
+              "process": "FS",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "8c5b501115bba07209b21fad52ba215a3724479db32f3cc1920e8930199c2e2c",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.723079865
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.23712357100157533,
+            "corner": {
+              "id": "FS_V1.0_T+27",
+              "model_set": "FS",
+              "process": "FS",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "aa1af2376eb37580f718823722d7ff94fb03a4c775824b67c624089ed3a41dbc",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.723079865
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.9370142849948024,
+            "corner": {
+              "id": "FS_V1.0_T+27",
+              "model_set": "FS",
+              "process": "FS",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "7fe3a69c4f8e51b5c21b75d70d8e13966a997b3bb63317b4bd73fa4bc1964c6b",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.723079865
+          }
+        }
+      },
+      "execution_ok": true
+    },
+    {
+      "id": "FF_V1.0_T+27",
+      "values": {
+        "OTA_differential_gain_dB": 44.879051557573526,
+        "OTA_unity_gain_frequency_Hz": 16113912048.420181,
+        "OTA_phase_margin_deg": 85.83697488988389,
+        "OTA_common_mode_gain_dB": -25.14899285192137,
+        "Filter_cutoff_Hz": 19997462.324435532,
+        "Filter_input_noise_nV_sqrtHz": 78.61059580232867
+      },
+      "diagnostics": {
+        "errors": {},
+        "profile": "search_full",
+        "nominal_only": false,
+        "paper_exact_reproduction": false,
+        "nonlinear": {
+          "OTA_input_P1dB_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          },
+          "OTA_IIP3_dBm": {
+            "value": null,
+            "diagnostic_only": true,
+            "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS"
+          }
+        },
+        "filter_dc_gain_dB": 0.652786135282704,
+        "filter_peak_gain_dB": 0.6527912026738468,
+        "filter_peaking_above_dc_dB": 5.067391143363705e-06,
+        "corner": {
+          "id": "FF_V1.0_T+27",
+          "model_set": "FF",
+          "process": "FF",
+          "supply_V": 1.0,
+          "temperature_C": 27,
+          "VREF_V": 0.5,
+          "input_common_mode_V": 0.5,
+          "nominal": false
+        },
+        "filter_response": {
+          "full_four_OTA_filter": true,
+          "ac_start_Hz": 1.0,
+          "ac_stop_Hz": 100000000000.0,
+          "samples": 5501,
+          "dc_gain_dB": 0.652786135282704,
+          "peak_gain_dB": 0.6527912026738468,
+          "peaking_above_dc_dB": 5.067391142810074e-06,
+          "peak_frequency_Hz": 13995.87322572795,
+          "falling_relative_3dB_crossings": 1,
+          "rising_relative_3dB_crossings": 0,
+          "cutoff_valid": true,
+          "lowpass_endpoint_below_relative_3dB": true,
+          "response_order_verified": false,
+          "stability_verified": false,
+          "diagnostic_only": true,
+          "note": "First falling DC-relative crossing retained. Peaking and repeated crossings are diagnostic; no extra optimization acceptance targets.",
+          "slope_3fc_to_30fc_dB_dec": -63.16077533914496,
+          "reconstruction": "four capacitor-loaded OTA stages with physical diode-inverter damping",
+          "paper_exact": false,
+          "no_ideal_signal_path_elements": true,
+          "strict_shape_screen": true
+        },
+        "jobs": {
+          "OTA_DIFF": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.2639181650010869,
+            "corner": {
+              "id": "FF_V1.0_T+27",
+              "model_set": "FF",
+              "process": "FF",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_DIFF",
+            "deck_sha256": "00c38dc8ac3c4b8b6010b6379495a8b79d8cbe4b066f4f820d782071fd0d6e7d",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.775264814
+          },
+          "OTA_CM": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.263860625003872,
+            "corner": {
+              "id": "FF_V1.0_T+27",
+              "model_set": "FF",
+              "process": "FF",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "OTA_CM",
+            "deck_sha256": "ce3a4ceb42272039dff68f23e0b5985c7ceab8122b6b5544cea8bf724336dee4",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.775264814
+          },
+          "FILTER_AC_NOISE": {
+            "returncode": 0,
+            "error": null,
+            "wall_s": 1.8775568179989932,
+            "corner": {
+              "id": "FF_V1.0_T+27",
+              "model_set": "FF",
+              "process": "FF",
+              "supply_V": 1.0,
+              "temperature_C": 27,
+              "VREF_V": 0.5,
+              "input_common_mode_V": 0.5,
+              "nominal": false
+            },
+            "job": "FILTER_AC_NOISE",
+            "deck_sha256": "7a5efe59393de6e413d5899a4ebe58d966cc92e2420a5e17d324f2ad50ee2377",
+            "command": [
+              "/opt/cadence/bin/spectre",
+              "input.scs",
+              "-format",
+              "psfascii",
+              "-raw",
+              "raw",
+              "+log",
+              "spectre.log"
+            ],
+            "nominal_only": false,
+            "launched": true,
+            "effective_timeout_s": 120.0,
+            "evaluator_deadline_monotonic": 43173.775264814
+          }
+        }
+      },
+      "execution_ok": true
+    }
+  ],
+  "paper_exact": false,
+  "acceptance_limits": {
+    "OTA_differential_gain_dB": {
+      "lower": 33.15,
+      "upper": null
+    },
+    "OTA_unity_gain_frequency_Hz": {
+      "lower": 8500000000.0,
+      "upper": null
+    },
+    "OTA_phase_margin_deg": {
+      "lower": 67.15,
+      "upper": 90.85
+    },
+    "OTA_common_mode_gain_dB": {
+      "lower": null,
+      "upper": -20.4
+    },
+    "Filter_cutoff_Hz": {
+      "lower": 10000000.0,
+      "upper": 20000000.0
+    },
+    "Filter_input_noise_nV_sqrtHz": {
+      "lower": null,
+      "upper": 97.75
+    }
+  },
+  "grade": {
+    "all_pass": 9,
+    "scalar_pass": 54,
+    "total_corners": 9,
+    "total_tests": 54,
+    "loss": 0.0,
+    "missing": 0,
+    "metric_pass_counts": {
+      "OTA_differential_gain_dB": 9,
+      "OTA_unity_gain_frequency_Hz": 9,
+      "OTA_phase_margin_deg": 9,
+      "OTA_common_mode_gain_dB": 9,
+      "Filter_cutoff_Hz": 9,
+      "Filter_input_noise_nV_sqrtHz": 9
+    },
+    "corner_pass": {
+      "NN_V0.9_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "NN_V1.0_T-40": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "NN_V1.0_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "NN_V1.0_T+85": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "NN_V1.1_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "SS_V1.0_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "SF_V1.0_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "FS_V1.0_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      },
+      "FF_V1.0_T+27": {
+        "OTA_differential_gain_dB": true,
+        "OTA_unity_gain_frequency_Hz": true,
+        "OTA_phase_margin_deg": true,
+        "OTA_common_mode_gain_dB": true,
+        "Filter_cutoff_Hz": true,
+        "Filter_input_noise_nV_sqrtHz": true
+      }
+    }
+  },
+  "qualification_scope": "Dense54/54 and physical9/9 verified; frozen-model replay recorded separately"
+}

@@ -1,0 +1,93 @@
+{
+ "task": "telescopic01_scl180_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 16008,
+ "wall_s": 19253.9,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 3,
+ "llm_cost_usd": 0.420151,
+ "llm_cost_usd_recorded": 0.2100756,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.9016745345358143
+  },
+  {
+   "phase": 2,
+   "evals": 501,
+   "best_score": 0.9794119226654004
+  },
+  {
+   "phase": 3,
+   "evals": 501,
+   "best_score": 0.9875307861819437
+  },
+  {
+   "phase": 4,
+   "evals": 301,
+   "best_score": 0.9892409813995492
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 0.9972439657460029
+  }
+ ],
+ "best": {
+  "eval": 1999,
+  "round": 5,
+  "f": 0.014562085669876646,
+  "loss": 0.015256034253997065,
+  "reward": 0.9972439657460029,
+  "score": 0.9972439657460029,
+  "targets_met": 18,
+  "targets": 20,
+  "valid": false,
+  "feasible": false,
+  "worst_margin": -0.18417886749604917,
+  "objective": null,
+  "params": {
+   "W_M1": 2.673760046363298e-06,
+   "L_M1": 7.102696704249223e-07,
+   "W_M3": 9.330522659541516e-05,
+   "L_M3": 1.3723083688574695e-05,
+   "W_M9": 1.9117971318924957e-06,
+   "L_M9": 2.439473441289902e-07,
+   "W_M11": 9.46336589241211e-07,
+   "L_M11": 3.0542251755465164e-07,
+   "W_M5": 1.8294346220934813e-05,
+   "L_M5": 6.01066439148525e-06,
+   "W_M6": 6.474847356411005e-07,
+   "L_M6": 2.55183739278281e-06,
+   "W_M7": 5.0825416601925085e-06,
+   "L_M7": 6.728089419637981e-06,
+   "W_M8": 5.106518358532519e-06,
+   "L_M8": 2.2870951288540168e-07,
+   "N_M8": 28.0,
+   "CC": 3.9718893974041044e-11,
+   "RZ": 181233.0850054559,
+   "IBIAS": 3.435469810485648e-05,
+   "VB1": 0.02663821937385832,
+   "VB2": 1.5434719926299778,
+   "M_M1": 88.0,
+   "M_M3": 88.0,
+   "M_M9": 8.0,
+   "M_M11": 65.0,
+   "M_M5": 61.0,
+   "M_M6": 68.0,
+   "M_M7": 82.0
+  }
+ }
+}

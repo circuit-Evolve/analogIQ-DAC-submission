@@ -1,0 +1,95 @@
+{
+ "task": "ldo24c_conventional_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 38019,
+ "wall_s": 5434.7,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 3,
+ "llm_cost_usd": 0.634205,
+ "llm_cost_usd_recorded": 0.3171024,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 400,
+   "best_score": 0.7183470250452368
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.8010206527686274
+  },
+  {
+   "phase": 3,
+   "evals": 401,
+   "best_score": 0.9309275793887009
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.9445072780107964
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 0.9793810506452506
+  }
+ ],
+ "best": {
+  "eval": 1972,
+  "round": 5,
+  "f": 0.03188413051435535,
+  "loss": 0.020618949354749394,
+  "reward": 0.9793810506452506,
+  "score": 0.9793810506452506,
+  "targets_met": 30,
+  "targets": 36,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -0.20611754787640613,
+  "objective": null,
+  "params": {
+   "W_IN": 1.5936880648657712e-06,
+   "L_IN": 6.507525300435609e-06,
+   "M_IN": 22.0,
+   "W_BD": 2.6842695239348986e-06,
+   "L_BD": 2.1561350250902504e-06,
+   "W_TL": 6.008272878314732e-05,
+   "L_TL": 1.0550079513809859e-05,
+   "M_TL": 86.0,
+   "W_ML": 1.021418596525514e-06,
+   "L_ML": 3.150079488137931e-06,
+   "W_MS": 8.020425387876768e-07,
+   "L_MS": 3.8530711733390325e-06,
+   "W_NM": 4.295676162172462e-07,
+   "L_NM": 9.268679347201586e-06,
+   "W_CS": 6.090949337224889e-07,
+   "L_CS": 4.583815236462811e-06,
+   "W_FOL": 4.937894124439993e-07,
+   "L_FOL": 3.082917079408827e-07,
+   "W_PASS": 1.5953151527208876e-05,
+   "L_PASS": 2.886971447432239e-07,
+   "M_PASS": 61.0,
+   "R_FB1": 225575.0362831844,
+   "R_FB2": 966341.2091713127,
+   "C_FF": 6.349579790989539e-12,
+   "I_BIAS": 1.862746054395056e-07,
+   "M_BD": 90.0,
+   "M_ML": 15.0,
+   "M_MS": 6.0,
+   "M_NM": 3.0,
+   "M_CS": 18.0,
+   "M_FOL": 24.0
+  }
+ }
+}

@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_ldo_ifx_task_001",
+  "task_id": "ldo_ifx_task_001",
+  "topology_id": "ldo_ifx",
+  "candidate_hash": "5eb7b0387f8b7e56c699052f7eeb5eaa466a5845a726df9d0e4dd1697de89fd3",
+  "evaluator_hash": "8dbf58647fe839e9ff5b23bffcf302b76a846e4f18f64e58af085576adc95c31",
+  "digests": {
+    "task": "7348256459949dea81431cab967bdf0b909d90c9250904e7c088a062b17d6f6f",
+    "candidate": "5eb7b0387f8b7e56c699052f7eeb5eaa466a5845a726df9d0e4dd1697de89fd3",
+    "parameterization": "5b19d16f02c32999983887c1df6545ddb69a014e3572fe131efde7c34b9fdbff",
+    "dut_source_netlist": "0bfbe7a055fbc326e66ab3707114237b53dcba818e2512202b48631cf998efa3",
+    "dut_subckt": "eee854a43f6d643e017097855efd25e680b6961bfe3d295198b6f72ecba67733",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "a68c1442de98cbcaae2a9445d12e5b5b9bdd777e0cbf9537a4c9cdd6db974b1b",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "8dbf58647fe839e9ff5b23bffcf302b76a846e4f18f64e58af085576adc95c31"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 22,
+    "completed_measurement_checks": 22,
+    "valid_measurement_checks": 22
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "vout_boot_V",
+      "value": 1.4992362899287952,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "vout_boot_lo",
+        "vout_boot_hi"
+      ],
+      "constraint": {
+        "upper": 1.65
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "reg_err_boot_V",
+      "value": 0.0008025663199793254,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "reg_err_boot"
+      ],
+      "constraint": {
+        "upper": 0.005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "reg_err_supply_V",
+      "value": 0.0011682490971181014,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "reg_err_supply"
+      ],
+      "constraint": {
+        "upper": 0.005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "reg_err_enable_V",
+      "value": 0.002888607969725232,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "reg_err_enable"
+      ],
+      "constraint": {
+        "upper": 0.005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "reg_err_vref_V",
+      "value": 0.0009318610924129445,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "reg_err_vref"
+      ],
+      "constraint": {
+        "upper": 0.005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "reg_err_load_V",
+      "value": 0.0012104063937232734,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "reg_err_load"
+      ],
+      "constraint": {
+        "upper": 0.005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settle_dev_max_V",
+      "value": 0.0037780061560173106,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "settle_dev_max"
+      ],
+      "constraint": {
+        "upper": 0.007
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "idle_vout_max_V",
+      "value": -1.806932340955016e-05,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "idle_vout_max"
+      ],
+      "constraint": {
+        "upper": 0.01
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "flag_errors",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "flag_errors"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "checker_failures",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "checker_failures"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0147428194923786,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_sequence_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "uv_threshold_rising_V",
+      "value": 3.0874493927002535,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_monitor_v1",
+      "constraints": [
+        "uv_threshold_lo",
+        "uv_threshold_hi"
+      ],
+      "constraint": {
+        "upper": 3.3396
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "uv_threshold_falling_V",
+      "value": 2.9624472573704983,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_monitor_v1"
+    },
+    {
+      "metric": "ov_threshold_rising_V",
+      "value": 3.637457044681434,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_monitor_v1",
+      "constraints": [
+        "ov_threshold_lo",
+        "ov_threshold_hi"
+      ],
+      "constraint": {
+        "upper": 4.0656
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ov_threshold_falling_V",
+      "value": 3.487455197141172,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_monitor_v1"
+    },
+    {
+      "metric": "uv_hysteresis_V",
+      "value": 0.049440844565625364,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_monitor_v1",
+      "constraints": [
+        "uv_hysteresis_lo",
+        "uv_hysteresis_hi"
+      ],
+      "constraint": {
+        "upper": 0.052250000000000005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ov_hysteresis_V",
+      "value": 0.05049662195595417,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "ifx_ldo_monitor_v1",
+      "constraints": [
+        "ov_hysteresis_lo",
+        "ov_hysteresis_hi"
+      ],
+      "constraint": {
+        "upper": 0.052250000000000005
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "vout_boot_lo": {
+      "value": 1.4992362899287952,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "vout_boot_hi": {
+      "value": 1.4992362899287952,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "uv_threshold_lo": {
+      "value": 3.0874493927002535,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "uv_threshold_hi": {
+      "value": 3.0874493927002535,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "ov_threshold_lo": {
+      "value": 3.637457044681434,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "ov_threshold_hi": {
+      "value": 3.637457044681434,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "uv_hysteresis_lo": {
+      "value": 0.049440844565625364,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "uv_hysteresis_hi": {
+      "value": 0.049440844565625364,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "ov_hysteresis_lo": {
+      "value": 0.05049662195595417,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "ov_hysteresis_hi": {
+      "value": 0.05049662195595417,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "reg_err_boot": {
+      "value": 0.0008025663199793254,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "reg_err_supply": {
+      "value": 0.0011682490971181014,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "reg_err_enable": {
+      "value": 0.002888607969725232,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "reg_err_vref": {
+      "value": 0.0009318610924129445,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "reg_err_load": {
+      "value": 0.0012104063937232734,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "settle_dev_max": {
+      "value": 0.0037780061560173106,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "idle_vout_max": {
+      "value": -1.806932340955016e-05,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "flag_errors": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "checker_failures": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "tt_T27_S1p00/ifx_ldo_sequence_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 8 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 78.641,
+      "cpu_s": 68.0
+    },
+    {
+      "job_id": "tt_T27_S1p00/ifx_ldo_monitor_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 18 warnings, and 25 notices",
+      "extraction_error": null,
+      "wall_s": 11.456,
+      "cpu_s": 9.1
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 2,
+    "analysis_executions": 3,
+    "condition_evaluations": 1,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 77.1,
+    "execution_wall_s": 80.813,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo_ifx_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo_ifx_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo_ifx_task_001/tt_T27_S1p00/ifx_ldo_sequence_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo_ifx_task_001/tt_T27_S1p00/ifx_ldo_monitor_v1"
+    ]
+  }
+}

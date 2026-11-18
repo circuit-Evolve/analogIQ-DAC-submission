@@ -1,0 +1,5974 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_fcrobust01_task_001",
+  "task_id": "fcrobust01_task_001",
+  "topology_id": "fcrobust01_arxiv_2207",
+  "candidate_hash": "eaebf39efa854825740bc322b2c9f490fb25cab32907f21a2569417aaf416167",
+  "evaluator_hash": "b6d5b7524f9811c4973398ce8fc9b54dfa42aa7c25bcef15660d439523109ac5",
+  "digests": {
+    "task": "44c296dc517da13dfd362205bf5d4c131b2698fc8571bbed13af7d4c129bc881",
+    "candidate": "eaebf39efa854825740bc322b2c9f490fb25cab32907f21a2569417aaf416167",
+    "parameterization": "161b840754c5e0ef9d7379103324453d192b2edd2baace5ad7f6b6576126d7d4",
+    "dut_source_netlist": "39ef5d4d0996f607ee30692cc0a5ca62f148c6d08331ebba9e9848155940840a",
+    "dut_subckt": "0a8a2e2759534c5ed14154c74206e2074fb43391a52279e1f2387a01826bc323",
+    "models": "bed33ed697b2dd877570379c9a01162dc37bf2c2654757e9e935af43b2047f72",
+    "recipes": "b5fa79ed3e0f582b3199426e928cfe4e5e309e0bb67d4e3da6cb28810e4c57fd",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "b6d5b7524f9811c4973398ce8fc9b54dfa42aa7c25bcef15660d439523109ac5"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 143,
+    "completed_measurement_checks": 143,
+    "valid_measurement_checks": 143
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.8635729385e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84429433818,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0700659044275741,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 69.928724353,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 9041.0588326,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 28356688.532748885,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45388444.952,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 57.224780664,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.6307243583,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 222.447995673,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 204.01664236300002,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 218.334652553,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.635929793e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.86855597292,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.054522852846875886,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 64.933600348,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 12034.077151,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 21236982.483888,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 30303669.345,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 73.620141499,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 11.153495762,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-222 dB, 287 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-207 dB, 272 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-231 dB, 296 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "NN_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.8752753954e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84397947056,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 3.3306690739e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.07005550781272532,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 69.722378867,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 9249.1157484,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 28328211.604078505,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45112681.839,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 57.292122166,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.6463843893,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 236.144333347,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 206.682548497,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 236.417444317,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.6745414964e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.86861661393,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.05451961820673551,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 64.762008113,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 12257.585819,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 21208275.10270628,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 30147571.237,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 73.478017838,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 11.166569808,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-210 dB, 275 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-210 dB, 274 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-232 dB, 296 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "NN_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.7584505665e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84966058703,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.07214876128363898,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 70.909422437,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 7821.624251,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 27464270.669934873,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45017545.679,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 54.554397405,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.3289821278,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 173.725630847,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 181.780673947,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 174.96829649699998,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.5415900578e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.87514930492,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0572699717645187,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 66.366201178,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 9892.5802049,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 20588259.75373262,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 30875164.088,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 71.226507636,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.745389346,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-231 dB, 298 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 231.591936148,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-219 dB, 285 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.776909472e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84879565158,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.031560949295204005,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 70.333705515,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 8344.9850417,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 27422739.510087542,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 44550543.368,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 54.891459336,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.3919191111,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 186.62738064500002,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-182 dB, 252 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 203.671188545,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.5883165867e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.87494798518,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.05726251906579949,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 66.0475589,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 10245.707284,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 20555113.968724273,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 30632117.857,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 71.154122917,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.773988985,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-228 dB, 294 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 224.54752147,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-223 dB, 289 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.9688722161e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.83997204077,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -3.3306690739e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.06843980351924481,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 68.455480576,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 10974.590765,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 29051085.428817037,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45291220.032,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 60.484900833,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.001901219,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-209 dB, 278 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 211.840963546,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 195.215551006,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.7388483994e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.86301908946,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 6.6613381478e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.052347880712548506,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 62.906096476,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 15629.815503,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 21840303.81132738,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 29646323.683,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 75.443302117,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 11.605070132,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-234 dB, 297 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-204 dB, 267 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-257 dB, 320 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.9701933885e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.83979805816,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0684285711939614,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 68.330176689,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 11124.227223,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 29025431.55443868,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45052977.768,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 60.503599389,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.001935181,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-217 dB, 286 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-193 dB, 261 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-218 dB, 287 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.7667048933e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.86313452117,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.052345460824683304,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 62.779315837,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 15840.833322,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 21814427.31771479,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 29525715.589,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 75.285263627,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 11.605983157,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-216 dB, 279 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 223.20556187699998,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-210 dB, 273 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.9475609925e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84629959312,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -2.2204460493e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0733929528779593,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 71.121974453,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 8084.7700197,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 29091518.64871023,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45280213.604,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 56.368249089,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.4866430322,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 215.09460119300002,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 205.313168623,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 206.466528023,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.6925453755e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.87144178943,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.057224818738692396,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 66.29662515,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 10587.546557,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 21858813.79717667,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 30691827.839,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 71.473605402,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.980932532,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 249.84797557000002,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 205.62862387,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 231.56261146999998,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.9445377882e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84538284606,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.04093240444734139,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 70.873725345,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 8309.9684933,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 29059333.183333606,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45001173.939,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 56.434585654,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.5043030718,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-236 dB, 307 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-203 dB, 274 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-221 dB, 292 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FS_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.7221997059e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.87118379288,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0572109903273485,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 66.062572626,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 10860.831499,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 21826882.330837887,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 30524130.236,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 71.336216101,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.995894495,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-226 dB, 292 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-209 dB, 275 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-212 dB, 278 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "FS_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.7782447996e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84334979373,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 3.3306690739e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.06724925091115999,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 68.240301888,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 10620.697477,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 27426357.509398233,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 45238897.03,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 58.602762694,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.8238772734,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-210 dB, 278 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 203.431362158,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 194.814563958,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 8.5863438734e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.86677629475,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": -1.0214051827e-14,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.052350052649201506,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 62.875841882,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 14763.535309,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 20558075.712094977,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 29606751.246,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 76.093194205,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 11.393127434,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-217 dB, 280 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-215 dB, 278 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": null,
+      "unit": "dB",
+      "status": "undefined",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": "no measurable transfer to the output (-230 dB, 293 dB below the signal path): numerical round-off in this mismatch-free simulation",
+      "source": "measure",
+      "condition_id": "SF_T100_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.8008625951e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.84319764057,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 4.4408920985e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0672456500679397,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 68.061663047,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 10831.164548,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 27400488.532673668,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 44963323.643,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 58.668226529,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 9.8390099031,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 228.760619867,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 241.37885946699998,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 223.671576947,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T0_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 7.6312835994e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0011
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.86693390041,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 1.1102230246e-16,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.052355355077593924,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 62.739000802,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 59.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 14978.879,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 20531910.035117544,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 29462068.994,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 27000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 75.94272968,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 54.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 11.405629759,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "cmrr_dB",
+      "value": 214.021540672,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_pos_dB",
+      "value": 215.04065366199998,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "psrr_neg_dB",
+      "value": 241.875766382,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T100_S0p89",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.open_loop_gain_dB",
+      "value": 69.5664685135,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_sigma.open_loop_gain_dB",
+      "value": 2.0496945401458166,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.open_loop_bandwidth_Hz",
+      "value": 9275.60733397,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_sigma.open_loop_bandwidth_Hz",
+      "value": 1909.099701510614,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.gain_bandwidth_product_Hz",
+      "value": 27509579.244252812,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_sigma.gain_bandwidth_product_Hz",
+      "value": 2943227.0645154295,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.unity_gain_frequency_Hz",
+      "value": 43020253.17245,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_sigma.unity_gain_frequency_Hz",
+      "value": 6719073.939440631,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.phase_margin_deg",
+      "value": 59.27545775725,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_sigma.phase_margin_deg",
+      "value": 12.16908967914205,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.gain_margin_dB",
+      "value": 9.889997573435,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_sigma.gain_margin_dB",
+      "value": 1.350471545050622,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.cmrr_dB",
+      "value": 75.14031258497025,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "cmrr_dB"
+      ],
+      "constraint": {
+        "lower": 74.2248501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.cmrr_dB",
+      "value": 14.144327128847754,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.psrr_pos_dB",
+      "value": 110.29915259664999,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "psrr_pos_dB"
+      ],
+      "constraint": {
+        "lower": 79.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.psrr_pos_dB",
+      "value": 9.887174755225685,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "mc_mean.psrr_neg_dB",
+      "value": 77.60837784462404,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "psrr_neg_dB"
+      ],
+      "constraint": {
+        "lower": 76.6948501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.psrr_neg_dB",
+      "value": 23.180691467078702,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T0_S1p00_MC",
+      "recipe_id": "amp_fd_ol_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "quiescent_power_W": {
+      "value": 8.9688722161e-05,
+      "unit": "W",
+      "condition_id": "FF_T0_S1p00",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "complete": true
+    },
+    "unity_gain_frequency_Hz": {
+      "value": 29462068.994,
+      "unit": "Hz",
+      "condition_id": "SF_T100_S0p89",
+      "point": {},
+      "complete": true
+    },
+    "phase_margin_deg": {
+      "value": 54.554397405,
+      "unit": "deg",
+      "condition_id": "SS_T0_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "open_loop_gain_dB": {
+      "value": 62.739000802,
+      "unit": "dB",
+      "condition_id": "SF_T100_S0p89",
+      "point": {},
+      "complete": true
+    },
+    "cmrr_dB": {
+      "value": 75.14031258497025,
+      "unit": "dB",
+      "condition_id": "NN_T0_S1p00_MC",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "complete": true
+    },
+    "psrr_pos_dB": {
+      "value": 110.29915259664999,
+      "unit": "dB",
+      "condition_id": "NN_T0_S1p00_MC",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "complete": true
+    },
+    "psrr_neg_dB": {
+      "value": 77.60837784462404,
+      "unit": "dB",
+      "condition_id": "NN_T0_S1p00_MC",
+      "point": {
+        "freq_Hz": 1.0
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T0_S1p00",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T0_S1p00",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T0_S1p00",
+      "point": {
+        "vcm_V": 1.2
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T0_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.681,
+      "cpu_s": 0.193
+    },
+    {
+      "job_id": "NN_T0_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.614,
+      "cpu_s": 0.201
+    },
+    {
+      "job_id": "NN_T100_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.705,
+      "cpu_s": 0.229
+    },
+    {
+      "job_id": "NN_T100_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.525,
+      "cpu_s": 0.212
+    },
+    {
+      "job_id": "NN_T0_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.406,
+      "cpu_s": 0.167
+    },
+    {
+      "job_id": "NN_T0_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.526,
+      "cpu_s": 0.232
+    },
+    {
+      "job_id": "NN_T100_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.576,
+      "cpu_s": 0.23600000000000002
+    },
+    {
+      "job_id": "NN_T100_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.871,
+      "cpu_s": 0.23600000000000002
+    },
+    {
+      "job_id": "SS_T0_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.395,
+      "cpu_s": 0.232
+    },
+    {
+      "job_id": "SS_T0_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.646,
+      "cpu_s": 0.214
+    },
+    {
+      "job_id": "SS_T100_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.573,
+      "cpu_s": 0.215
+    },
+    {
+      "job_id": "SS_T100_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.677,
+      "cpu_s": 0.231
+    },
+    {
+      "job_id": "SS_T0_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.523,
+      "cpu_s": 0.211
+    },
+    {
+      "job_id": "SS_T0_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.857,
+      "cpu_s": 0.23700000000000002
+    },
+    {
+      "job_id": "SS_T100_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.699,
+      "cpu_s": 0.17400000000000002
+    },
+    {
+      "job_id": "SS_T100_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.755,
+      "cpu_s": 0.219
+    },
+    {
+      "job_id": "FF_T0_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.685,
+      "cpu_s": 0.199
+    },
+    {
+      "job_id": "FF_T0_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.609,
+      "cpu_s": 0.232
+    },
+    {
+      "job_id": "FF_T100_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.42,
+      "cpu_s": 0.17400000000000002
+    },
+    {
+      "job_id": "FF_T100_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.735,
+      "cpu_s": 0.225
+    },
+    {
+      "job_id": "FF_T0_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.475,
+      "cpu_s": 0.195
+    },
+    {
+      "job_id": "FF_T0_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.873,
+      "cpu_s": 0.216
+    },
+    {
+      "job_id": "FF_T100_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.644,
+      "cpu_s": 0.191
+    },
+    {
+      "job_id": "FF_T100_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.964,
+      "cpu_s": 0.221
+    },
+    {
+      "job_id": "FS_T0_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.613,
+      "cpu_s": 0.199
+    },
+    {
+      "job_id": "FS_T0_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 1.246,
+      "cpu_s": 0.233
+    },
+    {
+      "job_id": "FS_T100_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 1.036,
+      "cpu_s": 0.203
+    },
+    {
+      "job_id": "FS_T100_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 1.083,
+      "cpu_s": 0.233
+    },
+    {
+      "job_id": "FS_T0_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.686,
+      "cpu_s": 0.233
+    },
+    {
+      "job_id": "FS_T0_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.935,
+      "cpu_s": 0.219
+    },
+    {
+      "job_id": "FS_T100_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.532,
+      "cpu_s": 0.2
+    },
+    {
+      "job_id": "FS_T100_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.861,
+      "cpu_s": 0.215
+    },
+    {
+      "job_id": "SF_T0_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.986,
+      "cpu_s": 0.196
+    },
+    {
+      "job_id": "SF_T0_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 1.004,
+      "cpu_s": 0.221
+    },
+    {
+      "job_id": "SF_T100_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.701,
+      "cpu_s": 0.17300000000000001
+    },
+    {
+      "job_id": "SF_T100_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.704,
+      "cpu_s": 0.21
+    },
+    {
+      "job_id": "SF_T0_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 2.099,
+      "cpu_s": 0.19
+    },
+    {
+      "job_id": "SF_T0_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 1.754,
+      "cpu_s": 0.17500000000000002
+    },
+    {
+      "job_id": "SF_T100_S0p89/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 1.543,
+      "cpu_s": 0.179
+    },
+    {
+      "job_id": "SF_T100_S0p89/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 1.636,
+      "cpu_s": 0.187
+    },
+    {
+      "job_id": "NN_T0_S1p00_MC/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 2 warnings, and 85 notices",
+      "extraction_error": null,
+      "wall_s": 2.387,
+      "cpu_s": 1.5
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 41,
+    "analysis_executions": 180,
+    "condition_evaluations": 21,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 9.858,
+    "execution_wall_s": 11.111,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T0_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T0_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T100_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T100_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T0_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T0_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T100_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T100_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T0_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T0_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T100_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T100_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T0_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T0_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T100_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SS_T100_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T0_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T0_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T100_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T100_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T0_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T0_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T100_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FF_T100_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T0_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T0_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T100_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T100_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T0_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T0_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T100_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/FS_T100_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T0_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T0_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T100_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T100_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T0_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T0_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T100_S0p89/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/SF_T100_S0p89/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/fcrobust01_task_001/NN_T0_S1p00_MC/amp_fd_ol_v1"
+    ]
+  }
+}

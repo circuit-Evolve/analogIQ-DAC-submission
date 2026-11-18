@@ -1,0 +1,137 @@
+{
+  "label": "compensated_final_v2_ac1200",
+  "AC_points_per_decade": 1200,
+  "design": {
+    "ota_input_w": 0.0001,
+    "ota_input_l": 1.8e-07,
+    "ota_pmirror_w": 1.4125913941239434e-05,
+    "ota_pmirror_l": 1.22625502374595e-06,
+    "ota_pload_w": 6.1419282065741296e-06,
+    "ota_pload_l": 1.8e-07,
+    "ota_nmirror_w": 3.980932864884151e-06,
+    "ota_nmirror_l": 1.2884759453474346e-06,
+    "frontend_input_w": 1.0374492223376236e-05,
+    "frontend_input_l": 5.909020196389747e-07,
+    "frontend_pmirror_w": 8.546493639963264e-06,
+    "frontend_pmirror_l": 1.8000000017999998e-07,
+    "frontend_pout_w": 6.3380058004214616e-06,
+    "frontend_pout_l": 2.8438908761359876e-07,
+    "frontend_ntail_w": 4.127970700626665e-06,
+    "frontend_ntail_l": 1.8987855409287907e-06,
+    "frontend_nout_w": 4.000000004e-07,
+    "frontend_nout_l": 8.376747565031263e-07,
+    "resistor_w": 9e-06,
+    "resistor_l": 1.8e-05,
+    "C1": 4.341334867929787e-12,
+    "C2": 8.698304155954874e-11,
+    "R3": 7245.0,
+    "OTA_IBIAS": 0.00014662828274313486,
+    "VBIAS": 0.49140457613450667,
+    "VCTRL": 0.9,
+    "OTA_input_m": 16,
+    "OTA_pmirror_m": 3,
+    "R2_w": 3.24074074074074e-05,
+    "R2_l": 1.8e-05,
+    "A1_ota_input_w": 0.0001,
+    "A1_ota_input_l": 1.8e-07,
+    "A1_ota_pmirror_w": 5.92720633909253e-06,
+    "A1_ota_pmirror_l": 1.22625502374595e-06,
+    "A1_ota_pload_w": 1.5354820516435323e-05,
+    "A1_ota_pload_l": 4.5e-07,
+    "A1_ota_nmirror_w": 4.4773176239389246e-06,
+    "A1_ota_nmirror_l": 1.2884759453474346e-06,
+    "A1_OTA_IBIAS": 0.00039999999999999996,
+    "A1_OTA_input_m": 16,
+    "A1_OTA_pmirror_m": 1,
+    "ota_ndiode_l": 1.8e-07,
+    "ota_ndiode_w": 6.254809608352391e-07,
+    "A1_ota_ndiode_l": 1.2884759453474346e-06,
+    "A1_ota_ndiode_w": 4.4773176239389246e-06
+  },
+  "design_hash": "2069936a15defd757a228e30c3fcff710ab6ba76e74f55d3cf7969ed5e51fce2",
+  "base_deck_hash": "ffb01b50c782f46615e0bc2b98e60b07e53ab8ff93bddf8eed2e6b0e11f1ba60",
+  "corners_requested": [
+    "TT",
+    "FF",
+    "SS",
+    "SF",
+    "FS"
+  ],
+  "corners": [
+    {
+      "corner": "TT",
+      "execution_ok": true,
+      "returncode": 0,
+      "values": {
+        "frequency_screen_Hz": 4083512.1994218314,
+        "power_screen_W": 0.003569825674198428,
+        "BP_noise_in": 5.251934099421993e-08,
+        "BP_noise_out": 5.897569296128164e-08,
+        "gain_at_3p98MHz": 1.1229361658929558
+      },
+      "errors": [],
+      "deck_sha256": "ffb01b50c782f46615e0bc2b98e60b07e53ab8ff93bddf8eed2e6b0e11f1ba60"
+    },
+    {
+      "corner": "FF",
+      "execution_ok": true,
+      "returncode": 0,
+      "values": {
+        "frequency_screen_Hz": 4549125.209240607,
+        "power_screen_W": 0.004118652723129701,
+        "BP_noise_in": 5.7991382630324725e-08,
+        "BP_noise_out": 4.998229284639431e-08,
+        "gain_at_3p98MHz": 0.861896015391632
+      },
+      "errors": [],
+      "deck_sha256": "f2081a8fec150fd857f64ecbe06d34b19cc9d88a5e5f3f9e918f674e91a175e0"
+    },
+    {
+      "corner": "SS",
+      "execution_ok": true,
+      "returncode": 0,
+      "values": {
+        "frequency_screen_Hz": 3433046.72517873,
+        "power_screen_W": 0.0030981133823820436,
+        "BP_noise_in": 4.437448778221309e-08,
+        "BP_noise_out": 5.855695037035232e-08,
+        "gain_at_3p98MHz": 1.3196116415783279
+      },
+      "errors": [],
+      "deck_sha256": "7c3daf48719109757926f09938e7376be06239c2bc03fd785b8d3a2c1e881219"
+    },
+    {
+      "corner": "SF",
+      "execution_ok": true,
+      "returncode": 0,
+      "values": {
+        "frequency_screen_Hz": 3395760.5463775587,
+        "power_screen_W": 0.0030929289763289222,
+        "BP_noise_in": 4.6328810455576515e-08,
+        "BP_noise_out": 6.118176762582333e-08,
+        "gain_at_3p98MHz": 1.3206063416691836
+      },
+      "errors": [],
+      "deck_sha256": "7d2755e43fb6c463bbea58b9e42f38b634ad34ce7001637d0ff22f62dd05088a"
+    },
+    {
+      "corner": "FS",
+      "execution_ok": true,
+      "returncode": 0,
+      "values": {
+        "frequency_screen_Hz": 4552069.999556299,
+        "power_screen_W": 0.0041226853014874,
+        "BP_noise_in": 5.7435208077236055e-08,
+        "BP_noise_out": 4.824102543897246e-08,
+        "gain_at_3p98MHz": 0.839924912526704
+      },
+      "errors": [],
+      "deck_sha256": "9ca4ed904017c71e40afaffa0027d163f8c9e18e63194891b89e5673f091d8e6"
+    }
+  ],
+  "score": 0,
+  "screen_passed": 20,
+  "screen_total": 20,
+  "frequency_ratio": 1.3405156039085966,
+  "scope": "ACscreenonly; derivativefrequency approximation andVM_BPDCpower areNOTacceptedfullmeasurements"
+}

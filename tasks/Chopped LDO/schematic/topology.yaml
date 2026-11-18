@@ -1,0 +1,36 @@
+schema_version: 1
+topology_id: ldo_ifx
+family: ldo
+interface_type: pmos_pass_ldo_chopped_integrator
+technology_id: sky130
+approval_status: unapproved
+source:
+  doi: none (repository documentation)
+  title: "Infineon adsbenchmark, LDO (cell_ldo): chopped LDO 2.5 V -> 1.5 V, github.com/Infineon/adsbenchmark commit d1f5c9be021970e8c1fda5a2c5eea3987cb9667c, LDO/doc/LDO.pdf (Figs. 2-6, Tables 1-2) and LDO/src (tb_ldo.hsp, ldo_checker.va)"
+  figure: "Fig. 2 (top level), Fig. 3 (SC filter), Fig. 4 (source follower), Fig. 5 (chopped op-amp), Fig. 6 (OV/UV comparator) of LDO.pdf"
+  netlist_origin: final.scs
+  inputs: "source/ (README, metrics.xlsx, corners.xlsx, schematic PNGs, LDO.pdf, netlist/ = the repo src folder with tb_ldo.hsp, top.hsp, ldo_checker.va and the PTM models; see source/ORIGIN.txt)"
+  modifications:
+    - "None to final.scs (see onboarding_status netlist_check_2026_10_30 for the differences between final.scs, the LDO.pdf figures and the original tb_ldo.hsp). The testbench elements of tb_ldo.hsp (75 ohm load, 1 pF, the Verilog-A stimulus, the 2k series resistors) are task elements, not part of the DUT."
+dut:
+  netlist: final.scs
+  subckt_name: ldo_ifx_dut
+  port_order: [clk_i, disable_i, ibp_1u_ai, overvoltage_o, undervoltage_o, vout_1V5_ao, vref_ai, inh_bulkn, inh_bulkpanalog, inh_hsupanalog, inh_lSup]
+  net_map: {}
+ports: {supply_input: inh_hsupanalog, output: vout_1V5_ao, reference: vref_ai}
+external_bias:
+  inh_lSup: {kind: voltage, value: 0.0, provenance: "benchmark rule G3: ground pin (VSS!) without family role, 0 V source; tb_ldo.hsp: VSS! is node 0"}
+  inh_bulkn: {kind: voltage, value: 0.0, provenance: "benchmark rule G3: n-type bulk (VSSb!), tb_ldo.hsp supplies cell: 1 mohm to VSS!, i.e. ground"}
+  inh_bulkpanalog: {kind: voltage, value: 0.0, relative_to: supply_input, provenance: "p-type bulk (VDDba!) tied to the supply (tb_ldo.hsp supplies cell: rbulkpanalog = 1 mohm to VDDa!); tracks VIN"}
+  clk_i: {kind: voltage, value: 0.0, provenance: "400 kHz clock input: driven by the ifx_ldo_sequence_v1 recipe (ldo_checker.va clock); 0 V in the DC recipes"}
+  disable_i: {kind: voltage, value: 0.0, provenance: "disable input: driven by the sequence recipe (ldo_checker.va vdisable); 0 V (enabled) in the DC recipes"}
+  ibp_1u_ai: {kind: current, value: 1.0e-6, from: supply_input, provenance: "LDO.pdf Table 1 ibp_1u_ai 1 uA bias current input (specified input, fixed); ldo_checker.va drives it with ibp_1u = 1 uA into the pin"}
+open_pins:
+  overvoltage_o: "flag output (OV): observed on net open_overvoltage_o by the sequence / threshold recipes; loaded by 50 fF as in tb_ldo.hsp"
+  undervoltage_o: "flag output (UV): observed on net open_undervoltage_o by the sequence / threshold recipes; loaded by 50 fF as in tb_ldo.hsp"
+probes: [N00038, N00049, N00055, N00063, N00064, N00067, N00069]
+op_check:
+  exclude: ["M00000", "M00001", "M00002", "M00003", "M00004", "M00005", "M00007", "M00008", "M00009", "M00010", "M00011", "M00012", "M00014", "M00015", "M00016", "M00017", "M00019", "M00020", "M00022", "M00023", "M00025", "M00026", "M00028", "M00029", "M00031", "M00032", "M00034", "M00035", "M00037", "M00038", "M00040", "M00041", "M00043", "M00044", "M00045", "M00046", "M00048", "M00049", "M00051", "M00052", "M00054", "M00055", "M00057", "M00058", "M00060", "M00061", "M00063", "M00064", "M00066", "M00067", "M00069", "M00070", "M00072", "M00073", "M00074", "M00075", "M00076", "M00077", "M00078", "M00079", "M00080", "M00081", "M00082", "M00083", "M00084", "M00085", "M00087", "M00088", "M00090", "M00091", "M00092", "M00093", "M00094", "M00095", "M00096", "M00097", "M00098", "M00099", "M00100", "M00101", "M00102", "M00103", "M00105", "M00106", "M00108", "M00109", "M00110", "M00111", "M00112", "M00113", "M00115", "M00116", "M00117", "M00118", "M00119", "M00120", "M00122", "M00123", "M00124", "M00125", "M00127", "M00128", "M00130", "M00131", "M00133", "M00134", "M00136", "M00137", "M00138", "M00139", "M00143", "M00144", "M00145", "M00146", "M00147", "M00148", "M00149", "M00150", "M00151", "M00152", "M00153", "M00154", "M00156", "M00157", "M00161", "M00162", "M00164", "M00165", "M00166", "M00180", "M00181", "M00182", "M00183", "M00185", "M00186", "M00187", "M00188", "M00190", "M00191", "M00192", "M00193", "M00195", "M00196", "M00197", "M00198", "M00200", "M00201", "M00202", "M00203", "M00205", "M00206", "M00207", "M00208", "M00210", "M00211", "M00212", "M00213", "M00215", "M00216", "M00217", "M00218", "M00220", "M00221", "M00222", "M00223", "M00225", "M00226", "M00227", "M00228", "M00230", "M00231", "M00232", "M00233", "M00235", "M00236", "M00237", "M00238", "M00240", "M00241", "M00242", "M00243", "M00245", "M00246", "M00247", "M00248", "M00250", "M00251", "M00252", "M00253", "M00255", "M00256", "M00257", "M00258", "M00260", "M00261", "M00262", "M00263", "M00265", "M00266", "M00267", "M00268", "M00270", "M00271", "M00272", "M00273", "M00274", "M00275", "M00276", "M00277", "M00278", "M00279", "M00280", "M00281", "M00282", "M00283", "M00284", "M00285", "M00286", "M00287", "M00288", "M00289", "M00290", "M00294", "M00295", "M00297", "M00299", "M00300", "M00302", "M00304", "M00307", "M00310", "M00311", "M00312", "M00313", "M00314", "M00315", "M00316", "M00317", "M00318", "M00320", "M00321", "M00322", "M00323", "M00324", "M00325", "M00326", "M00327", "M00329", "M00330", "M00331", "M00332", "M00333", "M00334", "M00336", "M00337", "M00338", "M00339", "M00340", "M00341", "M00343", "M00344", "M00346", "M00347", "M00349", "M00350", "M00351", "M00352", "M00354", "M00355", "M00356", "M00357", "M00359", "M00360", "M00361", "M00362", "M00364", "M00365", "M00366", "M00367", "M00369", "M00370", "M00372", "M00373", "M00375", "M00376", "M00378", "M00379", "M00381", "M00382", "M00384", "M00385", "M00387", "M00388", "M00390", "M00391", "M00393", "M00394", "M00395", "M00396", "M00398", "M00399", "M00401", "M00402", "M00404", "M00405", "M00407", "M00408", "M00410", "M00411", "M00413", "M00414", "M00416", "M00417", "M00419", "M00420", "M00428", "M00429"]
+  note: "G8 is checked on the analog core only: the 12 follower instances, the pass device, the op-amp input pair / mirror load / second stage / tail and bias devices. Excluded by design: all logic gates, clock dividers and edge equalizers (digital, change region every cycle), the chopper and SC-filter transmission-gate switches, the disable/enable devices, the reference-gate devices, the two hysteretic OV/UV comparators (cross-coupled latch: one branch is off in each state) and the long-channel pseudo-resistor devices (op-amp M2/M35, output-stage resistor M9: triode / off by design)."
+known_issues:
+  - "The documented 2.5 V supply does not work on the exported sky130 5 V (g5v0d10v5) devices (pass PMOS |Vtp| about 1 V against 0.3 V of the PTM 130 nm model): see onboarding_status crucial_questions. The task runs at 3.3 V with the supply monitor re-biased (rule D7)."

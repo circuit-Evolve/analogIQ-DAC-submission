@@ -1,0 +1,57 @@
+{
+  "job_id": "tt_T27_S1p00/ifx_ldo_sequence_v1",
+  "recipe_id": "ifx_ldo_sequence_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "tt_T27_S1p00",
+    "model_set": "tt",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 3.3,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "tt"
+      }
+    ],
+    "is_nominal": true,
+    "supply_span_V": 3.3
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/tr1.tran.tran",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "vout_boot_V",
+    "reg_err_boot_V",
+    "reg_err_supply_V",
+    "reg_err_enable_V",
+    "reg_err_vref_V",
+    "reg_err_load_V",
+    "settle_dev_max_V",
+    "idle_vout_max_V",
+    "flag_errors",
+    "checker_failures",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "9476ae06c03957b89ce67fe1a99f239beb9f534de29d1762c3bcc583b90caf70",
+    "candidate": "b9319a3b22d0f867e37123d4899f8247f6e069f14819c539b030a33946d1de36",
+    "parameterization": "7e361c3d41dd907bd6ee2dd826fe01b8d2d5df6f37bd032aa61f7177e79474ea",
+    "dut_source_netlist": "0bfbe7a055fbc326e66ab3707114237b53dcba818e2512202b48631cf998efa3",
+    "dut_subckt": "63719fa3690d40037b6ce5e924b6ea8cc762291b9875565f1cd28bb04e6da8cb",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "a68c1442de98cbcaae2a9445d12e5b5b9bdd777e0cbf9537a4c9cdd6db974b1b",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "af70340caa7c7de342ac456b4d5afa7661ca24f6847b2b90866a65b65087a189"
+  },
+  "state": "rendered"
+}

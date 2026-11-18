@@ -1,0 +1,38 @@
+schema_version: 1
+topology_id: telescopic01_scl180
+family: amplifier
+interface_type: differential_input_single_output
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: null
+  title: "Soman, Gandhi, Baskaran M.: Analysis and Design of a Two stage Telescopic OTA using SCL 180nm CMOS Technology (ICNWC 2023)"
+  figure: "Fig. 2 (p.2) / Fig. 4 (p.5, operating-point schematic): telescopic first stage (M1/M2, cascodes M11/M12 and M9/M10, mirror M3/M4, tail M5) and PMOS common-source second stage M8 with sink M7, CC + RZ Miller compensation"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, Paper1_Metrics.xlsx, Paper1_Corners.xlsx, Paper1_Schematic.png; see source/ORIGIN.txt)"
+  modifications:
+    - "None to final.scs (schemgen export, one uninstantiated subckt read as the DUT body). Sizes follow the Fig. 4 labels, not Table III / Sec. III.B text (three inconsistent size sets in the paper, see known_issues). The paper's bias block (M0, M13-M15 -> VB1/VB2) and the Rz-tracking circuit (M16-M19) are not in the netlist: VB1/VB2 are driven externally and RZ is a fixed-topology resistor."
+dut:
+  netlist: final.scs
+  subckt_name: telescopic01_scl180_dut
+  port_order: [VDD, VSS, Vin_m, Vin_p, Vout, VB1, VB2]
+  net_map: {}
+ports:
+  input_positive: Vin_p        # M2 gate (M2 drain -> M12 -> STAGE1 -> M8: non-inverting)
+  input_negative: Vin_m        # M1 gate
+  output: Vout
+  supply_positive: VDD         # 1.8 V (paper p.1-2)
+  supply_negative: VSS         # 0 V; the paper reports PSRR minus (psrr_neg_dB)
+external_bias:
+  VB1: {kind: voltage, value: 0.704872, provenance: "paper: Fig. 4 p.5 operating point (VB1 = 704.872 mV = gates of the PMOS cascodes M9/M10; design step p.3 B.7: Vb1 = 0.7 V); owner Q9a: absolute sizing variable"}
+  VB2: {kind: voltage, value: 1.15786, provenance: "paper: Fig. 4 p.5 operating point (VB2 = 1.15786 V = gates of the NMOS cascodes M11/M12; design step p.3 B.7: Vb2 = 1.2 V); owner Q9a: absolute sizing variable"}
+# IBIAS_DC (the undeclared symbol of the in-netlist isource IB) is the sizing variable IBIAS (owner Q10a). Its curator reference value
+# 11.4 uA is derived, not from the paper: ISS = 80 uA through M5/M6 = 7 (paper p.3 hand design); the paper never gives Ibias.
+op_check:
+  exclude: []
+  note: "G8: no exclusions until the reference operating point is inspected (onboarding_status.yaml)"
+known_issues:
+  - "The paper gives three mutually inconsistent size sets (Table III with swapped L/W columns; Sec. III.B text W/L ratios; Fig. 4 labels); the netlist follows Fig. 4 (gap analysis)."
+  - "Ibias is not given; the netlist's IB isource has an undeclared symbol IBIAS_DC. Power 1.4 mW (778 uA at 1.8 V) is inconsistent with ISS + IOSS = 360 uA of the hand design and with Ibias = 11.4 uA through the netlist's mirror ratios (M5/M6 = 7, M7/M6 = 30/0.6 over 1/0.5 = 25); the netlist ratios would need Ibias about 23.6 uA for 1.4 mW."
+  - "PSRR 185.33 / 176.69 dB (Table IV) are implausibly high next to DC gain 99 dB and CMRR 129 dB (supply-to-output gain of -86 dB), method not described; likely not reproducible (margin-scored, owner Q5a)."
+  - "Slew rate is printed 'mV/us' (Table IV) but is 207.6 V/us (Fig. 7 '207.618 MV/s'); read as V/us (owner Q1a)."

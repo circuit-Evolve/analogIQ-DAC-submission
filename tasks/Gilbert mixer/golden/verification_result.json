@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_gmix04_task_001",
+  "task_id": "gmix04_task_001",
+  "topology_id": "gmix04_patulea_2015",
+  "candidate_hash": "3bdec38cbb5c8fb6f7d9444b0a16434d45144d1d3bc5c7e4c8662a5628890a58",
+  "evaluator_hash": "8ec38d4a5960bd6f9d5fd844c18bf80bcb7ac06db1dd219b75a160e7ffdcc16c",
+  "digests": {
+    "task": "f5df7e05f8476b2ec2468baf1c222b02919259fa4f7f2d77e248ded36b6b6999",
+    "candidate": "3bdec38cbb5c8fb6f7d9444b0a16434d45144d1d3bc5c7e4c8662a5628890a58",
+    "parameterization": "ed178fc981eaa5f157a31ed8e0c5a3786f613cf1380ece4e28ece3d56f0e06b6",
+    "dut_source_netlist": "da9cdaf9df568c60b9de4575d9a19be0f6e448e052299bdb0bfbd3f23f04b74c",
+    "dut_subckt": "b562fc179f972e9a7de52ce33515ffcb9b9332d3e9a370b3ce843ceb6445fc7d",
+    "models": "017063138c437e72b62b74bb535bdf3580282f4095993d313f1fd1fe513702fb",
+    "recipes": "7bf2c9359c8c02aff6d893886b440a3761f876390ff3c5ad727fc709c2b8088c",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "8ec38d4a5960bd6f9d5fd844c18bf80bcb7ac06db1dd219b75a160e7ffdcc16c"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 7,
+    "completed_measurement_checks": 7,
+    "valid_measurement_checks": 7
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "conversion_gain_dB",
+      "value": 2.8095447793300647,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "reason": null,
+      "source": "pac",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_cg_sb_v1",
+      "constraints": [
+        "conversion_gain_dB"
+      ],
+      "constraint": {
+        "lower": -0.9151498112135024
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "average_power_W",
+      "value": 0.017424583466288855,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "reason": null,
+      "source": "pss",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_cg_sb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.16723155160422212,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_cg_sb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_cg_sb_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_cg_sb_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_cg_sb_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "nf_ssb_dB",
+      "value": 12.37803317129258,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1,
+        "refsideband": -1
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_nf_sb_v1",
+      "constraints": [
+        "nf_ssb_dB"
+      ],
+      "constraint": {
+        "upper": 12.51392685158225
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "nf_dsb_dB",
+      "value": 10.35986991990771,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1,
+        "refsideband": -1
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_nf_sb_v1"
+    },
+    {
+      "metric": "noise_gain_dB",
+      "value": 8.83013625080781,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1,
+        "refsideband": -1
+      },
+      "reason": null,
+      "source": "pnoise",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_nf_sb_v1"
+    },
+    {
+      "metric": "power_conversion_gain_dB",
+      "value": 2.8060784284269076,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "pin_dBm": -40.0,
+        "f_rf1_Hz": 20000000.0,
+        "f_rf2_Hz": 30000100.0,
+        "f_lo_Hz": 5000000000.0,
+        "sideband": 1,
+        "im3_product": "lower",
+        "lo_harmonics": 7,
+        "rf_harmonics": 3
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_ip3_sb_v1"
+    },
+    {
+      "metric": "iip3_dBm",
+      "value": 8.832267650801256,
+      "unit": "dBm",
+      "status": "valid",
+      "point": {
+        "pin_dBm": -40.0,
+        "f_rf1_Hz": 20000000.0,
+        "f_rf2_Hz": 30000100.0,
+        "f_lo_Hz": 5000000000.0,
+        "sideband": 1,
+        "im3_product": "lower",
+        "lo_harmonics": 7,
+        "rf_harmonics": 3
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_ip3_sb_v1",
+      "constraints": [
+        "iip3_dBm"
+      ],
+      "constraint": {
+        "lower": 0.5424250943932488
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "iip2_dBm",
+      "value": null,
+      "unit": "dBm",
+      "status": "undefined",
+      "point": {
+        "pin_dBm": -40.0,
+        "f_rf1_Hz": 20000000.0,
+        "f_rf2_Hz": 30000100.0,
+        "f_lo_Hz": 5000000000.0,
+        "sideband": 1,
+        "im3_product": "lower",
+        "lo_harmonics": 7,
+        "rf_harmonics": 3
+      },
+      "reason": "IM2 -318 dBm at the numerical floor (symmetric circuit, no mismatch: use Monte Carlo)",
+      "source": "hb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_ip3_sb_v1"
+    },
+    {
+      "metric": "small_signal_power_gain_dB",
+      "value": 2.8071480921783056,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "f_if_Hz": 5020000000.0,
+        "pin_start_dBm": -30.0,
+        "pin_stop_dBm": 6.0
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_p1db_sb_v1"
+    },
+    {
+      "metric": "input_p1db_dBm",
+      "value": -0.37254192299087174,
+      "unit": "dBm",
+      "status": "valid",
+      "point": {
+        "f_if_Hz": 5020000000.0,
+        "pin_start_dBm": -30.0,
+        "pin_stop_dBm": 6.0
+      },
+      "reason": null,
+      "source": "hb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "mixer_p1db_sb_v1",
+      "constraints": [
+        "input_p1db_dBm"
+      ],
+      "constraint": {
+        "lower": -9.757574905606752
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "conversion_gain_dB": {
+      "value": 2.8095447793300647,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "complete": true
+    },
+    "nf_ssb_dB": {
+      "value": 12.37803317129258,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1,
+        "refsideband": -1
+      },
+      "complete": true
+    },
+    "input_p1db_dBm": {
+      "value": -0.37254192299087174,
+      "unit": "dBm",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "f_if_Hz": 5020000000.0,
+        "pin_start_dBm": -30.0,
+        "pin_stop_dBm": 6.0
+      },
+      "complete": true
+    },
+    "iip3_dBm": {
+      "value": 8.832267650801256,
+      "unit": "dBm",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "pin_dBm": -40.0,
+        "f_rf1_Hz": 20000000.0,
+        "f_rf2_Hz": 30000100.0,
+        "f_lo_Hz": 5000000000.0,
+        "sideband": 1,
+        "im3_product": "lower",
+        "lo_harmonics": 7,
+        "rf_harmonics": 3
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {
+        "f_lo_Hz": 5000000000.0,
+        "f_rf_Hz": 20000000.0,
+        "f_if_Hz": 5020000000.0,
+        "sideband": 1
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "tt_T27_S1p00/mixer_cg_sb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 0 notices",
+      "extraction_error": null,
+      "wall_s": 0.862,
+      "cpu_s": 0.40700000000000003
+    },
+    {
+      "job_id": "tt_T27_S1p00/mixer_nf_sb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.645,
+      "cpu_s": 0.466
+    },
+    {
+      "job_id": "tt_T27_S1p00/mixer_ip3_sb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.777,
+      "cpu_s": 0.587
+    },
+    {
+      "job_id": "tt_T27_S1p00/mixer_p1db_sb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 2.195,
+      "cpu_s": 1.53
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 4,
+    "analysis_executions": 42,
+    "condition_evaluations": 1,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 2.99,
+    "execution_wall_s": 2.339,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gmix04_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gmix04_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gmix04_task_001/tt_T27_S1p00/mixer_cg_sb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gmix04_task_001/tt_T27_S1p00/mixer_nf_sb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gmix04_task_001/tt_T27_S1p00/mixer_ip3_sb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gmix04_task_001/tt_T27_S1p00/mixer_p1db_sb_v1"
+    ]
+  }
+}

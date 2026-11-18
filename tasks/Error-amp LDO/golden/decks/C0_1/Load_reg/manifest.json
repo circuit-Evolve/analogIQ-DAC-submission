@@ -1,0 +1,53 @@
+{
+  "job_id": "C0_1/Load_reg",
+  "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "C0_1",
+    "model_set": "fs",
+    "temperature_C": 27.0,
+    "supply_V": 1.8,
+    "supply_scale": 1.0,
+    "is_nominal": false,
+    "supply_span_V": 1.8,
+    "source_point_id": 2,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+        "section": "fs"
+      }
+    ]
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "scalars.tsv"
+  ],
+  "expected_metrics": [
+    "PM @ 25mA (best)",
+    "GBW",
+    "PSR (100 Hz)",
+    "PSR (1 MHz)",
+    "Load Regulation (mV/V)",
+    "Vout"
+  ],
+  "state": "rendered",
+  "source_netlist": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15/jobs/C0_1/Load_reg/input.scs",
+  "source_sha256": "febc8bae22c9ae7720f8d8aed3997298f683ed28b2e1029c78d2e2f5f381d346",
+  "transformations": [
+    "R8 and R11 are each 50 ohm, producing approximately 11.964 mA internal divider preload. The external 100 uA and 25 mA tests therefore have about 12.064 mA and 36.964 mA total load. Nominal no-external-load input is 12.504539 mA / 22.508171 mW; this is not a low-quiescent-current qualification.",
+    "M9 bulk is tied to VIN, with its source still at net10. This documented connectivity correction follows the reference.",
+    "PSR at 1 MHz uses the adopted 20 dB source design goal, not the source achieved -0.2 dB. Other target references and directions are explicit in targets.json.",
+    "The retained legacy metric name Load Regulation (mV/V) has the corrected unit mV/A. Line regulation and unreferenced power/current/efficiency outputs are not active metrics.",
+    "Verified numerical settings: reltol=1e-6, vabstol=1e-9, iabstol=1e-12, STB 100 points/decade."
+  ],
+  "digests": {
+    "input.scs": "febc8bae22c9ae7720f8d8aed3997298f683ed28b2e1029c78d2e2f5f381d346",
+    "dut.scs": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06",
+    "template.scs": "febc8bae22c9ae7720f8d8aed3997298f683ed28b2e1029c78d2e2f5f381d346",
+    "measures.ocn": "5f9f1180ba27f3ab7c8cf6f752115355d36726b22672d33dd4d99d25d979e6a6",
+    "context.json": "5ab8a531286a66d775fbf7cefde1b9da53b1ad4dd3d33a48799253e1b87988ef",
+    "scalars.tsv": "60ee847659d5f77ae5e988907791981eaf231206af0e451a18904ba5e89ef960"
+  }
+}

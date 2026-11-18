@@ -1,0 +1,24 @@
+{
+  "derived": {
+    "vcontrol_V": 0.7768446082050647,
+    "resistor_W_um": 1.8,
+    "resistor_L_um": 0.36,
+    "target_ohm": 2000,
+    "method": "NMOS Fig8a small-signal resistance at V(P)=1uV; monotonic interpolation in one nominal control sweep. Sizes are assumed, not paper. Control is derived missing implementation data, not filter optimization.",
+    "vbias_V": -0.3,
+    "vbias_rationale": "Unpublished front-end VBias chosen as VSS +0.6V (nominal threshold about0.4V plus0.2V overdrive). No target fitting."
+  },
+  "limitations": [
+    "Paper Section 6 explicitly uses the extracted layout of the M-DVCCTA for MISO; this reproduction is a native transistor schematic without extracted layout parasitics.",
+    "All 30 core MOS W/L values exactly follow Table 4. Body ties are not drawn in the paper: core NMOS to VSS and PMOS to VDD; Fig8a resistor NMOS bodies to ground.",
+    "The front-end VBias is unpublished. Fixed assumption -0.3 V (VSS + 0.6 V) was chosen without tuning any paper metric. OTA bias remains the published 47 uA.",
+    "Resistor MOS dimensions and Vcontrol are unpublished. Both NMOS W/L assumed 1.8/0.36 um. A single nominal resistor control characterization derived Vcontrol=0.7768446082050647 V for 2 kohm at zero bias. No core/filter sizing optimization occurred. R1 and R2 use Fig8a; R3 is a 2 kohm passive resistor as Section6 specifies only R1/R2 are MOS implemented.",
+    "The Fig2 transistor core has Z+, Z1+, Z2+, O-, and two outputs both printed O+. It does not contain the Z- branch shown in Fig1/Table5. Both printed O+ outputs are preserved as OP/OP2, while Z- metrics are marked unavailable. MISO only needs the available ports.",
+    "Core test loads and exact paper linear-range criterion are unspecified. The explicit native testbench terminations are recorded per row; DC ranges are diagnostic using a disclosed 5% central-slope error criterion and are not scored against an unknown paper criterion. Current range reaching the +/-100 uA sweep boundary is a lower bound.",
+    "Noise targets refer to an unspecified point in the BP passband. The comparison samples nominal 3.98 MHz; it does not digitize a graph.",
+    "The paper THD claim is <=6% over an unspecified appreciable range. Reported LP THD uses the published 200 mVpp/500 kHz stimulus. BP uses an assumed 100 mVpp/3.98 MHz stimulus based on the TAM-BP example; neither scalar proves the entire unspecified range. Scored THD is the actual saved ADE/OCEAN builtin result (8192-point DFT over last20cycles). Python harmonics2-10 results remain separate diagnostics; interpolation warnings are retained.",
+    "The BP peak estimates the design frequency; LP -3 dB frequency is not mislabeled as the paper pole frequency. Unity gain is an ideal equation-derived diagnostic, not a published numerical simulated target.",
+    "The IZP bandwidth lies near the +10% boundary. A 100 kHz refinement grid establishes 1.561962369 GHz (+9.99735%); the coarse decade sweep would incorrectly classify this by approximately 0.0033 percentage points. The Maestro test uses 1500 points/decade to reduce this error.",
+    "All runs are nominal only. No corners, Monte Carlo, sizing optimization, SIMO, oscillator, or changes to shared/curator libraries."
+  ]
+}

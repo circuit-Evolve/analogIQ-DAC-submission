@@ -1,0 +1,54 @@
+{
+  "job_id": "VT_V42_T85/test_poweramp_tb_dac_1",
+  "recipe_id": "poweramp_dac_test_poweramp_tb_dac_1_saved_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "VT_V42_T85",
+    "model_set": "fixed_models",
+    "temperature_C": 85.0,
+    "supply_V": 42.0,
+    "supply_scale": 1.0,
+    "is_nominal": false,
+    "supply_span_V": 84.0,
+    "source_point_id": 6,
+    "includes": [
+      {
+        "path": "models.scs",
+        "section": null
+      }
+    ]
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "scalars.tsv"
+  ],
+  "expected_metrics": [
+    "Vout_pp",
+    "Av1",
+    "gm2",
+    "AI",
+    "Total_gain_dB"
+  ],
+  "state": "rendered",
+  "source_netlist": "<WORK>/paper-sizing-20261105/round15/poweramp/trials/final_fresh/VT_V42_T85/test_poweramp_tb_dac_1/input.scs",
+  "source_sha256": "b8b627781c41b626e93708bb8a13bf01315a12c041f7a232bac7e373864b4de2",
+  "transformations": [
+    "The approximate MMBT6429 model uses the paper VAF=804 V (previously 100 V); remaining model parameters are unchanged. The supplied models are not the exact author model library.",
+    "Transresistance rm was removed at the user request after failing its target. Its output-stage ratio remains inlined in the retained original total-gain expression; no standalone rm metric is scored.",
+    "Ten saved condition rows represent nine unique voltage/temperature conditions: Nominal duplicates VT_V42_T27. These are fixed-model VT corners, not process corners. Auxiliary +15 V, -7 V and +6 V supplies remain fixed.",
+    "Q11 maximum absolute VCE is 49.2683 V versus the BC857C 45 V metadata. This is outside the seven retained metric checks; passing them is not hardware-stress qualification.",
+    "All ten slew settling diagnostics passed. Physical component values in dut.scs are authoritative; legacy pa_* testbench declarations are retained for reproducibility and do not override literal DUT sizes."
+  ],
+  "digests": {
+    "input.scs": "b8b627781c41b626e93708bb8a13bf01315a12c041f7a232bac7e373864b4de2",
+    "dut.scs": "7b73a292f918cf41a24e2ea575c85f752145793930b3c8815da87286443734a1",
+    "template.scs": "b8b627781c41b626e93708bb8a13bf01315a12c041f7a232bac7e373864b4de2",
+    "measures.ocn": "224618f60e98fcc027ec065b266c514a052002b388403d8f96d8467fb9140237",
+    "context.json": "6f048362ffdf12d57a339a3c89511df792c579db067e6ea3ccd9715f0febac0a",
+    "scalars.tsv": "3f196837c3a211e33f2251d6d8b96ed6c0af3865263b1d78d433ed7b3d6cc4d0",
+    "models.scs": "04243d4ca84d216598206a6900d05481ff35eb9fb67cbe9c9c6bd37a4ee4537d",
+    "models.lib": "cf7fd07e37dea0c6e3b7068949071243c6eb3a1bf02e4b1fa673ac660265cf9c"
+  }
+}

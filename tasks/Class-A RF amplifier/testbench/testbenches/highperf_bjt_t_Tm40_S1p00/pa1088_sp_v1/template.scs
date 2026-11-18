@@ -1,0 +1,30 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task pa1088_dac_task_001  topology pa1088_dac_bench
+// recipe pa1088_sp_v1 v1  condition highperf_bjt_t_Tm40_S1p00 (models highperf_bjt_t, -40 C, supply 12 V)
+// request pa1088_dac_task_001__plan  candidate 9b40dcde6eb70295
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs" section=highperf_bjt_t
+include "dut.scs"
+
+parameters vsup=12.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+
+// Measurement instrumentation (replay fixture): 50-ohm ports directly on the RF input and output.
+P1 (rfin 0) port r=50.0 num=1
+P2 (rfout 0) port r=50.0 num=2
+
+XDUT (rfin rfout vdd b_VSS) pa1088_fig3_dac C_BDEC1={{C_BDEC1}} C_BDEC2={{C_BDEC2}} C_CDEC={{C_CDEC}} C_EBYP={{C_EBYP}} C_IN_BLK={{C_IN_BLK}} C_IN_SH={{C_IN_SH}} C_OUT_BLK={{C_OUT_BLK}} C_OUT_SH={{C_OUT_SH}} C_SDEC={{C_SDEC}} L_BCHOKE={{L_BCHOKE}} L_CCHOKE={{L_CCHOKE}} L_IN={{L_IN}} L_OUT={{L_OUT}} N_Q0={{N_Q0}} R_BBIAS={{R_BBIAS}} R_CFEED={{R_CFEED}} R_EMIT={{R_EMIT}}
+op_info info what=oppoint where=rawfile
+
+opts options temp=-40.0 tnom=27 reltol=0.0001 save=selected
+save P1:p P2:p VB_VSS:p VSUP:p XDUT.COLLECTOR XDUT.EMITTER XDUT.L0:1 rfin rfout vdd
+
+replayopts options reltol=1e-05 vabstol=1e-6 iabstol=1e-12 gmin=1e-12 pivrel=1e-3
+dcop dc
+nz noise values=[433000000.0] oprobe=P2 iprobe=P1
+sp1 sp ports=[P1 P2] start=1000000.0 stop=1000000000.0 dec=300 donoise=no

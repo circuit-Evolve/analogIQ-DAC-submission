@@ -1,0 +1,49 @@
+{
+  "job_id": "fs_T27_S1p00_kfs_vt/lelo30_ccmp_tran_v1",
+  "recipe_id": "lelo30_ccmp_tran_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "fs_T27_S1p00_kfs_vt",
+    "model_set": "fs",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+        "section": "fs"
+      }
+    ],
+    "label": "kfs_vt",
+    "is_nominal": false,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/tran1.tran.tran"
+  ],
+  "expected_metrics": [
+    "t_half_s",
+    "freq_Hz",
+    "t_delay_s",
+    "v_over_V",
+    "v_reset_V",
+    "c_eff_F",
+    "idd_avg_A"
+  ],
+  "digests": {
+    "task": "8c57c425b500dd6087ba07d104272caa9d6b50b8944cdc0f59fadbb0386e0445",
+    "candidate": "0efbac8fdb741303cb60eb827df1bd80c08f293f188656f293ee0ff18b0e241d",
+    "parameterization": "f018d05656fb97480926323ca50fec342e0a055826395277cb48f4ad815e4431",
+    "dut_source_netlist": "769e34614c9399bff75bf9df68c6035fd4ffd9420336de1a16cfb19062d5eeef",
+    "dut_subckt": "6ea102702e6a4673d6e637a43c0cadd29559b6733ac8bfdedbd2583e9a9259a2",
+    "models": "cf0800bd8572a6c9379d777f9608319fdad8b069992de6d70b98c4dbbc642c8e",
+    "recipes": "209d409982bc1ac295023d0f8b06c5cb2ecfbf76de9ba265e87cb119d92e6664",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "2602bd46ed3f03052ea5251c42eb766d7e52f23b35068b5483247de13b058600"
+  },
+  "state": "rendered"
+}

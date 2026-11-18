@@ -1,0 +1,12 @@
+{
+  "analysis": "DC temperature sweep0..100C step1",
+  "expressions": {
+    "Vout_0C_V": "value(getData(\"V_TEMP\" ?result \"dc-dc\") 0)",
+    "Vout_27C_V": "value(getData(\"V_TEMP\" ?result \"dc-dc\") 27)",
+    "Vout_100C_V": "value(getData(\"V_TEMP\" ?result \"dc-dc\") 100)",
+    "Sensitivity_mV_C": "10*(value(getData(\"V_TEMP\" ?result \"dc-dc\") 100)-value(getData(\"V_TEMP\" ?result \"dc-dc\") 0))",
+    "Output_span_mV": "1000*(ymax(getData(\"V_TEMP\" ?result \"dc-dc\"))-ymin(getData(\"V_TEMP\" ?result \"dc-dc\")))",
+    "Endpoint_linearity_percent_FS": "100*ymax(abs(getData(\"V_TEMP\" ?result \"dc-dc\")-(value(getData(\"V_TEMP\" ?result \"dc-dc\") 0)+(value(getData(\"V_TEMP\" ?result \"dc-dc\") 100)-value(getData(\"V_TEMP\" ?result \"dc-dc\") 0))*xval(getData(\"V_TEMP\" ?result \"dc-dc\"))/100)))/(ymax(getData(\"V_TEMP\" ?result \"dc-dc\"))-ymin(getData(\"V_TEMP\" ?result \"dc-dc\")))"
+  },
+  "note": "Endpoint_linearity metric compares against straight line connecting measured0C and100C endpoints. Signed sensitivity preserved. Power retained only as diagnostic CSV, no paper target."
+}

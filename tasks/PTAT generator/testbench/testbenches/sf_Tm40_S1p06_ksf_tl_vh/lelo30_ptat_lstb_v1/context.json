@@ -1,0 +1,293 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_lstb_v1",
+ "recipe_id": "lelo30_ptat_lstb_v1",
+ "recipe_version": 1,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "raw/dc1.dc",
+  "raw/stb1.stb.ascii"
+ ],
+ "context": {
+  "job_id": "sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_lstb_v1",
+  "condition": {
+   "id": "sf_Tm40_S1p06_ksf_tl_vh",
+   "model_set": "sf",
+   "temperature_C": -40.0,
+   "supply_scale": 1.055556,
+   "supply_V": 1.9000008,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+     "section": "sf"
+    }
+   ],
+   "label": "ksf_tl_vh",
+   "is_nominal": false,
+   "supply_span_V": 1.9000008
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "output_hold_V_0": 0.5,
+   "output_hold_V_1": 0.6,
+   "output_hold_V_2": 0.7,
+   "output_hold_V_3": 0.8
+  },
+  "recipe_settings": {
+   "output_hold_V": 0.6,
+   "start_Hz": 1.0,
+   "stop_Hz": 1000000000.0,
+   "points_per_decade": 30,
+   "low_frequency_Hz": 1000.0
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ptat_lelo",
+   "family": "bias_generator",
+   "interface_type": "ptat_current_generator_with_regulation_loop",
+   "technology_id": "sky130",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ptat_lelo_dut",
+    "port_order": [
+     "VDD_1V8",
+     "VSS",
+     "LPI",
+     "LPO",
+     "IBP_1U_3",
+     "IBP_1U_2",
+     "IBP_1U_1",
+     "IBP_1U_0",
+     "VD1",
+     "PWRUP_1V8",
+     "PWRUP_N_1V8"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "supply_positive": "VDD_1V8",
+    "supply_negative": "VSS",
+    "loop_input": "LPI",
+    "loop_output": "LPO",
+    "output_current_0": "IBP_1U_0",
+    "output_current_1": "IBP_1U_1",
+    "output_current_2": "IBP_1U_2",
+    "output_current_3": "IBP_1U_3",
+    "voltage_output": "VD1",
+    "enable": "PWRUP_1V8",
+    "enable_bar": "PWRUP_N_1V8"
+   },
+   "probes": [
+    "VR1",
+    "VD2"
+   ],
+   "op_check": {
+    "exclude": [
+     "xad6_xba7_M1",
+     "xad6_xba1_M1",
+     "xad6_xba2_M1",
+     "xad6_xns1_M1",
+     "xad6_xns2_M1",
+     "xad6_xns4_M1",
+     "xad6_xba3_M1",
+     "xad6_xfill_p_in_a_0_M1",
+     "xad6_xfill_p_in_b_0_M1",
+     "xad6_xfill_n_mirr_0_M1",
+     "xg1_M1",
+     "xcc_M1",
+     "xsu1_M1",
+     "xsu2_M1",
+     "xfill_p_su_M1",
+     "xfill_p_cc_M1"
+    ],
+    "stacks": [
+     [
+      "xad6_xbs6_M1",
+      "xad6_xbs1_M1",
+      "xad6_xbs2_M1",
+      "xad6_xbs4_M1",
+      "xad6_xbs7_M1",
+      "xad6_xbs8_M1"
+     ]
+    ]
+   }
+  },
+  "subckt_name": "ptat_lelo_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_MIR": 1e-06,
+   "L_MIR": 1e-06,
+   "NF_MIR": 1.0,
+   "W_CAS": 1e-06,
+   "L_CAS": 1e-06,
+   "NF_CAS": 1.0,
+   "W_NLD": 1e-06,
+   "L_NLD": 1e-06,
+   "NF_NLD": 1.0,
+   "W_PMIR": 1e-06,
+   "L_PMIR": 1e-06,
+   "NF_PMIR": 1.0,
+   "W_LVT": 1e-06,
+   "L_LVT": 1e-06,
+   "NF_LVT": 1.0,
+   "W_NCR": 1e-06,
+   "L_NCR": 1e-06,
+   "NF_NCR": 1.0,
+   "W_BS": 1e-06,
+   "L_BS": 1e-06,
+   "NF_BS": 1.0,
+   "W_RLAD": 1e-06,
+   "L_RLAD": 1e-06,
+   "W_RTAIL": 1e-06,
+   "L_RTAIL": 1e-06,
+   "W_CLPI": 1e-06,
+   "L_CLPI": 1e-06,
+   "W_CVCP": 1e-06,
+   "L_CVCP": 1e-06
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "sky130_fd_pr__nfet_01v8": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__nfet_01v8_lvt": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8_lvt": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 3.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__res_high_po": {
+    "kind": "resistor",
+    "min_w_m": 3.5e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__cap_mim_m3_1": {
+    "kind": "capacitor",
+    "min_w_m": 1e-06,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-06,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__pnp_05v5_W3p40L3p40": {
+    "kind": "bjt",
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__nfet_g5v0d10v5": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_g5v0d10v5": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__diode_pd2nw_05v5": {
+    "kind": "bjt",
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5
+   }
+  },
+  "length_unit_m": 1e-06
+ }
+}

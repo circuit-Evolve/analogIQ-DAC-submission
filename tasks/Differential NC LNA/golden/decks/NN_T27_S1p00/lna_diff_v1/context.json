@@ -1,0 +1,222 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00/lna_diff_v1",
+ "recipe_id": "lna_diff_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "f0_Hz": 500000000.0
+  }
+ ],
+ "expected_outputs": [
+  "raw/op1.dc",
+  "raw/sp1.sp.ascii",
+  "raw/ac1.ac",
+  "raw/nz1.noise",
+  "raw/op_info.info"
+ ],
+ "context": {
+  "job_id": "NN_T27_S1p00/lna_diff_v1",
+  "condition": {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.5,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "is_nominal": true,
+   "supply_span_V": 1.5
+  },
+  "operating": {
+   "supply_V": 1.5,
+   "center_frequency_Hz": 500000000.0,
+   "port_impedance_ohm": 50.0
+  },
+  "recipe_settings": {
+   "start_Hz": 10000000.0,
+   "stop_Hz": 2000000000.0,
+   "points_per_decade": 100,
+   "band_low_Hz": 100000000.0,
+   "band_high_Hz": 1100000000.0,
+   "input_dc_block_F": 1e-06,
+   "_op_point": {
+    "exclude": []
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "nclna02_das_2021",
+   "family": "lna",
+   "interface_type": "differential_lna",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": null,
+    "title": "Investigations on Noise Cancellation and Linearity Improvement in Low Power LNAs and Receivers (I. Das, PhD thesis, IIT Guwahati, 2021), Chapter 4: low-power partial noise-canceling complementary common-gate LNA",
+    "figure": "Fig. 4.3(a) (fully differential CCG LNA: stacked nMOS/pMOS common-gate pairs M1n,p / M2n,p, capacitor cross-coupling Cc/Rc, loads RL, output combining Co, buffer-input load CL) and its values table Fig. 4.3(b) (PDF p. 82); test setup Fig. 4.9 (PDF p. 89)",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (thesis PDF, schematic figure, test-setup figure, metrics_sizing.xlsx, operating_conditions.xlsx, pvt_corners.xlsx; see source/ORIGIN.txt)",
+    "technology_check": "Thesis: TSMC 180 nm 1P6M CMOS, 1.5 V (PDF p. 89). Netlist: gpdk180 nmos1/pmos1 (same node; 1.5 V < 1.98 V rating). No mismatch.",
+    "modifications": [
+     "None to final.scs. Its undeclared symbol CL (CLp/CLn, the output-buffer input capacitance, thesis p. 59) is fixed by dut_parameters at 200 fF (owner answer DS2a)."
+    ]
+   },
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "nclna02_dut",
+    "port_order": [
+     "vip",
+     "vin",
+     "vop",
+     "von",
+     "VDD",
+     "VSS",
+     "Vbn",
+     "Vbp"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "rf_input": "vip",
+    "rf_input_negative": "vin",
+    "rf_output": "vop",
+    "rf_output_negative": "von",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "Vbn": {
+     "kind": "voltage",
+     "value": 1.29,
+     "provenance": "paper: design rule (v), PDF p. 88: Vbn = Vdd/2 + VGS,opt with VGS,opt ~ 540 mV (PDF p. 87) -> 1.29 V at 1.5 V. The low-noise-mode value is not given numerically (Fig. 4.7 only); a sizing variable (D14), this value is the curator's reference check only; reference_candidate.json now uses Vbn 1.5 V (see reference_audit_2026_10_26)"
+    },
+    "Vbp": {
+     "kind": "voltage",
+     "value": 0.21,
+     "provenance": "paper: design rule (v), PDF p. 88: Vbp = Vdd/2 - VGS,opt -> 0.21 V at 1.5 V; sizing variable (D14), curator reference check only; reference_candidate.json now uses Vbp 0.0 V"
+    }
+   },
+   "dut_parameters": {
+    "CL": {
+     "value": 2e-13,
+     "provenance": "owner answer DS2a: CL (output-buffer input capacitance, undeclared in final.scs) fixed at 200 fF (test load)"
+    }
+   },
+   "op_check": {
+    "note": "All four common-gate devices are meant to operate in saturation (thesis Sec. 4.2); no exclusions."
+   },
+   "known_issues": [
+    "Fully differential DUT: measured with the lna_diff_* recipes (recipes/lna_ext.py): ideal balun from a single-ended 100-ohm port (50 ohm per side, the thesis's TCM2-33X+ 1:2 baluns, PDF p. 89), ideal 1-uF input DC blocks (vip/vin are self-biased at the nMOS/pMOS current balance), outputs open apart from CL (the thesis's high-impedance common-drain buffers, de-embedded) with noiseless 1-Gohm DC returns (vop/von reach the circuit only through Co/CL).",
+    "Low-noise mode only (owner answer DS1b): 800 uA from 1.5 V (1.2 mW). The thesis gives the bias of this mode only graphically (Fig. 4.7); Vbn/Vbp are sizing variables.",
+    "All targets are measured values (Table 4.1, PDF p. 92; text PDF p. 89-91); the thesis gives simulated curves (Fig. 4.10) but no simulated numbers.",
+    "S22 and the stability factor K were measured with the output buffers and are not covered (owner answer DS4a)."
+   ]
+  },
+  "subckt_name": "nclna02_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_N": 4.821711347854466e-06,
+   "L_N": 2.088273941383914e-07,
+   "N_N": 44.0,
+   "W_P": 4.884543183008725e-05,
+   "L_P": 1.8121143726786527e-07,
+   "N_P": 4.0,
+   "C_C": 1.225229666597428e-11,
+   "R_C": 52327.30503613221,
+   "R_L": 789.5158568375299,
+   "C_O": 7.901068780216291e-13
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BN": 1.4585262402253565,
+   "V_BP": 0.012143266419988507
+  },
+  "bias_variables": {
+   "Vbn": "V_BN",
+   "Vbp": "V_BP"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

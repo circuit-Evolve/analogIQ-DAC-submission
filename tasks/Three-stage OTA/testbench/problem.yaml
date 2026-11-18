@@ -1,0 +1,1797 @@
+schema: analogiq.sizing_problem/1
+task_id: ota3s24_task_001
+topology_id: ota3s24
+family: amplifier
+technology_id: gpdk180
+parameterization_id: ota3s24_p1_counts_20261112
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). Three-stage OTA with current-buffer (common-gate M3a/M3b) Miller compensation Cc1/Cc2,
+  an RD-CD impedance-attenuation branch and a feed-forward class-AB output stage (BelghisAzar, Transactions on Machine Intelligence 7(4), 2024,
+  Figs. 1-2, Table 1), gpdk180, VDD 1.8 V, the three bias voltages VB1-VB3 are sizing variables. Conditions = the paper''s load capacitors where
+  it reports a number: CL = 0, 100 pF, 500 pF (nominal: Table 2 mid column, Fig. 5), 50 nF and 100 nF (Figs. 4-6, Table 2), process NN 27 C (the
+  paper gives no corner / temperature values: Fig. 5 is a plot with unnamed corners). Targets are the paper''s printed values (A0, unity-gain
+  frequency / GBW, 1 % settling, slew rate, supply current, total compensation capacitance) with the 10 % tolerance; definitions follow the paper
+  (docs/benchmark/definition_audit/ota3s24_task_001.yaml). No Monte Carlo (the paper reports none). No objective.'
+source:
+  doi: 10.47176/TMI.2024.286
+  title: 'BelghisAzar: A Novel Frequency Compensation Scheme for Stabilizing Three-Stage Amplifiers for a Wide Range of Load Capacitors (Transactions
+    on Machine Intelligence 7(4), 2024, 286-295)'
+  figure: Fig. 1 (p. 288, schematic of the proposed OTA), Fig. 2 (small-signal block diagram), Table 1 (sizes), Table 2 (performance)
+variables:
+- name: W_M0
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'tail PMOS current source M0 (gate VB1; first-stage tail current): width (paper Table 1: 7.7/8.6 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M0
+    parameter: w
+- name: L_M0
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'tail PMOS current source M0 (gate VB1; first-stage tail current): length (paper Table 1: 7.7/8.6 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M0
+    parameter: l
+- name: W_M1
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'input PMOS pair M1a/M1b (gm1): width (paper Table 1: 11.1/5.9 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1a
+    - M1b
+    parameter: w
+- name: L_M1
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'input PMOS pair M1a/M1b (gm1): length (paper Table 1: 11.1/5.9 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1a
+    - M1b
+    parameter: l
+- name: W_M2
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'first-stage NMOS fold current sources M2a/M2b (gate VB2): width (paper Table 1: 12.3/6.6 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M2a
+    - M2b
+    parameter: w
+- name: L_M2
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'first-stage NMOS fold current sources M2a/M2b (gate VB2): length (paper Table 1: 12.3/6.6 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M2a
+    - M2b
+    parameter: l
+- name: W_M3
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'first-stage NMOS cascodes = current buffers M3a/M3b (gate VB3, gmC): width (paper Table 1: 9.5/2.9 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3a
+    - M3b
+    parameter: w
+- name: L_M3
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'first-stage NMOS cascodes = current buffers M3a/M3b (gate VB3, gmC): length (paper Table 1: 9.5/2.9 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3a
+    - M3b
+    parameter: l
+- name: W_M4
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'first-stage PMOS mirror load M4a/M4b (gmM): width (paper Table 1: 7.5/1.4 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M4a
+    - M4b
+    parameter: w
+- name: L_M4
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'first-stage PMOS mirror load M4a/M4b (gmM): length (paper Table 1: 7.5/1.4 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M4a
+    - M4b
+    parameter: l
+- name: W_M5
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'second-stage PMOS common-source device M5 (gate vO1; sets gm2): width (paper Table 1: 1.3/0.2 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M5
+    parameter: w
+- name: L_M5
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'second-stage PMOS common-source device M5 (gate vO1; sets gm2): length (paper Table 1: 1.3/0.2 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M5
+    parameter: l
+- name: W_M7
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'second-stage PMOS current source M7 (gate VB1): width (paper Table 1: 14.7/9.8 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M7
+    parameter: w
+- name: L_M7
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'second-stage PMOS current source M7 (gate VB1): length (paper Table 1: 14.7/9.8 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M7
+    parameter: l
+- name: W_M8
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'third-stage NMOS common-source device M8 (gm3): width (paper Table 1: 24.8/0.2 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M8
+    parameter: w
+- name: L_M8
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'third-stage NMOS common-source device M8 (gm3): length (paper Table 1: 24.8/0.2 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M8
+    parameter: l
+- name: W_M9
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'third-stage PMOS feed-forward device M9 (gmf, class-AB push-pull with M8): width (paper Table 1: 22.4/0.2 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M9
+    parameter: w
+- name: L_M9
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'third-stage PMOS feed-forward device M9 (gmf, class-AB push-pull with M8): length (paper Table 1: 22.4/0.2 um)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M9
+    parameter: l
+- name: W_M6A
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'second-stage NMOS mirror output M6a (mirror ratio M6b:M6a sets the mirror gain of gm2): width (paper Table 1)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M6a
+    parameter: w
+- name: W_M6B
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'second-stage NMOS mirror diode M6b: width (paper Table 1)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M6b
+    parameter: w
+- name: L_M6
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'second-stage NMOS mirror M6a/M6b: length (tied) (paper Table 1)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M6a
+    - M6b
+    parameter: l
+- name: RD
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: impedance-attenuation resistor RD in series with CD at vO1 (paper Table 1, rnhpoly)
+  binding:
+    type: instance_parameter
+    instances:
+    - RD
+    parameter: r
+- name: CD
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: impedance-attenuation capacitor CD (paper Table 1, MIM)
+  binding:
+    type: instance_parameter
+    instances:
+    - CD
+    parameter: c
+- name: CC1
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: Miller capacitor Cc1 (M3b source -> vO2; fine-tunes the Q of the non-dominant poles, paper Sec. 2.2)
+  binding:
+    type: instance_parameter
+    instances:
+    - CC1
+    parameter: c
+- name: CC2
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: Miller capacitor Cc2 (M3a source -> vO; paper Sec. 2.2)
+  binding:
+    type: instance_parameter
+    instances:
+    - CC2
+    parameter: c
+- name: VB1
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.8
+  scale: lin
+  start: 0.9
+  quantity: bias_voltage
+  role: 'bias voltage VB1 = gate of the PMOS tail M0 and of the second-stage PMOS source M7 (paper p. 291: 1.15 V)'
+  binding:
+    type: external_bias
+    pin: VB1
+- name: VB2
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.8
+  scale: lin
+  start: 0.9
+  quantity: bias_voltage
+  role: 'bias voltage VB2 = gates of the NMOS fold sources M2a/M2b (paper p. 291: 0.5 V)'
+  binding:
+    type: external_bias
+    pin: VB2
+- name: VB3
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.8
+  scale: lin
+  start: 0.9
+  quantity: bias_voltage
+  role: 'bias voltage VB3 = gates of the NMOS cascodes M3a/M3b (paper p. 291: 0.75 V)'
+  binding:
+    type: external_bias
+    pin: VB3
+- name: M_M0
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M0; preserves matched width/length group W_M0
+  binding:
+    type: instance_parameter
+    instances:
+    - M0
+    parameter: m
+- name: M_M1
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M1a, M1b; preserves matched width/length group W_M1
+  binding:
+    type: instance_parameter
+    instances:
+    - M1a
+    - M1b
+    parameter: m
+- name: M_M2
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M2a, M2b; preserves matched width/length group W_M2
+  binding:
+    type: instance_parameter
+    instances:
+    - M2a
+    - M2b
+    parameter: m
+- name: M_M3
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M3a, M3b; preserves matched width/length group W_M3
+  binding:
+    type: instance_parameter
+    instances:
+    - M3a
+    - M3b
+    parameter: m
+- name: M_M4
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M4a, M4b; preserves matched width/length group W_M4
+  binding:
+    type: instance_parameter
+    instances:
+    - M4a
+    - M4b
+    parameter: m
+- name: M_M5
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M5; preserves matched width/length group W_M5
+  binding:
+    type: instance_parameter
+    instances:
+    - M5
+    parameter: m
+- name: M_M7
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M7; preserves matched width/length group W_M7
+  binding:
+    type: instance_parameter
+    instances:
+    - M7
+    parameter: m
+- name: M_M8
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M8; preserves matched width/length group W_M8
+  binding:
+    type: instance_parameter
+    instances:
+    - M8
+    parameter: m
+- name: M_M9
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M9; preserves matched width/length group W_M9
+  binding:
+    type: instance_parameter
+    instances:
+    - M9
+    parameter: m
+- name: M_M6A
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M6a; preserves matched width/length group W_M6A
+  binding:
+    type: instance_parameter
+    instances:
+    - M6a
+    parameter: m
+- name: M_M6B
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M6b; preserves matched width/length group W_M6B
+  binding:
+    type: instance_parameter
+    instances:
+    - M6b
+    parameter: m
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S1p00_CL0
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00_CL100p
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00_CL500p
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+- id: NN_T27_S1p00_CL50n
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00_CL100n
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'paper: abstract / p. 290 ''nominal supply voltage of 1.8 V'''
+  supply_negative_V:
+    value: 0.0
+    provenance: 'paper: Fig. 1 (VSS = ground symbol); G3'
+  input_common_mode_V:
+    value: 0.45
+    provenance: 'paper: p. 291 ''The DC voltage for frequency response analysis is set to 0.45 V'' (open-loop AC, and the DC level of the buffer''s
+      quiescent point); the settling step is centred at 0.6 V (0.4 -> 0.8 V), see recipes.amp30_step_v1'
+  load_capacitance_F:
+    value: 5.0e-10
+    provenance: 'paper: Fig. 5 / Table 2 mid column CL = 500 pF (the nominal condition); each labelled condition overrides it with its own CL
+      (operating load_capacitance_F); the load is the fixture''s capacitor out -> ground (dut_benchmark.scs has no CL)'
+constraints:
+- name: open_loop_gain_dB
+  metric: open_loop_gain_dB
+  recipe: amp_ol_v1
+  point: {}
+  unit: dB
+  lower: 118.3848501887865
+  target:
+    kind: voltage_db
+    paper_value: 119.3
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, abstract, p. 291 and Table 2 (A0 119.3 dB, ''peak value'' over CL =
+    0 .. 100 nF; text: ''DC gain exceeding 100 dB''). Gain is independent of CL below the dominant pole (Fig. 4: all curves coincide up to ~100
+    Hz), so it is targeted once, at the nominal condition (CL = 500 pF, Table 2 / Fig. 5 mid column), read at 1 Hz. Open loop: the DC loop of
+    the unity-gain buffer is closed through an ideal 1e18 H inductor (input common mode 0.45 V, p. 291), AC injected into the inverting input;
+    CL is the fixture capacitor to ground.'
+  source: measure
+- name: supply_current_A
+  metric: supply_current_A
+  recipe: amp_dc_v1
+  point: {}
+  unit: A
+  upper: 2.5718e-05
+  target:
+    kind: linear
+    paper_value: 2.338e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, abstract and p. 290 ''current consumption is 23.38 uA'' (Table 2: 23.4
+    uA, same value rounded); VDD = 1.8 V. Supply current of the DUT at the quiescent point of the buffer (input 0.45 V), independent of CL. The
+    paper gives no power; power = 1.8 V x IDD (42.1 uW) is derived, so the primary reported quantity (IDD) is the target (upper bound).'
+  source: measure
+- name: unity_gain_frequency_Hz_CL0
+  metric: unity_gain_frequency_Hz
+  recipe: amp_ol_v1
+  point: {}
+  unit: Hz
+  lower: 2583000.0
+  target:
+    kind: linear
+    paper_value: 2870000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, Table 2 GBW 2.87 MHz at CL = 0 pF (text p. 291 and abstract print ''average
+    unity-gain frequency 4.872 MHz'' for no load: INCONSISTENT; G6 step 1: Fig. 4''s CL = 0 curve (red) reaches 0 dB at ~3 MHz and never exceeds
+    ~3.3 MHz, so 4.872 MHz is contradicted by the paper''s own plot and Table 2; Table 2 used, 4.872 MHz recorded as not covered). GBW of Table
+    2 = the 0 dB crossing of the open-loop gain (Table 2 GBW values equal Fig. 4''s unity-gain frequencies; Eq. 4''s A0 x p-3dB form would give
+    the same ~3 MHz at CL=0 and a value independent of CL at 100 nF, which Table 2 contradicts), measured as unity_gain_frequency_Hz. Open loop:
+    the DC loop of the unity-gain buffer is closed through an ideal 1e18 H inductor (input common mode 0.45 V, p. 291), AC injected into the inverting
+    input; CL is the fixture capacitor to ground.'
+  source: measure
+- name: unity_gain_frequency_Hz_CL100p
+  metric: unity_gain_frequency_Hz
+  recipe: amp_ol_v1
+  point: {}
+  unit: Hz
+  lower: 2160000.0
+  target:
+    kind: linear
+    paper_value: 2400000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL100p
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, text p. 291 / abstract: ''average unit gain frequencies ... 2.4 MHz
+    for 0.1 nF'' (Table 2 has no 0.1 nF column; Fig. 4 shows the 100 p curve crossing 0 dB at ~3-5 MHz, i.e. the printed value is not above what
+    the plot demonstrates, G6 step 3). GBW of Table 2 = the 0 dB crossing of the open-loop gain (Table 2 GBW values equal Fig. 4''s unity-gain
+    frequencies; Eq. 4''s A0 x p-3dB form would give the same ~3 MHz at CL=0 and a value independent of CL at 100 nF, which Table 2 contradicts),
+    measured as unity_gain_frequency_Hz. Open loop: the DC loop of the unity-gain buffer is closed through an ideal 1e18 H inductor (input common
+    mode 0.45 V, p. 291), AC injected into the inverting input; CL is the fixture capacitor to ground.'
+  source: measure
+- name: unity_gain_frequency_Hz_CL500p
+  metric: unity_gain_frequency_Hz
+  recipe: amp_ol_v1
+  point: {}
+  unit: Hz
+  lower: 1116000.0
+  target:
+    kind: linear
+    paper_value: 1240000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL500p
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, Table 2 GBW 1.24 MHz at CL = 0.5 nF (Fig. 4 500 p curve crosses 0 dB
+    at ~1.3 MHz: consistent). GBW of Table 2 = the 0 dB crossing of the open-loop gain (Table 2 GBW values equal Fig. 4''s unity-gain frequencies;
+    Eq. 4''s A0 x p-3dB form would give the same ~3 MHz at CL=0 and a value independent of CL at 100 nF, which Table 2 contradicts), measured
+    as unity_gain_frequency_Hz. Open loop: the DC loop of the unity-gain buffer is closed through an ideal 1e18 H inductor (input common mode
+    0.45 V, p. 291), AC injected into the inverting input; CL is the fixture capacitor to ground.'
+  source: measure
+- name: unity_gain_frequency_Hz_CL100n
+  metric: unity_gain_frequency_Hz
+  recipe: amp_ol_v1
+  point: {}
+  unit: Hz
+  lower: 81099.0
+  target:
+    kind: linear
+    paper_value: 90110.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL100n
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, text p. 291 / abstract: unity-gain frequency 90.11 kHz at 100 nF = Table
+    2 GBW 0.09 MHz at CL = 100 nF (the same value rounded; Fig. 4 100 n curve crosses 0 dB at ~90 kHz). GBW of Table 2 = the 0 dB crossing of
+    the open-loop gain (Table 2 GBW values equal Fig. 4''s unity-gain frequencies; Eq. 4''s A0 x p-3dB form would give the same ~3 MHz at CL=0
+    and a value independent of CL at 100 nF, which Table 2 contradicts), measured as unity_gain_frequency_Hz. Open loop: the DC loop of the unity-gain
+    buffer is closed through an ideal 1e18 H inductor (input common mode 0.45 V, p. 291), AC injected into the inverting input; CL is the fixture
+    capacitor to ground.'
+  source: measure
+- name: settling_time_1pct_s_CL0
+  metric: settling_time_to_final_avg_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: s
+  upper: 3.19e-07
+  target:
+    kind: linear
+    paper_value: 2.9e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, 1 % settling time at 0: 0.29 us (Table 2, text p. 292). Setup (p. 292,
+    Fig. 6): unity-gain buffer, 0.4 V input step (Fig. 6: 0.4 V -> 0.8 V, rising and falling edges), ''average 1 % settling time'' (p. 292) =
+    mean of the rising and falling edges (settling_time_to_final_avg_s, 1 % of the 0.4 V step = 4 mV band around the final value). The window
+    per CL follows Fig. 6 (half period 10 us at 0 and 100 pF, 20 us at 500 pF, 150 us at 50 and 100 nF).'
+  source: measure
+- name: settling_time_1pct_s_CL100p
+  metric: settling_time_to_final_avg_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: s
+  upper: 5.28e-07
+  target:
+    kind: linear
+    paper_value: 4.8e-07
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL100p
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, 1 % settling time at 100p: 0.48 us (abstract, text p. 292; Table 2 has
+    no 100 pF column). Setup (p. 292, Fig. 6): unity-gain buffer, 0.4 V input step (Fig. 6: 0.4 V -> 0.8 V, rising and falling edges), ''average
+    1 % settling time'' (p. 292) = mean of the rising and falling edges (settling_time_to_final_avg_s, 1 % of the 0.4 V step = 4 mV band around
+    the final value). The window per CL follows Fig. 6 (half period 10 us at 0 and 100 pF, 20 us at 500 pF, 150 us at 50 and 100 nF).'
+  source: measure
+- name: settling_time_1pct_s_CL500p
+  metric: settling_time_to_final_avg_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: s
+  upper: 1.507e-06
+  target:
+    kind: linear
+    paper_value: 1.37e-06
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL500p
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, 1 % settling time at 500p: 1.37 us (Table 2, text p. 292). Setup (p.
+    292, Fig. 6): unity-gain buffer, 0.4 V input step (Fig. 6: 0.4 V -> 0.8 V, rising and falling edges), ''average 1 % settling time'' (p. 292)
+    = mean of the rising and falling edges (settling_time_to_final_avg_s, 1 % of the 0.4 V step = 4 mV band around the final value). The window
+    per CL follows Fig. 6 (half period 10 us at 0 and 100 pF, 20 us at 500 pF, 150 us at 50 and 100 nF).'
+  source: measure
+- name: settling_time_1pct_s_CL50n
+  metric: settling_time_to_final_avg_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: s
+  upper: 1.9282999999999998e-05
+  target:
+    kind: linear
+    paper_value: 1.753e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL50n
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, 1 % settling time at 50n: 17.53 us (text p. 292). Setup (p. 292, Fig.
+    6): unity-gain buffer, 0.4 V input step (Fig. 6: 0.4 V -> 0.8 V, rising and falling edges), ''average 1 % settling time'' (p. 292) = mean
+    of the rising and falling edges (settling_time_to_final_avg_s, 1 % of the 0.4 V step = 4 mV band around the final value). The window per CL
+    follows Fig. 6 (half period 10 us at 0 and 100 pF, 20 us at 500 pF, 150 us at 50 and 100 nF).'
+  source: measure
+- name: settling_time_1pct_s_CL100n
+  metric: settling_time_to_final_avg_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: s
+  upper: 2.1912e-05
+  target:
+    kind: linear
+    paper_value: 1.992e-05
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL100n
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, 1 % settling time at 100n: 19.92 us (abstract, text p. 292; Table 2
+    prints 19.9 us, the same value rounded). Setup (p. 292, Fig. 6): unity-gain buffer, 0.4 V input step (Fig. 6: 0.4 V -> 0.8 V, rising and falling
+    edges), ''average 1 % settling time'' (p. 292) = mean of the rising and falling edges (settling_time_to_final_avg_s, 1 % of the 0.4 V step
+    = 4 mV band around the final value). The window per CL follows Fig. 6 (half period 10 us at 0 and 100 pF, 20 us at 500 pF, 150 us at 50 and
+    100 nF).'
+  source: measure
+- name: slew_rate_V_per_s_CL0
+  metric: slew_rate_avg_V_per_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: V/s
+  lower: 1827000.0
+  target:
+    kind: linear
+    paper_value: 2030000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL0
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, Table 2 SR 2.03 V/us at 0 (no setup stated; the Fig. 6 buffer step is
+    the only large-signal fixture of the paper, so the same 0.4 V step is used). UNSTATED definition: the 20-80 % average slew rate of the output
+    edge, mean of rising and falling edges (amp_step_v1 slew_rate_avg); Table 2''s IFOML = SR x CL / IDD (e.g. 1.68 x 500 / 23.4 = 35.9) confirms
+    the values are SR at that CL.'
+  source: measure
+- name: slew_rate_V_per_s_CL500p
+  metric: slew_rate_avg_V_per_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: V/s
+  lower: 1512000.0
+  target:
+    kind: linear
+    paper_value: 1680000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL500p
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, Table 2 SR 1.68 V/us (CL = 0.5 nF) at 500p (no setup stated; the Fig.
+    6 buffer step is the only large-signal fixture of the paper, so the same 0.4 V step is used). UNSTATED definition: the 20-80 % average slew
+    rate of the output edge, mean of rising and falling edges (amp_step_v1 slew_rate_avg); Table 2''s IFOML = SR x CL / IDD (e.g. 1.68 x 500 /
+    23.4 = 35.9) confirms the values are SR at that CL.'
+  source: measure
+- name: slew_rate_V_per_s_CL100n
+  metric: slew_rate_avg_V_per_s
+  recipe: amp30_step_v1
+  point: {}
+  unit: V/s
+  lower: 40500.0
+  target:
+    kind: linear
+    paper_value: 45000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - label: CL100n
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, Table 2 SR 0.045 V/us at 100n (no setup stated; the Fig. 6 buffer step
+    is the only large-signal fixture of the paper, so the same 0.4 V step is used). UNSTATED definition: the 20-80 % average slew rate of the
+    output edge, mean of rising and falling edges (amp_step_v1 slew_rate_avg); Table 2''s IFOML = SR x CL / IDD (e.g. 1.68 x 500 / 23.4 = 35.9)
+    confirms the values are SR at that CL.'
+  source: measure
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: amp_dc_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'benchmark rule G8 (validity gate, owner 2026-10-30): every transistor saturated at the nominal quiescent point (CL = 500 pF, buffer
+    input 0.45 V); no device is saturation-exempt (all 15 are analog devices; the paper designs all in saturation, p. 291 bias)'
+  source: native
+- name: total_compensation_C_F
+  metric: total_compensation_C_F
+  recipe: derived
+  point: {}
+  unit: F
+  upper: 9.57e-13
+  target:
+    kind: linear
+    paper_value: 8.7e-13
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: BelghisAzar, Trans. Machine Intelligence 7(4) 2024, p. 290 and Table 2: ''the total capacitance of the compensation capacitors
+    is 0.87 pF'' (Cc1 + Cc2 + CD = 90 + 500 + 280 fF, Table 1); a design figure the paper reports as a headline (Table 2 row ''Total CC [pF]''),
+    used as an upper bound on the sum of the three compensation capacitors (a method may not buy stability with larger capacitors than the paper''s
+    0.87 pF)'
+  source: derived
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: amp_dc_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: amp_dc_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics:
+  total_compensation_C_F:
+    expression: a + b + c
+    unit: F
+    inputs:
+      a:
+        variable: CC1
+      b:
+        variable: CC2
+      c:
+        variable: CD
+all_metrics:
+- - amp30_step_v1
+  - final_error_fall_V
+- - amp30_step_v1
+  - final_error_rise_V
+- - amp30_step_v1
+  - overshoot_fall_V
+- - amp30_step_v1
+  - overshoot_max_V
+- - amp30_step_v1
+  - overshoot_rise_V
+- - amp30_step_v1
+  - settling_time_fall_s
+- - amp30_step_v1
+  - settling_time_rise_s
+- - amp30_step_v1
+  - settling_time_to_final_avg_s
+- - amp30_step_v1
+  - settling_time_to_final_fall_s
+- - amp30_step_v1
+  - settling_time_to_final_rise_s
+- - amp30_step_v1
+  - slew_rate_avg_V_per_s
+- - amp30_step_v1
+  - slew_rate_fall_V_per_s
+- - amp30_step_v1
+  - slew_rate_rise_V_per_s
+- - amp_dc_v1
+  - bias_power_W
+- - amp_dc_v1
+  - buffer_offset_V
+- - amp_dc_v1
+  - devices_out_of_saturation
+- - amp_dc_v1
+  - devices_outside_rails
+- - amp_dc_v1
+  - forward_biased_junctions
+- - amp_dc_v1
+  - output_at_sweep_start_V
+- - amp_dc_v1
+  - output_at_sweep_stop_V
+- - amp_dc_v1
+  - output_swing_V
+- - amp_dc_v1
+  - quiescent_power_W
+- - amp_dc_v1
+  - saturation_margin_min_V
+- - amp_dc_v1
+  - supply_current_A
+- - amp_dc_v1
+  - tracking_range_V
+- - amp_dc_v1
+  - tracking_range_high_V
+- - amp_dc_v1
+  - tracking_range_low_V
+- - amp_ol_v1
+  - cmrr_dB
+- - amp_ol_v1
+  - gain_bandwidth_product_Hz
+- - amp_ol_v1
+  - gain_margin_dB
+- - amp_ol_v1
+  - open_loop_bandwidth_Hz
+- - amp_ol_v1
+  - open_loop_gain_dB
+- - amp_ol_v1
+  - phase_margin_deg
+- - amp_ol_v1
+  - psrr_neg_dB
+- - amp_ol_v1
+  - psrr_pos_dB
+- - amp_ol_v1
+  - unity_gain_frequency_Hz
+simulations_per_design: 15
+analysis_executions_per_design: 30
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00_CL0
+  recipe: amp_dc_v1
+  folder: testbenches/NN_T27_S1p00_CL0/amp_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    supply_current_A:
+      unit: A
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    buffer_offset_V:
+      unit: V
+      source: measure
+    output_at_sweep_start_V:
+      unit: V
+      source: measure
+    output_at_sweep_stop_V:
+      unit: V
+      source: measure
+    output_swing_V:
+      unit: V
+      source: measure
+    tracking_range_low_V:
+      unit: V
+      source: native
+    tracking_range_high_V:
+      unit: V
+      source: native
+    tracking_range_V:
+      unit: V
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 0.45
+- condition: NN_T27_S1p00_CL0
+  recipe: amp_ol_v1
+  folder: testbenches/NN_T27_S1p00_CL0/amp_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+- condition: NN_T27_S1p00_CL0
+  recipe: amp30_step_v1
+  folder: testbenches/NN_T27_S1p00_CL0/amp30_step_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    slew_rate_rise_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_fall_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_avg_V_per_s:
+      unit: V/s
+      source: measure
+    settling_time_to_final_rise_s:
+      unit: s
+      source: measure
+    settling_time_to_final_fall_s:
+      unit: s
+      source: measure
+    settling_time_to_final_avg_s:
+      unit: s
+      source: measure
+    settling_time_rise_s:
+      unit: s
+      source: measure
+    settling_time_fall_s:
+      unit: s
+      source: measure
+    final_error_rise_V:
+      unit: V
+      source: measure
+    final_error_fall_V:
+      unit: V
+      source: measure
+    overshoot_rise_V:
+      unit: V
+      source: measure
+    overshoot_fall_V:
+      unit: V
+      source: measure
+    overshoot_max_V:
+      unit: V
+      source: measure
+  points:
+  - step_V: 0.4
+- condition: NN_T27_S1p00_CL100p
+  recipe: amp_dc_v1
+  folder: testbenches/NN_T27_S1p00_CL100p/amp_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    supply_current_A:
+      unit: A
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    buffer_offset_V:
+      unit: V
+      source: measure
+    output_at_sweep_start_V:
+      unit: V
+      source: measure
+    output_at_sweep_stop_V:
+      unit: V
+      source: measure
+    output_swing_V:
+      unit: V
+      source: measure
+    tracking_range_low_V:
+      unit: V
+      source: native
+    tracking_range_high_V:
+      unit: V
+      source: native
+    tracking_range_V:
+      unit: V
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 0.45
+- condition: NN_T27_S1p00_CL100p
+  recipe: amp_ol_v1
+  folder: testbenches/NN_T27_S1p00_CL100p/amp_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+- condition: NN_T27_S1p00_CL100p
+  recipe: amp30_step_v1
+  folder: testbenches/NN_T27_S1p00_CL100p/amp30_step_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    slew_rate_rise_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_fall_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_avg_V_per_s:
+      unit: V/s
+      source: measure
+    settling_time_to_final_rise_s:
+      unit: s
+      source: measure
+    settling_time_to_final_fall_s:
+      unit: s
+      source: measure
+    settling_time_to_final_avg_s:
+      unit: s
+      source: measure
+    settling_time_rise_s:
+      unit: s
+      source: measure
+    settling_time_fall_s:
+      unit: s
+      source: measure
+    final_error_rise_V:
+      unit: V
+      source: measure
+    final_error_fall_V:
+      unit: V
+      source: measure
+    overshoot_rise_V:
+      unit: V
+      source: measure
+    overshoot_fall_V:
+      unit: V
+      source: measure
+    overshoot_max_V:
+      unit: V
+      source: measure
+  points:
+  - step_V: 0.4
+- condition: NN_T27_S1p00_CL500p
+  recipe: amp_dc_v1
+  folder: testbenches/NN_T27_S1p00_CL500p/amp_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    supply_current_A:
+      unit: A
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    buffer_offset_V:
+      unit: V
+      source: measure
+    output_at_sweep_start_V:
+      unit: V
+      source: measure
+    output_at_sweep_stop_V:
+      unit: V
+      source: measure
+    output_swing_V:
+      unit: V
+      source: measure
+    tracking_range_low_V:
+      unit: V
+      source: native
+    tracking_range_high_V:
+      unit: V
+      source: native
+    tracking_range_V:
+      unit: V
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 0.45
+- condition: NN_T27_S1p00_CL500p
+  recipe: amp_ol_v1
+  folder: testbenches/NN_T27_S1p00_CL500p/amp_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+- condition: NN_T27_S1p00_CL500p
+  recipe: amp30_step_v1
+  folder: testbenches/NN_T27_S1p00_CL500p/amp30_step_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    slew_rate_rise_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_fall_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_avg_V_per_s:
+      unit: V/s
+      source: measure
+    settling_time_to_final_rise_s:
+      unit: s
+      source: measure
+    settling_time_to_final_fall_s:
+      unit: s
+      source: measure
+    settling_time_to_final_avg_s:
+      unit: s
+      source: measure
+    settling_time_rise_s:
+      unit: s
+      source: measure
+    settling_time_fall_s:
+      unit: s
+      source: measure
+    final_error_rise_V:
+      unit: V
+      source: measure
+    final_error_fall_V:
+      unit: V
+      source: measure
+    overshoot_rise_V:
+      unit: V
+      source: measure
+    overshoot_fall_V:
+      unit: V
+      source: measure
+    overshoot_max_V:
+      unit: V
+      source: measure
+  points:
+  - step_V: 0.4
+- condition: NN_T27_S1p00_CL50n
+  recipe: amp_dc_v1
+  folder: testbenches/NN_T27_S1p00_CL50n/amp_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    supply_current_A:
+      unit: A
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    buffer_offset_V:
+      unit: V
+      source: measure
+    output_at_sweep_start_V:
+      unit: V
+      source: measure
+    output_at_sweep_stop_V:
+      unit: V
+      source: measure
+    output_swing_V:
+      unit: V
+      source: measure
+    tracking_range_low_V:
+      unit: V
+      source: native
+    tracking_range_high_V:
+      unit: V
+      source: native
+    tracking_range_V:
+      unit: V
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 0.45
+- condition: NN_T27_S1p00_CL50n
+  recipe: amp_ol_v1
+  folder: testbenches/NN_T27_S1p00_CL50n/amp_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+- condition: NN_T27_S1p00_CL50n
+  recipe: amp30_step_v1
+  folder: testbenches/NN_T27_S1p00_CL50n/amp30_step_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    slew_rate_rise_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_fall_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_avg_V_per_s:
+      unit: V/s
+      source: measure
+    settling_time_to_final_rise_s:
+      unit: s
+      source: measure
+    settling_time_to_final_fall_s:
+      unit: s
+      source: measure
+    settling_time_to_final_avg_s:
+      unit: s
+      source: measure
+    settling_time_rise_s:
+      unit: s
+      source: measure
+    settling_time_fall_s:
+      unit: s
+      source: measure
+    final_error_rise_V:
+      unit: V
+      source: measure
+    final_error_fall_V:
+      unit: V
+      source: measure
+    overshoot_rise_V:
+      unit: V
+      source: measure
+    overshoot_fall_V:
+      unit: V
+      source: measure
+    overshoot_max_V:
+      unit: V
+      source: measure
+  points:
+  - step_V: 0.4
+- condition: NN_T27_S1p00_CL100n
+  recipe: amp_dc_v1
+  folder: testbenches/NN_T27_S1p00_CL100n/amp_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    supply_current_A:
+      unit: A
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    buffer_offset_V:
+      unit: V
+      source: measure
+    output_at_sweep_start_V:
+      unit: V
+      source: measure
+    output_at_sweep_stop_V:
+      unit: V
+      source: measure
+    output_swing_V:
+      unit: V
+      source: measure
+    tracking_range_low_V:
+      unit: V
+      source: native
+    tracking_range_high_V:
+      unit: V
+      source: native
+    tracking_range_V:
+      unit: V
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 0.45
+- condition: NN_T27_S1p00_CL100n
+  recipe: amp_ol_v1
+  folder: testbenches/NN_T27_S1p00_CL100n/amp_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+- condition: NN_T27_S1p00_CL100n
+  recipe: amp30_step_v1
+  folder: testbenches/NN_T27_S1p00_CL100n/amp30_step_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    slew_rate_rise_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_fall_V_per_s:
+      unit: V/s
+      source: measure
+    slew_rate_avg_V_per_s:
+      unit: V/s
+      source: measure
+    settling_time_to_final_rise_s:
+      unit: s
+      source: measure
+    settling_time_to_final_fall_s:
+      unit: s
+      source: measure
+    settling_time_to_final_avg_s:
+      unit: s
+      source: measure
+    settling_time_rise_s:
+      unit: s
+      source: measure
+    settling_time_fall_s:
+      unit: s
+      source: measure
+    final_error_rise_V:
+      unit: V
+      source: measure
+    final_error_fall_V:
+      unit: V
+      source: measure
+    overshoot_rise_V:
+      unit: V
+      source: measure
+    overshoot_fall_V:
+      unit: V
+      source: measure
+    overshoot_max_V:
+      unit: V
+      source: measure
+  points:
+  - step_V: 0.4
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - ota3s24_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('ota3s24_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

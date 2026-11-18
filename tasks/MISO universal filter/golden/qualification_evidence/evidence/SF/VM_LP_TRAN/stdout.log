@@ -1,0 +1,260 @@
+WARNING: HOST <g4-vm> DOES NOT APPEAR TO BE A CADENCE SUPPORTED LINUX CONFIGURATION.
+         For More Info,  Please Run '<cdsroot>/tools.lnx86/bin/checkSysConf' <productId>.
+
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved
+        worldwide. Cadence, Virtuoso and Spectre are registered trademarks of
+        Cadence Design Systems, Inc. All others are the property of their
+        respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA
+        Security, Inc.
+
+User: curator   Host: g4-vm   HostID: 8E0A0200   PID: 2791864
+Memory  available: 3.4968 GB  physical: 189.5854 GB
+sh: lsb_release: command not found
+CPU Type: AMD EPYC 9B45
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [4134.6] ( 24 ),  1 [2700.0] ( 25 ),  2 [2700.0] ( 26 )
+                 3 [2700.0] ( 27 ),  4 [2700.0] ( 28 ),  5 [2700.0] ( 29 )
+                 6 [2700.0] ( 30 ),  7 [2700.0] ( 31 ),  8 [4150.4] ( 32 )
+                 9 [2700.0] ( 33 ), 10 [2700.0] ( 34 ), 11 [2700.0] ( 35 )
+                12 [2700.0] ( 36 ), 13 [2700.0] ( 37 ), 14 [2700.0] ( 38 )
+                15 [2700.0] ( 39 ), 16 [2700.0] ( 40 ), 17 [2700.0] ( 41 )
+                18 [4135.6] ( 42 ), 19 [2700.0] ( 43 ), 20 [2700.0] ( 44 )
+                21 [2700.0] ( 45 ), 22 [2700.0] ( 46 ), 23 [2700.0] ( 47 )
+        
+System load averages (1min, 5min, 15min) : 6.4 %, 4.6 %, 4.4 %
+Hyperthreading is enabled
+
+
+Simulating `input.scs' on g4-vm at 7:27:47 PM, Tue Nov 10, 2026 (process id:
+        2791864).
+Current working directory:
+        <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/SF/VM_LP_TRAN
+Command line:
+    /opt/cadence/rootfs/opt/MMSIM151/tools/bin/spectre -64 input.scs  \
+        -format psfascii -raw raw +log spectre.log
+sh: lsb_release: command not found
+Reading file: 
+        <WORK>/miso_iruwb_15pct_20261110/miso/nine_metric_sizing/full/compensated_final_v2/SF/VM_LP_TRAN/input.scs
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/gpdk.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/mos25gen.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/nmos1.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/pmos1.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/resistor.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/capacitor.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/diode.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/bipolar.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/rfmos.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/xjvar_nf36.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/xjvar_w40.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/snacapacitor.scs
+Reading file:  <PDK_ROOT>/gpdk180/models/spectre/cmodel.scs
+Time for NDB Parsing: CPU = 67.061 ms, elapsed = 79.0379 ms.
+Time accumulated: CPU = 75.73 ms, elapsed = 79.0401 ms.
+Peak resident memory used = 70.9 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre  2 (11.1 %)      8 (100.0 %)    11 (11.1 %)     13 (11.1 %)
+                15 (12.5 %)     16 (11.1 %)     18 (77.8 %)     23 (12.5 %)
+                24 (100.0 %)    35 (11.1 %)     39 (11.1 %)     45 (100.0 %)
+                47 (11.1 %)     
+        Other   
+Reading link: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+Time for Elaboration: CPU = 10.552 ms, elapsed = 10.5739 ms.
+Time accumulated: CPU = 86.336 ms, elapsed = 89.6671 ms.
+Peak resident memory used = 78.1 Mbytes.
+
+Time for EDB Visiting: CPU = 613 us, elapsed = 613.928 us.
+Time accumulated: CPU = 87.011 ms, elapsed = 90.342 ms.
+Peak resident memory used = 79.1 Mbytes.
+
+
+Warning from spectre during initial setup.
+    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rs' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.A2.M1: Parasitic resistor `rd' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rs' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.A2.M2: Parasitic resistor `rd' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+    WARNING (CMI-2666): DUT.A1.M1: Parasitic resistor `rs' of the device was
+        smaller than `1.000000e-03'. To prevent possible convergence problem,
+        add a larger global option `Minr' to eliminate the small resistor.
+        Further occurrences of this warning will be suppressed.
+
+Global user options:
+             reltol = 1e-06
+            vabstol = 1e-09
+            iabstol = 1e-14
+               temp = 27
+               tnom = 27
+               save = allpub
+           currents = all
+     subcktprobelvl = 5
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 38
+             iprobe 303   
+            bsim3v3 64    
+          capacitor 2     
+            isource 5     
+           resistor 1     
+            vsource 8     
+
+Analysis and control statement inventory:
+                 dc 1     
+               tran 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 0     
+
+
+Notice from spectre.
+    11 warnings suppressed.
+
+Time for parsing: CPU = 5.685 ms, elapsed = 9.43804 ms.
+Time accumulated: CPU = 92.735 ms, elapsed = 99.817 ms.
+Peak resident memory used = 81.9 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+
+******************
+DC Analysis `dcOp'
+******************
+
+Opening the PSFASCII file raw/dcOp.dc ...
+Important parameter values:
+    reltol = 1e-06
+    abstol(V) = 1 nV
+    abstol(I) = 10 fA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    gmindc = 1 pS
+Trying `homotopy = gmin'.
+
+Notice from spectre during DC analysis `dcOp'.
+    GminDC = 1 pS is large enough to noticeably affect the DC solution.
+        dV(DUT.A1.M12:int_d) = -447.211 nV
+        Use the `gmin_check' option to eliminate or expand this report.
+
+Convergence achieved in 62 iterations.
+Total time required for dc analysis `dcOp': CPU = 14.059 ms, elapsed = 16.0329
+        ms.
+Time accumulated: CPU = 107.048 ms, elapsed = 118.217 ms.
+Peak resident memory used = 83.7 Mbytes.
+
+
+************************************************
+Transient Analysis `tran': time = (0 s -> 60 us)
+************************************************
+
+Notice from spectre during IC analysis, during transient analysis `tran'.
+    GminDC = 1 pS is large enough to noticeably affect the DC solution.
+        dV(DUT.A1.M12:int_d) = -447.211 nV
+        Use the `gmin_check' option to eliminate or expand this report.
+
+DC simulation time: CPU = 497 us, elapsed = 500.917 us.
+
+Opening the PSFASCII file raw/tran.tran.tran ...
+Important parameter values:
+    start = 0 s
+    outputstart = 0 s
+    stop = 60 us
+    step = 60 ns
+    maxstep = 10 ns
+    ic = all
+    useprevic = no
+    skipdc = no
+    reltol = 100e-09
+    abstol(V) = 1 nV
+    abstol(I) = 10 fA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    errpreset = conservative
+    method = gear2only
+    lteratio = 10
+    relref = alllocal
+    cmin = 0 F
+    gmin = 1 pS
+
+
+Output and IC/nodeset summary:
+                 save   575     (current)
+                 save   38      (voltage)
+
+......9......8......7......6......5......4......3......2......1......0
+Number of accepted tran steps =             81716
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Post-Transient Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -   To further speed up simulation, consider
+          add ++aps on command line
+   -   Non-default settings that could significantly slow down simulation
+          errpreset = conservative, default moderate
+          maxstep = 10 ns, default 600 ns (conservative)
+          reltol = 100e-09, default 100e-06 (conservative)
+          abstol(V) = 1 nV, default 1 uV
+          abstol(I) = 10 fA, default 1 pA
+   -   Features that may significantly slowing down simulation
+          iprobe = 79.32 % of total equations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+During simulation, the CPU load for active processors is :
+        Spectre  0 (85.2 %)      1 (2.5 %)       2 (1.6 %)       3 (2.0 %)
+                 4 (1.6 %)       5 (1.9 %)       6 (2.0 %)       7 (1.6 %)
+                 8 (14.3 %)      9 (2.4 %)      10 (2.0 %)      11 (2.0 %)
+                12 (2.1 %)      13 (2.6 %)      14 (2.5 %)      15 (3.4 %)
+                16 (1.9 %)      17 (1.6 %)      18 (7.4 %)      19 (1.8 %)
+                20 (1.6 %)      21 (6.5 %)      22 (2.1 %)      23 (4.6 %)
+                24 (14.3 %)     25 (1.6 %)      26 (3.0 %)      27 (1.7 %)
+                28 (1.5 %)      29 (2.0 %)      30 (2.0 %)      31 (1.8 %)
+                32 (6.0 %)      33 (2.0 %)      34 (2.2 %)      35 (2.1 %)
+                36 (2.6 %)      37 (2.6 %)      38 (1.9 %)      39 (14.6 %)
+                40 (2.0 %)      41 (1.6 %)      42 (2.4 %)      43 (2.3 %)
+                44 (2.2 %)      45 (76.0 %)     46 (3.8 %)      47 (2.3 %)
+        Other   
+Initial condition solution time: CPU = 506 us, elapsed = 509.024 us.
+Intrinsic tran analysis time:    CPU = 12.1022 s, elapsed = 12.1362 s.
+Total time required for tran analysis `tran': CPU = 12.1036 s, elapsed =
+        12.1376 s.
+Time accumulated: CPU = 12.2215 s, elapsed = 13.2966 s.
+Peak resident memory used = 85.2 Mbytes.
+
+
+Aggregate audit (7:28:00 PM, Tue Nov 10, 2026):
+Time used: CPU = 12.2 s, elapsed = 13.3 s, util. = 91.9%.
+Time spent in licensing: elapsed = 42.7 ms.
+Peak memory used = 85.2 Mbytes.
+Simulation started at: 7:27:47 PM, Tue Nov 10, 2026, ended at: 7:28:00 PM, Tue
+        Nov 10, 2026, with elapsed time (wall clock): 13.3 s.
+spectre completes with 0 errors, 5 warnings, and 3 notices.

@@ -1,0 +1,49 @@
+{
+  "job_id": "fixed_models_T27_S1p00_Nominal/poweramp_slew_v1",
+  "recipe_id": "poweramp_slew_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "fixed_models_T27_S1p00_Nominal",
+    "model_set": "fixed_models",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 42.0,
+    "includes": [
+      {
+        "path": "<ANALOGIQ>/circuits/02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac/model_library/models.scs",
+        "section": null
+      }
+    ],
+    "label": "Nominal",
+    "external_bias": {
+      "VN": -42.0
+    },
+    "is_nominal": true,
+    "supply_negative_V": -42.0,
+    "supply_span_V": 84.0
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/tr1.tran.tran"
+  ],
+  "expected_metrics": [
+    "SR_fall_V_per_us",
+    "SR_rise_V_per_us"
+  ],
+  "digests": {
+    "task": "63fdb90b671cc3569a4b1ce9071f84f85b16beea56c9236634be0b47cfab78a1",
+    "candidate": "5d2d8bf27fc11fc962c86960b3a1a5f571db62ad53f98ff72aea343b74f6f770",
+    "parameterization": "d9059be64db05bcf9c116bd5ff4c54085754815eafc2c4452288ea1ea170c36a",
+    "dut_source_netlist": "777195dceaaf7930e233c60a85553a6cc0e2ed498821cf6ff0d394ae88cf9b4d",
+    "dut_subckt": "9d286c71087350d92877e5483a79d4a75d3dfb3431d41f66719f097091f4fa6c",
+    "models": "147f4fd54324016bde6885136e038b1440f0b186a9cf24b0936bdee816248ab5",
+    "recipes": "bfb95d2ff4082e2a32b485e1ef47e7eeba259208a9d6f3de24be1f2e5214e50c",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "003a625f92ce1d77e7c3006f282fbead1fdc18a538968c9008b3142c433a6828"
+  },
+  "state": "rendered"
+}

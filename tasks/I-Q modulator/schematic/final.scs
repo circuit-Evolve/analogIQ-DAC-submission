@@ -1,0 +1,189 @@
+simulator lang=spectre
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+subckt iqmod_mfb_lpf_ota_core_spdt_switch_tg VDD di_tg_ctrl VSS v_b v_a di_tg_ctrl_n
+M2 (v_a di_tg_ctrl_n v_b VDD) sky130_fd_pr__pfet_01v8 w=41.5384615385 l=0.15 nf=6 mult=1 ad=6.02308 as=8.03077 pd=43.2785 ps=57.7046 sa=0 sb=0 sd=0 m=1
+M1 (v_a di_tg_ctrl v_b VSS) sky130_fd_pr__nfet_01v8 w=6.92307692308 l=0.15 nf=6 mult=1 ad=1.00385 as=1.33846 pd=8.66308 ps=11.5508 sa=0 sb=0 sd=0 m=1
+ends iqmod_mfb_lpf_ota_core_spdt_switch_tg
+subckt iqmod_mfb_lpf_ota_core_spdt_switch_inv VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=13.8461538462 l=0.15 nf=2 mult=1 ad=2.00769 as=4.01538 pd=14.4262 ps=28.8523 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=13.8461538462 l=0.15 nf=2 mult=1 ad=2.00769 as=4.01538 pd=14.4262 ps=28.8523 sa=0 sb=0 sd=0 m=1
+ends iqmod_mfb_lpf_ota_core_spdt_switch_inv
+subckt iqmod_mfb_lpf_ota_core_tg VDD di_tg_ctrl VSS v_b v_a di_tg_ctrl_n
+M2 (v_a di_tg_ctrl_n v_b VDD) sky130_fd_pr__pfet_01v8 w=41.5384615385 l=0.15 nf=6 mult=1 ad=6.02308 as=8.03077 pd=43.2785 ps=57.7046 sa=0 sb=0 sd=0 m=1
+M1 (v_a di_tg_ctrl v_b VSS) sky130_fd_pr__nfet_01v8 w=6.92307692308 l=0.15 nf=6 mult=1 ad=1.00385 as=1.33846 pd=8.66308 ps=11.5508 sa=0 sb=0 sd=0 m=1
+ends iqmod_mfb_lpf_ota_core_tg
+subckt iqmod_mfb_lpf_ota_core_spdt_switch do_spdt_ctrl_n VDD di_spdt_ctrl VSS v_c v_b v_a
+x1 (VDD di_spdt_ctrl do_spdt_ctrl_n VSS) iqmod_mfb_lpf_ota_core_spdt_switch_inv
+x2 (VDD do_spdt_ctrl_n spdt_ctrl_buf VSS) iqmod_mfb_lpf_ota_core_spdt_switch_inv
+x3 (VDD spdt_ctrl_buf VSS v_c v_a do_spdt_ctrl_n) iqmod_mfb_lpf_ota_core_spdt_switch_tg
+x4 (VDD do_spdt_ctrl_n VSS v_c v_b spdt_ctrl_buf) iqmod_mfb_lpf_ota_core_spdt_switch_tg
+ends iqmod_mfb_lpf_ota_core_spdt_switch
+subckt iqmod_mfb_lpf_ota_core_inv_NF6 VDD vin vout VSS
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2 l=1 nf=2 mult=1 ad=0.29 as=0.58 pd=2.58 ps=5.16 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=12 l=1 nf=2 mult=1 ad=1.74 as=3.48 pd=12.58 ps=25.16 sa=0 sb=0 sd=0 m=1
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=6 l=1 nf=6 mult=1 ad=0.87 as=1.16 pd=7.74 ps=10.32 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=36 l=1 nf=6 mult=1 ad=5.22 as=6.96 pd=37.74 ps=50.32 sa=0 sb=0 sd=0 m=1
+ends iqmod_mfb_lpf_ota_core_inv_NF6
+subckt iqmod_mfb_lpf_ota_core_inv_NF10 VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=10 l=1 nf=10 mult=1 ad=1.45 as=1.74 pd=12.9 ps=15.48 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=60 l=1 nf=10 mult=1 ad=8.7 as=10.44 pd=62.9 ps=75.48 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2 l=1 nf=2 mult=1 ad=0.29 as=0.58 pd=2.58 ps=5.16 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=12 l=1 nf=2 mult=1 ad=1.74 as=3.48 pd=12.58 ps=25.16 sa=0 sb=0 sd=0 m=1
+ends iqmod_mfb_lpf_ota_core_inv_NF10
+subckt iqmod_mfb_lpf_ota_core_inv_NF20 VDD vin vout VSS
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2 l=1 nf=2 mult=1 ad=0.29 as=0.58 pd=2.58 ps=5.16 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=12 l=1 nf=2 mult=1 ad=1.74 as=3.48 pd=12.58 ps=25.16 sa=0 sb=0 sd=0 m=1
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=20 l=1 nf=20 mult=1 ad=2.9 as=3.19 pd=25.8 ps=28.38 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=120 l=1 nf=20 mult=1 ad=17.4 as=19.14 pd=125.8 ps=138.38 sa=0 sb=0 sd=0 m=1
+ends iqmod_mfb_lpf_ota_core_inv_NF20
+subckt iqmod_mixer_se2diff_inv_NF54 VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=62.3076923077 l=0.15 nf=54 mult=1 ad=9.03462 as=9.36923 pd=77.9677 ps=80.8554 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=186.923076923 l=0.15 nf=54 mult=1 ad=27.1038 as=28.1077 pd=202.583 ps=210.086 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=6.92307692308 l=0.15 nf=2 mult=1 ad=1.00385 as=2.00769 pd=7.50308 ps=15.0062 sa=0 sb=0 sd=0 m=1
+ends iqmod_mixer_se2diff_inv_NF54
+subckt iqmod_mixer_se2diff_inv_NF6 VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=6.92307692308 l=0.15 nf=6 mult=1 ad=1.00385 as=1.33846 pd=8.66308 ps=11.5508 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=20.7692307692 l=0.15 nf=6 mult=1 ad=3.01154 as=4.01538 pd=22.5092 ps=30.0123 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=6.92307692308 l=0.15 nf=2 mult=1 ad=1.00385 as=2.00769 pd=7.50308 ps=15.0062 sa=0 sb=0 sd=0 m=1
+ends iqmod_mixer_se2diff_inv_NF6
+subckt iqmod_mixer_se2diff_inv_NF2 VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=6.92307692308 l=0.15 nf=2 mult=1 ad=1.00385 as=2.00769 pd=7.50308 ps=15.0062 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=6.92307692308 l=0.15 nf=2 mult=1 ad=1.00385 as=2.00769 pd=7.50308 ps=15.0062 sa=0 sb=0 sd=0 m=1
+ends iqmod_mixer_se2diff_inv_NF2
+subckt iqmod_mixer_se2diff_inv_NF18 VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=20.7692307692 l=0.15 nf=18 mult=1 ad=3.01154 as=3.34615 pd=25.9892 ps=28.8769 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=62.3076923077 l=0.15 nf=18 mult=1 ad=9.03462 as=10.0385 pd=67.5277 ps=75.0308 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=6.92307692308 l=0.15 nf=2 mult=1 ad=1.00385 as=2.00769 pd=7.50308 ps=15.0062 sa=0 sb=0 sd=0 m=1
+ends iqmod_mixer_se2diff_inv_NF18
+subckt iqmod_mixer_se2diff_tg_NF6 VDD di_tg_ctrl VSS v_b v_a di_tg_ctrl_n
+M2 (v_a di_tg_ctrl_n v_b VDD) sky130_fd_pr__pfet_01v8 w=20.7692307692 l=0.15 nf=6 mult=1 ad=3.01154 as=4.01538 pd=22.5092 ps=30.0123 sa=0 sb=0 sd=0 m=1
+M1 (v_a di_tg_ctrl v_b VSS) sky130_fd_pr__nfet_01v8 w=6.92307692308 l=0.15 nf=6 mult=1 ad=1.00385 as=1.33846 pd=8.66308 ps=11.5508 sa=0 sb=0 sd=0 m=1
+ends iqmod_mixer_se2diff_tg_NF6
+subckt iqmod_spdt_switch_tg VDD di_tg_ctrl VSS v_b v_a di_tg_ctrl_n
+M2 (v_a di_tg_ctrl_n v_b VDD) sky130_fd_pr__pfet_01v8 w=41.5384615385 l=0.15 nf=6 mult=1 ad=6.02308 as=8.03077 pd=43.2785 ps=57.7046 sa=0 sb=0 sd=0 m=1
+M1 (v_a di_tg_ctrl v_b VSS) sky130_fd_pr__nfet_01v8 w=6.92307692308 l=0.15 nf=6 mult=1 ad=1.00385 as=1.33846 pd=8.66308 ps=11.5508 sa=0 sb=0 sd=0 m=1
+ends iqmod_spdt_switch_tg
+subckt iqmod_spdt_switch_inv VDD vin vout VSS
+M1 (vout vin VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+M2 (vout vin VDD VDD) sky130_fd_pr__pfet_01v8 w=13.8461538462 l=0.15 nf=2 mult=1 ad=2.00769 as=4.01538 pd=14.4262 ps=28.8523 sa=0 sb=0 sd=0 m=1
+Mdummy1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=2.30769230769 l=0.15 nf=2 mult=1 ad=0.334615 as=0.669231 pd=2.88769 ps=5.77538 sa=0 sb=0 sd=0 m=1
+Mdummy2 (VDD VDD VDD VDD) sky130_fd_pr__pfet_01v8 w=13.8461538462 l=0.15 nf=2 mult=1 ad=2.00769 as=4.01538 pd=14.4262 ps=28.8523 sa=0 sb=0 sd=0 m=1
+ends iqmod_spdt_switch_inv
+subckt iqmod_mfb_lpf_R4 v_b v_a VSS
+R1 (v_a net1) resistor r=177.71K
+R2 (net1 net2) resistor r=177.71K
+R3 (net2 v_b) resistor r=177.71K
+Rdummy1 (VSS VSS) resistor r=177.71K
+Rdummy2 (VSS VSS) resistor r=177.71K
+ends iqmod_mfb_lpf_R4
+subckt iqmod_mfb_lpf_R3 v_b v_a VSS
+R1 (v_a net1) resistor r=174.75K
+R2 (net1 net2) resistor r=174.75K
+R3 (net2 v_b) resistor r=174.75K
+Rdummy1 (VSS VSS) resistor r=174.75K
+Rdummy2 (VSS VSS) resistor r=174.75K
+ends iqmod_mfb_lpf_R3
+subckt iqmod_mfb_lpf_R2 v_b v_a VSS
+R1 (v_a net1) resistor r=91.972K
+R2 (net1 net2) resistor r=91.972K
+R3 (net2 v_b) resistor r=91.972K
+Rdummy1 (VSS VSS) resistor r=91.972K
+Rdummy2 (VSS VSS) resistor r=91.972K
+ends iqmod_mfb_lpf_R2
+subckt iqmod_mfb_lpf_R1 v_b v_a VSS
+R1 (v_a net1) resistor r=80.146K
+R2 (net1 net2) resistor r=80.146K
+R3 (net2 v_b) resistor r=80.146K
+Rdummy1 (VSS VSS) resistor r=80.146K
+Rdummy2 (VSS VSS) resistor r=80.146K
+ends iqmod_mfb_lpf_R1
+subckt iqmod_mfb_lpf_ota_core_hybrid_bm voutp voutn vinn vinp VDD VSS di_ota_en
+x6 (VDD node_CDG voutn VSS) iqmod_mfb_lpf_ota_core_inv_NF20
+x7 (VDD node_CDG voutp VSS) iqmod_mfb_lpf_ota_core_inv_NF20
+x11 (VDD voutn node_EF VSS) iqmod_mfb_lpf_ota_core_inv_NF20
+x12 (VDD voutp node_EF VSS) iqmod_mfb_lpf_ota_core_inv_NF20
+x9 (VDD node_vinp node_BC VSS) iqmod_mfb_lpf_ota_core_inv_NF10
+x10 (VDD node_vinn node_BC VSS) iqmod_mfb_lpf_ota_core_inv_NF10
+x5 (VDD node_EF node_FG VSS) iqmod_mfb_lpf_ota_core_inv_NF6
+x1 (VDD node_BC node_CDG VSS) iqmod_mfb_lpf_ota_core_inv_NF6
+x4 (VDD node_BC node_CDG VSS) iqmod_mfb_lpf_ota_core_inv_NF6
+x13 (VDD node_EF node_FG VSS) iqmod_mfb_lpf_ota_core_inv_NF6
+x8 (VDD node_FG node_CDG VSS) iqmod_mfb_lpf_ota_core_inv_NF6
+x14 (VDD node_FG node_CDG VSS) iqmod_mfb_lpf_ota_core_inv_NF6
+x2 (VDD node_vinp voutn VSS) iqmod_mfb_lpf_ota_core_inv_NF20
+x3 (VDD node_vinn voutp VSS) iqmod_mfb_lpf_ota_core_inv_NF20
+x16 (ota_en_n_1 VDD di_ota_en VSS node_vinp VDD vinp) iqmod_mfb_lpf_ota_core_spdt_switch
+x17 (ota_en_n_2 VDD di_ota_en VSS node_vinn VDD vinn) iqmod_mfb_lpf_ota_core_spdt_switch
+x15 (VDD di_ota_en VSS node_CDG node_BC ota_en_n_1) iqmod_mfb_lpf_ota_core_tg
+x18 (VDD di_ota_en VSS node_FG node_EF ota_en_n_1) iqmod_mfb_lpf_ota_core_tg
+x20 (VDD di_ota_en VSS node_CDG node_BC ota_en_n_2) iqmod_mfb_lpf_ota_core_tg
+x23 (VDD di_ota_en VSS node_FG node_EF ota_en_n_2) iqmod_mfb_lpf_ota_core_tg
+ends iqmod_mfb_lpf_ota_core_hybrid_bm
+subckt iqmod_mixer_se2diff VDD vin voutp VSS voutn
+x3 (VDD VDD VSS net2 vse VSS) iqmod_mixer_se2diff_tg_NF6
+x8 (VDD vscale1n vscale2p VSS) iqmod_mixer_se2diff_inv_NF18
+x5 (VDD vcrossp vcrossn VSS) iqmod_mixer_se2diff_inv_NF2
+x6 (VDD vcrossn vcrossp VSS) iqmod_mixer_se2diff_inv_NF2
+x2 (VDD net1 vcrossp VSS) iqmod_mixer_se2diff_inv_NF6
+x4 (VDD net2 vcrossn VSS) iqmod_mixer_se2diff_inv_NF6
+x7 (VDD vcrossp vscale1n VSS) iqmod_mixer_se2diff_inv_NF6
+x1 (VDD vse net1 VSS) iqmod_mixer_se2diff_inv_NF6
+x9 (VDD vscale2p voutp VSS) iqmod_mixer_se2diff_inv_NF54
+x10 (VDD vcrossn vscale1p VSS) iqmod_mixer_se2diff_inv_NF6
+x11 (VDD vscale1p vscale2n VSS) iqmod_mixer_se2diff_inv_NF18
+x12 (VDD vscale2n voutn VSS) iqmod_mixer_se2diff_inv_NF54
+x13 (VDD vin vse VSS) iqmod_mixer_se2diff_inv_NF2
+x14 (VDD vin vse VSS) iqmod_mixer_se2diff_inv_NF2
+ends iqmod_mixer_se2diff
+subckt iqmod_mixer_tg VDD di_tg_ctrl VSS v_b v_a di_tg_ctrl_n
+M1 (v_a di_tg_ctrl v_b VSS) sky130_fd_pr__nfet_01v8 w=124.615384615 l=0.15 nf=36 mult=1 ad=18.0692 as=19.0731 pd=135.055 ps=142.558 sa=0 sb=0 sd=0 m=1
+M2 (v_a di_tg_ctrl_n v_b VDD) sky130_fd_pr__pfet_01v8 w=373.846153846 l=0.15 nf=36 mult=1 ad=54.2077 as=57.2192 pd=384.286 ps=405.635 sa=0 sb=0 sd=0 m=1
+Mdummy2 (v_b di_tg_ctrl v_b VDD) sky130_fd_pr__pfet_01v8 w=186.923076923 l=0.15 nf=18 mult=1 ad=27.1038 as=30.1154 pd=192.143 ps=213.492 sa=0 sb=0 sd=0 m=1
+Mdummy1 (v_b di_tg_ctrl_n v_b VSS) sky130_fd_pr__nfet_01v8 w=62.3076923077 l=0.15 nf=18 mult=1 ad=9.03462 as=10.0385 pd=67.5277 ps=75.0308 sa=0 sb=0 sd=0 m=1
+ends iqmod_mixer_tg
+subckt iqmod_spdt_switch VDD di_spdt_ctrl VSS v_c v_b v_a
+x1 (VDD di_spdt_ctrl spdt_ctrl_n VSS) iqmod_spdt_switch_inv
+x2 (VDD spdt_ctrl_n spdt_ctrl_buf VSS) iqmod_spdt_switch_inv
+x3 (VDD spdt_ctrl_buf VSS v_c v_a spdt_ctrl_n) iqmod_spdt_switch_tg
+x4 (VDD spdt_ctrl_n VSS v_c v_b spdt_ctrl_buf) iqmod_spdt_switch_tg
+ends iqmod_spdt_switch
+subckt iqmod_mfb_lpf voutp vinp voutn vinn VDD VSS di_filter_en
+x1 (voutp voutn vinn_ota vinp_ota VDD VSS di_filter_en) iqmod_mfb_lpf_ota_core_hybrid_bm
+C1a (vinp_stage1 vinn_stage1) capacitor c=486.4f
+C1b (vinn_stage1 vinp_stage1) capacitor c=486.4f
+C2a (vinp_stage2 vinn_stage2) capacitor c=291.84f
+C2b (vinn_stage2 vinp_stage2) capacitor c=291.84f
+C3a (voutn vinp_ota) capacitor c=97.28f
+C3b (voutp vinn_ota) capacitor c=97.28f
+x2 (vinp_stage1 vinp VSS) iqmod_mfb_lpf_R1
+x3 (vinn_stage1 vinn VSS) iqmod_mfb_lpf_R1
+x4 (vinp_stage1 vinp_stage2 VSS) iqmod_mfb_lpf_R2
+x5 (vinn_stage1 vinn_stage2 VSS) iqmod_mfb_lpf_R2
+x6 (vinp_ota vinp_stage2 VSS) iqmod_mfb_lpf_R3
+x7 (vinn_ota vinn_stage2 VSS) iqmod_mfb_lpf_R3
+x8 (voutn vinp_stage2 VSS) iqmod_mfb_lpf_R4
+x9 (voutp vinn_stage2 VSS) iqmod_mfb_lpf_R4
+ends iqmod_mfb_lpf
+subckt iqmod_mixer vinp_IF vinn_IF voutp_RF vinp_LO vinn_LO VDD VSS voutn_RF
+x2 (VDD vinp_LO_buf VSS voutp_RF vinp_IF vinp_LO_inv) iqmod_mixer_tg
+x4 (VDD vinn_LO_buf VSS voutn_RF vinn_IF vinn_LO_inv) iqmod_mixer_tg
+x1 (VDD vinp_LO vinp_LO_buf VSS vinp_LO_inv) iqmod_mixer_se2diff
+x3 (VDD vinn_LO vinn_LO_buf VSS vinn_LO_inv) iqmod_mixer_se2diff
+ends iqmod_mixer
+subckt iqmod_top_half di_ds_p di_spdt_ctrl di_ds_n di_lo_p di_lo_n voutp_RF vinp vinn voutn_RF VDD VSS di_analog_en
+x3 (voutp_lpf voutn_lpf voutp_RF di_lo_p di_lo_n VDD VSS voutn_RF) iqmod_mixer
+x1 (voutp_lpf vinp_spdt voutn_lpf vinn_spdt VDD VSS di_analog_en) iqmod_mfb_lpf
+x5 (VDD di_spdt_ctrl VSS vinp_spdt di_ds_p vinp) iqmod_spdt_switch
+x6 (VDD di_spdt_ctrl VSS vinn_spdt di_ds_n vinn) iqmod_spdt_switch
+ends iqmod_top_half
+subckt iqmod_top di_ds_I_p di_spdt_ctrl_I di_ds_I_n di_ds_Q_n di_spdt_ctrl_Q di_ds_Q_p vinp_Q vinn_Q di_lo_I di_lo_Ix voutp_I_RF vinp_I vinn_I di_lo_Q di_lo_Qx voutn_I_RF voutp_Q_RF voutn_Q_RF VDD VSS di_analog_en
+x1 (di_ds_I_p di_spdt_ctrl_I di_ds_I_n di_lo_I di_lo_Ix voutp_I_RF vinp_I vinn_I voutn_I_RF VDD VSS di_analog_en) iqmod_top_half
+x2 (di_ds_Q_p di_spdt_ctrl_Q di_ds_Q_n di_lo_Q di_lo_Qx voutp_Q_RF vinp_Q vinn_Q voutn_Q_RF VDD VSS di_analog_en) iqmod_top_half
+ends iqmod_top

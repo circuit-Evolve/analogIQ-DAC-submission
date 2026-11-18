@@ -1,0 +1,48 @@
+{
+  "job_id": "C0_1/HB",
+  "recipe_id": "pa1088_dac_hb_saved_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "C0_1",
+    "model_set": "highperf_bjt_t",
+    "temperature_C": 27.0,
+    "supply_V": 12.0,
+    "supply_scale": 1.0,
+    "is_nominal": true,
+    "supply_span_V": 12.0,
+    "source_point_id": 2,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+        "section": "highperf_bjt_t"
+      }
+    ]
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "scalars.tsv"
+  ],
+  "expected_metrics": [
+    "Psat_dBm",
+    "PAE_peak_percent"
+  ],
+  "state": "rendered",
+  "source_netlist": "<WORK>/paper-sizing-20261105/round15/pa1088/continue15/trials/canonical_cont15_all9/C0_1/HB/input.scs",
+  "source_sha256": "0e9af23638203ee069304ec4b154603b71b98a50589021559b3d21ad4f799308",
+  "transformations": [
+    "Full-precision sizing is required: worst bandwidth is 95.086464 MHz against 95.0079 MHz minimum, and worst power gain is 22.727869 dB against 22.717189257142927 dB minimum.",
+    "The paper reports 111.774 MHz bandwidth while its reported edge difference is 110.774 MHz; the retained target uses the explicitly reported bandwidth.",
+    "Stability is checked over the retained 1 MHz to 1 GHz span with strict K>1 and |Delta|<1. The source span begins at 1 Hz; no claim is made outside the simulated span.",
+    "Psat and peak PAE are maxima over the retained input-power sweep. The paper uses the slow BJT section; all three supplied BJT model sections are tested here. Zin and Zout remain excluded."
+  ],
+  "digests": {
+    "input.scs": "0e9af23638203ee069304ec4b154603b71b98a50589021559b3d21ad4f799308",
+    "dut.scs": "f5e595b9ee56bc8a20f07d547841ca8e4c2d262fd3d0cfc3d4b7539af5773f71",
+    "template.scs": "0e9af23638203ee069304ec4b154603b71b98a50589021559b3d21ad4f799308",
+    "measures.ocn": "779f9cafaa8d8af5f72a7459718f4e14dab0a42d740f4f93665324bf6797a387",
+    "context.json": "480bb0989f879c7006b0fb1549e6bf36f2d8bbc0626208b35e384d62f4549f74",
+    "scalars.tsv": "630ff8009eb5db7b1920ae8250868538fad94eaedb4724beeddbaef48e49e4fc"
+  }
+}

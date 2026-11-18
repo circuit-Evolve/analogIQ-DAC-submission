@@ -1,0 +1,1536 @@
+{
+  "task_id": "gm_c",
+  "topology_id": "gm_c_four_ota_fig3_reconstruction",
+  "family": "gm_c_filter",
+  "technology_id": "gpdk090",
+  "description": "Saved-best-start Gm-C optimization across all45 fixed PVT corners; original six scalar bands. Four-OTA reconstruction, no exact paper reproduction claim.",
+  "variables": [
+    {
+      "name": "input_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.36e-07,
+      "upper": 1.1799999999999999e-05,
+      "initial": 7.786955935834481e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M1",
+          "M3"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "input_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.3656475322264376e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M1",
+          "M3"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "input_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 6e-06,
+      "initial": 1.6795025052659784e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M2",
+          "M4"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "input_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 2.9165924576913076e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M2",
+          "M4"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cross_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 1.3e-06,
+      "initial": 2.2748680306267457e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M5",
+          "M9"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cross_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.002691244345573e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M5",
+          "M9"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cross_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 3.6499999999999998e-06,
+      "initial": 6.389781426045609e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M6",
+          "M10"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cross_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.192902788039281e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M6",
+          "M10"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "load_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 1.3e-06,
+      "initial": 4.064998808741579e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M7",
+          "M11"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "load_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.2928645862738773e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M7",
+          "M11"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "load_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 3.6499999999999998e-06,
+      "initial": 5.292837001809447e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M8",
+          "M12"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "load_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.1774991726621631e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M8",
+          "M12"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_out_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 6e-06,
+      "initial": 1.3541718348307208e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M13",
+          "M15"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_out_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.0247563274881727e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M13",
+          "M15"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_out_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.36e-07,
+      "upper": 1.1799999999999999e-05,
+      "initial": 2.38668009064882e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M14",
+          "M16"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_out_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.0974040963730448e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M14",
+          "M16"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_node_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 6e-06,
+      "initial": 1.262808369383552e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M17",
+          "M19",
+          "M23",
+          "M26R",
+          "M28R"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_node_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 5.032578340369352e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M17",
+          "M19",
+          "M23",
+          "M26R",
+          "M28R"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_node_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.36e-07,
+      "upper": 1.1799999999999999e-05,
+      "initial": 1.207265165522818e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M18",
+          "M20",
+          "M24",
+          "M25R",
+          "M27R"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_node_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 2.610495327087693e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M18",
+          "M20",
+          "M24",
+          "M25R",
+          "M27R"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_fb_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 6e-06,
+      "initial": 5.894251781129699e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M21"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_fb_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.95233168812794e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M21"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_fb_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.36e-07,
+      "upper": 1.1799999999999999e-05,
+      "initial": 1.1375076990610308e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M22"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cm_fb_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.8651675606054175e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M22"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "bias_n_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2e-07,
+      "upper": 6e-06,
+      "initial": 5.863342922169327e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "bias_n_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 2.346706349449712e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "bias_p_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.36e-07,
+      "upper": 1.1799999999999999e-05,
+      "initial": 1.4210176579179968e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M27",
+          "M28"
+        ],
+        "parameter": "w",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "bias_p_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1e-07,
+      "upper": 1e-06,
+      "initial": 1.3452640892947521e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M27",
+          "M28"
+        ],
+        "parameter": "l",
+        "cell": "ota_fig2_interpreted",
+        "mirror_cell": "ota_fig2_literal"
+      },
+      "provenance": "Table 1 exact initial; shared across all four OTA cores; literal diagnostic mirrors geometry"
+    },
+    {
+      "name": "cap_b_F",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-13,
+      "upper": 1e-08,
+      "initial": 1.5013135374764247e-11,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "C1",
+          "C2"
+        ],
+        "parameter": "c",
+        "cell": "filter_fig3_reconstruction"
+      },
+      "provenance": "Inferred once from baseline gm/(2*pi*15MHz); exact frozen simulator value (12 significant digits); not re-derived after mutations"
+    },
+    {
+      "name": "cap_d_F",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-13,
+      "upper": 1e-08,
+      "initial": 1.4564115249385527e-13,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "C3",
+          "C4"
+        ],
+        "parameter": "c",
+        "cell": "filter_fig3_reconstruction"
+      },
+      "provenance": "Inferred once from baseline gm/(2*pi*15MHz); exact frozen simulator value (12 significant digits); not re-derived after mutations"
+    },
+    {
+      "name": "vt_bias_V",
+      "kind": "real",
+      "unit": "V",
+      "lower": 0.1,
+      "upper": 0.9,
+      "initial": 0.42819300390142007,
+      "scale": "linear",
+      "binding": {
+        "instances": [
+          "VT_SRC"
+        ],
+        "parameter": "dc",
+        "cell": "__top__"
+      },
+      "provenance": "Existing DUT tuning bias; inferred initial half-supply. VDD/VREF/input common mode and signals remain fixed."
+    }
+  ],
+  "constraints": [
+    {
+      "name": "OTA_differential_gain_dB",
+      "metric": "OTA_differential_gain_dB",
+      "recipe": "OTA_DIFF",
+      "lower": 35.1,
+      "upper": 42.900000000000006,
+      "paper_value": 39,
+      "unit": "dB",
+      "conditions": [
+        "NN_V0.9_T-40",
+        "NN_V0.9_T+27",
+        "NN_V0.9_T+85",
+        "NN_V1.0_T-40",
+        "NN_V1.0_T+27",
+        "NN_V1.0_T+85",
+        "NN_V1.1_T-40",
+        "NN_V1.1_T+27",
+        "NN_V1.1_T+85",
+        "SS_V0.9_T-40",
+        "SS_V0.9_T+27",
+        "SS_V0.9_T+85",
+        "SS_V1.0_T-40",
+        "SS_V1.0_T+27",
+        "SS_V1.0_T+85",
+        "SS_V1.1_T-40",
+        "SS_V1.1_T+27",
+        "SS_V1.1_T+85",
+        "SF_V0.9_T-40",
+        "SF_V0.9_T+27",
+        "SF_V0.9_T+85",
+        "SF_V1.0_T-40",
+        "SF_V1.0_T+27",
+        "SF_V1.0_T+85",
+        "SF_V1.1_T-40",
+        "SF_V1.1_T+27",
+        "SF_V1.1_T+85",
+        "FS_V0.9_T-40",
+        "FS_V0.9_T+27",
+        "FS_V0.9_T+85",
+        "FS_V1.0_T-40",
+        "FS_V1.0_T+27",
+        "FS_V1.0_T+85",
+        "FS_V1.1_T-40",
+        "FS_V1.1_T+27",
+        "FS_V1.1_T+85",
+        "FF_V0.9_T-40",
+        "FF_V0.9_T+27",
+        "FF_V0.9_T+85",
+        "FF_V1.0_T-40",
+        "FF_V1.0_T+27",
+        "FF_V1.0_T+85",
+        "FF_V1.1_T-40",
+        "FF_V1.1_T+27",
+        "FF_V1.1_T+85"
+      ],
+      "aggregate": "worst",
+      "expression": "value(db20((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1)",
+      "reference": "Table2; Fig4; conclusion",
+      "note": ""
+    },
+    {
+      "name": "OTA_unity_gain_frequency_Hz",
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "recipe": "OTA_DIFF",
+      "lower": 9000000000.0,
+      "upper": 11000000000.0,
+      "paper_value": 10000000000.0,
+      "unit": "Hz",
+      "conditions": [
+        "NN_V0.9_T-40",
+        "NN_V0.9_T+27",
+        "NN_V0.9_T+85",
+        "NN_V1.0_T-40",
+        "NN_V1.0_T+27",
+        "NN_V1.0_T+85",
+        "NN_V1.1_T-40",
+        "NN_V1.1_T+27",
+        "NN_V1.1_T+85",
+        "SS_V0.9_T-40",
+        "SS_V0.9_T+27",
+        "SS_V0.9_T+85",
+        "SS_V1.0_T-40",
+        "SS_V1.0_T+27",
+        "SS_V1.0_T+85",
+        "SS_V1.1_T-40",
+        "SS_V1.1_T+27",
+        "SS_V1.1_T+85",
+        "SF_V0.9_T-40",
+        "SF_V0.9_T+27",
+        "SF_V0.9_T+85",
+        "SF_V1.0_T-40",
+        "SF_V1.0_T+27",
+        "SF_V1.0_T+85",
+        "SF_V1.1_T-40",
+        "SF_V1.1_T+27",
+        "SF_V1.1_T+85",
+        "FS_V0.9_T-40",
+        "FS_V0.9_T+27",
+        "FS_V0.9_T+85",
+        "FS_V1.0_T-40",
+        "FS_V1.0_T+27",
+        "FS_V1.0_T+85",
+        "FS_V1.1_T-40",
+        "FS_V1.1_T+27",
+        "FS_V1.1_T+85",
+        "FF_V0.9_T-40",
+        "FF_V0.9_T+27",
+        "FF_V0.9_T+85",
+        "FF_V1.0_T-40",
+        "FF_V1.0_T+27",
+        "FF_V1.0_T+85",
+        "FF_V1.1_T-40",
+        "FF_V1.1_T+27",
+        "FF_V1.1_T+85"
+      ],
+      "aggregate": "worst",
+      "expression": "cross(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1 1 \"falling\")",
+      "reference": "Conclusion p70",
+      "note": ""
+    },
+    {
+      "name": "OTA_phase_margin_deg",
+      "metric": "OTA_phase_margin_deg",
+      "recipe": "OTA_DIFF",
+      "lower": 71.10000000000001,
+      "upper": 86.9,
+      "paper_value": 79,
+      "unit": "deg",
+      "conditions": [
+        "NN_V0.9_T-40",
+        "NN_V0.9_T+27",
+        "NN_V0.9_T+85",
+        "NN_V1.0_T-40",
+        "NN_V1.0_T+27",
+        "NN_V1.0_T+85",
+        "NN_V1.1_T-40",
+        "NN_V1.1_T+27",
+        "NN_V1.1_T+85",
+        "SS_V0.9_T-40",
+        "SS_V0.9_T+27",
+        "SS_V0.9_T+85",
+        "SS_V1.0_T-40",
+        "SS_V1.0_T+27",
+        "SS_V1.0_T+85",
+        "SS_V1.1_T-40",
+        "SS_V1.1_T+27",
+        "SS_V1.1_T+85",
+        "SF_V0.9_T-40",
+        "SF_V0.9_T+27",
+        "SF_V0.9_T+85",
+        "SF_V1.0_T-40",
+        "SF_V1.0_T+27",
+        "SF_V1.0_T+85",
+        "SF_V1.1_T-40",
+        "SF_V1.1_T+27",
+        "SF_V1.1_T+85",
+        "FS_V0.9_T-40",
+        "FS_V0.9_T+27",
+        "FS_V0.9_T+85",
+        "FS_V1.0_T-40",
+        "FS_V1.0_T+27",
+        "FS_V1.0_T+85",
+        "FS_V1.1_T-40",
+        "FS_V1.1_T+27",
+        "FS_V1.1_T+85",
+        "FF_V0.9_T-40",
+        "FF_V0.9_T+27",
+        "FF_V0.9_T+85",
+        "FF_V1.0_T-40",
+        "FF_V1.0_T+27",
+        "FF_V1.0_T+85",
+        "FF_V1.1_T-40",
+        "FF_V1.1_T+27",
+        "FF_V1.1_T+85"
+      ],
+      "aggregate": "worst",
+      "expression": "180+value(phase((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) cross(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1 1 \"falling\"))",
+      "reference": "Table2; abstract; conclusion",
+      "note": "Unity-feedback phase-margin proxy of differential open-loop transfer; no published loop breaking or load."
+    },
+    {
+      "name": "OTA_common_mode_gain_dB",
+      "metric": "OTA_common_mode_gain_dB",
+      "recipe": "OTA_CM",
+      "lower": -26.400000000000002,
+      "upper": -21.6,
+      "paper_value": -24,
+      "unit": "dB",
+      "conditions": [
+        "NN_V0.9_T-40",
+        "NN_V0.9_T+27",
+        "NN_V0.9_T+85",
+        "NN_V1.0_T-40",
+        "NN_V1.0_T+27",
+        "NN_V1.0_T+85",
+        "NN_V1.1_T-40",
+        "NN_V1.1_T+27",
+        "NN_V1.1_T+85",
+        "SS_V0.9_T-40",
+        "SS_V0.9_T+27",
+        "SS_V0.9_T+85",
+        "SS_V1.0_T-40",
+        "SS_V1.0_T+27",
+        "SS_V1.0_T+85",
+        "SS_V1.1_T-40",
+        "SS_V1.1_T+27",
+        "SS_V1.1_T+85",
+        "SF_V0.9_T-40",
+        "SF_V0.9_T+27",
+        "SF_V0.9_T+85",
+        "SF_V1.0_T-40",
+        "SF_V1.0_T+27",
+        "SF_V1.0_T+85",
+        "SF_V1.1_T-40",
+        "SF_V1.1_T+27",
+        "SF_V1.1_T+85",
+        "FS_V0.9_T-40",
+        "FS_V0.9_T+27",
+        "FS_V0.9_T+85",
+        "FS_V1.0_T-40",
+        "FS_V1.0_T+27",
+        "FS_V1.0_T+85",
+        "FS_V1.1_T-40",
+        "FS_V1.1_T+27",
+        "FS_V1.1_T+85",
+        "FF_V0.9_T-40",
+        "FF_V0.9_T+27",
+        "FF_V0.9_T+85",
+        "FF_V1.0_T-40",
+        "FF_V1.0_T+27",
+        "FF_V1.0_T+85",
+        "FF_V1.1_T-40",
+        "FF_V1.1_T+27",
+        "FF_V1.1_T+85"
+      ],
+      "aggregate": "worst",
+      "expression": "value(db20(((getData(\"VOP\" ?result \"ac\")+getData(\"VOM\" ?result \"ac\"))/2)) 1)",
+      "reference": "Table2 and p70; p61 omits negative sign",
+      "note": ""
+    },
+    {
+      "name": "Filter_cutoff_Hz",
+      "metric": "Filter_cutoff_Hz",
+      "recipe": "FILTER_AC_NOISE",
+      "lower": 13500000.0,
+      "upper": 16500000.000000002,
+      "paper_value": 15000000.0,
+      "unit": "Hz",
+      "conditions": [
+        "NN_V0.9_T-40",
+        "NN_V0.9_T+27",
+        "NN_V0.9_T+85",
+        "NN_V1.0_T-40",
+        "NN_V1.0_T+27",
+        "NN_V1.0_T+85",
+        "NN_V1.1_T-40",
+        "NN_V1.1_T+27",
+        "NN_V1.1_T+85",
+        "SS_V0.9_T-40",
+        "SS_V0.9_T+27",
+        "SS_V0.9_T+85",
+        "SS_V1.0_T-40",
+        "SS_V1.0_T+27",
+        "SS_V1.0_T+85",
+        "SS_V1.1_T-40",
+        "SS_V1.1_T+27",
+        "SS_V1.1_T+85",
+        "SF_V0.9_T-40",
+        "SF_V0.9_T+27",
+        "SF_V0.9_T+85",
+        "SF_V1.0_T-40",
+        "SF_V1.0_T+27",
+        "SF_V1.0_T+85",
+        "SF_V1.1_T-40",
+        "SF_V1.1_T+27",
+        "SF_V1.1_T+85",
+        "FS_V0.9_T-40",
+        "FS_V0.9_T+27",
+        "FS_V0.9_T+85",
+        "FS_V1.0_T-40",
+        "FS_V1.0_T+27",
+        "FS_V1.0_T+85",
+        "FS_V1.1_T-40",
+        "FS_V1.1_T+27",
+        "FS_V1.1_T+85",
+        "FF_V0.9_T-40",
+        "FF_V0.9_T+27",
+        "FF_V0.9_T+85",
+        "FF_V1.0_T-40",
+        "FF_V1.0_T+27",
+        "FF_V1.0_T+85",
+        "FF_V1.1_T-40",
+        "FF_V1.1_T+27",
+        "FF_V1.1_T+85"
+      ],
+      "aggregate": "worst",
+      "expression": "cross(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) (value(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1)/sqrt(2)) 1 \"falling\")",
+      "reference": "Fig9; Table2; conclusion",
+      "note": "First falling -3dB crossing relative to DC; substantial peaking must also be disclosed."
+    },
+    {
+      "name": "Filter_input_noise_nV_sqrtHz",
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "recipe": "FILTER_AC_NOISE",
+      "lower": 76.5,
+      "upper": 93.50000000000001,
+      "paper_value": 85,
+      "unit": "nV/sqrt(Hz)",
+      "conditions": [
+        "NN_V0.9_T-40",
+        "NN_V0.9_T+27",
+        "NN_V0.9_T+85",
+        "NN_V1.0_T-40",
+        "NN_V1.0_T+27",
+        "NN_V1.0_T+85",
+        "NN_V1.1_T-40",
+        "NN_V1.1_T+27",
+        "NN_V1.1_T+85",
+        "SS_V0.9_T-40",
+        "SS_V0.9_T+27",
+        "SS_V0.9_T+85",
+        "SS_V1.0_T-40",
+        "SS_V1.0_T+27",
+        "SS_V1.0_T+85",
+        "SS_V1.1_T-40",
+        "SS_V1.1_T+27",
+        "SS_V1.1_T+85",
+        "SF_V0.9_T-40",
+        "SF_V0.9_T+27",
+        "SF_V0.9_T+85",
+        "SF_V1.0_T-40",
+        "SF_V1.0_T+27",
+        "SF_V1.0_T+85",
+        "SF_V1.1_T-40",
+        "SF_V1.1_T+27",
+        "SF_V1.1_T+85",
+        "FS_V0.9_T-40",
+        "FS_V0.9_T+27",
+        "FS_V0.9_T+85",
+        "FS_V1.0_T-40",
+        "FS_V1.0_T+27",
+        "FS_V1.0_T+85",
+        "FS_V1.1_T-40",
+        "FS_V1.1_T+27",
+        "FS_V1.1_T+85",
+        "FF_V0.9_T-40",
+        "FF_V0.9_T+27",
+        "FF_V0.9_T+85",
+        "FF_V1.0_T-40",
+        "FF_V1.0_T+27",
+        "FF_V1.0_T+85",
+        "FF_V1.1_T-40",
+        "FF_V1.1_T+27",
+        "FF_V1.1_T+85"
+      ],
+      "aggregate": "worst",
+      "expression": "1e9*value(getData(\"out\" ?result \"noise\") 1e6)/value(mag((getData(\"VOP\" ?result \"ac\")-getData(\"VOM\" ?result \"ac\"))) 1e6)",
+      "reference": "Fig10; p69-p70",
+      "note": "Differential output noise divided by measured differential gain at assumed midband 1MHz; paper provides no exact extraction frequency."
+    }
+  ],
+  "conditions": [
+    {
+      "id": "NN_V0.9_T-40",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 0.9,
+      "temperature_C": -40,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "NN_V0.9_T+27",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 0.9,
+      "temperature_C": 27,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "NN_V0.9_T+85",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 0.9,
+      "temperature_C": 85,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "NN_V1.0_T-40",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 1.0,
+      "temperature_C": -40,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "NN_V1.0_T+27",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 1.0,
+      "temperature_C": 27,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": true
+    },
+    {
+      "id": "NN_V1.0_T+85",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 1.0,
+      "temperature_C": 85,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "NN_V1.1_T-40",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 1.1,
+      "temperature_C": -40,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "NN_V1.1_T+27",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 1.1,
+      "temperature_C": 27,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "NN_V1.1_T+85",
+      "model_set": "NN",
+      "process": "NN",
+      "supply_V": 1.1,
+      "temperature_C": 85,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "SS_V0.9_T-40",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 0.9,
+      "temperature_C": -40,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "SS_V0.9_T+27",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 0.9,
+      "temperature_C": 27,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "SS_V0.9_T+85",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 0.9,
+      "temperature_C": 85,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "SS_V1.0_T-40",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 1.0,
+      "temperature_C": -40,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "SS_V1.0_T+27",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 1.0,
+      "temperature_C": 27,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "SS_V1.0_T+85",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 1.0,
+      "temperature_C": 85,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "SS_V1.1_T-40",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 1.1,
+      "temperature_C": -40,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "SS_V1.1_T+27",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 1.1,
+      "temperature_C": 27,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "SS_V1.1_T+85",
+      "model_set": "SS",
+      "process": "SS",
+      "supply_V": 1.1,
+      "temperature_C": 85,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "SF_V0.9_T-40",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 0.9,
+      "temperature_C": -40,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "SF_V0.9_T+27",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 0.9,
+      "temperature_C": 27,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "SF_V0.9_T+85",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 0.9,
+      "temperature_C": 85,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "SF_V1.0_T-40",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 1.0,
+      "temperature_C": -40,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "SF_V1.0_T+27",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 1.0,
+      "temperature_C": 27,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "SF_V1.0_T+85",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 1.0,
+      "temperature_C": 85,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "SF_V1.1_T-40",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 1.1,
+      "temperature_C": -40,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "SF_V1.1_T+27",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 1.1,
+      "temperature_C": 27,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "SF_V1.1_T+85",
+      "model_set": "SF",
+      "process": "SF",
+      "supply_V": 1.1,
+      "temperature_C": 85,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "FS_V0.9_T-40",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 0.9,
+      "temperature_C": -40,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "FS_V0.9_T+27",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 0.9,
+      "temperature_C": 27,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "FS_V0.9_T+85",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 0.9,
+      "temperature_C": 85,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "FS_V1.0_T-40",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 1.0,
+      "temperature_C": -40,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "FS_V1.0_T+27",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 1.0,
+      "temperature_C": 27,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "FS_V1.0_T+85",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 1.0,
+      "temperature_C": 85,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "FS_V1.1_T-40",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 1.1,
+      "temperature_C": -40,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "FS_V1.1_T+27",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 1.1,
+      "temperature_C": 27,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "FS_V1.1_T+85",
+      "model_set": "FS",
+      "process": "FS",
+      "supply_V": 1.1,
+      "temperature_C": 85,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "FF_V0.9_T-40",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 0.9,
+      "temperature_C": -40,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "FF_V0.9_T+27",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 0.9,
+      "temperature_C": 27,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "FF_V0.9_T+85",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 0.9,
+      "temperature_C": 85,
+      "VREF_V": 0.45,
+      "input_common_mode_V": 0.45,
+      "nominal": false
+    },
+    {
+      "id": "FF_V1.0_T-40",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 1.0,
+      "temperature_C": -40,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "FF_V1.0_T+27",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 1.0,
+      "temperature_C": 27,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "FF_V1.0_T+85",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 1.0,
+      "temperature_C": 85,
+      "VREF_V": 0.5,
+      "input_common_mode_V": 0.5,
+      "nominal": false
+    },
+    {
+      "id": "FF_V1.1_T-40",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 1.1,
+      "temperature_C": -40,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "FF_V1.1_T+27",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 1.1,
+      "temperature_C": 27,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    },
+    {
+      "id": "FF_V1.1_T+85",
+      "model_set": "FF",
+      "process": "FF",
+      "supply_V": 1.1,
+      "temperature_C": 85,
+      "VREF_V": 0.55,
+      "input_common_mode_V": 0.55,
+      "nominal": false
+    }
+  ],
+  "objective": null,
+  "diagnostics": [
+    {
+      "name": "OTA_input_P1dB_dBm",
+      "test": "OTA_NONLINEAR",
+      "paper_value": -2.86026,
+      "unit": "dBm",
+      "expression": "10*log10(A_1dB**2/(2*50*1e-3)); A_1dB=exp(interp(1,gain_drop_dB,log(input_peak_V)))",
+      "reference": "Text p65; Fig6 shows -2.8606",
+      "note": "dBm inferred from plot axes; 50ohm power reference and 1MHz frequency assumed, no physical resistive output load.",
+      "expression_language": "Python report.py, after nominal amplitude characterization in nonlinear.py",
+      "result": -21.50974162690997,
+      "deviation_percent": -652.0205025735413,
+      "numeric_within_10_percent": false,
+      "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS",
+      "paper_exact_reproduction": false,
+      "difference_dB": -18.64948162690997,
+      "diagnostic_only": true
+    },
+    {
+      "name": "OTA_IIP3_dBm",
+      "test": "OTA_NONLINEAR",
+      "paper_value": 13.2497,
+      "unit": "dBm",
+      "expression": "Pin_dBm+10*log10(Vfundamental/V_IM3); Pin_dBm=-50",
+      "reference": "Prose pp66-67 explicitly states IP3 value 13.2497; plot calls input-referred, prose also says OIP3",
+      "note": "Assumed two tones 1MHz/1.1MHz, 1mV peak per-tone differential; 50ohm power reference. Paper lacks tones, amplitude, impedance and contradicts IIP3/OIP3.",
+      "expression_language": "Python nonlinear.py Fourier integral; actual OCEAN DFT expression saved in native/setup.ocn",
+      "result": -12.800358528589612,
+      "deviation_percent": -196.60866682709502,
+      "numeric_within_10_percent": false,
+      "status": "NOT_COMPARABLE_MISSING_PAPER_CONDITIONS",
+      "paper_exact_reproduction": false,
+      "difference_dB": -26.050058528589613,
+      "diagnostic_only": true
+    }
+  ],
+  "profiles": {
+    "search_full": [
+      "OTA_DIFF",
+      "OTA_CM",
+      "FILTER_AC_NOISE"
+    ],
+    "full": [
+      "OTA_DIFF",
+      "OTA_CM",
+      "FILTER_AC_NOISE",
+      "OTA_LITERAL",
+      "IP3_TWO_TONE",
+      "FILTER_TRANSIENT",
+      "P1DB_0",
+      "P1DB_1",
+      "P1DB_2",
+      "P1DB_3",
+      "P1DB_4",
+      "P1DB_5",
+      "P1DB_6",
+      "P1DB_7",
+      "P1DB_8",
+      "P1DB_9",
+      "P1DB_10",
+      "P1DB_11",
+      "P1DB_12",
+      "P1DB_13"
+    ]
+  },
+  "assumptions": {
+    "assumptions": [
+      "Only nominal GPDK090 NN, VDD=1V (Table2), temperature=27C (not specified); Vt=Vref=Vin_cm=0.5V assumed from half-supply common-mode statement. No corner matrix or sizing optimization.",
+      "All drawn MOS use Table1 W/L: M5/7/9/11=130/200nm; M6/8/10/12=365/100nm; other NMOS=600/120nm, PMOS=1180/100nm. All bodies at their supply rail, m=1. Diffusion area W*0.28um and perimeter 2W+0.56um are a disclosed GPDK schematic geometry convention, not paper layout.",
+      "Fig2 has 32 drawn transistors, because M25-M28 occur twice. Red additional devices use suffix R and Table1 rest sizing. Their red/black wires appear shorted together at N; retained as drawn. No author layout or netlist is supplied.",
+      "ota_fig2_literal preserves Vi- on M3/M4 drains and Vo+ on their gates as drawn. ota_fig2_interpreted swaps only these two devices gate/drain nets to implement the semantic differential inverter pair. All comparisons use this interpreted cell; literal operating point and AC are separate diagnostics.",
+      "Fig3 side feedback terminals on OTA1 and OTA4 have no pin definition or implementation in Fig2. ota_side_sum_assumption exposes SUMP/SUMM and uses four equal 1kohm resistors to average main/feedback inputs before the physical Fig2 OTA. Those resistors are not from the paper. This is one bounded executable hypothesis, not a recovered paper-exact topology.",
+      "Fig3 wire routing is retained as OTA1 outputs A drive OTA2 and OTA4; OTA2 outputs B return with negative sign to OTA1 side pins; OTA4 outputs drive OTA3 and external Vo; OTA3 outputs D return with negative sign to OTA4 side pins. C1/C2 shunt B pair, C3/C4 shunt D pair. Differential side-pin sign conventions are inferred. Four OTA cores do not prove a fourth-order response.",
+      "All four capacitances are absent from the paper. One short-circuit gm evaluation at .5V outputs gives gm=0.000721754S; C1=C2=C3=C4=gm/(2*pi*15MHz)=7.658047786423189e-12F. This is a missing-value derivation, not a performance fit; it does not establish 15MHz cutoff for the ambiguous network.",
+      "The paper equation states C=C3*C4, which has units F squared; the fc equation requires a square root of the capacitor product. The dimensionally valid single-capacitance gm/(2*pi*fc) is used only for the documented equal-C assumption.",
+      "OTA gain and common-mode gain extracted at 1Hz. No external OTA load specified, so outputs unloaded beyond transistor parasitics. UGF first falling unity crossing; phase margin is differential unity-feedback proxy, not a verified author loop-break experiment.",
+      "Filter input-referred noise uses output differential noise divided by differential AC gain at an assumed 1MHz midband point. The paper gives 85nV/sqrtHz without an exact frequency. VINP single-source input-noise normalization is deliberately not used for the reported differential metric.",
+      "P1dB source characterization uses 14 fixed logarithmic differential peak amplitudes 1mV to .3V, 1MHz, 30us duration, final10us Fourier integral, 2ns maxstep; interpolates input amplitude where gain falls1dB. IP3 assumes tones1MHz/1.1MHz, differential1mV peak each, same window, lower IM3 at0.9MHz. 50ohm is a power-reference convention only, not a physical load. Both results are diagnostic, because paper conditions are absent.",
+      "No auto-tuning circuit is supplied by the paper; fixed Vt is used. No automatic tuning capability, 500Hz lower tuning endpoint, or full tuning range is verified. No postlayout claim is made: no layout/parasitic extraction is supplied."
+    ],
+    "paper_inconsistencies": [
+      "15MHz filter cutoff conflicts with discussion of THD at1GHz and generic high-speed statements. THD has no numerical scalar value; no THD pass target is invented.",
+      "P1dB text gives -2.86026dB, Fig6 label -2.8606 and power axes dBm; reference impedance/frequency/amplitude convention missing. IP3 figure says input-referred13.2497, text also says OIP3; tones/reference missing.",
+      "Abstract claims postlayout result; figure/data context does not provide extracted parasitics. Comparisons here are transistor schematic only.",
+      "Fig5 common-mode plot is labeled Open loop dc gain=39dB although Table2 says -24dB; Table2 value is used. p61 says24dB without a minus sign.",
+      "Paper statements that lower phase margin eliminates overshoot and that this MOS OTA has no parasitic poles/zeroes are not physically reliable; they are not used as design requirements."
+    ],
+    "current_run_override": "Historical nominal and paper-seed statements refer to original setup. Current run uses saved-best seed, original31variable bounds and all45PVT conditions; candidate VT optimized globally but fixed across each candidate corner grid."
+  },
+  "source_root": "<WORK>/four-papers-20261107/gm_c",
+  "bounds_provenance": "Engineering search bounds, not paper limits: W max(120nm,seed/5)..10*seed; L 100nm..1um; pair capacitance .1pF..10nF; existing VT bias .1.. .9V. All MOS m=1; inferred summing resistors fixed 1kohm.",
+  "operating_conditions": {
+    "processes": [
+      "NN",
+      "SS",
+      "SF",
+      "FS",
+      "FF"
+    ],
+    "supply_V": [
+      0.9,
+      1.0,
+      1.1
+    ],
+    "temperature_C": [
+      -40,
+      27,
+      85
+    ],
+    "VREF_and_input_common_mode": "VDD/2",
+    "VT": "candidate vt_bias_V fixed across all corners"
+  },
+  "execution_limits": {
+    "search_evaluation_s": 900,
+    "full_verification_s": 1800,
+    "scope": "infrastructure deadline, not a paper acceptance constraint",
+    "process_termination_grace_s": 5
+  },
+  "measurement_scope": "Original six comparable scalars only; nonlinear and response shape remain diagnostic-only and add no acceptance target."
+}

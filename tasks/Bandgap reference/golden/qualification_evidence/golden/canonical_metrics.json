@@ -1,0 +1,1881 @@
+{
+  "design": {
+    "PMIRROR_w": 8.119364916093617e-06,
+    "PMIRROR_l": 2.0324116766584743e-06,
+    "NPTAT_w": 2.6349159196447777e-05,
+    "NPTAT_l": 5.010475339029071e-07,
+    "PBIAS_w": 1.3013201562401251e-05,
+    "PBIAS_l": 1.5e-07,
+    "PGAIN_w": 2.8e-05,
+    "PGAIN_l": 1.5e-07,
+    "NGAIN_w": 8e-05,
+    "NGAIN_l": 3e-07,
+    "PINPUT_w": 1.8572800119453515e-05,
+    "PINPUT_l": 1.8812602436788276e-06,
+    "NLOAD_w": 1.703166636386044e-06,
+    "NLOAD_l": 1.8908752843337717e-07,
+    "R1_r": 52001.18543197532,
+    "R2_r": 83316.96857785393,
+    "R3_r": 118523.47301232177,
+    "R4_r": 226657.11508572372,
+    "CC_c": 1e-11,
+    "M4_w": 1.845237683278733e-05,
+    "M4_l": 5.010475339029071e-07,
+    "M13_w": 1.67e-06,
+    "M11_w": 1.7216383040837735e-05
+  },
+  "constraints": {
+    "Vref_V": {
+      "name": "Vref_V",
+      "metric": "Vref_V",
+      "recipe": "retained_paper_nominal",
+      "lower": 1.08,
+      "upper": 1.3199999999999998,
+      "paper_value": 1.2,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst normalized bound margin across every configured corner",
+      "expression": "getData(\"VREF\" ?result \"dcOp\")",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ],
+      "value": 1.276989053367803,
+      "passed": true,
+      "margin": 0.035842455526830706,
+      "worst_condition": "FS_1.89V_27C",
+      "per_corner": {
+        "TT_1.71V_27C": {
+          "value": 1.206712739163317,
+          "passed": true,
+          "margin": 0.0944060506972357
+        },
+        "TT_1.80V_27C": {
+          "value": 1.210283902396056,
+          "passed": true,
+          "margin": 0.09143008133661978
+        },
+        "TT_1.89V_27C": {
+          "value": 1.212954592542043,
+          "passed": true,
+          "margin": 0.08920450621496398
+        },
+        "FF_1.71V_27C": {
+          "value": 1.148715278342517,
+          "passed": true,
+          "margin": 0.05726273195209741
+        },
+        "FF_1.80V_27C": {
+          "value": 1.152481935068778,
+          "passed": true,
+          "margin": 0.060401612557314986
+        },
+        "FF_1.89V_27C": {
+          "value": 1.155646604082484,
+          "passed": true,
+          "margin": 0.06303883673540327
+        },
+        "SS_1.71V_27C": {
+          "value": 1.256202525649019,
+          "passed": true,
+          "margin": 0.05316456195915069
+        },
+        "SS_1.80V_27C": {
+          "value": 1.260682182723045,
+          "passed": true,
+          "margin": 0.04943151439746237
+        },
+        "SS_1.89V_27C": {
+          "value": 1.263391999881944,
+          "passed": true,
+          "margin": 0.04717333343171315
+        },
+        "SF_1.71V_27C": {
+          "value": 1.13746712442033,
+          "passed": true,
+          "margin": 0.04788927035027498
+        },
+        "SF_1.80V_27C": {
+          "value": 1.140834489076088,
+          "passed": true,
+          "margin": 0.05069540756340659
+        },
+        "SF_1.89V_27C": {
+          "value": 1.143407757643244,
+          "passed": true,
+          "margin": 0.0528397980360366
+        },
+        "FS_1.71V_27C": {
+          "value": 1.269839179196081,
+          "passed": true,
+          "margin": 0.041800684003265684
+        },
+        "FS_1.80V_27C": {
+          "value": 1.274063466209094,
+          "passed": true,
+          "margin": 0.03828044482575492
+        },
+        "FS_1.89V_27C": {
+          "value": 1.276989053367803,
+          "passed": true,
+          "margin": 0.035842455526830706
+        }
+      }
+    },
+    "Power_uW": {
+      "name": "Power_uW",
+      "metric": "Power_uW",
+      "recipe": "retained_paper_nominal",
+      "lower": 0,
+      "upper": 283.21700000000004,
+      "paper_value": 257.47,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst normalized bound margin across every configured corner",
+      "expression": "-1e6*average(VS*getData(\"VDD_SRC:p\" ?result \"tran\"))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ],
+      "target_policy": "User approved: lower is better; original upper tolerance retained",
+      "value": 212.82027389991902,
+      "passed": true,
+      "margin": 0.2734171985088788,
+      "worst_condition": "FS_1.89V_27C",
+      "per_corner": {
+        "TT_1.71V_27C": {
+          "value": 117.7238224174264,
+          "passed": true,
+          "margin": 0.45723316276625003
+        },
+        "TT_1.80V_27C": {
+          "value": 129.18429238901146,
+          "passed": true,
+          "margin": 0.5017450281159415
+        },
+        "TT_1.89V_27C": {
+          "value": 141.1265683350861,
+          "passed": true,
+          "margin": 0.5481282026453027
+        },
+        "FF_1.71V_27C": {
+          "value": 146.34027114593434,
+          "passed": true,
+          "margin": 0.531622048603976
+        },
+        "FF_1.80V_27C": {
+          "value": 160.72468943383592,
+          "passed": true,
+          "margin": 0.47575372107882125
+        },
+        "FF_1.89V_27C": {
+          "value": 175.7786472521438,
+          "passed": true,
+          "margin": 0.4172849370717219
+        },
+        "SS_1.71V_27C": {
+          "value": 103.41524483617637,
+          "passed": true,
+          "margin": 0.4016593965750431
+        },
+        "SS_1.80V_27C": {
+          "value": 113.52425959791374,
+          "passed": true,
+          "margin": 0.4409222806459538
+        },
+        "SS_1.89V_27C": {
+          "value": 123.83676877499475,
+          "passed": true,
+          "margin": 0.4809755263719841
+        },
+        "SF_1.71V_27C": {
+          "value": 92.62368822313546,
+          "passed": true,
+          "margin": 0.3597455556885674
+        },
+        "SF_1.80V_27C": {
+          "value": 101.68352279106557,
+          "passed": true,
+          "margin": 0.3949334788172042
+        },
+        "SF_1.89V_27C": {
+          "value": 111.10726838302868,
+          "passed": true,
+          "margin": 0.43153481331039995
+        },
+        "FS_1.71V_27C": {
+          "value": 178.10412702264114,
+          "passed": true,
+          "margin": 0.408252895395032
+        },
+        "FS_1.80V_27C": {
+          "value": 195.1184073127012,
+          "passed": true,
+          "margin": 0.34217032154153426
+        },
+        "FS_1.89V_27C": {
+          "value": 212.82027389991902,
+          "passed": true,
+          "margin": 0.2734171985088788
+        }
+      }
+    },
+    "PSRR_LF_dB": {
+      "name": "PSRR_LF_dB",
+      "metric": "PSRR_LF_dB",
+      "recipe": "retained_paper_nominal",
+      "lower": 21.501,
+      "upper": null,
+      "paper_value": 23.89,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst normalized bound margin across every configured corner",
+      "expression": "-value(dB20(getData(\"VREF\" ?result \"ac\")) 1)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ],
+      "target_policy": "User approved: higher is better; original lower tolerance retained",
+      "value": 22.87013438704005,
+      "passed": true,
+      "margin": 0.05730993666973833,
+      "worst_condition": "SS_1.71V_27C",
+      "per_corner": {
+        "TT_1.71V_27C": {
+          "value": 26.118676051940007,
+          "passed": true,
+          "margin": 0.19328907710087925
+        },
+        "TT_1.80V_27C": {
+          "value": 29.56685712019601,
+          "passed": true,
+          "margin": 0.33762482713252434
+        },
+        "TT_1.89V_27C": {
+          "value": 31.442587529435414,
+          "passed": true,
+          "margin": 0.4161401226218256
+        },
+        "FF_1.71V_27C": {
+          "value": 26.576468512807722,
+          "passed": true,
+          "margin": 0.2124515911598041
+        },
+        "FF_1.80V_27C": {
+          "value": 28.427054822497688,
+          "passed": true,
+          "margin": 0.2899143919002799
+        },
+        "FF_1.89V_27C": {
+          "value": 29.685542030250186,
+          "passed": true,
+          "margin": 0.34259280160109606
+        },
+        "SS_1.71V_27C": {
+          "value": 22.87013438704005,
+          "passed": true,
+          "margin": 0.05730993666973833
+        },
+        "SS_1.80V_27C": {
+          "value": 28.882880662962837,
+          "passed": true,
+          "margin": 0.3089945861432748
+        },
+        "SS_1.89V_27C": {
+          "value": 31.786612962359282,
+          "passed": true,
+          "margin": 0.430540517470041
+        },
+        "SF_1.71V_27C": {
+          "value": 26.448225197337297,
+          "passed": true,
+          "margin": 0.20708351600407268
+        },
+        "SF_1.80V_27C": {
+          "value": 30.040766929999428,
+          "passed": true,
+          "margin": 0.35746198953534647
+        },
+        "SF_1.89V_27C": {
+          "value": 31.61135953510254,
+          "passed": true,
+          "margin": 0.4232046686941205
+        },
+        "FS_1.71V_27C": {
+          "value": 24.453609459642863,
+          "passed": true,
+          "margin": 0.12359185682891843
+        },
+        "FS_1.80V_27C": {
+          "value": 28.461867242190394,
+          "passed": true,
+          "margin": 0.2913715882038674
+        },
+        "FS_1.89V_27C": {
+          "value": 30.956171494290224,
+          "passed": true,
+          "margin": 0.39577946815781595
+        }
+      }
+    },
+    "Line_sensitivity_percent": {
+      "name": "Line_sensitivity_percent",
+      "metric": "Line_sensitivity_percent",
+      "recipe": "retained_paper_nominal",
+      "lower": 0,
+      "upper": 7.37,
+      "paper_value": 6.7,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst normalized bound margin across every configured corner",
+      "expression": "100*(ymax(getData(\"VREF\" ?result \"dc\"))-ymin(getData(\"VREF\" ?result \"dc\")))/(1.89-1.71)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ],
+      "target_policy": "User approved: lower is better; original upper tolerance retained",
+      "value": 3.3003518259078213,
+      "passed": true,
+      "margin": 0.49258982476236135,
+      "worst_condition": "SF_1.71V_27C",
+      "per_corner": {
+        "TT_1.71V_27C": {
+          "value": 3.4676963303449506,
+          "passed": true,
+          "margin": 0.5175666164693956
+        },
+        "TT_1.80V_27C": {
+          "value": 3.4676963303449506,
+          "passed": true,
+          "margin": 0.5175666164693956
+        },
+        "TT_1.89V_27C": {
+          "value": 3.4676963303449506,
+          "passed": true,
+          "margin": 0.5175666164693956
+        },
+        "FF_1.71V_27C": {
+          "value": 3.8507373041105386,
+          "passed": true,
+          "margin": 0.5252630889387255
+        },
+        "FF_1.80V_27C": {
+          "value": 3.8507373041105386,
+          "passed": true,
+          "margin": 0.5252630889387255
+        },
+        "FF_1.89V_27C": {
+          "value": 3.8507373041105386,
+          "passed": true,
+          "margin": 0.5252630889387255
+        },
+        "SS_1.71V_27C": {
+          "value": 3.9941529870405708,
+          "passed": true,
+          "margin": 0.503857763128273
+        },
+        "SS_1.80V_27C": {
+          "value": 3.9941529870405708,
+          "passed": true,
+          "margin": 0.503857763128273
+        },
+        "SS_1.89V_27C": {
+          "value": 3.9941529870405708,
+          "passed": true,
+          "margin": 0.503857763128273
+        },
+        "SF_1.71V_27C": {
+          "value": 3.3003518259078213,
+          "passed": true,
+          "margin": 0.49258982476236135
+        },
+        "SF_1.80V_27C": {
+          "value": 3.3003518259078213,
+          "passed": true,
+          "margin": 0.49258982476236135
+        },
+        "SF_1.89V_27C": {
+          "value": 3.3003518259078213,
+          "passed": true,
+          "margin": 0.49258982476236135
+        },
+        "FS_1.71V_27C": {
+          "value": 3.972152318818904,
+          "passed": true,
+          "margin": 0.5071414449524024
+        },
+        "FS_1.80V_27C": {
+          "value": 3.972152318818904,
+          "passed": true,
+          "margin": 0.5071414449524024
+        },
+        "FS_1.89V_27C": {
+          "value": 3.972152318818904,
+          "passed": true,
+          "margin": 0.5071414449524024
+        }
+      }
+    },
+    "TC_19_120_ppm_C": {
+      "name": "TC_19_120_ppm_C",
+      "metric": "TC_19_120_ppm_C",
+      "recipe": "retained_paper_nominal",
+      "lower": 0,
+      "upper": 21.23,
+      "paper_value": 19.3,
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "aggregate": "worst normalized bound margin across every configured corner",
+      "expression": "1e6*(ymax(clip(getData(\"VREF\" ?result \"dc\") 19 120))-ymin(clip(getData(\"VREF\" ?result \"dc\") 19 120)))/(value(getData(\"VREF\" ?result \"dc\") 27)*(120-19))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets",
+      "target_origin_conditions": [
+        "TT_27"
+      ],
+      "target_policy": "User approved: lower is better; original upper tolerance retained",
+      "value": 2.712367015165013,
+      "passed": true,
+      "margin": 0.14053715104481934,
+      "worst_condition": "TT_1.71V_27C",
+      "per_corner": {
+        "TT_1.71V_27C": {
+          "value": 2.712367015165013,
+          "passed": true,
+          "margin": 0.14053715104481934
+        },
+        "TT_1.80V_27C": {
+          "value": 5.227905142237051,
+          "passed": true,
+          "margin": 0.2708759141055467
+        },
+        "TT_1.89V_27C": {
+          "value": 6.502502524444589,
+          "passed": true,
+          "margin": 0.3369172292458336
+        },
+        "FF_1.71V_27C": {
+          "value": 7.224560810750319,
+          "passed": true,
+          "margin": 0.374329575686545
+        },
+        "FF_1.80V_27C": {
+          "value": 7.6467433586923885,
+          "passed": true,
+          "margin": 0.39620431910323256
+        },
+        "FF_1.89V_27C": {
+          "value": 7.828951126435371,
+          "passed": true,
+          "margin": 0.40564513608473424
+        },
+        "SS_1.71V_27C": {
+          "value": 11.145819195789484,
+          "passed": true,
+          "margin": 0.5224964147259334
+        },
+        "SS_1.80V_27C": {
+          "value": 12.294950249907814,
+          "passed": true,
+          "margin": 0.4629559456006314
+        },
+        "SS_1.89V_27C": {
+          "value": 15.29521167674689,
+          "passed": true,
+          "margin": 0.3075019856607829
+        },
+        "SF_1.71V_27C": {
+          "value": 13.944479834580914,
+          "passed": true,
+          "margin": 0.3774880914724915
+        },
+        "SF_1.80V_27C": {
+          "value": 17.121740861932814,
+          "passed": true,
+          "margin": 0.21286316777550188
+        },
+        "SF_1.89V_27C": {
+          "value": 17.12256735197763,
+          "passed": true,
+          "margin": 0.21282034445711767
+        },
+        "FS_1.71V_27C": {
+          "value": 7.438815844265142,
+          "passed": true,
+          "margin": 0.38543087275985194
+        },
+        "FS_1.80V_27C": {
+          "value": 13.94862564317878,
+          "passed": true,
+          "margin": 0.3772732827368508
+        },
+        "FS_1.89V_27C": {
+          "value": 16.575792561738673,
+          "passed": true,
+          "margin": 0.2411506444694988
+        }
+      }
+    },
+    "Startup_qualification": {
+      "name": "Startup_qualification",
+      "metric": "Startup_qualification",
+      "lower": 0,
+      "upper": 1,
+      "paper_value": 1,
+      "unit": "normalized error",
+      "recipe": "startup",
+      "source": "Engineering qualification, NOT a numerical paper target",
+      "expression": "max(abs(tail_mean_V-1.2)/0.12, tail_vpp_V/0.001, abs(tail_mean_V-dc_vref)/abs(dc_vref)/0.01)",
+      "conditions": [
+        "TT_1.71V_27C",
+        "TT_1.80V_27C",
+        "TT_1.89V_27C",
+        "FF_1.71V_27C",
+        "FF_1.80V_27C",
+        "FF_1.89V_27C",
+        "SS_1.71V_27C",
+        "SS_1.80V_27C",
+        "SS_1.89V_27C",
+        "SF_1.71V_27C",
+        "SF_1.80V_27C",
+        "SF_1.89V_27C",
+        "FS_1.71V_27C",
+        "FS_1.80V_27C",
+        "FS_1.89V_27C"
+      ],
+      "value": 0.055939493027606924,
+      "passed": true,
+      "margin": 0.055939493027606924,
+      "aggregate": "worst normalized bound margin across every configured corner",
+      "worst_condition": "TT_1.71V_27C",
+      "per_corner": {
+        "TT_1.71V_27C": {
+          "value": 0.055939493027606924,
+          "passed": true,
+          "margin": 0.055939493027606924
+        },
+        "TT_1.80V_27C": {
+          "value": 0.08569918663491327,
+          "passed": true,
+          "margin": 0.08569918663491327
+        },
+        "TT_1.89V_27C": {
+          "value": 0.10795493785037784,
+          "passed": true,
+          "margin": 0.10795493785037784
+        },
+        "FF_1.71V_27C": {
+          "value": 0.42737268047903787,
+          "passed": true,
+          "margin": 0.42737268047903787
+        },
+        "FF_1.80V_27C": {
+          "value": 0.39598387442684735,
+          "passed": true,
+          "margin": 0.39598387442684735
+        },
+        "FF_1.89V_27C": {
+          "value": 0.369611632645935,
+          "passed": true,
+          "margin": 0.369611632645935
+        },
+        "SS_1.71V_27C": {
+          "value": 0.46835438040847926,
+          "passed": true,
+          "margin": 0.46835438040847926
+        },
+        "SS_1.80V_27C": {
+          "value": 0.5056848560253865,
+          "passed": true,
+          "margin": 0.4943151439746135
+        },
+        "SS_1.89V_27C": {
+          "value": 0.5282666656789003,
+          "passed": true,
+          "margin": 0.47173333432109965
+        },
+        "SF_1.71V_27C": {
+          "value": 0.521107296497216,
+          "passed": true,
+          "margin": 0.478892703502784
+        },
+        "SF_1.80V_27C": {
+          "value": 0.4930459243659313,
+          "passed": true,
+          "margin": 0.4930459243659313
+        },
+        "SF_1.89V_27C": {
+          "value": 0.4716020196397016,
+          "passed": true,
+          "margin": 0.4716020196397016
+        },
+        "FS_1.71V_27C": {
+          "value": 0.5819931599673256,
+          "passed": true,
+          "margin": 0.4180068400326744
+        },
+        "FS_1.80V_27C": {
+          "value": 0.6171955517433344,
+          "passed": true,
+          "margin": 0.3828044482566656
+        },
+        "FS_1.89V_27C": {
+          "value": 0.6415754447317734,
+          "passed": true,
+          "margin": 0.3584245552682266
+        }
+      }
+    }
+  },
+  "corner_summary": {
+    "total_corners": 15,
+    "metric_count": 6,
+    "per_corner_pass_counts": {
+      "TT_1.71V_27C": 6,
+      "TT_1.80V_27C": 6,
+      "TT_1.89V_27C": 6,
+      "FF_1.71V_27C": 6,
+      "FF_1.80V_27C": 6,
+      "FF_1.89V_27C": 6,
+      "SS_1.71V_27C": 6,
+      "SS_1.80V_27C": 6,
+      "SS_1.89V_27C": 6,
+      "SF_1.71V_27C": 6,
+      "SF_1.80V_27C": 6,
+      "SF_1.89V_27C": 6,
+      "FS_1.71V_27C": 6,
+      "FS_1.80V_27C": 6,
+      "FS_1.89V_27C": 6
+    },
+    "all_metrics_pass_corners": 15,
+    "scalar_passes": 90,
+    "scalar_tests": 90,
+    "missing_scalars": 0
+  },
+  "execution_ok": true,
+  "feasible": true,
+  "diagnostics": {
+    "corners": [
+      {
+        "id": "TT_1.71V_27C",
+        "process": "tt",
+        "supply_V": 1.71,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.206712739163317,
+          "Power_uW": 117.7238224174264,
+          "PSRR_LF_dB": 26.118676051940007,
+          "Line_sensitivity_percent": 3.4676963303449506,
+          "TC_19_120_ppm_C": 2.712367015165013,
+          "Startup_qualification": 0.055939493027606924
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 4.5075054799781356e-14,
+          "constant_supply_tran_final_V": 1.206712739163329,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2067127391633128,
+            "tail_vpp_V": 5.10702591327572e-15,
+            "dc_relative_mismatch": 3.4961489645835375e-15,
+            "final_V": 1.206712739163315
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.71V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.7154820910072885,
+              "deck_sha256": "b7a53c4917f28caa07ed445e519f4426df5aa893e7cec945639efe5f134e05b5",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.71V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.71V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6654215520247817,
+              "deck_sha256": "c8cfe49b4d32a1a758408d359ea440de09562511c6d422d33aae3e4709a0dcbd",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.71V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.71V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9656651789555326,
+              "deck_sha256": "ee28c4c9689d6fb3b11bc274e36977ea92f0ea5af2e887c6999baf4cbbdea9f6",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.71V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5649735230254009,
+            "deck_sha256": "209d9cc986d6944ce99f4ebe4366e36cc1baceca76d26f411b1b298c43f6e9b6",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "TT_1.80V_27C",
+        "process": "tt",
+        "supply_V": 1.8,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.210283902396056,
+          "Power_uW": 129.18429238901146,
+          "PSRR_LF_dB": 29.56685712019601,
+          "Line_sensitivity_percent": 3.4676963303449506,
+          "TC_19_120_ppm_C": 5.227905142237051,
+          "Startup_qualification": 0.08569918663491327
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 4.107825191113079e-14,
+          "constant_supply_tran_final_V": 1.210283902396183,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2102839023961895,
+            "tail_vpp_V": 1.9984014443252818e-15,
+            "dc_relative_mismatch": 1.1026239983507087e-13,
+            "final_V": 1.210283902396189
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.80V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6656484419945627,
+              "deck_sha256": "0deeda7acdef1758240f05eda510490d2d6fb253d3dc7dc4e33f57b7d2c07ca7",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.80V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.80V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6655418620212004,
+              "deck_sha256": "db7975c58c04f0f76f0e125696f681ff7447aebe614381aefe50405a401129fc",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.80V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.80V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9655996300280094,
+              "deck_sha256": "ead3a0028da0e109c5c7684866a56eeef90f54b7b1de65f524ce5807512b98a9",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.80V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5649735230254009,
+            "deck_sha256": "209d9cc986d6944ce99f4ebe4366e36cc1baceca76d26f411b1b298c43f6e9b6",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "TT_1.89V_27C",
+        "process": "tt",
+        "supply_V": 1.89,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.212954592542043,
+          "Power_uW": 141.1265683350861,
+          "PSRR_LF_dB": 31.442587529435414,
+          "Line_sensitivity_percent": 3.4676963303449506,
+          "TC_19_120_ppm_C": 6.502502524444589,
+          "Startup_qualification": 0.10795493785037784
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 4.5075054799781356e-14,
+          "constant_supply_tran_final_V": 1.212954592542063,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2129545925420453,
+            "tail_vpp_V": 8.881784197001252e-15,
+            "dc_relative_mismatch": 1.8306093755717807e-15,
+            "final_V": 1.212954592542045
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.89V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.665387561020907,
+              "deck_sha256": "d085c2fd2fa9891253f259d473e14a2cb6ba6bec0adf12689b7bf53d58d6ccb9",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.89V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.89V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6153211919590831,
+              "deck_sha256": "d44339f574e5c95ec12a7a027c33e839dcadd53b0a5c815df0416f7b329a0243",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.89V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.89V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9654405700275674,
+              "deck_sha256": "41d967b7b8fb79bfae408f83cf494a251c55be6f87c583bcc12be87d4e4a60fb",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_1.89V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5649735230254009,
+            "deck_sha256": "209d9cc986d6944ce99f4ebe4366e36cc1baceca76d26f411b1b298c43f6e9b6",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/TT_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "FF_1.71V_27C",
+        "process": "ff",
+        "supply_V": 1.71,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.148715278342517,
+          "Power_uW": 146.34027114593434,
+          "PSRR_LF_dB": 26.576468512807722,
+          "Line_sensitivity_percent": 3.8507373041105386,
+          "TC_19_120_ppm_C": 7.224560810750319,
+          "Startup_qualification": 0.42737268047903787
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 3.397282455352979e-14,
+          "constant_supply_tran_final_V": 1.148715278342525,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.1487152783425154,
+            "tail_vpp_V": 3.9968028886505635e-15,
+            "dc_relative_mismatch": 1.3530874567263863e-15,
+            "final_V": 1.148715278342513
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.71V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6651863920269534,
+              "deck_sha256": "4e60d4e9e5a77fd7d27bbf6ed3485edbac61013496eb8412e031d4ccca48b3e1",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.71V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.71V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6152172420406714,
+              "deck_sha256": "0f58e448a9603e343f4e4f163332261bbc3bb98b32a79991316d334e7ea38b59",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.71V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.71V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.965059990005102,
+              "deck_sha256": "acf99800d571ad4d5d389b14561ade75b4aaebb1835dae1efcdf5d45a0a892c0",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.71V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5646277230116539,
+            "deck_sha256": "cb5f21b973df27bcb1d1efe99ed7eab3b1376a03781db8db732de26ef5272e0f",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "FF_1.80V_27C",
+        "process": "ff",
+        "supply_V": 1.8,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.152481935068778,
+          "Power_uW": 160.72468943383592,
+          "PSRR_LF_dB": 28.427054822497688,
+          "Line_sensitivity_percent": 3.8507373041105386,
+          "TC_19_120_ppm_C": 7.6467433586923885,
+          "Startup_qualification": 0.39598387442684735
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 1.3700152123874432e-13,
+          "constant_supply_tran_final_V": 1.152481935068722,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.1524819350687783,
+            "tail_vpp_V": 1.199040866595169e-14,
+            "dc_relative_mismatch": 1.9266645156722573e-16,
+            "final_V": 1.15248193506878
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.80V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.665691940987017,
+              "deck_sha256": "9bfd89a532475aa7d066408e450440bb66238a26f24fa6a8467547d9e6c42b06",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.80V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.80V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6654941320302896,
+              "deck_sha256": "7db260c195405702eba1098864e8420987ee7bdfe4a351fa54c6572114c72f26",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.80V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.80V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9652142089908011,
+              "deck_sha256": "34ce409632754de8ef235a05467ec202fc416892bcb6dc95c449380cd6f85c3f",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.80V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5646277230116539,
+            "deck_sha256": "cb5f21b973df27bcb1d1efe99ed7eab3b1376a03781db8db732de26ef5272e0f",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "FF_1.89V_27C",
+        "process": "ff",
+        "supply_V": 1.89,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.155646604082484,
+          "Power_uW": 175.7786472521438,
+          "PSRR_LF_dB": 29.685542030250186,
+          "Line_sensitivity_percent": 3.8507373041105386,
+          "TC_19_120_ppm_C": 7.828951126435371,
+          "Startup_qualification": 0.369611632645935
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 1.5987211554602254e-14,
+          "constant_supply_tran_final_V": 1.155646604082496,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.1556466040824878,
+            "tail_vpp_V": 5.10702591327572e-15,
+            "dc_relative_mismatch": 3.2663603824825583e-15,
+            "final_V": 1.155646604082488
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.89V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6652607920113951,
+              "deck_sha256": "1ea50dd3189054dcb8597757dabbc4d5dab520f16408758e5a807d8c1ecb32d6",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.89V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.89V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6151973030064255,
+              "deck_sha256": "14372a777af951f9941e07fea7d7f3ad4e90b6ce5890890cc2a1d1b764a222f4",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.89V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.89V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9651567389955744,
+              "deck_sha256": "806deeceafd58e2fbfc87159b7ae2ae4db257efabebe9e86ccda9e187814502c",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_1.89V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5646277230116539,
+            "deck_sha256": "cb5f21b973df27bcb1d1efe99ed7eab3b1376a03781db8db732de26ef5272e0f",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FF_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "SS_1.71V_27C",
+        "process": "ss",
+        "supply_V": 1.71,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.256202525649019,
+          "Power_uW": 103.41524483617637,
+          "PSRR_LF_dB": 22.87013438704005,
+          "Line_sensitivity_percent": 3.9941529870405708,
+          "TC_19_120_ppm_C": 11.145819195789484,
+          "Startup_qualification": 0.46835438040847926
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 2.0872192862952943e-14,
+          "constant_supply_tran_final_V": 1.256202525649022,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2562025256490175,
+            "tail_vpp_V": 5.10702591327572e-15,
+            "dc_relative_mismatch": 1.237310228836056e-15,
+            "final_V": 1.256202525649017
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.71V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6656352609861642,
+              "deck_sha256": "ab81aa96b564d678e6d8f762d26c8db67d8a35d0c8a9e038e9cda91341d96a61",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.71V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.71V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6650728110107593,
+              "deck_sha256": "ae653451f59d2d61e6515d91046214ea6e4709d61cc3e6a0c9830b95ad1c88ce",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.71V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.71V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9653068900224753,
+              "deck_sha256": "db0a3addb7055d8a000d2a8ef7dac8cb83f0707727f04f5b06505941edfda069",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.71V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5647106420365162,
+            "deck_sha256": "93c50e934bf3dd0ca6b199054a3cecd9b1056d988a9f6a3c2b25e29732fc4fbd",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "SS_1.80V_27C",
+        "process": "ss",
+        "supply_V": 1.8,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.260682182723045,
+          "Power_uW": 113.52425959791374,
+          "PSRR_LF_dB": 28.882880662962837,
+          "Line_sensitivity_percent": 3.9941529870405708,
+          "TC_19_120_ppm_C": 12.294950249907814,
+          "Startup_qualification": 0.5056848560253865
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 4.796163466380676e-14,
+          "constant_supply_tran_final_V": 1.260682182723064,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2606821827230463,
+            "tail_vpp_V": 5.995204332975845e-15,
+            "dc_relative_mismatch": 1.0567831034722169e-15,
+            "final_V": 1.260682182723045
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.80V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6653262019972317,
+              "deck_sha256": "df91845925c5517d3b3ccc67113fdfb71d89421d8409a68e9e1d20245b3eeab5",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.80V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.80V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6654264520038851,
+              "deck_sha256": "38d666ef8647cb37b222ac7cf876c01e9508af4c95de3caaec6b9cba83f8784d",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.80V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.80V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9653719189809635,
+              "deck_sha256": "82a39c30e613563f9ab0e3169203275391118458cb7971043f3df15be04c1a5b",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.80V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5647106420365162,
+            "deck_sha256": "93c50e934bf3dd0ca6b199054a3cecd9b1056d988a9f6a3c2b25e29732fc4fbd",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "SS_1.89V_27C",
+        "process": "ss",
+        "supply_V": 1.89,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.263391999881944,
+          "Power_uW": 123.83676877499475,
+          "PSRR_LF_dB": 31.786612962359282,
+          "Line_sensitivity_percent": 3.9941529870405708,
+          "TC_19_120_ppm_C": 15.29521167674689,
+          "Startup_qualification": 0.5282666656789003
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 5.906386491005833e-14,
+          "constant_supply_tran_final_V": 1.263391999881447,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.263391999881468,
+            "tail_vpp_V": 5.10702591327572e-15,
+            "dc_relative_mismatch": 3.7681387329012074e-13,
+            "final_V": 1.263391999881466
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.89V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.665235972031951,
+              "deck_sha256": "d1a39e1d60791faf14415cd9ab161e0250c2de110d92bb8d4846667351d73ded",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.89V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.89V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6153480020002462,
+              "deck_sha256": "c9dbeae7cb0bd5644257fe35ac5f1353de8d8b3d4a5566193ca1354409bccff6",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.89V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.89V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9653267490211874,
+              "deck_sha256": "29e72c733e8895cbb6e643051a0a3fcc863aab808bf8261ca1a7faab5711b926",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_1.89V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5647106420365162,
+            "deck_sha256": "93c50e934bf3dd0ca6b199054a3cecd9b1056d988a9f6a3c2b25e29732fc4fbd",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SS_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "SF_1.71V_27C",
+        "process": "sf",
+        "supply_V": 1.71,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.13746712442033,
+          "Power_uW": 92.62368822313546,
+          "PSRR_LF_dB": 26.448225197337297,
+          "Line_sensitivity_percent": 3.3003518259078213,
+          "TC_19_120_ppm_C": 13.944479834580914,
+          "Startup_qualification": 0.521107296497216
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 8.79296635503124e-14,
+          "constant_supply_tran_final_V": 1.13746712442037,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.137467124420334,
+            "tail_vpp_V": 1.199040866595169e-14,
+            "dc_relative_mismatch": 3.5137744228760834e-15,
+            "final_V": 1.137467124420326
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.71V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6651247519766912,
+              "deck_sha256": "8fbf3408e6a95e34cfbccf5395adb89a81fba82ca9abc307a3862f38a810ca2d",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.71V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.71V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6150915930047631,
+              "deck_sha256": "f9662d5605f49b556ca267d7964af9ff477e1a34508d64e49f5f039324683deb",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.71V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.71V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9151357790105976,
+              "deck_sha256": "d15abf8cf7284212b0ec0b9f3abafc999b60c960300ca1ed628458e4d222a3c7",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.71V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5645430730073713,
+            "deck_sha256": "05d3bc6f0691c2935274491791718dcf97e0d49e0ed55b4b0506972e6da4a511",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "SF_1.80V_27C",
+        "process": "sf",
+        "supply_V": 1.8,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.140834489076088,
+          "Power_uW": 101.68352279106557,
+          "PSRR_LF_dB": 30.040766929999428,
+          "Line_sensitivity_percent": 3.3003518259078213,
+          "TC_19_120_ppm_C": 17.121740861932814,
+          "Startup_qualification": 0.4930459243659313
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 7.505107646466058e-14,
+          "constant_supply_tran_final_V": 1.140834489076121,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.1408344890760882,
+            "tail_vpp_V": 5.10702591327572e-15,
+            "dc_relative_mismatch": 1.9463349596386724e-16,
+            "final_V": 1.140834489076086
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.80V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6652267610188574,
+              "deck_sha256": "b9685b55196ad4ac33c04cba2ca59362e6012d6272a624e716a0b38f41cf2370",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.80V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.80V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6151373619795777,
+              "deck_sha256": "3a2235ed733ff454f8c1c8d6dec444f3140b1f7d1e59dc513ae9d881f1393b3d",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.80V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.80V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9652270989608951,
+              "deck_sha256": "cccfe80629a8245d7f534c2eb1d08b78b783249106ac9c59bda4ea7aea658621",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.80V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5645430730073713,
+            "deck_sha256": "05d3bc6f0691c2935274491791718dcf97e0d49e0ed55b4b0506972e6da4a511",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "SF_1.89V_27C",
+        "process": "sf",
+        "supply_V": 1.89,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.143407757643244,
+          "Power_uW": 111.10726838302868,
+          "PSRR_LF_dB": 31.61135953510254,
+          "Line_sensitivity_percent": 3.3003518259078213,
+          "TC_19_120_ppm_C": 17.12256735197763,
+          "Startup_qualification": 0.4716020196397016
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 3.9968028886505635e-14,
+          "constant_supply_tran_final_V": 1.143407757643221,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.1434077576432358,
+            "tail_vpp_V": 3.1086244689504383e-15,
+            "dc_relative_mismatch": 7.185232326182567e-15,
+            "final_V": 1.143407757643237
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.89V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6653280719765462,
+              "deck_sha256": "4156ae99b8acd2a700b08cd9c7ed8ae3324b67ed72b5cd332a209f33d14ab103",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.89V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.89V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6149722519912757,
+              "deck_sha256": "8fc510812cd043b7fdc4beff4f77bf05aa31be25b11df53786494223422b0575",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.89V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.89V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9652508600265719,
+              "deck_sha256": "13fafb306b5edbe7f3f8495dc9f6f942846944f7642eb091a5c954733d326119",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_1.89V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5645430730073713,
+            "deck_sha256": "05d3bc6f0691c2935274491791718dcf97e0d49e0ed55b4b0506972e6da4a511",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/SF_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "FS_1.71V_27C",
+        "process": "fs",
+        "supply_V": 1.71,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.269839179196081,
+          "Power_uW": 178.10412702264114,
+          "PSRR_LF_dB": 24.453609459642863,
+          "Line_sensitivity_percent": 3.972152318818904,
+          "TC_19_120_ppm_C": 7.438815844265142,
+          "Startup_qualification": 0.5819931599673256
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 3.907985046680551e-14,
+          "constant_supply_tran_final_V": 1.26983917919607,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.269839179196079,
+            "tail_vpp_V": 3.9968028886505635e-15,
+            "dc_relative_mismatch": 1.5737437283912157e-15,
+            "final_V": 1.269839179196079
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.71V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6651667519472539,
+              "deck_sha256": "17e262576a542b94b0c74b9afb34bb05bb757576b4c830528a50ae083902e59e",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.71V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.71V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6652562819654122,
+              "deck_sha256": "181ab74a1caab995bc6286218c52502b3826b08f9a20ab79f49423784f41747a",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.71V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.71V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9152343499590643,
+              "deck_sha256": "3a1c3cc65b447834d790982d8628a54635e2d8b755f8c3541d7c2487fd34a101",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.71V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5644195030326955,
+            "deck_sha256": "b4d527ee49e0c55a403200405a9cd7c2bcf42621bd5abe2038f8cdf8700c802c",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "FS_1.80V_27C",
+        "process": "fs",
+        "supply_V": 1.8,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.274063466209094,
+          "Power_uW": 195.1184073127012,
+          "PSRR_LF_dB": 28.461867242190394,
+          "Line_sensitivity_percent": 3.972152318818904,
+          "TC_19_120_ppm_C": 13.94862564317878,
+          "Startup_qualification": 0.6171955517433344
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 4.1011638529653283e-13,
+          "constant_supply_tran_final_V": 1.274063466209007,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2740634662092,
+            "tail_vpp_V": 1.709743457922741e-14,
+            "dc_relative_mismatch": 8.330614915909232e-14,
+            "final_V": 1.274063466209195
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.80V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6649761819862761,
+              "deck_sha256": "af71214226234fcfea6ee4f688454c9eaa7be718b1f0cc42d0f8f3369e0c5e1a",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.80V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.80V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6152204420068301,
+              "deck_sha256": "33c7d8e584484b61f57f82d2198f412abe3c93b18b63531470562e268d963d9d",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.80V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.80V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9652321100002155,
+              "deck_sha256": "b47a23857a7478dad4605b4e4a0aa3d500b217bd88e1f4408270e43d0fda1c9b",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.80V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5644195030326955,
+            "deck_sha256": "b4d527ee49e0c55a403200405a9cd7c2bcf42621bd5abe2038f8cdf8700c802c",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      },
+      {
+        "id": "FS_1.89V_27C",
+        "process": "fs",
+        "supply_V": 1.89,
+        "temperature_C": 27,
+        "values": {
+          "Vref_V": 1.276989053367803,
+          "Power_uW": 212.82027389991902,
+          "PSRR_LF_dB": 30.956171494290224,
+          "Line_sensitivity_percent": 3.972152318818904,
+          "TC_19_120_ppm_C": 16.575792561738673,
+          "Startup_qualification": 0.6415754447317734
+        },
+        "diagnostics": {
+          "errors": {},
+          "startup_qualification": "not inferred from DC/scalar feasibility",
+          "constant_supply_tran_vpp_V": 1.9984014443252818e-14,
+          "constant_supply_tran_final_V": 1.276989053367816,
+          "startup": {
+            "status": "completed",
+            "passed": true,
+            "optimization_constraint": true,
+            "tail_mean_V": 1.2769890533678128,
+            "tail_vpp_V": 5.995204332975845e-15,
+            "dc_relative_mismatch": 7.650780240390517e-15,
+            "final_V": 1.276989053367811
+          },
+          "jobs": {
+            "nominal": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.89V_27C/nominal",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6654870620113797,
+              "deck_sha256": "7099b506986f0849c330f4e34596c86ba0cbf11c8154f88cba77cbaf65f6b9b3",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.89V_27C/nominal/raw.tar.gz"
+            },
+            "temperature": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.89V_27C/temperature",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.6149644720135257,
+              "deck_sha256": "067d36e2f3ec0f44e52285d127c47f4ca60d84e34729a8b889d08dad9fb9a3ff",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.89V_27C/temperature/raw.tar.gz"
+            },
+            "startup": {
+              "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.89V_27C/startup",
+              "returncode": 0,
+              "error": null,
+              "wall_s": 0.9652283989707939,
+              "deck_sha256": "0248f0cc0ad6d2af8f87bd7b1b59ad31471584ae2f5b4e72b4ce85e9cf2c5fa8",
+              "nominal_only": false,
+              "simulator_launched": true,
+              "effective_timeout_s": 180,
+              "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_1.89V_27C/startup/raw.tar.gz"
+            }
+          },
+          "line_job": {
+            "path": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_line",
+            "returncode": 0,
+            "error": null,
+            "wall_s": 0.5644195030326955,
+            "deck_sha256": "b4d527ee49e0c55a403200405a9cd7c2bcf42621bd5abe2038f8cdf8700c802c",
+            "nominal_only": false,
+            "simulator_launched": true,
+            "effective_timeout_s": 180,
+            "raw_archive": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full/FS_line/raw.tar.gz"
+          }
+        },
+        "execution_ok": true
+      }
+    ],
+    "execution_ok": true,
+    "simulator_invocations": 50,
+    "scheduled_job_count": 50,
+    "evaluation_budget_s": 1800,
+    "wall_s": 29.87083382997662,
+    "deadline_exhausted": false,
+    "startup_qualification": "Required engineering guard at every search and verification corner"
+  }
+}

@@ -1,0 +1,37 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs" section=NN
+subckt gc_0232a331ef36_c27a2916 (VDD VSS VCON VOSC)
+M10 (VOSC N4 P5 VDD) gpdk090_pmos1v w=1u l=100n m=1 as=280f ad=280f ps=2.56u pd=2.56u
+M5 (P5 PBIAS VDD VDD) gpdk090_pmos1v w=900n l=180n m=1 as=252f ad=252f ps=2.36u pd=2.36u
+M9 (N4 N3 P4 VDD) gpdk090_pmos1v w=1u l=100n m=1 as=280f ad=280f ps=2.56u pd=2.56u
+M4 (P4 VSS VDD VDD) gpdk090_pmos1v w=4u l=180n m=1 as=1.12p ad=1.12p ps=8.56u pd=8.56u
+M8 (N3 N2 P3 VDD) gpdk090_pmos1v w=1u l=100n m=1 as=280f ad=280f ps=2.56u pd=2.56u
+M3 (P3 PBIAS VDD VDD) gpdk090_pmos1v w=900n l=180n m=1 as=252f ad=252f ps=2.36u pd=2.36u
+M7 (N2 N1 P2 VDD) gpdk090_pmos1v w=1u l=100n m=1 as=280f ad=280f ps=2.56u pd=2.56u
+M2 (P2 VSS VDD VDD) gpdk090_pmos1v w=4u l=180n m=1 as=1.12p ad=1.12p ps=8.56u pd=8.56u
+M6 (N1 VOSC P1 VDD) gpdk090_pmos1v w=1u l=100n m=1 as=280f ad=280f ps=2.56u pd=2.56u
+M1 (P1 PBIAS VDD VDD) gpdk090_pmos1v w=900n l=180n m=1 as=252f ad=252f ps=2.36u pd=2.36u
+M11 (PBIAS PBIAS VDD VDD) gpdk090_pmos1v w=1u l=180n m=1 as=280f ad=280f ps=2.56u pd=2.56u
+M28 (S5 S5 VSS VSS) gpdk090_nmos1v w=8.41u l=180n m=1 as=2.3548p ad=2.3548p ps=17.38u pd=17.38u
+M21 (D5 VCON S5 VSS) gpdk090_nmos1v w=450n l=180n m=1 as=126f ad=126f ps=1.46u pd=1.46u
+M16 (VOSC N4 D5 VSS) gpdk090_nmos1v w=500n l=100n m=1 as=140f ad=140f ps=1.56u pd=1.56u
+M27 (S4 S4 VSS VSS) gpdk090_nmos1v w=8.41u l=180n m=1 as=2.3548p ad=2.3548p ps=17.38u pd=17.38u
+M20 (D4 VDD S4 VSS) gpdk090_nmos1v w=2u l=180n m=1 as=560f ad=560f ps=4.56u pd=4.56u
+M15 (N4 N3 D4 VSS) gpdk090_nmos1v w=500n l=100n m=1 as=140f ad=140f ps=1.56u pd=1.56u
+M26 (S3 S3 VSS VSS) gpdk090_nmos1v w=8.41u l=180n m=1 as=2.3548p ad=2.3548p ps=17.38u pd=17.38u
+M19 (D3 VCON S3 VSS) gpdk090_nmos1v w=450n l=180n m=1 as=126f ad=126f ps=1.46u pd=1.46u
+M14 (N3 N2 D3 VSS) gpdk090_nmos1v w=500n l=100n m=1 as=140f ad=140f ps=1.56u pd=1.56u
+M25 (S2 S2 VSS VSS) gpdk090_nmos1v w=8.41u l=180n m=1 as=2.3548p ad=2.3548p ps=17.38u pd=17.38u
+M18 (D2 VDD S2 VSS) gpdk090_nmos1v w=2u l=180n m=1 as=560f ad=560f ps=4.56u pd=4.56u
+M13 (N2 N1 D2 VSS) gpdk090_nmos1v w=500n l=100n m=1 as=140f ad=140f ps=1.56u pd=1.56u
+M24 (S1 S1 VSS VSS) gpdk090_nmos1v w=8.41u l=180n m=1 as=2.3548p ad=2.3548p ps=17.38u pd=17.38u
+M17 (D1 VCON S1 VSS) gpdk090_nmos1v w=450n l=180n m=1 as=126f ad=126f ps=1.46u pd=1.46u
+M12 (N1 VOSC D1 VSS) gpdk090_nmos1v w=500n l=100n m=1 as=140f ad=140f ps=1.56u pd=1.56u
+M23 (NBIAS NBIAS VSS VSS) gpdk090_nmos1v w=120n l=180n m=1 as=69.6f ad=69.6f ps=1.16u pd=1.16u
+M22 (PBIAS VCON NBIAS VSS) gpdk090_nmos1v w=500n l=180n m=1 as=140f ad=140f ps=1.56u pd=1.56u
+C5 (VOSC VSS) capacitor c=CLOAD
+C4 (N4 VCON) capacitor c=CPUMP
+C3 (N3 VSS) capacitor c=CLOAD
+C2 (N2 VCON) capacitor c=CPUMP
+C1 (N1 VSS) capacitor c=CLOAD
+ends gc_0232a331ef36_c27a2916

@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<statedb ICVersion="IC6.1.7-64b.78" version="5">Nov_11_14_11_14_2026
+	<Test Name="Pump_startup_and_steady_state">
+		<component Name="adeInfo" Type="skillTable">adeinfo
+			<field Name="designInfo" Type="list">("DAC_20261111_NVMCP_UPR" "nvm_chargepump_candidate_tb" "schematic" "spectre")</field>
+			<field Name="projectDir" Type="string">""</field>
+			<field Name="descriptiontext" Type="string">""</field>
+		</component>
+		<component Name="relxOptions" Type="skillTable">asiEnvSaveTable
+			<partition Name="relxOpts">
+				<field Name="mosDevDegVgsweep_end_pModels" Type="string">""</field>
+				<field Name="mosDevDegModels" Type="string">""</field>
+				<field Name="mosAgeModelLimitNum" Type="string">"10"</field>
+				<field Name="mindtemp" Type="string">""</field>
+				<field Name="mosDevDegVdsat" Type="string">""</field>
+				<field Name="gaAgePointsUnit" Type="string">"Years"</field>
+				<field Name="mosDevDegVgsweep_end_p" Type="string">""</field>
+				<field Name="mosDevDegVgsatModels" Type="string">""</field>
+				<field Name="enableSelfheating" Type="list">nil</field>
+				<field Name="mosDevDegVgsweep_start_p" Type="string">""</field>
+				<field Name="gaIterationNum" Type="string">""</field>
+				<field Name="mosAgeModelLimit" Type="list">nil</field>
+				<field Name="gaAgePoints" Type="string">""</field>
+				<field Name="mosDevDegVgsweep_start_nModels" Type="string">""</field>
+				<field Name="mosDevDegVgsat" Type="string">""</field>
+				<field Name="mosDevDegVgsweep_end_nModels" Type="string">""</field>
+				<field Name="gaAgeStepStart" Type="string">""</field>
+				<field Name="outputmethod" Type="string">"single"</field>
+				<field Name="mosDevDegVgsweep_end_n" Type="string">""</field>
+				<field Name="mosAgeModelLimitType" Type="string">"age"</field>
+				<field Name="mosDevDegVddSetting" Type="list">nil</field>
+				<field Name="gaAgeStepTotalStep" Type="string">""</field>
+				<field Name="enableAgingForTMI" Type="symbol">t</field>
+				<field Name="mosAgingTimeUnit" Type="string">"Years"</field>
+				<field Name="uriAppendtype" Type="string">"none"</field>
+				<field Name="includeFiles" Type="string">""</field>
+				<field Name="mosModifyNetlist" Type="list">nil</field>
+				<field Name="presetType" Type="string">"lifetime"</field>
+				<field Name="mosEffectiveModel" Type="symbol">t</field>
+				<field Name="mosDevDegVdd" Type="string">""</field>
+				<field Name="presetAgeLevel" Type="string">""</field>
+				<field Name="mosEnableOutputDevDeg" Type="list">nil</field>
+				<field Name="mosDevDegVgsweep_start_pModels" Type="string">""</field>
+				<field Name="enableStress" Type="list">nil</field>
+				<field Name="mosAgeModelFilePath" Type="string">""</field>
+				<field Name="mosAgingTime" Type="string">"10"</field>
+				<field Name="mosAgeDomain" Type="string">"loglog"</field>
+				<field Name="uriDebugMode" Type="string">"0"</field>
+				<field Name="presetValue" Type="string">""</field>
+				<field Name="uriLibs" Type="string">""</field>
+				<field Name="mosAgeMethod" Type="string">"agemos"</field>
+				<field Name="uriMode" Type="string">"none"</field>
+				<field Name="mosMaskDev" Type="list">nil</field>
+				<field Name="presetBlock" Type="string">""</field>
+				<field Name="mosMaskDevInclude" Type="string">"include"</field>
+				<field Name="mosDumpAgeModel" Type="list">nil</field>
+				<field Name="mosCalcLifetime" Type="list">nil</field>
+				<field Name="mosMaskDevInstance" Type="string">""</field>
+				<field Name="tmiMosMode" Type="list">(t t)</field>
+				<field Name="mosCompactAgeModel" Type="list">nil</field>
+				<field Name="enablePreset" Type="list">nil</field>
+				<field Name="mosAppendDeviceAge" Type="list">nil</field>
+				<field Name="mosMinAge" Type="string">""</field>
+				<field Name="mosDevDegVgsweep_start_n" Type="string">""</field>
+				<field Name="gaAlterValue" Type="string">""</field>
+				<field Name="mosDevDegVbconst_pModels" Type="string">""</field>
+				<field Name="relxTranStop" Type="string">""</field>
+				<field Name="relxTranStart" Type="string">""</field>
+				<field Name="mosDeltad" Type="string">"0.1"</field>
+				<field Name="mosDevDegVdsatModels" Type="string">""</field>
+				<field Name="degdatatype" Type="string">"appendage"</field>
+				<field Name="compactagednetlist" Type="string">"none"</field>
+				<field Name="mosDevDegVsconstModels" Type="string">""</field>
+				<field Name="stressAnalysis" Type="string">"tran"</field>
+				<field Name="mosDevDegVbconst_p" Type="string">""</field>
+				<field Name="enableRelXTran" Type="list">nil</field>
+				<field Name="mosMode" Type="list">(t t t)</field>
+				<field Name="gaAlterTime" Type="string">""</field>
+				<field Name="relxpertExecName" Type="string">"relxpert"</field>
+				<field Name="mosDevDegVbconst_nModels" Type="string">""</field>
+				<field Name="agingAnalysis" Type="string">"tran"</field>
+				<field Name="showunageddevices" Type="string">"limit"</field>
+				<field Name="mosDevDegVgstep" Type="string">""</field>
+				<field Name="combinedeg" Type="string">"off"</field>
+				<field Name="anaMode" Type="string">"Reliability"</field>
+				<field Name="mosHciLifeTimeMethod" Type="string">"calculate"</field>
+				<field Name="enableAging" Type="list">nil</field>
+				<field Name="enableDegSort" Type="list">nil</field>
+				<field Name="mosDevDegVglin" Type="string">""</field>
+				<field Name="mosDevDegVbconst_n" Type="string">""</field>
+				<field Name="enableGradualAging" Type="list">nil</field>
+				<field Name="gaAlterParam" Type="string">""</field>
+				<field Name="mosDevDegVdconstwl" Type="string">""</field>
+				<field Name="nativeMode" Type="string">"Spectre native"</field>
+				<field Name="mosHciIgateMethod" Type="string">"calculate"</field>
+				<field Name="mosDevDegVsconst" Type="string">""</field>
+				<field Name="mosDevDegVgstepModels" Type="string">""</field>
+				<field Name="mosHciLifeTimeMethodTable" Type="string">""</field>
+				<field Name="mosDevDegVdconst" Type="string">""</field>
+				<field Name="mosHciIdMethod" Type="string">"ids"</field>
+				<field Name="mosHciAccuracy" Type="string">"liberal (1)"</field>
+				<field Name="mosDevDegIdconstwl" Type="string">""</field>
+				<field Name="mosHciOpMethod" Type="string">"calculate"</field>
+				<field Name="otherRXOptions" Type="string">""</field>
+				<field Name="gaSkipFresh" Type="list">nil</field>
+				<field Name="simModeFile" Type="string">"input.bs0"</field>
+				<field Name="mosDevDegVdlinModels" Type="string">""</field>
+				<field Name="simModeType" Type="string">"all"</field>
+				<field Name="relusercmdlineoption" Type="string">""</field>
+				<field Name="aged_var_list" Type="list">nil</field>
+				<field Name="mosDevDegIdconst" Type="string">""</field>
+				<field Name="checknegagingclamp" Type="string">"no"</field>
+				<field Name="stress_var_list" Type="list">nil</field>
+				<field Name="checknegagingtype" Type="string">"error"</field>
+				<field Name="mosDevDegVglinModels" Type="string">""</field>
+				<field Name="aged_data_dir" Type="string">""</field>
+				<field Name="mosDevDegSimulatorPath" Type="string">""</field>
+				<field Name="stress_data_dir" Type="string">""</field>
+				<field Name="mosDevDegNeedSimulator" Type="list">nil</field>
+				<field Name="fresh_data_dir" Type="string">""</field>
+				<field Name="gaAlterParamListBox" Type="skillDpl">
+					<field Name="choices" Type="list">nil</field>
+					<field Name="value" Type="list">nil</field>
+				</field>
+				<field Name="relxAnalysisType" Type="string">"tran"</field>
+				<field Name="gaAlterHeadListBox" Type="skillDpl">
+					<field Name="choices" Type="list">("#     Time           Param               Value")</field>
+					<field Name="value" Type="list">nil</field>
+				</field>
+				<field Name="mosDevDegVdlin" Type="string">""</field>
+				<field Name="gaPassParam" Type="string">"no"</field>
+				<field Name="reportModelParamChanged" Type="list">nil</field>
+				<field Name="gaSaveSome" Type="string">""</field>
+				<field Name="enabledegdata" Type="list">nil</field>
+				<field Name="gaSkipLast" Type="list">nil</field>
+				<field Name="gaSaveResults" Type="string">"all"</field>
+				<field Name="gaInputStressDir" Type="string">""</field>
+				<field Name="gaAgeStepType" Type="string">"lin"</field>
+				<field Name="mosDevDegVthUseIs" Type="list">nil</field>
+				<field Name="mosVthMethod" Type="string">"calculate"</field>
+				<field Name="enableRelxpert" Type="list">nil</field>
+				<field Name="gaAgeStepStop" Type="string">""</field>
+				<field Name="gaMode" Type="string">"agepoint"</field>
+				<field Name="tmiAgingType" Type="string">"TMI Aging"</field>
+				<field Name="mosDevDegVthConstCurrSp" Type="list">nil</field>
+				<field Name="mosDevDegVthUseId" Type="list">nil</field>
+				<field Name="gaAgeStepUnit" Type="string">"Years"</field>
+				<field Name="doADELPostProcess" Type="symbol">t</field>
+			</partition>
+		</component>
+		<component Name="outputs" Type="skillTable">outputs
+			<partition Name="outputsCommon">
+				<field Name="outputList" Type="skillList">
+					<field Name="outputList_0" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="string">"output_voltage_V"</field>
+						<field Name="expression" Type="list">if((abs((average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - average(clip(getData("OUT" ?result "tran") 0.00029 0.000295)))) &lt; 0.00020345) then average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) else nil)</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="symbol">point</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="index" Type="list">nil</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="sqlStatement" Type="list">nil</field>
+					</field>
+					<field Name="outputList_1" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="string">"ripple_mV"</field>
+						<field Name="expression" Type="list">if((abs((average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - average(clip(getData("OUT" ?result "tran") 0.00029 0.000295)))) &lt; 0.00020345) then (1000 * (ymax(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - ymin(clip(getData("OUT" ?result "tran") 0.000295 0.0003)))) else nil)</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="symbol">point</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="index" Type="list">nil</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="sqlStatement" Type="list">nil</field>
+					</field>
+					<field Name="outputList_2" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="string">"input_power_mW"</field>
+						<field Name="expression" Type="list">if((abs((average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - average(clip(getData("OUT" ?result "tran") 0.00029 0.000295)))) &lt; 0.00020345) then (1000 * average(clip((((- getData("VDD" ?result "tran")) * getData("VDD_SRC:p" ?result "tran")) - (getData("CLKA" ?result "tran") * getData("CLK_A:p" ?result "tran")) - (getData("CLKB" ?result "tran") * getData("CLK_B:p" ?result "tran"))) 0.000295 0.0003))) else nil)</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="symbol">point</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="index" Type="list">nil</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="sqlStatement" Type="list">nil</field>
+					</field>
+					<field Name="outputList_3" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="string">"output_power_uW"</field>
+						<field Name="expression" Type="list">if((abs((average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - average(clip(getData("OUT" ?result "tran") 0.00029 0.000295)))) &lt; 0.00020345) then (1000000.0 * average(clip(((getData("OUT" ?result "tran") * getData("OUT" ?result "tran")) / 1000000.0) 0.000295 0.0003))) else nil)</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="symbol">point</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="index" Type="list">nil</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="sqlStatement" Type="list">nil</field>
+					</field>
+					<field Name="outputList_4" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="string">"efficiency_percent"</field>
+						<field Name="expression" Type="list">if((abs((average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - average(clip(getData("OUT" ?result "tran") 0.00029 0.000295)))) &lt; 0.00020345) then ((100 * average(clip(((getData("OUT" ?result "tran") * getData("OUT" ?result "tran")) / 1000000.0) 0.000295 0.0003))) / average(clip((((- getData("VDD" ?result "tran")) * getData("VDD_SRC:p" ?result "tran")) - (getData("CLKA" ?result "tran") * getData("CLK_A:p" ?result "tran")) - (getData("CLKB" ?result "tran") * getData("CLK_B:p" ?result "tran"))) 0.000295 0.0003))) else nil)</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="symbol">point</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="index" Type="list">nil</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="sqlStatement" Type="list">nil</field>
+					</field>
+					<field Name="outputList_5" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="string">"rise_time_us"</field>
+						<field Name="expression" Type="list">if((abs((average(clip(getData("OUT" ?result "tran") 0.000295 0.0003)) - average(clip(getData("OUT" ?result "tran") 0.00029 0.000295)))) &lt; 0.00020345) then (1000000.0 * (cross(getData("OUT" ?result "tran") (0.9 * average(clip(getData("OUT" ?result "tran") 0.000295 0.0003))) 1 "rising" nil nil) - cross(getData("OUT" ?result "tran") (0.1 * average(clip(getData("OUT" ?result "tran") 0.000295 0.0003))) 1 "rising" nil nil))) else nil)</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="symbol">point</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="index" Type="list">nil</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="sqlStatement" Type="list">nil</field>
+					</field>
+				</field>
+				<partition Name="envSaveOptions">
+					<field Name="extremesInfo" Type="list">nil</field>
+					<field Name="assertsInfo" Type="list">nil</field>
+					<field Name="designParamValInfo" Type="symbol">t</field>
+					<field Name="subcktsInfo" Type="symbol">t</field>
+					<field Name="primitivesInfo" Type="symbol">t</field>
+					<field Name="outputParamInfo" Type="symbol">t</field>
+					<field Name="elementInfo" Type="symbol">t</field>
+					<field Name="modelParamInfo" Type="symbol">t</field>
+					<field Name="marchingSupportOption" Type="list">nil</field>
+					<field Name="fastViewOption" Type="list">nil</field>
+					<field Name="simOutputFormat" Type="string">"psfxl"</field>
+					<field Name="captab_threshold" Type="string">""</field>
+					<field Name="captab_sort" Type="string">"name"</field>
+					<field Name="captab_detail" Type="string">"node"</field>
+					<field Name="infoOptions" Type="list">(("modelParameter" "models" "rawfile" "" "" "" t) ("element" "inst" "rawfile" "" "" "" t) ("outputParameter" "output" "rawfile" "" "" "" t) ("designParamVals" "parameters" "rawfile" "" "" "" t) ("primitives" "primitives" "rawfile" "" "" "" t) ("subckts" "subckts" "rawfile" "" "" "" t) ("asserts" "assert" "rawfile" "" "" "" nil) ("extremeinfo" "all" "logfile" "" "yes" "" nil) ("&lt;Click_To_Add&gt;" "none" "rawfile" "" "" "" nil))</field>
+					<field Name="saveahdlvars" Type="string">""</field>
+					<field Name="useprobes" Type="string">""</field>
+					<field Name="subcktprobelvl" Type="string">"5"</field>
+					<field Name="currents" Type="string">"all"</field>
+					<field Name="nestlvl" Type="string">""</field>
+					<field Name="pwr" Type="string">""</field>
+					<field Name="save" Type="string">"allpub"</field>
+				</partition>
+			</partition>
+			<partition Name="outputsScripts">
+				<field Name="outputList" Type="list">nil</field>
+			</partition>
+			<partition Name="outputsAreaGoal">
+				<field Name="areaGoal" Type="list">nil</field>
+			</partition>
+			<partition Name="outputsOpRegion">
+				<field Name="opRegion" Type="list">nil</field>
+			</partition>
+		</component>
+	</Test>
+</statedb>

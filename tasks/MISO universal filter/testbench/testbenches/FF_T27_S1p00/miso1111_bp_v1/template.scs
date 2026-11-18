@@ -1,0 +1,36 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task miso_universal_111126_task_001  topology miso_universal_111126
+// recipe miso1111_bp_v1 v1  condition FF_T27_S1p00 (models FF, 27 C, supply 0.9 V)
+// request miso_universal_111126_task_001__plan  candidate 757e3058af5547ff
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters vsup=0.9 vneg=-0.9
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS={{V_BIAS}} V_CTRL={{V_CTRL}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_GND (b_GND 0) vsource dc=0.0
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+VB_VCTRL (b_VCTRL 0) vsource dc=V_CTRL
+
+VIN1 (iin 0) vsource dc=0
+VIN2 (vin2 0) vsource dc=0
+VIN3 (vin3 0) vsource dc=0 mag=1
+VIOUT (iout 0) vsource dc=0
+IIN1 (0 iin1) isource dc=0
+IIN2 (0 iin2) isource dc=0
+IIN3 (0 iin3) isource dc=0
+
+XDUT (b_GND iin1 iin2 iin3 iout iin vin2 vin3 b_VBIAS b_VCTRL vdd out vss) miso_fig3 A1_IBIAS={{A1_IBIAS}} A1_L_IN={{A1_L_IN}} A1_L_NDIO={{A1_L_NDIO}} A1_L_NMIR={{A1_L_NMIR}} A1_L_PLD={{A1_L_PLD}} A1_L_PMIR={{A1_L_PMIR}} A1_M_IN={{A1_M_IN}} A1_M_NDIO={{A1_M_NDIO}} A1_M_NMIR={{A1_M_NMIR}} A1_M_PLD={{A1_M_PLD}} A1_M_PMIR={{A1_M_PMIR}} A1_W_IN={{A1_W_IN}} A1_W_NDIO={{A1_W_NDIO}} A1_W_NMIR={{A1_W_NMIR}} A1_W_PLD={{A1_W_PLD}} A1_W_PMIR={{A1_W_PMIR}} A2_IBIAS={{A2_IBIAS}} A2_L_IN={{A2_L_IN}} A2_L_NDIO={{A2_L_NDIO}} A2_L_NMIR={{A2_L_NMIR}} A2_L_PLD={{A2_L_PLD}} A2_L_PMIR={{A2_L_PMIR}} A2_M_IN={{A2_M_IN}} A2_M_NDIO={{A2_M_NDIO}} A2_M_NMIR={{A2_M_NMIR}} A2_M_PLD={{A2_M_PLD}} A2_M_PMIR={{A2_M_PMIR}} A2_W_IN={{A2_W_IN}} A2_W_NDIO={{A2_W_NDIO}} A2_W_NMIR={{A2_W_NMIR}} A2_W_PLD={{A2_W_PLD}} A2_W_PMIR={{A2_W_PMIR}} C1={{C1}} C2={{C2}} FE_L_IN={{FE_L_IN}} FE_L_NOUT={{FE_L_NOUT}} FE_L_NTAIL={{FE_L_NTAIL}} FE_L_PMIR={{FE_L_PMIR}} FE_L_POUT={{FE_L_POUT}} FE_M_IN={{FE_M_IN}} FE_M_NOUT={{FE_M_NOUT}} FE_M_NTAIL={{FE_M_NTAIL}} FE_M_PMIR={{FE_M_PMIR}} FE_M_POUT={{FE_M_POUT}} FE_W_IN={{FE_W_IN}} FE_W_NOUT={{FE_W_NOUT}} FE_W_NTAIL={{FE_W_NTAIL}} FE_W_PMIR={{FE_W_PMIR}} FE_W_POUT={{FE_W_POUT}} R1_L={{R1_L}} R1_M={{R1_M}} R1_W={{R1_W}} R2_L={{R2_L}} R2_M={{R2_M}} R2_W={{R2_W}} R3={{R3}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_GND:p VB_VBIAS:p VB_VCTRL:p VNEG:p VSUP:p XDUT.NC1A XDUT.NC2A XDUT.NC2B XDUT.NOP2A XDUT.NOP2B XDUT.NOPA XDUT.NOPB XDUT.X1 iin iin1 iin2 iin3 iout out vdd vin2 vin3 vss
+
+ac1 ac start=1.0 stop=10000000000.0 dec=600
+noise1 (out 0) noise start=10000.0 stop=100000000.0 dec=100 iprobe=VIN3

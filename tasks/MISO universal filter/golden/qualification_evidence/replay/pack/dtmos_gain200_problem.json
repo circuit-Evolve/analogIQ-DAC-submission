@@ -1,0 +1,727 @@
+{
+  "task_id": "dtmos",
+  "topology_id": "dtmos_verified_17mos_hpf",
+  "family": "dtmos_fractional_high_pass_filter",
+  "technology_id": "gpdk180_all_paper_corners",
+  "description": "Current198HzHPFcandidate; original3scalar targets at12paperoperatingpoints. No extra feedback transistors. M2off and fractional-order reproduction remain unverified. November10 gain interpretation: gain200. Both gains and 50Hz attenuation, peaking, ripple, 500Hz gain are tracked. No added devices. Fixed operating-condition details: {\"input_dc_A\": 0, \"input_frequency_Hz\": 500, \"input_peak_to_peak_uA\": 10, \"output_clamp_V\": 0, \"rail_magnitude_V\": [0.7, 0.8, 0.9, 1.0, 1.1], \"temperature_C\": [-27, 0, 27, 100], \"transient_maxstep_s\": 1e-06, \"transient_stop_s\": 0.06}",
+  "variables": [
+    {
+      "name": "M1_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 7.5e-07,
+      "upper": 1.2e-05,
+      "initial": 3e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M1"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "M1_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M1"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "M24_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.2499999999999999e-06,
+      "upper": 1.9999999999999998e-05,
+      "initial": 5e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M2",
+          "M4"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "M24_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M2",
+          "M4"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "M3_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 3.75e-05,
+      "upper": 0.00019999999999999998,
+      "initial": 0.00015,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M3"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "M3_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "M3"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mpb14_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 1e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb1",
+          "Mpb2",
+          "Mpb3",
+          "Mpb4"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb14_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb1",
+          "Mpb2",
+          "Mpb3",
+          "Mpb4"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mpb56_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 9.999999999999999e-06,
+      "upper": 9.999999999999999e-05,
+      "initial": 4e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb5",
+          "Mpb6"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb56_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb5",
+          "Mpb6"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mpb7_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2e-06,
+      "upper": 3.2e-05,
+      "initial": 8e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb7"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb8_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2e-06,
+      "upper": 3.2e-05,
+      "initial": 9.63e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb8"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mpb78_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 5e-07,
+      "upper": 8e-06,
+      "initial": 2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mpb7",
+          "Mpb8"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb12_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 1e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb1",
+          "Mnb2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb12_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb1",
+          "Mnb2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb3_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.4999999999999998e-06,
+      "upper": 3.9999999999999996e-05,
+      "initial": 1e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb3"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb3_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb3"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb4_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 7.5e-07,
+      "upper": 0.0001,
+      "initial": 4e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb4"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb4_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 8e-06,
+      "initial": 5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb4"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "Mnb5_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 3.9999999999999996e-05,
+      "initial": 4e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb5"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "total width; M3 fixed multiplier 2"
+    },
+    {
+      "name": "Mnb5_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 8e-06,
+      "initial": 8e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "Mnb5"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only.",
+      "width_convention": "channel length"
+    },
+    {
+      "name": "C1",
+      "kind": "real",
+      "unit": "F",
+      "lower": 7.000000000000001e-09,
+      "upper": 7.000000000000001e-07,
+      "initial": 1.12e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "C1"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only."
+    },
+    {
+      "name": "C2",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1.2e-08,
+      "upper": 1.2e-06,
+      "initial": 1.92e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "C2"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only."
+    },
+    {
+      "name": "I0",
+      "kind": "real",
+      "unit": "A",
+      "lower": 6e-06,
+      "upper": 0.00024,
+      "initial": 6e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "I0"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only."
+    },
+    {
+      "name": "IB1",
+      "kind": "real",
+      "unit": "A",
+      "lower": 2.5e-05,
+      "upper": 0.001,
+      "initial": 0.000325,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "IB1"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only."
+    },
+    {
+      "name": "IB2",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1.5e-06,
+      "upper": 6e-05,
+      "initial": 1.5e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "IB2"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Frozen198Hz17MOSnominalcandidate; design variables alter sizing only."
+    }
+  ],
+  "constraints": [
+    {
+      "name": "HPF_Rail_power_mW",
+      "metric": "HPF_Rail_power_mW",
+      "recipe": "1000*actual_rail_magnitude_V*(-I(VDD_SRC:p)+I(VSS_SRC:p))",
+      "lower": 0,
+      "upper": 0.5456000000000001,
+      "paper_value": 0.496,
+      "conditions": [
+        "NN_0p9V_27C",
+        "FF_0p9V_27C",
+        "FS_0p9V_27C",
+        "SF_0p9V_27C",
+        "SS_0p9V_27C",
+        "NN_0p7V_27C",
+        "NN_0p8V_27C",
+        "NN_1V_27C",
+        "NN_1p1V_27C",
+        "NN_0p9V_-27C",
+        "NN_0p9V_0C",
+        "NN_0p9V_100C"
+      ],
+      "aggregate": "worst",
+      "unit": "mW",
+      "source": "Abstract and Table II",
+      "scope": "Same17MOSphysicalHPF at everypaper operatingpoint",
+      "target_policy": "User approved: lower is better; original upper tolerance retained"
+    },
+    {
+      "name": "THD_500Hz_10uApp_percent",
+      "metric": "THD_500Hz_10uApp_percent",
+      "recipe": "100*sqrt(sum(A_h^2,h=2..20))/A_1; FFT 40-60 ms, 500 Hz, 2 us samples",
+      "lower": 0,
+      "upper": 6,
+      "upper_exclusive": true,
+      "paper_value": 6,
+      "conditions": [
+        "NN_0p9V_27C",
+        "FF_0p9V_27C",
+        "FS_0p9V_27C",
+        "SF_0p9V_27C",
+        "SS_0p9V_27C",
+        "NN_0p7V_27C",
+        "NN_0p8V_27C",
+        "NN_1V_27C",
+        "NN_1p1V_27C",
+        "NN_0p9V_-27C",
+        "NN_0p9V_0C",
+        "NN_0p9V_100C"
+      ],
+      "aggregate": "worst",
+      "unit": "%",
+      "source": "Section III.A and Conclusion: THD<6%",
+      "scope": "Same17MOSphysicalHPF at everypaper operatingpoint"
+    },
+    {
+      "name": "HPF_cutoff_Hz",
+      "metric": "HPF_cutoff_Hz",
+      "recipe": "let((g p ref threshold) g=dB20(getData(\"VOUT_SENSE:p\" ?result \"ac-ac\")) p=clip(g 2000 20000) ref=value(g sqrt(2000*20000)) threshold=ref-20*log10(sqrt(2)) if(((ymax(p)-ymin(p))<=1) && (value(g 1)<threshold) then cross(clip(g 1 2000) threshold 1 \"rising\") else nil))",
+      "lower": 180,
+      "upper": 220,
+      "paper_value": 200,
+      "conditions": [
+        "NN_0p9V_27C",
+        "FF_0p9V_27C",
+        "FS_0p9V_27C",
+        "SF_0p9V_27C",
+        "SS_0p9V_27C",
+        "NN_0p7V_27C",
+        "NN_0p8V_27C",
+        "NN_1V_27C",
+        "NN_1p1V_27C",
+        "NN_0p9V_-27C",
+        "NN_0p9V_0C",
+        "NN_0p9V_100C"
+      ],
+      "aggregate": "worst",
+      "unit": "Hz",
+      "source": "200 Hz target specified by user",
+      "note": "First rising half-power crossing relative to measured passband gain. Provisional passband qualification window: 2-20 kHz (10-100 times the 200 Hz target), at most 1 dB peak-to-peak variation; reference gain at the geometric centre, 6.3246 kHz. The low-frequency gain must be below the half-power level. Window and flatness are measurement assumptions, not paper specifications; a failed qualification produces no fc. Target band: 180-220 Hz.",
+      "scope": "Same17MOSphysicalHPF at everypaper operatingpoint"
+    },
+    {
+      "name": "HPF_gain_200Hz_dB",
+      "metric": "HPF_gain_200Hz_dB",
+      "unit": "dB",
+      "lower": -3.5,
+      "upper": -2.5,
+      "paper_value": -3.06,
+      "recipe": "DTMOS_HPF_NOMINAL",
+      "expression": "value(dB20(getData(\"VOUT_SENSE:p\" ?result \"ac-ac\")) 200)",
+      "source": "Paper Fig6a gain mean -3.06dB; user acceptance -3.5..-2.5dB; frequency is not specified by paper",
+      "interpretation": "gain200 branch; alternative gain definition tracked, not simultaneously constrained",
+      "conditions": [
+        "NN_0p9V_27C",
+        "FF_0p9V_27C",
+        "FS_0p9V_27C",
+        "SF_0p9V_27C",
+        "SS_0p9V_27C",
+        "NN_0p7V_27C",
+        "NN_0p8V_27C",
+        "NN_1V_27C",
+        "NN_1p1V_27C",
+        "NN_0p9V_-27C",
+        "NN_0p9V_0C",
+        "NN_0p9V_100C"
+      ],
+      "aggregate": "worst"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "NN_0p9V_27C",
+      "group": "nominal",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27,
+      "nominal": true
+    },
+    {
+      "id": "FF_0p9V_27C",
+      "group": "process",
+      "process": "FF",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "FS_0p9V_27C",
+      "group": "process",
+      "process": "FS",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SF_0p9V_27C",
+      "group": "process",
+      "process": "SF",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "SS_0p9V_27C",
+      "group": "process",
+      "process": "SS",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "NN_0p7V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 0.7,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "NN_0p8V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 0.8,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "NN_1V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 1.0,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "NN_1p1V_27C",
+      "group": "voltage",
+      "process": "NN",
+      "rail_magnitude_V": 1.1,
+      "temperature_C": 27,
+      "nominal": false
+    },
+    {
+      "id": "NN_0p9V_-27C",
+      "group": "temperature",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": -27,
+      "nominal": false
+    },
+    {
+      "id": "NN_0p9V_0C",
+      "group": "temperature",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 0,
+      "nominal": false
+    },
+    {
+      "id": "NN_0p9V_100C",
+      "group": "temperature",
+      "process": "NN",
+      "rail_magnitude_V": 0.9,
+      "temperature_C": 100,
+      "nominal": false
+    }
+  ],
+  "objective": null,
+  "provenance": "<WORK>/three-circuit-robust-sizing-20261110/pack/dtmos_corner_setup.json",
+  "assumptions": "templates/dtmos/assumptions.json",
+  "bounds_policy": "Prior bounds expanded only to include newseed and retainphysical sizing freedom; Mpb7/Mpb8 widths independent to preserve currentseed. All M3widths totalwithm2.",
+  "operating_conditions": {
+    "input_frequency_Hz": 500,
+    "input_peak_to_peak_uA": 10,
+    "input_dc_A": 0,
+    "output_clamp_V": 0,
+    "transient_stop_s": 0.06,
+    "transient_maxstep_s": 1e-06
+  },
+  "tracked_metrics": {
+    "HPF_attenuation_50Hz_dB": {
+      "approximate_graph_reference_dB": 16,
+      "reference_lower_dB": 14.4,
+      "source": "Fig5 low-frequency response near50Hz; approximate graph reading, diagnostic only"
+    },
+    "HPF_passband_ripple_dB": {
+      "engineering_upper_dB": 1,
+      "source": "Existing2-20kHz cutoff qualification, not a paper target"
+    },
+    "HPF_gain_200Hz_dB": {
+      "lower": -3.5,
+      "upper": -2.5,
+      "source": "User range; fixed-frequency interpretation"
+    },
+    "HPF_passband_gain_dB": {
+      "lower": -3.5,
+      "upper": -2.5,
+      "source": "User range; passband interpretation"
+    },
+    "HPF_gain_500Hz_dB": {
+      "source": "Fig4b transient comparison frequency; no unambiguous scalar target"
+    },
+    "HPF_peaking_dB": {
+      "source": "Fig4a response shape; diagnostic only"
+    }
+  },
+  "operating_conditions_detail": {
+    "temperature_C": [
+      -27,
+      0,
+      27,
+      100
+    ],
+    "input_frequency_Hz": 500,
+    "input_peak_to_peak_uA": 10,
+    "input_dc_A": 0,
+    "output_clamp_V": 0,
+    "transient_stop_s": 0.06,
+    "transient_maxstep_s": 1e-06,
+    "rail_magnitude_V": [
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1
+    ]
+  }
+}

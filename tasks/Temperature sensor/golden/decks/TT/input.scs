@@ -1,0 +1,88 @@
+// Generated for: spectre
+// Generated on: Nov 10 05:56:13 2026
+// Design library name: DAC_20261110_TEMP_GOLDEN
+// Design cell name: temperature_sensor_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice" section=tt
+
+// Library name: DAC_20261110_TEMP_GOLDEN
+// Cell name: sensor_bias
+// View name: schematic
+subckt sensor_bias NBIAS VDD VSS
+    M4 (NDIO NBIAS PCAS VDD) sky130_fd_pr__pfet_01v8 w=0.545 l=2 nf=1          mult=1 ad=0.15805 as=0.15805 pd=1.67 ps=1.67 sa=0 sb=0 sd=0
+    M3 (NBIAS NBIAS PBIAS VDD) sky130_fd_pr__pfet_01v8 w=0.545 l=2 nf=1          mult=1 ad=0.15805 as=0.15805 pd=1.67 ps=1.67 sa=0 sb=0 sd=0
+    M2 (PCAS PBIAS VDD VDD) sky130_fd_pr__pfet_01v8 w=0.545 l=2 nf=1          mult=1 ad=0.15805 as=0.15805 pd=1.67 ps=1.67 sa=0 sb=0 sd=0
+    M1 (PBIAS PBIAS VDD VDD) sky130_fd_pr__pfet_01v8 w=0.545 l=2 nf=1          mult=1 ad=0.15805 as=0.15805 pd=1.67 ps=1.67 sa=0 sb=0 sd=0
+    M6 (NDIO NDIO VSS VSS) sky130_fd_pr__nfet_01v8 w=0.42 l=2 nf=1 mult=1          ad=0.12179999999999999 as=0.12179999999999999 pd=1.42 ps=1.42 sa=0          sb=0 sd=0
+    M5 (NBIAS NBIAS VSS VSS) sky130_fd_pr__nfet_01v8 w=0.42 l=2 nf=1          mult=1 ad=0.12179999999999999 as=0.12179999999999999 pd=1.42          ps=1.42 sa=0 sb=0 sd=0
+ends sensor_bias
+// End of subcircuit definition.
+
+// Library name: DAC_20261110_TEMP_GOLDEN
+// Cell name: sensor_ptat
+// View name: schematic
+subckt sensor_ptat NBIAS VDD VN VP VSS
+    M7 (NMIR NBIAS VDD VDD) sky130_fd_pr__pfet_01v8 w=0.571 l=2 nf=1          mult=1 ad=0.16559 as=0.16559 pd=1.722 ps=1.722 sa=0 sb=0 sd=0
+    M9_10 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1          mult=1 ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_9 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_8 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_7 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_6 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_5 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_4 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_3 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_2 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M9_1 (VDD NMIR VP VSS) sky130_fd_pr__nfet_01v8 w=1.892 l=2 nf=1 mult=1          ad=0.54868 as=0.54868 pd=4.364 ps=4.364 sa=0 sb=0 sd=0
+    M8 (NMIR NMIR VN VSS) sky130_fd_pr__nfet_01v8 w=3.374 l=2 nf=1 mult=1          ad=0.97846 as=0.97846 pd=7.328 ps=7.328 sa=0 sb=0 sd=0
+    Q2 (VSS VSS VP) sky130_fd_pr__pnp_05v5_W3p40L3p40 mult=1
+    Q1 (VSS VSS VN) sky130_fd_pr__pnp_05v5_W3p40L3p40 mult=1
+ends sensor_ptat
+// End of subcircuit definition.
+
+// Library name: DAC_20261110_TEMP_GOLDEN
+// Cell name: sensor_amplifier
+// View name: schematic
+subckt sensor_amplifier NBIAS VDD VN VP VSS V_TEMP
+    M11_4 (V_TEMP NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M11_3 (V_TEMP NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M11_2 (V_TEMP NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M11_1 (V_TEMP NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M10_4 (NLOAD NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M10_3 (NLOAD NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M10_2 (NLOAD NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M10_1 (NLOAD NLOAD VDD VDD) sky130_fd_pr__pfet_01v8 w=2.453 l=2 nf=1          mult=1 ad=0.71137 as=0.71137 pd=5.486 ps=5.486 sa=0 sb=0 sd=0
+    M14_4 (TAIL NBIAS VSS VSS) sky130_fd_pr__nfet_01v8          w=24.308999999999997 l=1.145 nf=1 mult=1 ad=7.049609999999999          as=7.049609999999999 pd=49.19799999999999 ps=49.19799999999999          sa=0 sb=0 sd=0
+    M14_3 (TAIL NBIAS VSS VSS) sky130_fd_pr__nfet_01v8          w=24.308999999999997 l=1.145 nf=1 mult=1 ad=7.049609999999999          as=7.049609999999999 pd=49.19799999999999 ps=49.19799999999999          sa=0 sb=0 sd=0
+    M14_2 (TAIL NBIAS VSS VSS) sky130_fd_pr__nfet_01v8          w=24.308999999999997 l=1.145 nf=1 mult=1 ad=7.049609999999999          as=7.049609999999999 pd=49.19799999999999 ps=49.19799999999999          sa=0 sb=0 sd=0
+    M14_1 (TAIL NBIAS VSS VSS) sky130_fd_pr__nfet_01v8          w=24.308999999999997 l=1.145 nf=1 mult=1 ad=7.049609999999999          as=7.049609999999999 pd=49.19799999999999 ps=49.19799999999999          sa=0 sb=0 sd=0
+    M13_4 (V_TEMP VP TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.421 l=1.326          nf=1 mult=1 ad=0.12208999999999999 as=0.12208999999999999 pd=1.422          ps=1.422 sa=0 sb=0 sd=0
+    M13_3 (V_TEMP VP TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.421 l=1.326          nf=1 mult=1 ad=0.12208999999999999 as=0.12208999999999999 pd=1.422          ps=1.422 sa=0 sb=0 sd=0
+    M13_2 (V_TEMP VP TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.421 l=1.326          nf=1 mult=1 ad=0.12208999999999999 as=0.12208999999999999 pd=1.422          ps=1.422 sa=0 sb=0 sd=0
+    M13_1 (V_TEMP VP TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.421 l=1.326          nf=1 mult=1 ad=0.12208999999999999 as=0.12208999999999999 pd=1.422          ps=1.422 sa=0 sb=0 sd=0
+    M12_4 (NLOAD VN TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.433 l=0.944 nf=1          mult=1 ad=0.12557 as=0.12557 pd=1.446 ps=1.446 sa=0 sb=0 sd=0
+    M12_3 (NLOAD VN TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.433 l=0.944 nf=1          mult=1 ad=0.12557 as=0.12557 pd=1.446 ps=1.446 sa=0 sb=0 sd=0
+    M12_2 (NLOAD VN TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.433 l=0.944 nf=1          mult=1 ad=0.12557 as=0.12557 pd=1.446 ps=1.446 sa=0 sb=0 sd=0
+    M12_1 (NLOAD VN TAIL VSS) sky130_fd_pr__nfet_01v8 w=0.433 l=0.944 nf=1          mult=1 ad=0.12557 as=0.12557 pd=1.446 ps=1.446 sa=0 sb=0 sd=0
+ends sensor_amplifier
+// End of subcircuit definition.
+
+// Library name: DAC_20261110_TEMP_GOLDEN
+// Cell name: temperature_sensor_paper
+// View name: schematic
+subckt temperature_sensor_paper VDD VSS V_TEMP
+    BIAS (NBIAS VDD VSS) sensor_bias
+    PTAT (NBIAS VDD VN VP VSS) sensor_ptat
+    AMP (NBIAS VDD VN VP VSS V_TEMP) sensor_amplifier
+ends temperature_sensor_paper
+// End of subcircuit definition.
+
+// Library name: DAC_20261110_TEMP_GOLDEN
+// Cell name: temperature_sensor_tb
+// View name: schematic
+DUT (VDD 0 V_TEMP) temperature_sensor_paper
+VDD_SRC (VDD 0) vsource dc=1.8 type=dc
+simulatorOptions options reltol=1e-06 vabstol=1e-09 iabstol=1e-14 temp=27      tnom=27 scalem=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 digits=5      cols=80 pivrel=1e-3 sensfile="sens.output"      checklimitdest=psf 
+dc dc param=temp start=0 stop=100 step=1 write="spectre.dc"      oppoint=rawfile maxiters=150 maxsteps=10000 annotate=status 
+saveOptions options save=allpub currents=all subcktprobelvl=5

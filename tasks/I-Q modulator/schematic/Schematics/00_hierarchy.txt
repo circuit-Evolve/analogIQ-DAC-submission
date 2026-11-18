@@ -1,0 +1,50 @@
+TinyWhisper IQ modulator (IHP SG13G2) - schematic hierarchy
+Rendered from ihp130/macros/iqmod/schematic/xschem/*.sch (commit ad6cbaf) with Xschem; one image per unique cell.
+Lx in the file name = hierarchy level (L0 = top). Rebuild the circuit top-down: each symbol in an image is the cell of the same name below it.
+Three cells are exact copies of another cell and therefore share its image (noted below).
+
+iqmod_top  ->  01_L0_iqmod_top.png
+    2 x iqmod_top_half  ->  02_L1_iqmod_top_half.png
+        1 x iqmod_mixer  ->  16_L2_iqmod_mixer.png
+            2 x iqmod_mixer_tg  ->  17_L3_iqmod_mixer_tg.png
+                devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+            2 x iqmod_mixer_se2diff  ->  18_L3_iqmod_mixer_se2diff.png
+                1 x iqmod_mixer_se2diff_tg_NF6  ->  19_L4_iqmod_mixer_se2diff_tg_NF6.png
+                    devices: 1 x sg13_lv_pmos, 1 x sg13_lv_nmos
+                2 x iqmod_mixer_se2diff_inv_NF18  ->  22_L4_iqmod_mixer_se2diff_inv_NF18.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                4 x iqmod_mixer_se2diff_inv_NF2  ->  20_L4_iqmod_mixer_se2diff_inv_NF2.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                5 x iqmod_mixer_se2diff_inv_NF6  ->  21_L4_iqmod_mixer_se2diff_inv_NF6.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                2 x iqmod_mixer_se2diff_inv_NF54  ->  23_L4_iqmod_mixer_se2diff_inv_NF54.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+        1 x iqmod_mfb_lpf  ->  06_L2_iqmod_mfb_lpf.png
+            1 x iqmod_mfb_lpf_ota_core_hybrid_bm  ->  11_L3_iqmod_mfb_lpf_ota_core_hybrid_bm.png
+                6 x iqmod_mfb_lpf_ota_core_inv_NF20  ->  12_L4_iqmod_mfb_lpf_ota_core_inv_NF20.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                2 x iqmod_mfb_lpf_ota_core_inv_NF10  ->  13_L4_iqmod_mfb_lpf_ota_core_inv_NF10.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                6 x iqmod_mfb_lpf_ota_core_inv_NF6  ->  14_L4_iqmod_mfb_lpf_ota_core_inv_NF6.png
+                    devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                2 x iqmod_mfb_lpf_ota_core_spdt_switch  ->  15_L4_iqmod_mfb_lpf_ota_core_spdt_switch.png
+                    2 x iqmod_mfb_lpf_ota_core_spdt_switch_inv  ->  04_L3_iqmod_spdt_switch_inv.png  (identical copy of iqmod_spdt_switch_inv, shares its image)
+                        devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+                    2 x iqmod_mfb_lpf_ota_core_spdt_switch_tg  ->  05_L3_iqmod_spdt_switch_tg.png  (identical copy of iqmod_spdt_switch_tg, shares its image)
+                        devices: 1 x sg13_lv_pmos, 1 x sg13_lv_nmos
+                4 x iqmod_mfb_lpf_ota_core_tg  ->  05_L3_iqmod_spdt_switch_tg.png  (identical copy of iqmod_spdt_switch_tg, shares its image)
+                    devices: 1 x sg13_lv_pmos, 1 x sg13_lv_nmos
+            2 x iqmod_mfb_lpf_R1  ->  07_L3_iqmod_mfb_lpf_R1.png
+                devices: 5 x rhigh
+            2 x iqmod_mfb_lpf_R2  ->  08_L3_iqmod_mfb_lpf_R2.png
+                devices: 5 x rhigh
+            2 x iqmod_mfb_lpf_R3  ->  09_L3_iqmod_mfb_lpf_R3.png
+                devices: 5 x rhigh
+            2 x iqmod_mfb_lpf_R4  ->  10_L3_iqmod_mfb_lpf_R4.png
+                devices: 5 x rhigh
+            devices: 6 x cap_cmim
+        2 x iqmod_spdt_switch  ->  03_L2_iqmod_spdt_switch.png
+            2 x iqmod_spdt_switch_inv  ->  04_L3_iqmod_spdt_switch_inv.png
+                devices: 2 x sg13_lv_nmos, 2 x sg13_lv_pmos
+            2 x iqmod_spdt_switch_tg  ->  05_L3_iqmod_spdt_switch_tg.png
+                devices: 1 x sg13_lv_pmos, 1 x sg13_lv_nmos

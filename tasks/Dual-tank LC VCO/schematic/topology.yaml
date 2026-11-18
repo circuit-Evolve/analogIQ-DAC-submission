@@ -1,0 +1,46 @@
+schema_version: 1
+topology_id: lcvco24_lohrabipour
+family: oscillator
+interface_type: differential_lc_vco
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: 10.1109/TCSI.2024.3443752
+  title: "Lohrabi Pour, Ha, Nikpaik, 'An Ultra-Low Phase Noise Dual-Tank Oscillator Featuring Tank Impedance Scaling', IEEE TCAS-I 71(12):5657-5668, Dec 2024"
+  figure: "Fig. 10 (cross-coupled NMOS M1/M2, transformer Lp/Ls dual tank with Cs, Cp,f, Cp,s, varactor network, 4-bit capacitor bank, output + dummy buffers); element values Table III and Sec. IV"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, FINAL_MAIN_SCHEMATIC.png = Fig. 10, main_schematic_2.png = Fig. 2; see source/ORIGIN.txt)"
+  modifications:
+    - "dut_benchmark.scs = final.scs plus documented changes (owner decision 2026-10-25, R06-Q1 option C; the export problems are reported to the dataset team): (1) capacitors from the Fig. 10 drawn values instead of the exporter's Table III totals: Cs 4.8 -> 3.8 pF, Cp,f 6.7 -> 2.25 pF per half, Cp,s 3.3 -> 1.1 pF; (2) series loss in every half-inductor branch, R = 2 pi f0 L / Q with f0 = 5.08 GHz (Sec. IV centre frequency) and Q = 17.4 (primary, DM Q) / 16.7 (secondary, CM Q), dependent on the inductance variables (the paper gives no other loss model); (3) varactors MVARL / MVARR nmos1 -> pmos1, gate on VARL/VARR and S = D = B on VC as drawn in Fig. 10: the drawing does not state the device type, the exported nmos1 does not tune below Vc = 1.2 V (92 fF flat, 30 fF at 1.5 V per 10u/1u) while pmos1 gives a monotonic 91 -> 46 fF over Vc 0.6-1.2 V (paper: the major Cmax/Cmin change lies in 0-1.2 V); (4) reference sizes for the elements the paper does not size (bank switches, buffers, control inverters) are curator values making them functional; (5) paper-fidelity fix 2026-10-27: inductor values LPL = LPR 145 pH -> 290 pH and LSL = LSR 129.5 pH -> 259 pH (the exporter halved the EM values of Fig. 10 / Sec. IV; the paper's tank model, Fig. 2(b) / Appendix A / Table III / Rp1 = 15.5 ohm, uses 290 / 259 pH as the drain-to-tap / gate-to-tap branch inductance; with the halved values the oscillating tank mode, the upper root of the paper's two differential roots with passive drain-to-gate gain Av ~ 2-3, lies at 8.5 GHz; with 290 / 259 pH it oscillates at 6.0 GHz and reproduces the paper's phase noise / FoM level). No other change; the bias-T / 50 ohm load and the start-up kick are testbench elements of recipe osc_pss_tune_bt_v1."
+dut:
+  netlist: dut_benchmark.scs
+  subckt_name: repaired_core
+  port_order: [VDD_CORE, VSS, VB_TANK, VDD_AUX, VC, VBUF, VDD_DIG, S0, S1, S2, S3, RFL, RFR]
+  net_map: {}
+ports:
+  output_positive: RFL
+  output_negative: RFR
+  supply_positive: VDD_CORE
+  tuning: VC
+external_bias:
+  VSS:     {kind: voltage, value: 0.0, provenance: "benchmark rule G3: ground pin without a family role driven by a 0 V source"}
+  VB_TANK: {kind: voltage, value: 0.6, provenance: "paper: Fig. 10 (Ls centre tap 0.6 V); sizing variable V_TANK"}
+  VDD_AUX: {kind: voltage, value: 1.8, provenance: "paper: Fig. 10 / Sec. IV (1.8 V varactor bias and buffer drain, via bias-T); a supply rail, fixed"}
+  VBUF:    {kind: voltage, value: 0.8, provenance: "paper: Sec. IV (buffer gate bias 0.8 V); sizing variable V_BUF"}
+  VDD_DIG: {kind: voltage, value: 1.8, provenance: "curator_choice: digital supply of the cap-bank switch-control inverters; not stated in the paper, the paper's other rail (1.8 V)"}
+  S0: {kind: voltage, value: 0.0, provenance: "curator_choice: cap-bank code bit 0 (LSB); nominal code 8 = mid-range of the 16 states, S3 high; the extreme codes are the labelled conditions"}
+  S1: {kind: voltage, value: 0.0, provenance: "curator_choice: cap-bank code bit 1 (nominal code 8)"}
+  S2: {kind: voltage, value: 0.0, provenance: "curator_choice: cap-bank code bit 2 (nominal code 8)"}
+  S3: {kind: voltage, value: 1.8, provenance: "curator_choice: cap-bank code bit 3 (MSB, high in the nominal code 8)"}
+probes: []
+op_check:
+  exclude: [MVARL, MVARR, MS0L, MS0R, MS1L, MS1R, MS2L, MS2R, MS3L, MS3R, MIN0, MIN1, MIN2, MIN3, MIP0, MIP1, MIP2, MIP3]
+  note: >-
+    G8 is checked at the DC equilibrium (osc_dc_v1 at VC = 0.6 V, kept for LC oscillators by the owner 2026-10-23).
+    Excluded: the varactor devices MVARL/MVARR (gate at VDD_AUX through RBVAR, S = D = B on VC: accumulation/depletion
+    varactors, Vds = 0 by construction), the cap-bank switches MS* (on/off by the code, Vds ~ 0 or off) and their
+    control inverters MIN*/MIP* (digital: one device of each pair on, one off).
+known_issues:
+  - "Superseded finding (before the 2026-10-27 inductor fix): the circuit locked to the transformer's upper differential mode at 8.5 GHz. With LPL/LPR = 290 pH and LSL/LSR = 259 pH (paper-fidelity fix) it oscillates at 6.0 GHz at the Fig. 10 capacitors (the paper's analysed mode); a design with C_S about 7.3 pF reaches 4.9-5.45 GHz over the bank codes (paper 4.8-5.34 GHz). See onboarding_status.yaml paper_fidelity_2026_10_27."
+  - "The paper's results are measurements (power / PN / FoM) of the fabricated chip through the buffer into 50 ohm; the testbench measures the buffer outputs RFL / RFR (differential) with a 50 ohm bias-T load to VDD_AUX per output."
+  - "Metrics.xlsx lists FoM as a positive number (Eq. 25 sign convention); the flow's FoM is negative-better, so the targets are -193.2 etc."

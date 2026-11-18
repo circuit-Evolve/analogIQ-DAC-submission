@@ -1,0 +1,27 @@
+{
+  "source_audit": {
+    "simulation_jobs": 30,
+    "all_simulator_and_extractor_returncodes_zero": true,
+    "identical_dut_sha256": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06",
+    "only_input_deck_changes": "reltol1e-3\u21921e-6;vabstol1e-6\u21921e-9;STBdec=100",
+    "only_connectivity_change": {
+      "M9": [
+        [
+          "net12 net11 net10 net10",
+          "g45p2svt"
+        ],
+        [
+          "net12 net11 net10 VIN",
+          "g45p2svt"
+        ]
+      ]
+    },
+    "raw_evidence": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15",
+    "contract_pass": 105,
+    "contract_required": 105,
+    "tradeoff": "~11.964mA internaldividerload;~22.508mW nominalno-load input; no current/power limit invented"
+  },
+  "report_time_fixed_dut_check": true,
+  "dut_files": 30,
+  "dut_sha256": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06"
+}

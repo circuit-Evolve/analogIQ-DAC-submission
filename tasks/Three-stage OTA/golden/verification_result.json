@@ -1,0 +1,2634 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_ota3s24_task_001",
+  "task_id": "ota3s24_task_001",
+  "topology_id": "ota3s24",
+  "candidate_hash": "4831fd3120c8d2557f397e0f486461194797b7e19a4fb116453c04c760694a86",
+  "evaluator_hash": "979e4619c8981889ec028dbd939000d9b44fa1862fcb553b3f0d55b426cb06a5",
+  "digests": {
+    "task": "e811d0fbd2ac603fda7c9491cc89d539a98c3be5ed138dc779d1e0aa6b1f3ad5",
+    "candidate": "4831fd3120c8d2557f397e0f486461194797b7e19a4fb116453c04c760694a86",
+    "parameterization": "0b761652050d162ae4d9a135e7642f5f1edf3bb2d38da74331fd9d0b40fed2e8",
+    "dut_source_netlist": "f8bd19a9e55b4a64f831b79de632f660cc9310efa2aecff9b4f593d04de1a369",
+    "dut_subckt": "0d94300827152ac47f6a0ab94bd94a70da36f421b35c47115f515a5dbca5e471",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "72d431db0cd4c7387896b8294c9b07ee6fa0f75f29aa5cc7d50360ce2b46f5bc",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "979e4619c8981889ec028dbd939000d9b44fa1862fcb553b3f0d55b426cb06a5"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 18,
+    "completed_measurement_checks": 18,
+    "valid_measurement_checks": 18
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "quiescent_power_W",
+      "value": 4.3655870634e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.4253261464e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "buffer_offset_V",
+      "value": -0.0007836196643,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_start_V",
+      "value": 9.3399585359e-05,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_stop_V",
+      "value": 1.1990759261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_swing_V",
+      "value": 1.198982526514641,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_low_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks down to the sweep start (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_high_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks up to the sweep stop (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "a tracking limit lies outside the sweep",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.09649540180219171,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.82338985,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 4.8294971253,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 4217658.422307398,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 4197199.2586,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_CL0"
+      ],
+      "constraint": {
+        "lower": 2583000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 88.331230247,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 10.843870039,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "slew_rate_rise_V_per_s",
+      "value": 2304412.71015916,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_fall_V_per_s",
+      "value": 3006336.3717799173,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_avg_V_per_s",
+      "value": 2655374.5409695385,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "slew_rate_V_per_s_CL0"
+      ],
+      "constraint": {
+        "lower": 1827000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_to_final_rise_s",
+      "value": 2.359875799999985e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_fall_s",
+      "value": 2.2442704999999703e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_avg_s",
+      "value": 2.3020731499999777e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "settling_time_1pct_s_CL0"
+      ],
+      "constraint": {
+        "upper": 3.19e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_rise_s",
+      "value": 2.3988521899999903e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_fall_s",
+      "value": 2.0846401700000002e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_rise_V",
+      "value": -0.0007856279000000299,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_fall_V",
+      "value": -0.0007834004899999747,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_rise_V",
+      "value": 0.00038644964000000837,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_fall_V",
+      "value": 0.0006718044499999798,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_max_V",
+      "value": 0.0006718044499999798,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 4.3655870634e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.4253261464e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "buffer_offset_V",
+      "value": -0.0007836196643,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_start_V",
+      "value": 9.3399585359e-05,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_stop_V",
+      "value": 1.1990759261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_swing_V",
+      "value": 1.198982526514641,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_low_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks down to the sweep start (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_high_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks up to the sweep stop (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "a tracking limit lies outside the sweep",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.09649540180219171,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.82325194,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 4.8279279354,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 4216221.086254651,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 2751015.7457,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_CL100p"
+      ],
+      "constraint": {
+        "lower": 2160000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 33.31120853,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 13.607009936,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "slew_rate_rise_V_per_s",
+      "value": 2403068.0119730895,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_fall_V_per_s",
+      "value": 3752550.7268805997,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_avg_V_per_s",
+      "value": 3077809.3694268446,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_rise_s",
+      "value": 4.1442994599999894e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_fall_s",
+      "value": 1.8582586399999894e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_avg_s",
+      "value": 3.0012790499999894e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "settling_time_1pct_s_CL100p"
+      ],
+      "constraint": {
+        "upper": 5.28e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_rise_s",
+      "value": 4.1005952499999844e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_fall_s",
+      "value": 1.8346771099999693e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_rise_V",
+      "value": -0.0007856242300000593,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_fall_V",
+      "value": -0.0007833983299999625,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_rise_V",
+      "value": 0.04947853972000005,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_fall_V",
+      "value": 0.003175377859999995,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_max_V",
+      "value": 0.04947853972000005,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 4.3655870634e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.4253261464e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1",
+      "constraints": [
+        "supply_current_A"
+      ],
+      "constraint": {
+        "upper": 2.5718e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "buffer_offset_V",
+      "value": -0.0007836196643,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_start_V",
+      "value": 9.3399585359e-05,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_stop_V",
+      "value": 1.1990759261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_swing_V",
+      "value": 1.198982526514641,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_low_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks down to the sweep start (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_high_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks up to the sweep stop (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "a tracking limit lies outside the sweep",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.09649540180219171,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.82269984,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 118.3848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 4.8216627426,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 4210482.065462578,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 1327336.0351,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_CL500p"
+      ],
+      "constraint": {
+        "lower": 1116000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 14.939608253,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 13.771934714,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "slew_rate_rise_V_per_s",
+      "value": 1646664.3491914244,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_fall_V_per_s",
+      "value": 4756846.484192103,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_avg_V_per_s",
+      "value": 3201755.416691764,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "slew_rate_V_per_s_CL500p"
+      ],
+      "constraint": {
+        "lower": 1512000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_to_final_rise_s",
+      "value": 1.664535840999999e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_fall_s",
+      "value": 1.1283018429999965e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_avg_s",
+      "value": 1.3964188419999977e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "settling_time_1pct_s_CL500p"
+      ],
+      "constraint": {
+        "upper": 1.507e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_rise_s",
+      "value": 1.9125339989999984e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_fall_s",
+      "value": 1.3408225729999936e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_rise_V",
+      "value": -0.0007856242200000585,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_fall_V",
+      "value": -0.0007833983199999617,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_rise_V",
+      "value": 0.10196119945000004,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_fall_V",
+      "value": 0.007597892100000003,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_max_V",
+      "value": 0.10196119945000004,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 4.3655870634e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.4253261464e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "buffer_offset_V",
+      "value": -0.0007836196643,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_start_V",
+      "value": 9.3399585359e-05,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_stop_V",
+      "value": 1.1990759261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_swing_V",
+      "value": 1.198982526514641,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_low_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks down to the sweep start (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_high_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks up to the sweep stop (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "a tracking limit lies outside the sweep",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.09649540180219171,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.74887897,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 4.1668685888,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 3607893.86111807,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 135069.36124,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 1.8242945496,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 15.220079676,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "slew_rate_rise_V_per_s",
+      "value": 23604.844718482498,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_fall_V_per_s",
+      "value": 185534.59496559863,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_avg_V_per_s",
+      "value": 104569.71984204056,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_rise_s",
+      "value": 2.177201891000001e-05,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_fall_s",
+      "value": 9.689867090000015e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_avg_s",
+      "value": 1.5730943000000013e-05,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "settling_time_1pct_s_CL50n"
+      ],
+      "constraint": {
+        "upper": 1.9282999999999998e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_rise_s",
+      "value": 2.207474788e-05,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_fall_s",
+      "value": 9.935742940000026e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_rise_V",
+      "value": -0.0009741662300000176,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_fall_V",
+      "value": -0.0009041012099999524,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_rise_V",
+      "value": 0.008834046339999957,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_fall_V",
+      "value": 0.05045318924000003,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_max_V",
+      "value": 0.05045318924000003,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 4.3655870634e-05,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.4253261464e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "buffer_offset_V",
+      "value": -0.0007836196643,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_start_V",
+      "value": 9.3399585359e-05,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_at_sweep_stop_V",
+      "value": 1.1990759261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "output_swing_V",
+      "value": 1.198982526514641,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_low_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks down to the sweep start (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_high_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "tracks up to the sweep stop (range limit not reached)",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "tracking_range_V",
+      "value": null,
+      "unit": "V",
+      "status": "undefined",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": "a tracking limit lies outside the sweep",
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.09649540180219171,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.66363763,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 3.6860787363,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 3160432.281941632,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 95517.1926,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_CL100n"
+      ],
+      "constraint": {
+        "lower": 81099.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 1.5269793183,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 16.44924069,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp_ol_v1"
+    },
+    {
+      "metric": "slew_rate_rise_V_per_s",
+      "value": 11804.238263805752,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_fall_V_per_s",
+      "value": 92806.4841083117,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "slew_rate_avg_V_per_s",
+      "value": 52305.361186058726,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "slew_rate_V_per_s_CL100n"
+      ],
+      "constraint": {
+        "lower": 40500.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_to_final_rise_s",
+      "value": 3.4234431140000015e-05,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_fall_s",
+      "value": 8.439365620000047e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_to_final_avg_s",
+      "value": 2.133689838000003e-05,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1",
+      "constraints": [
+        "settling_time_1pct_s_CL100n"
+      ],
+      "constraint": {
+        "upper": 2.1912e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_rise_s",
+      "value": 3.4300873e-05,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "settling_time_fall_s",
+      "value": 8.545880040000014e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_rise_V",
+      "value": -0.0005226593900000687,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "final_error_fall_V",
+      "value": -0.0009221266799999683,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_rise_V",
+      "value": 0.0029513324900000137,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_fall_V",
+      "value": 0.035409408659999975,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "overshoot_max_V",
+      "value": 0.035409408659999975,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.4
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "amp30_step_v1"
+    },
+    {
+      "metric": "total_compensation_C_F",
+      "value": 7.61029927060779e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "derived",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "recipe_id": "derived",
+      "inputs": {
+        "a": 8.174308274866054e-14,
+        "b": 5.143722960283856e-13,
+        "c": 1.6491454828373294e-13
+      }
+    },
+    {
+      "metric": "total_compensation_C_F",
+      "value": 7.61029927060779e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "derived",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "recipe_id": "derived",
+      "inputs": {
+        "a": 8.174308274866054e-14,
+        "b": 5.143722960283856e-13,
+        "c": 1.6491454828373294e-13
+      }
+    },
+    {
+      "metric": "total_compensation_C_F",
+      "value": 7.61029927060779e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "derived",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "recipe_id": "derived",
+      "inputs": {
+        "a": 8.174308274866054e-14,
+        "b": 5.143722960283856e-13,
+        "c": 1.6491454828373294e-13
+      },
+      "constraints": [
+        "total_compensation_C_F"
+      ],
+      "constraint": {
+        "upper": 9.57e-13
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "total_compensation_C_F",
+      "value": 7.61029927060779e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "derived",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "recipe_id": "derived",
+      "inputs": {
+        "a": 8.174308274866054e-14,
+        "b": 5.143722960283856e-13,
+        "c": 1.6491454828373294e-13
+      }
+    },
+    {
+      "metric": "total_compensation_C_F",
+      "value": 7.61029927060779e-13,
+      "unit": "F",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "derived",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "recipe_id": "derived",
+      "inputs": {
+        "a": 8.174308274866054e-14,
+        "b": 5.143722960283856e-13,
+        "c": 1.6491454828373294e-13
+      }
+    }
+  ],
+  "worst_case_metrics": {
+    "open_loop_gain_dB": {
+      "value": 118.82269984,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {},
+      "complete": true
+    },
+    "supply_current_A": {
+      "value": 2.4253261464e-05,
+      "unit": "A",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_CL0": {
+      "value": 4197199.2586,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_CL100p": {
+      "value": 2751015.7457,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_CL500p": {
+      "value": 1327336.0351,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_CL100n": {
+      "value": 95517.1926,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "point": {},
+      "complete": true
+    },
+    "settling_time_1pct_s_CL0": {
+      "value": 2.3020731499999777e-07,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "settling_time_1pct_s_CL100p": {
+      "value": 3.0012790499999894e-07,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00_CL100p",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "settling_time_1pct_s_CL500p": {
+      "value": 1.3964188419999977e-06,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "settling_time_1pct_s_CL50n": {
+      "value": 1.5730943000000013e-05,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00_CL50n",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "settling_time_1pct_s_CL100n": {
+      "value": 2.133689838000003e-05,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "slew_rate_V_per_s_CL0": {
+      "value": 2655374.5409695385,
+      "unit": "V/s",
+      "condition_id": "NN_T27_S1p00_CL0",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "slew_rate_V_per_s_CL500p": {
+      "value": 3201755.416691764,
+      "unit": "V/s",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "slew_rate_V_per_s_CL100n": {
+      "value": 52305.361186058726,
+      "unit": "V/s",
+      "condition_id": "NN_T27_S1p00_CL100n",
+      "point": {
+        "step_V": 0.4
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "complete": true
+    },
+    "total_compensation_C_F": {
+      "value": 7.61029927060779e-13,
+      "unit": "F",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00_CL500p",
+      "point": {
+        "vcm_V": 0.45
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00_CL0/amp_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.63,
+      "cpu_s": 0.233
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL0/amp_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.802,
+      "cpu_s": 0.212
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL0/amp30_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.342,
+      "cpu_s": 0.811
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL100p/amp_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.789,
+      "cpu_s": 0.308
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL100p/amp_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.899,
+      "cpu_s": 0.196
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL100p/amp30_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.122,
+      "cpu_s": 0.6930000000000001
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL500p/amp_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.614,
+      "cpu_s": 0.272
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL500p/amp_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.993,
+      "cpu_s": 0.20600000000000002
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL500p/amp30_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.171,
+      "cpu_s": 0.6990000000000001
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL50n/amp_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 1.164,
+      "cpu_s": 0.291
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL50n/amp_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 1.189,
+      "cpu_s": 0.20500000000000002
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL50n/amp30_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.371,
+      "cpu_s": 0.721
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL100n/amp_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 1.215,
+      "cpu_s": 0.304
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL100n/amp_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.655,
+      "cpu_s": 0.202
+    },
+    {
+      "job_id": "NN_T27_S1p00_CL100n/amp30_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.19,
+      "cpu_s": 0.718
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 15,
+    "analysis_executions": 30,
+    "condition_evaluations": 5,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 6.071,
+    "execution_wall_s": 4.387,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL0/amp_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL0/amp_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL0/amp30_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL100p/amp_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL100p/amp_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL100p/amp30_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL500p/amp_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL500p/amp_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL500p/amp30_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL50n/amp_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL50n/amp_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL50n/amp30_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL100n/amp_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL100n/amp_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ota3s24_task_001/NN_T27_S1p00_CL100n/amp30_step_v1"
+    ]
+  }
+}

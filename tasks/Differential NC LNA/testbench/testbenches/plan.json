@@ -1,0 +1,124 @@
+{
+  "request_id": "nclna02_task_001__plan",
+  "task_id": "nclna02_task_001",
+  "topology_id": "nclna02_das_2021",
+  "execution_profile": "search_full",
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "digests": {
+    "task": "973bd22c685bcf5b0cde55d5e4c8f1728f00d90f63f63f391ed322ecf9dee53a",
+    "candidate": "bafe0aef0eea6b567068ea346daf2e4abd76149b0a055e5942dfe2a2cdb09cbb",
+    "parameterization": "874ffd0ca9eb74e4c5c283dd848b4f6653e630f722360aba6c00dfd6b35b2ec4",
+    "dut_source_netlist": "a099e2402584a1a34c2bac7250ce4c86910c34a0f8f66c8d917b4fa14838af35",
+    "dut_subckt": "b16b5cbb23eab41777ea1611671700c4c67da9d4e7bcef833b242e574f57005f",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "ec5a15f6aa1f74c342ca0572e27989dd6a1ce783e109d5ddadac5cfe629d4f28",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "75c5234831bc781129bc9f5dcba373f0c226fab3049158861d9b9d8e119a56e3"
+  },
+  "candidate": {
+    "W_N": 1e-06,
+    "L_N": 1e-06,
+    "N_N": 1.0,
+    "W_P": 1e-06,
+    "L_P": 1e-06,
+    "N_P": 1.0,
+    "C_C": 1e-12,
+    "R_C": 10000.0,
+    "R_L": 10000.0,
+    "C_O": 1e-12,
+    "V_BN": 0.75,
+    "V_BP": 0.75
+  },
+  "dut_transformations": [
+    "symbols used but not declared in the netlist made DUT parameters: CL",
+    "M1n: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M1p: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2n: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "M2p: junction geometry as/ad/ps/pd rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "widths bound to sizing variables on fold-capable devices are folded symbolically into ceil(W/max) fingers of W/ceil(W/max) (per-device max [1e-05] m): M1n, M1p, M2n, M2p"
+  ],
+  "jobs": [
+    {
+      "job_id": "NN_T27_S1p00/lna_diff_v1",
+      "condition": {
+        "id": "NN_T27_S1p00",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.5,
+        "is_nominal": true,
+        "supply_span_V": 1.5
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "lna_diff_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "f0_Hz": 500000000.0
+        }
+      ],
+      "analysis_executions": 4,
+      "expected_outputs": 5,
+      "expected_metrics": [
+        "s11_dB",
+        "voltage_gain_dB",
+        "nf_dB",
+        "s11_max_in_band_dB",
+        "voltage_gain_max_in_band_dB",
+        "voltage_gain_min_in_band_dB",
+        "nf_max_in_band_dB",
+        "nf_min_in_band_dB",
+        "voltage_gain_3db_low_Hz",
+        "voltage_gain_3db_high_Hz",
+        "quiescent_power_W",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "NN_T27_S1p00/lna_diff_ip3_v1",
+      "condition": {
+        "id": "NN_T27_S1p00",
+        "model_set": "NN",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.5,
+        "is_nominal": true,
+        "supply_span_V": 1.5
+      },
+      "model_includes": [
+        {
+          "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+          "section": "NN"
+        }
+      ],
+      "recipe_id": "lna_diff_ip3_v1",
+      "recipe_version": 1,
+      "points": [
+        {
+          "pin_dBm": -40.0,
+          "f1_Hz": 500000000.0,
+          "f2_Hz": 510000000.0
+        }
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 1,
+      "expected_metrics": [
+        "iip3_dBm",
+        "two_tone_voltage_gain_dB"
+      ]
+    }
+  ]
+}

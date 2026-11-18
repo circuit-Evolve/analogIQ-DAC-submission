@@ -1,0 +1,41 @@
+schema_version: 1
+topology_id: cmppl24_upcon2022
+family: comparator
+interface_type: clocked_comparator_single_ended_output
+technology_id: gpdk180
+approval_status: unapproved
+
+source:
+  doi: 10.1109/UPCON56432.2022.9986363
+  title: "Design & Analysis of Performance-efficient Comparator for IoT Application (Sharma, Gupta, Shekhar; IEEE UPCON 2022)"
+  figure: "Fig. 2 (p.3): preamplifier / comparator core, inverters + RS latch, decision circuit, output buffer"
+  netlist_origin: "final.scs (schemgen export, subckt repaired_core), copied unchanged from DAC-dataset (see source/ORIGIN.txt)"
+  modifications:
+    - "None to final.scs. Supply ports VDD/VSS: VDD is the supply; VSS is driven by a 0 V source (rule G3). The netlist has one single-ended output OUT (the paper's 'Comp. Output'); there is no differential output."
+    - "Netlist vs paper Fig. 2 checked device by device: SW1/SW2 (P, Q), SW3/SW4 (X, Y), P5/P6 + N3/N4 cross-coupled X/Y, N1/N2 inputs, N7 tail; inverters P9/N8 (X), P10/N11 (Y); RS latch P12/P13 cross-coupled loads, N14/N15 gated by the inverted X/Y; decision circuit P19/P20 mirror, N16 (gate B), N17 (gate A), clocked tail N18_tail; output buffer P22/N18_buf and P23/N19 (two inverters). Connectivity agrees with the figure; the figure labels two devices N18 (decision tail and first buffer NMOS), the netlist names them N18_tail and N18_buf."
+    - "Sizes: Table 2 (p.3) gives only N1/N2 40um/180n, N3/N4 4u/180n, P5/P6 8u/180n, SW1/SW2 4u/180n, SW3/SW4 2u/180n, N7 8u/180n; the netlist carries exactly these. The 17 devices of the inverters, RS latch, decision circuit and output buffer are 1u/1u placeholders (not reported by the paper); with L = 1 um the decision circuit and buffer do not resolve (checked by simulation), reference_candidate.json therefore uses L = 180 nm for them (curator estimate, see onboarding_status)."
+
+dut:
+  netlist: final.scs
+  subckt_name: cmppl24_dut
+  port_order: [VDD, VSS, CLK, VP, VN, OUT]
+  net_map: {}
+
+ports:
+  input_positive: VP        # OUT goes high when V(VP) > V(VN) (decision circuit mirror pulls DEC/OUT up when node B is higher, B high when X low)
+  input_negative: VN
+  clock: CLK
+  clock_bar: null
+  output_positive: OUT      # single-ended output; the recipes compare it with a fixed VDD/2 reference
+  output_negative: null
+  supply_positive: VDD
+
+external_bias:
+  VSS: {kind: voltage, value: 0.0, provenance: "rule G3: ground pin without a family role driven by a 0 V source"}
+
+clocking:
+  evaluate_level: high      # N7 tail on and SW1-SW4 precharge off when CLK is high (paper Table 1, Fig. 3)
+  requires_clock_bar: false
+  output_reset_state: none  # OUT holds its decision during the reset phase (dynamic decision circuit); X/Y reset to VDD (checked by xy_reset_failure_count)
+
+probes: [X, Y, P, Q, A, B, DEC, BUF]

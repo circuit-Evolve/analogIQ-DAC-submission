@@ -1,0 +1,35 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task miso_universal_111126_task_001  topology miso_universal_111126
+// recipe miso1111_lp_thd_v1 v1  condition FF_T27_S1p00 (models FF, 27 C, supply 0.9 V)
+// request miso_universal_111126_task_001__plan  candidate 757e3058af5547ff
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters vsup=0.9 vneg=-0.9
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS=0.0 V_CTRL=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_GND (b_GND 0) vsource dc=0.0
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+VB_VCTRL (b_VCTRL 0) vsource dc=V_CTRL
+
+VIN1 (iin 0) vsource dc=0
+VIN2 (vin2 0) vsource type=sine sinedc=0 ampl=0.1 freq=500000.0
+VIN3 (vin3 0) vsource dc=0
+VIOUT (iout 0) vsource dc=0
+IIN1 (0 iin1) isource dc=0
+IIN2 (0 iin2) isource dc=0
+IIN3 (0 iin3) isource dc=0
+
+XDUT (b_GND iin1 iin2 iin3 iout iin vin2 vin3 b_VBIAS b_VCTRL vdd out vss) miso_fig3 A1_IBIAS=1e-05 A1_L_IN=1e-06 A1_L_NDIO=1e-06 A1_L_NMIR=1e-06 A1_L_PLD=1e-06 A1_L_PMIR=1e-06 A1_M_IN=1.0 A1_M_NDIO=1.0 A1_M_NMIR=1.0 A1_M_PLD=1.0 A1_M_PMIR=1.0 A1_W_IN=1e-06 A1_W_NDIO=1e-06 A1_W_NMIR=1e-06 A1_W_PLD=1e-06 A1_W_PMIR=1e-06 A2_IBIAS=1e-05 A2_L_IN=1e-06 A2_L_NDIO=1e-06 A2_L_NMIR=1e-06 A2_L_PLD=1e-06 A2_L_PMIR=1e-06 A2_M_IN=1.0 A2_M_NDIO=1.0 A2_M_NMIR=1.0 A2_M_PLD=1.0 A2_M_PMIR=1.0 A2_W_IN=1e-06 A2_W_NDIO=1e-06 A2_W_NMIR=1e-06 A2_W_PLD=1e-06 A2_W_PMIR=1e-06 C1=1e-12 C2=1e-12 FE_L_IN=1e-06 FE_L_NOUT=1e-06 FE_L_NTAIL=1e-06 FE_L_PMIR=1e-06 FE_L_POUT=1e-06 FE_M_IN=1.0 FE_M_NOUT=1.0 FE_M_NTAIL=1.0 FE_M_PMIR=1.0 FE_M_POUT=1.0 FE_W_IN=1e-06 FE_W_NOUT=1e-06 FE_W_NTAIL=1e-06 FE_W_PMIR=1e-06 FE_W_POUT=1e-06 R1_L=1e-06 R1_M=1.0 R1_W=1e-06 R2_L=1e-06 R2_M=1.0 R2_W=1e-06 R3=10000.0
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_GND:p VB_VBIAS:p VB_VCTRL:p VNEG:p VSUP:p XDUT.NC1A XDUT.NC2A XDUT.NC2B XDUT.NOP2A XDUT.NOP2B XDUT.NOPA XDUT.NOPB XDUT.X1 iin iin1 iin2 iin3 iout out vdd vin2 vin3 vss
+
+tran1 tran stop=5.9999999999999995e-05 maxstep=1e-08 strobeperiod=7.8125e-09 errpreset=moderate

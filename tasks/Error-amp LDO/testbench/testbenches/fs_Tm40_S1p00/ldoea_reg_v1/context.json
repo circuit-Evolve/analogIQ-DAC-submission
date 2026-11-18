@@ -1,0 +1,239 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "fs_Tm40_S1p00/ldoea_reg_v1",
+ "recipe_id": "ldoea_reg_v1",
+ "recipe_version": 1,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "raw/stb1.stb.ascii",
+  "raw/ac1.ac",
+  "raw/tran1.tran.tran",
+  "raw/dc1.dc",
+  "raw/stb2.stb.ascii"
+ ],
+ "context": {
+  "job_id": "fs_Tm40_S1p00/ldoea_reg_v1",
+  "condition": {
+   "id": "fs_Tm40_S1p00",
+   "model_set": "fs",
+   "temperature_C": -40.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+     "section": "fs"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "input_voltage_V": 1.8,
+   "reference_V": 0.6,
+   "load_current_A": 0.025,
+   "load_capacitance_F": 1e-10
+  },
+  "recipe_settings": {
+   "light_load_A": 0.0001,
+   "load_sweep_start_A": 0.0,
+   "load_sweep_stop_A": 0.05,
+   "stb_start_Hz": 0.1,
+   "stb_stop_Hz": 1000000000.0,
+   "stb_points_per_decade": 100,
+   "ac_start_Hz": 1.0,
+   "ac_stop_Hz": 100000000.0,
+   "ac_points_per_decade": 100,
+   "tran_stop_s": 1.0,
+   "load_gate_V": 0.1,
+   "load_gate_width_V": 0.02,
+   "replay_numerics": true
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ldo_erroramp_dac",
+   "family": "ldo",
+   "interface_type": "pmos_pass_ldo_two_stage_error_amplifier_source_follower_buffer",
+   "technology_id": "gpdk045",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "ldo_erroramp_dac_dut",
+    "port_order": [
+     "VDD_core",
+     "VIN",
+     "VOUT",
+     "VREF",
+     "gnd"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "supply_input": "VIN",
+    "output": "VOUT",
+    "reference": "VREF"
+   },
+   "external_bias": {
+    "VDD_core": {
+     "kind": "voltage",
+     "value": 0.0,
+     "relative_to": "supply_input",
+     "provenance": "replay deck (all conditions): the error-amplifier supply VDD_core and VIN are the same net (I8 (net2 net2 VOUT net3 0), V0 dc=1.8 mag=1 on net2); paper README Sec. 3.3 \"VDD_core = VIN = 1.8V\". Tied to VIN by a 0 V source relative to the supply input, so it carries the line sweep, the PVT supply and the PSR AC stimulus exactly as the replay; testbench element, not a sizing variable."
+    },
+    "gnd": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source (replay: I8 pin gnd on node 0)"
+    }
+   },
+   "loop_probe": {
+    "instance": "M4",
+    "terminal": 1
+   },
+   "probes": [
+    "net1",
+    "net11",
+    "net12",
+    "net13",
+    "net6"
+   ],
+   "op_check": {
+    "exclude": []
+   }
+  },
+  "subckt_name": "ldo_erroramp_dac_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_PASS": 1e-06,
+   "L_PASS": 1e-06,
+   "NF_PASS": 1.0,
+   "W_BUF": 1e-06,
+   "L_BUF": 1e-06,
+   "NF_BUF": 1.0,
+   "M_BUF": 1.0,
+   "W_IN": 1e-06,
+   "L_IN": 1e-06,
+   "NF_IN": 1.0,
+   "M_IN": 1.0,
+   "W_LD": 1e-06,
+   "L_LD": 1e-06,
+   "NF_LD": 1.0,
+   "M_LD": 1.0,
+   "W_CS2": 1e-06,
+   "L_CS2": 1e-06,
+   "NF_CS2": 1.0,
+   "W_MIR": 1e-06,
+   "L_MIR": 1e-06,
+   "NF_MIR": 1.0,
+   "M_MIR": 1.0,
+   "W_SNK": 1e-06,
+   "NF_SNK": 1.0,
+   "M_SNK": 1.0,
+   "C_C": 1e-12,
+   "R_Z": 10000.0,
+   "C_G": 1e-12,
+   "R_G": 10000.0,
+   "C_FF": 1e-12,
+   "R_S": 10000.0,
+   "R_B": 10000.0,
+   "R_FB_TOP": 10000.0,
+   "R_FB_BOT": 10000.0,
+   "I_BIAS": 1e-05,
+   "M_PASS": 1.0,
+   "M_CS2": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "g45n1svt": {
+    "kind": "nmos",
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 4.5e-08,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.1,
+    "max_supply_V": 1.21,
+    "fold_wide": false
+   },
+   "g45p1svt": {
+    "kind": "pmos",
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 4.5e-08,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.1,
+    "max_supply_V": 1.21,
+    "fold_wide": false
+   },
+   "g45n1lvt": {
+    "kind": "nmos",
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 4.5e-08,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.1,
+    "max_supply_V": 1.21,
+    "fold_wide": false
+   },
+   "g45p1lvt": {
+    "kind": "pmos",
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 4.5e-08,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.1,
+    "max_supply_V": 1.21,
+    "fold_wide": false
+   },
+   "g45n1hvt": {
+    "kind": "nmos",
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 4.5e-08,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.1,
+    "max_supply_V": 1.21,
+    "fold_wide": false
+   },
+   "g45p1hvt": {
+    "kind": "pmos",
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 4.5e-08,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.1,
+    "max_supply_V": 1.21,
+    "fold_wide": false
+   },
+   "g45n2svt": {
+    "kind": "nmos",
+    "min_w_m": 2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": false
+   },
+   "g45p2svt": {
+    "kind": "pmos",
+    "min_w_m": 2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": false
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

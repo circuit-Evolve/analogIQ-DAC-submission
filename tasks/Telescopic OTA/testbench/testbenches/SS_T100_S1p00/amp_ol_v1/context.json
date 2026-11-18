@@ -1,0 +1,206 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "SS_T100_S1p00/amp_ol_v1",
+ "recipe_id": "amp_ol_v1",
+ "recipe_version": 3,
+ "points": [
+  {},
+  {
+   "freq_Hz": 1.0
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "SS_T100_S1p00/amp_ol_v1",
+  "condition": {
+   "id": "SS_T100_S1p00",
+   "model_set": "SS",
+   "temperature_C": 100.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "SS"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "supply_negative_V": 0.0,
+   "input_common_mode_V": 0.9,
+   "load_capacitance_F": 1e-12
+  },
+  "recipe_settings": {
+   "start_Hz": 0.1,
+   "stop_Hz": 10000000000.0,
+   "points_per_decade": 20,
+   "low_frequency_Hz": 1.0,
+   "frequencies_Hz": [
+    1.0
+   ]
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "telescopic01_scl180",
+   "family": "amplifier",
+   "interface_type": "differential_input_single_output",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "telescopic01_scl180_dut",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "Vin_m",
+     "Vin_p",
+     "Vout",
+     "VB1",
+     "VB2"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input_positive": "Vin_p",
+    "input_negative": "Vin_m",
+    "output": "Vout",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "VB1": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable VB1"
+    },
+    "VB2": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable VB2"
+    }
+   },
+   "op_check": {
+    "exclude": []
+   }
+  },
+  "subckt_name": "telescopic01_scl180_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M1": 1e-06,
+   "L_M1": 1e-06,
+   "W_M3": 1e-06,
+   "L_M3": 1e-06,
+   "W_M9": 1e-06,
+   "L_M9": 1e-06,
+   "W_M11": 1e-06,
+   "L_M11": 1e-06,
+   "W_M5": 1e-06,
+   "L_M5": 1e-06,
+   "W_M6": 1e-06,
+   "L_M6": 1e-06,
+   "W_M7": 1e-06,
+   "L_M7": 1e-06,
+   "W_M8": 1e-06,
+   "L_M8": 1e-06,
+   "N_M8": 1.0,
+   "CC": 1e-12,
+   "RZ": 10000.0,
+   "IBIAS": 1e-05,
+   "M_M1": 1.0,
+   "M_M3": 1.0,
+   "M_M9": 1.0,
+   "M_M11": 1.0,
+   "M_M5": 1.0,
+   "M_M6": 1.0,
+   "M_M7": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "VB1": 0.9,
+   "VB2": 0.9
+  },
+  "bias_variables": {
+   "VB1": "VB1",
+   "VB2": "VB2"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

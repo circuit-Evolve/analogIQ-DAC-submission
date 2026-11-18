@@ -1,0 +1,59 @@
+// Generated for: spectre
+// Generated on: Nov  2 06:24:35 2026
+// Design library name: test
+// Design cell name: pa1088_tb_small_signal_dac
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VCC=12 f0=4.33e+08
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs" section=highperf_bjt_t
+
+// Library name: test
+// Cell name: pa1088_fig3_dac
+// View name: schematic
+simulator lang=spectre
+subckt pa1088_fig3_dac RF_IN RF_OUT VCC VSS
+    Q0 (COLLECTOR BASE EMITTER) gpdk090_npn area=0.5 m=10
+    L17 (OUT_MATCH RF_OUT) inductor l=5.112429612217947e-08
+    L0 (COL_BIAS COLLECTOR) inductor l=7.083781493513158e-08
+    L1 (BASE_BIAS BASE) inductor l=1.6186834702955393e-05
+    L16 (RF_IN IN_MATCH) inductor l=3.891702802496527e-08
+    C27 (EMITTER VSS) capacitor c=4.282527027400597e-10
+    C25 (OUT_MATCH VSS) capacitor c=5.036170439364871e-12
+    C2 (COLLECTOR OUT_MATCH) capacitor c=5.5735569604160245e-12
+    C3 (COL_BIAS VSS) capacitor c=1.2367911333285738e-13
+    C4 (VCC VSS) capacitor c=10p
+    C6 (BASE_BIAS VSS) capacitor c=10p
+    C5 (BASE_BIAS VSS) capacitor c=8.2p
+    C1 (IN_MATCH BASE) capacitor c=3.0132646179627335e-10
+    C24 (IN_MATCH VSS) capacitor c=2.9373012556686784e-12
+    R14 (EMITTER VSS) resistor r=83.3392708795
+    R5 (VCC COL_BIAS) resistor r=15
+    R3 (BASE_BIAS VCC) resistor r=9733.79378832986
+ends pa1088_fig3_dac
+
+// End of subcircuit definition.
+
+// Library name: test
+// Cell name: pa1088_tb_small_signal_dac
+// View name: schematic
+VDD (VCC 0) vsource dc=VCC type=dc
+PORT_IN (RF_IN 0) port r=50 num=1 type=sine freq=f0 dbm=-40
+PORT_OUT (RF_OUT 0) port r=50 num=2 dc=0 type=dc
+DUT (RF_IN RF_OUT VCC 0) pa1088_fig3_dac
+simulatorOptions options reltol=1e-05 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="sens.output" \
+    checklimitdest=psf 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+noise noise values=[433M] oprobe=PORT_OUT iprobe=PORT_IN annotate=status 
+sp sp ports=[PORT_IN PORT_OUT] start=1M stop=1G dec=300 donoise=no \
+    oprobe=PORT_OUT iprobe=PORT_IN annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub currents=all

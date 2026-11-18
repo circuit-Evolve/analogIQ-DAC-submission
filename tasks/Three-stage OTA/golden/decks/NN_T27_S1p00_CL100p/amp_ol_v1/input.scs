@@ -1,0 +1,47 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ota3s24_task_001  topology ota3s24
+// recipe amp_ol_v1 v3  condition NN_T27_S1p00_CL100p (models NN, 27 C, supply 1.8 V)
+// request golden_ota3s24_task_001  candidate 4831fd3120c8d255
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vcm=0.45 cl=1e-10 a_inp=1.0 a_inn=0.0 a_vdd=0.0 a_vss=0.0 vsup=1.8 vneg=0.0
+// Sizing variables set in the testbench (external-bias values).
+parameters VB1=1.15 VB2=0.5015188074390404 VB3=0.7631974858463328
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup mag=a_vdd
+VNEG (vss 0) vsource dc=vneg mag=a_vss
+// External bias (topology external_bias; reported separately as bias power).
+VB_VB1 (b_VB1 0) vsource dc=VB1
+VB_VB2 (b_VB2 0) vsource dc=VB2
+VB_VB3 (b_VB3 0) vsource dc=VB3
+
+// Open loop: DC loop closed by LF (out -> inn), AC injected into inn through CF.
+VIN (inp 0) vsource dc=vcm mag=a_inp
+VACN (acn 0) vsource dc=0 mag=a_inn
+CF (acn inn) capacitor c=1e+18
+LF (out inn) inductor l=1e+18
+EINV (outinv 0 out 0) vcvs gain=-1
+CL (out 0) capacitor c=cl
+
+XDUT (inp inn out vdd vss b_VB1 b_VB2 b_VB3) ota3s24_dut CC1=8.174308274866054e-14 CC2=5.143722960283856e-13 CD=1.6491454828373294e-13 L_M0=7.667849810308635e-06 L_M1=4.912088701060295e-06 L_M2=5.22412495444643e-06 L_M3=3.1104574530227926e-06 L_M4=1.2293584650483118e-06 L_M5=1.968240141992717e-07 L_M6=3.1157676023169295e-06 L_M7=1.038032655793574e-05 L_M8=1.8000000000000013e-07 L_M9=1.8000000000000013e-07 RD=54413.34118674204 W_M0=8.098029815012366e-06 W_M1=1.7229516936130143e-05 W_M2=1.3128449910518226e-05 W_M3=8.380017783938899e-06 W_M4=2.0066084087538857e-05 W_M5=2.5919623511007866e-06 W_M6A=2.0837504240408397e-06 W_M6B=4.281114771658617e-06 W_M7=1.4376240939872487e-05 W_M8=1.858061284684332e-05 W_M9=5.935517818924883e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VB1:p VB_VB2:p VB_VB3:p VNEG:p VSUP:p inn inp out vdd vss
+
+ac1 ac start=1.0 stop=1000000000.0 dec=20
+simulator lang=spice
+.include 'measures.sp'
+.alter
+* point p001
+.param a_inp=1 a_inn=1 a_vdd=0 a_vss=0
+.alter
+* point p002
+.param a_inp=0 a_inn=0 a_vdd=1 a_vss=0
+.alter
+* point p003
+.param a_inp=0 a_inn=0 a_vdd=0 a_vss=1
+.end

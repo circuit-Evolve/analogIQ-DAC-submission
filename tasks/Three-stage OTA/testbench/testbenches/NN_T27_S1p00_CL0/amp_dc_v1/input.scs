@@ -1,0 +1,36 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ota3s24_task_001  topology ota3s24
+// recipe amp_dc_v1 v3  condition NN_T27_S1p00_CL0 (models NN, 27 C, supply 1.8 V)
+// request ota3s24_task_001__plan  candidate 25f7ea5cdf3edbba
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vcm=0.45 cl=0.0 vsup=1.8 vneg=0.0
+// Sizing variables set in the testbench (external-bias values).
+parameters VB1=0.9 VB2=0.9 VB3=0.9
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_VB1 (b_VB1 0) vsource dc=VB1
+VB_VB2 (b_VB2 0) vsource dc=VB2
+VB_VB3 (b_VB3 0) vsource dc=VB3
+
+// Unity-gain buffer: out -> IPRB -> inn (IPRB is the stb loop-break probe).
+VIN (inp 0) vsource dc=vcm
+IPRB (out inn) iprobe
+CL (out 0) capacitor c=cl
+
+XDUT (inp inn out vdd vss b_VB1 b_VB2 b_VB3) ota3s24_dut CC1=1e-12 CC2=1e-12 CD=1e-12 L_M0=1e-06 L_M1=1e-06 L_M2=1e-06 L_M3=1e-06 L_M4=1e-06 L_M5=1e-06 L_M6=1e-06 L_M7=1e-06 L_M8=1e-06 L_M9=1e-06 M_M0=1.0 M_M1=1.0 M_M2=1.0 M_M3=1.0 M_M4=1.0 M_M5=1.0 M_M6A=1.0 M_M6B=1.0 M_M7=1.0 M_M8=1.0 M_M9=1.0 RD=10000.0 W_M0=1e-06 W_M1=1e-06 W_M2=1e-06 W_M3=1e-06 W_M4=1e-06 W_M5=1e-06 W_M6A=1e-06 W_M6B=1e-06 W_M7=1e-06 W_M8=1e-06 W_M9=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VB1:p VB_VB2:p VB_VB3:p VNEG:p VSUP:p inn inp out vdd vss
+
+dc1 dc param=vcm start=0.0 stop=1.2 step=0.01
+simulator lang=spice
+.include 'measures.sp'
+.end

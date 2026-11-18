@@ -1,0 +1,887 @@
+schema: analogiq.sizing_problem/1
+task_id: sar24_liang_task_001
+topology_id: sar24_liang
+family: sar_adc
+technology_id: gpdk180
+parameterization_id: sar24_liang_p1_counts_20261112
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). Analog core (dual-reference differential CDAC capacitors + dynamic comparator with SR
+  latch) of the 8-to-12-bit resolution-reconfigurable SAR ADC with Fast-Window-Switching of Liang et al. (TCAS-II 2025), gpdk180. The netlist
+  holds NO switches and NO logic: the testbench adds fixed behavioural instrumentation (Verilog-A sequencer: ideal sampling switch 10 ohm, resolution
+  switches closed = 12-bit mode, comparator clock, bottom-plate drivers, FWS bit-trial logic applied to all bits) so that the ADC metrics can
+  be measured; only the analog sizes vary. 12-bit mode only (the netlist''s 264-unit CDAC). Nominal condition only (the paper reports no PVT:
+  NN (typical), 27 C, 1.8 V). Dynamic test: 256 coherent conversions at 10 MS/s, 123 input cycles (fin = 4.805 MHz, paper 4.8 MHz; paper FFT 16384
+  points), differential amplitude +-1.70 V at 0.9 V common mode, noiseless. Static test: 40-point ramp plus 12 code-transition pairs. Targets
+  = the paper''s 12-bit mode values (measured chip values; the paper''s only simulated ADC-level numbers are behavioural), each with the 10 %
+  tolerance.'
+source:
+  doi: 10.1109/TCSII.2025.3541236
+  title: An 8-to-12-Bit Resolution-Reconfigurable SAR ADC With Fast-Window-Switching Technique (Liang, Song, Zhu, TCAS-II 2025)
+  figure: Fig. 7 (CDAC architecture), Fig. 11 (dynamic comparator)
+variables:
+- name: W_IN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'comparator input pair M1/M2: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    - M2
+    parameter: w
+- name: L_IN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'comparator input pair M1/M2: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    - M2
+    parameter: l
+- name: W_PC
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'comparator precharge PMOS M3/M4 (output reset to VDD): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    - M4
+    parameter: w
+- name: L_PC
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'comparator precharge PMOS M3/M4 (output reset to VDD): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    - M4
+    parameter: l
+- name: W_TL
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'comparator tail NMOS M5 (clocked): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M5
+    parameter: w
+- name: L_TL
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'comparator tail NMOS M5 (clocked): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M5
+    parameter: l
+- name: W_M6
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'comparator PMOS M6 (pulls the tail node VCS to VDD in reset): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    parameter: w
+- name: L_M6
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'comparator PMOS M6 (pulls the tail node VCS to VDD in reset): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    parameter: l
+- name: W_PH
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'SR-latch stage PMOS MPH (inverter of VOP/VON): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MPH_L
+    - MPH_R
+    parameter: w
+- name: L_PH
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'SR-latch stage PMOS MPH (inverter of VOP/VON): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MPH_L
+    - MPH_R
+    parameter: l
+- name: W_NR
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'SR-latch stage NMOS MNR (inverter of VOP/VON): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MNR_L
+    - MNR_R
+    parameter: w
+- name: L_NR
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'SR-latch stage NMOS MNR (inverter of VOP/VON): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MNR_L
+    - MNR_R
+    parameter: l
+- name: W_PL
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'SR-latch PMOS MPL: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MPL_L
+    - MPL_R
+    parameter: w
+- name: L_PL
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'SR-latch PMOS MPL: length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MPL_L
+    - MPL_R
+    parameter: l
+- name: W_NL
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'SR-latch NMOS MNL (cross-coupled): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MNL_L
+    - MNL_R
+    parameter: w
+- name: L_NL
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'SR-latch NMOS MNL (cross-coupled): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MNL_L
+    - MNL_R
+    parameter: l
+- name: W_ND
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'SR-latch NMOS MND (reset by VOP/VON): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MND_L
+    - MND_R
+    parameter: w
+- name: L_ND
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'SR-latch NMOS MND (reset by VOP/VON): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MND_L
+    - MND_R
+    parameter: l
+- name: W_OP
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output inverter PMOS (COP/CON): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MP_COP
+    - MP_CON
+    parameter: w
+- name: L_OP
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output inverter PMOS (COP/CON): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MP_COP
+    - MP_CON
+    parameter: l
+- name: W_ON
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output inverter NMOS (COP/CON): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - MN_COP
+    - MN_CON
+    parameter: w
+- name: L_ON
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output inverter NMOS (COP/CON): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - MN_COP
+    - MN_CON
+    parameter: l
+- name: CU
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: CDAC unit capacitor Cu (all CDAC capacitors are fixed binary multiples of it)
+  binding:
+    type: instance_parameter
+    instances:
+    - CP1
+    - CN1
+    - CP4
+    - CN4
+    - CP5a
+    - CP5b
+    - CP5ac
+    - CP5bc
+    - CN5a
+    - CN5b
+    - CN5ac
+    - CN5bc
+    parameter: c
+- name: M_IN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M1, M2; preserves matched width/length group W_IN
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    - M2
+    parameter: m
+- name: M_PC
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M3, M4; preserves matched width/length group W_PC
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    - M4
+    parameter: m
+- name: M_TL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M5; preserves matched width/length group W_TL
+  binding:
+    type: instance_parameter
+    instances:
+    - M5
+    parameter: m
+- name: M_M6
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M6; preserves matched width/length group W_M6
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    parameter: m
+- name: M_PH
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MPH_L, MPH_R; preserves matched width/length group W_PH
+  binding:
+    type: instance_parameter
+    instances:
+    - MPH_L
+    - MPH_R
+    parameter: m
+- name: M_NR
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MNR_L, MNR_R; preserves matched width/length group W_NR
+  binding:
+    type: instance_parameter
+    instances:
+    - MNR_L
+    - MNR_R
+    parameter: m
+- name: M_PL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MPL_L, MPL_R; preserves matched width/length group W_PL
+  binding:
+    type: instance_parameter
+    instances:
+    - MPL_L
+    - MPL_R
+    parameter: m
+- name: M_NL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MNL_L, MNL_R; preserves matched width/length group W_NL
+  binding:
+    type: instance_parameter
+    instances:
+    - MNL_L
+    - MNL_R
+    parameter: m
+- name: M_ND
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MND_L, MND_R; preserves matched width/length group W_ND
+  binding:
+    type: instance_parameter
+    instances:
+    - MND_L
+    - MND_R
+    parameter: m
+- name: M_OP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MP_COP, MP_CON; preserves matched width/length group W_OP
+  binding:
+    type: instance_parameter
+    instances:
+    - MP_COP
+    - MP_CON
+    parameter: m
+- name: M_ON
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for MN_COP, MN_CON; preserves matched width/length group W_ON
+  binding:
+    type: instance_parameter
+    instances:
+    - MN_COP
+    - MN_CON
+    parameter: m
+dependent_parameters:
+  C_2:
+    expression: 2*CU
+    role: CDAC capacitors of 2 Cu (binary ratio fixed by the paper, Fig. 7)
+    binding:
+      type: instance_parameter
+      instances:
+      - CP2
+      - CN2
+      - CP6a
+      - CP6b
+      - CN6a
+      - CN6b
+      parameter: c
+  C_4:
+    expression: 4*CU
+    role: CDAC capacitors of 4 Cu (binary ratio fixed by the paper, Fig. 7)
+    binding:
+      type: instance_parameter
+      instances:
+      - CP3
+      - CN3
+      - CP7a
+      - CP7b
+      - CN7a
+      - CN7b
+      parameter: c
+  C_8:
+    expression: 8*CU
+    role: CDAC capacitors of 8 Cu (binary ratio fixed by the paper, Fig. 7)
+    binding:
+      type: instance_parameter
+      instances:
+      - CP8a
+      - CP8b
+      - CN8a
+      - CN8b
+      parameter: c
+  C_16:
+    expression: 16*CU
+    role: CDAC capacitors of 16 Cu (binary ratio fixed by the paper, Fig. 7)
+    binding:
+      type: instance_parameter
+      instances:
+      - CP9a
+      - CP9b
+      - CN9a
+      - CN9b
+      parameter: c
+  C_32:
+    expression: 32*CU
+    role: CDAC capacitors of 32 Cu (binary ratio fixed by the paper, Fig. 7)
+    binding:
+      type: instance_parameter
+      instances:
+      - CP10a
+      - CP10b
+      - CN10a
+      - CN10b
+      parameter: c
+  C_64:
+    expression: 64*CU
+    role: CDAC capacitors of 64 Cu (binary ratio fixed by the paper, Fig. 7)
+    binding:
+      type: instance_parameter
+      instances:
+      - CP11a
+      - CP11b
+      - CN11a
+      - CN11b
+      parameter: c
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'paper Table II / abstract: 1.8 V'
+  sample_rate_Hz:
+    value: 10000000.0
+    provenance: 'paper Table II: 10 MS/s'
+  input_common_mode_V:
+    value: 0.9
+    provenance: 'paper Fig. 10: CDAC common mode about 900 mV'
+  reference_voltage_V:
+    value: 1.8
+    provenance: 'paper Sec. III-B: VR1 = 1.8 V'
+  reference_low_V:
+    value: 0.225
+    provenance: 'paper Sec. III-B: VR2 = VR1/8 = 225 mV'
+  input_amplitude_V:
+    value: 1.7
+    provenance: 'curator_choice: paper amplitude +-1.786 V (12-bit mode) exceeds the +-1.758 V full scale of this netlist''s weights with the
+      fixed FWS sequencer; 1.70 V differential peak (0.967 of full scale) used'
+constraints:
+- name: sndr
+  metric: sndr_dB
+  recipe: sar_dynamic_v1
+  point: {}
+  unit: dB
+  lower: 65.04242509439325
+  target:
+    kind: power_db
+    paper_value: 65.5
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Table II / abstract: SNDR 65.5 dB, 12-bit mode, 10 MS/s, 4.8 MHz (measured; 256-point coherent FFT here instead of 16384)'
+  source: native
+- name: snr
+  metric: snr_dB
+  recipe: sar_dynamic_v1
+  point: {}
+  unit: dB
+  lower: 65.24242509439325
+  target:
+    kind: power_db
+    paper_value: 65.7
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Fig. 13(c): SNR 65.7 dB, 12-bit mode'
+  source: native
+- name: sfdr
+  metric: sfdr_dB
+  recipe: sar_dynamic_v1
+  point: {}
+  unit: dB
+  lower: 79.14242509439325
+  target:
+    kind: power_db
+    paper_value: 79.6
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Table II / abstract: SFDR 79.6 dB, 12-bit mode (measured, 16384-point FFT). consolidation_2026_10_27: our FFT is 256 points
+    (was 64): the SFDR of an ideal 12-bit quantiser at this amplitude is 84.4 dB (83.2-85.7) at 256 points against 98 dB at 16384 and 78.7 (77.0-80.2)
+    at 64, so with 64 points the target was decided by the quantiser spur pattern; at 256 points the target is above the quantiser limit and reflects
+    distortion'
+  source: native
+- name: enob
+  metric: enob_bit
+  recipe: sar_dynamic_v1
+  point: {}
+  unit: bit
+  lower: 9.54
+  target:
+    kind: linear
+    paper_value: 10.6
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Table II: ENOB 10.6 bit, 12-bit mode'
+  source: native
+- name: power
+  metric: power_W
+  recipe: sar_dynamic_v1
+  point: {}
+  unit: W
+  upper: 0.00040040000000000003
+  target:
+    kind: linear
+    paper_value: 0.000364
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Fig. 14 (12-bit power breakdown: CDAC 42.1 % + comparator 20.7 % = 62.8 % of the 580 uW of Table II / abstract = 364 uW);
+    measured here: comparator supply + reference energy of the CDAC drivers = exactly those two blocks (switches 12.9 % and logic 24.3 % are ideal
+    Verilog-A here). consolidation_2026_10_27 (G6 step 2, like-for-like): was 580 uW (the whole chip incl. logic and switches, 60 % looser than
+    the quantity measured; the earlier owner decision Q2d to keep 580 is corrected with this evidence)'
+  source: native
+- name: comparator_delay
+  metric: comparator_delay_s
+  recipe: sar_dynamic_v1
+  point: {}
+  unit: s
+  upper: 4.4000000000000003e-10
+  target:
+    kind: linear
+    paper_value: 4.0e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Sec. III-C: comparison delay 0.4 ns for 0.5 LSB input (simulated); here the mean clock-edge to decision delay of the last
+    bit trial'
+  source: native
+- name: inl
+  metric: inl_abs_max_lsb
+  recipe: sar_static_v1
+  point: {}
+  unit: LSB
+  upper: 1.0230000000000001
+  target:
+    kind: linear
+    paper_value: 0.93
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Fig. 13(c): INL peaks about -0.90 / +0.93 LSB (12-bit mode, measured chip; read from the plot at 900 dpi, +-0.03 LSB; 209715-point
+    histogram test, Sec. IV). definition_audit 2026-10-27: was 0.85 (earlier coarse read of -0.8/+0.85)'
+  source: native
+- name: dnl
+  metric: dnl_abs_max_lsb
+  recipe: sar_static_v1
+  point: {}
+  unit: LSB
+  upper: 0.8800000000000001
+  target:
+    kind: linear
+    paper_value: 0.8
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper Fig. 13(c): DNL peaks about -0.49 / +0.80 LSB (12-bit mode, measured chip; read from the plot at 900 dpi, +-0.03 LSB; 209715-point
+    histogram test, Sec. IV). definition_audit 2026-10-27: was 0.7 (earlier coarse read of -0.4/+0.7)'
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - sar_dynamic_v1
+  - comparator_delay_s
+- - sar_dynamic_v1
+  - enob_bit
+- - sar_dynamic_v1
+  - power_W
+- - sar_dynamic_v1
+  - sfdr_dB
+- - sar_dynamic_v1
+  - sndr_dB
+- - sar_dynamic_v1
+  - snr_dB
+- - sar_dynamic_v1
+  - thd_dB
+- - sar_dynamic_v1
+  - valid_conversions
+- - sar_static_v1
+  - dac_gain
+- - sar_static_v1
+  - dnl_abs_max_lsb
+- - sar_static_v1
+  - inl_abs_max_lsb
+simulations_per_design: 2
+analysis_executions_per_design: 2
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: sar_dynamic_v1
+  folder: testbenches/NN_T27_S1p00/sar_dynamic_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    sndr_dB:
+      unit: dB
+      source: native
+    snr_dB:
+      unit: dB
+      source: native
+    sfdr_dB:
+      unit: dB
+      source: native
+    thd_dB:
+      unit: dB
+      source: native
+    enob_bit:
+      unit: bit
+      source: native
+    power_W:
+      unit: W
+      source: native
+    comparator_delay_s:
+      unit: s
+      source: native
+    valid_conversions:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00
+  recipe: sar_static_v1
+  folder: testbenches/NN_T27_S1p00/sar_static_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  metrics:
+    inl_abs_max_lsb:
+      unit: LSB
+      source: native
+    dnl_abs_max_lsb:
+      unit: LSB
+      source: native
+    dac_gain:
+      unit: ''
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - sar24_liang_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('sar24_liang_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

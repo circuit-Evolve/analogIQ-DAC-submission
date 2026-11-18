@@ -1,0 +1,85 @@
+{
+  "expected_conditions": [
+    "Nominal",
+    "VT_V37p8_T27",
+    "VT_V37p8_T85",
+    "VT_V37p8_Tm40",
+    "VT_V42_T27",
+    "VT_V42_T85",
+    "VT_V42_Tm40",
+    "VT_V46p2_T27",
+    "VT_V46p2_T85",
+    "VT_V46p2_Tm40"
+  ],
+  "required_rows": 10,
+  "extraction_exit": 0,
+  "passed_rows": 10,
+  "all_expected_waveforms_valid": true,
+  "checks": {
+    "Nominal": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V37p8_T27": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V37p8_T85": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V37p8_Tm40": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V42_T27": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V42_T85": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V42_Tm40": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V46p2_T27": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V46p2_T85": {
+      "waveform_valid": true,
+      "errors": []
+    },
+    "VT_V46p2_Tm40": {
+      "waveform_valid": true,
+      "errors": []
+    }
+  },
+  "windows_s": {
+    "pre": [
+      0.00045,
+      0.00049
+    ],
+    "plateau": [
+      0.00055,
+      0.00059
+    ],
+    "late_plateau": [
+      0.000589,
+      0.00059
+    ],
+    "after_fall": [
+      0.00062,
+      0.00064
+    ]
+  },
+  "droop_reference_Vpp": {
+    "plateau_pp_V": 0.0321509,
+    "late_plateau_pp_V": 0.000803268,
+    "after_fall_pp_V": 5.18062e-05
+  },
+  "detrending": "Least-squares straight line removed from full precision late-window samples; exponential curvature over1us is negligible compared with diagnostic thresholds.",
+  "scope": "Observed large-step settling only; this is not a global AC/Nyquist stability claim."
+}

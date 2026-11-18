@@ -1,0 +1,1595 @@
+schema: analogiq.sizing_problem/1
+task_id: ldo_ifx_task_001
+topology_id: ldo_ifx
+family: ldo
+technology_id: sky130
+parameterization_id: ldo_ifx_p1_counts_20261112
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md, brief 2026-10-30). Infineon adsbenchmark chopped LDO (LDO.pdf: 1.5 V from VDDA, Vref 1.2
+  V, 1 uA bias, 400 kHz clock, 0-25 mA, CL 1 pF, OV / UV flags), sky130 5 V devices. The repository has no measured results: targets are the documented
+  values (Table 1 output voltage, UV / OV flag thresholds, Fig. 7 comparator hysteresis) with the 10 % tolerance, plus the pass limits of ldo_checker.va
+  (output window +-5 mV after every stimulus step, settling 7 mV, idle output 10 mV, flags) for the test sequence the repository documents but
+  gives no numbers for (test ids 7-10). The stimulus is the checker''s own (supply / Vref / load steps, disable, clock). SUPPLY: the documented
+  2.5 V does not work on the exported 5 V devices (see onboarding_status crucial_questions); the task runs at VDDA = 3.3 V and every supply-referred
+  number (UV / OV thresholds, the checker''s supply steps) is the documented value x 1.32 (= 3.3 / 2.5).'
+source:
+  doi: none (repository documentation)
+  title: 'Infineon adsbenchmark, LDO (cell_ldo): chopped LDO 2.5 V -> 1.5 V, github.com/Infineon/adsbenchmark commit d1f5c9be021970e8c1fda5a2c5eea3987cb9667c,
+    LDO/doc/LDO.pdf (Figs. 2-6, Tables 1-2) and LDO/src (tb_ldo.hsp, ldo_checker.va)'
+  figure: Fig. 2 (top level), Fig. 3 (SC filter), Fig. 4 (source follower), Fig. 5 (chopped op-amp), Fig. 6 (OV/UV comparator) of LDO.pdf
+variables:
+- name: W_OA_IN
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: chopped op-amp NMOS input pair (hsp M4/M5)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00303
+    - M00306
+    parameter: w
+- name: L_OA_IN
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: chopped op-amp NMOS input pair (hsp M4/M5)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00303
+    - M00306
+    parameter: l
+- name: W_OA_LD
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: chopped op-amp PMOS current-mirror load (hsp M1/M3)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00291
+    - M00292
+    parameter: w
+- name: L_OA_LD
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: chopped op-amp PMOS current-mirror load (hsp M1/M3)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00291
+    - M00292
+    parameter: l
+- name: W_OA_CS
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp second-stage PMOS common-source device (hsp M11)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00293
+    parameter: w
+- name: L_OA_CS
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp second-stage PMOS common-source device (hsp M11)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00293
+    parameter: l
+- name: N_OA_CS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'multiplier: op-amp second-stage PMOS common-source device (hsp M11)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00293
+    parameter: mult
+- name: W_OA_TSRC
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp tail current source NMOS (hsp M33, gate vb_n)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00298
+    parameter: w
+- name: L_OA_TSRC
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp tail current source NMOS (hsp M33, gate vb_n)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00298
+    parameter: l
+- name: W_OA_TCAS
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp tail cascode NMOS (hsp M34, gate ibp)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00305
+    parameter: w
+- name: L_OA_TCAS
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp tail cascode NMOS (hsp M34, gate ibp)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00305
+    parameter: l
+- name: W_OA_VB
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp bias diode NMOS vb_n (hsp MN13)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00296
+    parameter: w
+- name: L_OA_VB
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp bias diode NMOS vb_n (hsp MN13)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00296
+    parameter: l
+- name: W_OA_IB
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp ibp 1 uA diode NMOS (hsp MN17)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00301
+    parameter: w
+- name: L_OA_IB
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp ibp 1 uA diode NMOS (hsp MN17)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00301
+    parameter: l
+- name: W_OA_SNK
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: second-stage current-sink NMOS (hsp M50)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00308
+    parameter: w
+- name: L_OA_SNK
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: second-stage current-sink NMOS (hsp M50)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00308
+    parameter: l
+- name: N_OA_SNK
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'multiplier: second-stage current-sink NMOS (hsp M50)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00308
+    - M00309
+    parameter: mult
+- name: W_OA_SCAS
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: second-stage sink cascode NMOS (hsp M51), same multiplier as M50'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00309
+    parameter: w
+- name: L_OA_SCAS
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: second-stage sink cascode NMOS (hsp M51), same multiplier as M50'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00309
+    parameter: l
+- name: W_OA_PRP
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp pseudo-resistor PMOS (hsp M2, gate at ground, long channel)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00286
+    parameter: w
+- name: L_OA_PRP
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp pseudo-resistor PMOS (hsp M2, gate at ground, long channel)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00286
+    parameter: l
+- name: W_OA_PRN
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: op-amp pseudo-resistor NMOS (hsp M35, gate at the supply, long channel)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00300
+    parameter: w
+- name: L_OA_PRN
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: op-amp pseudo-resistor NMOS (hsp M35, gate at the supply, long channel)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00300
+    parameter: l
+- name: W_PASS
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: output pass PMOS M0 (hsp M0): width per unit, with the multiplier N_PASS'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00167
+    parameter: w
+- name: L_PASS
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: output pass PMOS M0 (hsp M0): width per unit, with the multiplier N_PASS'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00167
+    parameter: l
+- name: N_PASS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'multiplier: output pass PMOS M0 (hsp M0): width per unit, with the multiplier N_PASS'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00167
+    parameter: mult
+- name: W_FOL
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: source-follower NMOS array M1<12:1> (hsp M1): all 12 instances tied'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00168
+    - M00169
+    - M00170
+    - M00171
+    - M00172
+    - M00173
+    - M00174
+    - M00175
+    - M00176
+    - M00177
+    - M00178
+    - M00179
+    parameter: w
+- name: L_FOL
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: source-follower NMOS array M1<12:1> (hsp M1): all 12 instances tied'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00168
+    - M00169
+    - M00170
+    - M00171
+    - M00172
+    - M00173
+    - M00174
+    - M00175
+    - M00176
+    - M00177
+    - M00178
+    - M00179
+    parameter: l
+- name: N_FOL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: 'multiplier: source-follower NMOS array M1<12:1> (hsp M1): all 12 instances tied'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00168
+    - M00169
+    - M00170
+    - M00171
+    - M00172
+    - M00173
+    - M00174
+    - M00175
+    - M00176
+    - M00177
+    - M00178
+    - M00179
+    parameter: mult
+- name: W_RES
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: long-channel PMOS acting as the resistor in the drain of the follower (hsp M9 / PDF M2)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00164
+    parameter: w
+- name: L_RES
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: long-channel PMOS acting as the resistor in the drain of the follower (hsp M9 / PDF M2)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00164
+    parameter: l
+- name: W_CMP_IN
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: NMOS input pair (hsp cell_comp M4/M5), both comparators tied'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00078
+    - M00079
+    - M00096
+    - M00097
+    parameter: w
+- name: L_CMP_IN
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: NMOS input pair (hsp cell_comp M4/M5), both comparators tied'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00078
+    - M00079
+    - M00096
+    - M00097
+    parameter: l
+- name: W_CMP_LN
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: cross-coupled NMOS hysteresis pair (hsp M12/M13)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00073
+    - M00074
+    - M00091
+    - M00092
+    parameter: w
+- name: L_CMP_LN
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: cross-coupled NMOS hysteresis pair (hsp M12/M13)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00073
+    - M00074
+    - M00091
+    - M00092
+    parameter: l
+- name: W_CMP_DN
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: diode NMOS pair (hsp M19/M20)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00076
+    - M00077
+    - M00094
+    - M00095
+    parameter: w
+- name: L_CMP_DN
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: diode NMOS pair (hsp M19/M20)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00076
+    - M00077
+    - M00094
+    - M00095
+    parameter: l
+- name: W_CMP_ON
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: NMOS output devices (hsp M21/M22)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00072
+    - M00075
+    - M00090
+    - M00093
+    parameter: w
+- name: L_CMP_ON
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: NMOS output devices (hsp M21/M22)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00072
+    - M00075
+    - M00090
+    - M00093
+    parameter: l
+- name: W_CMP_DP
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: PMOS diode loads of the input pair (hsp M6/M2)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00082
+    - M00083
+    - M00100
+    - M00101
+    parameter: w
+- name: L_CMP_DP
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: PMOS diode loads of the input pair (hsp M6/M2)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00082
+    - M00083
+    - M00100
+    - M00101
+    parameter: l
+- name: W_CMP_MP
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: PMOS mirror devices (hsp M9/M10, multiplier 2)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00084
+    - M00085
+    - M00102
+    - M00103
+    parameter: w
+- name: L_CMP_MP
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: PMOS mirror devices (hsp M9/M10, multiplier 2)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00084
+    - M00085
+    - M00102
+    - M00103
+    parameter: l
+- name: W_CMP_OP
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'width: OV/UV comparators: PMOS output mirror (hsp M17/M18)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00080
+    - M00081
+    - M00098
+    - M00099
+    parameter: w
+- name: L_CMP_OP
+  kind: real
+  unit: m
+  lower: 5.0e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'length: OV/UV comparators: PMOS output mirror (hsp M17/M18)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M00080
+    - M00081
+    - M00098
+    - M00099
+    parameter: l
+- name: R_FB_TOP
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'feedback divider upper resistor (hsp R2): with R_FB_BOT sets the regulated output from the reference'
+  binding:
+    type: instance_parameter
+    instances:
+    - R00159
+    parameter: r
+- name: R_FB_BOT
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: feedback divider lower resistor (hsp R3)
+  binding:
+    type: instance_parameter
+    instances:
+    - R00160
+    parameter: r
+- name: R_UV_TOP
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'supply-monitor divider: VDDA to the upper tap (hsp R0); sets the UV / OV flag thresholds'
+  binding:
+    type: instance_parameter
+    instances:
+    - R00426
+    parameter: r
+- name: R_UV_MID
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'supply-monitor divider: between the upper and lower tap (hsp R7)'
+  binding:
+    type: instance_parameter
+    instances:
+    - R00424
+    parameter: r
+- name: R_UV_BOT
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'supply-monitor divider: lower tap to ground (hsp R11)'
+  binding:
+    type: instance_parameter
+    instances:
+    - R00425
+    parameter: r
+- name: R_CMP_TAIL
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'OV/UV comparators: tail resistor of the input pair (hsp cell_comp R0), both tied'
+  binding:
+    type: instance_parameter
+    instances:
+    - R00086
+    - R00104
+    parameter: r
+- name: C_INT
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: integrator capacitor between the op-amp output and the feedback node (hsp C0)
+  binding:
+    type: instance_parameter
+    instances:
+    - C00427
+    parameter: c
+- name: C_MILLER
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: op-amp Miller capacitors (hsp C1/C3, in parallel), tied
+  binding:
+    type: instance_parameter
+    instances:
+    - C00422
+    - C00423
+    parameter: c
+- name: C_SCF
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: switched-capacitor filter capacitors (hsp C0/C1), tied
+  binding:
+    type: instance_parameter
+    instances:
+    - C00141
+    - C00142
+    parameter: c
+- name: M_OA_LD
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00291, M00292; preserves matched width/length group W_OA_LD
+  binding:
+    type: instance_parameter
+    instances:
+    - M00291
+    - M00292
+    parameter: mult
+- name: M_OA_TSRC
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00298; preserves matched width/length group W_OA_TSRC
+  binding:
+    type: instance_parameter
+    instances:
+    - M00298
+    parameter: mult
+- name: M_OA_TCAS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00305; preserves matched width/length group W_OA_TCAS
+  binding:
+    type: instance_parameter
+    instances:
+    - M00305
+    parameter: mult
+- name: M_OA_VB
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00296; preserves matched width/length group W_OA_VB
+  binding:
+    type: instance_parameter
+    instances:
+    - M00296
+    parameter: mult
+- name: M_OA_IB
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00301; preserves matched width/length group W_OA_IB
+  binding:
+    type: instance_parameter
+    instances:
+    - M00301
+    parameter: mult
+- name: M_OA_PRP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00286; preserves matched width/length group W_OA_PRP
+  binding:
+    type: instance_parameter
+    instances:
+    - M00286
+    parameter: mult
+- name: M_OA_PRN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00300; preserves matched width/length group W_OA_PRN
+  binding:
+    type: instance_parameter
+    instances:
+    - M00300
+    parameter: mult
+- name: M_RES
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00164; preserves matched width/length group W_RES
+  binding:
+    type: instance_parameter
+    instances:
+    - M00164
+    parameter: mult
+- name: M_CMP_LN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00073, M00074, M00091, M00092; preserves matched width/length group W_CMP_LN
+  binding:
+    type: instance_parameter
+    instances:
+    - M00073
+    - M00074
+    - M00091
+    - M00092
+    parameter: mult
+- name: M_CMP_DN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00076, M00077, M00094, M00095; preserves matched width/length group W_CMP_DN
+  binding:
+    type: instance_parameter
+    instances:
+    - M00076
+    - M00077
+    - M00094
+    - M00095
+    parameter: mult
+- name: M_CMP_ON
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00072, M00075, M00090, M00093; preserves matched width/length group W_CMP_ON
+  binding:
+    type: instance_parameter
+    instances:
+    - M00072
+    - M00075
+    - M00090
+    - M00093
+    parameter: mult
+- name: M_CMP_DP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00082, M00083, M00100, M00101; preserves matched width/length group W_CMP_DP
+  binding:
+    type: instance_parameter
+    instances:
+    - M00082
+    - M00083
+    - M00100
+    - M00101
+    parameter: mult
+- name: M_CMP_OP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for M00080, M00081, M00098, M00099; preserves matched width/length group W_CMP_OP
+  binding:
+    type: instance_parameter
+    instances:
+    - M00080
+    - M00081
+    - M00098
+    - M00099
+    parameter: mult
+dependent_parameters: {}
+conditions:
+- id: tt_T27_S1p00
+  model_set: tt
+  temperature_C: 27.0
+  supply_V: 3.3
+  supply_scale: 1.0
+  nominal: true
+operating_conditions:
+  input_voltage_V:
+    value: 3.3
+    provenance: 'CURATOR CHOICE (rule D7, crucial question 1): the paper VDDA is 2.5 V (LDO.pdf Table 2, ldo_checker / tb_ldo.hsp vsup2v5); at
+      2.5 V the exported sky130 g5v0d10v5 devices do not regulate (Vout 1.363 V, onboarding_status.port_proof); 3.3 V = the standard 5 V-device
+      rail, within the 5.5 V rating'
+  reference_V:
+    value: 1.2
+    provenance: 'paper: LDO.pdf Table 1 vref_ai 1.2 V; ldo_checker.va vref_nom = 1.2'
+  load_resistance_ohm:
+    value: 75.0
+    provenance: 'repository: tb_ldo.hsp R5 = 75 ohm (20 mA at 1.5 V; the checker''s +-5 mA steps give 15 / 25 mA)'
+  load_current_A:
+    value: 0.02
+    provenance: 75 ohm at 1.5 V (the nominal load); only a family placeholder, the recipes use load_resistance_ohm
+  load_capacitance_F:
+    value: 1.0e-12
+    provenance: 'repository: tb_ldo.hsp C2 = 1 pF (README: ''the testbench uses 1 pF''); the circuit is capacitor-less'
+  clock_frequency_Hz:
+    value: 400000.0
+    provenance: 'paper: LDO.pdf Table 1 clk_i / Table 2 f = 400 kHz; ldo_checker.va fclk'
+  output_voltage_V:
+    value: 1.5
+    provenance: 'paper: LDO.pdf Table 1 vout_1V5_ao 1.5 V'
+constraints:
+- name: vout_boot_lo
+  metric: vout_boot_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  lower: 1.35
+  target:
+    kind: linear
+    paper_value: 1.5
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: LDO.pdf Table 1 vout_1V5_ao typ 1.5 V (value at the checker''s RAMP_UP_CHECK_SETT, 60 us after enable); 10 % tolerance'
+  source: native
+- name: vout_boot_hi
+  metric: vout_boot_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 1.65
+  target:
+    kind: linear
+    paper_value: 1.5
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: LDO.pdf Table 1 vout_1V5_ao typ 1.5 V; 10 % tolerance'
+  source: native
+- name: uv_threshold_lo
+  metric: uv_threshold_rising_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  lower: 2.7324
+  target:
+    kind: linear
+    paper_value: 3.036
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: LDO.pdf Table 1 undervoltage_o ''High if VDDA is lower than 2.3 V'' (Fig. 8 cursor 2.30257 V, rising supply) x 1.32 supply
+    scale (crucial question 1); 10 % tolerance'
+  source: native
+- name: uv_threshold_hi
+  metric: uv_threshold_rising_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  upper: 3.3396
+  target:
+    kind: linear
+    paper_value: 3.036
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as uv_threshold_lo
+  source: native
+- name: ov_threshold_lo
+  metric: ov_threshold_rising_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  lower: 3.3264
+  target:
+    kind: linear
+    paper_value: 3.696
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: LDO.pdf Table 1 overvoltage_o ''High if VDDA is higher than 2.8 V'' (Fig. 8 cursor 2.79772 V, rising supply) x 1.32 supply
+    scale; 10 % tolerance'
+  source: native
+- name: ov_threshold_hi
+  metric: ov_threshold_rising_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  upper: 4.0656
+  target:
+    kind: linear
+    paper_value: 3.696
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as ov_threshold_lo
+  source: native
+- name: uv_hysteresis_lo
+  metric: uv_hysteresis_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  lower: 0.042749999999999996
+  target:
+    kind: linear
+    paper_value: 0.0475
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: LDO.pdf Sec. 7 / Fig. 7: comparator hysteresis ''about 47.5 mV'' (cursor dx 47.5001 mV); measured as the change of the comparator
+    input (supply-divider tap) between the rising and the falling trip of the UV flag; 10 % tolerance'
+  source: native
+- name: uv_hysteresis_hi
+  metric: uv_hysteresis_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  upper: 0.052250000000000005
+  target:
+    kind: linear
+    paper_value: 0.0475
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as uv_hysteresis_lo
+  source: native
+- name: ov_hysteresis_lo
+  metric: ov_hysteresis_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  lower: 0.042749999999999996
+  target:
+    kind: linear
+    paper_value: 0.0475
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as uv_hysteresis_lo, for the OV flag (the same cell_comp is used twice)
+  source: native
+- name: ov_hysteresis_hi
+  metric: ov_hysteresis_V
+  recipe: ifx_ldo_monitor_v1
+  point: {}
+  unit: V
+  upper: 0.052250000000000005
+  target:
+    kind: linear
+    paper_value: 0.0475
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: as ov_hysteresis_lo
+  source: native
+- name: reg_err_boot
+  metric: reg_err_boot_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.005
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit (no documented number): ldo_checker.va vtol = 5 mV, |Vout - 1.5 V| at RAMP_UP_CHECK and _SETT; LDO.pdf Table 3 test
+    id 8 ''output voltage is not within the expected limits'''
+  source: native
+- name: reg_err_supply
+  metric: reg_err_supply_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.005
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit: +-5 mV after the in-spec supply steps (+-0.2 V x 1.32) and after the recovery from the +-0.3 V fault pulses (LDO.pdf
+    Sec. 8 tests 4 and 5)'
+  source: native
+- name: reg_err_enable
+  metric: reg_err_enable_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.005
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit: +-5 mV 30 / 50 us after re-enable (LDO.pdf Sec. 8 test 6, ''Disable'')'
+  source: native
+- name: reg_err_vref
+  metric: reg_err_vref_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.005
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit: +-5 mV around 1.5 V + 1.5/1.2 x (+-50 mV) with Vref stepped, and around 1.5 V after Vref returns (LDO.pdf Sec. 8
+    tests 7 and 8)'
+  source: native
+- name: reg_err_load
+  metric: reg_err_load_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.005
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit: +-5 mV with the load stepped +5 mA (25 mA) and -5 mA (15 mA) around the 75 ohm / 20 mA load, and back (LDO.pdf Sec.
+    8 tests 9 and 10; Table 2 Iout 0-25 mA)'
+  source: native
+- name: settle_dev_max
+  metric: settle_dev_max_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.007
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit: ldo_checker.va maxdiff = 7 mV, |Vout(t + 10 us) - Vout(t)| at every settling check (Table 3 test id 9 ''output voltage
+    has not settled'')'
+  source: native
+- name: idle_vout_max
+  metric: idle_vout_max_V
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: V
+  upper: 0.01
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker limit: ldo_checker.va maxidle = 10 mV, output when disabled and 5 us into a +-0.3 V x 1.32 supply fault (Table 3 test id
+    7)'
+  source: native
+- name: flag_errors
+  metric: flag_errors
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'checker: flags low in regulation, overvoltage_o high / undervoltage_o low after +0.3 V x 1.32, undervoltage_o high / overvoltage_o
+    low after -0.3 V x 1.32, both low when disabled (Table 3 test id 10; LDO.pdf Table 1)'
+  source: native
+- name: checker_failures
+  metric: checker_failures
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'the repository''s own pass / fail: the number of checks of ldo_checker.va that fail on this waveform (LDO.pdf Sec. 9: test id 0
+    if everything is within the specification)'
+  source: native
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'benchmark rule G8 (validity gate, not a paper target): analog-core transistors saturated at the regulated operating point (t =
+    57 us of the sequence); exclusions in topology op_check'
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: ifx_ldo_sequence_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - ifx_ldo_monitor_v1
+  - ov_hysteresis_V
+- - ifx_ldo_monitor_v1
+  - ov_threshold_falling_V
+- - ifx_ldo_monitor_v1
+  - ov_threshold_rising_V
+- - ifx_ldo_monitor_v1
+  - uv_hysteresis_V
+- - ifx_ldo_monitor_v1
+  - uv_threshold_falling_V
+- - ifx_ldo_monitor_v1
+  - uv_threshold_rising_V
+- - ifx_ldo_sequence_v1
+  - checker_failures
+- - ifx_ldo_sequence_v1
+  - devices_out_of_saturation
+- - ifx_ldo_sequence_v1
+  - devices_outside_rails
+- - ifx_ldo_sequence_v1
+  - flag_errors
+- - ifx_ldo_sequence_v1
+  - forward_biased_junctions
+- - ifx_ldo_sequence_v1
+  - idle_vout_max_V
+- - ifx_ldo_sequence_v1
+  - reg_err_boot_V
+- - ifx_ldo_sequence_v1
+  - reg_err_enable_V
+- - ifx_ldo_sequence_v1
+  - reg_err_load_V
+- - ifx_ldo_sequence_v1
+  - reg_err_supply_V
+- - ifx_ldo_sequence_v1
+  - reg_err_vref_V
+- - ifx_ldo_sequence_v1
+  - saturation_margin_min_V
+- - ifx_ldo_sequence_v1
+  - settle_dev_max_V
+- - ifx_ldo_sequence_v1
+  - vout_boot_V
+simulations_per_design: 2
+analysis_executions_per_design: 3
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: tt_T27_S1p00
+  recipe: ifx_ldo_sequence_v1
+  folder: testbenches/tt_T27_S1p00/ifx_ldo_sequence_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/tr1.tran.tran
+  - raw/op_info.info
+  metrics:
+    vout_boot_V:
+      unit: V
+      source: native
+    reg_err_boot_V:
+      unit: V
+      source: native
+    reg_err_supply_V:
+      unit: V
+      source: native
+    reg_err_enable_V:
+      unit: V
+      source: native
+    reg_err_vref_V:
+      unit: V
+      source: native
+    reg_err_load_V:
+      unit: V
+      source: native
+    settle_dev_max_V:
+      unit: V
+      source: native
+    idle_vout_max_V:
+      unit: V
+      source: native
+    flag_errors:
+      unit: count
+      source: native
+    checker_failures:
+      unit: count
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: tt_T27_S1p00
+  recipe: ifx_ldo_monitor_v1
+  folder: testbenches/tt_T27_S1p00/ifx_ldo_monitor_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/dcu.dc
+  - raw/dcd.dc
+  metrics:
+    uv_threshold_rising_V:
+      unit: V
+      source: native
+    uv_threshold_falling_V:
+      unit: V
+      source: native
+    ov_threshold_rising_V:
+      unit: V
+      source: native
+    ov_threshold_falling_V:
+      unit: V
+      source: native
+    uv_hysteresis_V:
+      unit: V
+      source: native
+    ov_hysteresis_V:
+      unit: V
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - ldo_ifx_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('ldo_ifx_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

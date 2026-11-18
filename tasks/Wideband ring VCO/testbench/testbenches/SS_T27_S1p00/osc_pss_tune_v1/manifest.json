@@ -1,0 +1,181 @@
+{
+  "job_id": "SS_T27_S1p00/osc_pss_tune_v1",
+  "recipe_id": "osc_pss_tune_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "SS_T27_S1p00",
+    "model_set": "SS",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.2,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs",
+        "section": "SS"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 1.2
+  },
+  "points": [
+    {
+      "vctrl_V": 0.45
+    },
+    {
+      "vctrl_V": 0.5
+    },
+    {
+      "vctrl_V": 0.55
+    },
+    {
+      "vctrl_V": 0.6
+    },
+    {
+      "vctrl_V": 0.65
+    },
+    {
+      "vctrl_V": 0.7
+    },
+    {
+      "vctrl_V": 0.75
+    },
+    {
+      "vctrl_V": 0.8
+    },
+    {
+      "vctrl_V": 0.825
+    },
+    {
+      "vctrl_V": 0.85
+    },
+    {
+      "vctrl_V": 0.9
+    },
+    {
+      "vctrl_V": 0.95
+    },
+    {
+      "vctrl_V": 1.0
+    },
+    {
+      "vctrl_V": 1.05
+    },
+    {
+      "vctrl_V": 1.1
+    },
+    {
+      "vctrl_V": 1.15
+    },
+    {
+      "vctrl_V": 1.2
+    },
+    {
+      "vctrl_V": 0.45,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.5,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.55,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.6,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.65,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.7,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.75,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.8,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.825,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.85,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.9,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 0.95,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 1.0,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 1.05,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 1.1,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 1.15,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "vctrl_V": 1.2,
+      "offset_Hz": 1000000.0
+    },
+    {
+      "curve": "tuning"
+    },
+    {
+      "target": "tuned"
+    },
+    {
+      "target": "tuned",
+      "offset_Hz": 1000000.0
+    }
+  ],
+  "expected_outputs": [],
+  "expected_metrics": [
+    "pss_frequency_Hz",
+    "pss_power_W",
+    "output_vpp_V",
+    "tuning_range_Hz",
+    "kvco_Hz_per_V",
+    "max_min_frequency_ratio",
+    "tuning_range_pct",
+    "vf_linearity_error_pct",
+    "vctrl_at_target_V",
+    "target_frequency_Hz",
+    "output_min_V",
+    "output_max_V",
+    "phase_noise_dBc_per_Hz",
+    "fom_dBc_per_Hz"
+  ],
+  "digests": {
+    "task": "55355b1482c40177ece3006a5c3ce419075f99abb19d9e232d0e94a900a8650a",
+    "candidate": "58ebc9713506c327ea4fc4d5362c791940b5728a417ffa9bf38a3ed6fc677e08",
+    "parameterization": "980e941a7ff05d443d904492f294294786f4d03379980c50920bd2e9bf3601e2",
+    "dut_source_netlist": "c53c9bb554002493aa2c393b0ff24a78f2e44b0f647d1f92971f2515dc172f7d",
+    "dut_subckt": "dffab2991918de8e553746dd34b7068f23ee6c716775954f7c51d7bfb9451a18",
+    "models": "2f2c52de470cfd38b3e6f778a680fbb5b7a9e131fc607d49ff8f53352bb24956",
+    "recipes": "6f21edb49444be01bf89072106ed78063aac6f9e4d405874d817d39e6ab953f5",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "7d64bd530f69d4f81812642621f88ab7d2b0c35dd1158ff966b42682d79b4af5"
+  },
+  "state": "rendered"
+}

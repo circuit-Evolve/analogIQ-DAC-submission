@@ -1,0 +1,33 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task gmc_reconstructed_131126_task_001  topology gmc_reconstructed_131126
+// recipe gmc1113_filter_v1 v2  condition NN_T27_S0p90 (models NN, 27 C, supply 0.9 V)
+// request gmc_reconstructed_131126_task_001__plan  candidate 4c8b5f7c3a0f510b
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs" section=NN
+include "dut.scs"
+
+parameters vsup=0.9
+// Sizing variables set in the testbench (external-bias values).
+parameters vt_bias_V=0.5
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VT (b_VT 0) vsource dc=vt_bias_V
+VB_GND (b_GND 0) vsource dc=0.0
+
+VINP (iin 0) vsource dc=0.45 mag=0.5
+VINM (inn 0) vsource dc=0.45 mag=-0.5
+VREF_SRC (vocm 0) vsource dc=0.45
+
+XDUT (iin inn out outn b_VT vocm vdd b_GND) gmc_filter M19_l=1e-06 M19_m=1.0 M19_w=1e-06 M20_l=1e-06 M20_m=1.0 M20_w=1e-06 M23_l=1e-06 M23_m=1.0 M23_w=1e-06 M24_l=1e-06 M24_m=1.0 M24_w=1e-06 M25_l=1e-06 M25_m=1.0 M25_w=1e-06 M28_l=1e-06 M28_m=1.0 M28_w=1e-06 bias_n_l=1e-06 bias_n_m=1.0 bias_n_w=1e-06 bias_p_l=1e-06 bias_p_m=1.0 bias_p_w=1e-06 cap_b_F=1e-12 cap_d_F=1e-12 cm_fb_n_l=1e-06 cm_fb_n_m=1.0 cm_fb_n_w=1e-06 cm_fb_p_l=1e-06 cm_fb_p_m=1.0 cm_fb_p_w=1e-06 cm_node_n_l=1e-06 cm_node_n_m=1.0 cm_node_n_w=1e-06 cm_node_p_l=1e-06 cm_node_p_m=1.0 cm_node_p_w=1e-06 cm_out_n_l=1e-06 cm_out_n_m=1.0 cm_out_n_w=1e-06 cm_out_p_l=1e-06 cm_out_p_m=1.0 cm_out_p_w=1e-06 cross_n_l=1e-06 cross_n_m=1.0 cross_n_w=1e-06 cross_p_l=1e-06 cross_p_m=1.0 cross_p_w=1e-06 feedback_n_l=1e-06 feedback_n_m=1.0 feedback_n_w=1e-06 feedback_p_l=1e-06 feedback_p_m=1.0 feedback_p_w=1e-06 input_n_l=1e-06 input_n_m=1.0 input_n_w=1e-06 input_p_l=1e-06 input_p_m=1.0 input_p_w=1e-06 load_n_l=1e-06 load_n_m=1.0 load_n_w=1e-06 load_p_l=1e-06 load_p_m=1.0 load_p_w=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_GND:p VB_VT:p VSUP:p iin inn out outn vdd vocm
+
+gmcopts options reltol=1e-6 vabstol=1e-9 iabstol=1e-14
+dcOp dc
+ac ac start=1 stop=100G dec=500
+noise (out outn) noise start=1 stop=1G dec=500 iprobe=VINP save=selected

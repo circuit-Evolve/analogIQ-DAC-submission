@@ -1,0 +1,539 @@
+{
+  "task_id": "bandgap",
+  "topology_id": "bgr_fig3_paper",
+  "family": "bandgap_reference",
+  "technology_id": "sky130",
+  "description": "Original published sizing, disclosed R4/CC assumptions, TT27C1.8V with retained line/temperature characterization. No process corners added.",
+  "variables": [
+    {
+      "name": "PMIRROR_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 3.19e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M1",
+          "bgr_fig3_paper.M2",
+          "bgr_fig3_paper.M3"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PMIRROR_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 4e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M1",
+          "bgr_fig3_paper.M2",
+          "bgr_fig3_paper.M3"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "NPTAT_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 7.513e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M4",
+          "bgr_fig3_paper.M5_1",
+          "bgr_fig3_paper.M5_2",
+          "bgr_fig3_paper.M5_3",
+          "bgr_fig3_paper.M5_4",
+          "bgr_fig3_paper.M5_5",
+          "bgr_fig3_paper.M5_6",
+          "bgr_fig3_paper.M5_7",
+          "bgr_fig3_paper.M5_8",
+          "bgr_fig3_paper.M5_9",
+          "bgr_fig3_paper.M5_10"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M4",
+        "M5_1",
+        "M5_2",
+        "M5_3",
+        "M5_4",
+        "M5_5",
+        "M5_6",
+        "M5_7",
+        "M5_8",
+        "M5_9",
+        "M5_10"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "NPTAT_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 4e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M4",
+          "bgr_fig3_paper.M5_1",
+          "bgr_fig3_paper.M5_2",
+          "bgr_fig3_paper.M5_3",
+          "bgr_fig3_paper.M5_4",
+          "bgr_fig3_paper.M5_5",
+          "bgr_fig3_paper.M5_6",
+          "bgr_fig3_paper.M5_7",
+          "bgr_fig3_paper.M5_8",
+          "bgr_fig3_paper.M5_9",
+          "bgr_fig3_paper.M5_10"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M4",
+        "M5_1",
+        "M5_2",
+        "M5_3",
+        "M5_4",
+        "M5_5",
+        "M5_6",
+        "M5_7",
+        "M5_8",
+        "M5_9",
+        "M5_10"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "PBIAS_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 4.9999999999999996e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M6",
+          "bgr_fig3_paper.M7"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M6",
+        "M7"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PBIAS_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 5.5e-07,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M6",
+          "bgr_fig3_paper.M7"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M6",
+        "M7"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "PGAIN_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 8.476999999999999e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M8"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M8"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PGAIN_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 2.4999999999999998e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M8"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M8"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "NGAIN_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 2.8e-05,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M9"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M9"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "NGAIN_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 2.4999999999999998e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M9"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M9"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "PINPUT_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 6.4e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M10",
+          "bgr_fig3_paper.M11"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M10",
+        "M11"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "PINPUT_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 1.2e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M10",
+          "bgr_fig3_paper.M11"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M10",
+        "M11"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "NLOAD_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.1999999999999995e-07,
+      "upper": 0.0003,
+      "initial": 1.3e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M12",
+          "bgr_fig3_paper.M13"
+        ],
+        "parameter": "w"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M12",
+        "M13"
+      ],
+      "parameter": "w"
+    },
+    {
+      "name": "NLOAD_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.5e-07,
+      "upper": 9.999999999999999e-06,
+      "initial": 1e-06,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.M12",
+          "bgr_fig3_paper.M13"
+        ],
+        "parameter": "l"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "M12",
+        "M13"
+      ],
+      "parameter": "l"
+    },
+    {
+      "name": "R1_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 1000,
+      "upper": 1000000.0,
+      "initial": 30000,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R1"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R1"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "R2_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 1000,
+      "upper": 1000000.0,
+      "initial": 83600,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R2"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R2"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "R3_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 1000,
+      "upper": 2000000.0,
+      "initial": 118300,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R3"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R3"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "R4_r",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 10000,
+      "upper": 2000000.0,
+      "initial": 100000,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.R4"
+        ],
+        "parameter": "r"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "R4"
+      ],
+      "parameter": "r"
+    },
+    {
+      "name": "CC_c",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "initial": 1e-12,
+      "scale": "log",
+      "binding": {
+        "instances": [
+          "bgr_fig3_paper.CC"
+        ],
+        "parameter": "c"
+      },
+      "cell": "bgr_fig3_paper",
+      "devices": [
+        "CC"
+      ],
+      "parameter": "c"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "Vref_V",
+      "metric": "Vref_V",
+      "recipe": "retained_paper_nominal",
+      "lower": 1.08,
+      "upper": 1.3199999999999998,
+      "paper_value": 1.2,
+      "conditions": [
+        "TT_27"
+      ],
+      "aggregate": "worst",
+      "expression": "getData(\"VREF\" ?result \"dcOp\")",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "name": "Power_uW",
+      "metric": "Power_uW",
+      "recipe": "retained_paper_nominal",
+      "lower": 231.723,
+      "upper": 283.21700000000004,
+      "paper_value": 257.47,
+      "conditions": [
+        "TT_27"
+      ],
+      "aggregate": "worst",
+      "expression": "-1e6*average(1.8*getData(\"VDD_SRC:p\" ?result \"tran\"))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "name": "PSRR_LF_dB",
+      "metric": "PSRR_LF_dB",
+      "recipe": "retained_paper_nominal",
+      "lower": 21.501,
+      "upper": 26.279,
+      "paper_value": 23.89,
+      "conditions": [
+        "TT_27"
+      ],
+      "aggregate": "worst",
+      "expression": "-value(dB20(getData(\"VREF\" ?result \"ac\")) 1)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "name": "Line_sensitivity_percent",
+      "metric": "Line_sensitivity_percent",
+      "recipe": "retained_paper_nominal",
+      "lower": 6.03,
+      "upper": 7.37,
+      "paper_value": 6.7,
+      "conditions": [
+        "TT_27"
+      ],
+      "aggregate": "worst",
+      "expression": "100*(ymax(getData(\"VREF\" ?result \"dc\"))-ymin(getData(\"VREF\" ?result \"dc\")))/(1.89-1.71)",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    },
+    {
+      "name": "TC_19_120_ppm_C",
+      "metric": "TC_19_120_ppm_C",
+      "recipe": "retained_paper_nominal",
+      "lower": 17.37,
+      "upper": 21.23,
+      "paper_value": 19.3,
+      "conditions": [
+        "TT_27"
+      ],
+      "aggregate": "worst",
+      "expression": "1e6*(ymax(clip(getData(\"VREF\" ?result \"dc\") 19 120))-ymin(clip(getData(\"VREF\" ?result \"dc\") 19 120)))/(value(getData(\"VREF\" ?result \"dc\") 27)*(120-19))",
+      "source": "Section III-A and Table V; conditions read from Fig5 axes without digitizing targets"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "TT_27",
+      "model_set": "tt",
+      "temperature_C": 27,
+      "nominal": true
+    }
+  ],
+  "operating_conditions": {
+    "supply_V": 1.8,
+    "line_sweep_min_V": 1.71,
+    "line_sweep_max_V": 1.89,
+    "temperature_sweep_min_C": -40,
+    "temperature_sweep_max_C": 120,
+    "TC_interval_min_C": 19,
+    "TC_interval_max_C": 120
+  },
+  "objective": null
+}

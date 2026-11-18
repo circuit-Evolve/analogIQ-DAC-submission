@@ -1,0 +1,38 @@
+schema_version: 1
+topology_id: rvco_khan2025_gpdk090
+family: oscillator
+interface_type: single_ended_ring_vco
+technology_id: gpdk090
+approval_status: unapproved
+source:
+  doi: 10.1109/QPAIN66474.2025.11171774
+  title: "Khan et al., 'Wideband and Linear Current Starved VCO with Source Degeneration and Integrated Charge Pump for ADC Front Ends', QPAIN 2025"
+  figure: "Fig. 5 (five-stage current-starved ring: global bias M11/M22/M23, starving M1/3/5 and M17/19/21, 'charge-pump' stages 2/4 with M2/M4/M18/M20, diode degeneration M24-M28, C1/C3/C5 = CLOAD, C2/C4 = CPUMP to VCON); sizes Table I (p. 3)"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, Metrics.xlsx, Corners.xlsx, Fig5 figure, cadence_schematic.png; see source/ORIGIN.txt)"
+  modifications:
+    - "None to final.scs. C2/C4 stay connected to VCON as drawn in Fig. 5 (owner answer RV1); with the ideal VCON source they are capacitors to AC ground. CLOAD / CPUMP (undeclared symbols, no paper value; paper realises them as PMOS capacitors) are ideal capacitors bound to sizing variables."
+dut:
+  netlist: final.scs
+  subckt_name: gc_0232a331ef36_c27a2916
+  port_order: [VDD, VSS, VCON, VOSC]
+  net_map: {}
+ports:
+  output_positive: VOSC
+  supply_positive: VDD
+  tuning: VCON
+external_bias:
+  VSS: {kind: voltage, value: 0.0, provenance: "benchmark rule G3: ground pin without a family role driven by a 0 V source"}
+op_check:
+  exclude: [M2, M4, M18, M20]
+  note: >-
+    G8 is checked at the DC equilibrium of the ring (osc_dc_v1 at Vcon 0.825 V, the middle of the task's
+    0.45-1.2 V control range): the metastable point the oscillation starts from, where every inverter sits
+    at its switching threshold and all starving, inverter, bias (M11, M22, M23) and degeneration devices
+    (M24-M28, 'always operated in saturation', p. 3) must be saturated for loop gain. Excluded: the
+    'charge-pump' devices M2/M4 (gate at VSS) and M18/M20 (gate at VDD), fully-on switches by design
+    (paper p. 3: 'connected to GND and VDD that strengthen the sourcing / sinking current'), i.e. triode.
+known_issues:
+  - "Paper supply 1.8 V exceeds the gpdk090 1.2 V device rating (1.32 V max): the task runs at 1.2 V (D9) with the control range re-chosen by simulation (RV2) and the paper's frequency targets scaled to 1.2 V by a owner-approved 2026-10-23 (RV3b, see task_001 description and onboarding_status)."
+  - "The paper's 'charge pump' is not a PLL charge pump: stages 2 and 4 with fully-on M2/M4 (gate VSS) and M18/M20 (gate VDD); there are no UP/DN pins."
+  - "Paper values are post-layout except the schematic tuning range 39-697 MHz (Sec. IV), which is targeted (G5). Paper inconsistencies: centre frequency 329 MHz (text) vs 323 MHz (Table II) vs MC mean 322.76 MHz; power at centre 524.4 uW (text, consistent with the FoM) vs Table II 354.6 uW (= the abstract's upper endpoint of '220.9-354.6 uW for the two terminal voltages') vs Fig. 14 ~0.29-0.70 mW."

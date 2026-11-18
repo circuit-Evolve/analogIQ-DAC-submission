@@ -1,0 +1,88 @@
+MISO variable bindings (SI; only these DUT dimensions/passives/biases may vary):
+// ota_input_w: {'cell': 'mdvccta_fig2', 'instances': ['M1', 'M2'], 'parameter': 'w'}; seed=1.7999999999999999e-06; bounds=[4.4999999999999998e-07, 7.1999999999999997e-06]
+// ota_input_l: {'cell': 'mdvccta_fig2', 'instances': ['M1', 'M2'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// ota_pmirror_w: {'cell': 'mdvccta_fig2', 'instances': ['M3', 'M4', 'M7', 'M8', 'M9'], 'parameter': 'w'}; seed=7.9999999999999996e-06; bounds=[1.9999999999999999e-06, 3.1999999999999999e-05]
+// ota_pmirror_l: {'cell': 'mdvccta_fig2', 'instances': ['M3', 'M4', 'M7', 'M8', 'M9'], 'parameter': 'l'}; seed=7.1999999999999999e-07; bounds=[3.5999999999999999e-07, 2.88e-06]
+// ota_pload_w: {'cell': 'mdvccta_fig2', 'instances': ['M5', 'M6'], 'parameter': 'w'}; seed=1.7999999999999999e-06; bounds=[4.4999999999999998e-07, 7.1999999999999997e-06]
+// ota_pload_l: {'cell': 'mdvccta_fig2', 'instances': ['M5', 'M6'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// ota_nmirror_w: {'cell': 'mdvccta_fig2', 'instances': ['M10', 'M11', 'M12', 'M13', 'M14'], 'parameter': 'w'}; seed=3.0000000000000001e-06; bounds=[7.5000000000000002e-07, 1.2e-05]
+// ota_nmirror_l: {'cell': 'mdvccta_fig2', 'instances': ['M10', 'M11', 'M12', 'M13', 'M14'], 'parameter': 'l'}; seed=7.1999999999999999e-07; bounds=[3.5999999999999999e-07, 2.88e-06]
+// frontend_input_w: {'cell': 'mdvccta_fig2', 'instances': ['M15', 'M16', 'M17', 'M18'], 'parameter': 'w'}; seed=4.5000000000000001e-06; bounds=[1.125e-06, 1.8e-05]
+// frontend_input_l: {'cell': 'mdvccta_fig2', 'instances': ['M15', 'M16', 'M17', 'M18'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// frontend_pmirror_w: {'cell': 'mdvccta_fig2', 'instances': ['M19', 'M20'], 'parameter': 'w'}; seed=1.9999999999999998e-05; bounds=[4.9999999999999996e-06, 7.9999999999999993e-05]
+// frontend_pmirror_l: {'cell': 'mdvccta_fig2', 'instances': ['M19', 'M20'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// frontend_pout_w: {'cell': 'mdvccta_fig2', 'instances': ['M21', 'M22', 'M23', 'M24'], 'parameter': 'w'}; seed=8.7499999999999992e-06; bounds=[2.1874999999999998e-06, 3.4999999999999997e-05]
+// frontend_pout_l: {'cell': 'mdvccta_fig2', 'instances': ['M21', 'M22', 'M23', 'M24'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// frontend_ntail_w: {'cell': 'mdvccta_fig2', 'instances': ['M25', 'M26'], 'parameter': 'w'}; seed=1.3499999999999999e-05; bounds=[3.3749999999999999e-06, 5.3999999999999998e-05]
+// frontend_ntail_l: {'cell': 'mdvccta_fig2', 'instances': ['M25', 'M26'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// frontend_nout_w: {'cell': 'mdvccta_fig2', 'instances': ['M27', 'M28', 'M29', 'M30'], 'parameter': 'w'}; seed=1.8749999999999998e-05; bounds=[4.6874999999999996e-06, 7.4999999999999993e-05]
+// frontend_nout_l: {'cell': 'mdvccta_fig2', 'instances': ['M27', 'M28', 'M29', 'M30'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// resistor_w: {'cell': 'grounded_resistor_fig8a', 'instances': ['MR1', 'MR2'], 'parameter': 'w'}; seed=1.7999999999999999e-06; bounds=[4.4999999999999998e-07, 7.1999999999999997e-06]
+// resistor_l: {'cell': 'grounded_resistor_fig8a', 'instances': ['MR1', 'MR2'], 'parameter': 'l'}; seed=3.5999999999999999e-07; bounds=[1.8e-07, 1.44e-06]
+// C1: {'cell': 'miso_fig3', 'instances': ['C1'], 'parameter': 'c'}; seed=1.9999999999999999e-11; bounds=[4.9999999999999997e-12, 7.9999999999999995e-11]
+// C2: {'cell': 'miso_fig3', 'instances': ['C2'], 'parameter': 'c'}; seed=1.9999999999999999e-11; bounds=[4.9999999999999997e-12, 7.9999999999999995e-11]
+// R3: {'cell': 'miso_fig3', 'instances': ['R3'], 'parameter': 'r'}; seed=2000; bounds=[500, 8000]
+// OTA_IBIAS: {'cell': 'mdvccta_fig2', 'instances': ['IBIAS'], 'parameter': 'dc'}; seed=4.6999999999999997e-05; bounds=[1.0000000000000001e-05, 0.00014999999999999999]
+// VBIAS: {'cell': '__top__', 'instances': ['VBIAS_SRC'], 'parameter': 'dc'}; seed=-0.29999999999999999; bounds=[-0.55000000000000004, -0.10000000000000001]
+// VCTRL: {'cell': '__top__', 'instances': ['VCTRL_SRC'], 'parameter': 'dc'}; seed=0.77684460820506473; bounds=[0.5, 0.90000000000000002]
+subckt mdvccta_fig2 GND N OM OP OP2 VBIAS VDD VSS X Y1 Y2 Z1P Z2P ZP
+    M30 (Z2P VBIAS VSS VSS) nmos1 w=<frontend_nout_w> l=<frontend_nout_l> as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M29 (Z1P VBIAS VSS VSS) nmos1 w=<frontend_nout_w> l=<frontend_nout_l> as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M28 (ZP VBIAS VSS VSS) nmos1 w=<frontend_nout_w> l=<frontend_nout_l> as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M27 (X VBIAS VSS VSS) nmos1 w=<frontend_nout_w> l=<frontend_nout_l> as=11.25p ad=11.25p          ps=38.7u pd=38.7u m=1
+    M26 (T2 VBIAS VSS VSS) nmos1 w=<frontend_ntail_w> l=<frontend_ntail_l> as=8.1p ad=8.1p ps=28.2u          pd=28.2u m=1
+    M25 (T1 VBIAS VSS VSS) nmos1 w=<frontend_ntail_w> l=<frontend_ntail_l> as=8.1p ad=8.1p ps=28.2u          pd=28.2u m=1
+    M18 (NG Y1 T2 VSS) nmos1 w=<frontend_input_w> l=<frontend_input_l> as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M17 (PG X T2 VSS) nmos1 w=<frontend_input_w> l=<frontend_input_l> as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M16 (NG GND T1 VSS) nmos1 w=<frontend_input_w> l=<frontend_input_l> as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M15 (PG Y2 T1 VSS) nmos1 w=<frontend_input_w> l=<frontend_input_l> as=2.7p ad=2.7p ps=10.2u          pd=10.2u m=1
+    M14 (PB PB VSS VSS) nmos1 w=<ota_nmirror_w> l=<ota_nmirror_l> as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M13 (OP2 NB VSS VSS) nmos1 w=<ota_nmirror_w> l=<ota_nmirror_l> as=1.8p ad=1.8p ps=7.2u          pd=7.2u m=1
+    M12 (OP NB VSS VSS) nmos1 w=<ota_nmirror_w> l=<ota_nmirror_l> as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M11 (NB NB VSS VSS) nmos1 w=<ota_nmirror_w> l=<ota_nmirror_l> as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M10 (OM PB VSS VSS) nmos1 w=<ota_nmirror_w> l=<ota_nmirror_l> as=1.8p ad=1.8p ps=7.2u pd=7.2u          m=1
+    M2 (NR ZP T VSS) nmos1 w=<ota_input_w> l=<ota_input_l> as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    M1 (NL N T VSS) nmos1 w=<ota_input_w> l=<ota_input_l> as=1.08p ad=1.08p ps=4.8u pd=4.8u          m=1
+    M24 (Z2P NG VDD VDD) pmos1 w=<frontend_pout_w> l=<frontend_pout_l> as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M23 (Z1P NG VDD VDD) pmos1 w=<frontend_pout_w> l=<frontend_pout_l> as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M22 (ZP NG VDD VDD) pmos1 w=<frontend_pout_w> l=<frontend_pout_l> as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M21 (X NG VDD VDD) pmos1 w=<frontend_pout_w> l=<frontend_pout_l> as=5.25p ad=5.25p ps=18.7u          pd=18.7u m=1
+    M20 (NG PG VDD VDD) pmos1 w=<frontend_pmirror_w> l=<frontend_pmirror_l> as=12p ad=12p ps=41.2u          pd=41.2u m=1
+    M19 (PG PG VDD VDD) pmos1 w=<frontend_pmirror_w> l=<frontend_pmirror_l> as=12p ad=12p ps=41.2u          pd=41.2u m=1
+    M9 (PB NR VDD VDD) pmos1 w=<ota_pmirror_w> l=<ota_pmirror_l> as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M8 (OP2 NR VDD VDD) pmos1 w=<ota_pmirror_w> l=<ota_pmirror_l> as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M7 (OP NR VDD VDD) pmos1 w=<ota_pmirror_w> l=<ota_pmirror_l> as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M6 (NR NR VDD VDD) pmos1 w=<ota_pload_w> l=<ota_pload_l> as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    M5 (NL NL VDD VDD) pmos1 w=<ota_pload_w> l=<ota_pload_l> as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    M4 (NB NL VDD VDD) pmos1 w=<ota_pmirror_w> l=<ota_pmirror_l> as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    M3 (OM NL VDD VDD) pmos1 w=<ota_pmirror_w> l=<ota_pmirror_l> as=4.8p ad=4.8p ps=17.2u          pd=17.2u m=1
+    IBIAS (T VSS) isource dc=<OTA_IBIAS> type=dc
+ends mdvccta_fig2
+// End of subcircuit definition.
+
+// Library name: DAC_20261107_MISO
+// Cell name: grounded_resistor_fig8a
+// View name: schematic
+subckt grounded_resistor_fig8a GND P VC
+    MR2 (P VC GND GND) nmos1 w=<resistor_w> l=<resistor_l> as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+    MR1 (P P GND GND) nmos1 w=<resistor_w> l=<resistor_l> as=1.08p ad=1.08p ps=4.8u          pd=4.8u m=1
+ends grounded_resistor_fig8a
+// End of subcircuit definition.
+
+// Library name: DAC_20261107_MISO
+// Cell name: miso_fig3
+// View name: schematic
+subckt miso_fig3 GND I1 I2 I3 IOUT V1 V2 V3 VBIAS VCTRL VDD VOUT VSS
+    A2 (GND V1 I1 NOPB NOP2B VBIAS VDD VSS VOUT I1 GND IOUT NC2B I3)          mdvccta_fig2
+    A1 (GND V3 I3 NOPA NOP2A VBIAS VDD VSS X1 V2 I1 NC1A NC2A I2)          mdvccta_fig2
+    R2 (GND VOUT VCTRL) grounded_resistor_fig8a
+    R1 (GND X1 VCTRL) grounded_resistor_fig8a
+    R3 (I1 GND) resistor r=<R3>
+    C2 (I3 GND) capacitor c=<C2>
+    C1 (I2 GND) capacitor c=<C1>
+ends miso_fig3
+// End of subcircuit definition.
+
+
+VBIAS_SRC (VBIAS 0) vsource dc=<VBIAS> type=dc
+VCTRL_SRC (VCTRL 0) vsource dc=<VCTRL> type=dc

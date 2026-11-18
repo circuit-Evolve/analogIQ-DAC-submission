@@ -1,0 +1,664 @@
+schema: analogiq.sizing_problem/1
+task_id: gmix04_task_001
+topology_id: gmix04_patulea_2015
+family: mixer
+technology_id: sky130
+parameterization_id: gmix04_p1
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). One Gilbert cell of the thesis''s I/Q up-converter (Fig. 4.12) in sky130 (rule D7) at
+  1.8 V, 27 C, typical models: baseband 20 MHz (AC-coupled, PT3a) up-converted by a 5 GHz LO of 340 mV peak per side (PT5a); output measured at
+  the upper sideband 5.02 GHz (PT4a) across the PT2a drain loads. Targets are the thesis''s single-cell values (PT1a) with the 10 % linear tolerance.
+  Nominal condition only (the thesis reports no single-cell metric under PVT variation; rule D3).'
+source:
+  doi: null
+  title: Wideband Up-Converting Mixer for Digital Communications Implemented in 130nm CMOS Technology (MASc thesis, G. Patulea, Carleton University,
+    2015)
+  figure: 'Fig. 4.12 (PDF 99): one Gilbert cell of the I/Q up-converter (switching quad T1/T3/T8/T9, baseband pair T10/T11, tail T6, baseband
+    bias divider RP0-RP3, decoupling CV0-CV2)'
+variables:
+- name: W_SW
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: switching quad T1/T3/T8/T9 width per finger (switching with the available LO swing, LO load)
+  binding:
+    type: dut_parameter
+    parameter: W_SW
+    instances:
+    - T1
+    - T3
+    - T8
+    - T9
+- name: L_SW
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: switching quad channel length
+  binding:
+    type: instance_parameter
+    instances:
+    - T1
+    - T3
+    - T8
+    - T9
+    parameter: l
+- name: NF_SW
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: switching quad finger count
+  binding:
+    type: instance_parameter
+    instances:
+    - T1
+    - T3
+    - T8
+    - T9
+    parameter: nf
+- name: N_SW
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: switching quad multiplicity
+  binding:
+    type: instance_parameter
+    instances:
+    - T1
+    - T3
+    - T8
+    - T9
+    parameter: mult
+- name: W_BB
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'baseband transconductor pair T10/T11 width per finger (gm: conversion gain, NF, linearity)'
+  binding:
+    type: dut_parameter
+    parameter: W_BB
+    instances:
+    - T10
+    - T11
+- name: L_BB
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: baseband pair channel length
+  binding:
+    type: instance_parameter
+    instances:
+    - T10
+    - T11
+    parameter: l
+- name: NF_BB
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: baseband pair finger count
+  binding:
+    type: instance_parameter
+    instances:
+    - T10
+    - T11
+    parameter: nf
+- name: N_BB
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: baseband pair multiplicity
+  binding:
+    type: instance_parameter
+    instances:
+    - T10
+    - T11
+    parameter: mult
+- name: W_T
+  kind: real
+  unit: m
+  lower: 4.2e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: tail current source T6 width per finger (tail current vs headroom)
+  binding:
+    type: dut_parameter
+    parameter: W_T
+    instances:
+    - T6
+- name: L_T
+  kind: real
+  unit: m
+  lower: 1.5e-07
+  upper: 2.02e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: tail current source channel length
+  binding:
+    type: instance_parameter
+    instances:
+    - T6
+    parameter: l
+- name: NF_T
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: tail current source finger count
+  binding:
+    type: instance_parameter
+    instances:
+    - T6
+    parameter: nf
+- name: N_T
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: tail current source multiplicity
+  binding:
+    type: instance_parameter
+    instances:
+    - T6
+    parameter: mult
+- name: R_D
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: drain load resistors RD_P/RD_N to VDD (conversion gain vs quad headroom; PT2a benchmark addition)
+  binding:
+    type: instance_parameter
+    instances:
+    - RD_P
+    - RD_N
+    parameter: r
+- name: R_DIV_TOP
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: baseband bias divider upper resistor RP1 (VDD to BIAS_DIV)
+  binding:
+    type: instance_parameter
+    instances:
+    - RP1
+    parameter: r
+- name: R_DIV_BOT
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: baseband bias divider lower resistor RP0 (BIAS_DIV to VSS)
+  binding:
+    type: instance_parameter
+    instances:
+    - RP0
+    parameter: r
+- name: R_BB
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: baseband gate bias resistors RP2/RP3 (BIAS_DIV to BB_P/BB_N; input impedance of the baseband port)
+  binding:
+    type: instance_parameter
+    instances:
+    - RP2
+    - RP3
+    parameter: r
+- name: C_DIV
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: CV0 decoupling capacitor of the divider node BIAS_DIV
+  binding:
+    type: instance_parameter
+    instances:
+    - CV0
+    parameter: c
+- name: C_VDD
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: CV1 supply decoupling capacitor (VDD to VSS)
+  binding:
+    type: instance_parameter
+    instances:
+    - CV1
+    parameter: c
+- name: C_TAIL
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: CV2 decoupling capacitor of the tail gate TAIL_BIAS
+  binding:
+    type: instance_parameter
+    instances:
+    - CV2
+    parameter: c
+- name: V_TAIL
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.8
+  scale: lin
+  start: 0.9
+  quantity: bias_voltage
+  role: 'tail T6 gate bias (tail current: gm, linearity vs power)'
+  binding:
+    type: external_bias
+    pin: TAIL_BIAS
+- name: V_LO
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.8
+  scale: lin
+  start: 0.9
+  quantity: bias_voltage
+  role: 'LO DC level of both LO drives (switching-quad gate bias: quad vs baseband-pair headroom)'
+  binding:
+    type: operating
+    key: lo_bias_V
+dependent_parameters:
+  W_SW_TOTAL:
+    expression: W_SW*NF_SW
+    role: T1, T3, T8, T9 total width = per-finger width W_SW x fingers NF_SW (SKY130 bins on width per finger; owner 2026-10-24)
+    binding:
+      type: instance_parameter
+      instances:
+      - T1
+      - T3
+      - T8
+      - T9
+      parameter: w
+  W_BB_TOTAL:
+    expression: W_BB*NF_BB
+    role: T10, T11 total width = per-finger width W_BB x fingers NF_BB (SKY130 bins on width per finger; owner 2026-10-24)
+    binding:
+      type: instance_parameter
+      instances:
+      - T10
+      - T11
+      parameter: w
+  W_T_TOTAL:
+    expression: W_T*NF_T
+    role: T6 total width = per-finger width W_T x fingers NF_T (SKY130 bins on width per finger; owner 2026-10-24)
+    binding:
+      type: instance_parameter
+      instances:
+      - T6
+      parameter: w
+conditions:
+- id: tt_T27_S1p00
+  model_set: tt
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'rule D7: thesis chip 2.0 V exceeds the sky130 1.95 V rating; 1.8 V = the thesis''s hand-design supply (PDF 90) and a measured
+      point (PDF 119), sky130 nominal'
+  lo_frequency_Hz:
+    value: 5000000000.0
+    provenance: 'paper: PDF 102 (f_LO 5 GHz)'
+  rf_frequency_Hz:
+    value: 20000000.0
+    provenance: 'paper: PDF 102 / 106 (baseband f_BB1 20 MHz; the family''s RF input is the baseband input)'
+  lo_amplitude_V:
+    value: 0.34
+    provenance: 'paper: PDF 102 / 105 (LO 340 mVp from the phase shifter), per side (owner answer PT5a)'
+  port_impedance_ohm:
+    value: 50.0
+    provenance: 'paper: PDF 91 / 106 (50-ohm system: NF and P1dB ''in 50 Ohm'', -11 dBm = 178 mVpp)'
+constraints:
+- name: conversion_gain_dB
+  metric: conversion_gain_dB
+  recipe: mixer_cg_sb_v1
+  point: {}
+  unit: dB
+  lower: -0.9151498112135024
+  target:
+    kind: voltage_db
+    paper_value: 0.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: eq. 67-68 PDF 89 (single Gilbert cell voltage gain A_MIX = (2/pi) gm RD designed for 0 dB; PT1a). G6 step 2 (2026-10-27):
+    -3.9 dB (PDF 102) = 20log(2/pi), the loaded/actual-design factor, and 3.74 dB is the post-layout I/Q chip; the unloaded single cell simulated
+    here is eq. 67-68, 0 dB'
+  source: native
+- name: nf_ssb_dB
+  metric: nf_ssb_dB
+  recipe: mixer_nf_sb_v1
+  point: {}
+  unit: dB
+  upper: 12.51392685158225
+  target:
+    kind: power_db
+    paper_value: 12.1
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: eq. 69 PDF 90 (single-cell noise figure in a 50-ohm system, 12.1 dB; PT1a); single-sideband (the up-converter''s signal
+    occupies one input band)'
+  source: native
+- name: input_p1db_dBm
+  metric: input_p1db_dBm
+  recipe: mixer_p1db_sb_v1
+  point: {}
+  unit: dBm
+  lower: -9.757574905606752
+  target:
+    kind: power_db
+    paper_value: -9.3
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: eq. 70 PDF 91 / table PDF 109 (single-cell input P1dB -9.3 dBm calculated; PT1a); V1dB 217 mVpp (Table 6) <-> -9.3 dBm by
+    P = Vpp^2/(8*50): matched-port convention (correction 2026-10-27)'
+  source: native
+- name: iip3_dBm
+  metric: iip3_dBm
+  recipe: mixer_ip3_sb_v1
+  point: {}
+  unit: dBm
+  lower: 0.5424250943932488
+  target:
+    kind: power_db
+    paper_value: 1.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: eq. 71 PDF 91 / table PDF 109 (single-cell IIP3 1 dBm calculated; PT1a); 710 mV <-> +1.0 dBm by P = V^2/(8*50), same convention
+    as the P1dB (correction 2026-10-27)'
+  source: native
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: mixer_cg_sb_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'rule G8: no device out of saturation at the quiescent point (all devices saturated by design, thesis PDF 88-90)'
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: mixer_cg_sb_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: mixer_cg_sb_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - mixer_cg_sb_v1
+  - average_power_W
+- - mixer_cg_sb_v1
+  - conversion_gain_dB
+- - mixer_cg_sb_v1
+  - devices_out_of_saturation
+- - mixer_cg_sb_v1
+  - devices_outside_rails
+- - mixer_cg_sb_v1
+  - forward_biased_junctions
+- - mixer_cg_sb_v1
+  - saturation_margin_min_V
+- - mixer_ip3_sb_v1
+  - iip2_dBm
+- - mixer_ip3_sb_v1
+  - iip3_dBm
+- - mixer_ip3_sb_v1
+  - power_conversion_gain_dB
+- - mixer_nf_sb_v1
+  - nf_dsb_dB
+- - mixer_nf_sb_v1
+  - nf_ssb_dB
+- - mixer_nf_sb_v1
+  - noise_gain_dB
+- - mixer_p1db_sb_v1
+  - input_p1db_dBm
+- - mixer_p1db_sb_v1
+  - small_signal_power_gain_dB
+simulations_per_design: 4
+analysis_executions_per_design: 42
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: tt_T27_S1p00
+  recipe: mixer_cg_sb_v1
+  folder: testbenches/tt_T27_S1p00/mixer_cg_sb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/pss1.td.pss
+  - raw/pac1.pac
+  - raw/op_info.info
+  metrics:
+    conversion_gain_dB:
+      unit: dB
+      source: native
+    average_power_W:
+      unit: W
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f_lo_Hz: 5000000000.0
+    f_rf_Hz: 20000000.0
+    f_if_Hz: 5020000000.0
+    sideband: 1
+- condition: tt_T27_S1p00
+  recipe: mixer_nf_sb_v1
+  folder: testbenches/tt_T27_S1p00/mixer_nf_sb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/pss1.td.pss
+  - raw/pn1.pnoise
+  metrics:
+    nf_ssb_dB:
+      unit: dB
+      source: native
+    nf_dsb_dB:
+      unit: dB
+      source: native
+    noise_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - f_lo_Hz: 5000000000.0
+    f_rf_Hz: 20000000.0
+    f_if_Hz: 5020000000.0
+    sideband: 1
+    refsideband: -1
+- condition: tt_T27_S1p00
+  recipe: mixer_ip3_sb_v1
+  folder: testbenches/tt_T27_S1p00/mixer_ip3_sb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/hb1.fd.qpss_hb
+  metrics:
+    iip3_dBm:
+      unit: dBm
+      source: native
+    iip2_dBm:
+      unit: dBm
+      source: native
+    power_conversion_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - pin_dBm: -40.0
+    f_rf1_Hz: 20000000.0
+    f_rf2_Hz: 30000100.0
+    f_lo_Hz: 5000000000.0
+    sideband: 1
+    im3_product: lower
+    lo_harmonics: 7
+    rf_harmonics: 3
+- condition: tt_T27_S1p00
+  recipe: mixer_p1db_sb_v1
+  folder: testbenches/tt_T27_S1p00/mixer_p1db_sb_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/swp-000_hb1.fd.qpss_hb
+  metrics:
+    input_p1db_dBm:
+      unit: dBm
+      source: native
+    small_signal_power_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - f_if_Hz: 5020000000.0
+    pin_start_dBm: -30.0
+    pin_stop_dBm: 6.0
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - gmix04_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('gmix04_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

@@ -1,0 +1,240 @@
+{
+  "updated_utc": "2026-11-10T10:48:10.964734+00:00",
+  "status": "Both fixed sizings pass all agreed scalar criteria across all configured corners; qualifications below remain explicit.",
+  "no_new_ledro": true,
+  "owner_folder_changed": false,
+  "native_schematics_changed": false,
+  "circuits": {
+    "bandgap": {
+      "source": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_bandgap/ratio_binned_candidate_full",
+      "summary": {
+        "total_corners": 15,
+        "metric_count": 6,
+        "per_corner_pass_counts": {
+          "TT_1.71V_27C": 6,
+          "TT_1.80V_27C": 6,
+          "TT_1.89V_27C": 6,
+          "FF_1.71V_27C": 6,
+          "FF_1.80V_27C": 6,
+          "FF_1.89V_27C": 6,
+          "SS_1.71V_27C": 6,
+          "SS_1.80V_27C": 6,
+          "SS_1.89V_27C": 6,
+          "SF_1.71V_27C": 6,
+          "SF_1.80V_27C": 6,
+          "SF_1.89V_27C": 6,
+          "FS_1.71V_27C": 6,
+          "FS_1.80V_27C": 6,
+          "FS_1.89V_27C": 6
+        },
+        "all_metrics_pass_corners": 15,
+        "scalar_passes": 90,
+        "scalar_tests": 90,
+        "missing_scalars": 0
+      },
+      "metrics": {
+        "Vref_V": {
+          "paper_value": 1.2,
+          "lower": 1.08,
+          "upper": 1.3199999999999998,
+          "upper_exclusive": false,
+          "minimum": 1.13746712442033,
+          "maximum": 1.276989053367803,
+          "passed": 15,
+          "corners": 15,
+          "directional_worst_value": 1.276989053367803,
+          "directional_worst_corner": "FS_1.89V_27C",
+          "selection_rule": "nearest bound for matching quantity",
+          "expression": "getData(\"VREF\" ?result \"dcOp\")",
+          "source_metric_name": "Vref_V"
+        },
+        "Power_uW": {
+          "paper_value": 257.47,
+          "lower": 0,
+          "upper": 283.21700000000004,
+          "upper_exclusive": false,
+          "minimum": 92.62368822313546,
+          "maximum": 212.82027389991902,
+          "passed": 15,
+          "corners": 15,
+          "directional_worst_value": 212.82027389991902,
+          "directional_worst_corner": "FS_1.89V_27C",
+          "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+          "expression": "-1e6*average(VS*getData(\"VDD_SRC:p\" ?result \"tran\"))",
+          "source_metric_name": "Power_uW"
+        },
+        "PSRR_LF_dB": {
+          "paper_value": 23.89,
+          "lower": 21.501,
+          "upper": null,
+          "upper_exclusive": false,
+          "minimum": 22.87013438704005,
+          "maximum": 31.786612962359282,
+          "passed": 15,
+          "corners": 15,
+          "directional_worst_value": 22.87013438704005,
+          "directional_worst_corner": "SS_1.71V_27C",
+          "selection_rule": "minimum for lower-limited metric",
+          "expression": "-value(dB20(getData(\"VREF\" ?result \"ac\")) 1)",
+          "source_metric_name": "PSRR_LF_dB"
+        },
+        "Line_sensitivity_percent": {
+          "paper_value": 6.7,
+          "lower": 0,
+          "upper": 7.37,
+          "upper_exclusive": false,
+          "minimum": 3.3003518259078213,
+          "maximum": 3.9941529870405708,
+          "passed": 15,
+          "corners": 15,
+          "directional_worst_value": 3.9941529870405708,
+          "directional_worst_corner": "SS_1.71V_27C",
+          "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+          "expression": "100*(ymax(getData(\"VREF\" ?result \"dc\"))-ymin(getData(\"VREF\" ?result \"dc\")))/(1.89-1.71)",
+          "source_metric_name": "Line_sensitivity_percent"
+        },
+        "TC_19_120_ppm_C": {
+          "paper_value": 19.3,
+          "lower": 0,
+          "upper": 21.23,
+          "upper_exclusive": false,
+          "minimum": 2.712367015165013,
+          "maximum": 17.12256735197763,
+          "passed": 15,
+          "corners": 15,
+          "directional_worst_value": 17.12256735197763,
+          "directional_worst_corner": "SF_1.89V_27C",
+          "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+          "expression": "1e6*(ymax(clip(getData(\"VREF\" ?result \"dc\") 19 120))-ymin(clip(getData(\"VREF\" ?result \"dc\") 19 120)))/(value(getData(\"VREF\" ?result \"dc\") 27)*(120-19))",
+          "source_metric_name": "TC_19_120_ppm_C"
+        },
+        "Startup_qualification": {
+          "paper_value": 1,
+          "lower": 0,
+          "upper": 1,
+          "upper_exclusive": false,
+          "minimum": 0.055939493027606924,
+          "maximum": 0.6415754447317734,
+          "passed": 15,
+          "corners": 15,
+          "directional_worst_value": 0.6415754447317734,
+          "directional_worst_corner": "FS_1.89V_27C",
+          "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+          "expression": "max(abs(tail_mean_V-1.2)/0.12, tail_vpp_V/0.001, abs(tail_mean_V-dc_vref)/abs(dc_vref)/0.01)",
+          "source_metric_name": "Startup_qualification"
+        }
+      }
+    },
+    "dtmos_hpf": {
+      "source": "<WORK>/three-circuit-robust-sizing-20261110/targeted/round2_dtmos/candidate_full",
+      "summary": {
+        "total_corners": 12,
+        "metric_count": 4,
+        "per_corner_pass_counts": {
+          "NN_0p9V_27C": 4,
+          "FF_0p9V_27C": 4,
+          "FS_0p9V_27C": 4,
+          "SF_0p9V_27C": 4,
+          "SS_0p9V_27C": 4,
+          "NN_0p7V_27C": 4,
+          "NN_0p8V_27C": 4,
+          "NN_1V_27C": 4,
+          "NN_1p1V_27C": 4,
+          "NN_0p9V_-27C": 4,
+          "NN_0p9V_0C": 4,
+          "NN_0p9V_100C": 4
+        },
+        "all_metrics_pass_corners": 12,
+        "scalar_passes": 48,
+        "scalar_tests": 48,
+        "missing_scalars": 0
+      },
+      "metrics": {
+        "HPF_Rail_power_mW": {
+          "paper_value": 0.496,
+          "lower": 0,
+          "upper": 0.5456000000000001,
+          "upper_exclusive": false,
+          "minimum": 0.2201859502581006,
+          "maximum": 0.44279197916189506,
+          "passed": 12,
+          "corners": 12,
+          "directional_worst_value": 0.44279197916189506,
+          "directional_worst_corner": "NN_1p1V_27C",
+          "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+          "expression": null,
+          "source_metric_name": "HPF_Rail_power_mW"
+        },
+        "THD_500Hz_10uApp_percent": {
+          "paper_value": 6,
+          "lower": 0,
+          "upper": 6,
+          "upper_exclusive": true,
+          "minimum": 1.2557168475005256,
+          "maximum": 1.4102149344750323,
+          "passed": 12,
+          "corners": 12,
+          "directional_worst_value": 1.4102149344750323,
+          "directional_worst_corner": "SF_0p9V_27C",
+          "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+          "expression": null,
+          "source_metric_name": "THD_500Hz_10uApp_percent"
+        },
+        "HPF_cutoff_Hz": {
+          "paper_value": 200,
+          "lower": 180,
+          "upper": 220,
+          "upper_exclusive": false,
+          "minimum": 181.07024720888865,
+          "maximum": 218.8014705236657,
+          "passed": 12,
+          "corners": 12,
+          "directional_worst_value": 181.07024720888865,
+          "directional_worst_corner": "NN_0p9V_100C",
+          "selection_rule": "nearest bound for matching quantity",
+          "expression": null,
+          "source_metric_name": "HPF_cutoff_Hz"
+        },
+        "HPF_gain_200Hz_dB": {
+          "paper_value": -3.06,
+          "lower": -3.5,
+          "upper": -2.5,
+          "upper_exclusive": false,
+          "minimum": -3.48334980600846,
+          "maximum": -2.5164239628482132,
+          "passed": 12,
+          "corners": 12,
+          "directional_worst_value": -2.5164239628482132,
+          "directional_worst_corner": "NN_0p9V_100C",
+          "selection_rule": "nearest bound for matching quantity",
+          "expression": "value(dB20(getData(\"VOUT_SENSE:p\" ?result \"ac-ac\")) 200)",
+          "source_metric_name": "HPF_gain_200Hz_dB"
+        }
+      }
+    }
+  },
+  "bandgap_numerical_check": {
+    "tight_full_passes": 90,
+    "dense_temperature_step_C": 0.25,
+    "dense_temperature_max_TC_ppm_C": 17.122596769827755,
+    "dense_temperature_passes": 15,
+    "exact_deck_matches": 50
+  },
+  "dtmos_qualifications": {
+    "gain_definition": "Fixed200Hz. Paper Fig6a measurement frequency is unspecified; alternative same-band passband interpretation fails all12 gain checks.",
+    "gate_area_um2": {
+      "paper_core": 500.99999999999994,
+      "prior_11of12": 975.2465181516777,
+      "final_12of12": 9547.358124632283
+    },
+    "gate_area_vs_previous": 9.789686963176017,
+    "C1_F": 7.067315305125076e-08,
+    "C2_F": 9.080839105919211e-07,
+    "M2_100C": "Weak inversion; positive0.108407uA DCcurrent; allspecifiedscalars stillpass.",
+    "ideal_capacitors": true,
+    "layout_parasitics_mismatch_MC_verified": false,
+    "tight_gain_max_change_dB": 0.0003364209986171929,
+    "tight_cutoff_max_change_Hz": 0.015719560487269746
+  },
+  "directional_summary_note": "Canonical aggregate value/worst_condition is preserved for traceability but not used in this report: the shared aggregator can select values close to its lower-zero validity bound. Correct directional extrema above are calculated from all saved per-corner values; all pass/fail checks are unchanged."
+}

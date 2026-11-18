@@ -1,0 +1,97 @@
+{
+ "task": "fgmos_rectifier_101126_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 16008,
+ "wall_s": 17256.9,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.460737,
+ "llm_cost_usd_recorded": 0.2303686,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.6928795908356478
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.79299772701359
+  },
+  {
+   "phase": 3,
+   "evals": 501,
+   "best_score": 0.7711701208697808
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.7611813061680267
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 0.7866581268689606
+  }
+ ],
+ "best": {
+  "eval": 580,
+  "round": 2,
+  "f": 0.3212546763526616,
+  "loss": 0.20700227298641005,
+  "reward": 0.79299772701359,
+  "score": 0.79299772701359,
+  "targets_met": 2,
+  "targets": 4,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_IN": 1.114553889002306e-06,
+   "L_IN": 9.462272780299268e-06,
+   "W_CAS": 4.943679488070507e-06,
+   "L_CAS": 2.8024799924578194e-07,
+   "W_B1": 5.036184565458674e-06,
+   "L_B1": 1.2719845145365378e-05,
+   "W_B2": 2.1963308598428258e-05,
+   "L_B2": 7.712255350149537e-07,
+   "W_SQ": 5.710305338724743e-07,
+   "L_SQ": 4.197597952738587e-07,
+   "W_FB": 4.6436655404222106e-07,
+   "L_FB": 3.4458545233044167e-06,
+   "W_PM": 7.945724459108573e-05,
+   "L_PM": 2.2774823686269455e-05,
+   "W_PMO": 4.398939258704143e-07,
+   "L_PMO": 8.65555701654099e-06,
+   "W_OUT": 1.4697544878240536e-06,
+   "L_OUT": 6.104874573438917e-07,
+   "W_FG": 1.3873335665688786e-05,
+   "L_FG": 8.464341174287499e-07,
+   "C_BIAS": 2.651189570710104e-13,
+   "C_SIG": 3.714011911246085e-11,
+   "V_BIAS": 0.4102641555446704,
+   "M_IN": 24.0,
+   "M_CAS": 37.0,
+   "M_B1": 57.0,
+   "M_B2": 34.0,
+   "M_SQ": 12.0,
+   "M_FB": 16.0,
+   "M_PM": 49.0,
+   "M_PMO": 5.0,
+   "M_OUT": 20.0,
+   "M_FG": 25.0
+  }
+ }
+}

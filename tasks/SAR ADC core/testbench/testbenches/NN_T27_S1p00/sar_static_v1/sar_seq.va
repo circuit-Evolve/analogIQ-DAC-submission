@@ -1,0 +1,392 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module sar_seq(inp, inn, tp, tn, cop, con, ckc, eref, BP_CP11a, BP_CP11b, BP_CN11a, BP_CN11b, BP_CP10a, BP_CP10b, BP_CN10a, BP_CN10b, BP_CP9a, BP_CP9b, BP_CN9a, BP_CN9b, BP_CP8a, BP_CP8b, BP_CN8a, BP_CN8b, BP_CP7a, BP_CP7b, BP_CN7a, BP_CN7b, BP_CP6a, BP_CP6b, BP_CN6a, BP_CN6b, BP_CP5ac, BP_CP5bc, BP_CN5ac, BP_CN5bc, BP_CP5a, BP_CP5b, BP_CN5a, BP_CN5b, BP_CP4, BP_CN4, BP_CP3, BP_CN3, BP_CP2, BP_CN2, BP_CP1, BP_CN1);
+  inout inp, inn, tp, tn, cop, con, ckc, eref, BP_CP11a, BP_CP11b, BP_CN11a, BP_CN11b, BP_CP10a, BP_CP10b, BP_CN10a, BP_CN10b, BP_CP9a, BP_CP9b, BP_CN9a, BP_CN9b, BP_CP8a, BP_CP8b, BP_CN8a, BP_CN8b, BP_CP7a, BP_CP7b, BP_CN7a, BP_CN7b, BP_CP6a, BP_CP6b, BP_CN6a, BP_CN6b, BP_CP5ac, BP_CP5bc, BP_CN5ac, BP_CN5bc, BP_CP5a, BP_CP5b, BP_CN5a, BP_CN5b, BP_CP4, BP_CN4, BP_CP3, BP_CN3, BP_CP2, BP_CN2, BP_CP1, BP_CN1;
+  electrical inp, inn, tp, tn, cop, con, ckc, eref, BP_CP11a, BP_CP11b, BP_CN11a, BP_CN11b, BP_CP10a, BP_CP10b, BP_CN10a, BP_CN10b, BP_CP9a, BP_CP9b, BP_CN9a, BP_CN9b, BP_CP8a, BP_CP8b, BP_CN8a, BP_CN8b, BP_CP7a, BP_CP7b, BP_CN7a, BP_CN7b, BP_CP6a, BP_CP6b, BP_CN6a, BP_CN6b, BP_CP5ac, BP_CP5bc, BP_CN5ac, BP_CN5bc, BP_CP5a, BP_CP5b, BP_CN5a, BP_CN5b, BP_CP4, BP_CN4, BP_CP3, BP_CN3, BP_CP2, BP_CN2, BP_CP1, BP_CN1;
+  real sw, ckcs, pol;
+  integer d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12;
+  real l_BP_CP11a, l_BP_CP11b, l_BP_CN11a, l_BP_CN11b, l_BP_CP10a, l_BP_CP10b, l_BP_CN10a, l_BP_CN10b, l_BP_CP9a, l_BP_CP9b, l_BP_CN9a, l_BP_CN9b, l_BP_CP8a, l_BP_CP8b, l_BP_CN8a, l_BP_CN8b, l_BP_CP7a, l_BP_CP7b, l_BP_CN7a, l_BP_CN7b, l_BP_CP6a, l_BP_CP6b, l_BP_CN6a, l_BP_CN6b, l_BP_CP5ac, l_BP_CP5bc, l_BP_CN5ac, l_BP_CN5bc, l_BP_CP5a, l_BP_CP5b, l_BP_CN5a, l_BP_CN5b, l_BP_CP4, l_BP_CN4, l_BP_CP3, l_BP_CN3, l_BP_CP2, l_BP_CN2, l_BP_CP1, l_BP_CN1;
+  real q_BP_CP11a, q_BP_CP11b, q_BP_CN11a, q_BP_CN11b, q_BP_CP10a, q_BP_CP10b, q_BP_CN10a, q_BP_CN10b, q_BP_CP9a, q_BP_CP9b, q_BP_CN9a, q_BP_CN9b, q_BP_CP8a, q_BP_CP8b, q_BP_CN8a, q_BP_CN8b, q_BP_CP7a, q_BP_CP7b, q_BP_CN7a, q_BP_CN7b, q_BP_CP6a, q_BP_CP6b, q_BP_CN6a, q_BP_CN6b, q_BP_CP5ac, q_BP_CP5bc, q_BP_CN5ac, q_BP_CN5bc, q_BP_CP5a, q_BP_CP5b, q_BP_CN5a, q_BP_CN5b, q_BP_CP4, q_BP_CN4, q_BP_CP3, q_BP_CN3, q_BP_CP2, q_BP_CN2, q_BP_CP1, q_BP_CN1;
+  real etot;
+  analog begin
+    @(initial_step) begin
+      sw = 1.0; ckcs = 0.0; pol = 1.0;
+      l_BP_CP11a = 1.8;
+      l_BP_CP11b = 0.0;
+      l_BP_CN11a = 1.8;
+      l_BP_CN11b = 0.0;
+      l_BP_CP10a = 1.8;
+      l_BP_CP10b = 0.0;
+      l_BP_CN10a = 1.8;
+      l_BP_CN10b = 0.0;
+      l_BP_CP9a = 1.8;
+      l_BP_CP9b = 0.0;
+      l_BP_CN9a = 1.8;
+      l_BP_CN9b = 0.0;
+      l_BP_CP8a = 1.8;
+      l_BP_CP8b = 0.0;
+      l_BP_CN8a = 1.8;
+      l_BP_CN8b = 0.0;
+      l_BP_CP7a = 1.8;
+      l_BP_CP7b = 0.0;
+      l_BP_CN7a = 1.8;
+      l_BP_CN7b = 0.0;
+      l_BP_CP6a = 1.8;
+      l_BP_CP6b = 0.0;
+      l_BP_CN6a = 1.8;
+      l_BP_CN6b = 0.0;
+      l_BP_CP5ac = 1.8;
+      l_BP_CP5bc = 0.0;
+      l_BP_CN5ac = 1.8;
+      l_BP_CN5bc = 0.0;
+      l_BP_CP5a = 1.8;
+      l_BP_CP5b = 0.0;
+      l_BP_CN5a = 1.8;
+      l_BP_CN5b = 0.0;
+      l_BP_CP4 = 1.8;
+      l_BP_CN4 = 1.8;
+      l_BP_CP3 = 0.225;
+      l_BP_CN3 = 0.225;
+      l_BP_CP2 = 0.225;
+      l_BP_CN2 = 0.225;
+      l_BP_CP1 = 0.225;
+      l_BP_CN1 = 0.225;
+    end
+    @(timer(1e-07, 1e-07)) begin
+      sw = 1.0; ckcs = 0.0;
+      l_BP_CP11a = 1.8;
+      l_BP_CP11b = 0.0;
+      l_BP_CN11a = 1.8;
+      l_BP_CN11b = 0.0;
+      l_BP_CP10a = 1.8;
+      l_BP_CP10b = 0.0;
+      l_BP_CN10a = 1.8;
+      l_BP_CN10b = 0.0;
+      l_BP_CP9a = 1.8;
+      l_BP_CP9b = 0.0;
+      l_BP_CN9a = 1.8;
+      l_BP_CN9b = 0.0;
+      l_BP_CP8a = 1.8;
+      l_BP_CP8b = 0.0;
+      l_BP_CN8a = 1.8;
+      l_BP_CN8b = 0.0;
+      l_BP_CP7a = 1.8;
+      l_BP_CP7b = 0.0;
+      l_BP_CN7a = 1.8;
+      l_BP_CN7b = 0.0;
+      l_BP_CP6a = 1.8;
+      l_BP_CP6b = 0.0;
+      l_BP_CN6a = 1.8;
+      l_BP_CN6b = 0.0;
+      l_BP_CP5ac = 1.8;
+      l_BP_CP5bc = 0.0;
+      l_BP_CN5ac = 1.8;
+      l_BP_CN5bc = 0.0;
+      l_BP_CP5a = 1.8;
+      l_BP_CP5b = 0.0;
+      l_BP_CN5a = 1.8;
+      l_BP_CN5b = 0.0;
+      l_BP_CP4 = 1.8;
+      l_BP_CN4 = 1.8;
+      l_BP_CP3 = 0.225;
+      l_BP_CN3 = 0.225;
+      l_BP_CP2 = 0.225;
+      l_BP_CN2 = 0.225;
+      l_BP_CP1 = 0.225;
+      l_BP_CN1 = 0.225;
+    end
+    @(timer(4.4e-08, 1e-07)) sw = 0.0;
+    @(timer(4.6200000000000003e-08, 1e-07)) ckcs = 1.0;
+    @(timer(4.82e-08, 1e-07)) ckcs = 0.0;
+    @(timer(4.8080000000000004e-08, 1e-07)) d0 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(4.86e-08, 1e-07)) begin
+      pol = d0;
+      if (pol > 0.5) begin
+        l_BP_CP11a = 0.0;
+        l_BP_CN11b = 1.8;
+      end else begin
+        l_BP_CN11a = 0.0;
+        l_BP_CP11b = 1.8;
+      end
+    end
+    @(timer(5.0200000000000006e-08, 1e-07)) ckcs = 1.0;
+    @(timer(5.2200000000000004e-08, 1e-07)) ckcs = 0.0;
+    @(timer(5.208000000000001e-08, 1e-07)) d1 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(5.260000000000001e-08, 1e-07)) begin
+      if (d1 != pol) begin
+        l_BP_CP11a = 1.8;
+        l_BP_CP11b = 0.0;
+        l_BP_CN11a = 1.8;
+        l_BP_CN11b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP10a = 0.0;
+        l_BP_CN10b = 1.8;
+      end else begin
+        l_BP_CN10a = 0.0;
+        l_BP_CP10b = 1.8;
+      end
+    end
+    @(timer(5.42e-08, 1e-07)) ckcs = 1.0;
+    @(timer(5.62e-08, 1e-07)) ckcs = 0.0;
+    @(timer(5.608e-08, 1e-07)) d2 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(5.6600000000000004e-08, 1e-07)) begin
+      if (d2 != pol) begin
+        l_BP_CP10a = 1.8;
+        l_BP_CP10b = 0.0;
+        l_BP_CN10a = 1.8;
+        l_BP_CN10b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP9a = 0.0;
+        l_BP_CN9b = 1.8;
+      end else begin
+        l_BP_CN9a = 0.0;
+        l_BP_CP9b = 1.8;
+      end
+    end
+    @(timer(5.8200000000000005e-08, 1e-07)) ckcs = 1.0;
+    @(timer(6.020000000000001e-08, 1e-07)) ckcs = 0.0;
+    @(timer(6.008e-08, 1e-07)) d3 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(6.06e-08, 1e-07)) begin
+      if (d3 != pol) begin
+        l_BP_CP9a = 1.8;
+        l_BP_CP9b = 0.0;
+        l_BP_CN9a = 1.8;
+        l_BP_CN9b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP8a = 0.0;
+        l_BP_CN8b = 1.8;
+      end else begin
+        l_BP_CN8a = 0.0;
+        l_BP_CP8b = 1.8;
+      end
+    end
+    @(timer(6.22e-08, 1e-07)) ckcs = 1.0;
+    @(timer(6.42e-08, 1e-07)) ckcs = 0.0;
+    @(timer(6.408e-08, 1e-07)) d4 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(6.46e-08, 1e-07)) begin
+      if (d4 != pol) begin
+        l_BP_CP8a = 1.8;
+        l_BP_CP8b = 0.0;
+        l_BP_CN8a = 1.8;
+        l_BP_CN8b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP7a = 0.0;
+        l_BP_CN7b = 1.8;
+      end else begin
+        l_BP_CN7a = 0.0;
+        l_BP_CP7b = 1.8;
+      end
+    end
+    @(timer(6.620000000000001e-08, 1e-07)) ckcs = 1.0;
+    @(timer(6.820000000000002e-08, 1e-07)) ckcs = 0.0;
+    @(timer(6.808000000000001e-08, 1e-07)) d5 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(6.86e-08, 1e-07)) begin
+      if (d5 != pol) begin
+        l_BP_CP7a = 1.8;
+        l_BP_CP7b = 0.0;
+        l_BP_CN7a = 1.8;
+        l_BP_CN7b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP6a = 0.0;
+        l_BP_CN6b = 1.8;
+      end else begin
+        l_BP_CN6a = 0.0;
+        l_BP_CP6b = 1.8;
+      end
+    end
+    @(timer(7.02e-08, 1e-07)) ckcs = 1.0;
+    @(timer(7.220000000000001e-08, 1e-07)) ckcs = 0.0;
+    @(timer(7.208000000000001e-08, 1e-07)) d6 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(7.26e-08, 1e-07)) begin
+      if (d6 != pol) begin
+        l_BP_CP6a = 1.8;
+        l_BP_CP6b = 0.0;
+        l_BP_CN6a = 1.8;
+        l_BP_CN6b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP5ac = 0.0;
+        l_BP_CN5bc = 1.8;
+      end else begin
+        l_BP_CN5ac = 0.0;
+        l_BP_CP5bc = 1.8;
+      end
+    end
+    @(timer(7.42e-08, 1e-07)) ckcs = 1.0;
+    @(timer(7.620000000000001e-08, 1e-07)) ckcs = 0.0;
+    @(timer(7.608e-08, 1e-07)) d7 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(7.66e-08, 1e-07)) begin
+      if (d7 != pol) begin
+        l_BP_CP5ac = 1.8;
+        l_BP_CP5bc = 0.0;
+        l_BP_CN5ac = 1.8;
+        l_BP_CN5bc = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP5a = 0.0;
+        l_BP_CN5b = 1.8;
+      end else begin
+        l_BP_CN5a = 0.0;
+        l_BP_CP5b = 1.8;
+      end
+    end
+    @(timer(7.820000000000001e-08, 1e-07)) ckcs = 1.0;
+    @(timer(8.020000000000002e-08, 1e-07)) ckcs = 0.0;
+    @(timer(8.008000000000001e-08, 1e-07)) d8 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(8.060000000000001e-08, 1e-07)) begin
+      if (d8 != pol) begin
+        l_BP_CP5a = 1.8;
+        l_BP_CP5b = 0.0;
+        l_BP_CN5a = 1.8;
+        l_BP_CN5b = 0.0;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP4 = 0.0;
+      end else begin
+        l_BP_CN4 = 0.0;
+      end
+    end
+    @(timer(8.220000000000001e-08, 1e-07)) ckcs = 1.0;
+    @(timer(8.420000000000001e-08, 1e-07)) ckcs = 0.0;
+    @(timer(8.408000000000001e-08, 1e-07)) d9 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(8.46e-08, 1e-07)) begin
+      if (d9 != pol) begin
+        l_BP_CP4 = 1.8;
+        l_BP_CN4 = 1.8;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP3 = 0.0;
+      end else begin
+        l_BP_CN3 = 0.0;
+      end
+    end
+    @(timer(8.62e-08, 1e-07)) ckcs = 1.0;
+    @(timer(8.820000000000001e-08, 1e-07)) ckcs = 0.0;
+    @(timer(8.808e-08, 1e-07)) d10 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(8.86e-08, 1e-07)) begin
+      if (d10 != pol) begin
+        l_BP_CP3 = 0.225;
+        l_BP_CN3 = 0.225;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP2 = 0.0;
+      end else begin
+        l_BP_CN2 = 0.0;
+      end
+    end
+    @(timer(9.020000000000001e-08, 1e-07)) ckcs = 1.0;
+    @(timer(9.220000000000002e-08, 1e-07)) ckcs = 0.0;
+    @(timer(9.208000000000001e-08, 1e-07)) d11 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(9.260000000000001e-08, 1e-07)) begin
+      if (d11 != pol) begin
+        l_BP_CP2 = 0.225;
+        l_BP_CN2 = 0.225;
+      end
+      if (pol > 0.5) begin
+        l_BP_CP1 = 0.0;
+      end else begin
+        l_BP_CN1 = 0.0;
+      end
+    end
+    @(timer(9.420000000000001e-08, 1e-07)) ckcs = 1.0;
+    @(timer(9.620000000000001e-08, 1e-07)) ckcs = 0.0;
+    @(timer(9.608000000000001e-08, 1e-07)) d12 = (V(cop) > V(con)) ? 1 : 0;
+    @(timer(9.66e-08, 1e-07)) begin
+      if (d12 != pol) begin
+        l_BP_CP1 = 0.225;
+        l_BP_CN1 = 0.225;
+      end
+    end
+    I(tp, inp) <+ transition(sw, 0, 1e-10, 1e-10) * V(tp, inp) / 10.0;
+    I(tn, inn) <+ transition(sw, 0, 1e-10, 1e-10) * V(tn, inn) / 10.0;
+    V(ckc) <+ transition(ckcs * 1.8, 0, 1e-10, 1e-10);
+    V(BP_CP11a) <+ transition(l_BP_CP11a, 0, 1e-10, 1e-10);
+    q_BP_CP11a = idt(max(-I(BP_CP11a), 0.0), 0.0);
+    V(BP_CP11b) <+ transition(l_BP_CP11b, 0, 1e-10, 1e-10);
+    q_BP_CP11b = idt(max(-I(BP_CP11b), 0.0), 0.0);
+    V(BP_CN11a) <+ transition(l_BP_CN11a, 0, 1e-10, 1e-10);
+    q_BP_CN11a = idt(max(-I(BP_CN11a), 0.0), 0.0);
+    V(BP_CN11b) <+ transition(l_BP_CN11b, 0, 1e-10, 1e-10);
+    q_BP_CN11b = idt(max(-I(BP_CN11b), 0.0), 0.0);
+    V(BP_CP10a) <+ transition(l_BP_CP10a, 0, 1e-10, 1e-10);
+    q_BP_CP10a = idt(max(-I(BP_CP10a), 0.0), 0.0);
+    V(BP_CP10b) <+ transition(l_BP_CP10b, 0, 1e-10, 1e-10);
+    q_BP_CP10b = idt(max(-I(BP_CP10b), 0.0), 0.0);
+    V(BP_CN10a) <+ transition(l_BP_CN10a, 0, 1e-10, 1e-10);
+    q_BP_CN10a = idt(max(-I(BP_CN10a), 0.0), 0.0);
+    V(BP_CN10b) <+ transition(l_BP_CN10b, 0, 1e-10, 1e-10);
+    q_BP_CN10b = idt(max(-I(BP_CN10b), 0.0), 0.0);
+    V(BP_CP9a) <+ transition(l_BP_CP9a, 0, 1e-10, 1e-10);
+    q_BP_CP9a = idt(max(-I(BP_CP9a), 0.0), 0.0);
+    V(BP_CP9b) <+ transition(l_BP_CP9b, 0, 1e-10, 1e-10);
+    q_BP_CP9b = idt(max(-I(BP_CP9b), 0.0), 0.0);
+    V(BP_CN9a) <+ transition(l_BP_CN9a, 0, 1e-10, 1e-10);
+    q_BP_CN9a = idt(max(-I(BP_CN9a), 0.0), 0.0);
+    V(BP_CN9b) <+ transition(l_BP_CN9b, 0, 1e-10, 1e-10);
+    q_BP_CN9b = idt(max(-I(BP_CN9b), 0.0), 0.0);
+    V(BP_CP8a) <+ transition(l_BP_CP8a, 0, 1e-10, 1e-10);
+    q_BP_CP8a = idt(max(-I(BP_CP8a), 0.0), 0.0);
+    V(BP_CP8b) <+ transition(l_BP_CP8b, 0, 1e-10, 1e-10);
+    q_BP_CP8b = idt(max(-I(BP_CP8b), 0.0), 0.0);
+    V(BP_CN8a) <+ transition(l_BP_CN8a, 0, 1e-10, 1e-10);
+    q_BP_CN8a = idt(max(-I(BP_CN8a), 0.0), 0.0);
+    V(BP_CN8b) <+ transition(l_BP_CN8b, 0, 1e-10, 1e-10);
+    q_BP_CN8b = idt(max(-I(BP_CN8b), 0.0), 0.0);
+    V(BP_CP7a) <+ transition(l_BP_CP7a, 0, 1e-10, 1e-10);
+    q_BP_CP7a = idt(max(-I(BP_CP7a), 0.0), 0.0);
+    V(BP_CP7b) <+ transition(l_BP_CP7b, 0, 1e-10, 1e-10);
+    q_BP_CP7b = idt(max(-I(BP_CP7b), 0.0), 0.0);
+    V(BP_CN7a) <+ transition(l_BP_CN7a, 0, 1e-10, 1e-10);
+    q_BP_CN7a = idt(max(-I(BP_CN7a), 0.0), 0.0);
+    V(BP_CN7b) <+ transition(l_BP_CN7b, 0, 1e-10, 1e-10);
+    q_BP_CN7b = idt(max(-I(BP_CN7b), 0.0), 0.0);
+    V(BP_CP6a) <+ transition(l_BP_CP6a, 0, 1e-10, 1e-10);
+    q_BP_CP6a = idt(max(-I(BP_CP6a), 0.0), 0.0);
+    V(BP_CP6b) <+ transition(l_BP_CP6b, 0, 1e-10, 1e-10);
+    q_BP_CP6b = idt(max(-I(BP_CP6b), 0.0), 0.0);
+    V(BP_CN6a) <+ transition(l_BP_CN6a, 0, 1e-10, 1e-10);
+    q_BP_CN6a = idt(max(-I(BP_CN6a), 0.0), 0.0);
+    V(BP_CN6b) <+ transition(l_BP_CN6b, 0, 1e-10, 1e-10);
+    q_BP_CN6b = idt(max(-I(BP_CN6b), 0.0), 0.0);
+    V(BP_CP5ac) <+ transition(l_BP_CP5ac, 0, 1e-10, 1e-10);
+    q_BP_CP5ac = idt(max(-I(BP_CP5ac), 0.0), 0.0);
+    V(BP_CP5bc) <+ transition(l_BP_CP5bc, 0, 1e-10, 1e-10);
+    q_BP_CP5bc = idt(max(-I(BP_CP5bc), 0.0), 0.0);
+    V(BP_CN5ac) <+ transition(l_BP_CN5ac, 0, 1e-10, 1e-10);
+    q_BP_CN5ac = idt(max(-I(BP_CN5ac), 0.0), 0.0);
+    V(BP_CN5bc) <+ transition(l_BP_CN5bc, 0, 1e-10, 1e-10);
+    q_BP_CN5bc = idt(max(-I(BP_CN5bc), 0.0), 0.0);
+    V(BP_CP5a) <+ transition(l_BP_CP5a, 0, 1e-10, 1e-10);
+    q_BP_CP5a = idt(max(-I(BP_CP5a), 0.0), 0.0);
+    V(BP_CP5b) <+ transition(l_BP_CP5b, 0, 1e-10, 1e-10);
+    q_BP_CP5b = idt(max(-I(BP_CP5b), 0.0), 0.0);
+    V(BP_CN5a) <+ transition(l_BP_CN5a, 0, 1e-10, 1e-10);
+    q_BP_CN5a = idt(max(-I(BP_CN5a), 0.0), 0.0);
+    V(BP_CN5b) <+ transition(l_BP_CN5b, 0, 1e-10, 1e-10);
+    q_BP_CN5b = idt(max(-I(BP_CN5b), 0.0), 0.0);
+    V(BP_CP4) <+ transition(l_BP_CP4, 0, 1e-10, 1e-10);
+    q_BP_CP4 = idt(max(-I(BP_CP4), 0.0), 0.0);
+    V(BP_CN4) <+ transition(l_BP_CN4, 0, 1e-10, 1e-10);
+    q_BP_CN4 = idt(max(-I(BP_CN4), 0.0), 0.0);
+    V(BP_CP3) <+ transition(l_BP_CP3, 0, 1e-10, 1e-10);
+    q_BP_CP3 = idt(max(-I(BP_CP3), 0.0), 0.0);
+    V(BP_CN3) <+ transition(l_BP_CN3, 0, 1e-10, 1e-10);
+    q_BP_CN3 = idt(max(-I(BP_CN3), 0.0), 0.0);
+    V(BP_CP2) <+ transition(l_BP_CP2, 0, 1e-10, 1e-10);
+    q_BP_CP2 = idt(max(-I(BP_CP2), 0.0), 0.0);
+    V(BP_CN2) <+ transition(l_BP_CN2, 0, 1e-10, 1e-10);
+    q_BP_CN2 = idt(max(-I(BP_CN2), 0.0), 0.0);
+    V(BP_CP1) <+ transition(l_BP_CP1, 0, 1e-10, 1e-10);
+    q_BP_CP1 = idt(max(-I(BP_CP1), 0.0), 0.0);
+    V(BP_CN1) <+ transition(l_BP_CN1, 0, 1e-10, 1e-10);
+    q_BP_CN1 = idt(max(-I(BP_CN1), 0.0), 0.0);
+    etot = 1.8 * q_BP_CP11a + 1.8 * q_BP_CP11b + 1.8 * q_BP_CN11a + 1.8 * q_BP_CN11b + 1.8 * q_BP_CP10a + 1.8 * q_BP_CP10b + 1.8 * q_BP_CN10a + 1.8 * q_BP_CN10b + 1.8 * q_BP_CP9a + 1.8 * q_BP_CP9b + 1.8 * q_BP_CN9a + 1.8 * q_BP_CN9b + 1.8 * q_BP_CP8a + 1.8 * q_BP_CP8b + 1.8 * q_BP_CN8a + 1.8 * q_BP_CN8b + 1.8 * q_BP_CP7a + 1.8 * q_BP_CP7b + 1.8 * q_BP_CN7a + 1.8 * q_BP_CN7b + 1.8 * q_BP_CP6a + 1.8 * q_BP_CP6b + 1.8 * q_BP_CN6a + 1.8 * q_BP_CN6b + 1.8 * q_BP_CP5ac + 1.8 * q_BP_CP5bc + 1.8 * q_BP_CN5ac + 1.8 * q_BP_CN5bc + 1.8 * q_BP_CP5a + 1.8 * q_BP_CP5b + 1.8 * q_BP_CN5a + 1.8 * q_BP_CN5b + 1.8 * q_BP_CP4 + 1.8 * q_BP_CN4 + 0.225 * q_BP_CP3 + 0.225 * q_BP_CN3 + 0.225 * q_BP_CP2 + 0.225 * q_BP_CN2 + 0.225 * q_BP_CP1 + 0.225 * q_BP_CN1;
+    V(eref) <+ 1.0e12 * etot;
+  end
+endmodule

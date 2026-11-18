@@ -1,0 +1,7412 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_ptat_lelo_task_001",
+  "task_id": "ptat_lelo_task_001",
+  "topology_id": "ptat_lelo",
+  "candidate_hash": "56d20d8502c947f466a14982aff18490a8259a4f33bad8fb17d94096cedf6583",
+  "evaluator_hash": "cb5960da2a7fbf1bfb18c17f7a566fe408c3394357bd0f23d00cf1dbae11cb14",
+  "digests": {
+    "task": "a334c069a03e33d1efa136b7fd23345ad7c3ad36e7d9507c296b50602a274944",
+    "candidate": "56d20d8502c947f466a14982aff18490a8259a4f33bad8fb17d94096cedf6583",
+    "parameterization": "5d0f45ae534502d12aade6b615197668c1c72c77ce5e4cba9d60a2b3a7071ad7",
+    "dut_source_netlist": "a4e0376244ab22cefb55ce72f556e7eff569ba1f32cc46971588834743fe6fbd",
+    "dut_subckt": "b392527f445cf84dc850be6f3e104311d0cf01daf64c02fc7a7e0e0990895f85",
+    "models": "cf0800bd8572a6c9379d777f9608319fdad8b069992de6d70b98c4dbbc642c8e",
+    "recipes": "5abdf7c5765617caa3184bba80dbf2bab89a8ea660794df5cda74f5946b18106",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "cb5960da2a7fbf1bfb18c17f7a566fe408c3394357bd0f23d00cf1dbae11cb14"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 496,
+    "completed_measurement_checks": 496,
+    "valid_measurement_checks": 496
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8330104642907461,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_typ_up",
+        "lpo_typ_lo"
+      ],
+      "constraint": {
+        "lower": 0.6839999999999999
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.10922621795690635,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_typ_up",
+        "vd_typ_lo"
+      ],
+      "constraint": {
+        "lower": 0.098343
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.098933510753905e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_typ_up",
+        "i_v1_typ_lo"
+      ],
+      "constraint": {
+        "lower": 9.81e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00031186085046397416,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_nom_lo",
+        "vdiff_nom_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.867723291866504,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_typ_lo"
+      ],
+      "constraint": {
+        "lower": 41.5148501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -15.072653773237382,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_typ_up"
+      ],
+      "constraint": {
+        "upper": -14.532146296835498
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 60.61199489379576,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_typ_lo"
+      ],
+      "constraint": {
+        "lower": 52.181999999999995
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 5716225.41308346,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_typ_lo"
+      ],
+      "constraint": {
+        "lower": 5445000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.2546683804105591,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_op_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_op_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_op_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_op_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 4.5871966389914137e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_typ_up"
+      ],
+      "constraint": {
+        "upper": 5.389999999999999e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.099102510183978e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_typ_up",
+        "i0_typ_lo"
+      ],
+      "constraint": {
+        "lower": 1.0674e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.0989309587448683e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_typ_up",
+        "i1_typ_lo"
+      ],
+      "constraint": {
+        "lower": 1.0665e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.0987547814340448e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_typ_up",
+        "i2_typ_lo"
+      ],
+      "constraint": {
+        "lower": 1.0665e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.098573045529985e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_typ_up",
+        "i3_typ_lo"
+      ],
+      "constraint": {
+        "lower": 1.0665e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 4.334485294205959e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_typ_up"
+      ],
+      "constraint": {
+        "upper": 4.5365100000000004e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.386826503636751e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_typ_up",
+        "imax_typ_lo"
+      ],
+      "constraint": {
+        "lower": 1.341e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 8.741900713225666e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_typ_up",
+        "imin_typ_lo"
+      ],
+      "constraint": {
+        "lower": 8.46e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.1068874685708146e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_typ_up",
+        "slope_typ_lo"
+      ],
+      "constraint": {
+        "lower": 3.015e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 5.061601815221253e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_typ_up"
+      ],
+      "constraint": {
+        "upper": 9.064e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.2346073952048963e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "tt_T27_S1p00",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_typ_lo"
+      ],
+      "constraint": {
+        "lower": -2.0185e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8840422980205878,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14545532836807207,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.255750946914852e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.0005177219150002133,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 43.247721500505136,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -14.823804522577955,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 59.12361944960318,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 4990956.06874971,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 4.0567742266585327e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.2558787156753416e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.2557109640603514e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.2555384608757248e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.2553714706087587e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 4.5925055264864454e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S0p94_kss_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 1.084056396258209,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14550663664228058,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.258187871690927e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.000288789410538004,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 43.839812598291815,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -13.672093952150693,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 54.64592727770398,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 6053513.376732957,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 3.335261683463862e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.258273175857621e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.2581795583361885e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.2580741065330073e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.2579582958736585e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 5.301273628141631e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_T125_S1p06_kss_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.6158505798592525,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.08470028675426045,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 7.908118610215442e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.0006003816067122747,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 41.843733804975756,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -19.19400237608845,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 72.48165474086446,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 2706746.87463296,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 9.365836748070599e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 7.910296782734137e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 7.908215958116444e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 7.906051268708278e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 7.903790917691153e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.276235199780664e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.255723111907376e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 7.908108536969874e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 2.8176500497599308e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 4.657623283618656e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.1334262453763793e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8159228594417104,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.08470099430278599,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 7.936029385824208e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.0002841519370495593,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.57217857887337,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -16.781251217532,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 66.4268486359785,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 4095225.6221881565,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 7.601910038222071e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 7.937534799971125e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 7.936139830918941e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 7.934704881824034e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 7.933225049512638e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.972955080971915e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.258160730951045e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 7.936019282237329e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 2.8155078953170428e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 4.537654946582956e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.115416748096052e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8937960126637768,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14563001363732808,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.572413745882941e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00038375146420421835,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.98112413625398,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -13.127934331408067,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 52.78438047542825,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 7773708.711241781,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 3.052648667287074e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.5726414105386357e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.5724003895676573e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.572150119439109e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.5717808039093691e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 6.425297996786226e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S0p94_kff_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 1.093786973587862,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14569471158766062,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.575367813047522e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00017669050805468878,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 43.56382005151683,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -12.120565292013946,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 48.48070954433414,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 9141894.101984031,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 2.5789019462085726e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.5755677805975367e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.5753590688903336e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.5751444787614504e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.5749227781857662e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 7.344037133385554e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.6304303548409299,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.08466355703146511,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 9.901930096849634e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00037263900445150266,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 41.69017730160836,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -16.543962457842348,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 65.94288818097722,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 5187903.225977112,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 5.390315854526393e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 9.90408502344847e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 9.901635884770457e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 9.899110145541198e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 9.896495661624082e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 3.5727128714616966e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.572375123095683e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 9.901917023911908e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.5283843679060134e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 5.762193564130277e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.3985208671879784e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8304502606761872,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.08466443015699965,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 9.929748180174158e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00012477420113710114,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.52952192414885,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -14.66001804699311,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 59.81413110118245,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 7109087.850547238,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 4.4514520369315115e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 9.931569187539356e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 9.929628457444266e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 9.927640698881567e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 9.925602558679866e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 4.4984412326300844e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.575330138738094e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 9.92973508055345e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.5294341253499937e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 5.570190036202258e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.3768637944014225e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8479037408384879,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14538440356732296,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.383362888588542e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.000539658522412334,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 43.25107981415065,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -14.499737766929043,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 58.340858274610625,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 5629528.981066007,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 3.609571574684799e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.3835157555615183e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.383297302209468e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.3830711018562724e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.3828437806249559e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 4.884011116426506e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S0p94_ksf_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 1.04793519199363,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14541284392420722,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.385926314476463e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.000301125326587548,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 43.88093844880423,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -13.295372667390513,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 53.63038060079544,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 6879622.482404707,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 3.2966559372835623e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.3860459772632567e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.3858715652390336e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.385693449172246e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.3855084110636224e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 5.659742693389308e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_T125_S1p06_ksf_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.5815038436403862,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.0846039729892194,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 8.705291532124019e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.0006389232781554011,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 41.97781630410163,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -19.142680559380764,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 72.49102532162264,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 2894925.64808213,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 8.918753948655027e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 8.708193209145653e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 8.705030012441066e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 8.701724973362024e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 8.698257865383275e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 2.3382971215755155e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.383310316140778e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 8.705149621624855e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.10785063017147e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 5.119591161897835e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.2460724176391779e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.7816165810679334,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.08460365954641735,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 8.736817929357923e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00030316956648523963,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.7241956885775,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -16.48739511545898,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 65.90407393993443,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 4545763.481643052,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 6.759645936991577e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 8.738964315633406e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 8.736982218597784e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 8.734940780549716e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 8.732833374094317e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 3.0940227261963e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.385874320808981e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 8.736806752804563e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.104203912294089e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 5.041762672230159e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.2334262908911094e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.9320704131565266,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14559188007467544,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.386918877258654e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.0003706244699408501,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.741634863522115,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -13.616508285336202,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 54.113196422135374,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 6561847.583347528,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 3.8861226190025254e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.3870571586617147e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.386888687659775e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.3867134110102798e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.386501998723571e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 5.8864941987075085e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S0p94_kfs_th_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 1.132025138016758,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.14570808806968044,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 1.390001949765223e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00016483466621231013,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 43.354972360564766,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -12.586253202328981,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 49.826650282117775,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 7733360.14258433,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 3.3117845686624396e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 1.3901206763066696e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 1.389974525784123e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 1.3898239606381403e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 1.3896681117907246e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 6.697028268925805e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.6660251700712475,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.08470774235102041,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 8.742951625053287e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00034002633768448476,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 41.67167054635266,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -16.638926061457973,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 65.99525503992375,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 4644617.759259433,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 5.786814720554046e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 8.744626985525597e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 8.743002271816379e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 8.741327204524415e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 8.739593837110114e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 3.36417333523914e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.38689086638812e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 8.742940205765184e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.1066475503733425e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 5.111308727721479e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.2386898558630925e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "lpo_voltage_V",
+      "value": 0.8660367415419805,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lpo_corner_up",
+        "lpo_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.468
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "delta_diode_voltage_V",
+      "value": 0.0847083916015916,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vd_corner_up",
+        "vd_corner_lo"
+      ],
+      "constraint": {
+        "lower": 0.076167
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_A",
+      "value": 8.766330646743343e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "i_v1_corner_up",
+        "i_v1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 6.57e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "diode_error_V",
+      "value": 0.00010666123566804853,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "vdiff_corner_lo",
+        "vdiff_corner_up"
+      ],
+      "constraint": {
+        "upper": 0.000737
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 42.481666327575944,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "lf_gain_corner_lo"
+      ],
+      "constraint": {
+        "lower": 39.8548501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_at_phase_crossover_dB",
+      "value": -14.854104968781764,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "gm_corner_up"
+      ],
+      "constraint": {
+        "upper": -11.312146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 60.17961261148082,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "pm_corner_lo"
+      ],
+      "constraint": {
+        "lower": 40.635
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 6249468.642132257,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "stb",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "ug_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2061000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_s",
+      "value": 5.175003324376105e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "t_settle_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.166e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_0_A",
+      "value": 8.767535379198401e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i0_corner_up",
+        "i0_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.461e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_1_A",
+      "value": 8.766228263520658e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i1_corner_up",
+        "i1_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_2_A",
+      "value": 8.764891137211782e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i2_corner_up",
+        "i2_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_current_3_A",
+      "value": 8.763519873094877e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "i3_corner_up",
+        "i3_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.452e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "supply_current_A",
+      "value": 4.187529270587859e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "idd_corner_up"
+      ],
+      "constraint": {
+        "upper": 8.009210000000001e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "max_output_current_A",
+      "value": 1.389975454256847e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imax_corner_up",
+        "imax_corner_lo"
+      ],
+      "constraint": {
+        "lower": 1.188e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "min_output_current_A",
+      "value": 8.766319205583255e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "imin_corner_up",
+        "imin_corner_lo"
+      ],
+      "constraint": {
+        "lower": 7.47e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ptat_slope_A_per_C",
+      "value": 3.1111729315061906e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "slope_corner_up",
+        "slope_corner_lo"
+      ],
+      "constraint": {
+        "lower": 2.6729999999999998e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_max_A",
+      "value": 4.7988061304983956e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_max_corner_up"
+      ],
+      "constraint": {
+        "upper": 1.0351e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "linearity_error_min_A",
+      "value": -1.2064557091739945e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "dc",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "err_min_corner_lo"
+      ],
+      "constraint": {
+        "lower": -2.3023e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.lpo_voltage_V",
+      "value": 0.8340565131753301,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_lpo_up",
+        "mc_mean_lpo_lo"
+      ],
+      "constraint": {
+        "lower": 0.6839999999999999
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.lpo_voltage_V",
+      "value": 0.003824859099541227,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_lpo"
+      ],
+      "constraint": {
+        "upper": 0.0073333370000000005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.delta_diode_voltage_V",
+      "value": 0.10897733635802051,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_vd_up",
+        "mc_mean_vd_lo"
+      ],
+      "constraint": {
+        "lower": 0.098073
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.delta_diode_voltage_V",
+      "value": 0.00087435073665839,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_vd"
+      ],
+      "constraint": {
+        "upper": 0.001466663
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.output_current_A",
+      "value": 1.086954234706954e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_i_v1_up",
+        "mc_mean_i_v1_lo"
+      ],
+      "constraint": {
+        "lower": 9.449999999999998e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.output_current_A",
+      "value": 7.932593951678524e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_i_v1"
+      ],
+      "constraint": {
+        "upper": 1.21e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.diode_error_V",
+      "value": 0.0008440411919930612,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1"
+    },
+    {
+      "metric": "mc_sigma.diode_error_V",
+      "value": 0.004387414254819846,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_vdiff"
+      ],
+      "constraint": {
+        "upper": 0.008933837
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.loop_gain_lf_dB",
+      "value": 42.80567646025596,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_lf_gain_lo"
+      ],
+      "constraint": {
+        "lower": 41.314850188786494
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.loop_gain_lf_dB",
+      "value": 0.31588036999273356,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_lf_gain"
+      ],
+      "constraint": {
+        "upper": 0.6160000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.loop_gain_at_phase_crossover_dB",
+      "value": -15.088330931150058,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_gm_up"
+      ],
+      "constraint": {
+        "upper": -14.562146296835499
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.loop_gain_at_phase_crossover_dB",
+      "value": 0.31050522311719286,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_gm"
+      ],
+      "constraint": {
+        "upper": 0.3446663
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.phase_margin_deg",
+      "value": 60.693473089494375,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_pm_lo"
+      ],
+      "constraint": {
+        "lower": 52.452
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.phase_margin_deg",
+      "value": 0.8918488642146086,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_pm"
+      ],
+      "constraint": {
+        "upper": 1.428163
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.loop_unity_gain_frequency_Hz",
+      "value": 5674372.871764811,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_mean_ug_lo"
+      ],
+      "constraint": {
+        "lower": 5346000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.loop_unity_gain_frequency_Hz",
+      "value": 209832.84856032414,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_lstb_v1",
+      "constraints": [
+        "mc_sigma_ug"
+      ],
+      "constraint": {
+        "upper": 375833.7
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.settling_time_s",
+      "value": 4.631008839451896e-07,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_mean_t_settle_up"
+      ],
+      "constraint": {
+        "upper": 5.5e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.settling_time_s",
+      "value": 1.8478299812399737e-08,
+      "unit": "s",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_sigma_t_settle"
+      ],
+      "constraint": {
+        "upper": 4.216663e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.output_current_0_A",
+      "value": 1.0871305408155767e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_mean_i0_up",
+        "mc_mean_i0_lo"
+      ],
+      "constraint": {
+        "lower": 1.0278000000000001e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.output_current_0_A",
+      "value": 7.93388433973503e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_sigma_i0"
+      ],
+      "constraint": {
+        "upper": 1.213663e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.output_current_1_A",
+      "value": 1.081817860134141e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_mean_i1_up",
+        "mc_mean_i1_lo"
+      ],
+      "constraint": {
+        "lower": 1.0296e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.output_current_1_A",
+      "value": 6.715764560452843e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_sigma_i1"
+      ],
+      "constraint": {
+        "upper": 1.232e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.output_current_2_A",
+      "value": 1.065790285499371e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_mean_i2_up",
+        "mc_mean_i2_lo"
+      ],
+      "constraint": {
+        "lower": 1.0395e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.output_current_2_A",
+      "value": 8.141331754090995e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_sigma_i2"
+      ],
+      "constraint": {
+        "upper": 1.21e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.output_current_3_A",
+      "value": 1.0942569638273779e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_mean_i3_up",
+        "mc_mean_i3_lo"
+      ],
+      "constraint": {
+        "lower": 1.0368e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.output_current_3_A",
+      "value": 7.454845128235324e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_sigma_i3"
+      ],
+      "constraint": {
+        "upper": 1.285163e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.supply_current_A",
+      "value": 4.3108735252569164e-05,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_mean_idd_up"
+      ],
+      "constraint": {
+        "upper": 4.49988e-05
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.supply_current_A",
+      "value": 6.358058785978732e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_tran_v1",
+      "constraints": [
+        "mc_sigma_idd"
+      ],
+      "constraint": {
+        "upper": 1.432563e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.max_output_current_A",
+      "value": 1.3749352264519535e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_mean_imax_up",
+        "mc_mean_imax_lo"
+      ],
+      "constraint": {
+        "lower": 1.296e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.max_output_current_A",
+      "value": 7.698040101918379e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_sigma_imax"
+      ],
+      "constraint": {
+        "upper": 1.21e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.min_output_current_A",
+      "value": 8.617947650267288e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_mean_imin_up",
+        "mc_mean_imin_lo"
+      ],
+      "constraint": {
+        "lower": 8.1e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.min_output_current_A",
+      "value": 8.193706458329886e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_sigma_imin"
+      ],
+      "constraint": {
+        "upper": 1.21e-07
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.ptat_slope_A_per_C",
+      "value": 3.1099421904559074e-09,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_mean_slope_up",
+        "mc_mean_slope_lo"
+      ],
+      "constraint": {
+        "lower": 2.961e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.ptat_slope_A_per_C",
+      "value": 4.47760842853607e-11,
+      "unit": "A/C",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_sigma_slope"
+      ],
+      "constraint": {
+        "upper": 1.686663e-10
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.linearity_error_max_A",
+      "value": 5.1136559768135615e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_mean_err_max_up"
+      ],
+      "constraint": {
+        "upper": 8.536e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.linearity_error_max_A",
+      "value": 3.1775259765464287e-10,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_sigma_err_max"
+      ],
+      "constraint": {
+        "upper": 1.162337e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.linearity_error_min_A",
+      "value": -1.250558504280876e-08,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_mean_err_min_lo"
+      ],
+      "constraint": {
+        "lower": -1.7842e-08
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.linearity_error_min_A",
+      "value": 1.0582801891436292e-09,
+      "unit": "A",
+      "status": "valid",
+      "point": {},
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "tt_T27_S1p00_MC",
+      "recipe_id": "lelo30_ptat_dc_v1",
+      "constraints": [
+        "mc_sigma_err_min"
+      ],
+      "constraint": {
+        "upper": 4.4055e-09
+      },
+      "constraint_pass": true
+    }
+  ],
+  "worst_case_metrics": {
+    "lf_gain_typ_lo": {
+      "value": 42.867723291866504,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "lf_gain_corner_lo": {
+      "value": 41.67167054635266,
+      "unit": "dB",
+      "condition_id": "fs_Tm40_S0p94_kfs_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_lf_gain_lo": {
+      "value": 42.80567646025596,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_lf_gain": {
+      "value": 0.31588036999273356,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "gm_typ_up": {
+      "value": -15.072653773237382,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "gm_corner_up": {
+      "value": -12.120565292013946,
+      "unit": "dB",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_gm_up": {
+      "value": -15.088330931150058,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_gm": {
+      "value": 0.31050522311719286,
+      "unit": "dB",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "pm_typ_lo": {
+      "value": 60.61199489379576,
+      "unit": "deg",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "pm_corner_lo": {
+      "value": 48.48070954433414,
+      "unit": "deg",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_pm_lo": {
+      "value": 60.693473089494375,
+      "unit": "deg",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_pm": {
+      "value": 0.8918488642146086,
+      "unit": "deg",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "ug_typ_lo": {
+      "value": 5716225.41308346,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "ug_corner_lo": {
+      "value": 2706746.87463296,
+      "unit": "Hz",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_ug_lo": {
+      "value": 5674372.871764811,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_ug": {
+      "value": 209832.84856032414,
+      "unit": "Hz",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "lpo_typ_up": {
+      "value": 0.8330104642907461,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "lpo_corner_up": {
+      "value": 1.132025138016758,
+      "unit": "V",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_lpo_up": {
+      "value": 0.8340565131753301,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "lpo_typ_lo": {
+      "value": 0.8330104642907461,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "lpo_corner_lo": {
+      "value": 0.5815038436403862,
+      "unit": "V",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_lpo_lo": {
+      "value": 0.8340565131753301,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_lpo": {
+      "value": 0.003824859099541227,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "vd_typ_up": {
+      "value": 0.10922621795690635,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "vd_corner_up": {
+      "value": 0.14570808806968044,
+      "unit": "V",
+      "condition_id": "fs_T125_S1p06_kfs_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_vd_up": {
+      "value": 0.10897733635802051,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "vd_typ_lo": {
+      "value": 0.10922621795690635,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "vd_corner_lo": {
+      "value": 0.08460365954641735,
+      "unit": "V",
+      "condition_id": "sf_Tm40_S1p06_ksf_tl_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_vd_lo": {
+      "value": 0.10897733635802051,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_vd": {
+      "value": 0.00087435073665839,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i_v1_typ_up": {
+      "value": 1.098933510753905e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i_v1_corner_up": {
+      "value": 1.575367813047522e-06,
+      "unit": "A",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i_v1_up": {
+      "value": 1.086954234706954e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i_v1_typ_lo": {
+      "value": 1.098933510753905e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i_v1_corner_lo": {
+      "value": 7.908118610215442e-07,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i_v1_lo": {
+      "value": 1.086954234706954e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_i_v1": {
+      "value": 7.932593951678524e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "vdiff_nom_lo": {
+      "value": 0.00031186085046397416,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "vdiff_corner_lo": {
+      "value": 0.00010666123566804853,
+      "unit": "V",
+      "condition_id": "fs_Tm40_S1p06_kfs_tl_vh",
+      "point": {},
+      "complete": true
+    },
+    "vdiff_nom_up": {
+      "value": 0.00031186085046397416,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "vdiff_corner_up": {
+      "value": 0.0006389232781554011,
+      "unit": "V",
+      "condition_id": "sf_Tm40_S0p94_ksf_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_vdiff": {
+      "value": 0.004387414254819846,
+      "unit": "V",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "t_settle_typ_up": {
+      "value": 4.5871966389914137e-07,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "t_settle_corner_up": {
+      "value": 9.365836748070599e-07,
+      "unit": "s",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_t_settle_up": {
+      "value": 4.631008839451896e-07,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_t_settle": {
+      "value": 1.8478299812399737e-08,
+      "unit": "s",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i0_typ_up": {
+      "value": 1.099102510183978e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i0_corner_up": {
+      "value": 1.5755677805975367e-06,
+      "unit": "A",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i0_up": {
+      "value": 1.0871305408155767e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i0_typ_lo": {
+      "value": 1.099102510183978e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i0_corner_lo": {
+      "value": 7.910296782734137e-07,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i0_lo": {
+      "value": 1.0871305408155767e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_i0": {
+      "value": 7.93388433973503e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i1_typ_up": {
+      "value": 1.0989309587448683e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i1_corner_up": {
+      "value": 1.5753590688903336e-06,
+      "unit": "A",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i1_up": {
+      "value": 1.081817860134141e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i1_typ_lo": {
+      "value": 1.0989309587448683e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i1_corner_lo": {
+      "value": 7.908215958116444e-07,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i1_lo": {
+      "value": 1.081817860134141e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_i1": {
+      "value": 6.715764560452843e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i2_typ_up": {
+      "value": 1.0987547814340448e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i2_corner_up": {
+      "value": 1.5751444787614504e-06,
+      "unit": "A",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i2_up": {
+      "value": 1.065790285499371e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i2_typ_lo": {
+      "value": 1.0987547814340448e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i2_corner_lo": {
+      "value": 7.906051268708278e-07,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i2_lo": {
+      "value": 1.065790285499371e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_i2": {
+      "value": 8.141331754090995e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i3_typ_up": {
+      "value": 1.098573045529985e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i3_corner_up": {
+      "value": 1.5749227781857662e-06,
+      "unit": "A",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i3_up": {
+      "value": 1.0942569638273779e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "i3_typ_lo": {
+      "value": 1.098573045529985e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "i3_corner_lo": {
+      "value": 7.903790917691153e-07,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_i3_lo": {
+      "value": 1.0942569638273779e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_i3": {
+      "value": 7.454845128235324e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "idd_typ_up": {
+      "value": 4.334485294205959e-05,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "idd_corner_up": {
+      "value": 7.344037133385554e-05,
+      "unit": "A",
+      "condition_id": "ff_ll_T125_S1p06_kff_th_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_idd_up": {
+      "value": 4.3108735252569164e-05,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_idd": {
+      "value": 6.358058785978732e-07,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "imax_typ_up": {
+      "value": 1.386826503636751e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "imax_corner_up": {
+      "value": 1.575330138738094e-06,
+      "unit": "A",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_imax_up": {
+      "value": 1.3749352264519535e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "imax_typ_lo": {
+      "value": 1.386826503636751e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "imax_corner_lo": {
+      "value": 1.255723111907376e-06,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_imax_lo": {
+      "value": 1.3749352264519535e-06,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_imax": {
+      "value": 7.698040101918379e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "imin_typ_up": {
+      "value": 8.741900713225666e-07,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "imin_corner_up": {
+      "value": 9.92973508055345e-07,
+      "unit": "A",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_imin_up": {
+      "value": 8.617947650267288e-07,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "imin_typ_lo": {
+      "value": 8.741900713225666e-07,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "imin_corner_lo": {
+      "value": 7.908108536969874e-07,
+      "unit": "A",
+      "condition_id": "ss_hh_Tm40_S0p94_kss_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_imin_lo": {
+      "value": 8.617947650267288e-07,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_imin": {
+      "value": 8.193706458329886e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "slope_typ_up": {
+      "value": 3.1068874685708146e-09,
+      "unit": "A/C",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "slope_corner_up": {
+      "value": 3.5294341253499937e-09,
+      "unit": "A/C",
+      "condition_id": "ff_ll_Tm40_S1p06_kff_tl_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_slope_up": {
+      "value": 3.1099421904559074e-09,
+      "unit": "A/C",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "slope_typ_lo": {
+      "value": 3.1068874685708146e-09,
+      "unit": "A/C",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "slope_corner_lo": {
+      "value": 2.8155078953170428e-09,
+      "unit": "A/C",
+      "condition_id": "ss_hh_Tm40_S1p06_kss_tl_vh",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_slope_lo": {
+      "value": 3.1099421904559074e-09,
+      "unit": "A/C",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_slope": {
+      "value": 4.47760842853607e-11,
+      "unit": "A/C",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "err_max_typ_up": {
+      "value": 5.061601815221253e-09,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "err_max_corner_up": {
+      "value": 5.762193564130277e-09,
+      "unit": "A",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_err_max_up": {
+      "value": 5.1136559768135615e-09,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_err_max": {
+      "value": 3.1775259765464287e-10,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "err_min_typ_lo": {
+      "value": -1.2346073952048963e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "err_min_corner_lo": {
+      "value": -1.3985208671879784e-08,
+      "unit": "A",
+      "condition_id": "ff_ll_Tm40_S0p94_kff_tl_vl",
+      "point": {},
+      "complete": true
+    },
+    "mc_mean_err_min_lo": {
+      "value": -1.250558504280876e-08,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "mc_sigma_err_min": {
+      "value": 1.0582801891436292e-09,
+      "unit": "A",
+      "condition_id": "tt_T27_S1p00_MC",
+      "point": {},
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "tt_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "tt_T27_S1p00/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 9 notices",
+      "extraction_error": null,
+      "wall_s": 1.649,
+      "cpu_s": 0.37
+    },
+    {
+      "job_id": "tt_T27_S1p00/lelo30_ptat_op_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 5 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.353,
+      "cpu_s": 0.383
+    },
+    {
+      "job_id": "tt_T27_S1p00/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 4.367,
+      "cpu_s": 2.0
+    },
+    {
+      "job_id": "tt_T27_S1p00/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.304,
+      "cpu_s": 0.5750000000000001
+    },
+    {
+      "job_id": "ss_hh_T125_S0p94_kss_th_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.049,
+      "cpu_s": 0.404
+    },
+    {
+      "job_id": "ss_hh_T125_S0p94_kss_th_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 4.387,
+      "cpu_s": 2.05
+    },
+    {
+      "job_id": "ss_hh_T125_S1p06_kss_th_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 0.819,
+      "cpu_s": 0.384
+    },
+    {
+      "job_id": "ss_hh_T125_S1p06_kss_th_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 3.833,
+      "cpu_s": 2.05
+    },
+    {
+      "job_id": "ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 0.888,
+      "cpu_s": 0.38
+    },
+    {
+      "job_id": "ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 4.109,
+      "cpu_s": 2.01
+    },
+    {
+      "job_id": "ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.446,
+      "cpu_s": 0.543
+    },
+    {
+      "job_id": "ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 0.896,
+      "cpu_s": 0.387
+    },
+    {
+      "job_id": "ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 2.514,
+      "cpu_s": 1.87
+    },
+    {
+      "job_id": "ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 3 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 0.905,
+      "cpu_s": 0.581
+    },
+    {
+      "job_id": "ff_ll_T125_S0p94_kff_th_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 0.804,
+      "cpu_s": 0.399
+    },
+    {
+      "job_id": "ff_ll_T125_S0p94_kff_th_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 3.503,
+      "cpu_s": 1.91
+    },
+    {
+      "job_id": "ff_ll_T125_S1p06_kff_th_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.047,
+      "cpu_s": 0.356
+    },
+    {
+      "job_id": "ff_ll_T125_S1p06_kff_th_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 2.861,
+      "cpu_s": 1.78
+    },
+    {
+      "job_id": "ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 2.373,
+      "cpu_s": 0.31
+    },
+    {
+      "job_id": "ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 4.911,
+      "cpu_s": 1.64
+    },
+    {
+      "job_id": "ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.124,
+      "cpu_s": 0.525
+    },
+    {
+      "job_id": "ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 0.994,
+      "cpu_s": 0.33
+    },
+    {
+      "job_id": "ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 2.751,
+      "cpu_s": 1.96
+    },
+    {
+      "job_id": "ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 0.858,
+      "cpu_s": 0.5630000000000001
+    },
+    {
+      "job_id": "sf_T125_S0p94_ksf_th_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 0.68,
+      "cpu_s": 0.395
+    },
+    {
+      "job_id": "sf_T125_S0p94_ksf_th_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 2.461,
+      "cpu_s": 1.94
+    },
+    {
+      "job_id": "sf_T125_S1p06_ksf_th_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.193,
+      "cpu_s": 0.373
+    },
+    {
+      "job_id": "sf_T125_S1p06_ksf_th_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 3.285,
+      "cpu_s": 1.99
+    },
+    {
+      "job_id": "sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 0.941,
+      "cpu_s": 0.391
+    },
+    {
+      "job_id": "sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 5.143,
+      "cpu_s": 2.0
+    },
+    {
+      "job_id": "sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.995,
+      "cpu_s": 0.557
+    },
+    {
+      "job_id": "sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 1.155,
+      "cpu_s": 0.387
+    },
+    {
+      "job_id": "sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 6.244,
+      "cpu_s": 2.06
+    },
+    {
+      "job_id": "sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.671,
+      "cpu_s": 0.58
+    },
+    {
+      "job_id": "fs_T125_S0p94_kfs_th_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.768,
+      "cpu_s": 0.381
+    },
+    {
+      "job_id": "fs_T125_S0p94_kfs_th_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 5.396,
+      "cpu_s": 2.02
+    },
+    {
+      "job_id": "fs_T125_S1p06_kfs_th_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 8 notices",
+      "extraction_error": null,
+      "wall_s": 1.129,
+      "cpu_s": 0.366
+    },
+    {
+      "job_id": "fs_T125_S1p06_kfs_th_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 4.319,
+      "cpu_s": 1.92
+    },
+    {
+      "job_id": "fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 1.628,
+      "cpu_s": 0.396
+    },
+    {
+      "job_id": "fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 3.466,
+      "cpu_s": 2.04
+    },
+    {
+      "job_id": "fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.328,
+      "cpu_s": 0.5700000000000001
+    },
+    {
+      "job_id": "fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 10 notices",
+      "extraction_error": null,
+      "wall_s": 1.011,
+      "cpu_s": 0.396
+    },
+    {
+      "job_id": "fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 13 notices",
+      "extraction_error": null,
+      "wall_s": 2.812,
+      "cpu_s": 1.93
+    },
+    {
+      "job_id": "fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 18 notices",
+      "extraction_error": null,
+      "wall_s": 1.313,
+      "cpu_s": 0.5650000000000001
+    },
+    {
+      "job_id": "tt_T27_S1p00_MC/lelo30_ptat_lstb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 62 notices",
+      "extraction_error": null,
+      "wall_s": 4.876,
+      "cpu_s": 0.833
+    },
+    {
+      "job_id": "tt_T27_S1p00_MC/lelo30_ptat_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 155 notices",
+      "extraction_error": null,
+      "wall_s": 37.833,
+      "cpu_s": 31.9
+    },
+    {
+      "job_id": "tt_T27_S1p00_MC/lelo30_ptat_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 4 warnings, and 228 notices",
+      "extraction_error": null,
+      "wall_s": 6.964,
+      "cpu_s": 4.33
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 47,
+    "analysis_executions": 141,
+    "condition_evaluations": 18,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 82.08,
+    "execution_wall_s": 75.773,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00/lelo30_ptat_op_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_T125_S0p94_kss_th_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_T125_S0p94_kss_th_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_T125_S1p06_kss_th_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_T125_S1p06_kss_th_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_Tm40_S0p94_kss_tl_vl/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ss_hh_Tm40_S1p06_kss_tl_vh/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_T125_S0p94_kff_th_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_T125_S0p94_kff_th_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_T125_S1p06_kff_th_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_T125_S1p06_kff_th_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_Tm40_S0p94_kff_tl_vl/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/ff_ll_Tm40_S1p06_kff_tl_vh/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_T125_S0p94_ksf_th_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_T125_S0p94_ksf_th_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_T125_S1p06_ksf_th_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_T125_S1p06_ksf_th_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_Tm40_S0p94_ksf_tl_vl/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/sf_Tm40_S1p06_ksf_tl_vh/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_T125_S0p94_kfs_th_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_T125_S0p94_kfs_th_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_T125_S1p06_kfs_th_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_T125_S1p06_kfs_th_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_Tm40_S0p94_kfs_tl_vl/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/fs_Tm40_S1p06_kfs_tl_vh/lelo30_ptat_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00_MC/lelo30_ptat_lstb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00_MC/lelo30_ptat_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ptat_lelo_task_001/tt_T27_S1p00_MC/lelo30_ptat_dc_v1"
+    ]
+  }
+}

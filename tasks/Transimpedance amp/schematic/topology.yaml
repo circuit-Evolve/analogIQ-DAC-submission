@@ -1,0 +1,35 @@
+schema_version: 1
+topology_id: tia02_singh_2018
+family: tia
+interface_type: shunt_feedback_tia
+technology_id: gpdk180
+approval_status: unapproved
+source:
+  doi: 10.1007/s10470-018-1246-x
+  title: "Wideband transimpedance amplifier using negative capacitance and capacitive feedback (Singh, Gupta, Bansal; Analog Integr. Circ. Sig. Process. 97:269-279, 2018)"
+  figure: "Fig. 4 (shunt-feedback CS TIA M1/RF/CF with PMOS mirror load M2/M3 fed by Ibias2, followed by the negative-capacitance generator M4/M5 (tail Ibias1), diode load M6 and capacitor C from VY to Vout)"
+  netlist_origin: final.scs
+  inputs: "source/ (paper PDF, Metrics.xlsx, Corners.xlsx, Fig. 4, cadence schematic; see source/ORIGIN.txt)"
+  modifications:
+    - "None to final.scs. Its symbols C_FB, C_NCG, V_BIAS, I_PHOTO are used but never declared; the flow makes undeclared netlist symbols DUT parameters (TI2b, netlist.py): C_FB, C_NCG, V_BIAS are sizing variables, I_PHOTO a fixed dut_parameter."
+    - "The netlist embeds the photodiode (IPHOTO current source, CPD 50 fF). TI1a: I_PHOTO = 0 and the netlist's 50 fF CPD is the photodiode; the fixture's own input capacitance is 0 at nominal (Cpd variants add Cpd - 50 fF in the fixture, TI6a)."
+dut:
+  netlist: final.scs
+  subckt_name: tia02_dut
+  port_order: [VDD, GND, IIN, VOUT]
+  net_map: {}
+ports:
+  input: IIN
+  output: VOUT
+  supply_positive: VDD
+  supply_negative: GND        # driven at supply_negative_V = 0 V (default)
+dut_parameters:
+  I_PHOTO: {value: 0.0, provenance: "owner answer TI1a: the netlist's embedded photocurrent source IPHOTO is neutralised (I_PHOTO = 0); the fixture's IIN supplies the photocurrent"}
+op_check:
+  exclude: []
+  note: "Paper p. 4: 'Biasing is provided to drive all transistors into saturation region': all six devices are checked."
+known_issues:
+  - "Power: the paper reports 0.81 mW (Table 2), but the circuit's ideal bias currents alone draw ~0.81 mA from 1.8 V (Ibias2 0.4 mA in M3, ~0.4 mA mirrored into M1/M2, Ibias1 7 uA), i.e. ~1.45 mW; the paper's figure looks like a current quoted as power. Targeted at 0.81 mW anyway (TI7a, margin scoring)."
+  - "The paper does not give CF, C (NCG) or Vbias (Sizing row 8 'not given'): they are sizing variables (D6/D14); the curator's reference values were chosen by simulation (reference_candidate.json), never part of the task."
+  - "Fixture photocurrent direction: the tia family's IIN pushes the DC photocurrent (20 uA, TI3c) into the input pin."
+  - "Monte Carlo (paper Fig. 13: 5 % width mismatch, 200 runs) reports only an overlaid band of curves (~44.5-47 dB), no mean or sigma: no Monte Carlo target (D18 needs mean/sigma)."

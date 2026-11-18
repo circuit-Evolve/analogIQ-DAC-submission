@@ -1,0 +1,55 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+// BENCHMARK MODIFICATION (owner decision B2, 2026-10-25): the exported netlist leaves the bias generator and the common-mode
+// amplifier unconnected (their nodes drive nothing; the paper's Fig. 3 drawing has the same open ends), and the CM sense resistors
+// end on two unconnected pins. The curator rewired them as follows (analyst's reading, gap-agent-B circuit 1); the eight bias pins
+// and the two sense pins are no longer ports, VCM_REF stays the output common-mode reference pin:
+//   BIAS_NCAS    = BN_UPPER      (upper diode of the stacked NMOS bias diodes NMOS_15 / NMOS_6: cascode bias)
+//   BIAS_TAIL    = BN_LOWER      (lower diode NMOS_6: tail current mirror)
+//   BIAS_OUT_L/R = BN_LOWER      (output-stage sinks NMOS_20 / NMOS_28 mirror the same diode)
+//   BIAS_PTOP    = BP_SINGLE     (PMOS diode PMOS_25 fed by the NMOS_CROSS_1 / NMOS_CROSS_0 branch: top current sources)
+//   BIAS_PCAS    = BP_CASCADE    (PMOS stack PMOS_13 / PMOS_2 fed by the NMOS_9 / NMOS_5 branch: PMOS cascode bias)
+//   BIAS_CM      = BP_SINGLE     (CM-amplifier tail PMOS_26 mirrors the same PMOS diode)
+//   BIAS_NBOTTOM = CM_R          (the CM amplifier's sense-side diode NMOS_10 sets the first-stage bottom sinks NMOS_11 / NMOS_7;
+//                                  sign: output CM up -> PMOS_21 current down -> CM_R down -> bottom sinks weaker -> CAS up -> PMOS_14/3
+//                                  weaker -> outputs down = negative feedback)
+//   SENSE_L / SENSE_R = OUT_L / OUT_R (the sense resistors average the two outputs into VCM_SENSE)
+// Assumptions: BIAS_CM = BP_SINGLE and the use of CM_R (not CM_L) for the bottom sinks are the curator's choices (the analyst's
+// reading left BIAS_CM open); the mirror ratios are set by the sized devices (sizing variables). NMOS_8 (CM_L diode) keeps the
+// reference-side current of the CM amplifier and drives nothing else.
+subckt gc_78c0d592ebff_f48e9f0e (VDD VSS VIN_L VIN_R OUT_L OUT_R VCM_REF)
+C_L (LOW_L OUT_L) capacitor c=C_COMP_L
+C_R (OUT_R LOW_R) capacitor c=C_COMP_R
+I_BIAS (VDD BN_UPPER) isource type=dc dc=I_BIAS_VALUE
+PMOS_4 (CAS_R BP_CASCADE FOLD_R VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_3 (OUT_R CAS_R VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_27 (FOLD_L BP_SINGLE VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_26 (CM_TAIL BP_SINGLE VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_25 (BP_SINGLE BP_SINGLE VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_24 (CM_L VCM_REF CM_TAIL VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_21 (CM_R VCM_SENSE CM_TAIL VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_2 (BP_CASCADE BP_CASCADE BP_STACK VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_18 (FOLD_R BP_SINGLE VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_17 (CAS_L BP_CASCADE FOLD_L VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_14 (OUT_L CAS_L VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+PMOS_13 (BP_STACK BP_CASCADE VDD VDD) pmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+R_R (VCM_SENSE OUT_R) resistor r=R_SENSE_R
+R_L (VCM_SENSE OUT_L) resistor r=R_SENSE_L
+NMOS_CROSS_1 (BP_SINGLE BN_UPPER BN_STACK1 VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_CROSS_0 (BN_STACK1 BN_LOWER VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_9 (BP_CASCADE BN_UPPER BN_STACK2 VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_8 (CM_L CM_L VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_7 (LOW_R CM_R VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_6 (BN_LOWER BN_LOWER VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_5 (BN_STACK2 BN_LOWER VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_29 (TAIL BN_LOWER VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_28 (OUT_R BN_LOWER VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_22 (FOLD_L VIN_L TAIL VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_20 (OUT_L BN_LOWER VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_19 (FOLD_R VIN_R TAIL VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_16 (CAS_L BN_UPPER LOW_L VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_15 (BN_UPPER BN_UPPER BN_LOWER VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_12 (CAS_R BN_UPPER LOW_R VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_11 (LOW_L CM_R VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+NMOS_10 (CM_R CM_R VSS VSS) nmos1 w=1u l=1u m=1 as=600f ad=600f ps=3.2u pd=3.2u
+ends gc_78c0d592ebff_f48e9f0e

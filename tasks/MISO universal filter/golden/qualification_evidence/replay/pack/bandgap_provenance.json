@@ -1,0 +1,20 @@
+{
+  "seed_original": "<RUNS>/ledro8h_four_papers_20261107T173619Z/bandgap/best.json",
+  "seed_original_sha256": "74e88e96cdf6ee5c8f0efa96c8d46daf12a3a3d0827979384f50f9fd176d6169",
+  "seed_copy": "<WORK>/ledro8h_four_corners_20261109T060146Z/pack/bandgap_seed.json",
+  "seed_copy_sha256": "74e88e96cdf6ee5c8f0efa96c8d46daf12a3a3d0827979384f50f9fd176d6169",
+  "previous_verification": "<WORK>/four-circuit-corners-20261109/bandgap/results.json",
+  "previous_verification_sha256": "f83a95aa7eecf0d9cd4b6dff804dc97c597de2082eeaa9b8e11cb9019e9c439e",
+  "paper_conditions": "Paper Table I/V: 1.8V nominal; Fig.5c sweep endpoints1.71/1.89V; Fig.6 FF/SS/SF/FS plus nominalTT.",
+  "frozen_base": "<WORK>/ledro8h_four_corners_20261109T060146Z/pack/base",
+  "frozen_bandgap_config_sha256": "5539b71e31f204c9eb13b85fc9d5e6e4752684227ae909c5333d052f89276f5e",
+  "nominal_template_sha256": "34f7d86c8c5a837e8c5e1fa74fd795ce651de16ad879bb64c9e1e23a0d0d5a60",
+  "target_rule": "Original five two-sided10% paper matching bands unchanged at all15 corners.",
+  "temperature": "Only retained -40..120C sweep for19..120C TC; no extra temperature corner grid.",
+  "startup": "Search constant-supply ripple only; full_verify adds all15 1ms ramp diagnostics, not a target.",
+  "cleanup": "Search removes raw after each completed corner; shared line raw removed after its three supply corners. Full verification archives raw per job before removing uncompressed copies.",
+  "implementation_sha256": "e78f4a07cae002f63a440ae986738f463fc5681da086df858e1a63cbb830b947",
+  "initial_metadata": "All19 variable.initial values equal the exact saved best seed; bounds and generated decks unchanged.",
+  "deadline_policy": "Overall monotonic budget900s search/1800s full_verify. Each simulator timeout capped by remaining budget; exhausted jobs rc124 without launch.",
+  "deadline_test": "<WORK>/ledro8h_four_corners_20261109T060146Z/preflight/bandgap/deadline_checks/report.json"
+}

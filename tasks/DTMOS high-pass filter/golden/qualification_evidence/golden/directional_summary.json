@@ -1,0 +1,62 @@
+{
+  "HPF_Rail_power_mW": {
+    "paper_value": 0.496,
+    "lower": 0,
+    "upper": 0.5456000000000001,
+    "upper_exclusive": false,
+    "minimum": 0.2201859502581006,
+    "maximum": 0.44279197916189506,
+    "passed": 12,
+    "corners": 12,
+    "directional_worst_value": 0.44279197916189506,
+    "directional_worst_corner": "NN_1p1V_27C",
+    "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+    "expression": null,
+    "source_metric_name": "HPF_Rail_power_mW"
+  },
+  "THD_500Hz_10uApp_percent": {
+    "paper_value": 6,
+    "lower": 0,
+    "upper": 6,
+    "upper_exclusive": true,
+    "minimum": 1.2557168475005256,
+    "maximum": 1.4102149344750323,
+    "passed": 12,
+    "corners": 12,
+    "directional_worst_value": 1.4102149344750323,
+    "directional_worst_corner": "SF_0p9V_27C",
+    "selection_rule": "maximum for upper-limited metric; lower zero is a physical validity guard",
+    "expression": null,
+    "source_metric_name": "THD_500Hz_10uApp_percent"
+  },
+  "HPF_cutoff_Hz": {
+    "paper_value": 200,
+    "lower": 180,
+    "upper": 220,
+    "upper_exclusive": false,
+    "minimum": 181.07024720888865,
+    "maximum": 218.8014705236657,
+    "passed": 12,
+    "corners": 12,
+    "directional_worst_value": 181.07024720888865,
+    "directional_worst_corner": "NN_0p9V_100C",
+    "selection_rule": "nearest bound for matching quantity",
+    "expression": null,
+    "source_metric_name": "HPF_cutoff_Hz"
+  },
+  "HPF_gain_200Hz_dB": {
+    "paper_value": -3.06,
+    "lower": -3.5,
+    "upper": -2.5,
+    "upper_exclusive": false,
+    "minimum": -3.48334980600846,
+    "maximum": -2.5164239628482132,
+    "passed": 12,
+    "corners": 12,
+    "directional_worst_value": -2.5164239628482132,
+    "directional_worst_corner": "NN_0p9V_100C",
+    "selection_rule": "nearest bound for matching quantity",
+    "expression": "value(dB20(getData(\"VOUT_SENSE:p\" ?result \"ac-ac\")) 200)",
+    "source_metric_name": "HPF_gain_200Hz_dB"
+  }
+}

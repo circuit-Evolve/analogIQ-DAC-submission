@@ -1,0 +1,52 @@
+Status: CONDITIONAL_GOLDEN_8_OF_8
+Fresh full-resolution checks: 32/32 metrics, 8/8 complete conditions.
+Tighter numerical guard: 32/32 metrics, 8/8 complete conditions.
+
+Limits: VDD-only static <=2.068uW; maximum <=126.94uW; bandwidth15.633–19.107MHz; maximum fullscale-normalized DC error<=12.1%. Lower power and error are accepted.
+
+Corner tempC  static_uW  max_uW  BW_MHz  error_percent  pass
+ NN    27  0.17983546  62.997566  17.34031  2.3916922  True
+ FF    27  1.2813017  68.040384  18.392259  12.040465  True
+ SS    27  0.022872358  57.97637  16.827938  12.043726  True
+ FS    27  0.025797748  58.579471  18.457034  3.8892871  True
+ SF    27  1.1111531  62.758805  17.659568  4.2751632  True
+ NN   -27  0.01645164  58.561984  19.001458  9.0878161  True
+ NN     0  0.061255401  61.06874  18.062505  4.1154366  True
+ NN   100  1.5125839  66.739044  15.737665  7.624488  True
+
+Search: 1283 objective calls, 1280 unique candidates. Every search evaluation used all eight conditions. Independently optimized widths/lengths for bias, feedback, PMOS mirror/output, input pairs, and FGMOS; independent existing coupling capacitors. Input pairs remain matched; M10 width=2*M9. W/L ranges remain inside legal model bins; no soft-bin overrides.
+Topology connection audit: True. Supplies, input sources, compliance, 1T resistors and gmin unchanged.
+
+Conditional paper comparison: paper does not specify AC bias, output compliance, static/maximum power test conditions or error normalization. These results use the prior fixed interpretation: AC bias17.5uA, output compliance0.7V, DC sweep±35uA, VDD-only power, error normalized to35uA. They establish a golden sizing only for those definitions and the existing eight PVT conditions, not every process-temperature Cartesian combination or physical floating-gate charge condition.
+
+Exact selected parameters:
+inputdiode_W_um: 11.858
+inputcascode_W_um: 2.518
+bias1_W_um: 14.709
+bias2_W_um: 20.996
+sumsink_W_um: 10.732
+feedback_W_um: 42.713
+pmirror_W_um: 16.953
+output_W_um: 36.656
+fgpair_W_um: 78.883
+pmirror_out_W_um: 5.899
+inputdiode_L_um: 2.485
+inputcascode_L_um: 3.205
+bias1_L_um: 0.429
+bias2_L_um: 0.222
+sumsink_L_um: 0.303
+feedback_L_um: 0.637
+pmirror_L_um: 0.274
+output_L_um: 0.346
+fgpair_L_um: 0.296
+pmirror_out_L_um: 0.751
+C1_fF: 1442
+C2_fF: 1170
+
+Each verified/ and guard/ condition folder contains exact Spectre input, logs and DC/AC curves; all raw PSF lives beneath the single SSD2 sizing_round2 parent.
+
+Selected physical parameter precision: W/L1nm;capacitors1fF;existing M14 W retuned to36.656um after direct rounding shifted FF/SS gain
+Native golden library: DAC_20261110_FWR_GOLD;72 extracted pin/size checks passed; independent extracted Spectre all8 conditions also32/32. Open with private sizing_round2/native/cds.lib.
+Equilibrium diagnostic: {"max_forward_reverse_output_difference_A": 2.590321603453084e-13, "max_standalone_zero_static_relative_delta": 1.683168025028742e-08}
+Prior baseline inventory/netlist/results SHA256 unchanged.
+Search stages completed: robust/nominal/paper seed all-corner local multistart, then0.5% interior-margin polish, then1nm/1fF rounding and M14-width grid adjustment. Optional global and split-M10-length scripts were prepared but not needed after all targets passed.

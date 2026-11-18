@@ -1,0 +1,224 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S1p00/osc_pnoise_se_v1",
+ "recipe_id": "osc_pnoise_se_v1",
+ "recipe_version": 1,
+ "points": [
+  {},
+  {
+   "offset_Hz": 1000000.0
+  }
+ ],
+ "expected_outputs": [],
+ "context": {
+  "job_id": "NN_T27_S1p00/osc_pnoise_se_v1",
+  "condition": {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "is_nominal": true,
+   "supply_span_V": 1.8
+  },
+  "operating": {
+   "supply_V": 1.8,
+   "load_capacitance_F": 1e-14
+  },
+  "recipe_settings": {
+   "fund_estimate_Hz": [
+    15000000.0,
+    3000000.0,
+    60000000.0
+   ],
+   "harmonics": 30,
+   "tstab_s": 2e-06,
+   "offsets_Hz": [
+    1000000.0
+   ],
+   "min_amplitude_V": 0.05,
+   "kick_current_A": 0.0001,
+   "kick_width_s": 5e-11,
+   "pss_errpreset": "conservative",
+   "estimate": {
+    "tstop_s": 8e-06,
+    "maxstep_s": 1e-09,
+    "errpreset": "liberal"
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "rvco24_um",
+   "family": "oscillator",
+   "interface_type": "single_ended_ring_vco",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "repaired_core",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "VBP",
+     "VBN",
+     "VRO"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "output_positive": "VRO",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VBP": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable V_BP"
+    },
+    "VBN": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "sizing variable V_BN"
+    }
+   },
+   "op_check": {
+    "enabled": false
+   }
+  },
+  "subckt_name": "repaired_core",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "N_PI": 1.0,
+   "W_PI": 1e-06,
+   "L_PI": 1e-06,
+   "N_NI": 1.0,
+   "W_NI": 1e-06,
+   "L_NI": 1e-06,
+   "N_PS": 1.0,
+   "W_PS": 1e-06,
+   "L_PS": 1e-06,
+   "N_NS": 1.0,
+   "W_NS": 1e-06,
+   "L_NS": 1e-06,
+   "N_SW1": 1.0,
+   "W_SW1": 1e-06,
+   "L_SW1": 1e-06,
+   "N_SW2": 1.0,
+   "W_SW2": 1e-06,
+   "L_SW2": 1e-06,
+   "N_LHD": 1.0,
+   "W_LHD": 1e-06,
+   "L_LHD": 1e-06,
+   "N_HSW": 1.0,
+   "W_HSW": 1e-06,
+   "L_HSW": 1e-06,
+   "N_SW5": 1.0,
+   "W_SW5": 1e-06,
+   "L_SW5": 1e-06,
+   "N_SW6": 1.0,
+   "W_SW6": 1e-06,
+   "L_SW6": 1e-06,
+   "N_LSW": 1.0,
+   "W_LSW": 1e-06,
+   "L_LSW": 1e-06,
+   "N_LLD": 1.0,
+   "W_LLD": 1e-06,
+   "L_LLD": 1e-06,
+   "C_LOAD": 1e-12
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BP": 0.9,
+   "V_BN": 0.9
+  },
+  "bias_variables": {
+   "VBP": "V_BP",
+   "VBN": "V_BN"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

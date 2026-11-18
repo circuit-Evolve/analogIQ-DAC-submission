@@ -1,0 +1,70 @@
+{
+  "job_id": "SS_Tm20_S1p00/lna_sp_ext_v1",
+  "recipe_id": "lna_sp_ext_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "SS_Tm20_S1p00",
+    "model_set": "SS",
+    "temperature_C": -20.0,
+    "supply_scale": 1.0,
+    "supply_V": 0.8,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "SS"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 0.8
+  },
+  "points": [
+    {
+      "f0_Hz": 7400000000.0
+    }
+  ],
+  "expected_outputs": [
+    "raw/op1.dc",
+    "raw/sp1.sp.ascii",
+    "raw/sp1.noise.sp.ascii",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "s11_dB",
+    "s21_dB",
+    "s12_dB",
+    "s22_dB",
+    "nf_dB",
+    "nf_min_dB",
+    "s11_max_in_band_dB",
+    "s21_min_in_band_dB",
+    "s21_max_in_band_dB",
+    "s12_max_in_band_dB",
+    "nf_max_in_band_dB",
+    "nf_min_in_band_dB",
+    "quiescent_power_W",
+    "k_factor",
+    "delta_mag",
+    "k_min_in_band",
+    "mu_min_in_band",
+    "s22_max_in_band_dB",
+    "s21_3db_low_Hz",
+    "s21_3db_high_Hz",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "7f1c12f48a13904e56628f39b1aa0680d66463d8d5cf8324609fc7745fb2af3f",
+    "candidate": "b824f0fbb2974338190a23f7d6b90f622b751af11b325d2bf4480123f122e152",
+    "parameterization": "79fdf168b8852f5e25ffa4ddcaec0d4733d2964a7f93c94caa7c0d41738fec0d",
+    "dut_source_netlist": "c5091f4da969b7a5de24f68e565cf0d9ebcc4b872daeefd8e72f64235d3a3ca2",
+    "dut_subckt": "7515c659cf78cb6260cfd9851a296f6f20a7730fb5cdb54a55dea056852c3358",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "d959331ff616d624edeff5c7b1452afc8e938b77c986612e909bac63824736dd",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "e997867c07a1e5debff2822592890bc9a791612f783acd4acc94a2219774992d"
+  },
+  "state": "rendered"
+}

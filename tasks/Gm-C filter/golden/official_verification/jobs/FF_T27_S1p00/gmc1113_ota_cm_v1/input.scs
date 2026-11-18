@@ -1,0 +1,35 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task gmc_reconstructed_131126_task_001  topology gmc_reconstructed_131126
+// recipe gmc1113_ota_cm_v1 v2  condition FF_T27_S1p00 (models FF, 27 C, supply 1 V)
+// request gmc131126_final_export_verify  candidate c9f6f3379b10cea4
+// execution profile verify
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs" section=FF
+include "dut.scs"
+
+parameters vsup=1.0
+// Sizing variables set in the testbench (external-bias values).
+parameters vt_bias_V=0.5647580330549347
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VT (b_VT 0) vsource dc=vt_bias_V
+VB_GND (b_GND 0) vsource dc=0.0
+
+VINP (iin 0) vsource dc=0.5 mag=1
+VINM (inn 0) vsource dc=0.5 mag=1
+VREF_SRC (vocm 0) vsource dc=0.5
+
+subckt gmc_ota_fixture VIP VIM VOP VOM VT VREF VDD GND
+parameters M19_l=0 M19_m=0 M19_w=0 M20_l=0 M20_m=0 M20_w=0 M23_l=0 M23_m=0 M23_w=0 M24_l=0 M24_m=0 M24_w=0 M25_l=0 M25_m=0 M25_w=0 M28_l=0 M28_m=0 M28_w=0 bias_n_l=0 bias_n_m=0 bias_n_w=0 bias_p_l=0 bias_p_m=0 bias_p_w=0 cap_b_F=0 cap_d_F=0 cm_fb_n_l=0 cm_fb_n_m=0 cm_fb_n_w=0 cm_fb_p_l=0 cm_fb_p_m=0 cm_fb_p_w=0 cm_node_n_l=0 cm_node_n_m=0 cm_node_n_w=0 cm_node_p_l=0 cm_node_p_m=0 cm_node_p_w=0 cm_out_n_l=0 cm_out_n_m=0 cm_out_n_w=0 cm_out_p_l=0 cm_out_p_m=0 cm_out_p_w=0 cross_n_l=0 cross_n_m=0 cross_n_w=0 cross_p_l=0 cross_p_m=0 cross_p_w=0 feedback_n_l=0 feedback_n_m=0 feedback_n_w=0 feedback_p_l=0 feedback_p_m=0 feedback_p_w=0 input_n_l=0 input_n_m=0 input_n_w=0 input_p_l=0 input_p_m=0 input_p_w=0 load_n_l=0 load_n_m=0 load_n_w=0 load_p_l=0 load_p_m=0 load_p_w=0
+XCORE (VIP VIM VOP VOM VT VREF VDD GND) ota_fig2_interpreted M19_l=M19_l M19_m=M19_m M19_w=M19_w M20_l=M20_l M20_m=M20_m M20_w=M20_w M23_l=M23_l M23_m=M23_m M23_w=M23_w M24_l=M24_l M24_m=M24_m M24_w=M24_w M25_l=M25_l M25_m=M25_m M25_w=M25_w M28_l=M28_l M28_m=M28_m M28_w=M28_w bias_n_l=bias_n_l bias_n_m=bias_n_m bias_n_w=bias_n_w bias_p_l=bias_p_l bias_p_m=bias_p_m bias_p_w=bias_p_w cm_fb_n_l=cm_fb_n_l cm_fb_n_m=cm_fb_n_m cm_fb_n_w=cm_fb_n_w cm_fb_p_l=cm_fb_p_l cm_fb_p_m=cm_fb_p_m cm_fb_p_w=cm_fb_p_w cm_node_n_l=cm_node_n_l cm_node_n_m=cm_node_n_m cm_node_n_w=cm_node_n_w cm_node_p_l=cm_node_p_l cm_node_p_m=cm_node_p_m cm_node_p_w=cm_node_p_w cm_out_n_l=cm_out_n_l cm_out_n_m=cm_out_n_m cm_out_n_w=cm_out_n_w cm_out_p_l=cm_out_p_l cm_out_p_m=cm_out_p_m cm_out_p_w=cm_out_p_w cross_n_l=cross_n_l cross_n_m=cross_n_m cross_n_w=cross_n_w cross_p_l=cross_p_l cross_p_m=cross_p_m cross_p_w=cross_p_w input_n_l=input_n_l input_n_m=input_n_m input_n_w=input_n_w input_p_l=input_p_l input_p_m=input_p_m input_p_w=input_p_w load_n_l=load_n_l load_n_m=load_n_m load_n_w=load_n_w load_p_l=load_p_l load_p_m=load_p_m load_p_w=load_p_w
+ends gmc_ota_fixture
+XDUT (iin inn out outn b_VT vocm vdd b_GND) gmc_ota_fixture M19_l=4.139611362942147e-07 M19_m=1.0 M19_w=1.8948106084351113e-06 M20_l=2.697555715275229e-07 M20_m=1.0 M20_w=1.4532706843959067e-06 M23_l=4.7458098123342276e-07 M23_m=1.0 M23_w=2.5646499510126416e-06 M24_l=2.22979261268972e-07 M24_m=1.0 M24_w=2.4142877712775313e-06 M25_l=1.8376225872228054e-07 M25_m=1.0 M25_w=7.145921500956735e-07 M28_l=2.511109326302167e-07 M28_m=1.0 M28_w=3.130736243000742e-06 bias_n_l=2.1967325249632536e-07 bias_n_m=1.0 bias_n_w=6.245442150019207e-07 bias_p_l=2.379293521829501e-07 bias_p_m=1.0 bias_p_w=2.922769224210927e-06 cap_b_F=7.884111169815835e-13 cap_d_F=3.2331646491198457e-12 cm_fb_n_l=2.88066950542238e-07 cm_fb_n_m=1.0 cm_fb_n_w=3.445955075140213e-07 cm_fb_p_l=1.9370711174580699e-07 cm_fb_p_m=1.0 cm_fb_p_w=1.19871740118854e-06 cm_node_n_l=4.783452882664011e-07 cm_node_n_m=1.0 cm_node_n_w=1.4197553124291605e-06 cm_node_p_l=3.556196510507261e-07 cm_node_p_m=1.0 cm_node_p_w=8.748789928694398e-07 cm_out_n_l=2.1179831998512523e-07 cm_out_n_m=1.0 cm_out_n_w=8.801419180712912e-07 cm_out_p_l=1.1757870980803943e-07 cm_out_p_m=1.0 cm_out_p_w=2.460619766730277e-06 cross_n_l=2.1971700680460613e-07 cross_n_m=1.0 cross_n_w=6.097387050451806e-07 cross_p_l=1.2761518665623804e-07 cross_p_m=1.0 cross_p_w=5.76537527379325e-07 feedback_n_l=1.0012820146194029e-07 feedback_n_m=1.0 feedback_n_w=6.834583309357679e-07 feedback_p_l=1e-07 feedback_p_m=1.0 feedback_p_w=1.031433708291801e-06 input_n_l=1e-07 input_n_m=1.0 input_n_w=6.91011125473508e-07 input_p_l=1e-07 input_p_m=1.0 input_p_w=1.616373198494229e-06 load_n_l=1.0581221839827198e-07 load_n_m=1.0 load_n_w=3.312031907215333e-07 load_p_l=1.6428751788715384e-07 load_p_m=1.0 load_p_w=5.266863858166174e-07
+
+opts options temp=27.0 tnom=27 reltol=1e-05 save=selected
+save VB_GND:p VB_VT:p VSUP:p iin inn out outn vdd vocm
+
+gmcopts options reltol=1e-6 vabstol=1e-9 iabstol=1e-14
+dcOp dc
+ac ac start=1 stop=100G dec=500

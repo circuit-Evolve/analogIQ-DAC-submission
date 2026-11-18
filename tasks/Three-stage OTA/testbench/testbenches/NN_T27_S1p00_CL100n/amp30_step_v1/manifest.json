@@ -1,0 +1,61 @@
+{
+  "job_id": "NN_T27_S1p00_CL100n/amp30_step_v1",
+  "recipe_id": "amp30_step_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T27_S1p00_CL100n",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "label": "CL100n",
+    "operating": {
+      "load_capacitance_F": 1e-07
+    },
+    "is_nominal": false,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {
+      "step_V": 0.4
+    }
+  ],
+  "expected_outputs": [
+    "input.measure"
+  ],
+  "expected_metrics": [
+    "slew_rate_rise_V_per_s",
+    "slew_rate_fall_V_per_s",
+    "slew_rate_avg_V_per_s",
+    "settling_time_to_final_rise_s",
+    "settling_time_to_final_fall_s",
+    "settling_time_to_final_avg_s",
+    "settling_time_rise_s",
+    "settling_time_fall_s",
+    "final_error_rise_V",
+    "final_error_fall_V",
+    "overshoot_rise_V",
+    "overshoot_fall_V",
+    "overshoot_max_V"
+  ],
+  "digests": {
+    "task": "b9d6cb1b447da9dc69f07033041e5e6acf081c227dc4b513c001919eef241f41",
+    "candidate": "25f7ea5cdf3edbba3186bdd0835e8155e4481ca4a5ddf2311bdd15f31862f823",
+    "parameterization": "64a5ea2559b777448b5be76350cb3850b6a25b8d07d8d4eb18763211fac6c99e",
+    "dut_source_netlist": "f8bd19a9e55b4a64f831b79de632f660cc9310efa2aecff9b4f593d04de1a369",
+    "dut_subckt": "b4e1359b313861999dab6dc7f27e158de28c3f34ef8d630249b096c5c484b867",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "72d431db0cd4c7387896b8294c9b07ee6fa0f75f29aa5cc7d50360ce2b46f5bc",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "8f91ce2043cdf410ec11750fbfa988dac928e126a71b02bab803108171183f39"
+  },
+  "state": "rendered"
+}

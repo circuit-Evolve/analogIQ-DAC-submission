@@ -1,0 +1,205 @@
+{
+  "source_files": [
+    {
+      "path": "<ANALOGIQ>/golden/02_11_2026/LDOs/Error_amplifier_LDO/LDO_with_erroramp_tb_dac/paper/README.md",
+      "sha256": "eb33e5f25499f2d0b2019d6a9ccac6adf83c291f98246cab171ddc40d8bb1a17",
+      "source_type": "repository_documentation",
+      "archived_relative_path": "README.md"
+    },
+    {
+      "path": "<ANALOGIQ>/golden/02_11_2026/LDOs/Error_amplifier_LDO/LDO_with_erroramp_tb_dac/paper/OTA_README.md",
+      "sha256": "27194f6f49e627a69a085c246896e0161039bd89aeaef20cd674f8fe3abb57f2",
+      "source_type": "repository_documentation",
+      "archived_relative_path": "OTA_README.md"
+    }
+  ],
+  "testbench_pack": "<ANALOGIQ>/testbenches/02_11_2026/LDOs/Error_amplifier_LDO/LDO_with_erroramp_tb_dac/ldo_erroramp_dac_task_001",
+  "retained_measurements": {
+    "Pout (25mA load)": {
+      "resultID": 1,
+      "testID": 1,
+      "unit": "W",
+      "reference": {
+        "value": 0.03,
+        "unit": "W",
+        "citation": "README.md §10.1, lines 350 and 357",
+        "derivation": "1.200 V times 25 mA = 0.030 W; not a separately reported power measurement."
+      },
+      "reference_status": "derived_from_primary_source",
+      "acceptance_threshold": null
+    },
+    "Pin (25mA load)": {
+      "resultID": 2,
+      "testID": 1,
+      "unit": "W",
+      "reference": null,
+      "reference_status": "not_numerically_reported_for_retained_metric",
+      "acceptance_threshold": null
+    },
+    "Efficieny": {
+      "resultID": 3,
+      "testID": 1,
+      "unit": "%",
+      "reference": null,
+      "reference_status": "not_numerically_reported_for_retained_metric",
+      "acceptance_threshold": null
+    },
+    "PM @ 25mA (best)": {
+      "resultID": 5,
+      "testID": 3,
+      "unit": "deg",
+      "reference": {
+        "value": 70.61,
+        "unit": "deg",
+        "citation": "README.md §10.4 table, line 410",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "GBW": {
+      "resultID": 6,
+      "testID": 3,
+      "unit": "Hz",
+      "reference": {
+        "value": 25900000.0,
+        "unit": "Hz",
+        "citation": "README.md §10.4 table, line 410",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "PSR (100 Hz)": {
+      "resultID": 7,
+      "testID": 3,
+      "unit": "dB",
+      "reference": {
+        "value": 71.8,
+        "unit": "dB",
+        "citation": "README.md §10.7 table, line 460",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "PSR (1 MHz)": {
+      "resultID": 8,
+      "testID": 3,
+      "unit": "dB",
+      "reference": {
+        "value": -0.2,
+        "unit": "dB",
+        "citation": "README.md §10.7 table, line 462",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Load Regulation (mV/V)": {
+      "resultID": 9,
+      "testID": 3,
+      "unit": "mV/A",
+      "reference": {
+        "value": 1.88,
+        "unit": "mV/A",
+        "citation": "README.md §10.6, line 437",
+        "derivation": "Reported 0.094 mV total output change over 0 to 50 mA; divide 0.094 mV by 0.05 A = 1.88 mV/A, matching retained expression.",
+        "source_reported_value": 0.094,
+        "source_reported_unit": "mV"
+      },
+      "reference_status": "derived_from_primary_source",
+      "acceptance_threshold": null
+    },
+    "Vout": {
+      "resultID": 10,
+      "testID": 3,
+      "unit": "V",
+      "reference": {
+        "value": 1.2,
+        "unit": "V",
+        "citation": "README.md §10.1, line 350",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "PM @ 100uA (worst)": {
+      "resultID": 11,
+      "testID": 4,
+      "unit": "deg",
+      "reference": {
+        "value": 46.57,
+        "unit": "deg",
+        "citation": "README.md §10.4 table, line 405",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Quiescent current": {
+      "resultID": 12,
+      "testID": 5,
+      "unit": "A",
+      "reference": null,
+      "reference_status": "not_numerically_reported_for_retained_metric",
+      "acceptance_threshold": null
+    },
+    "Input power (no load)": {
+      "resultID": 13,
+      "testID": 5,
+      "unit": "W",
+      "reference": null,
+      "reference_status": "not_numerically_reported_for_retained_metric",
+      "acceptance_threshold": null
+    }
+  },
+  "setup": {
+    "technology": "gpdk045",
+    "models": [
+      "ff",
+      "fs",
+      "sf",
+      "ss",
+      "tt"
+    ],
+    "temperatures_C": [
+      -40.0,
+      27.0,
+      125.0
+    ],
+    "supplies_V": [
+      1.8
+    ]
+  },
+  "caveats": [
+    "Primary README separates schematic and C-only post-layout results. Retained schematic comparison uses 70.61/46.57 deg, not post-layout 69.79/43.12 deg.",
+    "The retained label PM @ 25mA (best) is historical: primary best schematic PM is 74.99 deg at 50 mA, not at 25 mA.",
+    "OTA_README.md standalone OTA GBW 46.87 MHz and PM 77.5 deg are not full-LDO loop targets.",
+    "Load-regulation retained name says mV/V, but expression divides voltage swing by 0.05 A; correct unit is mV/A.",
+    "PSR §10.3 writes output/input dB (negative-good), whereas §10.7 reports rejection as positive-good. Retained expression is input/output dB and agrees with reported result convention; preserve source ambiguity.",
+    "PSR 1 MHz reported -0.2 dB misses the stated >20 dB design goal by 20.2 dB, although prose calls it a marginal 0.2 dB miss. Do not adopt that characterization.",
+    "No numerical total no-load current, no-load input power, 25 mA input power, or efficiency was found in source. OTA bias IREF=25 uA is not total regulator quiescent current.",
+    "Primary PVT PM table covers TT/SS/FF at -40/27/125 C, while retained pack also includes FS/SF."
+  ],
+  "supplementary_case_studies": [],
+  "source_kind": "GitHub project README, not journal paper",
+  "source_url": "https://github.com/sachinathani05/VLSI/tree/9db07578dc9f9d9f2f56006923505b828cfed676/Cadence%20Virtuoso/45nm/Project_03_LDO_Voltage_Regulator",
+  "explicit_source_design_targets": {
+    "phase_margin_all_loads": {
+      "operator": ">",
+      "value": 45,
+      "unit": "deg"
+    },
+    "PSR_100Hz": {
+      "operator": ">",
+      "value": 40,
+      "unit": "dB"
+    },
+    "PSR_1MHz": {
+      "operator": ">",
+      "value": 20,
+      "unit": "dB"
+    }
+  }
+}

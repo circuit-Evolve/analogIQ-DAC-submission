@@ -1,0 +1,16 @@
+schema_version: 1
+topology_id: ldo_erroramp_dac
+family: ldo
+technology_id: gpdk045
+source:
+  library: test
+  cell: LDO_with_erroramp_tb_dac
+  view: maestro
+  history: Interactive.20
+  dut_cell: LDO_with_erroramp
+  dut_view: schematic_golden
+dut:
+  netlist: ../golden_sizing/golden_netlist.scs
+  subckt_name: LDO_with_erroramp
+note: Verified promoted golden netlist; original OA snapshot is archival. See promotion_provenance.json
+  and qualifications.json.

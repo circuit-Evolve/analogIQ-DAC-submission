@@ -1,0 +1,680 @@
+schema_version: 1
+parameterization_id: gmc_reconstructed_131126_p1
+binding_validation_status: unapproved
+unbound_sizes: error
+bounds: standard
+independent_variable_order:
+- input_p_w
+- input_p_l
+- input_p_m
+- input_n_w
+- input_n_l
+- input_n_m
+- cross_n_w
+- cross_n_l
+- cross_n_m
+- cross_p_w
+- cross_p_l
+- cross_p_m
+- load_n_w
+- load_n_l
+- load_n_m
+- load_p_w
+- load_p_l
+- load_p_m
+- cm_out_n_w
+- cm_out_n_l
+- cm_out_n_m
+- cm_out_p_w
+- cm_out_p_l
+- cm_out_p_m
+- cm_node_n_w
+- cm_node_n_l
+- cm_node_n_m
+- cm_node_p_w
+- cm_node_p_l
+- cm_node_p_m
+- cm_fb_n_w
+- cm_fb_n_l
+- cm_fb_n_m
+- cm_fb_p_w
+- cm_fb_p_l
+- cm_fb_p_m
+- bias_n_w
+- bias_n_l
+- bias_n_m
+- bias_p_w
+- bias_p_l
+- bias_p_m
+- M19_w
+- M19_l
+- M19_m
+- M20_w
+- M20_l
+- M20_m
+- M23_w
+- M23_l
+- M23_m
+- M24_w
+- M24_l
+- M24_m
+- M25_w
+- M25_l
+- M25_m
+- M28_w
+- M28_l
+- M28_m
+- feedback_n_w
+- feedback_n_l
+- feedback_n_m
+- feedback_p_w
+- feedback_p_l
+- feedback_p_m
+- cap_b_F
+- cap_d_F
+- vt_bias_V
+variables:
+  input_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: input_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id001
+      - ota_fig2_interpreted.M1
+      - ota_fig2_interpreted.M3
+      parameter: w
+  input_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: input_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id001
+      parameter: l
+  input_p_m:
+    unit: ''
+    initial: 1
+    role: input_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id001
+      parameter: m
+  input_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: input_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id002
+      - ota_fig2_interpreted.M2
+      - ota_fig2_interpreted.M4
+      parameter: w
+  input_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: input_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id002
+      parameter: l
+  input_n_m:
+    unit: ''
+    initial: 1
+    role: input_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id002
+      parameter: m
+  cross_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: cross_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id003
+      - ota_fig2_interpreted.M5
+      - ota_fig2_interpreted.M9
+      parameter: w
+  cross_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: cross_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id003
+      parameter: l
+  cross_n_m:
+    unit: ''
+    initial: 1
+    role: cross_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id003
+      parameter: m
+  cross_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: cross_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id004
+      - ota_fig2_interpreted.M6
+      - ota_fig2_interpreted.M10
+      parameter: w
+  cross_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: cross_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id004
+      parameter: l
+  cross_p_m:
+    unit: ''
+    initial: 1
+    role: cross_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id004
+      parameter: m
+  load_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: load_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id005
+      - ota_fig2_interpreted.M7
+      - ota_fig2_interpreted.M11
+      parameter: w
+  load_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: load_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id005
+      parameter: l
+  load_n_m:
+    unit: ''
+    initial: 1
+    role: load_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id005
+      parameter: m
+  load_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: load_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id006
+      - ota_fig2_interpreted.M8
+      - ota_fig2_interpreted.M12
+      parameter: w
+  load_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: load_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id006
+      parameter: l
+  load_p_m:
+    unit: ''
+    initial: 1
+    role: load_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id006
+      parameter: m
+  cm_out_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: cm_out_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id007
+      - ota_fig2_interpreted.M13
+      - ota_fig2_interpreted.M15
+      parameter: w
+  cm_out_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: cm_out_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id007
+      parameter: l
+  cm_out_n_m:
+    unit: ''
+    initial: 1
+    role: cm_out_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id007
+      parameter: m
+  cm_out_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: cm_out_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id008
+      - ota_fig2_interpreted.M14
+      - ota_fig2_interpreted.M16
+      parameter: w
+  cm_out_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: cm_out_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id008
+      parameter: l
+  cm_out_p_m:
+    unit: ''
+    initial: 1
+    role: cm_out_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id008
+      parameter: m
+  cm_node_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: cm_node_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id009
+      - ota_fig2_interpreted.M17
+      - ota_fig2_interpreted.M26R
+      - ota_fig2_interpreted.M28R
+      parameter: w
+  cm_node_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: cm_node_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id009
+      parameter: l
+  cm_node_n_m:
+    unit: ''
+    initial: 1
+    role: cm_node_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id009
+      parameter: m
+  cm_node_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: cm_node_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id010
+      - ota_fig2_interpreted.M18
+      - ota_fig2_interpreted.M25R
+      - ota_fig2_interpreted.M27R
+      parameter: w
+  cm_node_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: cm_node_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id010
+      parameter: l
+  cm_node_p_m:
+    unit: ''
+    initial: 1
+    role: cm_node_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id010
+      parameter: m
+  cm_fb_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: cm_fb_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id011
+      - ota_fig2_interpreted.M21
+      parameter: w
+  cm_fb_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: cm_fb_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id011
+      parameter: l
+  cm_fb_n_m:
+    unit: ''
+    initial: 1
+    role: cm_fb_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id011
+      parameter: m
+  cm_fb_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: cm_fb_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id012
+      - ota_fig2_interpreted.M22
+      parameter: w
+  cm_fb_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: cm_fb_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id012
+      parameter: l
+  cm_fb_p_m:
+    unit: ''
+    initial: 1
+    role: cm_fb_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id012
+      parameter: m
+  bias_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: bias_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id013
+      - ota_fig2_interpreted.M26
+      parameter: w
+  bias_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: bias_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id013
+      parameter: l
+  bias_n_m:
+    unit: ''
+    initial: 1
+    role: bias_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id013
+      parameter: m
+  bias_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: bias_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id014
+      - ota_fig2_interpreted.M27
+      parameter: w
+  bias_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: bias_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id014
+      parameter: l
+  bias_p_m:
+    unit: ''
+    initial: 1
+    role: bias_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id014
+      parameter: m
+  M19_w:
+    unit: m
+    initial: 1.0e-06
+    role: M19 matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id015
+      - ota_fig2_interpreted.M19
+      parameter: w
+  M19_l:
+    unit: m
+    initial: 1.0e-06
+    role: M19 matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id015
+      parameter: l
+  M19_m:
+    unit: ''
+    initial: 1
+    role: M19 matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id015
+      parameter: m
+  M20_w:
+    unit: m
+    initial: 1.0e-06
+    role: M20 matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id016
+      - ota_fig2_interpreted.M20
+      parameter: w
+  M20_l:
+    unit: m
+    initial: 1.0e-06
+    role: M20 matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id016
+      parameter: l
+  M20_m:
+    unit: ''
+    initial: 1
+    role: M20 matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id016
+      parameter: m
+  M23_w:
+    unit: m
+    initial: 1.0e-06
+    role: M23 matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id017
+      - ota_fig2_interpreted.M23
+      parameter: w
+  M23_l:
+    unit: m
+    initial: 1.0e-06
+    role: M23 matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id017
+      parameter: l
+  M23_m:
+    unit: ''
+    initial: 1
+    role: M23 matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id017
+      parameter: m
+  M24_w:
+    unit: m
+    initial: 1.0e-06
+    role: M24 matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id018
+      - ota_fig2_interpreted.M24
+      parameter: w
+  M24_l:
+    unit: m
+    initial: 1.0e-06
+    role: M24 matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id018
+      parameter: l
+  M24_m:
+    unit: ''
+    initial: 1
+    role: M24 matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id018
+      parameter: m
+  M25_w:
+    unit: m
+    initial: 1.0e-06
+    role: M25 matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id019
+      - ota_fig2_interpreted.M25
+      parameter: w
+  M25_l:
+    unit: m
+    initial: 1.0e-06
+    role: M25 matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id019
+      parameter: l
+  M25_m:
+    unit: ''
+    initial: 1
+    role: M25 matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id019
+      parameter: m
+  M28_w:
+    unit: m
+    initial: 1.0e-06
+    role: M28 matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id020
+      - ota_fig2_interpreted.M28
+      parameter: w
+  M28_l:
+    unit: m
+    initial: 1.0e-06
+    role: M28 matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id020
+      parameter: l
+  M28_m:
+    unit: ''
+    initial: 1
+    role: M28 matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id020
+      parameter: m
+  feedback_n_w:
+    unit: m
+    initial: 1.0e-06
+    role: feedback_n matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id021
+      - FD1Pn
+      - FD1Mn
+      - FD2Pn
+      - FD2Mn
+      - FD3Pn
+      - FD3Mn
+      - FD4Pn
+      - FD4Mn
+      parameter: w
+  feedback_n_l:
+    unit: m
+    initial: 1.0e-06
+    role: feedback_n matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id021
+      parameter: l
+  feedback_n_m:
+    unit: ''
+    initial: 1
+    role: feedback_n matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id021
+      parameter: m
+  feedback_p_w:
+    unit: m
+    initial: 1.0e-06
+    role: feedback_p matched w; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: &id022
+      - FD1Pp
+      - FD1Mp
+      - FD2Pp
+      - FD2Mp
+      - FD3Pp
+      - FD3Mp
+      - FD4Pp
+      - FD4Mp
+      parameter: w
+  feedback_p_l:
+    unit: m
+    initial: 1.0e-06
+    role: feedback_p matched l; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id022
+      parameter: l
+  feedback_p_m:
+    unit: ''
+    initial: 1
+    role: feedback_p matched m; shared by all filter stages and the standalone OTA fixture
+    binding:
+      type: instance_parameter
+      instances: *id022
+      parameter: m
+  cap_b_F:
+    unit: F
+    initial: 1.0e-12
+    role: Differential capacitor pair; reconstruction assumption, absent from paper
+    binding:
+      type: instance_parameter
+      instances:
+      - C1
+      - C2
+      parameter: c
+  cap_d_F:
+    unit: F
+    initial: 1.0e-12
+    role: Differential capacitor pair; reconstruction assumption, absent from paper
+    binding:
+      type: instance_parameter
+      instances:
+      - C3
+      - C4
+      parameter: c
+  vt_bias_V:
+    unit: V
+    initial: 0.5
+    role: Common tuning bias, held fixed across all nine conditions for each candidate
+    binding:
+      type: external_bias
+      pin: VT
+fixed_parameters: []

@@ -1,0 +1,32 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task nclna01_task_001  topology nclna01_alinejad_2024
+// recipe lna_sp_ext_v1 v1  condition FF_Tm20_S1p00 (models FF, -20 C, supply 0.8 V)
+// request nclna01_task_001__plan  candidate b824f0fbb2974338
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters vsup=0.8
+// Sizing variables set in the testbench (external-bias values).
+parameters V_B1=0.4 V_B2=0.4
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VB1 (b_VB1 0) vsource dc=V_B1
+VB_VB2 (b_VB2 0) vsource dc=V_B2
+
+// Measurement instrumentation: 50-ohm style ports and ideal DC blocks.
+P1 (rfin 0) port r=50.0 num=1
+VP2N (rfout p2n) vsource dc=0
+P2 (p2n 0) port r=50.0 num=2
+
+XDUT (rfin rfout b_VB1 b_VB2 vdd) nclna01_dut C_FB=1e-12 C_GB1=1e-12 C_GB2=1e-12 C_IN=1e-12 C_OUT=1e-12 L_IN_SH=1e-09 L_IS=1e-09 L_LD1=1e-09 L_LD2=1e-09 L_LD3=1e-09 L_M1=1e-06 L_M2=1e-06 L_M3=1e-06 L_M4=1e-06 L_OUT=1e-09 L_SRC=1e-09 N_M1=1.0 N_M2=1.0 N_M3=1.0 N_M4=1.0 R_B1=10000.0 R_B2=10000.0 R_FB=10000.0 R_L1=10000.0 R_L2=10000.0 W_M1=1e-06 W_M2=1e-06 W_M3=1e-06 W_M4=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=-20.0 tnom=27 reltol=0.0001 save=selected
+save VB_VB1:p VB_VB2:p VSUP:p rfin rfout vdd
+
+op1 dc
+sp1 sp start=1000000000.0 stop=15000000000.0 dec=200 ports=[P1 P2] donoise=yes oprobe=P2 iprobe=P1

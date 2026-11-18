@@ -1,0 +1,1425 @@
+schema: analogiq.sizing_problem/1
+task_id: tia02_task_001
+topology_id: tia02_singh_2018
+family: tia
+technology_id: gpdk180
+parameterization_id: tia02_p2_counts_20261112
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). Wideband shunt-feedback TIA with capacitive feedback and a negative-capacitance generator
+  (paper Fig. 4) at the paper''s conditions (1.8 V, 27 C, TT, Cpd 50 fF) plus exactly the paper''s one-at-a-time variations: process corners SS/FS/SF/FF
+  (Fig. 14), temperature 54/81/108 C (Fig. 8), supply 1.6/1.4/1.2 V (Fig. 9) and photodiode capacitance 100/150/200 fF (Fig. 7). Targets are the
+  paper''s values with 10 % linear tolerance, each where the paper reports it. User-approved 15% tolerance, 2026-11-12; validity limits unchanged.'
+source:
+  doi: 10.1007/s10470-018-1246-x
+  title: Wideband transimpedance amplifier using negative capacitance and capacitive feedback (Singh, Gupta, Bansal; Analog Integr. Circ. Sig.
+    Process. 97:269-279, 2018)
+  figure: Fig. 4 (shunt-feedback CS TIA M1/RF/CF with PMOS mirror load M2/M3 fed by Ibias2, followed by the negative-capacitance generator M4/M5
+    (tail Ibias1), diode load M6 and capacitor C from VY to Vout)
+variables:
+- name: W_M1
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'input common-source device M1 width (gm: transimpedance, bandwidth, noise; gate capacitance at the input node)'
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: w
+- name: L_M1
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M1 channel length
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: l
+- name: W_M23
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: PMOS current-mirror M2/M3 width (M2 is the active load of M1 at node VY, fed by Ibias2 through M3)
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M3
+    parameter: w
+- name: L_M23
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M2/M3 channel length (load output resistance ro at VY)
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M3
+    parameter: l
+- name: W_M45
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: negative-capacitance-generator differential pair M4/M5 width (M4 gate at VY, M5 gate at Vbias)
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    - M5
+    parameter: w
+- name: L_M45
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M4/M5 channel length
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    - M5
+    parameter: l
+- name: W_M6
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: diode-connected PMOS load M6 of the NCG at the output (output resistance RN, DC output level)
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    parameter: w
+- name: L_M6
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M6 channel length
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    parameter: l
+- name: R_F
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'feedback resistor RF (IIN-VY): transimpedance, DC path of the input, noise'
+  binding:
+    type: instance_parameter
+    instances:
+    - RF
+    parameter: r
+- name: C_FB
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: 'feedback capacitor CF (IIN-VY): zero for pole-zero cancellation; value not given by the paper'
+  binding:
+    type: dut_parameter
+    parameter: C_FB
+- name: C_NCG
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: negative-capacitance capacitor C (VY-VOUT) of the NCG; value not given by the paper
+  binding:
+    type: dut_parameter
+    parameter: C_NCG
+- name: I_BIAS1
+  kind: real
+  unit: A
+  lower: 1.0e-10
+  upper: 0.01
+  scale: log
+  start: 1.0e-05
+  quantity: bias_current
+  role: NCG tail current Ibias1 (ideal source TAIL-GND)
+  binding:
+    type: instance_parameter
+    instances:
+    - IBIAS1
+    parameter: dc
+- name: I_BIAS2
+  kind: real
+  unit: A
+  lower: 1.0e-10
+  upper: 0.01
+  scale: log
+  start: 1.0e-05
+  quantity: bias_current
+  role: mirror reference current Ibias2 (ideal source PBIAS-GND; ~equal current in M1/M2)
+  binding:
+    type: instance_parameter
+    instances:
+    - IBIAS2
+    parameter: dc
+- name: V_BIAS
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 1.8
+  scale: lin
+  start: 0.9
+  quantity: bias_voltage
+  role: 'gate bias of M5 (ideal source VBIAS-GND): balances the NCG pair against the DC level of VY; value not given by the paper'
+  binding:
+    type: dut_parameter
+    parameter: V_BIAS
+- name: N_M1
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Matched MOS multiplier for M1
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: m
+- name: N_M23
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Matched MOS multiplier for M2,M3
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    - M3
+    parameter: m
+- name: N_M45
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Matched MOS multiplier for M4,M5
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    - M5
+    parameter: m
+- name: N_M6
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Matched MOS multiplier for M6
+  binding:
+    type: instance_parameter
+    instances:
+    - M6
+    parameter: m
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+- id: SS_T27_S1p00
+  model_set: SS
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T27_S1p00
+  model_set: FS
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T27_S1p00
+  model_set: SF
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: FF_T27_S1p00
+  model_set: FF
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T54_S1p00
+  model_set: NN
+  temperature_C: 54.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T81_S1p00
+  model_set: NN
+  temperature_C: 81.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T108_S1p00
+  model_set: NN
+  temperature_C: 108.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S0p89
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.60002
+  supply_scale: 0.8889
+  nominal: false
+- id: NN_T27_S0p78
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.4000400000000002
+  supply_scale: 0.7778
+  nominal: false
+- id: NN_T27_S0p67
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.20006
+  supply_scale: 0.6667
+  nominal: false
+- id: NN_T27_S1p00_Cpd100
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00_Cpd150
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S1p00_Cpd200
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'paper: p. 4 Sec. 5 (1.8 V supply); 1.6/1.4/1.2 V = scales 0.8889/0.7778/0.6667 (Fig. 9)'
+  supply_negative_V:
+    value: 0.0
+    provenance: 'netlist: GND pin (ground of the paper''s circuit)'
+  input_capacitance_F:
+    value: 0.0
+    provenance: 'owner answer TI1a: the netlist''s CPD (50 fF, paper abstract / Table 2) is the photodiode, fixture capacitance 0; Cpd variants
+      add Cpd - 50 fF (TI6a)'
+  load_capacitance_F:
+    value: 1.0e-14
+    provenance: 'owner answer TI4b: 10 fF (the paper gives no load)'
+  input_bias_current_A:
+    value: -2.0e-05
+    provenance: 'owner answer TI3c: 20 uA DC photocurrent for the AC and noise tests (the paper''s transient level, p. 5/p. 8 Fig. 12); negative
+      = drawn out of the input node, the paper''s direction (its output rises with photocurrent, Fig. 11; owner 2026-10-23)'
+constraints:
+- name: peaking_dB
+  metric: peaking_dB
+  recipe: tia_ac_peak_v1
+  point: {}
+  unit: dB
+  upper: 8.913956807072234
+  target:
+    kind: voltage_db
+    paper_value: 7.7
+    bound: upper
+    tolerance_pct: 15.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 6 (proposed TIA: low-frequency 45.70 dBohm (marker), peak 53.4 dBohm near 0.5-1 GHz; pixel-measured against the 10
+    dB gridlines 2026-10-27 definition audit: +7.7 dB; Fig. 8 27 C curve agrees, 7.7-7.8). Was 7.0 (rounded ''~53 dBohm, ~+7 dB''). Owner 2026-10-23:
+    peaking is a target, plot-read values are targets'
+  source: measure
+- name: transimpedance_dBohm
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 44.308378514285856
+  target:
+    kind: voltage_db
+    paper_value: 45.72
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 2 (45.72 dBohm; abstract 45.75, G6 summary-table value)'
+  source: measure
+- name: transimpedance_SS
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 45.96837851428586
+  target:
+    kind: voltage_db
+    paper_value: 47.38
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 8 text / Fig. 14 (SS 47.38 dBohm)'
+  source: measure
+- name: transimpedance_FS
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 44.58837851428586
+  target:
+    kind: voltage_db
+    paper_value: 46.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: FS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 (FS ~46.0 dBohm, read from the plot by the dataset extractor)'
+  source: measure
+- name: transimpedance_SF
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 43.18837851428586
+  target:
+    kind: voltage_db
+    paper_value: 44.6
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: SF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 (SF ~44.6 dBohm, read from the plot)'
+  source: measure
+- name: transimpedance_FF
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 41.78837851428586
+  target:
+    kind: voltage_db
+    paper_value: 43.2
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 8 text / Fig. 14 (FF 43.2 dBohm)'
+  source: measure
+- name: transimpedance_T54
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 46.18837851428586
+  target:
+    kind: voltage_db
+    paper_value: 47.6
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - temperature_C: 54
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 8 (54 C ~47.6 dBohm, read from the plot)'
+  source: measure
+- name: transimpedance_T81
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 47.988378514285856
+  target:
+    kind: voltage_db
+    paper_value: 49.4
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - temperature_C: 81
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 8 (81 C ~49.4 dBohm, read from the plot)'
+  source: measure
+- name: transimpedance_T108
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 49.28837851428586
+  target:
+    kind: voltage_db
+    paper_value: 50.7
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - temperature_C: 108
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 8 (108 C ~50.7 dBohm, read from the plot)'
+  source: measure
+- name: transimpedance_supply
+  metric: transimpedance_dBohm
+  recipe: tia_ac_v1
+  point: {}
+  unit: dBohm
+  lower: 43.18837851428586
+  target:
+    kind: voltage_db
+    paper_value: 44.6
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - supply_scale: 0.8889
+  - supply_scale: 0.7778
+  - supply_scale: 0.6667
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 (1.2 / 1.4 / 1.6 V curves overlap; plateau levels re-read 47.1 / 45.7 / 46.2 dB while the same figure''s 1.8 V curve
+    reads 46.8 dB, 1.1 dB above the 45.72 dB of Table 2 / Fig. 6 / Fig. 8 / text / abstract for the same design and condition). G6 steps 1/4 (consolidation
+    2026-10-27): the Fig. 9 absolute levels are shifted by that 1.1 dB, so each supply curve is referred to the 1.8 V curve and the table (45.72
+    + (level - 46.8) = 46.0 / 44.6 / 45.1 dB at 1.2 / 1.4 / 1.6 V); the lowest, 44.6 dB, is the lower bound at all three supplies (the paper''s
+    message: gain nearly independent of the supply). Before: 46.0 dBohm (the raw Fig. 9 band edge, above the paper''s own 45.72 dB at 1.8 V)'
+  source: measure
+- name: bandwidth_Hz
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 8585000000.0
+  target:
+    kind: linear
+    paper_value: 10100000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 2 (-3 dB bandwidth 10.1 GHz)'
+  source: measure
+- name: bandwidth_SS
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 6893500000.0
+  target:
+    kind: linear
+    paper_value: 8110000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 8 text / Fig. 14 legend (SS 8.11 GHz)'
+  source: measure
+- name: bandwidth_FS
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 8075000000.0
+  target:
+    kind: linear
+    paper_value: 9500000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: FS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 legend (FS 9.5 GHz)'
+  source: measure
+- name: bandwidth_SF
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 9503000000.0
+  target:
+    kind: linear
+    paper_value: 11180000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: SF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 14 legend (SF 11.18 GHz)'
+  source: measure
+- name: bandwidth_FF
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 11798000000.0
+  target:
+    kind: linear
+    paper_value: 13880000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 8 text / Fig. 14 legend (FF 13.88 GHz)'
+  source: measure
+- name: bandwidth_T54
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 7284500000.0
+  target:
+    kind: linear
+    paper_value: 8570000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - temperature_C: 54
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 8 legend (54 C 8.57 GHz)'
+  source: measure
+- name: bandwidth_T81
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 6468500000.0
+  target:
+    kind: linear
+    paper_value: 7610000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - temperature_C: 81
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 8 legend (81 C 7.61 GHz)'
+  source: measure
+- name: bandwidth_T108
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 5797000000.0
+  target:
+    kind: linear
+    paper_value: 6820000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - temperature_C: 108
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 4 text / Fig. 8 legend (108 C 6.82 GHz)'
+  source: measure
+- name: bandwidth_V1p6
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 8075000000.0
+  target:
+    kind: linear
+    paper_value: 9500000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - supply_scale: 0.8889
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 legend (1.6 V 9.5 GHz)'
+  source: measure
+- name: bandwidth_V1p4
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 7395000000.0
+  target:
+    kind: linear
+    paper_value: 8700000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - supply_scale: 0.7778
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 9 legend (1.4 V 8.7 GHz)'
+  source: measure
+- name: bandwidth_V1p2
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 7055000000.0
+  target:
+    kind: linear
+    paper_value: 8300000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - supply_scale: 0.6667
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 5 text / Fig. 9 legend (1.2 V 8.3 GHz)'
+  source: measure
+- name: bandwidth_Cpd100
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 6264500000.0
+  target:
+    kind: linear
+    paper_value: 7370000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - label: Cpd100
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 7 legend (Cpd 100 fF 7.37 GHz)'
+  source: measure
+- name: bandwidth_Cpd150
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 5780000000.0
+  target:
+    kind: linear
+    paper_value: 6800000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - label: Cpd150
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 7 legend (Cpd 150 fF 6.8 GHz)'
+  source: measure
+- name: bandwidth_Cpd200
+  metric: bandwidth_Hz
+  recipe: tia_ac_v1
+  point: {}
+  unit: Hz
+  lower: 4590000000.0
+  target:
+    kind: linear
+    paper_value: 5400000000.0
+    bound: lower
+    tolerance_pct: 15.0
+  conditions:
+  - label: Cpd200
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Fig. 7 legend (Cpd 200 fF 5.4 GHz)'
+  source: measure
+- name: quiescent_power_W
+  metric: quiescent_power_W
+  recipe: tia_dc_v1
+  point: {}
+  unit: W
+  upper: 0.0016767000000000002
+  target:
+    kind: linear
+    paper_value: 0.001458
+    bound: upper
+    tolerance_pct: 15.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 2 / abstract / p. 5 print ''power 0.81 mW'' at 1.8 V, which Table 1''s bias currents (Ibias2 0.4 mA mirrored, Ibias1
+    7 uA) contradict: the circuit at the paper sizes draws 0.809 mA from 1.8 V = 1.455 mW, and the printed number equals that CURRENT in mA. G6
+    step 1 (consolidation 2026-10-27): the value the paper''s own data support is 1.8 V x 0.81 mA = 1.458 mW (upper bound; 10 % tolerance 1.60
+    mW). Before: 0.81 mW (owner TI7a, the table value), which needs about half the bias current of Table 1'
+  source: measure
+- name: input_noise_max_A_per_rtHz
+  metric: input_noise_max_A_per_rtHz
+  recipe: tia_noise_band_v1
+  point: {}
+  unit: A/sqrt(Hz)
+  upper: 8.625e-12
+  target:
+    kind: linear
+    paper_value: 7.5e-12
+    bound: upper
+    tolerance_pct: 15.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 2 / abstract (7.5 pA/rtHz; Fig. 10 flat ~7.6 pA/rtHz over 2-15 GHz); owner answer TI5b: maximum over 2-10 GHz'
+  source: measure
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: tia_ac_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'benchmark rule G8: no device out of saturation at the nominal bias point (paper p. 4: all transistors biased in saturation; no
+    exclusions)'
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: tia_ac_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: tia_ac_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - tia_ac_peak_v1
+  - bandwidth_Hz
+- - tia_ac_peak_v1
+  - peak_frequency_Hz
+- - tia_ac_peak_v1
+  - peaking_dB
+- - tia_ac_peak_v1
+  - transimpedance_dBohm
+- - tia_ac_v1
+  - bandwidth_Hz
+- - tia_ac_v1
+  - devices_out_of_saturation
+- - tia_ac_v1
+  - devices_outside_rails
+- - tia_ac_v1
+  - forward_biased_junctions
+- - tia_ac_v1
+  - saturation_margin_min_V
+- - tia_ac_v1
+  - transimpedance_dBohm
+- - tia_dc_v1
+  - bias_power_W
+- - tia_dc_v1
+  - dc_transimpedance_ohm
+- - tia_dc_v1
+  - output_at_sweep_start_V
+- - tia_dc_v1
+  - output_at_sweep_stop_V
+- - tia_dc_v1
+  - output_dc_V
+- - tia_dc_v1
+  - quiescent_power_W
+- - tia_dc_v1
+  - supply_current_A
+- - tia_noise_band_v1
+  - input_noise_avg_A_per_rtHz
+- - tia_noise_band_v1
+  - input_noise_max_A_per_rtHz
+simulations_per_design: 17
+analysis_executions_per_design: 17
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00
+  recipe: tia_noise_band_v1
+  folder: testbenches/NN_T27_S1p00/tia_noise_band_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    input_noise_max_A_per_rtHz:
+      unit: A/sqrt(Hz)
+      source: measure
+    input_noise_avg_A_per_rtHz:
+      unit: A/sqrt(Hz)
+      source: measure
+  points:
+  - band_low_Hz: 2000000000.0
+    band_high_Hz: 10000000000.0
+- condition: NN_T27_S1p00
+  recipe: tia_dc_v1
+  folder: testbenches/NN_T27_S1p00/tia_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    supply_current_A:
+      unit: A
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_dc_V:
+      unit: V
+      source: measure
+    output_at_sweep_start_V:
+      unit: V
+      source: measure
+    output_at_sweep_stop_V:
+      unit: V
+      source: measure
+    dc_transimpedance_ohm:
+      unit: ohm
+      source: measure
+  points:
+  - iin_A: -2.0e-05
+- condition: NN_T27_S1p00
+  recipe: tia_ac_peak_v1
+  folder: testbenches/NN_T27_S1p00/tia_ac_peak_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    peaking_dB:
+      unit: dB
+      source: measure
+    peak_frequency_Hz:
+      unit: Hz
+      source: measure
+  points:
+  - {}
+- condition: SS_T27_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/SS_T27_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: FS_T27_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/FS_T27_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: SF_T27_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/SF_T27_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: FF_T27_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/FF_T27_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T54_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T54_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T81_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T81_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T108_S1p00
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T108_S1p00/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p89
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S0p89/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p78
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S0p78/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S0p67
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S0p67/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00_Cpd100
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S1p00_Cpd100/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00_Cpd150
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S1p00_Cpd150/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+- condition: NN_T27_S1p00_Cpd200
+  recipe: tia_ac_v1
+  folder: testbenches/NN_T27_S1p00_Cpd200/tia_ac_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    transimpedance_dBohm:
+      unit: dBohm
+      source: measure
+    bandwidth_Hz:
+      unit: Hz
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - {}
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - tia02_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('tia02_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

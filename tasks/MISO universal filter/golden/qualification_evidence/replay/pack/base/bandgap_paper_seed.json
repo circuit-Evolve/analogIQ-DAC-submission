@@ -1,0 +1,36 @@
+{
+  "parameters": {
+    "PMIRROR_w": 3.19e-06,
+    "PMIRROR_l": 4e-07,
+    "NPTAT_w": 7.513e-05,
+    "NPTAT_l": 4e-07,
+    "PBIAS_w": 4.9999999999999996e-06,
+    "PBIAS_l": 5.5e-07,
+    "PGAIN_w": 8.476999999999999e-05,
+    "PGAIN_l": 2.4999999999999998e-06,
+    "NGAIN_w": 2.8e-05,
+    "NGAIN_l": 2.4999999999999998e-06,
+    "PINPUT_w": 6.4e-06,
+    "PINPUT_l": 1.2e-06,
+    "NLOAD_w": 1.3e-06,
+    "NLOAD_l": 1e-06,
+    "R1_r": 30000,
+    "R2_r": 83600,
+    "R3_r": 118300,
+    "R4_r": 100000,
+    "CC_c": 1e-12
+  },
+  "source": "<WORK>/four-papers-20261107/bandgap/sizing.json",
+  "assumptions": [
+    "R4=100kohm: approximate0.6V/6uA bias, not specified in paper.",
+    "CC=1pF, not specified in paper.",
+    "Source/drain diffusion length0.29um, not given by paper.",
+    "No output load specified; unloaded except paper R3.",
+    "M5 implemented as10 parallel copies at TableIV75.13/.4um.",
+    "PSRR uses positive rejection -20log10; printed Eq5 has opposite sign to reported positive23.89dB.",
+    "Line sensitivity100*deltaVref/deltaVDD; printed Eq4 omits factor100.",
+    "Nominal temperature27C; PSRR low-frequency point1Hz per axis.",
+    "Schematic simulation; installed SKY130 Spectre conversion may differ from paper NGSpice revision."
+  ],
+  "preserved_ratios": "M4:M5 total width 1:10; mirrored/input pairs tied"
+}

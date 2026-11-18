@@ -1,0 +1,19 @@
+opened=errset(openResults("raw") t)
+fp=outfile("scalars.tsv")
+v=nil
+when(opened && car(opened) v=errset(peakToPeak(clip(getData("out" ?result "tran") 0.8 1.0)) t))
+if(v && numberp(car(v)) then fprintf(fp "5\t%.16g\n" car(v)) else fprintf(fp "5\tERROR\n"))
+v=nil
+when(opened && car(opened) v=errset((peakToPeak(clip(getData("XAMP.stage1" ?result "tran") 0.8 1.0)) / peakToPeak(clip(getData("XAMP.input_base" ?result "tran") 0.8 1.0))) t))
+if(v && numberp(car(v)) then fprintf(fp "6\t%.16g\n" car(v)) else fprintf(fp "6\tERROR\n"))
+v=nil
+when(opened && car(opened) v=errset((peakToPeak(clip((getData("XAMP.Q11:c" ?result "tran") + getData("XAMP.Q13:c" ?result "tran")) 0.8 1.0)) / peakToPeak(clip(getData("XAMP.stage1" ?result "tran") 0.8 1.0))) t))
+if(v && numberp(car(v)) then fprintf(fp "7\t%.16g\n" car(v)) else fprintf(fp "7\tERROR\n"))
+v=nil
+when(opened && car(opened) v=errset((peakToPeak(clip(getData("XAMP.Q17:c" ?result "tran") 0.8 1.0)) / peakToPeak(clip(getData("XAMP.Q13:c" ?result "tran") 0.8 1.0))) t))
+if(v && numberp(car(v)) then fprintf(fp "8\t%.16g\n" car(v)) else fprintf(fp "8\tERROR\n"))
+v=nil
+when(opened && car(opened) v=errset((20 * log10(((peakToPeak(clip(getData("XAMP.stage1" ?result "tran") 0.8 1.0)) / peakToPeak(clip(getData("XAMP.input_base" ?result "tran") 0.8 1.0))) * (peakToPeak(clip((getData("XAMP.Q11:c" ?result "tran") + getData("XAMP.Q13:c" ?result "tran")) 0.8 1.0)) / peakToPeak(clip(getData("XAMP.stage1" ?result "tran") 0.8 1.0))) * (peakToPeak(clip(getData("XAMP.Q17:c" ?result "tran") 0.8 1.0)) / peakToPeak(clip(getData("XAMP.Q13:c" ?result "tran") 0.8 1.0))) * (peakToPeak(clip(getData("out" ?result "tran") 0.8 1.0)) / (peakToPeak(clip(getData("XAMP.Q17:c" ?result "tran") 0.8 1.0)) + peakToPeak(clip(getData("XAMP.Q22:c" ?result "tran") 0.8 1.0))))))) t))
+if(v && numberp(car(v)) then fprintf(fp "10\t%.16g\n" car(v)) else fprintf(fp "10\tERROR\n"))
+close(fp)
+exit()

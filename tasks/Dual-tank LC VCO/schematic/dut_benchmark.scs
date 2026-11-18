@@ -1,0 +1,88 @@
+// dut_benchmark.scs = final.scs plus the documented changes below (owner decision 2026-10-25, option C of R06-Q1).
+// Everything else (topology, transformer coupling k = 0.41, bank structure, resistor / capacitor values not listed) is unchanged.
+//  (1) Capacitors: the exporter used the analysis totals of the paper's Table III; the drawn element values of Fig. 10 are used:
+//      Cs (CSL, CSR) 4.8 pF -> 3.8 pF ("3.8 pF" label next to Cs), Cp,f (CPFL, CPFR) 6.7 pF -> 2.25 pF (each of the two series halves,
+//      "2.25 pF" label), Cp,s (CPSL, CPSR) 3.3 pF -> 1.1 pF ("1.1 pF" label).
+//  (2) Inductor loss: the exported inductors are ideal. A series resistor is added in every half-inductor branch (RPL, RPR, RSL,
+//      RSR) with R = 2 pi f0 L / Q at the design centre frequency f0 = 5.08 GHz (Sec. IV) and Q = 17.4 (primary, paper Sec. IV: DM Q 17.4)
+//      and 16.7 (secondary: CM Q; used as the secondary's Q). The paper gives no further loss model. R is a dependent parameter of the
+//      inductance variables (variables.yaml: R_ESR_P, R_ESR_S), so it tracks L.
+//  (3) Varactor: MVARL / MVARR changed from nmos1 to pmos1 (gate on VARL/VARR as drawn in Fig. 10, S = D = B on VC as drawn). The
+//      drawing does not state the device type; the exported nmos1 stays in inversion over Vc 0-1.2 V with the gate at 1.8 V and does not
+//      tune there (simulated C of 10u/1u: 92 fF at Vc 0-1.2 V, 30 fF at 1.5 V), while pmos1 (n-well body on Vc) gives a monotonic
+//      91 -> 46 fF over Vc 0.6-1.2 V, which matches the paper ("major change of Cmax/Cmin between 0 and 1.2 V"). Size 10u/1u x20 is the
+//      curator reference (paper: not given).
+//  (5) Inductor values (paper-fidelity fix 2026-10-27): the exporter split the EM inductances of Fig. 10 / Sec. IV (Lp = 290 pH, Ls = 259 pH)
+//      into two halves of 145 / 129.5 pH. The paper's own tank model (Fig. 2(b) T-network, Appendix A "Ls = Lp = 290 pH ... 5 GHz",
+//      Table III, Rp1 = 15.5 ohm = (chi/psi) Q w1 L with L ~ 260-290 pH) uses 290 / 259 pH as the inductance of each drain-to-centre-tap
+//      (gate-to-centre-tap) branch, so LPL = LPR = 290 pH and LSL = LSR = 259 pH here. With 145 / 129.5 pH the oscillating mode of the
+//      tank (the upper root of the paper's two differential roots, the one with the passive drain-to-gate gain Av ~ 2-3 and low Rp)
+//      lies at 8.5 GHz instead of ~5-6 GHz (analysis and simulations in docs/benchmark/fix_2026-10-27/fidelity-b.md).
+//  (4) Reference sizes of elements the paper does not size (cap-bank switches, buffers, control inverters, bank / buffer R and C) are
+//      curator values making them functional; they are sizing variables (variables.yaml `initial`).
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt repaired_core VDD_CORE VSS VB_TANK VDD_AUX VC VBUF VDD_DIG S0 S1 S2 S3 RFL RFR
+M2 (D2 G2 VSS VSS) nmos1 w=38u l=180n m=4 ad=11.4p as=22.8p pd=38.6u ps=77.2u
+M1 (D1 G1 VSS VSS) nmos1 w=38u l=180n m=4 ad=11.4p as=22.8p pd=38.6u ps=77.2u
+CSL (D2 G1) capacitor c=3.8p
+CSR (D1 G2) capacitor c=3.8p
+CPFL (D2 CPF_MID) capacitor c=2.25p
+CPFR (CPF_MID D1) capacitor c=2.25p
+CPSL (D2 VSS) capacitor c=1.1p
+CPSR (D1 VSS) capacitor c=1.1p
+LPL (D2 XPL) inductor l=290p
+RPL (XPL VDD_CORE) resistor r=RESR_P
+LPR (VDD_CORE XPR) inductor l=290p
+RPR (XPR D1) resistor r=RESR_P
+LSL (G1 XSL) inductor l=259p
+RSL (XSL VB_TANK) resistor r=RESR_S
+LSR (VB_TANK XSR) inductor l=259p
+RSR (XSR G2) resistor r=RESR_S
+KL () mutual_inductor ind1=LPL ind2=LSL k=.41
+KR () mutual_inductor ind1=LPR ind2=LSR k=.41
+CCVARL (D2 VARL) capacitor c=500f
+MVARL (VC VARL VC VC) pmos1 w=10u l=1u m=20
+RBVARL (VDD_AUX VARL) resistor r=RBVAR
+MBUFL (RFL BUFGL VSS VSS) nmos1 w=50u l=180n m=4 ad=30p as=30p pd=51u ps=51u
+CBUFL (D2 BUFGL) capacitor c=CBUF
+RBUFL (VBUF BUFGL) resistor r=RBUF
+CCVARR (D1 VARR) capacitor c=500f
+MVARR (VC VARR VC VC) pmos1 w=10u l=1u m=20
+RBVARR (VDD_AUX VARR) resistor r=RBVAR
+MBUFR (RFR BUFGR VSS VSS) nmos1 w=50u l=180n m=4 ad=30p as=30p pd=51u ps=51u
+CBUFR (D1 BUFGR) capacitor c=CBUF
+RBUFR (VBUF BUFGR) resistor r=RBUF
+MIN0 (SB0 S0 VSS VSS) nmos1 w=10u l=180n m=1 ad=6p as=6p pd=11u ps=11u
+MIP0 (SB0 S0 VDD_DIG VDD_DIG) pmos1 w=20u l=180n m=1 ad=12p as=12p pd=21u ps=21u
+MS0L (BANK0L S0 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB0L (D2 BANK0L) capacitor c=240f
+RS0L (SB0 BANK0L) resistor r=RSBANK
+MS0R (BANK0R S0 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB0R (D1 BANK0R) capacitor c=240f
+RS0R (SB0 BANK0R) resistor r=RSBANK
+MIN1 (SB1 S1 VSS VSS) nmos1 w=10u l=180n m=1 ad=6p as=6p pd=11u ps=11u
+MIP1 (SB1 S1 VDD_DIG VDD_DIG) pmos1 w=20u l=180n m=1 ad=12p as=12p pd=21u ps=21u
+MS1L (BANK1L S1 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB1L (D2 BANK1L) capacitor c=480f
+RS1L (SB1 BANK1L) resistor r=RSBANK
+MS1R (BANK1R S1 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB1R (D1 BANK1R) capacitor c=480f
+RS1R (SB1 BANK1R) resistor r=RSBANK
+MIN2 (SB2 S2 VSS VSS) nmos1 w=10u l=180n m=1 ad=6p as=6p pd=11u ps=11u
+MIP2 (SB2 S2 VDD_DIG VDD_DIG) pmos1 w=20u l=180n m=1 ad=12p as=12p pd=21u ps=21u
+MS2L (BANK2L S2 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB2L (D2 BANK2L) capacitor c=960f
+RS2L (SB2 BANK2L) resistor r=RSBANK
+MS2R (BANK2R S2 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB2R (D1 BANK2R) capacitor c=960f
+RS2R (SB2 BANK2R) resistor r=RSBANK
+MIN3 (SB3 S3 VSS VSS) nmos1 w=10u l=180n m=1 ad=6p as=6p pd=11u ps=11u
+MIP3 (SB3 S3 VDD_DIG VDD_DIG) pmos1 w=20u l=180n m=1 ad=12p as=12p pd=21u ps=21u
+MS3L (BANK3L S3 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB3L (D2 BANK3L) capacitor c=1.92p
+RS3L (SB3 BANK3L) resistor r=RSBANK
+MS3R (BANK3R S3 VSS VSS) nmos1 w=100u l=180n m=4 ad=60p as=60p pd=101u ps=101u
+CB3R (D1 BANK3R) capacitor c=1.92p
+RS3R (SB3 BANK3R) resistor r=RSBANK
+ends repaired_core

@@ -1,0 +1,84 @@
+{
+ "task": "ccmp_lelo_task_001",
+ "method": "LASO-BOSS",
+ "llm": null,
+ "evaluations": 2000,
+ "simulator_invocations": 30015,
+ "wall_s": 16803.2,
+ "feasible_designs": 12,
+ "first_feasible_eval": 1757,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 0,
+ "llm_cost_usd": 0.348968,
+ "llm_cost_usd_recorded": 0.0,
+ "llm_cost_basis": "standard-start variant: this run reused the strategy of an earlier LASO-BOSS run of the task (no LLM call, llm_cost_usd_recorded = 0); llm_cost_usd counts that strategy's recorded cost ($0.174) at the paper's price basis (2 x)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 240,
+   "best_score": 0.9311412477590949
+  },
+  {
+   "phase": 2,
+   "evals": 361,
+   "best_score": 0.9353557626247752
+  },
+  {
+   "phase": 3,
+   "evals": 501,
+   "best_score": 0.980811954985329
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 1.0
+  },
+  {
+   "phase": 5,
+   "evals": 497,
+   "best_score": 1.0
+  }
+ ],
+ "best": {
+  "eval": 1916,
+  "round": 5,
+  "f": 0.0,
+  "loss": 0.0,
+  "reward": 1.0,
+  "score": 1.0,
+  "targets_met": 35,
+  "targets": 35,
+  "valid": true,
+  "feasible": true,
+  "worst_margin": 0.05171115560849537,
+  "objective": null,
+  "params": {
+   "W_DIFF": 2.7264369573753906e-06,
+   "L_DIFF": 1.8405517299641176e-07,
+   "NF_DIFF": 12.0,
+   "W_PTAIL": 5.307125399930856e-07,
+   "L_PTAIL": 5.334931574673861e-06,
+   "NF_PTAIL": 2.0,
+   "W_NLOAD": 4.907918839087956e-06,
+   "L_NLOAD": 1.6390448855033783e-07,
+   "NF_NLOAD": 1.0,
+   "W_CS": 5.008905228422752e-07,
+   "L_CS": 1.7094930396964035e-07,
+   "NF_CS": 6.0,
+   "W_BIAS": 9.31443517773292e-07,
+   "L_BIAS": 1.302805000651274e-05,
+   "NF_BIAS": 58.0,
+   "W_RST": 8.308628416567589e-07,
+   "L_RST": 1.5906337831372803e-07,
+   "NF_RST": 4.0,
+   "W_CAP": 2.414072440606172e-06,
+   "L_CAP": 9.224483983531334e-06
+  }
+ }
+}

@@ -1,0 +1,55 @@
+// Generated for: spectre
+// Generated on: Nov  9 05:28:38 2026
+// Design library name: DAC_DTMOS_HPF_REPAIR_20261109
+// Design cell name: DTMOS_CANDIDATE_STB_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+
+// Library name: DAC_DTMOS_HPF_REPAIR_20261109
+// Cell name: dtmos_candidate_stb
+// View name: schematic
+subckt dtmos_candidate_stb GND IN OUT VDD VSS
+    M3 (NB3 IN N1 VDD) pmos1 w=9.56513378824e-06 l=2.63452442545e-06 as=3.8260535153e-12 ad=3.8260535153e-12          ps=1.99302675765e-05 pd=1.99302675765e-05 m=2
+    Mpb8 (OUT PHP VDD VDD) pmos1 w=7.50085947324e-05 l=6.80757910978e-06 as=3.0003437893e-11          ad=3.0003437893e-11 ps=0.000150817189464 pd=0.000150817189464 m=1
+    Mpb7 (PHP PHP VDD VDD) pmos1 w=1.56075006816e-05 l=6.80757910978e-06 as=6.24300027266e-12 ad=6.24300027266e-12          ps=3.20150013633e-05 pd=3.20150013633e-05 m=1
+    Mpb6 (OUT PLP VDD VDD) pmos1 w=4.28178801053e-05 l=4.71256651269e-07 as=1.71271520421e-11 ad=1.71271520421e-11          ps=8.64357602107e-05 pd=8.64357602107e-05 m=1
+    Mpb5 (PLP PLP VDD VDD) pmos1 w=4.28178801053e-05 l=4.71256651269e-07 as=1.71271520421e-11 ad=1.71271520421e-11          ps=8.64357602107e-05 pd=8.64357602107e-05 m=1
+    Mpb4 (PB1 PB1 VDD PB1) pmos1 w=0.0001 l=1.8e-07 as=4e-11 ad=4e-11          ps=0.0002008 pd=0.0002008 m=1
+    Mpb3 (N2 PB1 VDD PB1) pmos1 w=7.5e-05 l=1.8e-07 as=3e-11 ad=3e-11          ps=0.0001508 pd=0.0001508 m=1
+    Mpb2 (PB2 PB2 VDD PB2) pmos1 w=0.0001 l=1.8e-07 as=4e-11 ad=4e-11          ps=0.0002008 pd=0.0002008 m=242
+    Mpb1 (N1 PB2 VDD PB2) pmos1 w=0.0001 l=1.8e-07 as=4e-11 ad=4e-11          ps=0.0002008 pd=0.0002008 m=242
+    Mnb5 (OUT N1 VSS VSS) nmos1 w=6.22154590196e-07 l=7.72725716763e-06 as=2.48861836078e-13 ad=2.48861836078e-13          ps=2.04430918039e-06 pd=2.04430918039e-06 m=1
+    Mnb4 (PHP NB3 VSS VSS) nmos1 w=2.06581058078e-05 l=6.38343835136e-07 as=8.2632423231e-12 ad=8.2632423231e-12          ps=4.21162116154e-05 pd=4.21162116154e-05 m=1
+    Mnb3 (NB3 NB3 VSS VSS) nmos1 w=8.87452720866e-06 l=3.13363128146e-07 as=3.54981088346e-12 ad=3.54981088346e-12          ps=1.85490544173e-05 pd=1.85490544173e-05 m=1
+    Mnb2 (IN NB0 VSS VSS) nmos1 w=2.24870520279e-05 l=4.50312118489e-07 as=8.99482081118e-12 ad=8.99482081118e-12          ps=4.57741040559e-05 pd=4.57741040559e-05 m=1
+    Mnb1 (NB0 NB0 VSS VSS) nmos1 w=2.24870520279e-05 l=4.50312118489e-07 as=8.99482081118e-12 ad=8.99482081118e-12          ps=4.57741040559e-05 pd=4.57741040559e-05 m=1
+    M4 (VDD N2_M4 IN VSS) nmos1 w=2.25899682093e-05 l=1.81490778558e-06 as=9.0359872837e-12 ad=9.0359872837e-12          ps=4.59799364185e-05 pd=4.59799364185e-05 m=1
+    M2 (PLP N2 GND VSS) nmos1 w=4.51799364185e-06 l=1.81490778558e-06 as=1.80719745674e-12 ad=1.80719745674e-12          ps=9.8359872837e-06 pd=9.8359872837e-06 m=1
+    M1 (N2 N1 VSS VSS) nmos1 w=7.5e-07 l=8e-06 as=3e-13 ad=3e-13          ps=2.3e-06 pd=2.3e-06 m=1
+    I0 (GND NB0) isource dc=4.5e-05 type=dc
+    IB2 (PB2 GND) isource dc=6e-06 type=dc
+    IB1 (PB1 GND) isource dc=3e-05 type=dc
+    C2 (N2 GND) capacitor c=9.08083910592e-07
+    C1 (N1 GND) capacitor c=7.06731530513e-08
+    IP_STB (N2 N2_M4) iprobe
+ends dtmos_candidate_stb
+// End of subcircuit definition.
+
+// Library name: DAC_DTMOS_HPF_REPAIR_20261109
+// Cell name: DTMOS_CANDIDATE_STB_tb
+// View name: schematic
+DUT (0 IN OUT VDD VSS) dtmos_candidate_stb
+VOUT_SENSE (OUT 0) vsource dc=0 type=dc
+VSS_SRC (VSS 0) vsource dc=-1.1 type=dc
+VDD_SRC (VDD 0) vsource dc=1.1 type=dc
+IIN_SRC (0 IN) isource mag=1 type=sine sinedc=0 ampl=5u freq=500
+simulatorOptions options reltol=1e-07 vabstol=1e-09 iabstol=1e-14 temp=27      tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5      digits=5 cols=80 pivrel=1e-3 sensfile="sens.output"      checklimitdest=psf 
+stb stb start=1m stop=10G dec=100 probe=DUT.IP_STB annotate=status 
+ac ac start=1 stop=10M dec=100 annotate=status 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+saveOptions options save=allpub currents=all subcktprobelvl=5
+
+tran tran stop=60m errpreset=conservative maxstep=1u strobeperiod=1u method=gear2only
+dcOpInfo info what=oppoint where=rawfile

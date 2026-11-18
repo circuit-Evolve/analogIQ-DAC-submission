@@ -1,0 +1,31 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task sar24_liang_task_001  topology sar24_liang
+// recipe sar_dynamic_v1 v1  condition NN_T27_S1p00 (models NN, 27 C, supply 1.8 V)
+// request sar24_liang_task_001__plan  candidate 3e435dc5a9c9f4e7
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+ahdl_include "sar_seq.va"
+
+parameters vsup=1.8 vcm=0.9
+// Supply (its power is a metric; the sequencer is fixed instrumentation, see sar_seq.va).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=0
+// Input sources (differential, common mode vcm).
+VINP (inp 0) vsource type=sine sinedc=vcm ampl=0.85 freq=4804687.5
+VINN (inn 0) vsource type=sine sinedc=vcm ampl=0.85 freq=4804687.5 sinephase=180
+
+RSW_p1 (vxp vxp_a1) resistor r=10.0
+RSW_p2 (vxp vxp_a2) resistor r=10.0
+RSW_n1 (vxn vxn_a1) resistor r=10.0
+RSW_n2 (vxn vxn_a2) resistor r=10.0
+XSEQ (inp inn vxp vxn outp outn ckc eref b_BP_CP11a b_BP_CP11b b_BP_CN11a b_BP_CN11b b_BP_CP10a b_BP_CP10b b_BP_CN10a b_BP_CN10b b_BP_CP9a b_BP_CP9b b_BP_CN9a b_BP_CN9b b_BP_CP8a b_BP_CP8b b_BP_CN8a b_BP_CN8b b_BP_CP7a b_BP_CP7b b_BP_CN7a b_BP_CN7b b_BP_CP6a b_BP_CP6b b_BP_CN6a b_BP_CN6b b_BP_CP5ac b_BP_CP5bc b_BP_CN5ac b_BP_CN5bc b_BP_CP5a b_BP_CP5b b_BP_CN5a b_BP_CN5b b_BP_CP4 b_BP_CN4 b_BP_CP3 b_BP_CN3 b_BP_CP2 b_BP_CN2 b_BP_CP1 b_BP_CN1) sar_seq
+
+XDUT (b_BP_CP11a b_BP_CP11b b_BP_CP10a b_BP_CP10b b_BP_CP9a b_BP_CP9b b_BP_CP8a b_BP_CP8b b_BP_CP7a b_BP_CP7b b_BP_CP6a b_BP_CP6b b_BP_CP5a b_BP_CP5b b_BP_CP5ac b_BP_CP5bc b_BP_CP4 b_BP_CP3 b_BP_CP2 b_BP_CP1 vxp_a2 vxp_a1 vxp b_BP_CN11a b_BP_CN11b b_BP_CN10a b_BP_CN10b b_BP_CN9a b_BP_CN9b b_BP_CN8a b_BP_CN8b b_BP_CN7a b_BP_CN7b b_BP_CN6a b_BP_CN6b b_BP_CN5a b_BP_CN5b b_BP_CN5ac b_BP_CN5bc b_BP_CN4 b_BP_CN3 b_BP_CN2 b_BP_CN1 vxn_a2 vxn_a1 vxn vdd vss ckc outp outn) sar24_liang_dut CU=1e-12 L_IN=1e-06 L_M6=1e-06 L_ND=1e-06 L_NL=1e-06 L_NR=1e-06 L_ON=1e-06 L_OP=1e-06 L_PC=1e-06 L_PH=1e-06 L_PL=1e-06 L_TL=1e-06 M_IN=1.0 M_M6=1.0 M_ND=1.0 M_NL=1.0 M_NR=1.0 M_ON=1.0 M_OP=1.0 M_PC=1.0 M_PH=1.0 M_PL=1.0 M_TL=1.0 W_IN=1e-06 W_M6=1e-06 W_ND=1e-06 W_NL=1e-06 W_NR=1e-06 W_ON=1e-06 W_OP=1e-06 W_PC=1e-06 W_PH=1e-06 W_PL=1e-06 W_TL=1e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VSUP:p ckc eref inn inp outn outp vdd vxn vxp
+
+tr1 tran stop=2.56e-05 maxstep=2e-10 errpreset=moderate

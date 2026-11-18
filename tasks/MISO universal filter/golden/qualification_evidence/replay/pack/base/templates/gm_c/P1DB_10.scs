@@ -1,0 +1,14 @@
+simulator lang=spectre
+include "<WORK>/four-papers-20261107/gm_c/sim/cores.scs"
+DUT (VIP VIM VOP VOM VT VREF VDD 0) ota_fig2_interpreted
+VDD_SRC (VDD 0) vsource dc=1
+VT_SRC (VT 0) vsource dc=.5
+VREF_SRC (VREF 0) vsource dc=.5
+VINP (VIP 0) vsource dc=.5 type=sine ampl=0.040220539579064206 freq=1M
+VINM (VIM 0) vsource dc=.5 type=sine ampl=-0.040220539579064206 freq=1M
+simulatorOptions options reltol=1e-6 vabstol=1e-9 iabstol=1e-14 temp=27 tnom=27
+saveOptions options save=allpub currents=all subcktprobelvl=5
+save DUT:oppoint
+dcOp dc
+dcOpInfo info what=oppoint where=rawfile
+tran tran stop=30u maxstep=2n strobeperiod=2n errpreset=conservative

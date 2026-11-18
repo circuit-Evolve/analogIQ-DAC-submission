@@ -1,0 +1,1499 @@
+schema: analogiq.sizing_problem/1
+task_id: nclna01_task_001
+topology_id: nclna01_alinejad_2024
+family: lna
+technology_id: gpdk180
+parameterization_id: nclna01_p2
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). UWB noise-cancelling LNA over the paper''s 2-12 GHz band at a single 0.8 V supply (NC1a),
+  50-ohm ports, gpdk180 NN, 27 C (schematic results: abstract / Table 4), plus the paper''s Table 3 process/temperature corners (FF/SS at -20
+  C and 85 C, SF at -20 C, 0.8 V), where only S21 and NF are reported (FS/-20, FS/85, SF/85 not targeted, rule G6 step 4: they contradict the
+  all-NMOS design''s FF/SS rows). IIP3 at 7.4 GHz (two tones 7.4 / 7.48 GHz). Stability k / mu > 1 over the band (NC3a). Targets are the paper''s
+  values with 10 % linear tolerance; this task replaces nclna01_task_001 + nclna01_task_002_corners.'
+source:
+  doi: 10.22075/jme.2023.28966.2361
+  title: A Low Power CMOS UWB LNA with Sub-1V Supply Voltage and Noise Cancellation Technique (J. Modeling in Engineering 22(77), 2024)
+  figure: p. 5 schematic (common-gate M1 + noise-cancelling common-source M2/M4, gm-boosting C1/C2, output buffer M3); Table 1 sizing (schematic)
+variables:
+- name: W_M1
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: common-gate input device M1 finger width (noise)
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: w
+- name: L_M1
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M1 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: l
+- name: N_M1
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M1 finger count (Spectre m)
+  binding:
+    type: instance_parameter
+    instances:
+    - M1
+    parameter: m
+- name: W_M2
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: common-source M2 finger width (amplifies the CG output; with M4 sets the noise-cancelling condition)
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: w
+- name: L_M2
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M2 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: l
+- name: N_M2
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M2 finger count (Spectre m)
+  binding:
+    type: instance_parameter
+    instances:
+    - M2
+    parameter: m
+- name: W_M3
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: output buffer M3 finger width (buffer current)
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    parameter: w
+- name: L_M3
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M3 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    parameter: l
+- name: N_M3
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M3 finger count (Spectre m)
+  binding:
+    type: instance_parameter
+    instances:
+    - M3
+    parameter: m
+- name: W_M4
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: noise-cancelling CS device M4 finger width (cancels the M1 channel noise at the summing node)
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    parameter: w
+- name: L_M4
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: M4 length
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    parameter: l
+- name: N_M4
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: M4 finger count (Spectre m)
+  binding:
+    type: instance_parameter
+    instances:
+    - M4
+    parameter: m
+- name: L_LD1
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: L1 shunt-peaking load of M1 (bandwidth extension)
+  binding:
+    type: instance_parameter
+    instances:
+    - L1
+    parameter: l
+- name: L_LD2
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: L2 shunt-peaking load of the M2/M4 summing node
+  binding:
+    type: instance_parameter
+    instances:
+    - L2
+    parameter: l
+- name: L_LD3
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: L3 buffer load inductor
+  binding:
+    type: instance_parameter
+    instances:
+    - L3
+    parameter: l
+- name: C_GB1
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: C1 coupling from the summing node to the M1 gate (gm boosting)
+  binding:
+    type: dut_parameter
+    parameter: C_GB1
+- name: C_GB2
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: C2 coupling from the input node to the M4 gate (noise-cancelling path)
+  binding:
+    type: dut_parameter
+    parameter: C_GB2
+- name: C_FB
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: C3 buffer feedback capacitor (with R1)
+  binding:
+    type: dut_parameter
+    parameter: C_FB
+- name: C_IN
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: CIN off-chip input series capacitor (T input match; paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - CIN
+    parameter: c
+- name: L_IN_SH
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: LIN off-chip input shunt inductor (T input match, DC return of the M1 source; paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - LIN
+    parameter: l
+- name: L_SRC
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: L0 series inductor to the M1 source (T input match; paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - L0
+    parameter: l
+- name: L_IS
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: L4 interstage inductor summing node -> M3 gate (paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - L4
+    parameter: l
+- name: L_OUT
+  kind: real
+  unit: H
+  lower: 1.0e-10
+  upper: 1.0e-07
+  scale: log
+  start: 1.0e-09
+  quantity: inductance
+  role: L5 output series inductor (output match; paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - L5
+    parameter: l
+- name: C_OUT
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: C4 output coupling capacitor (output match; paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - C4
+    parameter: c
+- name: R_FB
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: R1 buffer feedback resistor (paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - R1
+    parameter: r
+- name: R_B1
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: RB1 M1 gate bias resistor (paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - RB1
+    parameter: r
+- name: R_B2
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: RB2 M4 gate bias resistor (paper value not given)
+  binding:
+    type: instance_parameter
+    instances:
+    - RB2
+    parameter: r
+- name: R_L1
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'RL1 resistor in series with L1 in the M1 load (paper: symbol only)'
+  binding:
+    type: instance_parameter
+    instances:
+    - RL1
+    parameter: r
+- name: R_L2
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: 'RL2 resistor in series with L2 in the summing-node load (paper: symbol only)'
+  binding:
+    type: instance_parameter
+    instances:
+    - RL2
+    parameter: r
+- name: V_B1
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 0.8
+  scale: lin
+  start: 0.4
+  quantity: bias_voltage
+  role: 'M1 gate bias Vb1 (CG current: input match, gain)'
+  binding:
+    type: external_bias
+    pin: VB1
+- name: V_B2
+  kind: real
+  unit: V
+  lower: 0.0
+  upper: 0.8
+  scale: lin
+  start: 0.4
+  quantity: bias_voltage
+  role: M4 gate bias Vb2 (noise-cancelling branch current)
+  binding:
+    type: external_bias
+    pin: VB2
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 0.8
+  supply_scale: 1.0
+  nominal: true
+- id: FF_Tm20_S1p00
+  model_set: FF
+  temperature_C: -20.0
+  supply_V: 0.8
+  supply_scale: 1.0
+  nominal: false
+- id: FF_T85_S1p00
+  model_set: FF
+  temperature_C: 85.0
+  supply_V: 0.8
+  supply_scale: 1.0
+  nominal: false
+- id: SF_Tm20_S1p00
+  model_set: SF
+  temperature_C: -20.0
+  supply_V: 0.8
+  supply_scale: 1.0
+  nominal: false
+- id: SS_Tm20_S1p00
+  model_set: SS
+  temperature_C: -20.0
+  supply_V: 0.8
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T85_S1p00
+  model_set: SS
+  temperature_C: 85.0
+  supply_V: 0.8
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 0.8
+    provenance: 'paper: abstract / p. 7 (0.8 V core supply); single supply for core and buffer (owner answer NC1a); Table 3 corners at the nominal
+      supply'
+  center_frequency_Hz:
+    value: 7400000000.0
+    provenance: 'paper: p. 8 (two-tone test at 7.4 / 7.48 GHz), inside the 2-12 GHz band'
+  port_impedance_ohm:
+    value: 50.0
+    provenance: 'paper: p. 4-5 (50-ohm source; load not stated, 50-ohm output buffer)'
+constraints:
+- name: s21_max_in_band_dB
+  metric: s21_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  lower: 16.574850188786495
+  target:
+    kind: voltage_db
+    paper_value: 17.49
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 schematic (S21 17.49 dB; abstract 17.25 dB; G6 summary-table value)'
+  source: native
+- name: nf_max_in_band_dB
+  metric: nf_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 4.913926851582251
+  target:
+    kind: power_db
+    paper_value: 4.5
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract (NF 3.6-4.5 dB over 2-12 GHz); owner answer NC2a'
+  source: native
+- name: nf_min_in_band_dB
+  metric: nf_min_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 4.013926851582251
+  target:
+    kind: power_db
+    paper_value: 3.6
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract (NF 3.6-4.5 dB; Table 4 3.59 dB); owner answer NC2a'
+  source: native
+- name: s11_max_in_band_dB
+  metric: s11_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: -8.412146296835498
+  target:
+    kind: voltage_db
+    paper_value: -9.24
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract / Table 4 (S11 < -9.24 dB over 2-12 GHz)'
+  source: native
+- name: s22_max_in_band_dB
+  metric: s22_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: -8.912146296835498
+  target:
+    kind: voltage_db
+    paper_value: -9.74
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract (S22 < -9.74 dB over the band); in-band metric of lna_sp_ext_v1'
+  source: native
+- name: s12_max_in_band_dB
+  metric: s12_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: -27.6721462968355
+  target:
+    kind: voltage_db
+    paper_value: -28.5
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract (S12 < -28.5 dB; text for Fig. 7 < -27 dB)'
+  source: native
+- name: quiescent_power_W
+  metric: quiescent_power_W
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: W
+  upper: 0.005379
+  target:
+    kind: linear
+    paper_value: 0.00489
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 schematic / abstract (4.89 mW). Correction 2026-10-27 (G6 step 1): p. 7 says the supply reduction brought the LNA
+    to 4.89 mW and that the output buffer (here M3, designed for 1 V) consumes 7.93 mW separately, so 4.89 mW cannot include the buffer (the abstract''s
+    word ''total'' is then loose); power is therefore measured without the buffer branch (power_exclude_devices [M3]: supply power minus Vdd*Ids(M3)).
+    Was: whole netlist at 0.8 V (owner NC1a)'
+  source: native
+- name: k_min_in_band
+  metric: k_min_in_band
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: ''
+  lower: 1.0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'owner decision NC3a: stability target over the band, Rollett k > 1 (paper Fig. 12: k > 1 over 2-12 GHz, unconditionally stable);
+    stability requirement, no tolerance'
+  source: native
+- name: mu_min_in_band
+  metric: mu_min_in_band
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: ''
+  lower: 1.0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'owner decision NC3a: stability target over the band, Edwards-Sinsky mu > 1; stability requirement, no tolerance'
+  source: native
+- name: iip3_dBm
+  metric: iip3_dBm
+  recipe: lna_ip3_v1
+  point: {}
+  unit: dBm
+  lower: -3.877574905606751
+  target:
+    kind: power_db
+    paper_value: -3.42
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: abstract (IIP3 -3.42 dBm at 7.4/7.48 GHz; Fig. 10 / text -3.49 dBm); single point at -40 dBm'
+  source: native
+- name: s21_FF_m20
+  metric: s21_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  lower: 16.244850188786497
+  target:
+    kind: voltage_db
+    paper_value: 17.16
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+    temperature_C: -20
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (FF/-20 C: S21 17.16 dB, read as the in-band peak gain)'
+  source: native
+- name: nf_FF_m20
+  metric: nf_min_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 3.663926851582251
+  target:
+    kind: power_db
+    paper_value: 3.25
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+    temperature_C: -20
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (FF/-20 C: NF 3.25 dB, read as the in-band minimum NF)'
+  source: native
+- name: s21_FF_85
+  metric: s21_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  lower: 11.084850188786497
+  target:
+    kind: voltage_db
+    paper_value: 12.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+    temperature_C: 85
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (FF/85 C: S21 12.0 dB, read as the in-band peak gain)'
+  source: native
+- name: nf_FF_85
+  metric: nf_min_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 4.523926851582251
+  target:
+    kind: power_db
+    paper_value: 4.11
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+    temperature_C: 85
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (FF/85 C: NF 4.11 dB, read as the in-band minimum NF)'
+  source: native
+- name: s21_SF_m20
+  metric: s21_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  lower: 15.184850188786498
+  target:
+    kind: voltage_db
+    paper_value: 16.1
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SF
+    temperature_C: -20
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (SF/-20 C: S21 16.1 dB, read as the in-band peak gain)'
+  source: native
+- name: nf_SF_m20
+  metric: nf_min_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 3.5539268515822506
+  target:
+    kind: power_db
+    paper_value: 3.14
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SF
+    temperature_C: -20
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (SF/-20 C: NF 3.14 dB, read as the in-band minimum NF)'
+  source: native
+- name: s21_SS_m20
+  metric: s21_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  lower: 15.054850188786498
+  target:
+    kind: voltage_db
+    paper_value: 15.97
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+    temperature_C: -20
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (SS/-20 C: S21 15.97 dB, read as the in-band peak gain)'
+  source: native
+- name: nf_SS_m20
+  metric: nf_min_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 3.663926851582251
+  target:
+    kind: power_db
+    paper_value: 3.25
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+    temperature_C: -20
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (SS/-20 C: NF 3.25 dB, read as the in-band minimum NF)'
+  source: native
+- name: s21_SS_85
+  metric: s21_max_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  lower: 11.584850188786497
+  target:
+    kind: voltage_db
+    paper_value: 12.5
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+    temperature_C: 85
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (SS/85 C: S21 12.5 dB, read as the in-band peak gain)'
+  source: native
+- name: nf_SS_85
+  metric: nf_min_in_band_dB
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: dB
+  upper: 4.593926851582251
+  target:
+    kind: power_db
+    paper_value: 4.18
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+    temperature_C: 85
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 (SS/85 C: NF 4.18 dB, read as the in-band minimum NF)'
+  source: native
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'benchmark rule G8: no device out of saturation at nominal (M1-M4 all saturated by design)'
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: lna_sp_ext_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - lna_ip3_v1
+  - iip3_dBm
+- - lna_ip3_v1
+  - oip3_dBm
+- - lna_ip3_v1
+  - two_tone_gain_dB
+- - lna_sp_ext_v1
+  - delta_mag
+- - lna_sp_ext_v1
+  - devices_out_of_saturation
+- - lna_sp_ext_v1
+  - devices_outside_rails
+- - lna_sp_ext_v1
+  - forward_biased_junctions
+- - lna_sp_ext_v1
+  - k_factor
+- - lna_sp_ext_v1
+  - k_min_in_band
+- - lna_sp_ext_v1
+  - mu_min_in_band
+- - lna_sp_ext_v1
+  - nf_dB
+- - lna_sp_ext_v1
+  - nf_max_in_band_dB
+- - lna_sp_ext_v1
+  - nf_min_dB
+- - lna_sp_ext_v1
+  - nf_min_in_band_dB
+- - lna_sp_ext_v1
+  - quiescent_power_W
+- - lna_sp_ext_v1
+  - s11_dB
+- - lna_sp_ext_v1
+  - s11_max_in_band_dB
+- - lna_sp_ext_v1
+  - s12_dB
+- - lna_sp_ext_v1
+  - s12_max_in_band_dB
+- - lna_sp_ext_v1
+  - s21_3db_high_Hz
+- - lna_sp_ext_v1
+  - s21_3db_low_Hz
+- - lna_sp_ext_v1
+  - s21_dB
+- - lna_sp_ext_v1
+  - s21_max_in_band_dB
+- - lna_sp_ext_v1
+  - s21_min_in_band_dB
+- - lna_sp_ext_v1
+  - s22_dB
+- - lna_sp_ext_v1
+  - s22_max_in_band_dB
+- - lna_sp_ext_v1
+  - saturation_margin_min_V
+simulations_per_design: 7
+analysis_executions_per_design: 13
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: lna_sp_ext_v1
+  folder: testbenches/NN_T27_S1p00/lna_sp_ext_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op1.dc
+  - raw/sp1.sp.ascii
+  - raw/sp1.noise.sp.ascii
+  - raw/op_info.info
+  metrics:
+    s11_dB:
+      unit: dB
+      source: native
+    s21_dB:
+      unit: dB
+      source: native
+    s12_dB:
+      unit: dB
+      source: native
+    s22_dB:
+      unit: dB
+      source: native
+    nf_dB:
+      unit: dB
+      source: native
+    nf_min_dB:
+      unit: dB
+      source: native
+    s11_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_min_in_band_dB:
+      unit: dB
+      source: native
+    s21_max_in_band_dB:
+      unit: dB
+      source: native
+    s12_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_min_in_band_dB:
+      unit: dB
+      source: native
+    quiescent_power_W:
+      unit: W
+      source: native
+    k_factor:
+      unit: ''
+      source: native
+    delta_mag:
+      unit: ''
+      source: native
+    k_min_in_band:
+      unit: ''
+      source: native
+    mu_min_in_band:
+      unit: ''
+      source: native
+    s22_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_3db_low_Hz:
+      unit: Hz
+      source: native
+    s21_3db_high_Hz:
+      unit: Hz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f0_Hz: 7400000000.0
+- condition: NN_T27_S1p00
+  recipe: lna_ip3_v1
+  folder: testbenches/NN_T27_S1p00/lna_ip3_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/hb1.fd.qpss_hb
+  metrics:
+    iip3_dBm:
+      unit: dBm
+      source: native
+    oip3_dBm:
+      unit: dBm
+      source: native
+    two_tone_gain_dB:
+      unit: dB
+      source: native
+  points:
+  - pin_dBm: -40.0
+    f1_Hz: 7400000000.0
+    f2_Hz: 7480000000.0
+- condition: FF_Tm20_S1p00
+  recipe: lna_sp_ext_v1
+  folder: testbenches/FF_Tm20_S1p00/lna_sp_ext_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op1.dc
+  - raw/sp1.sp.ascii
+  - raw/sp1.noise.sp.ascii
+  - raw/op_info.info
+  metrics:
+    s11_dB:
+      unit: dB
+      source: native
+    s21_dB:
+      unit: dB
+      source: native
+    s12_dB:
+      unit: dB
+      source: native
+    s22_dB:
+      unit: dB
+      source: native
+    nf_dB:
+      unit: dB
+      source: native
+    nf_min_dB:
+      unit: dB
+      source: native
+    s11_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_min_in_band_dB:
+      unit: dB
+      source: native
+    s21_max_in_band_dB:
+      unit: dB
+      source: native
+    s12_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_min_in_band_dB:
+      unit: dB
+      source: native
+    quiescent_power_W:
+      unit: W
+      source: native
+    k_factor:
+      unit: ''
+      source: native
+    delta_mag:
+      unit: ''
+      source: native
+    k_min_in_band:
+      unit: ''
+      source: native
+    mu_min_in_band:
+      unit: ''
+      source: native
+    s22_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_3db_low_Hz:
+      unit: Hz
+      source: native
+    s21_3db_high_Hz:
+      unit: Hz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f0_Hz: 7400000000.0
+- condition: FF_T85_S1p00
+  recipe: lna_sp_ext_v1
+  folder: testbenches/FF_T85_S1p00/lna_sp_ext_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op1.dc
+  - raw/sp1.sp.ascii
+  - raw/sp1.noise.sp.ascii
+  - raw/op_info.info
+  metrics:
+    s11_dB:
+      unit: dB
+      source: native
+    s21_dB:
+      unit: dB
+      source: native
+    s12_dB:
+      unit: dB
+      source: native
+    s22_dB:
+      unit: dB
+      source: native
+    nf_dB:
+      unit: dB
+      source: native
+    nf_min_dB:
+      unit: dB
+      source: native
+    s11_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_min_in_band_dB:
+      unit: dB
+      source: native
+    s21_max_in_band_dB:
+      unit: dB
+      source: native
+    s12_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_min_in_band_dB:
+      unit: dB
+      source: native
+    quiescent_power_W:
+      unit: W
+      source: native
+    k_factor:
+      unit: ''
+      source: native
+    delta_mag:
+      unit: ''
+      source: native
+    k_min_in_band:
+      unit: ''
+      source: native
+    mu_min_in_band:
+      unit: ''
+      source: native
+    s22_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_3db_low_Hz:
+      unit: Hz
+      source: native
+    s21_3db_high_Hz:
+      unit: Hz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f0_Hz: 7400000000.0
+- condition: SF_Tm20_S1p00
+  recipe: lna_sp_ext_v1
+  folder: testbenches/SF_Tm20_S1p00/lna_sp_ext_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op1.dc
+  - raw/sp1.sp.ascii
+  - raw/sp1.noise.sp.ascii
+  - raw/op_info.info
+  metrics:
+    s11_dB:
+      unit: dB
+      source: native
+    s21_dB:
+      unit: dB
+      source: native
+    s12_dB:
+      unit: dB
+      source: native
+    s22_dB:
+      unit: dB
+      source: native
+    nf_dB:
+      unit: dB
+      source: native
+    nf_min_dB:
+      unit: dB
+      source: native
+    s11_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_min_in_band_dB:
+      unit: dB
+      source: native
+    s21_max_in_band_dB:
+      unit: dB
+      source: native
+    s12_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_min_in_band_dB:
+      unit: dB
+      source: native
+    quiescent_power_W:
+      unit: W
+      source: native
+    k_factor:
+      unit: ''
+      source: native
+    delta_mag:
+      unit: ''
+      source: native
+    k_min_in_band:
+      unit: ''
+      source: native
+    mu_min_in_band:
+      unit: ''
+      source: native
+    s22_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_3db_low_Hz:
+      unit: Hz
+      source: native
+    s21_3db_high_Hz:
+      unit: Hz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f0_Hz: 7400000000.0
+- condition: SS_Tm20_S1p00
+  recipe: lna_sp_ext_v1
+  folder: testbenches/SS_Tm20_S1p00/lna_sp_ext_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op1.dc
+  - raw/sp1.sp.ascii
+  - raw/sp1.noise.sp.ascii
+  - raw/op_info.info
+  metrics:
+    s11_dB:
+      unit: dB
+      source: native
+    s21_dB:
+      unit: dB
+      source: native
+    s12_dB:
+      unit: dB
+      source: native
+    s22_dB:
+      unit: dB
+      source: native
+    nf_dB:
+      unit: dB
+      source: native
+    nf_min_dB:
+      unit: dB
+      source: native
+    s11_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_min_in_band_dB:
+      unit: dB
+      source: native
+    s21_max_in_band_dB:
+      unit: dB
+      source: native
+    s12_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_min_in_band_dB:
+      unit: dB
+      source: native
+    quiescent_power_W:
+      unit: W
+      source: native
+    k_factor:
+      unit: ''
+      source: native
+    delta_mag:
+      unit: ''
+      source: native
+    k_min_in_band:
+      unit: ''
+      source: native
+    mu_min_in_band:
+      unit: ''
+      source: native
+    s22_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_3db_low_Hz:
+      unit: Hz
+      source: native
+    s21_3db_high_Hz:
+      unit: Hz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f0_Hz: 7400000000.0
+- condition: SS_T85_S1p00
+  recipe: lna_sp_ext_v1
+  folder: testbenches/SS_T85_S1p00/lna_sp_ext_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: null
+  measure_results: null
+  native_results:
+  - raw/op1.dc
+  - raw/sp1.sp.ascii
+  - raw/sp1.noise.sp.ascii
+  - raw/op_info.info
+  metrics:
+    s11_dB:
+      unit: dB
+      source: native
+    s21_dB:
+      unit: dB
+      source: native
+    s12_dB:
+      unit: dB
+      source: native
+    s22_dB:
+      unit: dB
+      source: native
+    nf_dB:
+      unit: dB
+      source: native
+    nf_min_dB:
+      unit: dB
+      source: native
+    s11_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_min_in_band_dB:
+      unit: dB
+      source: native
+    s21_max_in_band_dB:
+      unit: dB
+      source: native
+    s12_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_max_in_band_dB:
+      unit: dB
+      source: native
+    nf_min_in_band_dB:
+      unit: dB
+      source: native
+    quiescent_power_W:
+      unit: W
+      source: native
+    k_factor:
+      unit: ''
+      source: native
+    delta_mag:
+      unit: ''
+      source: native
+    k_min_in_band:
+      unit: ''
+      source: native
+    mu_min_in_band:
+      unit: ''
+      source: native
+    s22_max_in_band_dB:
+      unit: dB
+      source: native
+    s21_3db_low_Hz:
+      unit: Hz
+      source: native
+    s21_3db_high_Hz:
+      unit: Hz
+      source: native
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - f0_Hz: 7400000000.0
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - nclna01_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('nclna01_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

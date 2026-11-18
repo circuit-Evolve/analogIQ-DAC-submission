@@ -1,0 +1,10 @@
+opened=errset(openResults("raw") t)
+fp=outfile("scalars.tsv")
+v=nil
+when(opened && car(opened) v=errset((abs(slewRate(clip(getData("sr_out" ?result "tran") (0.0005 - 1e-06) (0.0005 + 2e-06)) (0.0005 - 1e-06) t (0.0005 + 2e-06) t 10 90 nil)) / 1000000.0) t))
+if(v && numberp(car(v)) then fprintf(fp "1\t%.16g\n" car(v)) else fprintf(fp "1\tERROR\n"))
+v=nil
+when(opened && car(opened) v=errset((abs(slewRate(clip(getData("sr_out" ?result "tran") ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06)) ((0.0005 + 1e-09 + 9.999999999999999e-05) - 1e-06) t (0.0005 + 1e-09 + 9.999999999999999e-05 + 2e-06) t 10 90 nil)) / 1000000.0) t))
+if(v && numberp(car(v)) then fprintf(fp "2\t%.16g\n" car(v)) else fprintf(fp "2\tERROR\n"))
+close(fp)
+exit()

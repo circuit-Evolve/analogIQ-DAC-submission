@@ -1,0 +1,53 @@
+{
+  "job_id": "NN_T27_S1p00/vco_see_v1",
+  "recipe_id": "vco_see_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T27_S1p00",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "is_nominal": true,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {},
+    {
+      "charge_pC": 0.25
+    },
+    {
+      "charge_pC": 1.3
+    }
+  ],
+  "expected_outputs": [
+    "raw/tr1.tran.tran"
+  ],
+  "expected_metrics": [
+    "free_frequency_Hz",
+    "output_vpp_V",
+    "see_dev_max_pct",
+    "see_dev_min_pct",
+    "see_dev_neg_pct",
+    "see_dev_abs_pct"
+  ],
+  "digests": {
+    "task": "6297b8174b9ffcddc7188443e9e448137126ba0e045dbc3f25114896dbabefb9",
+    "candidate": "6be86fc6bd9efaf901d11fac68f21c8cd59c205bbcdd75b768cae1e6638b3e5f",
+    "parameterization": "910b50add857399bab57a7ae22b414de52463361893525260377c26fab55ae0b",
+    "dut_source_netlist": "51cdc89ccb539fbcfaed4bd8611a748b512f69ed61a35a81e7ad522c90b5f32c",
+    "dut_subckt": "510aa9b50926e0c60b6b4f934dcd4d9805b9e0247d2f1b8a6688861ceb728944",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "59a1fa709c1029d90dabd2ce2f3ce144a7b0b31b46941e8b8977e7e22387cc29",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "0e99bfca06693e106d8fce7f93da70a45dd8b7f176377897ebef8001a45f320f"
+  },
+  "state": "rendered"
+}

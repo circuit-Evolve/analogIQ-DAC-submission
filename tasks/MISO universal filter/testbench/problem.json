@@ -1,0 +1,2498 @@
+{
+  "schema": "analogiq.sizing_problem/1",
+  "task_id": "miso_universal_111126_task_001",
+  "topology_id": "miso_universal_111126",
+  "family": "filter",
+  "technology_id": "gpdk180",
+  "parameterization_id": "miso_universal_111126_p1_counts_20261112",
+  "execution_profile": "search_full",
+  "description": "Truly mixed-mode MISO universal filter (Faseehuddin et al., CSSP 2026, Fig. 3; two M-DVCCTAs, two MOS grounded resistors, R3, C1, C2; gpdk180, +/-0.9 V). Shared analogiq benchmark form of the golden replay pack testbenches/11_11_26/Filters/MISO_universal_filter/MISO_universal_filter/miso_universal_111126_task_001 (2026-11-11): the replay's five process corners, its nine retained metrics with exactly the replay's owner-approved limits (paper value with a 15 % allowance, targets.json), and its fixture (decks testbenches/<corner>/<deck>/input.scs; OCEAN extract.ocn and replay/engine9.py for the extraction). Metrics the replay excluded (core RX/RZP/ROP/ROM/OTA gm diagnostics, peak estimates, Python THD harmonics 2-10) are not targeted. No objective. User decision 2026-11-12: validity gates are bypassed for task eligibility/feasibility; all performance constraints remain enforced. Diagnostics are not a gate pass or physical qualification.",
+  "source": {
+    "title": "Truly Mixed-Mode Universal Filter Capable of Operation in MISO and SIMO Configurations with Quadrature Oscillator as an Application (Faseehuddin, Sivagami, Shireen, Tangsrirat), Circuits, Systems, and Signal Processing 45:74-115 (2026)",
+    "doi": "10.1007/s00034-025-03002-2",
+    "figure": "Fig. 3 (MISO configuration), Fig. 2 (M-DVCCTA), Fig. 8a (MOS grounded resistor)"
+  },
+  "variables": [
+    {
+      "name": "A2_W_IN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA input pair M1/M2 width (gm of the transconductance stage)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M1",
+          "mdvccta_fig2.M2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A2_L_IN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA input pair M1/M2 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M1",
+          "mdvccta_fig2.M2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A2_M_IN",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA input pair M1/M2 multiplier",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M1",
+          "mdvccta_fig2.M2"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A2_W_PMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA PMOS mirror outputs M3/M4/M7/M8/M9 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M3",
+          "mdvccta_fig2.M4",
+          "mdvccta_fig2.M7",
+          "mdvccta_fig2.M8",
+          "mdvccta_fig2.M9"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A2_L_PMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 4e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA PMOS mirror outputs M3/M4/M7/M8/M9 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M3",
+          "mdvccta_fig2.M4",
+          "mdvccta_fig2.M7",
+          "mdvccta_fig2.M8",
+          "mdvccta_fig2.M9"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A2_M_PMIR",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA PMOS mirror outputs multiplier (mirror ratio to the M5/M6 diodes)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M3",
+          "mdvccta_fig2.M4",
+          "mdvccta_fig2.M7",
+          "mdvccta_fig2.M8",
+          "mdvccta_fig2.M9"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A2_W_PLD",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA PMOS diode loads M5/M6 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M5",
+          "mdvccta_fig2.M6"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A2_L_PLD",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 4e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA PMOS diode loads M5/M6 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M5",
+          "mdvccta_fig2.M6"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A2_W_NMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA NMOS mirror outputs M10/M12/M13 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M10",
+          "mdvccta_fig2.M12",
+          "mdvccta_fig2.M13"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A2_L_NMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA NMOS mirror outputs M10/M12/M13 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M10",
+          "mdvccta_fig2.M12",
+          "mdvccta_fig2.M13"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A2_W_NDIO",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA NMOS mirror diodes M11/M14 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M11",
+          "mdvccta_fig2.M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A2_L_NDIO",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA NMOS mirror diodes M11/M14 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M11",
+          "mdvccta_fig2.M14"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A2_IBIAS",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1e-10,
+      "upper": 0.01,
+      "scale": "log",
+      "start": 1e-05,
+      "quantity": "bias_current",
+      "role": "A2 (output stage of the filter, X -> VOUT): OTA tail current (ideal source IBIAS inside the M-DVCCTA, sets the transconductance)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.IBIAS"
+        ],
+        "parameter": "dc"
+      }
+    },
+    {
+      "name": "A1_W_IN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA input pair M1/M2 width (gm of the transconductance stage)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M1",
+          "mdvccta_fig2_A1.M2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A1_L_IN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA input pair M1/M2 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M1",
+          "mdvccta_fig2_A1.M2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A1_M_IN",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA input pair M1/M2 multiplier",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M1",
+          "mdvccta_fig2_A1.M2"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A1_W_PMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA PMOS mirror outputs M3/M4/M7/M8/M9 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M3",
+          "mdvccta_fig2_A1.M4",
+          "mdvccta_fig2_A1.M7",
+          "mdvccta_fig2_A1.M8",
+          "mdvccta_fig2_A1.M9"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A1_L_PMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 4e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA PMOS mirror outputs M3/M4/M7/M8/M9 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M3",
+          "mdvccta_fig2_A1.M4",
+          "mdvccta_fig2_A1.M7",
+          "mdvccta_fig2_A1.M8",
+          "mdvccta_fig2_A1.M9"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A1_M_PMIR",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA PMOS mirror outputs multiplier (mirror ratio to the M5/M6 diodes)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M3",
+          "mdvccta_fig2_A1.M4",
+          "mdvccta_fig2_A1.M7",
+          "mdvccta_fig2_A1.M8",
+          "mdvccta_fig2_A1.M9"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A1_W_PLD",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA PMOS diode loads M5/M6 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M5",
+          "mdvccta_fig2_A1.M6"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A1_L_PLD",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 4e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA PMOS diode loads M5/M6 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M5",
+          "mdvccta_fig2_A1.M6"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A1_W_NMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA NMOS mirror outputs M10/M12/M13 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M10",
+          "mdvccta_fig2_A1.M12",
+          "mdvccta_fig2_A1.M13"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A1_L_NMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA NMOS mirror outputs M10/M12/M13 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M10",
+          "mdvccta_fig2_A1.M12",
+          "mdvccta_fig2_A1.M13"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A1_W_NDIO",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA NMOS mirror diodes M11/M14 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M11",
+          "mdvccta_fig2_A1.M14"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "A1_L_NDIO",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA NMOS mirror diodes M11/M14 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M11",
+          "mdvccta_fig2_A1.M14"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "A1_IBIAS",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1e-10,
+      "upper": 0.01,
+      "scale": "log",
+      "start": 1e-05,
+      "quantity": "bias_current",
+      "role": "A1 (first M-DVCCTA, X -> X1): OTA tail current (ideal source IBIAS inside the M-DVCCTA, sets the transconductance)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.IBIAS"
+        ],
+        "parameter": "dc"
+      }
+    },
+    {
+      "name": "FE_W_IN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 and A2 DVCC front end: input pairs M15-M18 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M15",
+          "mdvccta_fig2.M16",
+          "mdvccta_fig2.M17",
+          "mdvccta_fig2.M18",
+          "mdvccta_fig2_A1.M15",
+          "mdvccta_fig2_A1.M16",
+          "mdvccta_fig2_A1.M17",
+          "mdvccta_fig2_A1.M18"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "FE_L_IN",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 and A2 DVCC front end: input pairs M15-M18 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M15",
+          "mdvccta_fig2.M16",
+          "mdvccta_fig2.M17",
+          "mdvccta_fig2.M18",
+          "mdvccta_fig2_A1.M15",
+          "mdvccta_fig2_A1.M16",
+          "mdvccta_fig2_A1.M17",
+          "mdvccta_fig2_A1.M18"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "FE_W_PMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 and A2 DVCC front end: PMOS mirror M19/M20 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M19",
+          "mdvccta_fig2.M20",
+          "mdvccta_fig2_A1.M19",
+          "mdvccta_fig2_A1.M20"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "FE_L_PMIR",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 4e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 and A2 DVCC front end: PMOS mirror M19/M20 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M19",
+          "mdvccta_fig2.M20",
+          "mdvccta_fig2_A1.M19",
+          "mdvccta_fig2_A1.M20"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "FE_W_POUT",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 and A2 DVCC front end: PMOS output devices M21-M24 (X, ZP, Z1P, Z2P) width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M21",
+          "mdvccta_fig2.M22",
+          "mdvccta_fig2.M23",
+          "mdvccta_fig2.M24",
+          "mdvccta_fig2_A1.M21",
+          "mdvccta_fig2_A1.M22",
+          "mdvccta_fig2_A1.M23",
+          "mdvccta_fig2_A1.M24"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "FE_L_POUT",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 4e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 and A2 DVCC front end: PMOS output devices M21-M24 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M21",
+          "mdvccta_fig2.M22",
+          "mdvccta_fig2.M23",
+          "mdvccta_fig2.M24",
+          "mdvccta_fig2_A1.M21",
+          "mdvccta_fig2_A1.M22",
+          "mdvccta_fig2_A1.M23",
+          "mdvccta_fig2_A1.M24"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "FE_W_NTAIL",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 and A2 DVCC front end: NMOS tail sources M25/M26 (gate VBIAS) width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M25",
+          "mdvccta_fig2.M26",
+          "mdvccta_fig2_A1.M25",
+          "mdvccta_fig2_A1.M26"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "FE_L_NTAIL",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 and A2 DVCC front end: NMOS tail sources M25/M26 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M25",
+          "mdvccta_fig2.M26",
+          "mdvccta_fig2_A1.M25",
+          "mdvccta_fig2_A1.M26"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "FE_W_NOUT",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "A1 and A2 DVCC front end: NMOS output current sources M27-M30 (gate VBIAS) width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M27",
+          "mdvccta_fig2.M28",
+          "mdvccta_fig2.M29",
+          "mdvccta_fig2.M30",
+          "mdvccta_fig2_A1.M27",
+          "mdvccta_fig2_A1.M28",
+          "mdvccta_fig2_A1.M29",
+          "mdvccta_fig2_A1.M30"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "FE_L_NOUT",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "A1 and A2 DVCC front end: NMOS output current sources M27-M30 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M27",
+          "mdvccta_fig2.M28",
+          "mdvccta_fig2.M29",
+          "mdvccta_fig2.M30",
+          "mdvccta_fig2_A1.M27",
+          "mdvccta_fig2_A1.M28",
+          "mdvccta_fig2_A1.M29",
+          "mdvccta_fig2_A1.M30"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "R1_W",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "MOS grounded resistor R1 (at X1, A1 output; paper Fig. 8a): MR1/MR2 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "grounded_resistor_fig8a.MR1",
+          "grounded_resistor_fig8a.MR2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "R1_L",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "MOS grounded resistor R1: MR1/MR2 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "grounded_resistor_fig8a.MR1",
+          "grounded_resistor_fig8a.MR2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "R2_W",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4e-07,
+      "upper": 0.0001,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_w",
+      "role": "MOS grounded resistor R2 (at VOUT, A2 output): MR1/MR2 width",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "grounded_resistor_fig8a_R2.MR1",
+          "grounded_resistor_fig8a_R2.MR2"
+        ],
+        "parameter": "w"
+      }
+    },
+    {
+      "name": "R2_L",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 2e-05,
+      "scale": "log",
+      "start": 1e-06,
+      "quantity": "mos_l",
+      "role": "MOS grounded resistor R2: MR1/MR2 length",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "grounded_resistor_fig8a_R2.MR1",
+          "grounded_resistor_fig8a_R2.MR2"
+        ],
+        "parameter": "l"
+      }
+    },
+    {
+      "name": "R3",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 10.0,
+      "upper": 1000000.0,
+      "scale": "log",
+      "start": 10000.0,
+      "quantity": "resistance",
+      "role": "resistor R3 from I1 to ground (filter element)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "R3"
+        ],
+        "parameter": "r"
+      }
+    },
+    {
+      "name": "C1",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "grounded capacitor C1 at I2 (filter element, sets the pole frequency / Q with C2)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C1"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "C2",
+      "kind": "real",
+      "unit": "F",
+      "lower": 1e-14,
+      "upper": 1e-10,
+      "scale": "log",
+      "start": 1e-12,
+      "quantity": "capacitance",
+      "role": "grounded capacitor C2 at I3 (filter element)",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "C2"
+        ],
+        "parameter": "c"
+      }
+    },
+    {
+      "name": "V_BIAS",
+      "kind": "real",
+      "unit": "V",
+      "lower": -0.9,
+      "upper": 0.9,
+      "scale": "lin",
+      "start": 0.0,
+      "quantity": "bias_voltage",
+      "role": "gate bias of the NMOS current sources of both M-DVCCTAs (front-end tails M25/M26, outputs M27-M30)",
+      "binding": {
+        "type": "external_bias",
+        "pin": "VBIAS"
+      }
+    },
+    {
+      "name": "V_CTRL",
+      "kind": "real",
+      "unit": "V",
+      "lower": -0.9,
+      "upper": 0.9,
+      "scale": "lin",
+      "start": 0.0,
+      "quantity": "bias_voltage",
+      "role": "control voltage of the MOS grounded resistors R1/R2 (gate of MR2; tunes R and the pole frequency)",
+      "binding": {
+        "type": "external_bias",
+        "pin": "VCTRL"
+      }
+    },
+    {
+      "name": "A2_M_PLD",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M5, mdvccta_fig2.M6; matched sizing group A2_W_PLD",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M5",
+          "mdvccta_fig2.M6"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A2_M_NMIR",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M10, mdvccta_fig2.M12, mdvccta_fig2.M13; matched sizing group A2_W_NMIR",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M10",
+          "mdvccta_fig2.M12",
+          "mdvccta_fig2.M13"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A2_M_NDIO",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M11, mdvccta_fig2.M14; matched sizing group A2_W_NDIO",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M11",
+          "mdvccta_fig2.M14"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A1_M_PLD",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2_A1.M5, mdvccta_fig2_A1.M6; matched sizing group A1_W_PLD",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M5",
+          "mdvccta_fig2_A1.M6"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A1_M_NMIR",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2_A1.M10, mdvccta_fig2_A1.M12, mdvccta_fig2_A1.M13; matched sizing group A1_W_NMIR",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M10",
+          "mdvccta_fig2_A1.M12",
+          "mdvccta_fig2_A1.M13"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "A1_M_NDIO",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2_A1.M11, mdvccta_fig2_A1.M14; matched sizing group A1_W_NDIO",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2_A1.M11",
+          "mdvccta_fig2_A1.M14"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "FE_M_IN",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M15, mdvccta_fig2.M16, mdvccta_fig2.M17, mdvccta_fig2.M18, mdvccta_fig2_A1.M15, mdvccta_fig2_A1.M16, mdvccta_fig2_A1.M17, mdvccta_fig2_A1.M18; matched sizing group FE_W_IN",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M15",
+          "mdvccta_fig2.M16",
+          "mdvccta_fig2.M17",
+          "mdvccta_fig2.M18",
+          "mdvccta_fig2_A1.M15",
+          "mdvccta_fig2_A1.M16",
+          "mdvccta_fig2_A1.M17",
+          "mdvccta_fig2_A1.M18"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "FE_M_PMIR",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M19, mdvccta_fig2.M20, mdvccta_fig2_A1.M19, mdvccta_fig2_A1.M20; matched sizing group FE_W_PMIR",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M19",
+          "mdvccta_fig2.M20",
+          "mdvccta_fig2_A1.M19",
+          "mdvccta_fig2_A1.M20"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "FE_M_POUT",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M21, mdvccta_fig2.M22, mdvccta_fig2.M23, mdvccta_fig2.M24, mdvccta_fig2_A1.M21, mdvccta_fig2_A1.M22, mdvccta_fig2_A1.M23, mdvccta_fig2_A1.M24; matched sizing group FE_W_POUT",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M21",
+          "mdvccta_fig2.M22",
+          "mdvccta_fig2.M23",
+          "mdvccta_fig2.M24",
+          "mdvccta_fig2_A1.M21",
+          "mdvccta_fig2_A1.M22",
+          "mdvccta_fig2_A1.M23",
+          "mdvccta_fig2_A1.M24"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "FE_M_NTAIL",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M25, mdvccta_fig2.M26, mdvccta_fig2_A1.M25, mdvccta_fig2_A1.M26; matched sizing group FE_W_NTAIL",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M25",
+          "mdvccta_fig2.M26",
+          "mdvccta_fig2_A1.M25",
+          "mdvccta_fig2_A1.M26"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "FE_M_NOUT",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for mdvccta_fig2.M27, mdvccta_fig2.M28, mdvccta_fig2.M29, mdvccta_fig2.M30, mdvccta_fig2_A1.M27, mdvccta_fig2_A1.M28, mdvccta_fig2_A1.M29, mdvccta_fig2_A1.M30; matched sizing group FE_W_NOUT",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "mdvccta_fig2.M27",
+          "mdvccta_fig2.M28",
+          "mdvccta_fig2.M29",
+          "mdvccta_fig2.M30",
+          "mdvccta_fig2_A1.M27",
+          "mdvccta_fig2_A1.M28",
+          "mdvccta_fig2_A1.M29",
+          "mdvccta_fig2_A1.M30"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "R1_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for grounded_resistor_fig8a.MR1, grounded_resistor_fig8a.MR2; matched sizing group R1_W",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "grounded_resistor_fig8a.MR1",
+          "grounded_resistor_fig8a.MR2"
+        ],
+        "parameter": "m"
+      }
+    },
+    {
+      "name": "R2_M",
+      "kind": "int",
+      "unit": "",
+      "lower": 1,
+      "upper": 100,
+      "scale": "lin",
+      "start": 1,
+      "quantity": "mos_count",
+      "role": "Parallel device multiplier for grounded_resistor_fig8a_R2.MR1, grounded_resistor_fig8a_R2.MR2; matched sizing group R2_W",
+      "binding": {
+        "type": "instance_parameter",
+        "instances": [
+          "grounded_resistor_fig8a_R2.MR1",
+          "grounded_resistor_fig8a_R2.MR2"
+        ],
+        "parameter": "m"
+      }
+    }
+  ],
+  "dependent_parameters": {},
+  "conditions": [
+    {
+      "id": "NN_T27_S1p00",
+      "model_set": "NN",
+      "temperature_C": 27.0,
+      "supply_V": 0.9,
+      "supply_scale": 1.0,
+      "nominal": true
+    },
+    {
+      "id": "FF_T27_S1p00",
+      "model_set": "FF",
+      "temperature_C": 27.0,
+      "supply_V": 0.9,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "SS_T27_S1p00",
+      "model_set": "SS",
+      "temperature_C": 27.0,
+      "supply_V": 0.9,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "SF_T27_S1p00",
+      "model_set": "SF",
+      "temperature_C": 27.0,
+      "supply_V": 0.9,
+      "supply_scale": 1.0,
+      "nominal": false
+    },
+    {
+      "id": "FS_T27_S1p00",
+      "model_set": "FS",
+      "temperature_C": 27.0,
+      "supply_V": 0.9,
+      "supply_scale": 1.0,
+      "nominal": false
+    }
+  ],
+  "operating_conditions": {
+    "supply_V": {
+      "value": 0.9,
+      "provenance": "replay corners.json VDD_V = 0.9 at every corner (paper abstract: +/-0.9 V supply)"
+    },
+    "supply_negative_V": {
+      "value": -0.9,
+      "provenance": "replay corners.json VSS_V = -0.9 at every corner (paper: +/-0.9 V supply)"
+    }
+  },
+  "constraints": [
+    {
+      "name": "Y1_gain",
+      "metric": "y1_voltage_gain_VperV",
+      "recipe": "miso1111_core_y1_v1",
+      "point": {},
+      "unit": "V/V",
+      "lower": 0.8415,
+      "upper": 1.1384999999999998,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json Y1_gain (owner-approved: paper 0.99 V/V, Table 5 p89, +/-15 %), worst over the five corners. Definition (replay CORE_Y1 deck, OCEAN value(mag(getData(\"X\" ?result \"ac\")) 1)): one M-DVCCTA, Y1 -> X voltage gain at 1 Hz, X loaded by 2 kohm, other ports at 0 V (paper characterization loads unspecified).",
+      "source": "native"
+    },
+    {
+      "name": "Y2_gain",
+      "metric": "y2_voltage_gain_VperV",
+      "recipe": "miso1111_core_y2_v1",
+      "point": {},
+      "unit": "V/V",
+      "lower": 0.8415,
+      "upper": 1.1384999999999998,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json Y2_gain (paper 0.99 V/V, Table 5 p89, +/-15 %), worst over the five corners. CORE_Y2 deck: Y2 -> X voltage gain at 1 Hz, X loaded by 2 kohm.",
+      "source": "native"
+    },
+    {
+      "name": "IZP_gain",
+      "metric": "zp_current_gain_AperA",
+      "recipe": "miso1111_core_izp_v1",
+      "point": {},
+      "unit": "A/A",
+      "lower": 0.8482999999999999,
+      "upper": 1.1477,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json IZP_gain (paper 0.998 A/A, Table 5 p89, +/-15 %), worst over the five corners. CORE_IZP deck (OCEAN value(mag(getData(\"ZP_SRC:p\" ?result \"ac\")) 1)): AC 1 A into X, |I| of the 0 V source on ZP at 1 Hz.",
+      "source": "native"
+    },
+    {
+      "name": "MISO_BP_frequency",
+      "metric": "bp_center_frequency_Hz",
+      "recipe": "miso1111_bp_v1",
+      "point": {},
+      "unit": "Hz",
+      "lower": 3383000.0,
+      "upper": 4577000.0,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json MISO_BP_frequency (paper design pole frequency 3.98 MHz, Section 6.1 p90, +/-15 %), worst over the five corners. VM_BP deck, 600 points/decade (golden README): first falling zero of the derivative of |V(VOUT)| with V3 driven (OCEAN cross(deriv(mag(getData(\"VOUT\" ?result \"ac\"))) 0 1 \"falling\")).",
+      "source": "native"
+    },
+    {
+      "name": "MISO_quiescent_power",
+      "metric": "quiescent_power_W",
+      "recipe": "miso1111_dc_v1",
+      "point": {},
+      "unit": "W",
+      "upper": 0.005393499999999999,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json MISO_quiescent_power upper 5.3935 mW (paper 4.69 mW post-layout, Table 1 p77 / conclusion p111, +15 %), worst over the five corners: power of the two supply rails at zero signal (OCEAN 0.9*(-getData(\"VDD_SRC:p\")+getData(\"VSS_SRC:p\"))). The replay's lower limit 0 is the physical floor and is not written (a zero lower limit would give every design a margin of about 0 in the margin formula).",
+      "source": "native"
+    },
+    {
+      "name": "BP_noise_in",
+      "metric": "input_noise_V_per_rtHz",
+      "recipe": "miso1111_bp_v1",
+      "point": {},
+      "unit": "V/sqrt(Hz)",
+      "upper": 7.5946e-08,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json BP_noise_in upper 75.946 nV/rtHz (paper 66.04 nV/rtHz, Section 6.1 p92, +15 %), worst over the five corners: input-referred (V3) noise density of the VM band-pass at 3.98 MHz (OCEAN value(getData(\"in\" ?result \"noise\") 3.98e6); paper: \"in the passband\", the centre frequency is the replay's assumption). Replay lower limit 0 not written (physical floor).",
+      "source": "native"
+    },
+    {
+      "name": "BP_noise_out",
+      "metric": "output_noise_V_per_rtHz",
+      "recipe": "miso1111_bp_v1",
+      "point": {},
+      "unit": "V/sqrt(Hz)",
+      "upper": 6.536599999999999e-08,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json BP_noise_out upper 65.366 nV/rtHz (paper 56.84 nV/rtHz, Section 6.1 p92, +15 %), worst over the five corners: output noise density at VOUT at 3.98 MHz (value(getData(\"out\" ?result \"noise\") 3.98e6)). Replay lower limit 0 not written (physical floor).",
+      "source": "native"
+    },
+    {
+      "name": "LP_THD",
+      "metric": "thd_pct",
+      "recipe": "miso1111_lp_thd_v1",
+      "point": {},
+      "unit": "%",
+      "upper": 6.0,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json LP_THD upper 6 % (paper 6 %, Section 6.1 p90; the replay applies no allowance to this paper bound and marks it exclusive, < 6 %; analogiq limits are inclusive), worst over the five corners: VM low-pass THD for a 500 kHz, 200 mVpp sine on V2 (paper stimulus), OCEAN thd(getData(\"VOUT\" ?result \"tran\") 2e-05 6e-05 8192 500000). Replay lower limit 0 not written (physical floor).",
+      "source": "native"
+    },
+    {
+      "name": "BP_THD",
+      "metric": "thd_pct",
+      "recipe": "miso1111_bp_thd_v1",
+      "point": {},
+      "unit": "%",
+      "upper": 6.0,
+      "target": {
+        "kind": "linear"
+      },
+      "conditions": "all",
+      "aggregate": "worst case over all conditions and matching points",
+      "provenance": "replay targets.json BP_THD upper 6 % (paper 6 %, Section 6.1 p90; exclusive in the replay), worst over the five corners: VM band-pass THD for a 3.98 MHz, 100 mVpp sine on V3 (amplitude assumed by the replay from the TAM-BP stimulus; the paper gives no VM-BP THD input), OCEAN thd(... 2.51256281407e-06 7.53768844221e-06 8192 3980000). Replay lower limit 0 not written.",
+      "source": "native"
+    }
+  ],
+  "objective": null,
+  "derived_metrics": {},
+  "all_metrics": [
+    [
+      "miso1111_bp_thd_v1",
+      "output_amplitude_V"
+    ],
+    [
+      "miso1111_bp_thd_v1",
+      "thd_pct"
+    ],
+    [
+      "miso1111_bp_v1",
+      "bp_center_frequency_Hz"
+    ],
+    [
+      "miso1111_bp_v1",
+      "input_noise_V_per_rtHz"
+    ],
+    [
+      "miso1111_bp_v1",
+      "output_noise_V_per_rtHz"
+    ],
+    [
+      "miso1111_bp_v1",
+      "peak_gain_VperV"
+    ],
+    [
+      "miso1111_core_izp_v1",
+      "zp_current_gain_AperA"
+    ],
+    [
+      "miso1111_core_y1_v1",
+      "y1_voltage_gain_VperV"
+    ],
+    [
+      "miso1111_core_y2_v1",
+      "y2_voltage_gain_VperV"
+    ],
+    [
+      "miso1111_dc_v1",
+      "bias_source_power_W"
+    ],
+    [
+      "miso1111_dc_v1",
+      "devices_out_of_saturation"
+    ],
+    [
+      "miso1111_dc_v1",
+      "devices_outside_rails"
+    ],
+    [
+      "miso1111_dc_v1",
+      "forward_biased_junctions"
+    ],
+    [
+      "miso1111_dc_v1",
+      "quiescent_power_W"
+    ],
+    [
+      "miso1111_dc_v1",
+      "saturation_margin_min_V"
+    ],
+    [
+      "miso1111_lp_thd_v1",
+      "output_amplitude_V"
+    ],
+    [
+      "miso1111_lp_thd_v1",
+      "thd_pct"
+    ]
+  ],
+  "simulations_per_design": 35,
+  "analysis_executions_per_design": 40,
+  "benchmark": {
+    "reference_hidden": true,
+    "rules": "docs/benchmark_rules.md",
+    "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+  },
+  "testbenches": [
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_core_y1_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_core_y1_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y1_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_core_y2_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_core_y2_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y2_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_core_izp_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_core_izp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "zp_current_gain_AperA": {
+          "unit": "A/A",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_dc_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_dc_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/dcop.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "quiescent_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "bias_source_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_bp_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_bp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac",
+        "raw/noise1.noise"
+      ],
+      "metrics": {
+        "bp_center_frequency_Hz": {
+          "unit": "Hz",
+          "source": "native"
+        },
+        "input_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "output_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "peak_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_lp_thd_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_lp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "NN_T27_S1p00",
+      "recipe": "miso1111_bp_thd_v1",
+      "folder": "testbenches/NN_T27_S1p00/miso1111_bp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_core_y1_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_core_y1_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y1_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_core_y2_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_core_y2_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y2_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_core_izp_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_core_izp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "zp_current_gain_AperA": {
+          "unit": "A/A",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_dc_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_dc_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/dcop.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "quiescent_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "bias_source_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_bp_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_bp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac",
+        "raw/noise1.noise"
+      ],
+      "metrics": {
+        "bp_center_frequency_Hz": {
+          "unit": "Hz",
+          "source": "native"
+        },
+        "input_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "output_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "peak_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_lp_thd_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_lp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FF_T27_S1p00",
+      "recipe": "miso1111_bp_thd_v1",
+      "folder": "testbenches/FF_T27_S1p00/miso1111_bp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_core_y1_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_core_y1_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y1_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_core_y2_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_core_y2_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y2_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_core_izp_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_core_izp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "zp_current_gain_AperA": {
+          "unit": "A/A",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_dc_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_dc_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/dcop.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "quiescent_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "bias_source_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_bp_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_bp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac",
+        "raw/noise1.noise"
+      ],
+      "metrics": {
+        "bp_center_frequency_Hz": {
+          "unit": "Hz",
+          "source": "native"
+        },
+        "input_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "output_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "peak_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_lp_thd_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_lp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SS_T27_S1p00",
+      "recipe": "miso1111_bp_thd_v1",
+      "folder": "testbenches/SS_T27_S1p00/miso1111_bp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_core_y1_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_core_y1_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y1_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_core_y2_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_core_y2_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y2_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_core_izp_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_core_izp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "zp_current_gain_AperA": {
+          "unit": "A/A",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_dc_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_dc_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/dcop.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "quiescent_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "bias_source_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_bp_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_bp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac",
+        "raw/noise1.noise"
+      ],
+      "metrics": {
+        "bp_center_frequency_Hz": {
+          "unit": "Hz",
+          "source": "native"
+        },
+        "input_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "output_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "peak_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_lp_thd_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_lp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "SF_T27_S1p00",
+      "recipe": "miso1111_bp_thd_v1",
+      "folder": "testbenches/SF_T27_S1p00/miso1111_bp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_core_y1_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_core_y1_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y1_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_core_y2_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_core_y2_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "y2_voltage_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_core_izp_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_core_izp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac"
+      ],
+      "metrics": {
+        "zp_current_gain_AperA": {
+          "unit": "A/A",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_dc_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_dc_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/dcop.dc",
+        "raw/op_info.info"
+      ],
+      "metrics": {
+        "quiescent_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "bias_source_power_W": {
+          "unit": "W",
+          "source": "native"
+        },
+        "saturation_margin_min_V": {
+          "unit": "V",
+          "source": "native"
+        },
+        "devices_out_of_saturation": {
+          "unit": "count",
+          "source": "native"
+        },
+        "forward_biased_junctions": {
+          "unit": "count",
+          "source": "native"
+        },
+        "devices_outside_rails": {
+          "unit": "count",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_bp_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_bp_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/ac1.ac",
+        "raw/noise1.noise"
+      ],
+      "metrics": {
+        "bp_center_frequency_Hz": {
+          "unit": "Hz",
+          "source": "native"
+        },
+        "input_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "output_noise_V_per_rtHz": {
+          "unit": "V/sqrt(Hz)",
+          "source": "native"
+        },
+        "peak_gain_VperV": {
+          "unit": "V/V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_lp_thd_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_lp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    },
+    {
+      "condition": "FS_T27_S1p00",
+      "recipe": "miso1111_bp_thd_v1",
+      "folder": "testbenches/FS_T27_S1p00/miso1111_bp_thd_v1",
+      "deck": "input.scs",
+      "template": "template.scs",
+      "dut": "dut.scs",
+      "measure_statements": null,
+      "measure_results": null,
+      "native_results": [
+        "raw/tran1.tran.tran"
+      ],
+      "metrics": {
+        "thd_pct": {
+          "unit": "%",
+          "source": "native"
+        },
+        "output_amplitude_V": {
+          "unit": "V",
+          "source": "native"
+        }
+      },
+      "points": [
+        {}
+      ]
+    }
+  ],
+  "interfaces": {
+    "evaluate_command": [
+      "<ANALOGIQ>/.venv/bin/python",
+      "-m",
+      "analogiq",
+      "size-eval",
+      "--task",
+      "miso_universal_111126_task_001",
+      "--design",
+      "{design_json}",
+      "--out",
+      "{out_dir}"
+    ],
+    "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+    "python": "from analogiq.sizing import SizingProblem; SizingProblem('miso_universal_111126_task_001').evaluate(design, out_dir)",
+    "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+    "deck_extract": [
+      "<ANALOGIQ>/.venv/bin/python",
+      "-m",
+      "analogiq",
+      "extract",
+      "--job",
+      "{job_folder}"
+    ],
+    "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+    "working_directory": "<ANALOGIQ>"
+  },
+  "validity_gate_waiver": {
+    "date": "2026-11-12",
+    "authority": "explicit user instruction in this conversation",
+    "instruction": "for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks",
+    "scope_clarification": "Did you update the tasks for the rest 3 circuits also for which the bypass is needed",
+    "classification": "sizing_task_with_user_waived_validity_gates",
+    "status": "waived_not_passed",
+    "waived_metrics": [
+      "devices_out_of_saturation",
+      "forward_biased_junctions",
+      "devices_outside_rails"
+    ],
+    "diagnostics_retained": true,
+    "performance_targets_and_corners_unchanged": true,
+    "sizing_unchanged": true,
+    "standard_bounds_unchanged": true,
+    "physical_qualification_claimed": false,
+    "source_evidence": "<WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt"
+  },
+  "task_classification": "sizing_task_with_user_waived_validity_gates"
+}

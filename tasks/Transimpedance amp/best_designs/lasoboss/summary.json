@@ -1,0 +1,82 @@
+{
+ "task": "tia02_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 1904,
+ "simulator_invocations": 32385,
+ "wall_s": 25946.6,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 3,
+ "llm_cost_usd": 0.412213,
+ "llm_cost_usd_recorded": 0.2061065,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "strategy phases done",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.4491355040761767
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": -0.07692307692307693
+  },
+  {
+   "phase": 3,
+   "evals": 401,
+   "best_score": -0.07692307692307693
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": -0.07692307692307693
+  },
+  {
+   "phase": 5,
+   "evals": 401,
+   "best_score": -0.07692307692307693
+  }
+ ],
+ "best": {
+  "eval": 45,
+  "round": 1,
+  "f": 0.9927542513955561,
+  "loss": 0.5700952651545926,
+  "reward": 0.4491355040761767,
+  "score": 0.4491355040761767,
+  "targets_met": 14,
+  "targets": 26,
+  "valid": false,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_M1": 2.33134389074558e-06,
+   "L_M1": 5.008846378622139e-07,
+   "W_M23": 1.5865468493726898e-06,
+   "L_M23": 2.526485980862346e-05,
+   "W_M45": 1.204638572130626e-06,
+   "L_M45": 1.2167808165262295e-05,
+   "W_M6": 6.288391543655765e-05,
+   "L_M6": 1.959341533808068e-07,
+   "R_F": 20.21770331969615,
+   "C_FB": 3.5012819155773435e-13,
+   "C_NCG": 1.0669558781359308e-13,
+   "I_BIAS1": 0.00013708361697607998,
+   "I_BIAS2": 9.515704705057804e-05,
+   "V_BIAS": 1.5247866446671758,
+   "N_M1": 67.0,
+   "N_M23": 71.0,
+   "N_M45": 80.0,
+   "N_M6": 11.0
+  }
+ }
+}

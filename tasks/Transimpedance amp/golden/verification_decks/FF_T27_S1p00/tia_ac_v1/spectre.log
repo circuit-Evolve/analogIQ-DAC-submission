@@ -1,0 +1,145 @@
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence, Virtuoso and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: curator   Host: g4-vm   HostID: 8E0A0200   PID: 108744
+Memory  available: 70.9527 GB  physical: 189.5854 GB
+CPU Type: AMD EPYC 9B45
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [4236.4] ( 24 ),  1 [2700.0] ( 25 ),  2 [2700.0] ( 26 )
+                 3 [2700.0] ( 27 ),  4 [4129.4] ( 28 ),  5 [2700.0] ( 29 )
+                 6 [2700.0] ( 30 ),  7 [2700.0] ( 31 ),  8 [2700.0] ( 32 )
+                 9 [2700.0] ( 33 ), 10 [2700.0] ( 34 ), 11 [2700.0] ( 35 )
+                12 [2700.0] ( 36 ), 13 [2700.0] ( 37 ), 14 [2700.0] ( 38 )
+                15 [2700.0] ( 39 ), 16 [2700.0] ( 40 ), 17 [2700.0] ( 41 )
+                18 [4133.2] ( 42 ), 19 [2700.0] ( 43 ), 20 [4196.1] ( 44 )
+                21 [2700.0] ( 45 ), 22 [2700.0] ( 46 ), 23 [2700.0] ( 47 )
+        
+System load averages (1min, 5min, 15min) : 3.2 %, 14.2 %, 20.5 %
+Hyperthreading is enabled
+
+
+Simulating `<WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/input.scs' on g4-vm at 8:50:18 AM, Thur Nov 12, 2026 (process id: 108744).
+Current working directory: <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1
+Command line:
+    /opt/cadence/rootfs/opt/MMSIM151/tools/bin/spectre -64 +escchars  \
+        =log  \
+        <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/spectre.log  \
+        -format psfascii -raw  \
+        <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/raw  \
+        <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/input.scs
+
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/input.scs
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading link:  <CADENCE_SHARED>
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/gpdk.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/mos25gen.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/nmos1.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/pmos1.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/resistor.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/capacitor.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/diode.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/bipolar.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/rfmos.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/xjvar_nf36.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/xjvar_w40.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/snacapacitor.scs
+Reading file:  <WORK>/from-home/cadence_shared/FOUNDRY/analog/180nm/models/spectre/cmodel.scs
+Reading file:  <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/dut.scs
+Reading file:  <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/measures.sp
+Time for NDB Parsing: CPU = 72.128 ms, elapsed = 85.3338 ms.
+Time accumulated: CPU = 81.538 ms, elapsed = 85.336 ms.
+Peak resident memory used = 73.2 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre  1 (12.5 %)      2 (11.1 %)      3 (10.0 %)      4 (88.9 %)
+                 6 (11.1 %)      9 (11.1 %)     10 (11.1 %)     12 (20.0 %)
+                15 (75.0 %)     16 (11.1 %)     17 (11.1 %)     18 (87.5 %)
+                20 (100.0 %)    24 (12.5 %)     33 (18.2 %)     34 (88.9 %)
+                35 (25.0 %)     37 (12.5 %)     39 (11.1 %)     43 (11.1 %)
+        Other   
+Reading link:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file:  /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+Time for Elaboration: CPU = 8.904 ms, elapsed = 8.91709 ms.
+Time accumulated: CPU = 90.484 ms, elapsed = 94.2941 ms.
+Peak resident memory used = 79.6 Mbytes.
+
+Loading /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/lib/64bit/mdl/libSpectreEH_sh.so ...
+Time for EDB Visiting: CPU = 28.121 ms, elapsed = 28.2891 ms.
+Time accumulated: CPU = 118.667 ms, elapsed = 122.644 ms.
+Peak resident memory used = 89.4 Mbytes.
+
+
+Global user options:
+               temp = 27
+               tnom = 27
+             reltol = 0.0001
+               save = selected
+            measdgt = 10
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 8
+            bsim3v3 6     
+          capacitor 5     
+            isource 4     
+           resistor 1     
+            vsource 3     
+
+Analysis and control statement inventory:
+                 ac 1     
+               info 1     
+
+Output statements:
+             .probe 0     
+           .measure 2     
+               save 1     
+
+Time for parsing: CPU = 941 us, elapsed = 1.07288 ms.
+Time accumulated: CPU = 119.698 ms, elapsed = 123.811 ms.
+Peak resident memory used = 91.6 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+op_info: writing operating point information to rawfile.
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/raw/op_info.info ...
+DC simulation time: CPU = 193 us, elapsed = 191.927 us.
+
+***********************************************
+AC Analysis `acrun1': freq = (1 MHz -> 100 GHz)
+***********************************************
+
+Notice from spectre during AC analysis `acrun1', during task `MDLControl'.
+    Operating points will not be recomputed: the circuit and conditions were not changed since previous analysis.
+
+
+Opening the PSFASCII file <WORK>/four_papers_20261109/tia02_recovery_20261112/installed15_verify/jobs/FF_T27_S1p00/tia_ac_v1/raw/acrun1.ac ...
+......9......8......7......6......5......4......3......2......1......0
+Accumulated DC solution time = 0 s.
+Intrinsic ac analysis time =              0 s.
+Total time required for ac analysis `acrun1': CPU = 2.098 ms, elapsed = 2.16413 ms.
+Time accumulated: CPU = 123.432 ms, elapsed = 127.792 ms.
+Peak resident memory used = 93.5 Mbytes.
+
+
+Aggregate audit (8:50:18 AM, Thur Nov 12, 2026):
+Time used: CPU = 128 ms, elapsed = 133 ms, util. = 96.6%.
+Time spent in licensing: elapsed = 46.6 ms, percentage of total = 35.2%.
+Peak memory used = 93.5 Mbytes.
+Simulation started at: 8:50:18 AM, Thur Nov 12, 2026, ended at: 8:50:18 AM, Thur Nov 12, 2026, with elapsed time (wall clock): 133 ms.
+spectre completes with 0 errors, 0 warnings, and 1 notice.

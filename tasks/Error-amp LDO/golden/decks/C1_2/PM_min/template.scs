@@ -1,0 +1,41 @@
+// Generated for: spectre
+// Generated on: Nov  3 04:34:41 2026
+// Design library name: test
+// Design cell name: LDO_with_erroramp_tb_dac
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters i_load=100u
+include "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs" section=sf
+
+// Library name: test
+// Cell name: LDO_with_erroramp
+// View name: schematic_golden
+include "dut.scs"
+// End of subcircuit definition.
+
+// Library name: test
+// Cell name: LDO_with_erroramp_tb_dac
+// View name: schematic
+I7 (VOUT 0) bsource i=i_load*0.5*(1+tanh((v(VOUT)-100m)/20m))
+C0 (VOUT 0) capacitor c=100p
+V0 (net2 0) vsource dc=1.8 mag=1 phase=0 type=sine
+V1 (net3 0) vsource dc=600.0m type=sine
+I8 (net2 net2 VOUT net3 0) LDO_with_erroramp
+simulatorOptions options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 temp=125 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="sens.output" \
+    checklimitdest=psf 
+stb stb start=0.1 stop=1G dec=100 probe=I8.IPRB0 annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+asserts info what=assert where=rawfile
+extremeinfo info what=all where=logfile extremes=yes
+allcap info what=allcap where=file
+simStatistics info what=simstat where=rawfile
+saveOptions options save=all pwr=all currents=all useprobes=yes \
+    saveahdlvars=all

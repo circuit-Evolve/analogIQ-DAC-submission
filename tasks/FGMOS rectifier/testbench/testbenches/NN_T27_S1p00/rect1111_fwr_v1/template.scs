@@ -1,0 +1,33 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task fgmos_rectifier_101126_task_001  topology fgmos_rectifier_101126
+// recipe rect1111_fwr_v1 v1  condition NN_T27_S1p00 (models NN, 27 C, supply 0.7 V)
+// request fgmos_rectifier_101126_task_001__plan  candidate 9e687d0324f827aa
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vsup=0.7 vneg=0.0
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS={{V_BIAS}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+
+// Current-mode drive: IIN carries the input current out of input_negative into input_positive (AC 1 A).
+IIN (inn inp) isource dc=1.75e-05 mag=1 type=dc
+// Output termination (output compliance): the output current is the current delivered by VOUT.
+VOUT (out 0) vsource dc=0.7 type=dc
+
+XDUT (vss out b_VBIAS vdd inp inn) fgmos_rectifier_dut C_BIAS={{C_BIAS}} C_SIG={{C_SIG}} L_B1={{L_B1}} L_B2={{L_B2}} L_CAS={{L_CAS}} L_FB={{L_FB}} L_FG={{L_FG}} L_IN={{L_IN}} L_OUT={{L_OUT}} L_PM={{L_PM}} L_PMO={{L_PMO}} L_SQ={{L_SQ}} M_B1={{M_B1}} M_B2={{M_B2}} M_CAS={{M_CAS}} M_FB={{M_FB}} M_FG={{M_FG}} M_IN={{M_IN}} M_OUT={{M_OUT}} M_PM={{M_PM}} M_PMO={{M_PMO}} M_SQ={{M_SQ}} W_B1={{W_B1}} W_B2={{W_B2}} W_CAS={{W_CAS}} W_FB={{W_FB}} W_FG={{W_FG}} W_IN={{W_IN}} W_OUT={{W_OUT}} W_PM={{W_PM}} W_PMO={{W_PMO}} W_SQ={{W_SQ}}
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VBIAS:p VNEG:p VOUT:p VSUP:p XDUT.BIAS XDUT.C XDUT.PMBIAS XDUT.SQ XDUT.Z inn inp out vdd vss
+
+rectopts options gmin=1e-15 iabstol=1e-15
+dcsw dc dev=IIN param=dc start=-3.5e-05 stop=3.5e-05 step=2.5e-07
+ac1 ac start=10.0 stop=1000000000.0 dec=100

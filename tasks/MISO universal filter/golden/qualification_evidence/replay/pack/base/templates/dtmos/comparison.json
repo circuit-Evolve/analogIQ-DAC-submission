@@ -1,0 +1,58 @@
+[
+  {
+    "test": "DTMOS_CORE_NOMINAL",
+    "metric": "Rail_power_mW",
+    "unit": "mW",
+    "paper_target": 0.496,
+    "nominal_result": 0.6947132649542876,
+    "deviation_percent": 40.06315825691282,
+    "tolerance_percent": 10,
+    "status": "FAIL",
+    "source": "Abstract and Table II",
+    "expression": "1000*(-0.9*I(VDD_SRC:p)+0.9*I(VSS_SRC:p)) at dcOp",
+    "scope": "17-transistor Fig1b",
+    "note": "Sum of external rail power only; ideal bias-source realization overhead not included."
+  },
+  {
+    "test": "DTMOS_HPF_NOMINAL",
+    "metric": "Rail_power_mW",
+    "unit": "mW",
+    "paper_target": 0.496,
+    "nominal_result": 0.6971631216466618,
+    "deviation_percent": 40.55708097714956,
+    "tolerance_percent": 10,
+    "status": "FAIL",
+    "source": "Abstract and Table II",
+    "expression": "1000*(-0.9*I(VDD_SRC:p)+0.9*I(VSS_SRC:p)) at dcOp",
+    "scope": "20-transistor derived HPF; comparison is assumption-dependent",
+    "note": "Sum of external rail power only; ideal bias-source realization overhead not included."
+  },
+  {
+    "test": "DTMOS_HPF_NOMINAL",
+    "metric": "THD_500Hz_10uApp_percent",
+    "unit": "%",
+    "paper_target": 6,
+    "nominal_result": 0.15197629827516834,
+    "deviation_percent": null,
+    "tolerance_percent": null,
+    "status": "PASS_LIMIT_ASSUMPTION_DEPENDENT",
+    "source": "Section III.A and Conclusion: THD<6%",
+    "expression": "100*sqrt(sum(A_h^2,h=2..20))/A_1; FFT over40-60ms,500Hz,2us sampling",
+    "scope": "20-transistor derived HPF; only one paper amplitude/frequency, not full 1-20uA envelope",
+    "note": "A low THD does not validate the high-pass/fractional transfer function, which fails."
+  },
+  {
+    "test": "DTMOS_HPF_NOMINAL",
+    "metric": "HPF_cutoff_Hz",
+    "unit": "Hz",
+    "paper_target": 200,
+    "nominal_result": null,
+    "deviation_percent": null,
+    "tolerance_percent": 10,
+    "status": "FAIL_NO_FLAT_HPF_PASSBAND",
+    "source": "200 Hz paper target specified by user",
+    "expression": "let((g p ref threshold) g=dB20(getData(\"VOUT_SENSE:p\" ?result \"ac-ac\")) p=clip(g 2000 20000) ref=value(g sqrt(2000*20000)) threshold=ref-20*log10(sqrt(2)) if(((ymax(p)-ymin(p))<=1) && (value(g 1)<threshold) then cross(clip(g 1 2000) threshold 1 \"rising\") else nil))",
+    "scope": "20-transistor derived HPF",
+    "note": "First rising half-power crossing relative to measured passband gain. Provisional passband qualification window: 2-20 kHz (10-100 times the 200 Hz target), at most 1 dB peak-to-peak variation; reference gain at the geometric centre, 6.3246 kHz. The low-frequency gain must be below the half-power level. Window and flatness are measurement assumptions, not paper specifications; a failed qualification produces no fc. Target band: 180-220 Hz."
+  }
+]

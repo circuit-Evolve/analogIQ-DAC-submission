@@ -1,0 +1,16 @@
+schema_version: 1
+topology_id: pa1088_dac
+family: power_amplifier
+technology_id: gpdk090
+source:
+  library: test
+  cell: pa1088_tb_small_signal_dac
+  view: maestro
+  history: Interactive.9
+  dut_cell: pa1088_fig3_dac
+  dut_view: schematic
+dut:
+  netlist: ../golden_sizing/golden_netlist.scs
+  subckt_name: pa1088_fig3_dac
+note: Verified promoted golden netlist; original OA snapshot is archival. See promotion_provenance.json
+  and qualifications.json.

@@ -1,0 +1,26 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task nvm_chargepump_111126_task_001  topology nvm_chargepump_111126
+// recipe nvm1112_transient_v1 v2  condition tt_T27_S0p91 (models tt, 27 C, supply 3 V)
+// request nvm_chargepump_111126_task_001__plan  candidate f0334ec74b509af0
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+include "dut.scs"
+
+parameters vsup=3.0 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+CLK_A (upin 0) vsource type=pulse val0=0 val1=vsup delay=1e-09 rise=1e-09 fall=1e-09 width=2.2e-08 period=5e-08
+CLK_B (dnin 0) vsource type=pulse val0=0 val1=vsup delay=2.5999999999999998e-08 rise=1e-09 fall=1e-09 width=2.2e-08 period=5e-08
+RLOAD (out 0) resistor r=1000000.0
+
+XDUT (vdd upin dnin out vss) NVM_CP S1_CF=1e-12 S1_CS=1e-12 S1_LN=9.079999999999999e-07 S1_LP=1e-06 S1_N_M=1.0 S1_N_NF=1.0 S1_P_M=1.0 S1_P_NF=1.0 S1_WN=1e-06 S1_WP=1e-06 S2_CF=1e-12 S2_CS=1e-12 S2_LN=9.079999999999999e-07 S2_LP=1e-06 S2_N_M=1.0 S2_N_NF=1.0 S2_P_M=1.0 S2_P_NF=1.0 S2_WN=1e-06 S2_WP=1e-06 S3_CF=1e-12 S3_CS=1e-12 S3_LN=9.079999999999999e-07 S3_LP=1e-06 S3_N_M=1.0 S3_N_NF=1.0 S3_P_M=1.0 S3_P_NF=1.0 S3_WN=1e-06 S3_WP=1e-06 S4_CF=1e-12 S4_CS=1e-12 S4_LN=9.079999999999999e-07 S4_LP=1e-06 S4_N_M=1.0 S4_N_NF=1.0 S4_P_M=1.0 S4_P_NF=1.0 S4_WN=1e-06 S4_WP=1e-06 S5_CF=1e-12 S5_CS=1e-12 S5_LN=9.079999999999999e-07 S5_LP=1e-06 S5_N_M=1.0 S5_N_NF=1.0 S5_P_M=1.0 S5_P_NF=1.0 S5_WN=1e-06 S5_WP=1e-06 S6_CF=1e-12 S6_CS=1e-12 S6_LN=9.079999999999999e-07 S6_LP=1e-06 S6_N_M=1.0 S6_N_NF=1.0 S6_P_M=1.0 S6_P_NF=1.0 S6_WN=1e-06 S6_WP=1e-06
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save CLK_A:p CLK_B:p VNEG:p VSUP:p XDUT.A1 XDUT.A2 XDUT.A3 XDUT.A4 XDUT.A5 XDUT.A6 XDUT.B1 XDUT.B2 XDUT.B3 XDUT.B4 XDUT.B5 XDUT.B6 XDUT.S1 XDUT.S2 XDUT.S3 XDUT.S4 XDUT.S5 dnin out upin vdd vss
+
+nvmopts options scale=1e-6 reltol=1e-5 vabstol=1e-8 iabstol=1e-13 soft_bin=allmodels
+tran tran stop=0.0003 maxstep=5e-10 skipdc=yes errpreset=conservative

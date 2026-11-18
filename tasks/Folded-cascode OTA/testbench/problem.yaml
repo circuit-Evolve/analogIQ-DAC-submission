@@ -1,0 +1,2950 @@
+schema: analogiq.sizing_problem/1
+task_id: fcrobust01_task_001
+topology_id: fcrobust01_arxiv_2207
+family: amplifier
+technology_id: gpdk180
+parameterization_id: fcrobust01_p1_counts_20261112
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). RobustAnalog folded-cascode OTA with CS output stage (Shi et al., arXiv 2207.06412, Fig.
+  3 right), gpdk180, CL = 1 pF per output, after the curator''s rewiring of the bias generator and the CM amplifier (B2). A sizing-method paper:
+  the targets are its printed requirements (power <= 1 mW, ugb >= 30 MHz, phase margin >= 60 deg, (noise <= 30 ''mV'' not targeted: undefined
+  quantity and unit, G6 step 4) gain >= 60 dB, CMRR >= 80 dB, PSRR >= 80 dB) with the 10 % tolerance, at every one of the paper''s 20 PVT corners
+  (TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C). CMRR/PSRR from the Monte Carlo mismatch mean at the nominal condition (TT, 1.8 V, 0 C, the first corner).
+  No objective.'
+source:
+  doi: null
+  title: 'Shi, Wang, Gu, Liu, Pan, Han, Sun: RobustAnalog: Fast Variation-Aware Analog Circuit Design Via Multi-task RL (arXiv 2207.06412v1; folded-cascode
+    OTA benchmark, Fig. 3 right drawing)'
+  figure: Fig. 3 (p. 5) Folded-Cascode OTA (NMOS-input folded cascode, PMOS common-source output stage, Miller-type caps to the NMOS cascode sources,
+    bias block, CM amplifier); requirements p. 6 Sec. 4.1
+variables:
+- name: W_IN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS input pair NMOS_22/NMOS_19 (VIN_L/VIN_R): gm, noise, input CM range: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_22
+    - NMOS_19
+    parameter: w
+- name: L_IN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: IN length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_22
+    - NMOS_19
+    parameter: l
+- name: W_TAIL
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'tail current source NMOS_29 (gate = bias-generator lower diode BN_LOWER): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_29
+    parameter: w
+- name: L_TAIL
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: TAIL length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_29
+    parameter: l
+- name: W_TOP
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS top current sources PMOS_27/PMOS_18 (gate = PMOS diode BP_SINGLE): folded-branch current: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_27
+    - PMOS_18
+    parameter: w
+- name: L_TOP
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: TOP length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_27
+    - PMOS_18
+    parameter: l
+- name: W_PCAS
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS cascodes PMOS_17/PMOS_4 (gate = BP_CASCADE): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_17
+    - PMOS_4
+    parameter: w
+- name: L_PCAS
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: PCAS length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_17
+    - PMOS_4
+    parameter: l
+- name: W_NCAS
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS cascodes NMOS_16/NMOS_12 (gate = BN_UPPER): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_16
+    - NMOS_12
+    parameter: w
+- name: L_NCAS
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: NCAS length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_16
+    - NMOS_12
+    parameter: l
+- name: W_NBOT
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS bottom sinks NMOS_11/NMOS_7 (gate = CM amplifier diode CM_R): common-mode control of the first stage: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_11
+    - NMOS_7
+    parameter: w
+- name: L_NBOT
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: NBOT length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_11
+    - NMOS_7
+    parameter: l
+- name: W_CS
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS common-source output stage PMOS_14/PMOS_3 (gate = first-stage output CAS_L/CAS_R): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_14
+    - PMOS_3
+    parameter: w
+- name: L_CS
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: CS length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_14
+    - PMOS_3
+    parameter: l
+- name: W_SINK
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS output-stage sinks NMOS_20/NMOS_28 (gate = BN_LOWER): output-stage current: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_20
+    - NMOS_28
+    parameter: w
+- name: L_SINK
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: SINK length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_20
+    - NMOS_28
+    parameter: l
+- name: W_CMTAIL
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'CM amplifier tail PMOS_26 (gate = BP_SINGLE): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_26
+    parameter: w
+- name: L_CMTAIL
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: CMTAIL length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_26
+    parameter: l
+- name: W_CMIN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'CM amplifier input pair PMOS_24 (VCM_REF) / PMOS_21 (VCM_SENSE): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_24
+    - PMOS_21
+    parameter: w
+- name: L_CMIN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: CMIN length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_24
+    - PMOS_21
+    parameter: l
+- name: W_CMDIO
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'CM amplifier diode loads NMOS_8 (CM_L) / NMOS_10 (CM_R): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_8
+    - NMOS_10
+    parameter: w
+- name: L_CMDIO
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: CMDIO length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_8
+    - NMOS_10
+    parameter: l
+- name: W_B6
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator lower NMOS diode NMOS_6 (BN_LOWER: bias of tail, sinks): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_6
+    parameter: w
+- name: L_B6
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: B6 length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_6
+    parameter: l
+- name: W_B15
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator upper NMOS diode NMOS_15 (BN_UPPER: NMOS cascode bias): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_15
+    parameter: w
+- name: L_B15
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: B15 length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_15
+    parameter: l
+- name: W_BX0
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator NMOS_CROSS_0: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_CROSS_0
+    parameter: w
+- name: L_BX0
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: BX0 length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_CROSS_0
+    parameter: l
+- name: W_BX1
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator NMOS_CROSS_1: width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_CROSS_1
+    parameter: w
+- name: L_BX1
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: BX1 length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_CROSS_1
+    parameter: l
+- name: W_B5
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator NMOS_5 (bottom of the branch into the PMOS cascode-bias stack): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_5
+    parameter: w
+- name: L_B5
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: B5 length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_5
+    parameter: l
+- name: W_B9
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator NMOS_9 (cascode of the branch into the PMOS cascode-bias stack): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_9
+    parameter: w
+- name: L_B9
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: B9 length
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_9
+    parameter: l
+- name: W_P25
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'bias generator PMOS diode PMOS_25 (BP_SINGLE: top current sources and CM tail): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_25
+    parameter: w
+- name: L_P25
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: P25 length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_25
+    parameter: l
+- name: W_P13
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS cascode-bias stack top device PMOS_13 (gate BP_CASCADE): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_13
+    parameter: w
+- name: L_P13
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: P13 length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_13
+    parameter: l
+- name: W_P2
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS cascode-bias stack diode PMOS_2 (BP_CASCADE: PMOS cascode bias): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_2
+    parameter: w
+- name: L_P2
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: P2 length
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_2
+    parameter: l
+- name: C_COMP
+  kind: real
+  unit: F
+  lower: 1.0e-14
+  upper: 1.0e-10
+  scale: log
+  start: 1.0e-12
+  quantity: capacitance
+  role: compensation capacitors C_L/C_R from the NMOS cascode source nodes LOW_L/LOW_R to the outputs (Miller-type)
+  binding:
+    type: instance_parameter
+    instances:
+    - C_L
+    - C_R
+    parameter: c
+- name: R_SENSE
+  kind: real
+  unit: ohm
+  lower: 10.0
+  upper: 1000000.0
+  scale: log
+  start: 10000.0
+  quantity: resistance
+  role: common-mode sense resistors R_L/R_R from the outputs to VCM_SENSE
+  binding:
+    type: instance_parameter
+    instances:
+    - R_L
+    - R_R
+    parameter: r
+- name: I_BIAS
+  kind: real
+  unit: A
+  lower: 1.0e-10
+  upper: 0.01
+  scale: log
+  start: 1.0e-05
+  quantity: bias_current
+  role: reference current of the bias generator (I_BIAS source, drives BN_UPPER)
+  binding:
+    type: instance_parameter
+    instances:
+    - I_BIAS
+    parameter: dc
+- name: M_IN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_22, NMOS_19; preserves matched width/length group W_IN
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_22
+    - NMOS_19
+    parameter: m
+- name: M_TAIL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_29; preserves matched width/length group W_TAIL
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_29
+    parameter: m
+- name: M_TOP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_27, PMOS_18; preserves matched width/length group W_TOP
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_27
+    - PMOS_18
+    parameter: m
+- name: M_PCAS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_17, PMOS_4; preserves matched width/length group W_PCAS
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_17
+    - PMOS_4
+    parameter: m
+- name: M_NCAS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_16, NMOS_12; preserves matched width/length group W_NCAS
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_16
+    - NMOS_12
+    parameter: m
+- name: M_NBOT
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_11, NMOS_7; preserves matched width/length group W_NBOT
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_11
+    - NMOS_7
+    parameter: m
+- name: M_CS
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_14, PMOS_3; preserves matched width/length group W_CS
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_14
+    - PMOS_3
+    parameter: m
+- name: M_SINK
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_20, NMOS_28; preserves matched width/length group W_SINK
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_20
+    - NMOS_28
+    parameter: m
+- name: M_CMTAIL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_26; preserves matched width/length group W_CMTAIL
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_26
+    parameter: m
+- name: M_CMIN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_24, PMOS_21; preserves matched width/length group W_CMIN
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_24
+    - PMOS_21
+    parameter: m
+- name: M_CMDIO
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_8, NMOS_10; preserves matched width/length group W_CMDIO
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_8
+    - NMOS_10
+    parameter: m
+- name: M_B6
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_6; preserves matched width/length group W_B6
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_6
+    parameter: m
+- name: M_B15
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_15; preserves matched width/length group W_B15
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_15
+    parameter: m
+- name: M_BX0
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_CROSS_0; preserves matched width/length group W_BX0
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_CROSS_0
+    parameter: m
+- name: M_BX1
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_CROSS_1; preserves matched width/length group W_BX1
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_CROSS_1
+    parameter: m
+- name: M_B5
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_5; preserves matched width/length group W_B5
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_5
+    parameter: m
+- name: M_B9
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for NMOS_9; preserves matched width/length group W_B9
+  binding:
+    type: instance_parameter
+    instances:
+    - NMOS_9
+    parameter: m
+- name: M_P25
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_25; preserves matched width/length group W_P25
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_25
+    parameter: m
+- name: M_P13
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_13; preserves matched width/length group W_P13
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_13
+    parameter: m
+- name: M_P2
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for PMOS_2; preserves matched width/length group W_P2
+  binding:
+    type: instance_parameter
+    instances:
+    - PMOS_2
+    parameter: m
+dependent_parameters: {}
+conditions:
+- id: NN_T0_S1p00
+  model_set: NN
+  temperature_C: 0.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+- id: NN_T100_S1p00
+  model_set: NN
+  temperature_C: 100.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T0_S0p89
+  model_set: NN
+  temperature_C: 0.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: NN_T100_S0p89
+  model_set: NN
+  temperature_C: 100.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: SS_T0_S1p00
+  model_set: SS
+  temperature_C: 0.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T100_S1p00
+  model_set: SS
+  temperature_C: 100.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T0_S0p89
+  model_set: SS
+  temperature_C: 0.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: SS_T100_S0p89
+  model_set: SS
+  temperature_C: 100.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: FF_T0_S1p00
+  model_set: FF
+  temperature_C: 0.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: FF_T100_S1p00
+  model_set: FF
+  temperature_C: 100.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: FF_T0_S0p89
+  model_set: FF
+  temperature_C: 0.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: FF_T100_S0p89
+  model_set: FF
+  temperature_C: 100.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: FS_T0_S1p00
+  model_set: FS
+  temperature_C: 0.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T100_S1p00
+  model_set: FS
+  temperature_C: 100.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: FS_T0_S0p89
+  model_set: FS
+  temperature_C: 0.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: FS_T100_S0p89
+  model_set: FS
+  temperature_C: 100.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: SF_T0_S1p00
+  model_set: SF
+  temperature_C: 0.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T100_S1p00
+  model_set: SF
+  temperature_C: 100.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: SF_T0_S0p89
+  model_set: SF
+  temperature_C: 0.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: SF_T100_S0p89
+  model_set: SF
+  temperature_C: 100.0
+  supply_V: 1.6000002000000002
+  supply_scale: 0.888889
+  nominal: false
+- id: NN_T0_S1p00_MC
+  model_set: NN
+  temperature_C: 0.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'paper: p. 6 (corners 1.6 V and 1.8 V; gpdk180 nominal 1.8 V)'
+  supply_negative_V:
+    value: 0.0
+    provenance: 'paper: single supply (Fig. 3: VDD and ground)'
+  input_common_mode_V:
+    value: 1.2
+    provenance: 'benchmark_default_unreviewed (owner Q5b): midpoint of the simulated input common-mode range at the nominal condition (all devices
+      saturated from ~0.6 V to the 1.8 V rail), absolute'
+  output_common_mode_V:
+    value: 0.7
+    provenance: 'benchmark_default_unreviewed (owner Q5): VCM_REF chosen by simulation at the middle of the range where both stages stay saturated
+      (VCM_REF 0.3-1.1 V, output CM 0.2-1.0 V; 0.7 V gives output CM ~0.6 V)'
+  load_capacitance_F:
+    value: 1.0e-12
+    provenance: 'benchmark_default_unreviewed (owner Q4a): 1 pF per output; the paper states no load (30 MHz at <= 1 mW implies a pF-class load)'
+constraints:
+- name: quiescent_power_W
+  metric: quiescent_power_W
+  recipe: amp_fd_dc_v1
+  point: {}
+  unit: W
+  upper: 0.0011
+  target:
+    kind: linear
+    paper_value: 0.001
+    bound: upper
+    tolerance_pct: 10.0
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): power p <= 1 mW at
+    every corner (X4: printed requirement with the 10 % tolerance)'
+  source: measure
+- name: unity_gain_frequency_Hz
+  metric: unity_gain_frequency_Hz
+  recipe: amp_fd_ol_v1
+  point: {}
+  unit: Hz
+  lower: 27000000.0
+  target:
+    kind: linear
+    paper_value: 30000000.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): unity-gain bandwidth
+    ugb >= 30 MHz at every corner'
+  source: measure
+- name: phase_margin_deg
+  metric: phase_margin_deg
+  recipe: amp_fd_ol_v1
+  point: {}
+  unit: deg
+  lower: 54.0
+  target:
+    kind: linear
+    paper_value: 60.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): phase margin phm >=
+    60 deg at every corner'
+  source: measure
+- name: open_loop_gain_dB
+  metric: open_loop_gain_dB
+  recipe: amp_fd_ol_v1
+  point: {}
+  unit: dB
+  lower: 59.0848501887865
+  target:
+    kind: voltage_db
+    paper_value: 60.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): gain g >= 60 dB (the
+    text labels it ''unity gain''; read as the DC differential open-loop gain, owner Q8a)'
+  source: measure
+- name: cmrr_dB
+  metric: mc_mean.cmrr_dB
+  recipe: amp_fd_ol_v1
+  point:
+    freq_Hz: 1.0
+  unit: ''
+  lower: 74.2248501887865
+  target:
+    kind: voltage_db
+    paper_value: 75.14
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'CURATOR-SCALED 2026-10-27 from paper value 80 to the witness value 75.14 (the paper prints only requirements (no sizes); 65 designs
+    meet every other target, worst-case Monte Carlo CMRR / PSRR- stay 2-5 dB below 80 dB after an 8 h search, a local refinement and hand sizing).
+    paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): CMRR >= 80 dB; owner Q7b: DC
+    (1 Hz point) value from the Monte Carlo mismatch samples (mean of 20), evaluated at the nominal condition only (the symmetric simulation has
+    no CMRR)'
+  source: measure
+- name: psrr_pos_dB
+  metric: mc_mean.psrr_pos_dB
+  recipe: amp_fd_ol_v1
+  point:
+    freq_Hz: 1.0
+  unit: ''
+  lower: 79.0848501887865
+  target:
+    kind: voltage_db
+    paper_value: 80.0
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): PSRR >= 80 dB (polarity
+    not stated: both, owner Q7b), DC, Monte Carlo mean'
+  source: measure
+- name: psrr_neg_dB
+  metric: mc_mean.psrr_neg_dB
+  recipe: amp_fd_ol_v1
+  point:
+    freq_Hz: 1.0
+  unit: ''
+  lower: 76.6948501887865
+  target:
+    kind: voltage_db
+    paper_value: 77.61
+    bound: lower
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'CURATOR-SCALED 2026-10-27 from paper value 80 to the witness value 77.61 (the paper prints only requirements (no sizes); 65 designs
+    meet every other target, worst-case Monte Carlo CMRR / PSRR- stay 2-5 dB below 80 dB after an 8 h search, a local refinement and hand sizing).
+    paper: p. 6 Sec. 4.1 (Folded-Cascode OTA constraint set C; 20 corners TT/SS/FF/FS/SF x 1.6/1.8 V x 0/100 C): PSRR >= 80 dB, negative supply
+    (VSS), DC, Monte Carlo mean'
+  source: measure
+- name: saturation
+  metric: devices_out_of_saturation
+  recipe: amp_fd_dc_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: 'benchmark rule G8 / owner Q3c: no device out of saturation at the quiescent point of every one of the 20 corners (op_check.exclude:
+    the bias-stack device PMOS_13)'
+  source: native
+- name: forward_biased_junctions
+  metric: forward_biased_junctions
+  recipe: amp_fd_dc_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+- name: devices_outside_rails
+  metric: devices_outside_rails
+  recipe: amp_fd_dc_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions: all
+  aggregate: worst case over all conditions and matching points
+  provenance: benchmark rule G8 validity gate (owner 2026-10-30), not a paper target
+  source: native
+objective: null
+derived_metrics: {}
+all_metrics:
+- - amp_fd_dc_v1
+  - bias_power_W
+- - amp_fd_dc_v1
+  - devices_out_of_saturation
+- - amp_fd_dc_v1
+  - devices_outside_rails
+- - amp_fd_dc_v1
+  - differential_output_offset_V
+- - amp_fd_dc_v1
+  - forward_biased_junctions
+- - amp_fd_dc_v1
+  - output_common_mode_V
+- - amp_fd_dc_v1
+  - quiescent_power_W
+- - amp_fd_dc_v1
+  - saturation_margin_min_V
+- - amp_fd_ol_v1
+  - cmrr_dB
+- - amp_fd_ol_v1
+  - gain_bandwidth_product_Hz
+- - amp_fd_ol_v1
+  - gain_margin_dB
+- - amp_fd_ol_v1
+  - mc_mean.cmrr_dB
+- - amp_fd_ol_v1
+  - mc_mean.gain_bandwidth_product_Hz
+- - amp_fd_ol_v1
+  - mc_mean.gain_margin_dB
+- - amp_fd_ol_v1
+  - mc_mean.open_loop_bandwidth_Hz
+- - amp_fd_ol_v1
+  - mc_mean.open_loop_gain_dB
+- - amp_fd_ol_v1
+  - mc_mean.phase_margin_deg
+- - amp_fd_ol_v1
+  - mc_mean.psrr_neg_dB
+- - amp_fd_ol_v1
+  - mc_mean.psrr_pos_dB
+- - amp_fd_ol_v1
+  - mc_mean.unity_gain_frequency_Hz
+- - amp_fd_ol_v1
+  - mc_sigma.cmrr_dB
+- - amp_fd_ol_v1
+  - mc_sigma.gain_bandwidth_product_Hz
+- - amp_fd_ol_v1
+  - mc_sigma.gain_margin_dB
+- - amp_fd_ol_v1
+  - mc_sigma.open_loop_bandwidth_Hz
+- - amp_fd_ol_v1
+  - mc_sigma.open_loop_gain_dB
+- - amp_fd_ol_v1
+  - mc_sigma.phase_margin_deg
+- - amp_fd_ol_v1
+  - mc_sigma.psrr_neg_dB
+- - amp_fd_ol_v1
+  - mc_sigma.psrr_pos_dB
+- - amp_fd_ol_v1
+  - mc_sigma.unity_gain_frequency_Hz
+- - amp_fd_ol_v1
+  - open_loop_bandwidth_Hz
+- - amp_fd_ol_v1
+  - open_loop_gain_dB
+- - amp_fd_ol_v1
+  - phase_margin_deg
+- - amp_fd_ol_v1
+  - psrr_neg_dB
+- - amp_fd_ol_v1
+  - psrr_pos_dB
+- - amp_fd_ol_v1
+  - unity_gain_frequency_Hz
+simulations_per_design: 41
+analysis_executions_per_design: 180
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T0_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/NN_T0_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: NN_T0_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/NN_T0_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: NN_T100_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/NN_T100_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: NN_T100_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/NN_T100_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: NN_T0_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/NN_T0_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: NN_T0_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/NN_T0_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: NN_T100_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/NN_T100_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: NN_T100_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/NN_T100_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SS_T0_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SS_T0_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SS_T0_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SS_T0_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SS_T100_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SS_T100_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SS_T100_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SS_T100_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SS_T0_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SS_T0_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SS_T0_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SS_T0_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SS_T100_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SS_T100_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SS_T100_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SS_T100_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FF_T0_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FF_T0_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FF_T0_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FF_T0_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FF_T100_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FF_T100_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FF_T100_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FF_T100_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FF_T0_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FF_T0_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FF_T0_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FF_T0_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FF_T100_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FF_T100_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FF_T100_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FF_T100_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FS_T0_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FS_T0_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FS_T0_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FS_T0_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FS_T100_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FS_T100_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FS_T100_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FS_T100_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FS_T0_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FS_T0_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FS_T0_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FS_T0_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: FS_T100_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/FS_T100_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: FS_T100_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/FS_T100_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SF_T0_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SF_T0_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SF_T0_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SF_T0_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SF_T100_S1p00
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SF_T100_S1p00/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SF_T100_S1p00
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SF_T100_S1p00/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SF_T0_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SF_T0_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SF_T0_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SF_T0_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: SF_T100_S0p89
+  recipe: amp_fd_dc_v1
+  folder: testbenches/SF_T100_S0p89/amp_fd_dc_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/op_info.info
+  metrics:
+    quiescent_power_W:
+      unit: W
+      source: measure
+    bias_power_W:
+      unit: W
+      source: measure
+    output_common_mode_V:
+      unit: V
+      source: measure
+    differential_output_offset_V:
+      unit: V
+      source: measure
+    saturation_margin_min_V:
+      unit: V
+      source: native
+    devices_out_of_saturation:
+      unit: count
+      source: native
+    forward_biased_junctions:
+      unit: count
+      source: native
+    devices_outside_rails:
+      unit: count
+      source: native
+  points:
+  - vcm_V: 1.2
+- condition: SF_T100_S0p89
+  recipe: amp_fd_ol_v1
+  folder: testbenches/SF_T100_S0p89/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    open_loop_gain_dB:
+      unit: dB
+      source: measure
+    open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    phase_margin_deg:
+      unit: deg
+      source: measure
+    gain_margin_dB:
+      unit: dB
+      source: measure
+    cmrr_dB:
+      unit: dB
+      source: measure
+    psrr_pos_dB:
+      unit: dB
+      source: measure
+    psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+- condition: NN_T0_S1p00_MC
+  recipe: amp_fd_ol_v1
+  folder: testbenches/NN_T0_S1p00_MC/amp_fd_ol_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    mc_mean.open_loop_gain_dB:
+      unit: dB
+      source: measure
+    mc_sigma.open_loop_gain_dB:
+      unit: dB
+      source: measure
+    mc_mean.open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    mc_sigma.open_loop_bandwidth_Hz:
+      unit: Hz
+      source: measure
+    mc_mean.gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    mc_sigma.gain_bandwidth_product_Hz:
+      unit: Hz
+      source: measure
+    mc_mean.unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    mc_sigma.unity_gain_frequency_Hz:
+      unit: Hz
+      source: measure
+    mc_mean.phase_margin_deg:
+      unit: deg
+      source: measure
+    mc_sigma.phase_margin_deg:
+      unit: deg
+      source: measure
+    mc_mean.gain_margin_dB:
+      unit: dB
+      source: measure
+    mc_sigma.gain_margin_dB:
+      unit: dB
+      source: measure
+    mc_mean.cmrr_dB:
+      unit: dB
+      source: measure
+    mc_sigma.cmrr_dB:
+      unit: dB
+      source: measure
+    mc_mean.psrr_pos_dB:
+      unit: dB
+      source: measure
+    mc_sigma.psrr_pos_dB:
+      unit: dB
+      source: measure
+    mc_mean.psrr_neg_dB:
+      unit: dB
+      source: measure
+    mc_sigma.psrr_neg_dB:
+      unit: dB
+      source: measure
+  points:
+  - {}
+  - freq_Hz: 1.0
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - fcrobust01_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('fcrobust01_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

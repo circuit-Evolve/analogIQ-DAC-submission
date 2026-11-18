@@ -1,0 +1,71 @@
+simulator lang=spice
+.lib "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" tt
+simulator lang=spectre
+subckt LELOTEMP_BIAS_IBP (VDD_1V8 VSS LPI LPO IBP_1U_3 IBP_1U_2 IBP_1U_1 IBP_1U_0 VD1 PWRUP_1V8 PWRUP_N_1V8)
+xca2_M1 (VBD2 LPI VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca1_M1 (VBD1 LPI VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=8.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=8.0
+xd1_C1 (VDD_1V8 LPI) sky130_fd_pr__cap_mim_m3_1 w=4.8 l=5.0 mult=10.0 m=10.0
+xad6_xnd1_M1 (xad6_VD1 xad6_VD1 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=4.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=4.0
+xad6_xnd2_M1 (xad6_VD2 xad6_VD2 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=4.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=4.0
+xad6_xba6_M1 (xad6_VBP xad6_VBP VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xnd3_M1 (xad6_VBP xad6_VD1 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xba8_M1 (LPO xad6_VBP VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xnd4_M1 (LPO xad6_VD2 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xd2_1__R1_0 (xad6_xd2_1__INT_0 xad6_VDS VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xad6_xd2_1__R1_1 (xad6_R1_0 xad6_xd2_1__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xad6_xd2_0__R1_0 (xad6_xd2_0__INT_0 xad6_R1_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xad6_xd2_0__R1_1 (xad6_VS xad6_xd2_0__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xad6_xba7_M1 (xad6_VBP PWRUP_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xba1_M1 (xad6_VDS PWRUP_N_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xba2_M1 (LPO PWRUP_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xns1_M1 (xad6_VD1 PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xns2_M1 (xad6_VD2 PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xnc0_M1 (xad6_VD3 xad6_VD3 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xnc1_M1 (VCP xad6_VD3 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=3.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=3.0
+xad6_xbs6_M1 (xad6__net1 VCP VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xbs1_M1 (xad6__net2 VCP xad6__net1 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xbs2_M1 (xad6__net4 VCP xad6__net2 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xbs4_M1 (xad6__net3 VCP xad6__net4 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xbs7_M1 (xad6__net5 VCP xad6__net3 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xns4_M1 (xad6_VD3 PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xba3_M1 (VCP PWRUP_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xbs8_M1 (VCP VCP xad6__net5 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xad6_xbl1_M1 (xad6_VD1 VD1 xad6_VS VDD_1V8) sky130_fd_pr__pfet_01v8_lvt w=7.68 l=0.94 nf=2 mult=4.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=4.0
+xad6_xbl2_M1 (xad6_VD2 VR1 xad6_VS VDD_1V8) sky130_fd_pr__pfet_01v8_lvt w=7.68 l=0.94 nf=2 mult=4.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=4.0
+xad6_xbl4_M1 (xad6_VD3 VD1 xad6_VS VDD_1V8) sky130_fd_pr__pfet_01v8_lvt w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xbl5_M1 (xad6_VD3 VR1 xad6_VS VDD_1V8) sky130_fd_pr__pfet_01v8_lvt w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xfill_p_in_a_0_M1 (VDD_1V8 VDD_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8_lvt w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xfill_p_in_b_0_M1 (VDD_1V8 VDD_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8_lvt w=7.68 l=0.94 nf=2 mult=1.0 ad=1.1136 as=2.2272 pd=8.26 ps=16.52 sa=0 sb=0 sd=0 m=1.0
+xad6_xfill_n_mirr_0_M1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca3_3__M1 (IBD_3 LPI VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca3_2__M1 (IBD_2 LPI VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca3_1__M1 (IBD_1 LPI VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca3_0__M1 (IBD_0 LPI VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xe1_Q1 (VSS VSS VD1) sky130_fd_pr__pnp_05v5_W3p40L3p40 mult=1.0 m=1.0
+xe1_Q2 (VSS VSS VD2) sky130_fd_pr__pnp_05v5_W3p40L3p40 mult=8.0 m=8.0
+xg1_M1 (VR1 VR1 VD2 VSS) sky130_fd_pr__nfet_01v8 w=3.2 l=0.94 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xcc_M1 (VDD_1V8 VDD_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=5.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=5.0
+xca2_3__M1 (IBP_1U_3 VCP IBD_3 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca2_2__M1 (IBP_1U_2 VCP IBD_2 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca2_1__M1 (IBP_1U_1 VCP IBD_1 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca2_0__M1 (IBP_1U_0 VCP IBD_0 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca4_M1 (VR1 VCP VBD2 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=1.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=1.0
+xca5_M1 (VD1 VCP VBD1 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.22 nf=2 mult=8.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=8.0
+xd2_C1 (VDD_1V8 VCP) sky130_fd_pr__cap_mim_m3_1 w=4.8 l=5.0 mult=3.0 m=3.0
+xsu1_M1 (VSU VSU VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+xsu2_M1 (VD1 VD1 VSU VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+xd3_5__R1_0 (xd3_5__INT_0 VR1 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_5__R1_1 (R1_4 xd3_5__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_4__R1_0 (xd3_4__INT_0 R1_4 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_4__R1_1 (R1_3 xd3_4__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_3__R1_0 (xd3_3__INT_0 R1_3 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_3__R1_1 (R1_2 xd3_3__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_2__R1_0 (xd3_2__INT_0 R1_2 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_2__R1_1 (R1_1 xd3_2__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_1__R1_0 (xd3_1__INT_0 R1_1 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_1__R1_1 (R1_0 xd3_1__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_0__R1_0 (xd3_0__INT_0 R1_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xd3_0__R1_1 (VD2 xd3_0__INT_0 VSS) sky130_fd_pr__res_high_po w=0.4 l=8.16 mult=1.0 m=1.0
+xfill_p_su_M1 (VDD_1V8 VDD_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=11.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=11.0
+xfill_p_cc_M1 (VDD_1V8 VDD_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=3.2 l=0.94 nf=2 mult=8.0 ad=0.464 as=0.928 pd=3.78 ps=7.56 sa=0 sb=0 sd=0 m=8.0
+ends LELOTEMP_BIAS_IBP

@@ -1,0 +1,122 @@
+{
+ "task": "dtmos_hpf_101126_task_001",
+ "mc_samples": 100,
+ "score": 0.4724951376799076,
+ "targets_met": 2,
+ "targets": 4,
+ "valid": true,
+ "params": {
+  "W_M1": 2.3256349340031253e-05,
+  "L_M1": 3.2267192839897515e-07,
+  "W_M2": 3.49355104602725e-06,
+  "W_M4": 1.013281601529198e-06,
+  "L_M24": 1.0594551348578335e-06,
+  "W_M3": 1.0048949194452103e-06,
+  "M_M3": 3.0,
+  "L_M3": 4.519477665614985e-06,
+  "W_MPB12": 1.06407544666032e-05,
+  "M_MPB12": 11.0,
+  "L_MPB12": 3.8000696066152644e-07,
+  "W_MPB3": 2.7479874606715853e-06,
+  "W_MPB4": 3.734973069036431e-06,
+  "L_MPB34": 3.7139154413814216e-06,
+  "W_MPB56": 2.659865259249677e-05,
+  "L_MPB56": 2.5966970295369467e-06,
+  "W_MPB7": 4.359609296088626e-07,
+  "W_MPB8": 1.030446474621014e-06,
+  "L_MPB78": 9.53938160927531e-07,
+  "W_MNB12": 1.4029117441050981e-06,
+  "L_MNB12": 1.2821237919263072e-06,
+  "W_MNB3": 9.591332007961654e-06,
+  "L_MNB3": 5.6807719602589e-07,
+  "W_MNB4": 9.784101601973538e-07,
+  "L_MNB4": 9.821194863568895e-07,
+  "W_MNB5": 5.238279204206273e-07,
+  "L_MNB5": 1.0825730901674546e-06,
+  "C1": 1.857780394954653e-12,
+  "C2": 3.624340946846629e-14,
+  "I0": 4.3836218589633026e-05,
+  "IB1": 1.2193849750294584e-07,
+  "IB2": 1.0011122481075339e-05,
+  "M_M1": 12.0,
+  "M_M2": 34.0,
+  "M_M4": 21.0,
+  "M_MPB3": 6.0,
+  "M_MPB4": 31.0,
+  "M_MPB56": 48.0,
+  "M_MPB7": 39.0,
+  "M_MPB8": 27.0,
+  "M_MNB12": 7.0,
+  "M_MNB3": 30.0,
+  "M_MNB4": 51.0,
+  "M_MNB5": 5.0
+ },
+ "feasible": false,
+ "objective": null,
+ "constraints": {
+  "power": {
+   "lower": 0.0,
+   "upper": 0.0005456,
+   "metric": "quiescent_power_W",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.00014591690130852586,
+   "unit": "W",
+   "condition": "NN_T100_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.00014591690130852586,
+   "normalized_margin": 0.00014591690130852586,
+   "satisfied": true
+  },
+  "thd": {
+   "lower": 0.0,
+   "upper": 6.0,
+   "metric": "thd_pct",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 2.4937929167112407,
+   "unit": "%",
+   "condition": "NN_T100_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.4937929167112407,
+   "normalized_margin": 0.5843678472147932,
+   "satisfied": true
+  },
+  "cutoff": {
+   "lower": 180.0,
+   "upper": 220.0,
+   "metric": "cutoff_frequency_Hz",
+   "target": {
+    "kind": "linear"
+   },
+   "value": null,
+   "margin": null,
+   "normalized_margin": null,
+   "satisfied": null,
+   "note": "no valid measurement"
+  },
+  "gain_200Hz": {
+   "lower": -3.5,
+   "upper": -2.5,
+   "metric": "current_gain_dB",
+   "target": {
+    "kind": "voltage_db"
+   },
+   "value": -1.8132019846359733,
+   "unit": "dB",
+   "condition": "NN_Tm27_S1p00",
+   "point": {
+    "freq_Hz": 200.0
+   },
+   "complete": true,
+   "margin": -0.6867980153640267,
+   "normalized_margin": -0.08228066735599704,
+   "satisfied": false
+  }
+ },
+ "worst_constraint_margin": -1.0
+}

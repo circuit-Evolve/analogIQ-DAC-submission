@@ -1,0 +1,31 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ptat_lelo_task_001  topology ptat_lelo
+// recipe lelo30_ptat_op_v1 v1  condition tt_T27_S1p00 (models tt, 27 C, supply 1.8 V)
+// request golden_ptat_lelo_task_001  candidate 56d20d8502c947f4
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+include "dut.scs"
+
+parameters vsup=1.8 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+VPWR (pwr 0) vsource dc=vsup
+VPWRN (pwrn 0) vsource dc=0
+VIO0 (iout0 0) vsource dc=0.5
+VIO1 (iout1 0) vsource dc=0.6
+VIO2 (iout2 0) vsource dc=0.7
+VIO3 (iout3 0) vsource dc=0.8
+VLP (lpo lpi) vsource dc=0
+nodeset XDUT.VR1=0.7 vd1=0.7 lpi=0.6 lpo=0.6
+
+XDUT (vdd vss lpi lpo iout3 iout2 iout1 iout0 vd1 pwr pwrn) ptat_lelo_dut L_BS=3.063955313976281e-07 L_CAS=2.0108111388826446e-07 L_CLPI=1.0618600810410668e-05 L_CVCP=6.023413125354363e-06 L_LVT=4.635868695738736e-07 L_MIR=1.1601741741962385e-06 L_NCR=1.2985878420624567e-06 L_NLD=7.819094045163309e-07 L_PMIR=7.72056379120699e-07 L_RLAD=7.601199079107036e-06 L_RTAIL=1.0420051878013265e-05 NF_BS=4.0 NF_CAS=1.0 NF_LVT=5.0 NF_MIR=8.0 NF_NCR=11.0 NF_NLD=9.0 NF_PMIR=10.0 W_BS=1.4735030951244682e-06 W_CAS=2.244724928379297e-06 W_CLPI=2.91979474928115e-06 W_CVCP=3.3801210427163556e-06 W_LVT=2.8673064205451517e-06 W_MIR=9.721782405901073e-07 W_NCR=2.2611059245277288e-06 W_NLD=1.0208576586507258e-06 W_PMIR=1.209150755442009e-06 W_RLAD=3.6008661289238403e-07 W_RTAIL=4.232915026496513e-07
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VIO0:p VIO1:p VIO2:p VIO3:p VNEG:p VSUP:p XDUT.VD2 XDUT.VR1 iout0 iout1 iout2 iout3 lpi lpo pwr pwrn vd1 vdd vss
+
+dc1 dc

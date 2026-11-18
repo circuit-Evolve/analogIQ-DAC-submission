@@ -1,0 +1,137 @@
+{
+ "task": "lcvco24_lohrabipour_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 8004,
+ "wall_s": 10710.4,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 3.646482,
+ "llm_cost_usd_recorded": 1.8232412,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "best": {
+  "eval": 1997,
+  "round": 10,
+  "f": 0.14176471100712051,
+  "reward": 0.8582352889928795,
+  "score": 0.8582352889928795,
+  "targets_met": 4,
+  "targets": 8,
+  "feasible": false,
+  "worst_margin": -0.4545579631747785,
+  "objective": null,
+  "params": {
+   "N_CORE": 60.0,
+   "W_CORE": 1.579409459945647e-05,
+   "L_CORE": 3.890474106531e-07,
+   "N_MVAR": 13.0,
+   "W_MVAR": 3.2853060726025285e-06,
+   "L_MVAR": 8.396727713840501e-07,
+   "N_BUF": 65.0,
+   "W_BUF": 6.768368091622203e-07,
+   "L_BUF": 2.0594198374392172e-07,
+   "N_MIN": 37.0,
+   "W_MIN": 1.2049162786115272e-06,
+   "L_MIN": 2.487518884130184e-07,
+   "N_MIP": 13.0,
+   "W_MIP": 1.527251318454247e-06,
+   "L_MIP": 1.8959248604422229e-06,
+   "N_MS": 26.0,
+   "W_MS": 9.468073313219857e-07,
+   "L_MS": 7.048857122602549e-07,
+   "C_S": 9.997028071099798e-11,
+   "C_PF": 2.0653266954357663e-13,
+   "C_PS": 1.2673880918786825e-13,
+   "L_P": 1.51452144716096e-10,
+   "L_S": 4.718583498057661e-10,
+   "C_CVAR": 8.136674360322521e-11,
+   "R_BVAR": 186610.37568761042,
+   "C_BUF": 2.0267646506022435e-14,
+   "R_BUF": 222852.37898746075,
+   "C_BANK": 2.49300822383285e-13,
+   "R_SBANK": 12792.44162850239,
+   "V_TANK": 0.8282012969255448,
+   "V_BUF": 0.7408888429327027
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 200,
+   "best_f": 0.8808559385538931,
+   "elapsed_s": 1223.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 200,
+   "best_f": 0.9241522490678113,
+   "elapsed_s": 1242.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 200,
+   "best_f": 1.0,
+   "elapsed_s": 1168.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 200,
+   "best_f": 0.9123139927319006,
+   "elapsed_s": 1196.2,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 200,
+   "best_f": 0.800792906612384,
+   "elapsed_s": 1134.3,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 200,
+   "best_f": 0.8327129677267682,
+   "elapsed_s": 978.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 200,
+   "best_f": 0.6882467403356369,
+   "elapsed_s": 939.8,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 200,
+   "best_f": 0.4583237601628587,
+   "elapsed_s": 936.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 200,
+   "best_f": 0.3166542303976718,
+   "elapsed_s": 928.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 200,
+   "best_f": 0.14176471100712051,
+   "elapsed_s": 906.7,
+   "best_feasible_objective": null
+  }
+ ]
+}

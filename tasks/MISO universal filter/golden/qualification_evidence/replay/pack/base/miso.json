@@ -1,0 +1,819 @@
+{
+  "task_id": "miso",
+  "topology_id": "miso_fig3",
+  "family": "universal_filter",
+  "technology_id": "gpdk180",
+  "description": "Paper-start Fig3 MISO mixed-mode universal filter; unchanged Fig2 thirty-transistor cores and Fig8a grounded MOS resistors. All 17 retained paper metrics; fixed existing characterization.",
+  "variables": [
+    {
+      "name": "ota_input_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.5e-07,
+      "upper": 7.2e-06,
+      "initial": 1.8e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_input_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M1",
+          "M2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_pmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2e-06,
+      "upper": 3.2e-05,
+      "initial": 8e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_pmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 3.6e-07,
+      "upper": 2.88e-06,
+      "initial": 7.2e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M3",
+          "M4",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_pload_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.5e-07,
+      "upper": 7.2e-06,
+      "initial": 1.8e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_pload_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M5",
+          "M6"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_nmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 7.5e-07,
+      "upper": 1.2e-05,
+      "initial": 3e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "ota_nmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 3.6e-07,
+      "upper": 2.88e-06,
+      "initial": 7.2e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_input_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.125e-06,
+      "upper": 1.8e-05,
+      "initial": 4.5e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M15",
+          "M16",
+          "M17",
+          "M18"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_input_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M15",
+          "M16",
+          "M17",
+          "M18"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_pmirror_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.9999999999999996e-06,
+      "upper": 7.999999999999999e-05,
+      "initial": 1.9999999999999998e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M19",
+          "M20"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_pmirror_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M19",
+          "M20"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_pout_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 2.1875e-06,
+      "upper": 3.5e-05,
+      "initial": 8.75e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M21",
+          "M22",
+          "M23",
+          "M24"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_pout_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M21",
+          "M22",
+          "M23",
+          "M24"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_ntail_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 3.375e-06,
+      "upper": 5.4e-05,
+      "initial": 1.35e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_ntail_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M25",
+          "M26"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_nout_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.6875e-06,
+      "upper": 7.5e-05,
+      "initial": 1.875e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M27",
+          "M28",
+          "M29",
+          "M30"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "frontend_nout_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "M27",
+          "M28",
+          "M29",
+          "M30"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Published Table 4 exact initial W/L; shared across both core copies."
+    },
+    {
+      "name": "resistor_w",
+      "kind": "real",
+      "unit": "m",
+      "lower": 4.5e-07,
+      "upper": 7.2e-06,
+      "initial": 1.8e-06,
+      "scale": "log",
+      "binding": {
+        "cell": "grounded_resistor_fig8a",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "w"
+      },
+      "provenance": "Disclosed assumed Fig8a geometry, not paper dimensions."
+    },
+    {
+      "name": "resistor_l",
+      "kind": "real",
+      "unit": "m",
+      "lower": 1.8e-07,
+      "upper": 1.44e-06,
+      "initial": 3.6e-07,
+      "scale": "log",
+      "binding": {
+        "cell": "grounded_resistor_fig8a",
+        "instances": [
+          "MR1",
+          "MR2"
+        ],
+        "parameter": "l"
+      },
+      "provenance": "Disclosed assumed Fig8a geometry, not paper dimensions."
+    },
+    {
+      "name": "C1",
+      "kind": "real",
+      "unit": "F",
+      "lower": 5e-12,
+      "upper": 8e-11,
+      "initial": 2e-11,
+      "scale": "log",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "C1"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Published Section 6.1 initial capacitance."
+    },
+    {
+      "name": "C2",
+      "kind": "real",
+      "unit": "F",
+      "lower": 5e-12,
+      "upper": 8e-11,
+      "initial": 2e-11,
+      "scale": "log",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "C2"
+        ],
+        "parameter": "c"
+      },
+      "provenance": "Published Section 6.1 initial capacitance."
+    },
+    {
+      "name": "R3",
+      "kind": "real",
+      "unit": "ohm",
+      "lower": 500,
+      "upper": 8000,
+      "initial": 2000,
+      "scale": "log",
+      "binding": {
+        "cell": "miso_fig3",
+        "instances": [
+          "R3"
+        ],
+        "parameter": "r"
+      },
+      "provenance": "Published Section 6.1; existing passive only."
+    },
+    {
+      "name": "OTA_IBIAS",
+      "kind": "real",
+      "unit": "A",
+      "lower": 1e-05,
+      "upper": 0.00015,
+      "initial": 4.7e-05,
+      "scale": "log",
+      "binding": {
+        "cell": "mdvccta_fig2",
+        "instances": [
+          "IBIAS"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Published 47 uA; shared across both cores."
+    },
+    {
+      "name": "VBIAS",
+      "kind": "real",
+      "unit": "V",
+      "lower": -0.55,
+      "upper": -0.1,
+      "initial": -0.3,
+      "scale": "linear",
+      "binding": {
+        "cell": "__top__",
+        "instances": [
+          "VBIAS_SRC"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Disclosed missing-data assumption VSS+0.6 V."
+    },
+    {
+      "name": "VCTRL",
+      "kind": "real",
+      "unit": "V",
+      "lower": 0.5,
+      "upper": 0.9,
+      "initial": 0.7768446082050647,
+      "scale": "linear",
+      "binding": {
+        "cell": "__top__",
+        "instances": [
+          "VCTRL_SRC"
+        ],
+        "parameter": "dc"
+      },
+      "provenance": "Disclosed resistor characterization derived 2 kohm baseline; no optimized sizing."
+    }
+  ],
+  "constraints": [
+    {
+      "name": "Y1_gain",
+      "metric": "Y1_gain",
+      "recipe": "CORE_Y1",
+      "lower": 0.891,
+      "upper": 1.089,
+      "paper_value": 0.99,
+      "unit": "V/V",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Low-frequency magnitude at1Hz; Y1/Y2 X load2kohm; current output voltage clamped0V. Paper does not specify characterization loads."
+      },
+      "aggregate": "worst",
+      "expression": "value(mag(getData(\"X\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "Y1_bandwidth",
+      "metric": "Y1_bandwidth",
+      "recipe": "CORE_Y1",
+      "lower": 1260000000.0,
+      "upper": 1540000000.0000002,
+      "paper_value": 1400000000.0,
+      "unit": "Hz",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "First falling half-power crossing relative to LF magnitude; includes any peaking. IZP boundary refined with100kHz grid from1.5 to1.65GHz: marginal pass."
+      },
+      "aggregate": "worst",
+      "expression": "cross(mag(getData(\"X\" ?result \"ac\")) (value(mag(getData(\"X\" ?result \"ac\")) 1)/sqrt(2)) 1 \"falling\")",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "Y2_gain",
+      "metric": "Y2_gain",
+      "recipe": "CORE_Y2",
+      "lower": 0.891,
+      "upper": 1.089,
+      "paper_value": 0.99,
+      "unit": "V/V",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Low-frequency magnitude at1Hz; Y1/Y2 X load2kohm; current output voltage clamped0V. Paper does not specify characterization loads."
+      },
+      "aggregate": "worst",
+      "expression": "value(mag(getData(\"X\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "Y2_bandwidth",
+      "metric": "Y2_bandwidth",
+      "recipe": "CORE_Y2",
+      "lower": 1170000000.0,
+      "upper": 1430000000.0,
+      "paper_value": 1300000000.0,
+      "unit": "Hz",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "First falling half-power crossing relative to LF magnitude; includes any peaking. IZP boundary refined with100kHz grid from1.5 to1.65GHz: marginal pass."
+      },
+      "aggregate": "worst",
+      "expression": "cross(mag(getData(\"X\" ?result \"ac\")) (value(mag(getData(\"X\" ?result \"ac\")) 1)/sqrt(2)) 1 \"falling\")",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "IZP_gain",
+      "metric": "IZP_gain",
+      "recipe": "CORE_IZP",
+      "lower": 0.8982,
+      "upper": 1.0978,
+      "paper_value": 0.998,
+      "unit": "A/A",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Low-frequency magnitude at1Hz; Y1/Y2 X load2kohm; current output voltage clamped0V. Paper does not specify characterization loads."
+      },
+      "aggregate": "worst",
+      "expression": "value(mag(getData(\"ZP_SRC:p\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "IZP_bandwidth",
+      "metric": "IZP_bandwidth",
+      "recipe": "CORE_IZP",
+      "lower": 1278000000.0,
+      "upper": 1562000000.0000002,
+      "paper_value": 1420000000.0,
+      "unit": "Hz",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "First falling half-power crossing relative to LF magnitude; includes any peaking. IZP boundary refined with100kHz grid from1.5 to1.65GHz: marginal pass."
+      },
+      "aggregate": "worst",
+      "expression": "cross(mag(getData(\"ZP_SRC:p\" ?result \"ac\")) (value(mag(getData(\"ZP_SRC:p\" ?result \"ac\")) 1)/sqrt(2)) 1 \"falling\")",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "RX",
+      "metric": "RX",
+      "recipe": "CORE_RX",
+      "lower": 77.706,
+      "upper": 94.97400000000002,
+      "paper_value": 86.34,
+      "unit": "ohm",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "RX:1A AC current injection; other ports held0V. Output impedances:1V AC test at0V DC, reciprocal driving current; body ties to rails."
+      },
+      "aggregate": "worst",
+      "expression": "value(real(getData(\"X\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "RZP",
+      "metric": "RZP",
+      "recipe": "CORE_RZP",
+      "lower": 51201.0,
+      "upper": 62579.00000000001,
+      "paper_value": 56890,
+      "unit": "ohm",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "RX:1A AC current injection; other ports held0V. Output impedances:1V AC test at0V DC, reciprocal driving current; body ties to rails."
+      },
+      "aggregate": "worst",
+      "expression": "value(real(-1/getData(\"ZP_SRC:p\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "ROP",
+      "metric": "ROP",
+      "recipe": "CORE_ROP",
+      "lower": 76950.0,
+      "upper": 94050.00000000001,
+      "paper_value": 85500,
+      "unit": "ohm",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "RX:1A AC current injection; other ports held0V. Output impedances:1V AC test at0V DC, reciprocal driving current; body ties to rails."
+      },
+      "aggregate": "worst",
+      "expression": "value(real(-1/getData(\"OP_SRC:p\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "ROM",
+      "metric": "ROM",
+      "recipe": "CORE_ROM",
+      "lower": 76950.0,
+      "upper": 94050.00000000001,
+      "paper_value": 85500,
+      "unit": "ohm",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "RX:1A AC current injection; other ports held0V. Output impedances:1V AC test at0V DC, reciprocal driving current; body ties to rails."
+      },
+      "aggregate": "worst",
+      "expression": "value(real(-1/getData(\"OM_SRC:p\" ?result \"ac\")) 1)",
+      "source": "Table5 p89"
+    },
+    {
+      "name": "OTA_gm",
+      "metric": "OTA_gm",
+      "recipe": "CORE_GM",
+      "lower": 0.00045000000000000004,
+      "upper": 0.00055,
+      "paper_value": 0.0005,
+      "unit": "S",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Core OTA47uA; ZP driven1V AC, N=0; output shorted0V."
+      },
+      "aggregate": "worst",
+      "expression": "value(mag(getData(\"OM_SRC:p\" ?result \"ac\")) 1)",
+      "source": "Section6.1 p90"
+    },
+    {
+      "name": "MISO_BP_frequency",
+      "metric": "MISO_BP_frequency",
+      "recipe": "VM_BP",
+      "lower": 3582000.0,
+      "upper": 4378000.0,
+      "paper_value": 3980000.0,
+      "unit": "Hz",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Compare design pole-frequency3.98MHz to saved ADE scalar first falling zero of derivative of BP magnitude. Finite150points/decade grid gives4.366011MHz; a quadratic peak estimate4.332610MHz remains a diagnostic. No graph digitization."
+      },
+      "aggregate": "worst",
+      "expression": "cross(deriv(mag(getData(\"VOUT\" ?result \"ac\"))) 0 1 \"falling\")",
+      "source": "Section6.1 p90"
+    },
+    {
+      "name": "MISO_quiescent_power",
+      "metric": "MISO_quiescent_power",
+      "recipe": "VM_LP",
+      "lower": 0.004221,
+      "upper": 0.005159,
+      "paper_value": 0.00469,
+      "unit": "W",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Both main supply rails at zero signal. Bias/control ideal voltage-source power is separately recorded. Paper MISO is post-layout; reproduction is schematic."
+      },
+      "aggregate": "worst",
+      "expression": "0.9*(-getData(\"VDD_SRC:p\" ?result \"dc\")+getData(\"VSS_SRC:p\" ?result \"dc\"))",
+      "source": "Table1 p77; conclusion p111"
+    },
+    {
+      "name": "BP_noise_in",
+      "metric": "BP_noise_in",
+      "recipe": "VM_BP",
+      "lower": 5.9436000000000004e-08,
+      "upper": 7.264400000000001e-08,
+      "paper_value": 6.604e-08,
+      "unit": "V/sqrt(Hz)",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Sampled at nominal passband center3.98MHz. Paper says in passband without exact extraction frequency; nominal center is disclosed assumption."
+      },
+      "aggregate": "worst",
+      "expression": "value(getData(\"in\" ?result \"noise\") 3.98e6)",
+      "source": "Section6.1 p92"
+    },
+    {
+      "name": "BP_noise_out",
+      "metric": "BP_noise_out",
+      "recipe": "VM_BP",
+      "lower": 5.1156e-08,
+      "upper": 6.2524e-08,
+      "paper_value": 5.684e-08,
+      "unit": "V/sqrt(Hz)",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Sampled at nominal passband center3.98MHz. Paper says in passband without exact extraction frequency; nominal center is disclosed assumption."
+      },
+      "aggregate": "worst",
+      "expression": "value(getData(\"out\" ?result \"noise\") 3.98e6)",
+      "source": "Section6.1 p92"
+    },
+    {
+      "name": "LP_THD",
+      "metric": "LP_THD",
+      "recipe": "VM_LP_TRAN",
+      "lower": 0,
+      "upper": 6,
+      "paper_value": 6,
+      "unit": "%",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Actual saved ADE/OCEAN builtin thd result:8192-point DFT over last20cycles; interpolation warnings retained in native/scalars.log. Python harmonics2-10 value is a separate diagnostic. LP: paper500kHz,200mVpp. Claim is only for this stimulus, not an entire amplitude range."
+      },
+      "aggregate": "worst",
+      "expression": "thd(getData(\"VOUT\" ?result \"tran\") 2e-05 6e-05 8192 500000)",
+      "source": "Section6.1 p90",
+      "upper_exclusive": true
+    },
+    {
+      "name": "BP_THD",
+      "metric": "BP_THD",
+      "recipe": "VM_BP_TRAN",
+      "lower": 0,
+      "upper": 6,
+      "paper_value": 6,
+      "unit": "%",
+      "conditions": {
+        "nominal": "NN 27C +/-0.9V",
+        "definition": "Actual saved ADE/OCEAN builtin thd result:8192-point DFT over last20cycles; interpolation warnings retained in native/scalars.log. Python harmonics2-10 value is a separate diagnostic. BP: assumed100mVpp at3.98MHz, based on TAM-BP stimulus; paper does not specify VM-BP THD input range. Claim is only for this stimulus, not an entire amplitude range."
+      },
+      "aggregate": "worst",
+      "expression": "thd(getData(\"VOUT\" ?result \"tran\") 2.51256281407e-06 7.53768844221e-06 8192 3980000)",
+      "source": "Section6.1 p90",
+      "upper_exclusive": true
+    }
+  ],
+  "conditions": [
+    {
+      "id": "NN_27C",
+      "model_section": "NN",
+      "temperature_C": 27,
+      "nominal": true
+    }
+  ],
+  "objective": null,
+  "operating_conditions": {
+    "temperature_C": 27,
+    "VDD_V": 0.9,
+    "VSS_V": -0.9,
+    "BP_noise_sample_Hz": 3980000.0,
+    "LP_THD_frequency_Hz": 500000.0,
+    "LP_THD_input_pp_V": 0.2,
+    "BP_THD_frequency_Hz": 3980000.0,
+    "BP_THD_input_pp_V": 0.1
+  },
+  "characterization": {
+    "model": "gpdk180 NN",
+    "temperature_C": 27,
+    "VDD_V": 0.9,
+    "VSS_V": -0.9,
+    "new_corners": false,
+    "jobs": [
+      "CM_AP",
+      "CM_BP",
+      "CM_BR",
+      "CM_HP",
+      "CM_LP",
+      "CORE_GM",
+      "CORE_IZP",
+      "CORE_ROM",
+      "CORE_ROP",
+      "CORE_RX",
+      "CORE_RZP",
+      "CORE_Y1",
+      "CORE_Y2",
+      "VM_AP",
+      "VM_BP",
+      "VM_BP_TRAN",
+      "VM_BR",
+      "VM_HP",
+      "VM_LP",
+      "VM_LP_TRAN"
+    ]
+  }
+}

@@ -1,0 +1,2030 @@
+{
+ "task": "ptat_lelo_task_001",
+ "mc_samples": 100,
+ "eval": 767,
+ "score": 0.9060770831560346,
+ "targets_met": 87,
+ "targets": 107,
+ "valid": true,
+ "params": {
+  "W_MIR": 1.082430671426461e-06,
+  "L_MIR": 1.2948318193428537e-05,
+  "NF_MIR": 8.0,
+  "W_CAS": 3.0311889031156907e-06,
+  "L_CAS": 6.840891123174237e-07,
+  "NF_CAS": 49.0,
+  "W_NLD": 2.519082762289637e-06,
+  "L_NLD": 4.432979184407692e-06,
+  "NF_NLD": 62.0,
+  "W_PMIR": 6.412877846929952e-06,
+  "L_PMIR": 5.098729525892702e-06,
+  "NF_PMIR": 50.0,
+  "W_LVT": 1.6913867384232473e-06,
+  "L_LVT": 1.8270023235364136e-06,
+  "NF_LVT": 9.0,
+  "W_NCR": 4.213963329980576e-07,
+  "L_NCR": 1.0176614384145213e-06,
+  "NF_NCR": 17.0,
+  "W_BS": 4.3600256975504885e-06,
+  "L_BS": 3.035133526829751e-06,
+  "NF_BS": 45.0,
+  "W_RLAD": 9.014257939365815e-07,
+  "L_RLAD": 1.8582095954605213e-05,
+  "W_RTAIL": 2.2610896672092787e-06,
+  "L_RTAIL": 4.260043655894541e-05,
+  "W_CLPI": 7.0363955665522505e-06,
+  "L_CLPI": 4.486439265603251e-06,
+  "W_CVCP": 2.2372334251691502e-05,
+  "L_CVCP": 1.8498491254855935e-05
+ },
+ "feasible": false,
+ "objective": null,
+ "constraints": {
+  "lf_gain_typ_lo": {
+   "lower": 41.5148501887865,
+   "metric": "loop_gain_lf_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 42.43,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 37.840128204138594,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -3.6747219846479027,
+   "normalized_margin": -0.34496591277583377,
+   "satisfied": false
+  },
+  "lf_gain_corner_lo": {
+   "lower": 39.8548501887865,
+   "metric": "loop_gain_lf_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 40.77,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 35.731981666399705,
+   "unit": "dB",
+   "condition": "sf_Tm40_S0p94_ksf_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": -4.122868522386796,
+   "normalized_margin": -0.37790519609340145,
+   "satisfied": false
+  },
+  "mc_mean_lf_gain_lo": {
+   "lower": 41.314850188786494,
+   "metric": "mc_mean.loop_gain_lf_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 42.23,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 37.82799490029665,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -3.486855288489842,
+   "normalized_margin": -0.3306438845796037,
+   "satisfied": false
+  },
+  "mc_sigma_lf_gain": {
+   "upper": 0.6160000000000001,
+   "metric": "mc_sigma.loop_gain_lf_dB",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.56,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.04484079535678252,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.5711592046432176,
+   "normalized_margin": 0.9272065010441842,
+   "satisfied": true
+  },
+  "gm_typ_up": {
+   "upper": -14.532146296835498,
+   "metric": "loop_gain_at_phase_crossover_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -15.36,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": -16.924040759827797,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.3918944629922994,
+   "normalized_margin": 0.24071420178561054,
+   "satisfied": true
+  },
+  "gm_corner_up": {
+   "upper": -11.312146296835499,
+   "metric": "loop_gain_at_phase_crossover_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -12.14,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": -13.67010019308724,
+   "unit": "dB",
+   "condition": "fs_T125_S1p06_kfs_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 2.3579538962517415,
+   "normalized_margin": 0.23774144861995739,
+   "satisfied": true
+  },
+  "mc_mean_gm_up": {
+   "upper": -14.562146296835499,
+   "metric": "mc_mean.loop_gain_at_phase_crossover_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -15.39,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": -16.9297585575782,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.3676122607427015,
+   "normalized_margin": 0.23858857879637185,
+   "satisfied": true
+  },
+  "mc_sigma_gm": {
+   "upper": 0.3446663,
+   "metric": "mc_sigma.loop_gain_at_phase_crossover_dB",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.313333,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.032446858633022074,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.3122194413669779,
+   "normalized_margin": 0.9058600778984713,
+   "satisfied": true
+  },
+  "pm_typ_lo": {
+   "lower": 52.181999999999995,
+   "metric": "phase_margin_deg",
+   "target": {
+    "kind": "linear",
+    "paper_value": 57.98,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 57.73253832688323,
+   "unit": "deg",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.550538326883235,
+   "normalized_margin": 0.10636883076316038,
+   "satisfied": true
+  },
+  "pm_corner_lo": {
+   "lower": 40.635,
+   "metric": "phase_margin_deg",
+   "target": {
+    "kind": "linear",
+    "paper_value": 45.15,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 52.475645024239405,
+   "unit": "deg",
+   "condition": "ss_hh_T125_S1p06_kss_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 11.840645024239407,
+   "normalized_margin": 0.29139030452170317,
+   "satisfied": true
+  },
+  "mc_mean_pm_lo": {
+   "lower": 52.452,
+   "metric": "mc_mean.phase_margin_deg",
+   "target": {
+    "kind": "linear",
+    "paper_value": 58.28,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 57.751132867691446,
+   "unit": "deg",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 5.299132867691448,
+   "normalized_margin": 0.10102823281650744,
+   "satisfied": true
+  },
+  "mc_sigma_pm": {
+   "upper": 1.428163,
+   "metric": "mc_sigma.phase_margin_deg",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.29833,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.08965815480479528,
+   "unit": "deg",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.3385048451952049,
+   "normalized_margin": 0.9372213432186696,
+   "satisfied": true
+  },
+  "ug_typ_lo": {
+   "lower": 5445000.0,
+   "metric": "loop_unity_gain_frequency_Hz",
+   "target": {
+    "kind": "linear",
+    "paper_value": 6050000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 308478.12405605975,
+   "unit": "Hz",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -5136521.87594394,
+   "normalized_margin": -0.9433465336903472,
+   "satisfied": false
+  },
+  "ug_corner_lo": {
+   "lower": 2061000.0,
+   "metric": "loop_unity_gain_frequency_Hz",
+   "target": {
+    "kind": "linear",
+    "paper_value": 2290000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 111477.32967519629,
+   "unit": "Hz",
+   "condition": "sf_Tm40_S0p94_ksf_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": -1949522.6703248038,
+   "normalized_margin": -0.9459110481925297,
+   "satisfied": false
+  },
+  "mc_mean_ug_lo": {
+   "lower": 5346000.0,
+   "metric": "mc_mean.loop_unity_gain_frequency_Hz",
+   "target": {
+    "kind": "linear",
+    "paper_value": 5940000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 308070.69598272553,
+   "unit": "Hz",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -5037929.304017275,
+   "normalized_margin": -0.9423736071861718,
+   "satisfied": false
+  },
+  "mc_sigma_ug": {
+   "upper": 375833.7,
+   "metric": "mc_sigma.loop_unity_gain_frequency_Hz",
+   "target": {
+    "kind": "linear",
+    "paper_value": 341667.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1348.835580944525,
+   "unit": "Hz",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 374484.86441905546,
+   "normalized_margin": 0.9964110839955423,
+   "satisfied": true
+  },
+  "lpo_typ_up": {
+   "upper": 0.8360000000000001,
+   "metric": "lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.76,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.5980114847074728,
+   "unit": "V",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.2379885152925273,
+   "normalized_margin": 0.2846752575269465,
+   "satisfied": true
+  },
+  "lpo_corner_up": {
+   "upper": 1.155,
+   "metric": "lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.8302943143357427,
+   "unit": "V",
+   "condition": "fs_T125_S1p06_kfs_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 0.3247056856642573,
+   "normalized_margin": 0.2811304637785777,
+   "satisfied": true
+  },
+  "mc_mean_lpo_up": {
+   "upper": 0.8360000000000001,
+   "metric": "mc_mean.lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.76,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.5983847031028873,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.2376152968971128,
+   "normalized_margin": 0.2842288240396086,
+   "satisfied": true
+  },
+  "lpo_typ_lo": {
+   "lower": 0.6839999999999999,
+   "metric": "lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.76,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.5980114847074728,
+   "unit": "V",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -0.08598851529252716,
+   "normalized_margin": -0.12571420364404556,
+   "satisfied": false
+  },
+  "lpo_corner_lo": {
+   "lower": 0.468,
+   "metric": "lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.52,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.3954441394528674,
+   "unit": "V",
+   "condition": "sf_Tm40_S0p94_ksf_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": -0.07255586054713264,
+   "normalized_margin": -0.15503389005797572,
+   "satisfied": false
+  },
+  "mc_mean_lpo_lo": {
+   "lower": 0.6839999999999999,
+   "metric": "mc_mean.lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.76,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.5983847031028873,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -0.08561529689711267,
+   "normalized_margin": -0.125168562715077,
+   "satisfied": false
+  },
+  "mc_sigma_lpo": {
+   "upper": 0.0073333370000000005,
+   "metric": "mc_sigma.lpo_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00666667,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.00159754055113754,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.005735796448862461,
+   "normalized_margin": 0.7821536701316822,
+   "satisfied": true
+  },
+  "vd_typ_up": {
+   "upper": 0.12019700000000001,
+   "metric": "delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.10927,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.10929893187479534,
+   "unit": "V",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.010898068125204677,
+   "normalized_margin": 0.09066838710787022,
+   "satisfied": true
+  },
+  "vd_corner_up": {
+   "upper": 0.16047899999999998,
+   "metric": "delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.14589,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.1458870589586445,
+   "unit": "V",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 0.014591941041355472,
+   "normalized_margin": 0.09092741755217489,
+   "satisfied": true
+  },
+  "mc_mean_vd_up": {
+   "upper": 0.119867,
+   "metric": "mc_mean.delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.10897,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.10927740234940203,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.01058959765059797,
+   "normalized_margin": 0.08834456231154506,
+   "satisfied": true
+  },
+  "vd_typ_lo": {
+   "lower": 0.098343,
+   "metric": "delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.10927,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.10929893187479534,
+   "unit": "V",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.010955931874795335,
+   "normalized_margin": 0.11140530464593652,
+   "satisfied": true
+  },
+  "vd_corner_lo": {
+   "lower": 0.076167,
+   "metric": "delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.08463,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.08463571977063855,
+   "unit": "V",
+   "condition": "sf_Tm40_S0p94_ksf_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 0.008468719770638553,
+   "normalized_margin": 0.11118620623942853,
+   "satisfied": true
+  },
+  "mc_mean_vd_lo": {
+   "lower": 0.098073,
+   "metric": "mc_mean.delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.10897,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.10927740234940203,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.011204402349402037,
+   "normalized_margin": 0.11424553495255614,
+   "satisfied": true
+  },
+  "mc_sigma_vd": {
+   "upper": 0.001466663,
+   "metric": "mc_sigma.delta_diode_voltage_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00133333,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.00011638102104296714,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.001350281978957033,
+   "normalized_margin": 0.9206491054571042,
+   "satisfied": true
+  },
+  "i_v1_typ_up": {
+   "upper": 1.1989999999999999e-06,
+   "metric": "output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.09e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.251966397572364e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -5.2966397572364234e-08,
+   "normalized_margin": -0.04417547754158819,
+   "satisfied": false
+  },
+  "i_v1_corner_up": {
+   "upper": 1.969e-06,
+   "metric": "output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.79e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.830665271492507e-06,
+   "unit": "A",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 1.3833472850749322e-07,
+   "normalized_margin": 0.07025633748476039,
+   "satisfied": true
+  },
+  "mc_mean_i_v1_up": {
+   "upper": 1.155e-06,
+   "metric": "mc_mean.output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.05e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2480750964609816e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -9.307509646098168e-08,
+   "normalized_margin": -0.08058449910041704,
+   "satisfied": false
+  },
+  "i_v1_typ_lo": {
+   "lower": 9.81e-07,
+   "metric": "output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.09e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.251966397572364e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.709663975723641e-07,
+   "normalized_margin": 0.27621447255082987,
+   "satisfied": true
+  },
+  "i_v1_corner_lo": {
+   "lower": 6.57e-07,
+   "metric": "output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 7.3e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 8.841117352199956e-07,
+   "unit": "A",
+   "condition": "ss_hh_Tm40_S0p94_kss_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 2.2711173521999555e-07,
+   "normalized_margin": 0.3456799622830982,
+   "satisfied": true
+  },
+  "mc_mean_i_v1_lo": {
+   "lower": 9.449999999999998e-07,
+   "metric": "mc_mean.output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.05e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2480750964609816e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 3.030750964609818e-07,
+   "normalized_margin": 0.32071438778939876,
+   "satisfied": true
+  },
+  "mc_sigma_i_v1": {
+   "upper": 1.21e-07,
+   "metric": "mc_sigma.output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.1e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.672371087441462e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.042762891255854e-07,
+   "normalized_margin": 0.8617875134345899,
+   "satisfied": true
+  },
+  "vdiff_nom_lo": {
+   "lower": -3.3e-05,
+   "metric": "diode_error_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": -3e-05,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.0024493463670477444,
+   "unit": "V",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0024823463670477445,
+   "normalized_margin": 75.22261718326497,
+   "satisfied": true
+  },
+  "vdiff_corner_lo": {
+   "lower": -3.3e-05,
+   "metric": "diode_error_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": -3e-05,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.0018855497825459588,
+   "unit": "V",
+   "condition": "fs_Tm40_S1p06_kfs_tl_vh",
+   "point": {},
+   "complete": true,
+   "margin": 0.0019185497825459589,
+   "normalized_margin": 58.13787219836239,
+   "satisfied": true
+  },
+  "vdiff_nom_up": {
+   "upper": 0.000737,
+   "metric": "diode_error_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00067,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.0024493463670477444,
+   "unit": "V",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -0.0017123463670477444,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "vdiff_corner_up": {
+   "upper": 0.000737,
+   "metric": "diode_error_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00067,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.0032005011680980022,
+   "unit": "V",
+   "condition": "ff_ll_T125_S0p94_kff_th_vl",
+   "point": {},
+   "complete": true,
+   "margin": -0.0024635011680980024,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "mc_sigma_vdiff": {
+   "upper": 0.008933837,
+   "metric": "mc_sigma.diode_error_V",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00812167,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.0011365957139000446,
+   "unit": "V",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 0.007797241286099955,
+   "normalized_margin": 0.8727763094513539,
+   "satisfied": true
+  },
+  "t_settle_typ_up": {
+   "upper": 5.389999999999999e-07,
+   "metric": "settling_time_s",
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.9e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 7.142405018927206e-06,
+   "unit": "s",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -6.603405018927206e-06,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "t_settle_corner_up": {
+   "upper": 1.166e-06,
+   "metric": "settling_time_s",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.06e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 8.90795727127746e-06,
+   "unit": "s",
+   "condition": "ss_hh_Tm40_S1p06_kss_tl_vh",
+   "point": {},
+   "complete": true,
+   "margin": -7.74195727127746e-06,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "mc_mean_t_settle_up": {
+   "upper": 5.5e-07,
+   "metric": "mc_mean.settling_time_s",
+   "target": {
+    "kind": "linear",
+    "paper_value": 5e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 7.147024510729991e-06,
+   "unit": "s",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -6.5970245107299915e-06,
+   "normalized_margin": -1.0,
+   "satisfied": false
+  },
+  "mc_sigma_t_settle": {
+   "upper": 4.216663e-08,
+   "metric": "mc_sigma.settling_time_s",
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.83333e-08,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.173560894117326e-08,
+   "unit": "s",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.0431021058826735e-08,
+   "normalized_margin": 0.2473762085997087,
+   "satisfied": true
+  },
+  "i0_typ_up": {
+   "upper": 1.3046e-06,
+   "metric": "output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.186e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2506617577679068e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.3938242232093216e-08,
+   "normalized_margin": 0.04134465907718321,
+   "satisfied": true
+  },
+  "i0_corner_up": {
+   "upper": 1.8766e-06,
+   "metric": "output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.706e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.8310849256888438e-06,
+   "unit": "A",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 4.551507431115615e-08,
+   "normalized_margin": 0.024254009544471995,
+   "satisfied": true
+  },
+  "mc_mean_i0_up": {
+   "upper": 1.2562e-06,
+   "metric": "mc_mean.output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.142e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2467831950229366e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 9.416804977063345e-09,
+   "normalized_margin": 0.00749626251955369,
+   "satisfied": true
+  },
+  "i0_typ_lo": {
+   "lower": 1.0674e-06,
+   "metric": "output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.186e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2506617577679068e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.8326175776790682e-07,
+   "normalized_margin": 0.17168986112788723,
+   "satisfied": true
+  },
+  "i0_corner_lo": {
+   "lower": 7.461e-07,
+   "metric": "output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 8.29e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.330423240598021e-07,
+   "unit": "A",
+   "condition": "fs_Tm40_S0p94_kfs_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 1.8694232405980208e-07,
+   "normalized_margin": 0.2505593406511219,
+   "satisfied": true
+  },
+  "mc_mean_i0_lo": {
+   "lower": 1.0278000000000001e-06,
+   "metric": "mc_mean.output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.142e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2467831950229366e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.1898319502293645e-07,
+   "normalized_margin": 0.21306012358721194,
+   "satisfied": true
+  },
+  "mc_sigma_i0": {
+   "upper": 1.213663e-07,
+   "metric": "mc_sigma.output_current_0_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.10333e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.675003424112714e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.0461626575887287e-07,
+   "normalized_margin": 0.8619877656225234,
+   "satisfied": true
+  },
+  "i1_typ_up": {
+   "upper": 1.3035e-06,
+   "metric": "output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.185e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2505165200437356e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.298347995626447e-08,
+   "normalized_margin": 0.040647088574042554,
+   "satisfied": true
+  },
+  "i1_corner_up": {
+   "upper": 1.8766e-06,
+   "metric": "output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.706e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.8308874322116492e-06,
+   "unit": "A",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 4.5712567788350715e-08,
+   "normalized_margin": 0.024359249594133388,
+   "satisfied": true
+  },
+  "mc_mean_i1_up": {
+   "upper": 1.2583999999999999e-06,
+   "metric": "mc_mean.output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.144e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.247118562183016e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.1281437816983928e-08,
+   "normalized_margin": 0.008964906084697973,
+   "satisfied": true
+  },
+  "i1_typ_lo": {
+   "lower": 1.0665e-06,
+   "metric": "output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.185e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2505165200437356e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.8401652004373555e-07,
+   "normalized_margin": 0.17254244729839244,
+   "satisfied": true
+  },
+  "i1_corner_lo": {
+   "lower": 7.452e-07,
+   "metric": "output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 8.28e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.32940798419584e-07,
+   "unit": "A",
+   "condition": "fs_Tm40_S0p94_kfs_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 1.87740798419584e-07,
+   "normalized_margin": 0.2519334385662695,
+   "satisfied": true
+  },
+  "mc_mean_i1_lo": {
+   "lower": 1.0296e-06,
+   "metric": "mc_mean.output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.144e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.247118562183016e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.175185621830159e-07,
+   "normalized_margin": 0.21126511478536897,
+   "satisfied": true
+  },
+  "mc_sigma_i1": {
+   "upper": 1.232e-07,
+   "metric": "mc_sigma.output_current_1_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.12e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.6447268699785922e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.0675273130021407e-07,
+   "normalized_margin": 0.8664994423718675,
+   "satisfied": true
+  },
+  "i2_typ_up": {
+   "upper": 1.3035e-06,
+   "metric": "output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.185e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.250372011830249e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.312798816975118e-08,
+   "normalized_margin": 0.040757950264481146,
+   "satisfied": true
+  },
+  "i2_corner_up": {
+   "upper": 1.8766e-06,
+   "metric": "output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.706e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.830711099767364e-06,
+   "unit": "A",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 4.5888900232635934e-08,
+   "normalized_margin": 0.024453213381986538,
+   "satisfied": true
+  },
+  "mc_mean_i2_up": {
+   "upper": 1.2705e-06,
+   "metric": "mc_mean.output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.155e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2467065622079603e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.3793437792039654e-08,
+   "normalized_margin": 0.018727617309751796,
+   "satisfied": true
+  },
+  "i2_typ_lo": {
+   "lower": 1.0665e-06,
+   "metric": "output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.185e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.250372011830249e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.8387201183024884e-07,
+   "normalized_margin": 0.17240694967674527,
+   "satisfied": true
+  },
+  "i2_corner_lo": {
+   "lower": 7.452e-07,
+   "metric": "output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 8.28e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.328346995926414e-07,
+   "unit": "A",
+   "condition": "fs_Tm40_S0p94_kfs_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 1.8763469959264142e-07,
+   "normalized_margin": 0.2517910622552891,
+   "satisfied": true
+  },
+  "mc_mean_i2_lo": {
+   "lower": 1.0395e-06,
+   "metric": "mc_mean.output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.155e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2467065622079603e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.0720656220796034e-07,
+   "normalized_margin": 0.19933291217697002,
+   "satisfied": true
+  },
+  "mc_sigma_i2": {
+   "upper": 1.21e-07,
+   "metric": "mc_sigma.output_current_2_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.1e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.6940031733539434e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.0405996826646057e-07,
+   "normalized_margin": 0.8599997377393435,
+   "satisfied": true
+  },
+  "i3_typ_up": {
+   "upper": 1.3035e-06,
+   "metric": "output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.185e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2502275922054036e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.327240779459647e-08,
+   "normalized_margin": 0.040868743992785936,
+   "satisfied": true
+  },
+  "i3_corner_up": {
+   "upper": 1.8755e-06,
+   "metric": "output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.705e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.8305359630707211e-06,
+   "unit": "A",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": 4.4964036929278976e-08,
+   "normalized_margin": 0.023974426515211398,
+   "satisfied": true
+  },
+  "mc_mean_i3_up": {
+   "upper": 1.2672e-06,
+   "metric": "mc_mean.output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.152e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2474375498738323e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.976245012616763e-08,
+   "normalized_margin": 0.015595367839463092,
+   "satisfied": true
+  },
+  "i3_typ_lo": {
+   "lower": 1.0665e-06,
+   "metric": "output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.185e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2502275922054036e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.8372759220540355e-07,
+   "normalized_margin": 0.1722715351199283,
+   "satisfied": true
+  },
+  "i3_corner_lo": {
+   "lower": 7.452e-07,
+   "metric": "output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 8.28e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.327242204830867e-07,
+   "unit": "A",
+   "condition": "fs_Tm40_S0p94_kfs_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 1.875242204830867e-07,
+   "normalized_margin": 0.25164280794831817,
+   "satisfied": true
+  },
+  "mc_mean_i3_lo": {
+   "lower": 1.0368e-06,
+   "metric": "mc_mean.output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.152e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.2474375498738323e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.1063754987383232e-07,
+   "normalized_margin": 0.20316121708510063,
+   "satisfied": true
+  },
+  "mc_sigma_i3": {
+   "upper": 1.285163e-07,
+   "metric": "mc_sigma.output_current_3_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.16833e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.6066514335533657e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.1244978566446633e-07,
+   "normalized_margin": 0.8749846180170635,
+   "satisfied": true
+  },
+  "idd_typ_up": {
+   "upper": 4.5365100000000004e-05,
+   "metric": "supply_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.1241e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 4.6753121051333865e-05,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": -1.388021051333861e-06,
+   "normalized_margin": -0.030596671259048493,
+   "satisfied": false
+  },
+  "idd_corner_up": {
+   "upper": 8.009210000000001e-05,
+   "metric": "supply_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 7.2811e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 8.494508191141097e-05,
+   "unit": "A",
+   "condition": "ff_ll_T125_S1p06_kff_th_vh",
+   "point": {},
+   "complete": true,
+   "margin": -4.8529819114109584e-06,
+   "normalized_margin": -0.06059251675771965,
+   "satisfied": false
+  },
+  "mc_mean_idd_up": {
+   "upper": 4.49988e-05,
+   "metric": "mc_mean.supply_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.0908e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 4.664308484723066e-05,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -1.6442848472306617e-06,
+   "normalized_margin": -0.03654063768879752,
+   "satisfied": false
+  },
+  "mc_sigma_idd": {
+   "upper": 1.432563e-06,
+   "metric": "mc_sigma.supply_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.30233e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.075273379799368e-07,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.1250356620200633e-06,
+   "normalized_margin": 0.7853306709862415,
+   "satisfied": true
+  },
+  "imax_typ_up": {
+   "upper": 1.6389999999999999e-06,
+   "metric": "max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.49e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.580385087361131e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.8614912638868933e-08,
+   "normalized_margin": 0.035762606857150055,
+   "satisfied": true
+  },
+  "imax_corner_up": {
+   "upper": 1.8809999999999999e-06,
+   "metric": "max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.71e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.830650052836429e-06,
+   "unit": "A",
+   "condition": "ff_ll_Tm40_S1p06_kff_tl_vh",
+   "point": {},
+   "complete": true,
+   "margin": 5.0349947163570947e-08,
+   "normalized_margin": 0.026767648678134477,
+   "satisfied": true
+  },
+  "mc_mean_imax_up": {
+   "upper": 1.584e-06,
+   "metric": "mc_mean.max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.44e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.5766665785320235e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 7.333421467976514e-09,
+   "normalized_margin": 0.004629685270187193,
+   "satisfied": true
+  },
+  "imax_typ_lo": {
+   "lower": 1.341e-06,
+   "metric": "max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.49e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.580385087361131e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.39385087361131e-07,
+   "normalized_margin": 0.17851236939681656,
+   "satisfied": true
+  },
+  "imax_corner_lo": {
+   "lower": 1.188e-06,
+   "metric": "max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.32e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.404916614244588e-06,
+   "unit": "A",
+   "condition": "ss_hh_Tm40_S0p94_kss_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 2.1691661424458787e-07,
+   "normalized_margin": 0.18258974263012445,
+   "satisfied": true
+  },
+  "mc_mean_imax_lo": {
+   "lower": 1.296e-06,
+   "metric": "mc_mean.max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.44e-06,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.5766665785320235e-06,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.806665785320235e-07,
+   "normalized_margin": 0.2165637180031046,
+   "satisfied": true
+  },
+  "mc_sigma_imax": {
+   "upper": 1.21e-07,
+   "metric": "mc_sigma.max_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.1e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.580755245831197e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.0519244754168804e-07,
+   "normalized_margin": 0.8693590705924631,
+   "satisfied": true
+  },
+  "imin_typ_up": {
+   "upper": 1.034e-06,
+   "metric": "min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 9.4e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.959479056574597e-07,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 3.805209434254031e-08,
+   "normalized_margin": 0.03680086493475852,
+   "satisfied": true
+  },
+  "imin_corner_up": {
+   "upper": 1.177e-06,
+   "metric": "min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.07e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.153619638707056e-06,
+   "unit": "A",
+   "condition": "ff_ll_Tm40_S1p06_kff_tl_vh",
+   "point": {},
+   "complete": true,
+   "margin": 2.3380361292943884e-08,
+   "normalized_margin": 0.0198643681333423,
+   "satisfied": true
+  },
+  "mc_mean_imin_up": {
+   "upper": 9.9e-07,
+   "metric": "mc_mean.min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 9e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.919428724187878e-07,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": -1.9428724187877188e-09,
+   "normalized_margin": -0.0019624973927148672,
+   "satisfied": false
+  },
+  "imin_typ_lo": {
+   "lower": 8.46e-07,
+   "metric": "min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 9.4e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.959479056574597e-07,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.4994790565745963e-07,
+   "normalized_margin": 0.17724338730196174,
+   "satisfied": true
+  },
+  "imin_corner_lo": {
+   "lower": 7.47e-07,
+   "metric": "min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 8.3e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 8.84110634750069e-07,
+   "unit": "A",
+   "condition": "ss_hh_Tm40_S0p94_kss_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 1.3711063475006902e-07,
+   "normalized_margin": 0.1835483731593963,
+   "satisfied": true
+  },
+  "mc_mean_imin_lo": {
+   "lower": 8.1e-07,
+   "metric": "mc_mean.min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 9e-07,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 9.919428724187878e-07,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.819428724187878e-07,
+   "normalized_margin": 0.2246208301466516,
+   "satisfied": true
+  },
+  "mc_sigma_imin": {
+   "upper": 1.21e-07,
+   "metric": "mc_sigma.min_output_current_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.1e-07,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 1.724867452848456e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.0375132547151545e-07,
+   "normalized_margin": 0.8574489708389705,
+   "satisfied": true
+  },
+  "slope_typ_up": {
+   "upper": 3.6849999999999996e-09,
+   "metric": "ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.35e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.5420435254767958e-09,
+   "unit": "A/C",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.429564745232038e-10,
+   "normalized_margin": 0.03879415862230768,
+   "satisfied": true
+  },
+  "slope_corner_up": {
+   "upper": 4.224e-09,
+   "metric": "ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.84e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 4.104568466630006e-09,
+   "unit": "A/C",
+   "condition": "ff_ll_Tm40_S0p94_kff_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 1.1943153336999406e-10,
+   "normalized_margin": 0.02827451074100238,
+   "satisfied": true
+  },
+  "mc_mean_slope_up": {
+   "upper": 3.619e-09,
+   "metric": "mc_mean.ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.29e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.5437800370499126e-09,
+   "unit": "A/C",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 7.521996295008744e-11,
+   "normalized_margin": 0.020784736930115347,
+   "satisfied": true
+  },
+  "slope_typ_lo": {
+   "lower": 3.015e-09,
+   "metric": "ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.35e-09,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.5420435254767958e-09,
+   "unit": "A/C",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.270435254767958e-10,
+   "normalized_margin": 0.1748071394616238,
+   "satisfied": true
+  },
+  "slope_corner_lo": {
+   "lower": 2.6729999999999998e-09,
+   "metric": "ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.97e-09,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.1494740982516383e-09,
+   "unit": "A/C",
+   "condition": "ss_hh_Tm40_S1p06_kss_tl_vh",
+   "point": {},
+   "complete": true,
+   "margin": 4.764740982516386e-10,
+   "normalized_margin": 0.1782544325670178,
+   "satisfied": true
+  },
+  "mc_mean_slope_lo": {
+   "lower": 2.961e-09,
+   "metric": "mc_mean.ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 3.29e-09,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 3.5437800370499126e-09,
+   "unit": "A/C",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 5.827800370499126e-10,
+   "normalized_margin": 0.19681865486319236,
+   "satisfied": true
+  },
+  "mc_sigma_slope": {
+   "upper": 1.686663e-10,
+   "metric": "mc_sigma.ptat_slope_A_per_C",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.53333e-10,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 8.890626291631025e-12,
+   "unit": "A/C",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.5977567370836898e-10,
+   "normalized_margin": 0.9472886623372243,
+   "satisfied": true
+  },
+  "err_max_typ_up": {
+   "upper": 9.064e-09,
+   "metric": "linearity_error_max_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 8.24e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 5.731787459996286e-09,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 3.332212540003713e-09,
+   "normalized_margin": 0.36763156884418724,
+   "satisfied": true
+  },
+  "err_max_corner_up": {
+   "upper": 1.0351e-08,
+   "metric": "linearity_error_max_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 9.41e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 6.5932094014606906e-09,
+   "unit": "A",
+   "condition": "ff_ll_Tm40_S0p94_kff_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 3.757790598539309e-09,
+   "normalized_margin": 0.36303647942607564,
+   "satisfied": true
+  },
+  "mc_mean_err_max_up": {
+   "upper": 8.536e-09,
+   "metric": "mc_mean.linearity_error_max_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 7.76e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 5.730620330336315e-09,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 2.805379669663684e-09,
+   "normalized_margin": 0.32865272606181867,
+   "satisfied": true
+  },
+  "mc_sigma_err_max": {
+   "upper": 1.162337e-09,
+   "metric": "mc_sigma.linearity_error_max_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.05667e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 2.1470347418690603e-11,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 1.1408666525813095e-09,
+   "normalized_margin": 0.9815282939296517,
+   "satisfied": true
+  },
+  "err_min_typ_lo": {
+   "lower": -2.0185e-08,
+   "metric": "linearity_error_min_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": -1.835e-08,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": -1.3904548805839584e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 6.280451194160415e-09,
+   "normalized_margin": 0.31114447332972084,
+   "satisfied": true
+  },
+  "err_min_corner_lo": {
+   "lower": -2.3023e-08,
+   "metric": "linearity_error_min_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": -2.093e-08,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": -1.5930759377682897e-08,
+   "unit": "A",
+   "condition": "ff_ll_Tm40_S0p94_kff_tl_vl",
+   "point": {},
+   "complete": true,
+   "margin": 7.0922406223171035e-09,
+   "normalized_margin": 0.3080502376891414,
+   "satisfied": true
+  },
+  "mc_mean_err_min_lo": {
+   "lower": -1.7842e-08,
+   "metric": "mc_mean.linearity_error_min_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": -1.622e-08,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": -1.390275453025481e-08,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 3.939245469745188e-09,
+   "normalized_margin": 0.22078497196195426,
+   "satisfied": true
+  },
+  "mc_sigma_err_min": {
+   "upper": 4.4055e-09,
+   "metric": "mc_sigma.linearity_error_min_A",
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.005e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 8.523364355831738e-11,
+   "unit": "A",
+   "condition": "tt_T27_S1p00_MC",
+   "point": {},
+   "complete": true,
+   "margin": 4.320266356441683e-09,
+   "normalized_margin": 0.9806529012465515,
+   "satisfied": true
+  },
+  "saturation": {
+   "upper": 0,
+   "metric": "devices_out_of_saturation",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  },
+  "forward_biased_junctions": {
+   "upper": 0,
+   "metric": "forward_biased_junctions",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  },
+  "devices_outside_rails": {
+   "upper": 0,
+   "metric": "devices_outside_rails",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": -1.0,
+ "validity": {
+  "saturation": {
+   "value": 0.0,
+   "satisfied": true
+  },
+  "forward_biased_junctions": {
+   "value": 0.0,
+   "satisfied": true
+  },
+  "devices_outside_rails": {
+   "value": 0.0,
+   "satisfied": true
+  }
+ }
+}

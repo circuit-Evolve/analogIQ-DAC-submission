@@ -1,0 +1,35 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task rvco24_um_task_001  topology rvco24_um
+// recipe osc_pnoise_se_v1 v1  condition NN_T27_S1p00 (models NN, 27 C, supply 1.8 V)
+// request rvco24_um_task_001__plan  candidate 6be86fc6bd9efaf9
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters cl=1e-14 vsup=1.8
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BN={{V_BN}} V_BP={{V_BP}}
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_VBP (b_VBP 0) vsource dc=V_BP
+VB_VBN (b_VBN 0) vsource dc=V_BN
+
+CL1 (outp 0) capacitor c=cl
+// Start-up kick: current pulse into outp (start-up assistance, see recipe doc).
+IKICK (0 outp) isource type=pulse val0=0 val1=0.0001 delay=0 rise=5.0000000000000005e-12 fall=5.0000000000000005e-12 width=5e-11
+
+XDUT (vdd b_VSS b_VBP b_VBN outp) repaired_core C_LOAD={{C_LOAD}} L_HSW={{L_HSW}} L_LHD={{L_LHD}} L_LLD={{L_LLD}} L_LSW={{L_LSW}} L_NI={{L_NI}} L_NS={{L_NS}} L_PI={{L_PI}} L_PS={{L_PS}} L_SW1={{L_SW1}} L_SW2={{L_SW2}} L_SW5={{L_SW5}} L_SW6={{L_SW6}} N_HSW={{N_HSW}} N_LHD={{N_LHD}} N_LLD={{N_LLD}} N_LSW={{N_LSW}} N_NI={{N_NI}} N_NS={{N_NS}} N_PI={{N_PI}} N_PS={{N_PS}} N_SW1={{N_SW1}} N_SW2={{N_SW2}} N_SW5={{N_SW5}} N_SW6={{N_SW6}} W_HSW={{W_HSW}} W_LHD={{W_LHD}} W_LLD={{W_LLD}} W_LSW={{W_LSW}} W_NI={{W_NI}} W_NS={{W_NS}} W_PI={{W_PI}} W_PS={{W_PS}} W_SW1={{W_SW1}} W_SW2={{W_SW2}} W_SW5={{W_SW5}} W_SW6={{W_SW6}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_VBN:p VB_VBP:p VB_VSS:p VSUP:p outp vdd
+
+pss1 (outp 0) pss fund=15000000.0 harms=30 tstab=2e-06 errpreset=conservative
+pn1 (outp 0) pnoise start=500000.0 stop=2000000.0 dec=10 maxsideband=30 sweeptype=relative relharmnum=1 noisetype=timeaverage
+pss2 (outp 0) pss fund=3000000.0 harms=30 tstab=2e-06 errpreset=conservative
+pn2 (outp 0) pnoise start=500000.0 stop=2000000.0 dec=10 maxsideband=30 sweeptype=relative relharmnum=1 noisetype=timeaverage
+pss3 (outp 0) pss fund=60000000.0 harms=30 tstab=2e-06 errpreset=conservative
+pn3 (outp 0) pnoise start=500000.0 stop=2000000.0 dec=10 maxsideband=30 sweeptype=relative relharmnum=1 noisetype=timeaverage

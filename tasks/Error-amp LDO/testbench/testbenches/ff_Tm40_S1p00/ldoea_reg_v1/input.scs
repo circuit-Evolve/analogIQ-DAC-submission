@@ -1,0 +1,34 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ldo_erroramp_dac_task_001  topology ldo_erroramp_dac
+// recipe ldoea_reg_v1 v1  condition ff_Tm40_S1p00 (models ff, -40 C, supply 1.8 V)
+// request ldo_erroramp_dac_task_001__plan  candidate 81f2d7777703330d
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs" section=ff
+include "dut.scs"
+
+parameters vin=1.8 iload=0.025 cout=1e-10
+// Supplies (charged to the DUT power metrics).
+VIN (vin 0) vsource dc=vin mag=1
+// External bias (topology external_bias; reported separately as bias power).
+VB_VDD_core (vin b_VDD_core) vsource dc=0.0
+VB_gnd (b_gnd 0) vsource dc=0.0
+
+VREFS (vref 0) vsource dc=0.6
+// Load: behavioural current sink (replay I7, off below ~0.1 V) out->ground and output capacitor (+ESR).
+ILOAD (out 0) bsource i=iload*0.5*(1+tanh((v(out)-0.1)/0.02))
+COUT (out 0) capacitor c=cout
+
+XDUT (b_VDD_core vin out vref b_gnd) ldo_erroramp_dac_dut C_C=1e-12 C_FF=1e-12 C_G=1e-12 I_BIAS=1e-05 L_BUF=1e-06 L_CS2=1e-06 L_IN=1e-06 L_LD=1e-06 L_MIR=1e-06 L_PASS=1e-06 M_BUF=1.0 M_CS2=1.0 M_IN=1.0 M_LD=1.0 M_MIR=1.0 M_PASS=1.0 M_SNK=1.0 NF_BUF=1.0 NF_CS2=1.0 NF_IN=1.0 NF_LD=1.0 NF_MIR=1.0 NF_PASS=1.0 NF_SNK=1.0 R_B=10000.0 R_FB_BOT=10000.0 R_FB_TOP=10000.0 R_G=10000.0 R_S=10000.0 R_Z=10000.0 W_BUF=1e-06 W_CS2=1e-06 W_IN=1e-06 W_LD=1e-06 W_MIR=1e-06 W_PASS=1e-06 W_SNK=1e-06
+
+opts options temp=-40.0 tnom=27 reltol=0.0001 save=selected
+save VB_VDD_core:p VB_gnd:p VIN:p XDUT.net1 XDUT.net11 XDUT.net12 XDUT.net13 XDUT.net6 out vin vref
+
+ldoea_opts options reltol=1e-6 vabstol=1e-9 iabstol=1e-12 gmin=1e-12
+stb1 stb start=0.1 stop=1000000000.0 dec=100 probe=XDUT.IPRB_LOOP
+ac1 ac start=1.0 stop=100000000.0 dec=100
+tran1 tran stop=1.0 maxiters=5
+dc1 dc param=iload start=0.0 stop=0.05
+ld2 alter param=iload value=0.0001
+stb2 stb start=0.1 stop=1000000000.0 dec=100 probe=XDUT.IPRB_LOOP

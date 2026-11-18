@@ -1,0 +1,213 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "SS_T27_S1p00/gmc1113_ota_cm_v1",
+ "recipe_id": "gmc1113_ota_cm_v1",
+ "recipe_version": 2,
+ "points": [
+  {}
+ ],
+ "expected_outputs": [
+  "raw/dcOp.dc",
+  "raw/ac.ac"
+ ],
+ "context": {
+  "job_id": "SS_T27_S1p00/gmc1113_ota_cm_v1",
+  "condition": {
+   "id": "SS_T27_S1p00",
+   "model_set": "SS",
+   "temperature_C": 27.0,
+   "supply_scale": 1.0,
+   "supply_V": 1.0,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs",
+     "section": "SS"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 1.0
+  },
+  "operating": {
+   "supply_V": 1.0,
+   "input_common_mode_ratio": 0.5
+  },
+  "recipe_settings": {},
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "gmc_reconstructed_131126",
+   "family": "filter",
+   "interface_type": "fully_differential_fourth_order_lowpass",
+   "technology_id": "gpdk090",
+   "approval_status": "unapproved",
+   "source": {
+    "title": "Design of Fourth Order Gm-C Low-Pass Filter for Microsensor Readout (Pugazhenthi R, Ananiah Durai S, Nabihah Ahmad; IJIE 18(1), 2026, 59\u201371)",
+    "doi": "10.30880/ijie.2026.18.01.005",
+    "figure": "Fig.2 interpreted OTA; experimental four-state replacement of ambiguous Fig.3",
+    "paper_exact": false,
+    "modifications": [
+     "M3/M4 drain/gate interpretation retained from verified candidate.",
+     "Four 32-MOS OTAs, four differential capacitors and sixteen physical diode-feedback MOS; not a recovered paper-exact Fig.3.",
+     "Source final.scs uses standard-start geometry. Golden values are curator-only. No sizing or connection changes during import."
+    ]
+   },
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "gmc_filter",
+    "port_order": [
+     "VIP",
+     "VIM",
+     "VOP",
+     "VOM",
+     "VT",
+     "VREF",
+     "VDD",
+     "GND"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input": "VIP",
+    "input_negative": "VIM",
+    "output": "VOP",
+    "output_negative": "VOM",
+    "output_common_mode_reference": "VREF",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VT": {
+     "kind": "voltage",
+     "value": 0.5,
+     "provenance": "Sizing variable, common at every condition"
+    },
+    "GND": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "Ground reference, benchmark rule G3"
+    }
+   },
+   "probes": [],
+   "op_check": {
+    "exclude": [],
+    "note": "Nominal complete-filter operating point; every transistor retained in diagnostics. Saturation acceptance waived by user2026-11-13, not passed. Junction and voltage gates remain enforced."
+   },
+   "known_issues": [
+    "Not paper-exact; reconstructed filter explicitly authorized for task import.",
+    "Input noise density evaluated at assumed1MHz; PM is isolated OTA unity-feedback estimate, not STB.",
+    "Limits reproduce user-approved15% literal-dB values (exception to general linear-domain dB rule); cutoff explicitly10\u201320MHz.",
+    "Stored golden has very narrow margins; retain full precision."
+   ]
+  },
+  "subckt_name": "gmc_filter",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "input_p_w": 1.616373198494229e-06,
+   "input_p_l": 1e-07,
+   "input_p_m": 1.0,
+   "input_n_w": 6.91011125473508e-07,
+   "input_n_l": 1e-07,
+   "input_n_m": 1.0,
+   "cross_n_w": 6.097387050451806e-07,
+   "cross_n_l": 2.1971700680460613e-07,
+   "cross_n_m": 1.0,
+   "cross_p_w": 5.76537527379325e-07,
+   "cross_p_l": 1.2761518665623804e-07,
+   "cross_p_m": 1.0,
+   "load_n_w": 3.312031907215333e-07,
+   "load_n_l": 1.0581221839827198e-07,
+   "load_n_m": 1.0,
+   "load_p_w": 5.266863858166174e-07,
+   "load_p_l": 1.6428751788715384e-07,
+   "load_p_m": 1.0,
+   "cm_out_n_w": 8.801419180712912e-07,
+   "cm_out_n_l": 2.1179831998512523e-07,
+   "cm_out_n_m": 1.0,
+   "cm_out_p_w": 2.460619766730277e-06,
+   "cm_out_p_l": 1.1757870980803943e-07,
+   "cm_out_p_m": 1.0,
+   "cm_node_n_w": 1.4197553124291605e-06,
+   "cm_node_n_l": 4.783452882664011e-07,
+   "cm_node_n_m": 1.0,
+   "cm_node_p_w": 8.748789928694398e-07,
+   "cm_node_p_l": 3.556196510507261e-07,
+   "cm_node_p_m": 1.0,
+   "cm_fb_n_w": 3.445955075140213e-07,
+   "cm_fb_n_l": 2.88066950542238e-07,
+   "cm_fb_n_m": 1.0,
+   "cm_fb_p_w": 1.19871740118854e-06,
+   "cm_fb_p_l": 1.9370711174580699e-07,
+   "cm_fb_p_m": 1.0,
+   "bias_n_w": 6.245442150019207e-07,
+   "bias_n_l": 2.1967325249632536e-07,
+   "bias_n_m": 1.0,
+   "bias_p_w": 2.922769224210927e-06,
+   "bias_p_l": 2.379293521829501e-07,
+   "bias_p_m": 1.0,
+   "M19_w": 1.8948106084351113e-06,
+   "M19_l": 4.139611362942147e-07,
+   "M19_m": 1.0,
+   "M20_w": 1.4532706843959067e-06,
+   "M20_l": 2.697555715275229e-07,
+   "M20_m": 1.0,
+   "M23_w": 2.5646499510126416e-06,
+   "M23_l": 4.7458098123342276e-07,
+   "M23_m": 1.0,
+   "M24_w": 2.4142877712775313e-06,
+   "M24_l": 2.22979261268972e-07,
+   "M24_m": 1.0,
+   "M25_w": 7.145921500956735e-07,
+   "M25_l": 1.8376225872228054e-07,
+   "M25_m": 1.0,
+   "M28_w": 3.130736243000742e-06,
+   "M28_l": 2.511109326302167e-07,
+   "M28_m": 1.0,
+   "feedback_n_w": 6.834583309357679e-07,
+   "feedback_n_l": 1.0012820146194029e-07,
+   "feedback_n_m": 1.0,
+   "feedback_p_w": 1.031433708291801e-06,
+   "feedback_p_l": 1e-07,
+   "feedback_p_m": 1.0,
+   "cap_b_F": 7.884111169815835e-13,
+   "cap_d_F": 3.2331646491198457e-12
+  },
+  "numerics": {
+   "reltol": 1e-05,
+   "errpreset": "conservative",
+   "tran_points_per_clock_period": 1000,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "vt_bias_V": 0.5647580330549347
+  },
+  "bias_variables": {
+   "VT": "vt_bias_V"
+  },
+  "devices": {
+   "gpdk090_nmos1v": {
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-07,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.2,
+    "max_supply_V": 1.32,
+    "kind": "nmos",
+    "fold_wide": false
+   },
+   "gpdk090_pmos1v": {
+    "min_w_m": 1.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-07,
+    "max_l_m": 1e-05,
+    "nominal_supply_V": 1.2,
+    "max_supply_V": 1.32,
+    "kind": "pmos",
+    "fold_wide": false
+   },
+   "gpdk090_npn": {
+    "kind": "bjt",
+    "nominal_supply_V": 12.0,
+    "max_supply_V": 13.2
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

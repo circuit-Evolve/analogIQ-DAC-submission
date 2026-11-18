@@ -1,0 +1,169 @@
+// Generated for: spectre
+// Generated on: Nov 11 14:14:02 2026
+// Design library name: DAC_20261111_NVMCP_UPR
+// Design cell name: nvm_chargepump_candidate_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VS=3.3
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: pump_stage_1_candidate
+// View name: schematic
+subckt pump_stage_1_candidate CLKA CLKB GND VIN VOUT
+    MNB (B A VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MNA (A B VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MPB (B A VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    MPA (A B VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    CS (VOUT GND) capacitor c=2.1p
+    CB (B CLKB) capacitor c=1.17p
+    CA (A CLKA) capacitor c=1.17p
+ends pump_stage_1_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: pump_stage_2_candidate
+// View name: schematic
+subckt pump_stage_2_candidate CLKA CLKB GND VIN VOUT
+    MNB (B A VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MNA (A B VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MPB (B A VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    MPA (A B VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    CS (VOUT GND) capacitor c=2.1p
+    CB (B CLKB) capacitor c=1.17p
+    CA (A CLKA) capacitor c=1.17p
+ends pump_stage_2_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: pump_stage_3_candidate
+// View name: schematic
+subckt pump_stage_3_candidate CLKA CLKB GND VIN VOUT
+    MNB (B A VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MNA (A B VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MPB (B A VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    MPA (A B VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    CS (VOUT GND) capacitor c=2.1p
+    CB (B CLKB) capacitor c=1.17p
+    CA (A CLKA) capacitor c=1.17p
+ends pump_stage_3_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: pump_stage_4_candidate
+// View name: schematic
+subckt pump_stage_4_candidate CLKA CLKB GND VIN VOUT
+    MNB (B A VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MNA (A B VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MPB (B A VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    MPA (A B VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    CS (VOUT GND) capacitor c=2.1p
+    CB (B CLKB) capacitor c=1.17p
+    CA (A CLKA) capacitor c=1.17p
+ends pump_stage_4_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: pump_stage_5_candidate
+// View name: schematic
+subckt pump_stage_5_candidate CLKA CLKB GND VIN VOUT
+    MNB (B A VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MNA (A B VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MPB (B A VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    MPA (A B VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=1.95 l=0.6 nf=1 \
+        mult=1 ad=0.5655 as=0.5655 pd=4.4799999999999995 \
+        ps=4.4799999999999995 sa=0 sb=0 sd=0
+    CS (VOUT GND) capacitor c=2.1p
+    CB (B CLKB) capacitor c=1.17p
+    CA (A CLKA) capacitor c=1.17p
+ends pump_stage_5_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: pump_stage_6_candidate
+// View name: schematic
+subckt pump_stage_6_candidate CLKA CLKB GND VIN VOUT
+    MNB (B A VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MNA (A B VIN VIN) sky130_fd_pr__nfet_03v3_nvt w=0.6 l=0.9 nf=1 mult=1 \
+        ad=0.174 as=0.174 pd=1.7799999999999998 ps=1.7799999999999998 sa=0 \
+        sb=0 sd=0
+    MPB (B A VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=0.8 l=0.6 nf=1 \
+        mult=1 ad=0.23199999999999998 as=0.23199999999999998 pd=2.18 \
+        ps=2.18 sa=0 sb=0 sd=0
+    MPA (A B VOUT VOUT) sky130_fd_pr__pfet_g5v0d10v5 w=0.8 l=0.6 nf=1 \
+        mult=1 ad=0.23199999999999998 as=0.23199999999999998 pd=2.18 \
+        ps=2.18 sa=0 sb=0 sd=0
+    CS (VOUT GND) capacitor c=120p
+    CB (B CLKB) capacitor c=1.17p
+    CA (A CLKA) capacitor c=1.17p
+ends pump_stage_6_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: nvm_chargepump_candidate
+// View name: schematic
+subckt nvm_chargepump_candidate CLKA CLKB GND OUT VDD
+    STAGE1 (CLKA CLKB GND VDD S1) pump_stage_1_candidate
+    STAGE2 (CLKA CLKB GND S1 S2) pump_stage_2_candidate
+    STAGE3 (CLKA CLKB GND S2 S3) pump_stage_3_candidate
+    STAGE4 (CLKA CLKB GND S3 S4) pump_stage_4_candidate
+    STAGE5 (CLKA CLKB GND S4 S5) pump_stage_5_candidate
+    STAGE6 (CLKA CLKB GND S5 OUT) pump_stage_6_candidate
+ends nvm_chargepump_candidate
+// End of subcircuit definition.
+
+// Library name: DAC_20261111_NVMCP_UPR
+// Cell name: nvm_chargepump_candidate_tb
+// View name: schematic
+DUT (CLKA CLKB 0 OUT VDD) nvm_chargepump_candidate
+VDD_SRC (VDD 0) vsource dc=VS type=dc
+CLK_B (CLKB 0) vsource type=pulse val0=0 val1=VS period=50n delay=26n \
+        rise=1n fall=1n width=22n
+CLK_A (CLKA 0) vsource type=pulse val0=0 val1=VS period=50n delay=1n \
+        rise=1n fall=1n width=22n
+RLOAD (OUT 0) resistor r=1M
+simulatorOptions options scale=1e-6 reltol=1e-5 vabstol=1e-8 iabstol=1e-13 temp=27 tnom=27
+tran tran stop=300u maxstep=0.25n skipdc=yes errpreset=conservative
+save OUT VDD CLKA CLKB VDD_SRC:p CLK_A:p CLK_B:p DUT.S1 DUT.S2 DUT.S3 DUT.S4 DUT.S5 DUT.STAGE1.A DUT.STAGE1.B DUT.STAGE2.A DUT.STAGE2.B DUT.STAGE3.A DUT.STAGE3.B DUT.STAGE4.A DUT.STAGE4.B DUT.STAGE5.A DUT.STAGE5.B DUT.STAGE6.A DUT.STAGE6.B
+saveOptions options save=selected

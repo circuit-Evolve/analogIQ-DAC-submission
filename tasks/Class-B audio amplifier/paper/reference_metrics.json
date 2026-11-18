@@ -1,0 +1,307 @@
+{
+  "source_files": [
+    {
+      "path": "<ANALOGIQ>/golden/02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac/paper/JollyGS_design_simulation_and_characterisation_of_a_class-B_audio_power_amplifier.pdf",
+      "sha256": "911562a4e6460520f3417f1dc07534e0936c3c38f84366c173a0358089a774d5",
+      "source_type": "paper_or_technical_report",
+      "archived_relative_path": "JollyGS_design_simulation_and_characterisation_of_a_class-B_audio_power_amplifier.pdf"
+    }
+  ],
+  "testbench_pack": "<ANALOGIQ>/testbenches/02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac/poweramp_dac_task_001",
+  "retained_measurements": {
+    "SR_fall_V_per_us": {
+      "resultID": 1,
+      "testID": 1,
+      "unit": "V/us",
+      "reference": {
+        "value": 230,
+        "unit": "V/us",
+        "citation": "PDF/printed page 13, Fig.11 caption; page 9 concluding text",
+        "setup": "Simulated 10–90% square-wave edges with input filter capacitor C16 removed."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "SR_rise_V_per_us": {
+      "resultID": 2,
+      "testID": 1,
+      "unit": "V/us",
+      "reference": {
+        "value": 230,
+        "unit": "V/us",
+        "citation": "PDF/printed page 13, Fig.11 caption; page 9 concluding text",
+        "setup": "Simulated 10–90% square-wave edges with input filter capacitor C16 removed."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Vout_pp": {
+      "resultID": 5,
+      "testID": 2,
+      "unit": "V",
+      "reference": {
+        "value": 10,
+        "unit": "V",
+        "citation": "PDF/printed page 9, Table 2, Vout=10 Vpp row",
+        "setup": "50 Hz, 8 ohm load, output 10 Vpp",
+        "all_output_amplitudes_Vpp": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "all_values": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "note": "The 10 Vpp row is an amplitude-specific reference, not a universal minimum; select row matching measured output. Vout itself is an imposed characterization condition."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Av1": {
+      "resultID": 6,
+      "testID": 2,
+      "unit": "V/V",
+      "reference": {
+        "value": 7860,
+        "unit": "V/V",
+        "citation": "PDF/printed page 9, Table 2, Vout=10 Vpp row",
+        "setup": "50 Hz, 8 ohm load, output 10 Vpp",
+        "all_output_amplitudes_Vpp": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "all_values": [
+          7860,
+          7930,
+          7970,
+          7970,
+          8020,
+          8010
+        ],
+        "note": "The 10 Vpp row is an amplitude-specific reference, not a universal minimum; select row matching measured output. Vout itself is an imposed characterization condition."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "gm2": {
+      "resultID": 7,
+      "testID": 2,
+      "unit": "A/V",
+      "reference": {
+        "value": 0.0101,
+        "unit": "A/V",
+        "citation": "PDF/printed page 9, Table 2, Vout=10 Vpp row",
+        "setup": "50 Hz, 8 ohm load, output 10 Vpp",
+        "all_output_amplitudes_Vpp": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "all_values": [
+          0.0101,
+          0.0101,
+          0.0101,
+          0.0101,
+          0.0101,
+          0.0101
+        ],
+        "note": "The 10 Vpp row is an amplitude-specific reference, not a universal minimum; select row matching measured output. Vout itself is an imposed characterization condition."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "AI": {
+      "resultID": 8,
+      "testID": 2,
+      "unit": "A/A",
+      "reference": {
+        "value": 25.3,
+        "unit": "A/A",
+        "citation": "PDF/printed page 9, Table 2, Vout=10 Vpp row",
+        "setup": "50 Hz, 8 ohm load, output 10 Vpp",
+        "all_output_amplitudes_Vpp": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "all_values": [
+          25.3,
+          25.5,
+          25.7,
+          26.0,
+          25.9,
+          26.6
+        ],
+        "note": "The 10 Vpp row is an amplitude-specific reference, not a universal minimum; select row matching measured output. Vout itself is an imposed characterization condition."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "rm": {
+      "resultID": 9,
+      "testID": 2,
+      "unit": "ohm",
+      "reference": {
+        "value": 1490,
+        "unit": "ohm",
+        "citation": "PDF/printed page 9, Table 2, Vout=10 Vpp row",
+        "setup": "50 Hz, 8 ohm load, output 10 Vpp",
+        "all_output_amplitudes_Vpp": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "all_values": [
+          1490,
+          1330,
+          1180,
+          1030,
+          896,
+          765
+        ],
+        "note": "The 10 Vpp row is an amplitude-specific reference, not a universal minimum; select row matching measured output. Vout itself is an imposed characterization condition."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Total_gain_dB": {
+      "resultID": 10,
+      "testID": 2,
+      "unit": "dB",
+      "reference": {
+        "value": 129.4,
+        "unit": "dB",
+        "citation": "PDF/printed page 9, Table 2, Vout=10 Vpp row",
+        "setup": "50 Hz, 8 ohm load, output 10 Vpp",
+        "all_output_amplitudes_Vpp": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "all_values": [
+          129.4,
+          128.3,
+          127.4,
+          126.4,
+          125.3,
+          123.9
+        ],
+        "note": "The 10 Vpp row is an amplitude-specific reference, not a universal minimum; select row matching measured output. Vout itself is an imposed characterization condition."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    }
+  },
+  "setup": {
+    "technology": "discrete_bjt",
+    "models": [
+      "fixed_models"
+    ],
+    "temperatures_C": [
+      -40.0,
+      27.0,
+      85.0
+    ],
+    "supplies_V": [
+      37.8,
+      42.0,
+      46.2
+    ]
+  },
+  "caveats": [
+    "Use simulated slew 230 V/us; measured hardware slew about 130 V/us (page 20) is separately attributed to generator rise time. Calculated bound 213 V/us (page 6) is yet another quantity.",
+    "Table 2 stages vary with output amplitude. In particular rm and total gain fall materially between 10 and 60 Vpp; one universal paper target loses this context.",
+    "Paper table caption mentions summing Q10/Q12 collector currents, Table 1 labels Q11+Q13, and Eq.16 writes Q11 alone. Retained expression sums Q11 and Q13 and matches Table 1 magnitudes; record inconsistency rather than changing measurement.",
+    "Original simulations are LTspice; retained pack uses Spectre with fixed discrete BJT models, nominal +/-42 V, corner rails +/-37.8 or +/-46.2 V and temperatures -40/27/85 C. No original table covers this retained corner grid.",
+    "Retained sine amplitude vin_pk=0.174216 V at 50 Hz targets about 10 Vpp; use saved actual Vout_pp to confirm amplitude match.",
+    "Retained slew test explicitly disables input filter (input_filter_scale=0), consistent with original simulated slew method."
+  ],
+  "supplementary_case_studies": [],
+  "title": "The design, simulation and characterisation of a class-B audio power amplifier; G. Jolley, 12 March 2017",
+  "amplitude_dependent_reference_table": {
+    "citation": "PDF/printed page 9, Table 2; setup on page 7 §3",
+    "setup": "50 Hz sine, 8 ohm load, several output amplitudes",
+    "columns": [
+      "Vout_pp",
+      "Av1",
+      "gm2",
+      "AI",
+      "rm",
+      "Total_gain_dB"
+    ],
+    "rows": [
+      {
+        "Vout_pp": 10,
+        "Av1": 7860,
+        "gm2": 0.0101,
+        "AI": 25.3,
+        "rm": 1490,
+        "Total_gain_dB": 129.4
+      },
+      {
+        "Vout_pp": 20,
+        "Av1": 7930,
+        "gm2": 0.0101,
+        "AI": 25.5,
+        "rm": 1330,
+        "Total_gain_dB": 128.3
+      },
+      {
+        "Vout_pp": 30,
+        "Av1": 7970,
+        "gm2": 0.0101,
+        "AI": 25.7,
+        "rm": 1180,
+        "Total_gain_dB": 127.4
+      },
+      {
+        "Vout_pp": 40,
+        "Av1": 7970,
+        "gm2": 0.0101,
+        "AI": 26.0,
+        "rm": 1030,
+        "Total_gain_dB": 126.4
+      },
+      {
+        "Vout_pp": 50,
+        "Av1": 8020,
+        "gm2": 0.0101,
+        "AI": 25.9,
+        "rm": 896,
+        "Total_gain_dB": 125.3
+      },
+      {
+        "Vout_pp": 60,
+        "Av1": 8010,
+        "gm2": 0.0101,
+        "AI": 26.6,
+        "rm": 765,
+        "Total_gain_dB": 123.9
+      }
+    ]
+  }
+}

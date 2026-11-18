@@ -1,0 +1,365 @@
+{
+  "task_id": "ldo_erroramp_dac_task_001",
+  "circuit": "ldo",
+  "source_pack": "<ANALOGIQ>/testbenches/02_11_2026/LDOs/Error_amplifier_LDO/LDO_with_erroramp_tb_dac/ldo_erroramp_dac_task_001",
+  "source_golden": "<ANALOGIQ>/golden/02_11_2026/LDOs/Error_amplifier_LDO/LDO_with_erroramp_tb_dac",
+  "conditions": [
+    {
+      "id": "C0_0",
+      "model_set": "fs",
+      "temperature_C": -40.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 1,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "fs"
+        }
+      ]
+    },
+    {
+      "id": "C0_1",
+      "model_set": "fs",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 2,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "fs"
+        }
+      ]
+    },
+    {
+      "id": "C0_2",
+      "model_set": "fs",
+      "temperature_C": 125.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 3,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "fs"
+        }
+      ]
+    },
+    {
+      "id": "C1_0",
+      "model_set": "sf",
+      "temperature_C": -40.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 4,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "sf"
+        }
+      ]
+    },
+    {
+      "id": "C1_1",
+      "model_set": "sf",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 5,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "sf"
+        }
+      ]
+    },
+    {
+      "id": "C1_2",
+      "model_set": "sf",
+      "temperature_C": 125.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 6,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "sf"
+        }
+      ]
+    },
+    {
+      "id": "C2_0",
+      "model_set": "ff",
+      "temperature_C": -40.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 7,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "ff"
+        }
+      ]
+    },
+    {
+      "id": "C2_1",
+      "model_set": "ff",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 8,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "ff"
+        }
+      ]
+    },
+    {
+      "id": "C2_2",
+      "model_set": "ff",
+      "temperature_C": 125.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 9,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "ff"
+        }
+      ]
+    },
+    {
+      "id": "C3_0",
+      "model_set": "ss",
+      "temperature_C": -40.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 10,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "ss"
+        }
+      ]
+    },
+    {
+      "id": "C3_1",
+      "model_set": "ss",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 11,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "ss"
+        }
+      ]
+    },
+    {
+      "id": "C3_2",
+      "model_set": "ss",
+      "temperature_C": 125.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 12,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "ss"
+        }
+      ]
+    },
+    {
+      "id": "C4_0",
+      "model_set": "tt",
+      "temperature_C": -40.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 13,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "tt"
+        }
+      ]
+    },
+    {
+      "id": "C4_1",
+      "model_set": "tt",
+      "temperature_C": 27.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 14,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "tt"
+        }
+      ]
+    },
+    {
+      "id": "C4_2",
+      "model_set": "tt",
+      "temperature_C": 125.0,
+      "supply_V": 1.8,
+      "supply_scale": 1.0,
+      "is_nominal": false,
+      "supply_span_V": 1.8,
+      "source_point_id": 15,
+      "includes": [
+        {
+          "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+          "section": "tt"
+        }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "reference": {
+        "value": 70.61,
+        "unit": "deg",
+        "citation": "README.md \u00a710.4 table, line 410",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "kind": "linear",
+      "limits": {
+        "lower": 60.018499999999996
+      },
+      "strict": null
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "reference": {
+        "value": 25900000.0,
+        "unit": "Hz",
+        "citation": "README.md \u00a710.4 table, line 410",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "kind": "linear",
+      "limits": {
+        "lower": 22015000.0
+      },
+      "strict": null
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "reference": {
+        "value": 71.8,
+        "unit": "dB",
+        "citation": "README.md \u00a710.7 table, line 460",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "kind": "voltage_db",
+      "limits": {
+        "lower": 70.38837851428585
+      },
+      "strict": null
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "reference": {
+        "value": 20,
+        "unit": "dB",
+        "citation": "LDO source stated PSR at 1 MHz design goal (>20 dB), approved by user instead of contradictory reported -0.2 dB."
+      },
+      "kind": "voltage_db",
+      "limits": {
+        "lower": 18.588378514285854
+      },
+      "strict": null
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "reference": {
+        "value": 1.88,
+        "unit": "mV/A",
+        "citation": "README.md \u00a710.6, line 437",
+        "derivation": "Reported 0.094 mV total output change over 0 to 50 mA; divide 0.094 mV by 0.05 A = 1.88 mV/A, matching retained expression.",
+        "source_reported_value": 0.094,
+        "source_reported_unit": "mV"
+      },
+      "kind": "linear",
+      "limits": {
+        "upper": 2.162
+      },
+      "strict": null
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "reference": {
+        "value": 1.2,
+        "unit": "V",
+        "citation": "README.md \u00a710.1, line 350",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "kind": "linear",
+      "limits": {
+        "lower": 1.02,
+        "upper": 1.38
+      },
+      "strict": null
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "reference": {
+        "value": 46.57,
+        "unit": "deg",
+        "citation": "README.md \u00a710.4 table, line 405",
+        "setup": "Schematic; TT, 27 C, VIN 1.8 V; nominal load 25 mA except explicitly light-load PM."
+      },
+      "kind": "linear",
+      "limits": {
+        "lower": 39.5845
+      },
+      "strict": null
+    }
+  ],
+  "tolerance_percent": 15,
+  "topology_change_allowed": false,
+  "owner_writes_allowed": false,
+  "paper_reference_file": "<ANALOGIQ>/circuits/02_11_2026/LDOs/Error_amplifier_LDO/LDO_with_erroramp_tb_dac/paper/reference_metrics.json",
+  "success": "One fixed physical sizing with all retained metrics passing all specified conditions, verified by fresh full corner simulations. No targets may be relaxed.",
+  "parent_contract": "<WORK>/paper-sizing-20261105/ldo/target_contract.json",
+  "authorization": "User: I am allowing the tolerance of 15% for each metric wrt the papers value now try the sizing",
+  "round": "15percent"
+}

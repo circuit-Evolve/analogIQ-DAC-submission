@@ -1,0 +1,1077 @@
+{
+  "dtmos_fig1b_paper": {
+    "name": "dtmos_fig1b_paper",
+    "ports": [
+      "IN",
+      "OUT",
+      "VDD",
+      "VSS",
+      "GND"
+    ],
+    "note": "Literal Fig1b/Table I. DTMOS Mpb1-4 B=G. Unlabelled output NMOS assigned Mnb5 by elimination. M2 source is GND as drawn. C1=70n C2=120n. 17 MOS.",
+    "devices": [
+      {
+        "name": "Mpb1",
+        "kind": "p",
+        "nodes": [
+          "N1",
+          "PB2",
+          "VDD",
+          "PB2"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          18
+        ]
+      },
+      {
+        "name": "Mpb2",
+        "kind": "p",
+        "nodes": [
+          "PB2",
+          "PB2",
+          "VDD",
+          "PB2"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          18
+        ]
+      },
+      {
+        "name": "Mpb3",
+        "kind": "p",
+        "nodes": [
+          "N2",
+          "PB1",
+          "VDD",
+          "PB1"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          18
+        ]
+      },
+      {
+        "name": "Mpb4",
+        "kind": "p",
+        "nodes": [
+          "PB1",
+          "PB1",
+          "VDD",
+          "PB1"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          18
+        ]
+      },
+      {
+        "name": "Mpb5",
+        "kind": "p",
+        "nodes": [
+          "PLP",
+          "PLP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "40u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          18
+        ]
+      },
+      {
+        "name": "Mpb6",
+        "kind": "p",
+        "nodes": [
+          "OUT",
+          "PLP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "40u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          36,
+          18
+        ]
+      },
+      {
+        "name": "Mpb7",
+        "kind": "p",
+        "nodes": [
+          "PHP",
+          "PHP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "8u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          42,
+          18
+        ]
+      },
+      {
+        "name": "Mpb8",
+        "kind": "p",
+        "nodes": [
+          "OUT",
+          "PHP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "8u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          48,
+          18
+        ]
+      },
+      {
+        "name": "M1",
+        "kind": "n",
+        "nodes": [
+          "N2",
+          "N1",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "3u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          8
+        ]
+      },
+      {
+        "name": "M2",
+        "kind": "n",
+        "nodes": [
+          "PLP",
+          "N2",
+          "GND",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "5u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          10
+        ]
+      },
+      {
+        "name": "M3",
+        "kind": "p",
+        "nodes": [
+          "NB3",
+          "IN",
+          "N1",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "150u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          6
+        ]
+      },
+      {
+        "name": "M4",
+        "kind": "n",
+        "nodes": [
+          "VDD",
+          "N2",
+          "IN",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "5u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          12
+        ]
+      },
+      {
+        "name": "Mnb1",
+        "kind": "n",
+        "nodes": [
+          "NB0",
+          "NB0",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          -12,
+          0
+        ]
+      },
+      {
+        "name": "Mnb2",
+        "kind": "n",
+        "nodes": [
+          "IN",
+          "NB0",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          -6,
+          0
+        ]
+      },
+      {
+        "name": "Mnb3",
+        "kind": "n",
+        "nodes": [
+          "NB3",
+          "NB3",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          0
+        ]
+      },
+      {
+        "name": "Mnb4",
+        "kind": "n",
+        "nodes": [
+          "PHP",
+          "NB3",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "3u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          42,
+          0
+        ]
+      },
+      {
+        "name": "Mnb5",
+        "kind": "n",
+        "nodes": [
+          "OUT",
+          "N1",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          36,
+          6
+        ]
+      },
+      {
+        "name": "IB1",
+        "kind": "idc",
+        "nodes": [
+          "PB1",
+          "GND"
+        ],
+        "parameters": {
+          "idc": "250u"
+        },
+        "xy": [
+          24,
+          12
+        ]
+      },
+      {
+        "name": "IB2",
+        "kind": "idc",
+        "nodes": [
+          "PB2",
+          "GND"
+        ],
+        "parameters": {
+          "idc": "15u"
+        },
+        "xy": [
+          12,
+          12
+        ]
+      },
+      {
+        "name": "I0",
+        "kind": "idc",
+        "nodes": [
+          "GND",
+          "NB0"
+        ],
+        "parameters": {
+          "idc": "60u"
+        },
+        "xy": [
+          -12,
+          6
+        ]
+      },
+      {
+        "name": "C1",
+        "kind": "cap",
+        "nodes": [
+          "N1",
+          "GND"
+        ],
+        "parameters": {
+          "c": "70n"
+        },
+        "xy": [
+          12,
+          4
+        ]
+      },
+      {
+        "name": "C2",
+        "kind": "cap",
+        "nodes": [
+          "N2",
+          "GND"
+        ],
+        "parameters": {
+          "c": "120n"
+        },
+        "xy": [
+          24,
+          4
+        ]
+      }
+    ]
+  },
+  "dtmos_hpf_derived": {
+    "name": "dtmos_hpf_derived",
+    "ports": [
+      "IN",
+      "OUT",
+      "VDD",
+      "VSS",
+      "GND"
+    ],
+    "note": "DERIVED Fig2 feedback: duplicate Mpb6,Mpb8,Mnb5 drains to IN. 20 MOS total; copy sizes unchanged. Feedback is transistor-realized but not supplied by paper. C1=70n C2=120n.",
+    "devices": [
+      {
+        "name": "Mpb1",
+        "kind": "p",
+        "nodes": [
+          "N1",
+          "PB2",
+          "VDD",
+          "PB2"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          18
+        ]
+      },
+      {
+        "name": "Mpb2",
+        "kind": "p",
+        "nodes": [
+          "PB2",
+          "PB2",
+          "VDD",
+          "PB2"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          12,
+          18
+        ]
+      },
+      {
+        "name": "Mpb3",
+        "kind": "p",
+        "nodes": [
+          "N2",
+          "PB1",
+          "VDD",
+          "PB1"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          18
+        ]
+      },
+      {
+        "name": "Mpb4",
+        "kind": "p",
+        "nodes": [
+          "PB1",
+          "PB1",
+          "VDD",
+          "PB1"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          24,
+          18
+        ]
+      },
+      {
+        "name": "Mpb5",
+        "kind": "p",
+        "nodes": [
+          "PLP",
+          "PLP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "40u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          18
+        ]
+      },
+      {
+        "name": "Mpb6",
+        "kind": "p",
+        "nodes": [
+          "OUT",
+          "PLP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "40u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          36,
+          18
+        ]
+      },
+      {
+        "name": "Mpb7",
+        "kind": "p",
+        "nodes": [
+          "PHP",
+          "PHP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "8u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          42,
+          18
+        ]
+      },
+      {
+        "name": "Mpb8",
+        "kind": "p",
+        "nodes": [
+          "OUT",
+          "PHP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "8u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          48,
+          18
+        ]
+      },
+      {
+        "name": "M1",
+        "kind": "n",
+        "nodes": [
+          "N2",
+          "N1",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "3u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          18,
+          8
+        ]
+      },
+      {
+        "name": "M2",
+        "kind": "n",
+        "nodes": [
+          "PLP",
+          "N2",
+          "GND",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "5u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          30,
+          10
+        ]
+      },
+      {
+        "name": "M3",
+        "kind": "p",
+        "nodes": [
+          "NB3",
+          "IN",
+          "N1",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "150u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          6
+        ]
+      },
+      {
+        "name": "M4",
+        "kind": "n",
+        "nodes": [
+          "VDD",
+          "N2",
+          "IN",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "5u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          0,
+          12
+        ]
+      },
+      {
+        "name": "Mnb1",
+        "kind": "n",
+        "nodes": [
+          "NB0",
+          "NB0",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          -12,
+          0
+        ]
+      },
+      {
+        "name": "Mnb2",
+        "kind": "n",
+        "nodes": [
+          "IN",
+          "NB0",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          -6,
+          0
+        ]
+      },
+      {
+        "name": "Mnb3",
+        "kind": "n",
+        "nodes": [
+          "NB3",
+          "NB3",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          6,
+          0
+        ]
+      },
+      {
+        "name": "Mnb4",
+        "kind": "n",
+        "nodes": [
+          "PHP",
+          "NB3",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "3u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          42,
+          0
+        ]
+      },
+      {
+        "name": "Mnb5",
+        "kind": "n",
+        "nodes": [
+          "OUT",
+          "N1",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          36,
+          6
+        ]
+      },
+      {
+        "name": "IB1",
+        "kind": "idc",
+        "nodes": [
+          "PB1",
+          "GND"
+        ],
+        "parameters": {
+          "idc": "250u"
+        },
+        "xy": [
+          24,
+          12
+        ]
+      },
+      {
+        "name": "IB2",
+        "kind": "idc",
+        "nodes": [
+          "PB2",
+          "GND"
+        ],
+        "parameters": {
+          "idc": "15u"
+        },
+        "xy": [
+          12,
+          12
+        ]
+      },
+      {
+        "name": "I0",
+        "kind": "idc",
+        "nodes": [
+          "GND",
+          "NB0"
+        ],
+        "parameters": {
+          "idc": "60u"
+        },
+        "xy": [
+          -12,
+          6
+        ]
+      },
+      {
+        "name": "C1",
+        "kind": "cap",
+        "nodes": [
+          "N1",
+          "GND"
+        ],
+        "parameters": {
+          "c": "70n"
+        },
+        "xy": [
+          12,
+          4
+        ]
+      },
+      {
+        "name": "C2",
+        "kind": "cap",
+        "nodes": [
+          "N2",
+          "GND"
+        ],
+        "parameters": {
+          "c": "120n"
+        },
+        "xy": [
+          24,
+          4
+        ]
+      },
+      {
+        "name": "Mpb6_FB",
+        "kind": "p",
+        "nodes": [
+          "IN",
+          "PLP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "40u",
+          "l": "0.5u",
+          "m": "1"
+        },
+        "xy": [
+          58,
+          18
+        ]
+      },
+      {
+        "name": "Mpb8_FB",
+        "kind": "p",
+        "nodes": [
+          "IN",
+          "PHP",
+          "VDD",
+          "VDD"
+        ],
+        "parameters": {
+          "w": "8u",
+          "l": "2u",
+          "m": "1"
+        },
+        "xy": [
+          70,
+          18
+        ]
+      },
+      {
+        "name": "Mnb5_FB",
+        "kind": "n",
+        "nodes": [
+          "IN",
+          "N1",
+          "VSS",
+          "VSS"
+        ],
+        "parameters": {
+          "w": "10u",
+          "l": "0.2u",
+          "m": "1"
+        },
+        "xy": [
+          58,
+          6
+        ]
+      }
+    ]
+  },
+  "DTMOS_CORE_NOMINAL_tb": {
+    "name": "DTMOS_CORE_NOMINAL_tb",
+    "ports": [],
+    "note": "DTMOS_CORE_NOMINAL at paper C1=70n/C2=120n, +/-0.9V, 500Hz 10uApp input, OUT virtual-ground current measurement. NN at assumed 27C.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "dtmos_fig1b_paper",
+        "nodes": [
+          "IN",
+          "OUT",
+          "VDD",
+          "VSS",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          6
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".9"
+        },
+        "xy": [
+          0,
+          14
+        ]
+      },
+      {
+        "name": "VSS_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VSS",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "-.9"
+        },
+        "xy": [
+          4,
+          14
+        ]
+      },
+      {
+        "name": "IIN_SRC",
+        "kind": "isin",
+        "nodes": [
+          "GND",
+          "IN"
+        ],
+        "parameters": {
+          "io": "0",
+          "ia": "5u",
+          "freq": "500",
+          "acm": "1"
+        },
+        "xy": [
+          0,
+          6
+        ]
+      },
+      {
+        "name": "VOUT_SENSE",
+        "kind": "vdc",
+        "nodes": [
+          "OUT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "0"
+        },
+        "xy": [
+          24,
+          6
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -2
+        ]
+      }
+    ]
+  },
+  "DTMOS_HPF_NOMINAL_tb": {
+    "name": "DTMOS_HPF_NOMINAL_tb",
+    "ports": [],
+    "note": "DTMOS_HPF_NOMINAL at paper C1=70n/C2=120n, +/-0.9V, 500Hz 10uApp input, OUT virtual-ground current measurement. NN at assumed 27C.",
+    "devices": [
+      {
+        "name": "DUT",
+        "kind": "dtmos_hpf_derived",
+        "nodes": [
+          "IN",
+          "OUT",
+          "VDD",
+          "VSS",
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          12,
+          6
+        ]
+      },
+      {
+        "name": "VDD_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VDD",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": ".9"
+        },
+        "xy": [
+          0,
+          14
+        ]
+      },
+      {
+        "name": "VSS_SRC",
+        "kind": "vdc",
+        "nodes": [
+          "VSS",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "-.9"
+        },
+        "xy": [
+          4,
+          14
+        ]
+      },
+      {
+        "name": "IIN_SRC",
+        "kind": "isin",
+        "nodes": [
+          "GND",
+          "IN"
+        ],
+        "parameters": {
+          "io": "0",
+          "ia": "5u",
+          "freq": "500",
+          "acm": "1"
+        },
+        "xy": [
+          0,
+          6
+        ]
+      },
+      {
+        "name": "VOUT_SENSE",
+        "kind": "vdc",
+        "nodes": [
+          "OUT",
+          "GND"
+        ],
+        "parameters": {
+          "vdc": "0"
+        },
+        "xy": [
+          24,
+          6
+        ]
+      },
+      {
+        "name": "GND_REF",
+        "kind": "gnd",
+        "nodes": [
+          "GND"
+        ],
+        "parameters": {},
+        "xy": [
+          0,
+          -2
+        ]
+      }
+    ]
+  }
+}

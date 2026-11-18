@@ -1,0 +1,33 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task lcvco24_sheikhahmadi_task_001  topology lcvco24_sheikhahmadi
+// recipe osc_pnoise_v1 v3  condition ff_Tm20_S1p17 (models ff, -20 C, supply 1.4 V)
+// request golden_lcvco24_sheikhahmadi_task_001  candidate 18ad42aa3d408742
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=ff
+include "dut.scs"
+
+parameters cl=1e-14 vsup=1.40000004
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS=0.7497004018319421 V_TAIL=0.5736024819686902
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+VB_VTAIL (b_VTAIL 0) vsource dc=V_TAIL
+VB_VCOM (b_VCOM 0) vsource dc=0.0
+
+CL1 (outp 0) capacitor c=cl
+CL2 (outn 0) capacitor c=cl
+// Start-up kick: current pulse into outp (start-up assistance, see recipe doc).
+IKICK (0 outp) isource type=pulse val0=0 val1=0.001 delay=0 rise=5.0000000000000005e-12 fall=5.0000000000000005e-12 width=5e-11
+
+XDUT (vdd b_VSS b_VBIAS b_VTAIL b_VCOM open_CMP_SENSE outp outn open_AUXP open_AUXN) repaired_core C_BIAS=2.0841217202451464e-11 C_COUP=1.083198159253043e-14 C_FILT=6.099729891242877e-13 C_PAR=1.7410997366977215e-14 C_TAIL=3.203401066874221e-11 LI_AUX=2.222560870382872e-10 L_AUX=1.1176738283983767e-05 L_CORE=1.7624787201398927e-07 L_MAIN=1.502773408294349e-09 L_MT=8.99336148818903e-07 L_MT1=1.496673118101575e-06 NF_AUX=52.0 NF_CORE=48.0 NF_MT=49.0 NF_MT1=72.0 N_AUX=70.0 N_CORE=9.0 N_MT=74.0 N_MT1=72.0 R_BIAS=137808.05238766776 W_AUX=2.6642907696164027e-06 W_CORE=1.3060651585834978e-06 W_MT=4.372181627219309e-05 W_MT1=1.2799032665068938e-05
+
+opts options temp=-20.0 tnom=27 reltol=0.0001 save=selected
+save VB_VBIAS:p VB_VCOM:p VB_VSS:p VB_VTAIL:p VSUP:p outn outp vdd
+
+pss1 (outp outn) pss fund=3206897714.296838 harms=10 tstab=6e-08 errpreset=conservative
+pn1 (outp outn) pnoise start=500000.0 stop=20000000.0 dec=10 maxsideband=10 sweeptype=relative relharmnum=1 noisetype=timeaverage

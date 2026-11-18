@@ -1,0 +1,66 @@
+{
+  "retained": [
+    "MISO_BP_frequency",
+    "MISO_quiescent_power",
+    "BP_noise_in",
+    "BP_noise_out",
+    "LP_THD",
+    "BP_THD",
+    "Y1_gain",
+    "Y2_gain",
+    "IZP_gain",
+    "Y1_bandwidth",
+    "Y2_bandwidth",
+    "IZP_bandwidth",
+    "RX",
+    "RZP",
+    "ROP",
+    "ROM",
+    "OTA_gm"
+  ],
+  "native_outputs": {
+    "VM_LP": [
+      "MISO_quiescent_power"
+    ],
+    "VM_BP": [
+      "MISO_BP_frequency",
+      "BP_noise_in",
+      "BP_noise_out"
+    ],
+    "VM_LP_TRAN": [
+      "LP_THD"
+    ],
+    "VM_BP_TRAN": [
+      "BP_THD"
+    ],
+    "CORE_Y1": [
+      "Y1_gain",
+      "Y1_bandwidth"
+    ],
+    "CORE_Y2": [
+      "Y2_gain",
+      "Y2_bandwidth"
+    ],
+    "CORE_IZP": [
+      "IZP_gain",
+      "IZP_bandwidth"
+    ],
+    "CORE_RX": [
+      "RX"
+    ],
+    "CORE_RZP": [
+      "RZP"
+    ],
+    "CORE_ROP": [
+      "ROP"
+    ],
+    "CORE_ROM": [
+      "ROM"
+    ],
+    "CORE_GM": [
+      "OTA_gm"
+    ]
+  },
+  "unavailable_Z_minus": "Excluded: no implemented branch in paper transistor diagram",
+  "DC_ranges": "Excluded: paper linearity criterion unspecified"
+}

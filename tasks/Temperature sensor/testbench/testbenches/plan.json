@@ -1,0 +1,200 @@
+{
+  "request_id": "temp_sensor_101126_task_001__plan",
+  "task_id": "temp_sensor_101126_task_001",
+  "topology_id": "ts1111_ptat_sensor",
+  "execution_profile": "search_full",
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "digests": {
+    "task": "6bffbe729c366c1c4ff591b0897b0f729c2808c6fd6cdd5e14343502d4803f5b",
+    "candidate": "b9e94b889d74eaf075b3e44b83171725c5cb55a24163256e08c4f3204210ec9e",
+    "parameterization": "8ad01fe1673984103b7bc43ecded9330aef08ad281cd669601ce3c12649c8161",
+    "dut_source_netlist": "e2769bc3c1706f8dc6e158105f59b9c50e8df287111961ed3edba0346d22952f",
+    "dut_subckt": "3f9153e9b6cc75f55fefa0c399d75e1bd45ca38a87871a172deec1670f195bdb",
+    "models": "1e7c1af75bde4b1d694d93ab0bfbcbdbe41368cf09be0dc146a3088cb6c0f12a",
+    "recipes": "5d2a4bbac3b0389ef0abc312a8956d26a19862a4ed86b9b8f00bda5366864d46",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "78f0c83a73c120f6141d8901799d499de7aafa875c1bf3d4bd5a18881c31e642"
+  },
+  "candidate": {
+    "W_BP": 1e-06,
+    "L_BP": 1e-06,
+    "M_BP": 1.0,
+    "W_BC": 1e-06,
+    "L_BC": 1e-06,
+    "M_BC": 1.0,
+    "W_BN": 1e-06,
+    "L_BN": 1e-06,
+    "M_BN": 1.0,
+    "W_P7": 1e-06,
+    "L_P7": 1e-06,
+    "M_P7": 1.0,
+    "W_N8": 1e-06,
+    "L_N8": 1e-06,
+    "M_N8": 1.0,
+    "W_N9": 1e-06,
+    "L_N9": 1e-06,
+    "M_N9": 1.0,
+    "W_LD": 1e-06,
+    "L_LD": 1e-06,
+    "M_LD": 1.0,
+    "W_I12": 1e-06,
+    "L_I12": 1e-06,
+    "M_I12": 1.0,
+    "W_I13": 1e-06,
+    "L_I13": 1e-06,
+    "M_I13": 1.0,
+    "W_TL": 1e-06,
+    "L_TL": 1e-06,
+    "M_TL": 1.0
+  },
+  "dut_transformations": [
+    "sensor_bias.M4: mult bound to M_BC; Spectre multiplicity m follows it",
+    "sensor_bias.M4: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_bias.M3: mult bound to M_BC; Spectre multiplicity m follows it",
+    "sensor_bias.M3: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_bias.M2: mult bound to M_BP; Spectre multiplicity m follows it",
+    "sensor_bias.M2: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_bias.M1: mult bound to M_BP; Spectre multiplicity m follows it",
+    "sensor_bias.M1: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_bias.M6: mult bound to M_BN; Spectre multiplicity m follows it",
+    "sensor_bias.M6: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_bias.M5: mult bound to M_BN; Spectre multiplicity m follows it",
+    "sensor_bias.M5: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_ptat.M7: mult bound to M_P7; Spectre multiplicity m follows it",
+    "sensor_ptat.M7: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_ptat.M9: mult bound to M_N9; Spectre multiplicity m follows it",
+    "sensor_ptat.M9: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_ptat.M8: mult bound to M_N8; Spectre multiplicity m follows it",
+    "sensor_ptat.M8: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_amplifier.M11: mult bound to M_LD; Spectre multiplicity m follows it",
+    "sensor_amplifier.M11: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_amplifier.M10: mult bound to M_LD; Spectre multiplicity m follows it",
+    "sensor_amplifier.M10: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_amplifier.M14: mult bound to M_TL; Spectre multiplicity m follows it",
+    "sensor_amplifier.M14: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_amplifier.M13: mult bound to M_I13; Spectre multiplicity m follows it",
+    "sensor_amplifier.M13: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sensor_amplifier.M12: mult bound to M_I12; Spectre multiplicity m follows it",
+    "sensor_amplifier.M12: junction geometry ad/as/pd/ps rewritten in terms of the bound width (area = Lj*W, perimeter = 2*W + c; Lj and c from the netlist)",
+    "sizing variables bound inside local subckts are subckt parameters passed from the DUT instance(s): sensor_bias: ['L_BC', 'L_BN', 'L_BP', 'M_BC', 'M_BN', 'M_BP', 'W_BC', 'W_BN', 'W_BP'], sensor_ptat: ['L_N8', 'L_N9', 'L_P7', 'M_N8', 'M_N9', 'M_P7', 'W_N8', 'W_N9', 'W_P7'], sensor_amplifier: ['L_I12', 'L_I13', 'L_LD', 'L_TL', 'M_I12', 'M_I13', 'M_LD', 'M_TL', 'W_I12', 'W_I13', 'W_LD', 'W_TL']"
+  ],
+  "jobs": [
+    {
+      "job_id": "tt_binned_T27_S1p00/ts1111_tsweep_v1",
+      "condition": {
+        "id": "tt_binned_T27_S1p00",
+        "model_set": "tt_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": true,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "tt"
+        }
+      ],
+      "recipe_id": "ts1111_tsweep_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "Vout_0C_V",
+        "Vout_27C_V",
+        "Vout_100C_V",
+        "Sensitivity_mV_C",
+        "Output_span_mV",
+        "Endpoint_linearity_percent_FS",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "fs_binned_T27_S1p00/ts1111_tsweep_v1",
+      "condition": {
+        "id": "fs_binned_T27_S1p00",
+        "model_set": "fs_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "fs"
+        }
+      ],
+      "recipe_id": "ts1111_tsweep_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "Vout_0C_V",
+        "Vout_27C_V",
+        "Vout_100C_V",
+        "Sensitivity_mV_C",
+        "Output_span_mV",
+        "Endpoint_linearity_percent_FS",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    },
+    {
+      "job_id": "sf_binned_T27_S1p00/ts1111_tsweep_v1",
+      "condition": {
+        "id": "sf_binned_T27_S1p00",
+        "model_set": "sf_binned",
+        "temperature_C": 27.0,
+        "supply_scale": 1.0,
+        "supply_V": 1.8,
+        "is_nominal": false,
+        "supply_span_V": 1.8
+      },
+      "model_includes": [
+        {
+          "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+          "section": "sf"
+        }
+      ],
+      "recipe_id": "ts1111_tsweep_v1",
+      "recipe_version": 1,
+      "points": [
+        {}
+      ],
+      "analysis_executions": 1,
+      "expected_outputs": 2,
+      "expected_metrics": [
+        "Vout_0C_V",
+        "Vout_27C_V",
+        "Vout_100C_V",
+        "Sensitivity_mV_C",
+        "Output_span_mV",
+        "Endpoint_linearity_percent_FS",
+        "saturation_margin_min_V",
+        "devices_out_of_saturation",
+        "forward_biased_junctions",
+        "devices_outside_rails"
+      ]
+    }
+  ]
+}

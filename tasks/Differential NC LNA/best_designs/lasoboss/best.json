@@ -1,0 +1,93 @@
+{
+ "eval": 1634,
+ "round": 5,
+ "phase": 5,
+ "params": {
+  "W_N": 2.2300795664426207e-06,
+  "L_N": 3.30366132519873e-07,
+  "N_N": 14.0,
+  "W_P": 3.899171121371516e-05,
+  "L_P": 1.8251024509235396e-07,
+  "N_P": 19.0,
+  "C_C": 3.760463167367752e-11,
+  "R_C": 94.55109422048504,
+  "R_L": 960115.2949619262,
+  "C_O": 3.4047361330639946e-11,
+  "V_BN": 0.557365970482831,
+  "V_BP": 0.022288311305719906
+ },
+ "error": null,
+ "wall_s": 0.47,
+ "elapsed_s": 1923.6,
+ "feasible": false,
+ "execution": "completed",
+ "worst_margin": -1.0,
+ "objective": null,
+ "constraints": {
+  "voltage_gain_max_in_band_dB": -11.245718989468438,
+  "nf_max_in_band_dB": 10.17972314604599,
+  "nf_min_in_band_dB": 3.430314597091742,
+  "s11_max_in_band_dB": -9.731889960421938,
+  "iip3_dBm": 25.04813240228428,
+  "quiescent_power_W": 1.7403327480333884e-09,
+  "saturation": 0.0,
+  "forward_biased_junctions": 0.0,
+  "devices_outside_rails": 0.0
+ },
+ "margins": {
+  "voltage_gain_max_in_band_dB": -0.9594050939083756,
+  "nf_max_in_band_dB": -1.0,
+  "nf_min_in_band_dB": 0.0866467582424787,
+  "s11_max_in_band_dB": 0.06241032350442666,
+  "iip3_dBm": 371.0238053871149,
+  "quiescent_power_W": 0.9999986815661,
+  "saturation": 0.0,
+  "forward_biased_junctions": 0.0,
+  "devices_outside_rails": 0.0
+ },
+ "metrics": {
+  "voltage_gain_max_in_band_dB": -11.245718989468438,
+  "nf_max_in_band_dB": 10.17972314604599,
+  "nf_min_in_band_dB": 3.430314597091742,
+  "s11_max_in_band_dB": -9.731889960421938,
+  "iip3_dBm": 25.04813240228428,
+  "quiescent_power_W": 1.7403327480333884e-09,
+  "saturation": 0.0,
+  "forward_biased_junctions": 0.0,
+  "devices_outside_rails": 0.0
+ },
+ "regions": {
+  "M2p": "off",
+  "M2n": "off",
+  "M1p": "off",
+  "M1n": "off"
+ },
+ "not_saturated": [],
+ "sims": 2,
+ "f": 0.11590677993658494,
+ "loss": 0.08443186989869023,
+ "reward": 0.9155681301013098,
+ "score": 0.9155681301013098,
+ "weighted_score": 0.8840932200634151,
+ "weights": [
+  0.25,
+  0.25,
+  0.2,
+  0.15,
+  0.15
+ ],
+ "targets_met": 4,
+ "targets": 6,
+ "valid": true,
+ "target_scores": {
+  "iip3_dBm": 1.0,
+  "nf_max_in_band_dB": 0.9141,
+  "nf_min_in_band_dB": 1.0,
+  "quiescent_power_W": 1.0,
+  "s11_max_in_band_dB": 1.0,
+  "voltage_gain_max_in_band_dB": 0.5793,
+  "devices_outside_rails": 1.0,
+  "forward_biased_junctions": 1.0,
+  "saturation": 1.0
+ }
+}

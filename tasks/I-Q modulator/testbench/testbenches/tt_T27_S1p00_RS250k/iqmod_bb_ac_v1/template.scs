@@ -1,0 +1,56 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task tinywhisper24_iqmod_task_001  topology tinywhisper24_iqmod
+// recipe iqmod_bb_ac_v1 v2  condition tt_T27_S1p00_RS250k (models tt, 27 C, supply 1.5 V)
+// request tinywhisper24_iqmod_task_001__plan  candidate 29459f7bd384e829
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=tt
+include "dut.scs"
+
+parameters vcm=0.75 adp=0.5 adn=-0.5 vsup=1.5 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+// External bias (topology external_bias; reported separately as bias power).
+VB_di_analog_en (vdd b_di_analog_en) vsource dc=0.0
+
+// Baseband drive (iqmod_top_tb_ac: the same source on the I and Q analog inputs); differential run:
+// +-0.5 V (1 V differential), common-mode run: 1 V on both inputs.
+VCMI (vcmi 0) vsource dc=vcm
+VDIP (spI vcmi) vsource dc=0 mag=adp
+VDIN (snI vcmi) vsource dc=0 mag=adn
+RSIP (spI inp) resistor r=250000.0
+RSIN (snI inn) resistor r=250000.0
+VDQP (spQ vcmi) vsource dc=0 mag=adp
+VDQN (snQ vcmi) vsource dc=0 mag=adn
+RSQP (spQ qinp) resistor r=250000.0
+RSQN (snQ qinn) resistor r=250000.0
+// all four LO pins static high (mixer switches on); SPDT select; DAC-side inputs not used.
+VLOP (lop 0) vsource dc=vsup
+VLON (lon 0) vsource dc=vsup
+VLQP (loqp 0) vsource dc=vsup
+VLQN (loqn 0) vsource dc=vsup
+VSPI (spdti 0) vsource dc=vsup
+VSPQ (spdtq 0) vsource dc=vsup
+VDSIP (dsip 0) vsource dc=0
+VDSIN (dsin 0) vsource dc=0
+VDSQP (dsqp 0) vsource dc=0
+VDSQN (dsqn 0) vsource dc=0
+CL_out (out 0) capacitor c=1e-11
+CL_outn (outn 0) capacitor c=1e-11
+CL_qout (qout 0) capacitor c=1e-11
+CL_qoutn (qoutn 0) capacitor c=1e-11
+
+XDUT (dsip spdti dsin dsqn spdtq dsqp qinp qinn lop lon out inp inn loqp loqn outn qout qoutn vdd vss b_di_analog_en) tinywhisper24_iqmod_dut C1={{C1}} C2={{C2}} C3={{C3}} L_MIXDM_N={{L_MIXDM_N}} L_MIXDM_P={{L_MIXDM_P}} L_MIXTG_N={{L_MIXTG_N}} L_MIXTG_P={{L_MIXTG_P}} L_OTA10_N={{L_OTA10_N}} L_OTA10_P={{L_OTA10_P}} L_OTA20_N={{L_OTA20_N}} L_OTA20_P={{L_OTA20_P}} L_OTA6_N={{L_OTA6_N}} L_OTA6_P={{L_OTA6_P}} M_MIXDM_N={{M_MIXDM_N}} M_MIXDM_P={{M_MIXDM_P}} M_MIXTG_N={{M_MIXTG_N}} M_MIXTG_P={{M_MIXTG_P}} M_OTA10_N={{M_OTA10_N}} M_OTA10_P={{M_OTA10_P}} M_OTA20_N={{M_OTA20_N}} M_OTA20_P={{M_OTA20_P}} M_OTA6_N={{M_OTA6_N}} M_OTA6_P={{M_OTA6_P}} NF_MIXDM_N={{NF_MIXDM_N}} NF_MIXDM_P={{NF_MIXDM_P}} NF_MIXTG_N={{NF_MIXTG_N}} NF_MIXTG_P={{NF_MIXTG_P}} NF_OTA10_N={{NF_OTA10_N}} NF_OTA10_P={{NF_OTA10_P}} NF_OTA20_N={{NF_OTA20_N}} NF_OTA20_P={{NF_OTA20_P}} NF_OTA6_N={{NF_OTA6_N}} NF_OTA6_P={{NF_OTA6_P}} R1={{R1}} R2={{R2}} R3={{R3}} R4={{R4}} W_MIXDM_N={{W_MIXDM_N}} W_MIXDM_P={{W_MIXDM_P}} W_MIXTG_N={{W_MIXTG_N}} W_MIXTG_P={{W_MIXTG_P}} W_OTA10_N={{W_OTA10_N}} W_OTA10_P={{W_OTA10_P}} W_OTA20_N={{W_OTA20_N}} W_OTA20_P={{W_OTA20_P}} W_OTA6_N={{W_OTA6_N}} W_OTA6_P={{W_OTA6_P}}
+op_info info what=oppoint where=rawfile
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VB_di_analog_en:p VDIN:p VDIP:p VNEG:p VSUP:p dsin dsip dsqn dsqp inn inp lon lop loqn loqp out outn qinn qinp qout qoutn spdti spdtq vdd vss
+
+ac1 ac start=1.0 stop=200000000.0 dec=50
+altcm1 alter param=adp value=1
+altcm2 alter param=adn value=1
+ac2 ac start=1.0 stop=200000000.0 dec=50
+altdm1 alter param=adp value=0.5
+altdm2 alter param=adn value=-0.5

@@ -1,0 +1,3449 @@
+schema: analogiq.sizing_problem/1
+task_id: cmppl24_task_001
+topology_id: cmppl24_upcon2022
+family: comparator
+technology_id: gpdk180
+parameterization_id: cmppl24_upcon2022_p1_counts_20261112
+execution_profile: search_full
+description: 'Benchmark task (docs/benchmark_rules.md). Preamplifier + regenerative-latch comparator of Sharma, Gupta, Shekhar (IEEE UPCON 2022,
+  ''Design & Analysis of Performance-efficient Comparator for IoT Application''), gpdk180, 1.8 V, 1 GHz clock, alternating +/- differential inputs.
+  Targets: the paper''s propagation delay (clock edge to |V(X)-V(Y)| = VDD/2, Fig. 3) at the Table 3/4 grid (10 input common modes 0.8-1.7 V x
+  1/5/10 mV x tt/ff/ss corners at 1.8 V, 27 C), the Table 3 worst case (Vcm 0.6 V), Table 5 delay and power at 1.2 V and the 1.8 V power at Vid
+  = 100 mV, the offset as the Monte Carlo sigma (3.8 mV), plus the functional requirements (every decision correct on OUT, X/Y reset). The paper
+  reports no temperature (27 C used) and no load capacitance (5 fF on OUT used).'
+source:
+  doi: 10.1109/UPCON56432.2022.9986363
+  title: Design & Analysis of Performance-efficient Comparator for IoT Application (Sharma, Gupta, Shekhar; IEEE UPCON 2022)
+  figure: 'Fig. 2 (p.3): preamplifier / comparator core, inverters + RS latch, decision circuit, output buffer'
+variables:
+- name: W_IN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'comparator-core input pair N1/N2 (paper Table 2: 40 um / 180 nm): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N1
+    - N2
+    parameter: w
+- name: L_IN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'comparator-core input pair N1/N2 (paper Table 2: 40 um / 180 nm): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N1
+    - N2
+    parameter: l
+- name: W_NX
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'cross-coupled NMOS N3/N4 of the preamplifier (paper Table 2: 4 um / 180 nm): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N3
+    - N4
+    parameter: w
+- name: L_NX
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'cross-coupled NMOS N3/N4 of the preamplifier (paper Table 2: 4 um / 180 nm): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N3
+    - N4
+    parameter: l
+- name: W_PX
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'cross-coupled PMOS P5/P6 (regeneration; paper Table 2: 8 um / 180 nm): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - P5
+    - P6
+    parameter: w
+- name: L_PX
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'cross-coupled PMOS P5/P6 (regeneration; paper Table 2: 8 um / 180 nm): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - P5
+    - P6
+    parameter: l
+- name: W_SWPQ
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS precharge switches SW1/SW2 on the input-pair drain nodes P/Q (paper Table 2: 4 um / 180 nm): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - SW1
+    - SW2
+    parameter: w
+- name: L_SWPQ
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS precharge switches SW1/SW2 on the input-pair drain nodes P/Q (paper Table 2: 4 um / 180 nm): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - SW1
+    - SW2
+    parameter: l
+- name: W_SWXY
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS precharge switches SW3/SW4 on X/Y (paper Table 2: 2 um / 180 nm): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - SW3
+    - SW4
+    parameter: w
+- name: L_SWXY
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS precharge switches SW3/SW4 on X/Y (paper Table 2: 2 um / 180 nm): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - SW3
+    - SW4
+    parameter: l
+- name: W_TAIL
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'clocked tail NMOS N7 (paper Table 2: 8 um / 180 nm): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N7
+    parameter: w
+- name: L_TAIL
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'clocked tail NMOS N7 (paper Table 2: 8 um / 180 nm): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N7
+    parameter: l
+- name: W_IVP
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'PMOS of the X/Y inverters P9/N8 and P10/N11 (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - P9
+    - P10
+    parameter: w
+- name: L_IVP
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'PMOS of the X/Y inverters P9/N8 and P10/N11 (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - P9
+    - P10
+    parameter: l
+- name: W_IVN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'NMOS of the X/Y inverters (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N8
+    - N11
+    parameter: w
+- name: L_IVN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'NMOS of the X/Y inverters (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N8
+    - N11
+    parameter: l
+- name: W_RSP
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'RS-latch cross-coupled PMOS P12/P13 (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - P12
+    - P13
+    parameter: w
+- name: L_RSP
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'RS-latch cross-coupled PMOS P12/P13 (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - P12
+    - P13
+    parameter: l
+- name: W_RSN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'RS-latch input NMOS N14/N15, gated by the inverted X/Y (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N14
+    - N15
+    parameter: w
+- name: L_RSN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'RS-latch input NMOS N14/N15, gated by the inverted X/Y (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N14
+    - N15
+    parameter: l
+- name: W_DP
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'decision-circuit PMOS current mirror P19/P20 (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - P19
+    - P20
+    parameter: w
+- name: L_DP
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'decision-circuit PMOS current mirror P19/P20 (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - P19
+    - P20
+    parameter: l
+- name: W_DN
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'decision-circuit input NMOS N16/N17, gated by B/A (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N16
+    - N17
+    parameter: w
+- name: L_DN
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'decision-circuit input NMOS N16/N17, gated by B/A (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N16
+    - N17
+    parameter: l
+- name: W_DT
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'decision-circuit clocked tail NMOS (labelled N18 in the paper''s Fig. 2; size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N18_tail
+    parameter: w
+- name: L_DT
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'decision-circuit clocked tail NMOS (labelled N18 in the paper''s Fig. 2; size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N18_tail
+    parameter: l
+- name: W_B1P
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output-buffer first inverter PMOS P22 (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - P22
+    parameter: w
+- name: L_B1P
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output-buffer first inverter PMOS P22 (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - P22
+    parameter: l
+- name: W_B1N
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output-buffer first inverter NMOS (labelled N18 in Fig. 2; size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N18_buf
+    parameter: w
+- name: L_B1N
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output-buffer first inverter NMOS (labelled N18 in Fig. 2; size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N18_buf
+    parameter: l
+- name: W_B2P
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output-buffer second inverter PMOS P23 (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - P23
+    parameter: w
+- name: L_B2P
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 4.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output-buffer second inverter PMOS P23 (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - P23
+    parameter: l
+- name: W_B2N
+  kind: real
+  unit: m
+  lower: 4.0e-07
+  upper: 0.0001
+  scale: log
+  start: 1.0e-06
+  quantity: mos_w
+  role: 'output-buffer second inverter NMOS N19 (size not reported): width'
+  binding:
+    type: instance_parameter
+    instances:
+    - N19
+    parameter: w
+- name: L_B2N
+  kind: real
+  unit: m
+  lower: 1.8e-07
+  upper: 2.0e-05
+  scale: log
+  start: 1.0e-06
+  quantity: mos_l
+  role: 'output-buffer second inverter NMOS N19 (size not reported): length'
+  binding:
+    type: instance_parameter
+    instances:
+    - N19
+    parameter: l
+- name: M_IN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N1, N2; preserves matched width/length group W_IN
+  binding:
+    type: instance_parameter
+    instances:
+    - N1
+    - N2
+    parameter: m
+- name: M_NX
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N3, N4; preserves matched width/length group W_NX
+  binding:
+    type: instance_parameter
+    instances:
+    - N3
+    - N4
+    parameter: m
+- name: M_PX
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for P5, P6; preserves matched width/length group W_PX
+  binding:
+    type: instance_parameter
+    instances:
+    - P5
+    - P6
+    parameter: m
+- name: M_SWPQ
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for SW1, SW2; preserves matched width/length group W_SWPQ
+  binding:
+    type: instance_parameter
+    instances:
+    - SW1
+    - SW2
+    parameter: m
+- name: M_SWXY
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for SW3, SW4; preserves matched width/length group W_SWXY
+  binding:
+    type: instance_parameter
+    instances:
+    - SW3
+    - SW4
+    parameter: m
+- name: M_TAIL
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N7; preserves matched width/length group W_TAIL
+  binding:
+    type: instance_parameter
+    instances:
+    - N7
+    parameter: m
+- name: M_IVP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for P9, P10; preserves matched width/length group W_IVP
+  binding:
+    type: instance_parameter
+    instances:
+    - P9
+    - P10
+    parameter: m
+- name: M_IVN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N8, N11; preserves matched width/length group W_IVN
+  binding:
+    type: instance_parameter
+    instances:
+    - N8
+    - N11
+    parameter: m
+- name: M_RSP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for P12, P13; preserves matched width/length group W_RSP
+  binding:
+    type: instance_parameter
+    instances:
+    - P12
+    - P13
+    parameter: m
+- name: M_RSN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N14, N15; preserves matched width/length group W_RSN
+  binding:
+    type: instance_parameter
+    instances:
+    - N14
+    - N15
+    parameter: m
+- name: M_DP
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for P19, P20; preserves matched width/length group W_DP
+  binding:
+    type: instance_parameter
+    instances:
+    - P19
+    - P20
+    parameter: m
+- name: M_DN
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N16, N17; preserves matched width/length group W_DN
+  binding:
+    type: instance_parameter
+    instances:
+    - N16
+    - N17
+    parameter: m
+- name: M_DT
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N18_tail; preserves matched width/length group W_DT
+  binding:
+    type: instance_parameter
+    instances:
+    - N18_tail
+    parameter: m
+- name: M_B1P
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for P22; preserves matched width/length group W_B1P
+  binding:
+    type: instance_parameter
+    instances:
+    - P22
+    parameter: m
+- name: M_B1N
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N18_buf; preserves matched width/length group W_B1N
+  binding:
+    type: instance_parameter
+    instances:
+    - N18_buf
+    parameter: m
+- name: M_B2P
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for P23; preserves matched width/length group W_B2P
+  binding:
+    type: instance_parameter
+    instances:
+    - P23
+    parameter: m
+- name: M_B2N
+  kind: int
+  unit: ''
+  lower: 1
+  upper: 100
+  scale: lin
+  start: 1
+  quantity: mos_count
+  role: Parallel device multiplier for N19; preserves matched width/length group W_B2N
+  binding:
+    type: instance_parameter
+    instances:
+    - N19
+    parameter: m
+dependent_parameters: {}
+conditions:
+- id: NN_T27_S1p00
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: true
+- id: FF_T27_S1p00
+  model_set: FF
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: SS_T27_S1p00
+  model_set: SS
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+- id: NN_T27_S0p67_V1p2
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.2000006
+  supply_scale: 0.666667
+  nominal: false
+- id: NN_T27_S1p00_MC
+  model_set: NN
+  temperature_C: 27.0
+  supply_V: 1.8
+  supply_scale: 1.0
+  nominal: false
+operating_conditions:
+  supply_V:
+    value: 1.8
+    provenance: 'paper: Tables 3-5 (VDD = 1.8 V; 1.2 V quoted in Table 5, run as the V1p2 condition, supply_scale 1.2/1.8)'
+  clock_frequency_Hz:
+    value: 1000000000.0
+    provenance: 'paper: Fig. 3 caption (f_samp = 1 GHz), Table 3/5 (1 GHz)'
+  clock_edge_time_s:
+    value: 2.0e-11
+    provenance: 'benchmark_default_unreviewed: paper gives no edge time; Fig. 3 clock edges are steep on a 1.5 ns axis (about 10-20 ps)'
+  input_common_mode_V:
+    value: 0.9
+    provenance: 'paper: Fig. 3 caption and Table 3 (Vcm = 0.9 V typical); the delay points set their own Vcm'
+  output_load_F:
+    value: 5.0e-15
+    provenance: 'benchmark_default_unreviewed: paper gives no load capacitance (only symbolic node caps Cx, Cy, Cp, Cq in Table 1); 5 fF on OUT
+      as in the other comparator tasks'
+constraints:
+- name: decision_error_vcm08
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm09
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm10
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm11
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm12
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm13
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm14
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm15
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm16
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: decision_error_vcm17
+  metric: decision_error_count
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: every OUT decision correct, both polarities, at every Vid point of this common mode (ICMR 0.8-1.7 V, paper Table 3);
+    the Vcm = 0.6 V worst-case point of Table 3 is outside the ICMR and not required to decide'
+  source: measure
+- name: xy_reset_failure_count
+  metric: xy_reset_failure_count
+  recipe: cmp_pl_transient_v1
+  point: {}
+  unit: count
+  upper: 0
+  target:
+    kind: linear
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'functional: X and Y reset to VDD in the clock-low phase (paper Table 1 step I, Fig. 3 ''Reset'')'
+  source: measure
+- name: delay_tt_vcm08_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.001
+  unit: s
+  upper: 3.19e-10
+  target:
+    kind: linear
+    paper_value: 2.9e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 0.8 V, Vin 1 mV: 290 ps'
+  source: measure
+- name: delay_tt_vcm09_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.001
+  unit: s
+  upper: 3.0139999999999996e-10
+  target:
+    kind: linear
+    paper_value: 2.74e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 0.9 V, Vin 1 mV: 274 ps'
+  source: measure
+- name: delay_tt_vcm10_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.001
+  unit: s
+  upper: 2.7229400000000003e-10
+  target:
+    kind: linear
+    paper_value: 2.4754e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.0 V, Vin 1 mV: 247.54 ps'
+  source: measure
+- name: delay_tt_vcm11_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.001
+  unit: s
+  upper: 2.63835e-10
+  target:
+    kind: linear
+    paper_value: 2.3985e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.1 V, Vin 1 mV: 239.85 ps'
+  source: measure
+- name: delay_tt_vcm12_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.001
+  unit: s
+  upper: 2.618e-10
+  target:
+    kind: linear
+    paper_value: 2.38e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.2 V, Vin 1 mV: 238 ps'
+  source: measure
+- name: delay_tt_vcm13_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.001
+  unit: s
+  upper: 2.607e-10
+  target:
+    kind: linear
+    paper_value: 2.37e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.3 V, Vin 1 mV: 237 ps'
+  source: measure
+- name: delay_tt_vcm14_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.001
+  unit: s
+  upper: 2.6162399999999995e-10
+  target:
+    kind: linear
+    paper_value: 2.3784e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.4 V, Vin 1 mV: 237.84 ps'
+  source: measure
+- name: delay_tt_vcm15_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.001
+  unit: s
+  upper: 2.61921e-10
+  target:
+    kind: linear
+    paper_value: 2.3811e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.5 V, Vin 1 mV: 238.11 ps'
+  source: measure
+- name: delay_tt_vcm16_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.001
+  unit: s
+  upper: 2.65155e-10
+  target:
+    kind: linear
+    paper_value: 2.4105e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.6 V, Vin 1 mV: 241.05 ps'
+  source: measure
+- name: delay_tt_vcm17_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.001
+  unit: s
+  upper: 2.68631e-10
+  target:
+    kind: linear
+    paper_value: 2.4421e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.7 V, Vin 1 mV: 244.21 ps'
+  source: measure
+- name: delay_tt_vcm08_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.005
+  unit: s
+  upper: 3.124e-10
+  target:
+    kind: linear
+    paper_value: 2.84e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 0.8 V, Vin 5 mV: 284 ps'
+  source: measure
+- name: delay_tt_vcm09_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.005
+  unit: s
+  upper: 2.981e-10
+  target:
+    kind: linear
+    paper_value: 2.71e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 0.9 V, Vin 5 mV: 271 ps; also Table 3 ''Propagation Delay'' 271 ps and Fig. 3 (771.38
+    ps - 500 ps edge)'
+  source: measure
+- name: delay_tt_vcm10_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.005
+  unit: s
+  upper: 2.64495e-10
+  target:
+    kind: linear
+    paper_value: 2.4045e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.0 V, Vin 5 mV: 240.45 ps'
+  source: measure
+- name: delay_tt_vcm11_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.005
+  unit: s
+  upper: 2.57466e-10
+  target:
+    kind: linear
+    paper_value: 2.3406e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.1 V, Vin 5 mV: 234.06 ps'
+  source: measure
+- name: delay_tt_vcm12_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.005
+  unit: s
+  upper: 2.5509e-10
+  target:
+    kind: linear
+    paper_value: 2.319e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.2 V, Vin 5 mV: 231.9 ps'
+  source: measure
+- name: delay_tt_vcm13_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.005
+  unit: s
+  upper: 2.54606e-10
+  target:
+    kind: linear
+    paper_value: 2.3146e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.3 V, Vin 5 mV: 231.46 ps; also Table 3 ''Delay ... Best Case'' 231.46 ps'
+  source: measure
+- name: delay_tt_vcm14_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.005
+  unit: s
+  upper: 2.55453e-10
+  target:
+    kind: linear
+    paper_value: 2.3223e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.4 V, Vin 5 mV: 232.23 ps'
+  source: measure
+- name: delay_tt_vcm15_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.005
+  unit: s
+  upper: 2.56619e-10
+  target:
+    kind: linear
+    paper_value: 2.3329e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.5 V, Vin 5 mV: 233.29 ps'
+  source: measure
+- name: delay_tt_vcm16_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.005
+  unit: s
+  upper: 2.6127200000000004e-10
+  target:
+    kind: linear
+    paper_value: 2.3752e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.6 V, Vin 5 mV: 237.52 ps'
+  source: measure
+- name: delay_tt_vcm17_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.005
+  unit: s
+  upper: 2.6420900000000005e-10
+  target:
+    kind: linear
+    paper_value: 2.4019e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.7 V, Vin 5 mV: 240.19 ps'
+  source: measure
+- name: delay_tt_vcm08_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.01
+  unit: s
+  upper: 3.0690000000000005e-10
+  target:
+    kind: linear
+    paper_value: 2.79e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 0.8 V, Vin 10 mV: 279 ps'
+  source: measure
+- name: delay_tt_vcm09_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.01
+  unit: s
+  upper: 2.794e-10
+  target:
+    kind: linear
+    paper_value: 2.54e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 0.9 V, Vin 10 mV: 254 ps'
+  source: measure
+- name: delay_tt_vcm10_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.01
+  unit: s
+  upper: 2.5617900000000003e-10
+  target:
+    kind: linear
+    paper_value: 2.3289e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.0 V, Vin 10 mV: 232.89 ps'
+  source: measure
+- name: delay_tt_vcm11_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.01
+  unit: s
+  upper: 2.52582e-10
+  target:
+    kind: linear
+    paper_value: 2.2962e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.1 V, Vin 10 mV: 229.62 ps'
+  source: measure
+- name: delay_tt_vcm12_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.01
+  unit: s
+  upper: 2.48853e-10
+  target:
+    kind: linear
+    paper_value: 2.2623e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.2 V, Vin 10 mV: 226.23 ps'
+  source: measure
+- name: delay_tt_vcm13_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.01
+  unit: s
+  upper: 2.486e-10
+  target:
+    kind: linear
+    paper_value: 2.26e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.3 V, Vin 10 mV: 226 ps'
+  source: measure
+- name: delay_tt_vcm14_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.01
+  unit: s
+  upper: 2.49832e-10
+  target:
+    kind: linear
+    paper_value: 2.2712e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.4 V, Vin 10 mV: 227.12 ps'
+  source: measure
+- name: delay_tt_vcm15_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.01
+  unit: s
+  upper: 2.51779e-10
+  target:
+    kind: linear
+    paper_value: 2.2889e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.5 V, Vin 10 mV: 228.89 ps'
+  source: measure
+- name: delay_tt_vcm16_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.01
+  unit: s
+  upper: 2.54606e-10
+  target:
+    kind: linear
+    paper_value: 2.3146e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.6 V, Vin 10 mV: 231.46 ps'
+  source: measure
+- name: delay_tt_vcm17_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.01
+  unit: s
+  upper: 2.57125e-10
+  target:
+    kind: linear
+    paper_value: 2.3375e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, tt corner, VDD 1.8 V, Vcm 1.7 V, Vin 10 mV: 233.75 ps'
+  source: measure
+- name: delay_ff_vcm08_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.001
+  unit: s
+  upper: 2.695e-10
+  target:
+    kind: linear
+    paper_value: 2.45e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 0.8 V, Vin 1 mV: 245 ps'
+  source: measure
+- name: delay_ff_vcm09_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.001
+  unit: s
+  upper: 2.5190000000000003e-10
+  target:
+    kind: linear
+    paper_value: 2.29e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 0.9 V, Vin 1 mV: 229 ps'
+  source: measure
+- name: delay_ff_vcm10_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.001
+  unit: s
+  upper: 2.24675e-10
+  target:
+    kind: linear
+    paper_value: 2.0425e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.0 V, Vin 1 mV: 204.25 ps'
+  source: measure
+- name: delay_ff_vcm11_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.001
+  unit: s
+  upper: 2.08714e-10
+  target:
+    kind: linear
+    paper_value: 1.8974e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.1 V, Vin 1 mV: 189.74 ps'
+  source: measure
+- name: delay_ff_vcm12_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.001
+  unit: s
+  upper: 2.068e-10
+  target:
+    kind: linear
+    paper_value: 1.88e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.2 V, Vin 1 mV: 188 ps'
+  source: measure
+- name: delay_ff_vcm13_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.001
+  unit: s
+  upper: 2.057e-10
+  target:
+    kind: linear
+    paper_value: 1.87e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.3 V, Vin 1 mV: 187 ps'
+  source: measure
+- name: delay_ff_vcm14_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.001
+  unit: s
+  upper: 2.068e-10
+  target:
+    kind: linear
+    paper_value: 1.88e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.4 V, Vin 1 mV: 188 ps'
+  source: measure
+- name: delay_ff_vcm15_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.001
+  unit: s
+  upper: 2.08186e-10
+  target:
+    kind: linear
+    paper_value: 1.8926e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.5 V, Vin 1 mV: 189.26 ps'
+  source: measure
+- name: delay_ff_vcm16_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.001
+  unit: s
+  upper: 2.11541e-10
+  target:
+    kind: linear
+    paper_value: 1.9231e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.6 V, Vin 1 mV: 192.31 ps'
+  source: measure
+- name: delay_ff_vcm17_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.001
+  unit: s
+  upper: 2.14951e-10
+  target:
+    kind: linear
+    paper_value: 1.9541e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.7 V, Vin 1 mV: 195.41 ps'
+  source: measure
+- name: delay_ff_vcm08_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.005
+  unit: s
+  upper: 2.464e-10
+  target:
+    kind: linear
+    paper_value: 2.24e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 0.8 V, Vin 5 mV: 224 ps'
+  source: measure
+- name: delay_ff_vcm09_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.005
+  unit: s
+  upper: 2.288e-10
+  target:
+    kind: linear
+    paper_value: 2.08e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 0.9 V, Vin 5 mV: 208 ps'
+  source: measure
+- name: delay_ff_vcm10_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.005
+  unit: s
+  upper: 2.057e-10
+  target:
+    kind: linear
+    paper_value: 1.87e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.0 V, Vin 5 mV: 187 ps'
+  source: measure
+- name: delay_ff_vcm11_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.005
+  unit: s
+  upper: 2.03346e-10
+  target:
+    kind: linear
+    paper_value: 1.8486e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.1 V, Vin 5 mV: 184.86 ps'
+  source: measure
+- name: delay_ff_vcm12_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.005
+  unit: s
+  upper: 1.991e-10
+  target:
+    kind: linear
+    paper_value: 1.81e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.2 V, Vin 5 mV: 181 ps'
+  source: measure
+- name: delay_ff_vcm13_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.005
+  unit: s
+  upper: 1.98275e-10
+  target:
+    kind: linear
+    paper_value: 1.8025e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.3 V, Vin 5 mV: 180.25 ps'
+  source: measure
+- name: delay_ff_vcm14_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.005
+  unit: s
+  upper: 1.991e-10
+  target:
+    kind: linear
+    paper_value: 1.81e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.4 V, Vin 5 mV: 181 ps'
+  source: measure
+- name: delay_ff_vcm15_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.005
+  unit: s
+  upper: 2.0035400000000002e-10
+  target:
+    kind: linear
+    paper_value: 1.8214e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.5 V, Vin 5 mV: 182.14 ps'
+  source: measure
+- name: delay_ff_vcm16_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.005
+  unit: s
+  upper: 2.0471e-10
+  target:
+    kind: linear
+    paper_value: 1.861e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.6 V, Vin 5 mV: 186.1 ps'
+  source: measure
+- name: delay_ff_vcm17_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.005
+  unit: s
+  upper: 2.0883499999999998e-10
+  target:
+    kind: linear
+    paper_value: 1.8985e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.7 V, Vin 5 mV: 189.85 ps'
+  source: measure
+- name: delay_ff_vcm08_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.01
+  unit: s
+  upper: 2.398e-10
+  target:
+    kind: linear
+    paper_value: 2.18e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 0.8 V, Vin 10 mV: 218 ps'
+  source: measure
+- name: delay_ff_vcm09_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.01
+  unit: s
+  upper: 2.233e-10
+  target:
+    kind: linear
+    paper_value: 2.03e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 0.9 V, Vin 10 mV: 203 ps'
+  source: measure
+- name: delay_ff_vcm10_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.01
+  unit: s
+  upper: 1.9938600000000001e-10
+  target:
+    kind: linear
+    paper_value: 1.8126e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.0 V, Vin 10 mV: 181.26 ps'
+  source: measure
+- name: delay_ff_vcm11_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.01
+  unit: s
+  upper: 1.96262e-10
+  target:
+    kind: linear
+    paper_value: 1.7842e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.1 V, Vin 10 mV: 178.42 ps'
+  source: measure
+- name: delay_ff_vcm12_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.01
+  unit: s
+  upper: 1.9249999999999998e-10
+  target:
+    kind: linear
+    paper_value: 1.75e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.2 V, Vin 10 mV: 175 ps'
+  source: measure
+- name: delay_ff_vcm13_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.01
+  unit: s
+  upper: 1.9163100000000002e-10
+  target:
+    kind: linear
+    paper_value: 1.7421e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.3 V, Vin 10 mV: 174.21 ps; also Table 5 and text p.4 ''best-case delay 174.21 ps'''
+  source: measure
+- name: delay_ff_vcm14_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.01
+  unit: s
+  upper: 1.9249999999999998e-10
+  target:
+    kind: linear
+    paper_value: 1.75e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.4 V, Vin 10 mV: 175 ps'
+  source: measure
+- name: delay_ff_vcm15_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.01
+  unit: s
+  upper: 1.9431500000000002e-10
+  target:
+    kind: linear
+    paper_value: 1.7665e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.5 V, Vin 10 mV: 176.65 ps'
+  source: measure
+- name: delay_ff_vcm16_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.01
+  unit: s
+  upper: 1.96845e-10
+  target:
+    kind: linear
+    paper_value: 1.7895e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.6 V, Vin 10 mV: 178.95 ps'
+  source: measure
+- name: delay_ff_vcm17_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.01
+  unit: s
+  upper: 2.002e-10
+  target:
+    kind: linear
+    paper_value: 1.82e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: FF
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ff corner, VDD 1.8 V, Vcm 1.7 V, Vin 10 mV: 182 ps'
+  source: measure
+- name: delay_ss_vcm08_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.001
+  unit: s
+  upper: 4.389e-10
+  target:
+    kind: linear
+    paper_value: 3.99e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 0.8 V, Vin 1 mV: 399 ps'
+  source: measure
+- name: delay_ss_vcm09_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.001
+  unit: s
+  upper: 4.158e-10
+  target:
+    kind: linear
+    paper_value: 3.78e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 0.9 V, Vin 1 mV: 378 ps'
+  source: measure
+- name: delay_ss_vcm10_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.001
+  unit: s
+  upper: 3.86375e-10
+  target:
+    kind: linear
+    paper_value: 3.5125e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.0 V, Vin 1 mV: 351.25 ps'
+  source: measure
+- name: delay_ss_vcm11_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.001
+  unit: s
+  upper: 3.83306e-10
+  target:
+    kind: linear
+    paper_value: 3.4846e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.1 V, Vin 1 mV: 348.46 ps'
+  source: measure
+- name: delay_ss_vcm12_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.001
+  unit: s
+  upper: 3.7677200000000005e-10
+  target:
+    kind: linear
+    paper_value: 3.4252e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.2 V, Vin 1 mV: 342.52 ps'
+  source: measure
+- name: delay_ss_vcm13_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.001
+  unit: s
+  upper: 3.7510000000000003e-10
+  target:
+    kind: linear
+    paper_value: 3.41e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.3 V, Vin 1 mV: 341 ps'
+  source: measure
+- name: delay_ss_vcm14_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.001
+  unit: s
+  upper: 3.76145e-10
+  target:
+    kind: linear
+    paper_value: 3.4195e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.4 V, Vin 1 mV: 341.95 ps'
+  source: measure
+- name: delay_ss_vcm15_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.001
+  unit: s
+  upper: 3.7731099999999997e-10
+  target:
+    kind: linear
+    paper_value: 3.4301e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.5 V, Vin 1 mV: 343.01 ps'
+  source: measure
+- name: delay_ss_vcm16_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.001
+  unit: s
+  upper: 3.806e-10
+  target:
+    kind: linear
+    paper_value: 3.46e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.6 V, Vin 1 mV: 346 ps'
+  source: measure
+- name: delay_ss_vcm17_vid1mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.001
+  unit: s
+  upper: 3.8279999999999996e-10
+  target:
+    kind: linear
+    paper_value: 3.48e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.7 V, Vin 1 mV: 348 ps'
+  source: measure
+- name: delay_ss_vcm08_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.005
+  unit: s
+  upper: 4.29e-10
+  target:
+    kind: linear
+    paper_value: 3.9e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 0.8 V, Vin 5 mV: 390 ps'
+  source: measure
+- name: delay_ss_vcm09_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.005
+  unit: s
+  upper: 4.004e-10
+  target:
+    kind: linear
+    paper_value: 3.64e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 0.9 V, Vin 5 mV: 364 ps'
+  source: measure
+- name: delay_ss_vcm10_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.005
+  unit: s
+  upper: 3.7253699999999996e-10
+  target:
+    kind: linear
+    paper_value: 3.3867e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.0 V, Vin 5 mV: 338.67 ps'
+  source: measure
+- name: delay_ss_vcm11_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.005
+  unit: s
+  upper: 3.64419e-10
+  target:
+    kind: linear
+    paper_value: 3.3129e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.1 V, Vin 5 mV: 331.29 ps'
+  source: measure
+- name: delay_ss_vcm12_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.005
+  unit: s
+  upper: 3.6130600000000003e-10
+  target:
+    kind: linear
+    paper_value: 3.2846e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.2 V, Vin 5 mV: 328.46 ps'
+  source: measure
+- name: delay_ss_vcm13_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.005
+  unit: s
+  upper: 3.59821e-10
+  target:
+    kind: linear
+    paper_value: 3.2711e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.3 V, Vin 5 mV: 327.11 ps'
+  source: measure
+- name: delay_ss_vcm14_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.005
+  unit: s
+  upper: 3.60635e-10
+  target:
+    kind: linear
+    paper_value: 3.2785e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.4 V, Vin 5 mV: 327.85 ps'
+  source: measure
+- name: delay_ss_vcm15_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.005
+  unit: s
+  upper: 3.608e-10
+  target:
+    kind: linear
+    paper_value: 3.28e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.5 V, Vin 5 mV: 328 ps'
+  source: measure
+- name: delay_ss_vcm16_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.005
+  unit: s
+  upper: 3.65904e-10
+  target:
+    kind: linear
+    paper_value: 3.3264e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.6 V, Vin 5 mV: 332.64 ps'
+  source: measure
+- name: delay_ss_vcm17_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.005
+  unit: s
+  upper: 3.718e-10
+  target:
+    kind: linear
+    paper_value: 3.38e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.7 V, Vin 5 mV: 338 ps'
+  source: measure
+- name: delay_ss_vcm08_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.8
+    vid_V: 0.01
+  unit: s
+  upper: 4.059e-10
+  target:
+    kind: linear
+    paper_value: 3.69e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 0.8 V, Vin 10 mV: 369 ps'
+  source: measure
+- name: delay_ss_vcm09_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.01
+  unit: s
+  upper: 3.927e-10
+  target:
+    kind: linear
+    paper_value: 3.57e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 0.9 V, Vin 10 mV: 357 ps'
+  source: measure
+- name: delay_ss_vcm10_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1
+    vid_V: 0.01
+  unit: s
+  upper: 3.64386e-10
+  target:
+    kind: linear
+    paper_value: 3.3126e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.0 V, Vin 10 mV: 331.26 ps'
+  source: measure
+- name: delay_ss_vcm11_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.1
+    vid_V: 0.01
+  unit: s
+  upper: 3.55421e-10
+  target:
+    kind: linear
+    paper_value: 3.2311e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.1 V, Vin 10 mV: 323.11 ps'
+  source: measure
+- name: delay_ss_vcm12_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.2
+    vid_V: 0.01
+  unit: s
+  upper: 3.52957e-10
+  target:
+    kind: linear
+    paper_value: 3.2087e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.2 V, Vin 10 mV: 320.87 ps'
+  source: measure
+- name: delay_ss_vcm13_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.3
+    vid_V: 0.01
+  unit: s
+  upper: 3.5006399999999996e-10
+  target:
+    kind: linear
+    paper_value: 3.1824e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.3 V, Vin 10 mV: 318.24 ps'
+  source: measure
+- name: delay_ss_vcm14_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.4
+    vid_V: 0.01
+  unit: s
+  upper: 3.509e-10
+  target:
+    kind: linear
+    paper_value: 3.19e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.4 V, Vin 10 mV: 319 ps'
+  source: measure
+- name: delay_ss_vcm15_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.5
+    vid_V: 0.01
+  unit: s
+  upper: 3.52924e-10
+  target:
+    kind: linear
+    paper_value: 3.2084e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.5 V, Vin 10 mV: 320.84 ps'
+  source: measure
+- name: delay_ss_vcm16_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.6
+    vid_V: 0.01
+  unit: s
+  upper: 3.553e-10
+  target:
+    kind: linear
+    paper_value: 3.23e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.6 V, Vin 10 mV: 323 ps'
+  source: measure
+- name: delay_ss_vcm17_vid10mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 1.7
+    vid_V: 0.01
+  unit: s
+  upper: 3.60195e-10
+  target:
+    kind: linear
+    paper_value: 3.2745e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - model_set: SS
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 4 p.4, ss corner, VDD 1.8 V, Vcm 1.7 V, Vin 10 mV: 327.45 ps'
+  source: measure
+- name: delay_tt_vcm06_vid5mV
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.6
+    vid_V: 0.005
+  unit: s
+  upper: 5.94e-10
+  target:
+    kind: linear
+    paper_value: 5.4e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 3 p.3 and text p.4, ''Delay (Vdd = 1.8 V, Vcm = 0.6 V, Vin = 5 mV) 540 ps, Worst Case''; Vcm 0.6 V is below the stated
+    ICMR 0.8-1.7 V and not in Table 4 (corner not stated: tt assumed)'
+  source: measure
+- name: delay_tt_1p2V
+  metric: delay_xy_max_s
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.005
+  unit: s
+  upper: 2.31e-10
+  target:
+    kind: linear
+    paper_value: 2.1e-10
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: V1p2
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 5 p.4, propagation delay 210 ps @ Vdd = 1.2 V, Vcm = 0.9 V; Vin not stated (5 mV, the paper''s typical, curator_choice),
+    corner not stated (tt)'
+  source: measure
+- name: power_1p8V
+  metric: average_power_W
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.1
+  unit: W
+  upper: 0.001441
+  target:
+    kind: linear
+    paper_value: 0.00131
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 5 p.4, power consumption 1.31 mW @ Vdd = 1.8 V, Vid = 100 mV (1 GHz; Vcm 0.9 V assumed)'
+  source: measure
+- name: power_1p2V
+  metric: average_power_W
+  recipe: cmp_pl_transient_v1
+  point:
+    vcm_V: 0.9
+    vid_V: 0.1
+  unit: W
+  upper: 0.00015741
+  target:
+    kind: linear
+    paper_value: 0.0001431
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - label: V1p2
+  aggregate: worst case over all conditions and matching points
+  provenance: 'CURATOR-SCALED 2026-10-27 from paper value 0.00011345 to the witness value 0.0001431 (the paper''s Table 5 1.2 V power (113.45
+    uW) contradicts its own 1.8 V data (1.31 mW): an 11.5x drop for a 1.5x supply change, where physics gives 2-4x; G6 paper inconsistency). paper:
+    Table 5 p.4, power consumption 113.45 uW @ Vdd = 1.2 V (Vid not stated: 100 mV as for the 1.8 V entry, curator_choice; 1 GHz, Vcm 0.9 V)'
+  source: measure
+- name: offset_sigma
+  metric: mc_sigma.offset_V
+  recipe: cmp_pl_offset_ramp_v1
+  point: {}
+  unit: ''
+  upper: 0.00418
+  target:
+    kind: linear
+    paper_value: 0.0038
+    bound: upper
+    tolerance_pct: 10.0
+  conditions:
+  - nominal
+  aggregate: worst case over all conditions and matching points
+  provenance: 'paper: Table 5 p.4, input-referred offset voltage 3.8 mV (method not stated; read as the 1-sigma mismatch offset, the usual quantity
+    of such comparison tables, curator_choice; the nominal offset of the symmetric circuit is ~0)'
+  source: measure
+objective: null
+derived_metrics: {}
+all_metrics:
+- - cmp_pl_offset_ramp_v1
+  - mc_mean.offset_V
+- - cmp_pl_offset_ramp_v1
+  - mc_sigma.offset_V
+- - cmp_pl_offset_ramp_v1
+  - offset_V
+- - cmp_pl_transient_v1
+  - average_power_W
+- - cmp_pl_transient_v1
+  - decision_error_count
+- - cmp_pl_transient_v1
+  - delay_xy_max_s
+- - cmp_pl_transient_v1
+  - delay_xy_neg_max_s
+- - cmp_pl_transient_v1
+  - delay_xy_pos_max_s
+- - cmp_pl_transient_v1
+  - energy_per_conversion_J
+- - cmp_pl_transient_v1
+  - static_power_W
+- - cmp_pl_transient_v1
+  - unresolved_count
+- - cmp_pl_transient_v1
+  - xy_reset_failure_count
+simulations_per_design: 6
+analysis_executions_per_design: 277
+benchmark:
+  reference_hidden: true
+  rules: docs/benchmark_rules.md
+  start_design: designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)
+testbenches:
+- condition: NN_T27_S1p00
+  recipe: cmp_pl_transient_v1
+  folder: testbenches/NN_T27_S1p00/cmp_pl_transient_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/transient1.tran.tran
+  - raw/transient2.tran.tran
+  - raw/transient3.tran.tran
+  - raw/transient4.tran.tran
+  - raw/transient5.tran.tran
+  - raw/transient6.tran.tran
+  - raw/transient7.tran.tran
+  - raw/transient8.tran.tran
+  - raw/transient9.tran.tran
+  - raw/transient10.tran.tran
+  - raw/transient11.tran.tran
+  - raw/transient12.tran.tran
+  - raw/transient13.tran.tran
+  - raw/transient14.tran.tran
+  - raw/transient15.tran.tran
+  - raw/transient16.tran.tran
+  - raw/transient17.tran.tran
+  - raw/transient18.tran.tran
+  - raw/transient19.tran.tran
+  - raw/transient20.tran.tran
+  - raw/transient21.tran.tran
+  - raw/transient22.tran.tran
+  - raw/transient23.tran.tran
+  - raw/transient24.tran.tran
+  - raw/transient25.tran.tran
+  - raw/transient26.tran.tran
+  - raw/transient27.tran.tran
+  - raw/transient28.tran.tran
+  - raw/transient29.tran.tran
+  - raw/transient30.tran.tran
+  - raw/transient31.tran.tran
+  - raw/transient32.tran.tran
+  - raw/transient33.tran.tran
+  - raw/transient34.tran.tran
+  - raw/transient35.tran.tran
+  - raw/transient36.tran.tran
+  - raw/transient37.tran.tran
+  - raw/transient38.tran.tran
+  - raw/transient39.tran.tran
+  - raw/transient40.tran.tran
+  - raw/transient41.tran.tran
+  - raw/transient42.tran.tran
+  - raw/transient43.tran.tran
+  - raw/transient44.tran.tran
+  - raw/transient45.tran.tran
+  - raw/transient46.tran.tran
+  - raw/transient47.tran.tran
+  - raw/transient48.tran.tran
+  - raw/transient49.tran.tran
+  - raw/transient50.tran.tran
+  - raw/transient51.tran.tran
+  - raw/transient52.tran.tran
+  - raw/transient53.tran.tran
+  - raw/transient54.tran.tran
+  - raw/transient55.tran.tran
+  - raw/transient56.tran.tran
+  - raw/transient57.tran.tran
+  - raw/transient58.tran.tran
+  - raw/transient59.tran.tran
+  - raw/transient60.tran.tran
+  - raw/transient61.tran.tran
+  - raw/transient62.tran.tran
+  - raw/transient63.tran.tran
+  - raw/transient64.tran.tran
+  metrics:
+    decision_error_count:
+      unit: count
+      source: measure
+    unresolved_count:
+      unit: count
+      source: measure
+    delay_xy_max_s:
+      unit: s
+      source: measure
+    delay_xy_pos_max_s:
+      unit: s
+      source: measure
+    delay_xy_neg_max_s:
+      unit: s
+      source: measure
+    xy_reset_failure_count:
+      unit: count
+      source: measure
+    energy_per_conversion_J:
+      unit: J
+      source: measure
+    average_power_W:
+      unit: W
+      source: measure
+    static_power_W:
+      unit: W
+      source: measure
+  points:
+  - vcm_V: 0.8
+    vid_V: 0.001
+  - vcm_V: 0.8
+    vid_V: 0.005
+  - vcm_V: 0.8
+    vid_V: 0.01
+  - vcm_V: 0.9
+    vid_V: 0.001
+  - vcm_V: 0.9
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.01
+  - vcm_V: 1.0
+    vid_V: 0.001
+  - vcm_V: 1.0
+    vid_V: 0.005
+  - vcm_V: 1.0
+    vid_V: 0.01
+  - vcm_V: 1.1
+    vid_V: 0.001
+  - vcm_V: 1.1
+    vid_V: 0.005
+  - vcm_V: 1.1
+    vid_V: 0.01
+  - vcm_V: 1.2
+    vid_V: 0.001
+  - vcm_V: 1.2
+    vid_V: 0.005
+  - vcm_V: 1.2
+    vid_V: 0.01
+  - vcm_V: 1.3
+    vid_V: 0.001
+  - vcm_V: 1.3
+    vid_V: 0.005
+  - vcm_V: 1.3
+    vid_V: 0.01
+  - vcm_V: 1.4
+    vid_V: 0.001
+  - vcm_V: 1.4
+    vid_V: 0.005
+  - vcm_V: 1.4
+    vid_V: 0.01
+  - vcm_V: 1.5
+    vid_V: 0.001
+  - vcm_V: 1.5
+    vid_V: 0.005
+  - vcm_V: 1.5
+    vid_V: 0.01
+  - vcm_V: 1.6
+    vid_V: 0.001
+  - vcm_V: 1.6
+    vid_V: 0.005
+  - vcm_V: 1.6
+    vid_V: 0.01
+  - vcm_V: 1.7
+    vid_V: 0.001
+  - vcm_V: 1.7
+    vid_V: 0.005
+  - vcm_V: 1.7
+    vid_V: 0.01
+  - vcm_V: 0.6
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.1
+- condition: NN_T27_S1p00
+  recipe: cmp_pl_offset_ramp_v1
+  folder: testbenches/NN_T27_S1p00/cmp_pl_offset_ramp_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/transient1.tran.tran
+  metrics:
+    offset_V:
+      unit: V
+      source: measure
+  points:
+  - vcm_V: 0.9
+- condition: FF_T27_S1p00
+  recipe: cmp_pl_transient_v1
+  folder: testbenches/FF_T27_S1p00/cmp_pl_transient_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/transient1.tran.tran
+  - raw/transient2.tran.tran
+  - raw/transient3.tran.tran
+  - raw/transient4.tran.tran
+  - raw/transient5.tran.tran
+  - raw/transient6.tran.tran
+  - raw/transient7.tran.tran
+  - raw/transient8.tran.tran
+  - raw/transient9.tran.tran
+  - raw/transient10.tran.tran
+  - raw/transient11.tran.tran
+  - raw/transient12.tran.tran
+  - raw/transient13.tran.tran
+  - raw/transient14.tran.tran
+  - raw/transient15.tran.tran
+  - raw/transient16.tran.tran
+  - raw/transient17.tran.tran
+  - raw/transient18.tran.tran
+  - raw/transient19.tran.tran
+  - raw/transient20.tran.tran
+  - raw/transient21.tran.tran
+  - raw/transient22.tran.tran
+  - raw/transient23.tran.tran
+  - raw/transient24.tran.tran
+  - raw/transient25.tran.tran
+  - raw/transient26.tran.tran
+  - raw/transient27.tran.tran
+  - raw/transient28.tran.tran
+  - raw/transient29.tran.tran
+  - raw/transient30.tran.tran
+  - raw/transient31.tran.tran
+  - raw/transient32.tran.tran
+  - raw/transient33.tran.tran
+  - raw/transient34.tran.tran
+  - raw/transient35.tran.tran
+  - raw/transient36.tran.tran
+  - raw/transient37.tran.tran
+  - raw/transient38.tran.tran
+  - raw/transient39.tran.tran
+  - raw/transient40.tran.tran
+  - raw/transient41.tran.tran
+  - raw/transient42.tran.tran
+  - raw/transient43.tran.tran
+  - raw/transient44.tran.tran
+  - raw/transient45.tran.tran
+  - raw/transient46.tran.tran
+  - raw/transient47.tran.tran
+  - raw/transient48.tran.tran
+  - raw/transient49.tran.tran
+  - raw/transient50.tran.tran
+  - raw/transient51.tran.tran
+  - raw/transient52.tran.tran
+  - raw/transient53.tran.tran
+  - raw/transient54.tran.tran
+  - raw/transient55.tran.tran
+  - raw/transient56.tran.tran
+  - raw/transient57.tran.tran
+  - raw/transient58.tran.tran
+  - raw/transient59.tran.tran
+  - raw/transient60.tran.tran
+  - raw/transient61.tran.tran
+  - raw/transient62.tran.tran
+  - raw/transient63.tran.tran
+  - raw/transient64.tran.tran
+  metrics:
+    decision_error_count:
+      unit: count
+      source: measure
+    unresolved_count:
+      unit: count
+      source: measure
+    delay_xy_max_s:
+      unit: s
+      source: measure
+    delay_xy_pos_max_s:
+      unit: s
+      source: measure
+    delay_xy_neg_max_s:
+      unit: s
+      source: measure
+    xy_reset_failure_count:
+      unit: count
+      source: measure
+    energy_per_conversion_J:
+      unit: J
+      source: measure
+    average_power_W:
+      unit: W
+      source: measure
+    static_power_W:
+      unit: W
+      source: measure
+  points:
+  - vcm_V: 0.8
+    vid_V: 0.001
+  - vcm_V: 0.8
+    vid_V: 0.005
+  - vcm_V: 0.8
+    vid_V: 0.01
+  - vcm_V: 0.9
+    vid_V: 0.001
+  - vcm_V: 0.9
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.01
+  - vcm_V: 1.0
+    vid_V: 0.001
+  - vcm_V: 1.0
+    vid_V: 0.005
+  - vcm_V: 1.0
+    vid_V: 0.01
+  - vcm_V: 1.1
+    vid_V: 0.001
+  - vcm_V: 1.1
+    vid_V: 0.005
+  - vcm_V: 1.1
+    vid_V: 0.01
+  - vcm_V: 1.2
+    vid_V: 0.001
+  - vcm_V: 1.2
+    vid_V: 0.005
+  - vcm_V: 1.2
+    vid_V: 0.01
+  - vcm_V: 1.3
+    vid_V: 0.001
+  - vcm_V: 1.3
+    vid_V: 0.005
+  - vcm_V: 1.3
+    vid_V: 0.01
+  - vcm_V: 1.4
+    vid_V: 0.001
+  - vcm_V: 1.4
+    vid_V: 0.005
+  - vcm_V: 1.4
+    vid_V: 0.01
+  - vcm_V: 1.5
+    vid_V: 0.001
+  - vcm_V: 1.5
+    vid_V: 0.005
+  - vcm_V: 1.5
+    vid_V: 0.01
+  - vcm_V: 1.6
+    vid_V: 0.001
+  - vcm_V: 1.6
+    vid_V: 0.005
+  - vcm_V: 1.6
+    vid_V: 0.01
+  - vcm_V: 1.7
+    vid_V: 0.001
+  - vcm_V: 1.7
+    vid_V: 0.005
+  - vcm_V: 1.7
+    vid_V: 0.01
+  - vcm_V: 0.6
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.1
+- condition: SS_T27_S1p00
+  recipe: cmp_pl_transient_v1
+  folder: testbenches/SS_T27_S1p00/cmp_pl_transient_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/transient1.tran.tran
+  - raw/transient2.tran.tran
+  - raw/transient3.tran.tran
+  - raw/transient4.tran.tran
+  - raw/transient5.tran.tran
+  - raw/transient6.tran.tran
+  - raw/transient7.tran.tran
+  - raw/transient8.tran.tran
+  - raw/transient9.tran.tran
+  - raw/transient10.tran.tran
+  - raw/transient11.tran.tran
+  - raw/transient12.tran.tran
+  - raw/transient13.tran.tran
+  - raw/transient14.tran.tran
+  - raw/transient15.tran.tran
+  - raw/transient16.tran.tran
+  - raw/transient17.tran.tran
+  - raw/transient18.tran.tran
+  - raw/transient19.tran.tran
+  - raw/transient20.tran.tran
+  - raw/transient21.tran.tran
+  - raw/transient22.tran.tran
+  - raw/transient23.tran.tran
+  - raw/transient24.tran.tran
+  - raw/transient25.tran.tran
+  - raw/transient26.tran.tran
+  - raw/transient27.tran.tran
+  - raw/transient28.tran.tran
+  - raw/transient29.tran.tran
+  - raw/transient30.tran.tran
+  - raw/transient31.tran.tran
+  - raw/transient32.tran.tran
+  - raw/transient33.tran.tran
+  - raw/transient34.tran.tran
+  - raw/transient35.tran.tran
+  - raw/transient36.tran.tran
+  - raw/transient37.tran.tran
+  - raw/transient38.tran.tran
+  - raw/transient39.tran.tran
+  - raw/transient40.tran.tran
+  - raw/transient41.tran.tran
+  - raw/transient42.tran.tran
+  - raw/transient43.tran.tran
+  - raw/transient44.tran.tran
+  - raw/transient45.tran.tran
+  - raw/transient46.tran.tran
+  - raw/transient47.tran.tran
+  - raw/transient48.tran.tran
+  - raw/transient49.tran.tran
+  - raw/transient50.tran.tran
+  - raw/transient51.tran.tran
+  - raw/transient52.tran.tran
+  - raw/transient53.tran.tran
+  - raw/transient54.tran.tran
+  - raw/transient55.tran.tran
+  - raw/transient56.tran.tran
+  - raw/transient57.tran.tran
+  - raw/transient58.tran.tran
+  - raw/transient59.tran.tran
+  - raw/transient60.tran.tran
+  - raw/transient61.tran.tran
+  - raw/transient62.tran.tran
+  - raw/transient63.tran.tran
+  - raw/transient64.tran.tran
+  metrics:
+    decision_error_count:
+      unit: count
+      source: measure
+    unresolved_count:
+      unit: count
+      source: measure
+    delay_xy_max_s:
+      unit: s
+      source: measure
+    delay_xy_pos_max_s:
+      unit: s
+      source: measure
+    delay_xy_neg_max_s:
+      unit: s
+      source: measure
+    xy_reset_failure_count:
+      unit: count
+      source: measure
+    energy_per_conversion_J:
+      unit: J
+      source: measure
+    average_power_W:
+      unit: W
+      source: measure
+    static_power_W:
+      unit: W
+      source: measure
+  points:
+  - vcm_V: 0.8
+    vid_V: 0.001
+  - vcm_V: 0.8
+    vid_V: 0.005
+  - vcm_V: 0.8
+    vid_V: 0.01
+  - vcm_V: 0.9
+    vid_V: 0.001
+  - vcm_V: 0.9
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.01
+  - vcm_V: 1.0
+    vid_V: 0.001
+  - vcm_V: 1.0
+    vid_V: 0.005
+  - vcm_V: 1.0
+    vid_V: 0.01
+  - vcm_V: 1.1
+    vid_V: 0.001
+  - vcm_V: 1.1
+    vid_V: 0.005
+  - vcm_V: 1.1
+    vid_V: 0.01
+  - vcm_V: 1.2
+    vid_V: 0.001
+  - vcm_V: 1.2
+    vid_V: 0.005
+  - vcm_V: 1.2
+    vid_V: 0.01
+  - vcm_V: 1.3
+    vid_V: 0.001
+  - vcm_V: 1.3
+    vid_V: 0.005
+  - vcm_V: 1.3
+    vid_V: 0.01
+  - vcm_V: 1.4
+    vid_V: 0.001
+  - vcm_V: 1.4
+    vid_V: 0.005
+  - vcm_V: 1.4
+    vid_V: 0.01
+  - vcm_V: 1.5
+    vid_V: 0.001
+  - vcm_V: 1.5
+    vid_V: 0.005
+  - vcm_V: 1.5
+    vid_V: 0.01
+  - vcm_V: 1.6
+    vid_V: 0.001
+  - vcm_V: 1.6
+    vid_V: 0.005
+  - vcm_V: 1.6
+    vid_V: 0.01
+  - vcm_V: 1.7
+    vid_V: 0.001
+  - vcm_V: 1.7
+    vid_V: 0.005
+  - vcm_V: 1.7
+    vid_V: 0.01
+  - vcm_V: 0.6
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.1
+- condition: NN_T27_S0p67_V1p2
+  recipe: cmp_pl_transient_v1
+  folder: testbenches/NN_T27_S0p67_V1p2/cmp_pl_transient_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results:
+  - raw/transient1.tran.tran
+  - raw/transient2.tran.tran
+  - raw/transient3.tran.tran
+  - raw/transient4.tran.tran
+  - raw/transient5.tran.tran
+  - raw/transient6.tran.tran
+  - raw/transient7.tran.tran
+  - raw/transient8.tran.tran
+  - raw/transient9.tran.tran
+  - raw/transient10.tran.tran
+  - raw/transient11.tran.tran
+  - raw/transient12.tran.tran
+  - raw/transient13.tran.tran
+  - raw/transient14.tran.tran
+  - raw/transient15.tran.tran
+  - raw/transient16.tran.tran
+  - raw/transient17.tran.tran
+  - raw/transient18.tran.tran
+  - raw/transient19.tran.tran
+  - raw/transient20.tran.tran
+  - raw/transient21.tran.tran
+  - raw/transient22.tran.tran
+  - raw/transient23.tran.tran
+  - raw/transient24.tran.tran
+  - raw/transient25.tran.tran
+  - raw/transient26.tran.tran
+  - raw/transient27.tran.tran
+  - raw/transient28.tran.tran
+  - raw/transient29.tran.tran
+  - raw/transient30.tran.tran
+  - raw/transient31.tran.tran
+  - raw/transient32.tran.tran
+  - raw/transient33.tran.tran
+  - raw/transient34.tran.tran
+  - raw/transient35.tran.tran
+  - raw/transient36.tran.tran
+  - raw/transient37.tran.tran
+  - raw/transient38.tran.tran
+  - raw/transient39.tran.tran
+  - raw/transient40.tran.tran
+  - raw/transient41.tran.tran
+  - raw/transient42.tran.tran
+  - raw/transient43.tran.tran
+  - raw/transient44.tran.tran
+  - raw/transient45.tran.tran
+  - raw/transient46.tran.tran
+  - raw/transient47.tran.tran
+  - raw/transient48.tran.tran
+  - raw/transient49.tran.tran
+  - raw/transient50.tran.tran
+  - raw/transient51.tran.tran
+  - raw/transient52.tran.tran
+  - raw/transient53.tran.tran
+  - raw/transient54.tran.tran
+  - raw/transient55.tran.tran
+  - raw/transient56.tran.tran
+  - raw/transient57.tran.tran
+  - raw/transient58.tran.tran
+  - raw/transient59.tran.tran
+  - raw/transient60.tran.tran
+  - raw/transient61.tran.tran
+  - raw/transient62.tran.tran
+  - raw/transient63.tran.tran
+  - raw/transient64.tran.tran
+  metrics:
+    decision_error_count:
+      unit: count
+      source: measure
+    unresolved_count:
+      unit: count
+      source: measure
+    delay_xy_max_s:
+      unit: s
+      source: measure
+    delay_xy_pos_max_s:
+      unit: s
+      source: measure
+    delay_xy_neg_max_s:
+      unit: s
+      source: measure
+    xy_reset_failure_count:
+      unit: count
+      source: measure
+    energy_per_conversion_J:
+      unit: J
+      source: measure
+    average_power_W:
+      unit: W
+      source: measure
+    static_power_W:
+      unit: W
+      source: measure
+  points:
+  - vcm_V: 0.8
+    vid_V: 0.001
+  - vcm_V: 0.8
+    vid_V: 0.005
+  - vcm_V: 0.8
+    vid_V: 0.01
+  - vcm_V: 0.9
+    vid_V: 0.001
+  - vcm_V: 0.9
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.01
+  - vcm_V: 1.0
+    vid_V: 0.001
+  - vcm_V: 1.0
+    vid_V: 0.005
+  - vcm_V: 1.0
+    vid_V: 0.01
+  - vcm_V: 1.1
+    vid_V: 0.001
+  - vcm_V: 1.1
+    vid_V: 0.005
+  - vcm_V: 1.1
+    vid_V: 0.01
+  - vcm_V: 1.2
+    vid_V: 0.001
+  - vcm_V: 1.2
+    vid_V: 0.005
+  - vcm_V: 1.2
+    vid_V: 0.01
+  - vcm_V: 1.3
+    vid_V: 0.001
+  - vcm_V: 1.3
+    vid_V: 0.005
+  - vcm_V: 1.3
+    vid_V: 0.01
+  - vcm_V: 1.4
+    vid_V: 0.001
+  - vcm_V: 1.4
+    vid_V: 0.005
+  - vcm_V: 1.4
+    vid_V: 0.01
+  - vcm_V: 1.5
+    vid_V: 0.001
+  - vcm_V: 1.5
+    vid_V: 0.005
+  - vcm_V: 1.5
+    vid_V: 0.01
+  - vcm_V: 1.6
+    vid_V: 0.001
+  - vcm_V: 1.6
+    vid_V: 0.005
+  - vcm_V: 1.6
+    vid_V: 0.01
+  - vcm_V: 1.7
+    vid_V: 0.001
+  - vcm_V: 1.7
+    vid_V: 0.005
+  - vcm_V: 1.7
+    vid_V: 0.01
+  - vcm_V: 0.6
+    vid_V: 0.005
+  - vcm_V: 0.9
+    vid_V: 0.1
+- condition: NN_T27_S1p00_MC
+  recipe: cmp_pl_offset_ramp_v1
+  folder: testbenches/NN_T27_S1p00_MC/cmp_pl_offset_ramp_v1
+  deck: input.scs
+  template: template.scs
+  dut: dut.scs
+  measure_statements: measures.sp
+  measure_results: input.measure
+  native_results: []
+  metrics:
+    mc_mean.offset_V:
+      unit: V
+      source: measure
+    mc_sigma.offset_V:
+      unit: V
+      source: measure
+  points:
+  - vcm_V: 0.9
+interfaces:
+  evaluate_command:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - size-eval
+  - --task
+  - cmppl24_task_001
+  - --design
+  - '{design_json}'
+  - --out
+  - '{out_dir}'
+  evaluate_output: '{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json'
+  python: from analogiq.sizing import SizingProblem; SizingProblem('cmppl24_task_001').evaluate(design, out_dir)
+  deck_run: spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)
+  deck_extract:
+  - <ANALOGIQ>/.venv/bin/python
+  - -m
+  - analogiq
+  - extract
+  - --job
+  - '{job_folder}'
+  design_slots: 'template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench ''parameters'' line (external-bias variables); values
+    in SI units'
+  working_directory: <ANALOGIQ>

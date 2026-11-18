@@ -1,0 +1,2615 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "tinywhisper24_iqmod_task_001",
+ "topology_id": "tinywhisper24_iqmod",
+ "family": "iq_modulator",
+ "technology_id": "sky130",
+ "parameterization_id": "tinywhisper24_iqmod_p1_counts_20261112",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). TinyWhisper iqmod_top (two MFB LPF + SPDT + passive 25 % mixers) on sky130 (rule D7), VDD 1.5 V. Conditions = the repository's supply sweep 1.2/1.5/1.8 V (tt, 27 C) plus the two schematic test variants (250 kohm source resistance; 650 ohm load). Targets = repository values (10 % linear tolerance), schematic values where both schematic and PEX exist (G5); Monte Carlo = the repository's mismatch-only statistics. No objective. Fixtures follow the repository's testbenches (commit ad6cbaf): iqmod_top_tb_tran (100 % PWM PWL data, coupled-resonator LC band-pass 1k_1k, Rload 1 kohm, Cload 10 pF, 10 ps 25 % LO) and iqmod_top_tb_ac / iqmod_mfb_lpf_tb_* (all LO and SPDT controls high, Cload 10 pF on each output, CMRR with CM-to-CM gain).",
+ "source": {
+  "doi": "none (open-source design; github.com/iic-jku/TinyWhisper commit ad6cbaf, release v2026.08, Zenodo 10.5281/zenodo.22115125)",
+  "title": "TinyWhisper iqmod_top: IQ modulator (2 x 3rd-order MFB Butterworth LPF, fc 400 kHz, inverter-based OTA; SPDT input switches; 2 passive mixers, 4-phase 25 % LO), S. Dorrer, JKU",
+  "figure": "source/Schematics/00_hierarchy.txt and 01_L0_iqmod_top.png (the netlist is the whole iqmod_top hierarchy: 48 device lines in 22 cells, 456 MOSFETs when expanded)"
+ },
+ "variables": [
+  {
+   "name": "W_OTA6_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "OTA unit inverter NF6 NMOS (node FG/CDG): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_OTA6_N",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M1"
+    ]
+   }
+  },
+  {
+   "name": "L_OTA6_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "OTA unit inverter NF6 NMOS (node FG/CDG): channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_OTA6_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "OTA unit inverter NF6 NMOS (node FG/CDG): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_OTA6_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "OTA unit inverter NF6 PMOS: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_OTA6_P",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M2"
+    ]
+   }
+  },
+  {
+   "name": "L_OTA6_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "OTA unit inverter NF6 PMOS: channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_OTA6_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "OTA unit inverter NF6 PMOS: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M2"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_OTA10_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "OTA input-stage inverter NF10 NMOS: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_OTA10_N",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M1"
+    ]
+   }
+  },
+  {
+   "name": "L_OTA10_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "OTA input-stage inverter NF10 NMOS: channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_OTA10_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "OTA input-stage inverter NF10 NMOS: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_OTA10_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "OTA input-stage inverter NF10 PMOS: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_OTA10_P",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M2"
+    ]
+   }
+  },
+  {
+   "name": "L_OTA10_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "OTA input-stage inverter NF10 PMOS: channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_OTA10_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "OTA input-stage inverter NF10 PMOS: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M2"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_OTA20_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "OTA unit inverter NF20 NMOS (output / feedback stages): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_OTA20_N",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M1"
+    ]
+   }
+  },
+  {
+   "name": "L_OTA20_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "OTA unit inverter NF20 NMOS (output / feedback stages): channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_OTA20_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "OTA unit inverter NF20 NMOS (output / feedback stages): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_OTA20_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "OTA unit inverter NF20 PMOS: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_OTA20_P",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M2"
+    ]
+   }
+  },
+  {
+   "name": "L_OTA20_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "OTA unit inverter NF20 PMOS: channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_OTA20_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "OTA unit inverter NF20 PMOS: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M2"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_MIXTG_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "mixer transmission gate NMOS (switch on-resistance): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MIXTG_N",
+    "instances": [
+     "iqmod_mixer_tg.M1"
+    ]
+   }
+  },
+  {
+   "name": "L_MIXTG_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "mixer transmission gate NMOS (switch on-resistance): channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MIXTG_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "mixer transmission gate NMOS (switch on-resistance): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_MIXTG_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "mixer transmission gate PMOS: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MIXTG_P",
+    "instances": [
+     "iqmod_mixer_tg.M2"
+    ]
+   }
+  },
+  {
+   "name": "L_MIXTG_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "mixer transmission gate PMOS: channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MIXTG_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "mixer transmission gate PMOS: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M2"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_MIXDM_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "mixer TG charge-injection dummy NMOS (source = drain, gate on the complementary phase): width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MIXDM_N",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy1"
+    ]
+   }
+  },
+  {
+   "name": "L_MIXDM_N",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "mixer TG charge-injection dummy NMOS (source = drain, gate on the complementary phase): channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy1"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MIXDM_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "mixer TG charge-injection dummy NMOS (source = drain, gate on the complementary phase): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_MIXDM_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "mixer TG charge-injection dummy PMOS: width per finger",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MIXDM_P",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy2"
+    ]
+   }
+  },
+  {
+   "name": "L_MIXDM_P",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 2.02e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "mixer TG charge-injection dummy PMOS: channel length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MIXDM_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "mixer TG charge-injection dummy PMOS: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy2"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "R1",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "MFB filter resistor R1: resistance of each segment (same value) (one per side per filter)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_R1.R1",
+     "iqmod_mfb_lpf_R1.R2",
+     "iqmod_mfb_lpf_R1.R3",
+     "iqmod_mfb_lpf_R1.Rdummy1",
+     "iqmod_mfb_lpf_R1.Rdummy2"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R2",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "MFB filter resistor R2: resistance of each segment (same value) (one per side per filter)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_R2.R1",
+     "iqmod_mfb_lpf_R2.R2",
+     "iqmod_mfb_lpf_R2.R3",
+     "iqmod_mfb_lpf_R2.Rdummy1",
+     "iqmod_mfb_lpf_R2.Rdummy2"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R3",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "MFB filter resistor R3: resistance of each segment (same value) (one per side per filter)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_R3.R1",
+     "iqmod_mfb_lpf_R3.R2",
+     "iqmod_mfb_lpf_R3.R3",
+     "iqmod_mfb_lpf_R3.Rdummy1",
+     "iqmod_mfb_lpf_R3.Rdummy2"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R4",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "MFB filter resistor R4: resistance of each segment (same value) (one per side per filter)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_R4.R1",
+     "iqmod_mfb_lpf_R4.R2",
+     "iqmod_mfb_lpf_R4.R3",
+     "iqmod_mfb_lpf_R4.Rdummy1",
+     "iqmod_mfb_lpf_R4.Rdummy2"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C1",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "MFB filter capacitor C1 (both anti-parallel / per-side capacitors)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf.C1a",
+     "iqmod_mfb_lpf.C1b"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C2",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "MFB filter capacitor C2 (both anti-parallel / per-side capacitors)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf.C2a",
+     "iqmod_mfb_lpf.C2b"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "C3",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "MFB filter capacitor C3 (both anti-parallel / per-side capacitors)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf.C3a",
+     "iqmod_mfb_lpf.C3b"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "M_OTA6_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mfb_lpf_ota_core_inv_NF6.M1; preserves matched width/length group W_OTA6_N",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M1"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_OTA6_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mfb_lpf_ota_core_inv_NF6.M2; preserves matched width/length group W_OTA6_P",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M2"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_OTA10_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mfb_lpf_ota_core_inv_NF10.M1; preserves matched width/length group W_OTA10_N",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M1"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_OTA10_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mfb_lpf_ota_core_inv_NF10.M2; preserves matched width/length group W_OTA10_P",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M2"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_OTA20_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mfb_lpf_ota_core_inv_NF20.M1; preserves matched width/length group W_OTA20_N",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M1"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_OTA20_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mfb_lpf_ota_core_inv_NF20.M2; preserves matched width/length group W_OTA20_P",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M2"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_MIXTG_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mixer_tg.M1; preserves matched width/length group W_MIXTG_N",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M1"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_MIXTG_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mixer_tg.M2; preserves matched width/length group W_MIXTG_P",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M2"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_MIXDM_N",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mixer_tg.Mdummy1; preserves matched width/length group W_MIXDM_N",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy1"
+    ],
+    "parameter": "mult"
+   }
+  },
+  {
+   "name": "M_MIXDM_P",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for iqmod_mixer_tg.Mdummy2; preserves matched width/length group W_MIXDM_P",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy2"
+    ],
+    "parameter": "mult"
+   }
+  }
+ ],
+ "dependent_parameters": {
+  "WT_OTA6_N": {
+   "expression": "W_OTA6_N*NF_OTA6_N",
+   "role": "OTA unit inverter NF6 NMOS (x14 per filter: 3rd/4th stage, node FG/CDG): total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_OTA6_P": {
+   "expression": "W_OTA6_P*NF_OTA6_P",
+   "role": "OTA unit inverter NF6 PMOS: total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF6.M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_OTA10_N": {
+   "expression": "W_OTA10_N*NF_OTA10_N",
+   "role": "OTA input-stage inverter NF10 NMOS: total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_OTA10_P": {
+   "expression": "W_OTA10_P*NF_OTA10_P",
+   "role": "OTA input-stage inverter NF10 PMOS: total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF10.M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_OTA20_N": {
+   "expression": "W_OTA20_N*NF_OTA20_N",
+   "role": "OTA unit inverter NF20 NMOS (output / feedback stages): total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_OTA20_P": {
+   "expression": "W_OTA20_P*NF_OTA20_P",
+   "role": "OTA unit inverter NF20 PMOS: total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mfb_lpf_ota_core_inv_NF20.M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_MIXTG_N": {
+   "expression": "W_MIXTG_N*NF_MIXTG_N",
+   "role": "mixer transmission gate NMOS (switch on-resistance): total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_MIXTG_P": {
+   "expression": "W_MIXTG_P*NF_MIXTG_P",
+   "role": "mixer transmission gate PMOS: total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_MIXDM_N": {
+   "expression": "W_MIXDM_N*NF_MIXDM_N",
+   "role": "mixer TG charge-injection dummy NMOS (source = drain, gate on the complementary phase): total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "WT_MIXDM_P": {
+   "expression": "W_MIXDM_P*NF_MIXDM_P",
+   "role": "mixer TG charge-injection dummy PMOS: total width = width per finger x fingers",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "iqmod_mixer_tg.Mdummy2"
+    ],
+    "parameter": "w"
+   }
+  }
+ },
+ "conditions": [
+  {
+   "id": "tt_T27_S1p00",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.5,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "tt_T27_S0p80",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.2000000000000002,
+   "supply_scale": 0.8,
+   "nominal": false
+  },
+  {
+   "id": "tt_T27_S1p20",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.7999999999999998,
+   "supply_scale": 1.2,
+   "nominal": false
+  },
+  {
+   "id": "tt_T27_S1p00_RS250k",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.5,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "tt_T27_S1p00_RL650",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.5,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "tt_T27_S1p00_MC",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.5,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.5,
+   "provenance": "Metrics.xlsx #2 (VDD = 1.5 V in every testbench); legal on sky130 01v8 (1.95 V)"
+  },
+  "supply_negative_V": {
+   "value": 0.0,
+   "provenance": "ground (G3)"
+  },
+  "input_common_mode_V": {
+   "value": 0.75,
+   "provenance": "Metrics.xlsx Sizing #76 (Vcm = VDD/2 = 0.75 V; held at 0.75 V at the 1.2 / 1.8 V points, Corners.xlsx notes)"
+  },
+  "load_capacitance_F": {
+   "value": 1e-11,
+   "provenance": "repository: .param Cload=10p (AC testbenches: each output; iqmod_top_tb_tran: capacitor from the RF node to ground)"
+  },
+  "lo_frequency_Hz": {
+   "value": 28000000.0,
+   "provenance": "Metrics.xlsx Sizing #78 (flo = 28 MHz, 4-phase 25 %)"
+  },
+  "signal_frequency_Hz": {
+   "value": 124600.0,
+   "provenance": "repository iqmod_top_tb_tran.sch: .param fsig=124.6e3 (PWM PWL data = 4 periods of the 124.6 kHz tone at 56 MHz)"
+  },
+  "rf_load_ohm": {
+   "value": 1000.0,
+   "provenance": "repository iqmod_top_tb_tran.sch: .param Rload=1k (resistor to ground behind the coupled-resonator LC band-pass 1k_1k)"
+  },
+  "lo_edge_time_s": {
+   "value": 1e-11,
+   "provenance": "repository iqmod_top_tb_tran.sch: pulse(0 VDD delay 10p 10p 0.25/flo 1/flo), phases 0, 0.25, 0.5, 0.75 /flo for LO_I, LO_Q, LO_IX, LO_QX"
+  }
+ },
+ "constraints": [
+  {
+   "name": "gain_nom",
+   "metric": "passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": -1.4641498112135025,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -0.549,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Corners #2: filter closed-loop DC gain -0.549 dB at 1.5 V (schematic, plot-read; G5: the PEX -0.453 dB of Metrics #50/#99 is not used)",
+   "source": "native"
+  },
+  {
+   "name": "gain_spec_max",
+   "metric": "passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "upper": 1.8278537031645015,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 1.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #18: CACE spec closed-loop DC gain -1 .. +1 dB (upper edge)",
+   "source": "native"
+  },
+  {
+   "name": "gain_1p2V",
+   "metric": "passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": -1.5291498112135025,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -0.614,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "supply_scale": 0.8
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Corners row #1 (CACE schematic netlist, value read from plot)",
+   "source": "native"
+  },
+  {
+   "name": "gain_1p8V",
+   "metric": "passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": -1.5101498112135023,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -0.595,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "supply_scale": 1.2
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Corners row #3 (CACE schematic netlist, value read from plot)",
+   "source": "native"
+  },
+  {
+   "name": "cutoff_nom",
+   "metric": "cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 373410.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 414900.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Corners row #5 (fcu 414.9 kHz at 1.5 V; Metrics #19 spec >= 350 kHz) (CACE schematic netlist, value read from plot)",
+   "source": "native"
+  },
+  {
+   "name": "cutoff_1p2V",
+   "metric": "cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 376650.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 418500.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "supply_scale": 0.8
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Corners row #4 (CACE schematic netlist, value read from plot)",
+   "source": "native"
+  },
+  {
+   "name": "cutoff_1p8V",
+   "metric": "cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 359550.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 399500.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "supply_scale": 1.2
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Corners row #6 (CACE schematic netlist, value read from plot)",
+   "source": "native"
+  },
+  {
+   "name": "atten_1MHz",
+   "metric": "attenuation_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {
+    "freq_Hz": 1000000.0
+   },
+   "unit": "dB",
+   "lower": 17.1848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 18.1,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #53: filter attenuation below passband (PEX value; no schematic value reported)",
+   "source": "native"
+  },
+  {
+   "name": "atten_4MHz",
+   "metric": "attenuation_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {
+    "freq_Hz": 4000000.0
+   },
+   "unit": "dB",
+   "lower": 50.984850188786496,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 51.9,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #54: filter attenuation below passband (PEX value; no schematic value reported)",
+   "source": "native"
+  },
+  {
+   "name": "atten_28MHz",
+   "metric": "attenuation_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {
+    "freq_Hz": 28000000.0
+   },
+   "unit": "dB",
+   "lower": 109.2848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 110.2,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #55: filter attenuation below passband (PEX value; no schematic value reported)",
+   "source": "native"
+  },
+  {
+   "name": "atten_56MHz",
+   "metric": "attenuation_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {
+    "freq_Hz": 56000000.0
+   },
+   "unit": "dB",
+   "lower": 128.1848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 129.1,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #56: filter attenuation below passband (PEX value; no schematic value reported)",
+   "source": "native"
+  },
+  {
+   "name": "stopband_slope",
+   "metric": "stopband_slope_dB_per_decade",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB/decade",
+   "upper": -58.68,
+   "target": {
+    "kind": "linear",
+    "paper_value": -65.2,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #57: stop-band slope 2 -> 20 MHz (PEX; no schematic value)",
+   "source": "native"
+  },
+  {
+   "name": "zin_dm",
+   "metric": "input_impedance_dm_ohm",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "ohm",
+   "lower": 1073700.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1193000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #61: differential input impedance 1193 kohm at 10 Hz (schematic)",
+   "source": "native"
+  },
+  {
+   "name": "zin_cm",
+   "metric": "input_impedance_cm_ohm",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "ohm",
+   "lower": 522900.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 581000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #62: common-mode input impedance 581 kohm at 10 Hz (schematic; per-input definition is a curator choice)",
+   "source": "native"
+  },
+  {
+   "name": "gain_rs250k",
+   "metric": "passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": -4.505149811213502,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -3.59,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "RS250k"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #66: passband gain with 250 kohm source resistance per input (schematic)",
+   "source": "native"
+  },
+  {
+   "name": "gain_rl650",
+   "metric": "passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": -4.455149811213502,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -3.54,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "RL650"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #63 (iqmod_mfb_lpf_tb_Rout: 650 ohm from each output to ground, no Cload; applied here to the four RF outputs of the top)",
+   "source": "native"
+  },
+  {
+   "name": "cutoff_rl650",
+   "metric": "cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 180450.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 200500.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "RL650"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #64: -3 dB frequency with 650 ohm load per output (schematic)",
+   "source": "native"
+  },
+  {
+   "name": "sideband_suppression",
+   "metric": "sideband_suppression_dB",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 64.8848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 65.8,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #94: opposite-sideband (f_LO + f_sig) suppression of the full modulator (PEX; only value reported) (same drive as the repository: 100 % PWM PWL, LC band-pass 1k_1k, Rload 1 kohm)",
+   "source": "native"
+  },
+  {
+   "name": "lo_leakage",
+   "metric": "lo_leakage_dBc",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "dBc",
+   "upper": -50.9721462968355,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -51.8,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #95: LO leakage of the full modulator (PEX) (same drive as the repository: 100 % PWM PWL, LC band-pass 1k_1k, Rload 1 kohm)",
+   "source": "native"
+  },
+  {
+   "name": "counter_im3",
+   "metric": "counter_im3_dBc",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "dBc",
+   "upper": -18.0721462968355,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -18.9,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #96: counter-IM3 at f_LO + 3 f_sig (PEX) (same drive as the repository: 100 % PWM PWL, LC band-pass 1k_1k, Rload 1 kohm)",
+   "source": "native"
+  },
+  {
+   "name": "spur_m5",
+   "metric": "spur_lo_m5_dBc",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "dBc",
+   "upper": -29.9721462968355,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -30.8,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #97: spur at f_LO - 5 f_sig (PEX) (same drive as the repository: 100 % PWM PWL, LC band-pass 1k_1k, Rload 1 kohm)",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_gain_lo",
+   "metric": "mc_mean.passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "lower": -1.4921498112135023,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -0.577,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #7 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_gain_hi",
+   "metric": "mc_mean.passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "upper": 0.2508537031645015,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -0.577,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #7 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_gain",
+   "metric": "mc_sigma.passband_gain_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "upper": 0.0528,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.048,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #7 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_cutoff_lo",
+   "metric": "mc_mean.cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "lower": 370134.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 411260.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #8 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_cutoff_hi",
+   "metric": "mc_mean.cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "upper": 452386.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 411260.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #8 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_cutoff",
+   "metric": "mc_sigma.cutoff_frequency_Hz",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "upper": 1430.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1300.0,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #8 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "mc_mean_cmrr_lo",
+   "metric": "mc_mean.cmrr_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "lower": 24.084850188786497,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 25.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CACE specification CMRR >= 25 dB (Metrics.xlsx #20; ihp130/macros/iqmod/verification/cace/iqmod_mfb_lpf.yaml lines 121-125), owner 2026-10-27: the spec replaces the repository's simulated value; was the Monte Carlo #9 mean 48.65 dB (Corners.xlsx, a lower and an upper bound); the spec has only a lower edge",
+   "source": "native"
+  },
+  {
+   "name": "mc_sigma_cmrr",
+   "metric": "mc_sigma.cmrr_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "",
+   "upper": 3.0140000000000002,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.74,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Corners.xlsx Monte Carlo #9 (mismatch-only, mean/sigma estimated from the histogram, schematic)",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8: no unintended device out of saturation (OTA inverters; switches, LO drivers and dummies excluded by design)",
+   "source": "native"
+  },
+  {
+   "name": "tone_amplitude",
+   "metric": "tone_amplitude_V",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 0.3141,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.349,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #92: output tone amplitude of the full modulator at vout_RF_filt (post-layout; only value reported)",
+   "source": "native"
+  },
+  {
+   "name": "tone_power",
+   "metric": "tone_power_dBm",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "dBm",
+   "lower": -12.557574905606751,
+   "target": {
+    "kind": "power_db",
+    "paper_value": -12.1,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #93: output tone power into 1 kohm (post-layout)",
+   "source": "native"
+  },
+  {
+   "name": "spur_3lo",
+   "metric": "spur_3lo_max_dBc",
+   "recipe": "iqmod_iq_tran_v1",
+   "point": {},
+   "unit": "dBc",
+   "upper": -68.77214629683549,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": -69.6,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "Metrics.xlsx #98: largest spur near 3*f_LO (84 MHz +- 9 f_sig) relative to the output tone (post-layout)",
+   "source": "native"
+  },
+  {
+   "name": "cmrr_nom",
+   "metric": "cmrr_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 24.084850188786497,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 25.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CACE specification CMRR >= 25 dB (Metrics.xlsx #20; ihp130/macros/iqmod/verification/cace/iqmod_mfb_lpf.yaml lines 121-125), owner 2026-10-27: the spec replaces the repository's simulated value (CACE checks the spec at every supply point); was Corners.xlsx Corners #8 48.2 dB (CACE schematic, plot-read); CMRR = Adm / Acm with Acm = common-mode to common-mode gain (iqmod_mfb_lpf_tb_CMRR.sch)",
+   "source": "native"
+  },
+  {
+   "name": "cmrr_1p2V",
+   "metric": "cmrr_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 24.084850188786497,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 25.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "supply_scale": 0.8
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CACE specification CMRR >= 25 dB (Metrics.xlsx #20; ihp130/macros/iqmod/verification/cace/iqmod_mfb_lpf.yaml lines 121-125), owner 2026-10-27: the spec replaces the repository's simulated value (CACE checks the spec at every supply point); was Corners.xlsx Corners #7 50.3 dB (CACE schematic, plot-read); CMRR = Adm / Acm with Acm = common-mode to common-mode gain (iqmod_mfb_lpf_tb_CMRR.sch)",
+   "source": "native"
+  },
+  {
+   "name": "cmrr_1p8V",
+   "metric": "cmrr_dB",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 24.084850188786497,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 25.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "supply_scale": 1.2
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CACE specification CMRR >= 25 dB (Metrics.xlsx #20; ihp130/macros/iqmod/verification/cace/iqmod_mfb_lpf.yaml lines 121-125), owner 2026-10-27: the spec replaces the repository's simulated value (CACE checks the spec at every supply point); was Corners.xlsx Corners #9 31.8 dB (CACE schematic, plot-read); CMRR = Adm / Acm with Acm = common-mode to common-mode gain (iqmod_mfb_lpf_tb_CMRR.sch)",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "iqmod_bb_ac_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "iqmod_bb_ac_v1",
+   "attenuation_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "cmrr_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "common_mode_gain_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "cutoff_frequency_Hz"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "input_impedance_cm_ohm"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "input_impedance_dm_ohm"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.attenuation_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.cmrr_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.common_mode_gain_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.cutoff_frequency_Hz"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.input_impedance_cm_ohm"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.input_impedance_dm_ohm"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.passband_gain_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.phase_at_cutoff_deg"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_mean.stopband_slope_dB_per_decade"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.attenuation_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.cmrr_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.common_mode_gain_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.cutoff_frequency_Hz"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.input_impedance_cm_ohm"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.input_impedance_dm_ohm"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.passband_gain_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.phase_at_cutoff_deg"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "mc_sigma.stopband_slope_dB_per_decade"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "passband_gain_dB"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "phase_at_cutoff_deg"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "iqmod_bb_ac_v1",
+   "stopband_slope_dB_per_decade"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "counter_im3_dBc"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "lo_leakage_dBc"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "sideband_suppression_dB"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "spur_3lo_max_dBc"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "spur_lo_m5_dBc"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "tone_amplitude_V"
+  ],
+  [
+   "iqmod_iq_tran_v1",
+   "tone_power_dBm"
+  ]
+ ],
+ "simulations_per_design": 7,
+ "analysis_executions_per_design": 51,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "tt_T27_S1p00",
+   "recipe": "iqmod_bb_ac_v1",
+   "folder": "testbenches/tt_T27_S1p00/iqmod_bb_ac_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/ac1.ac",
+    "raw/ac2.ac",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1000000.0
+    },
+    {
+     "freq_Hz": 4000000.0
+    },
+    {
+     "freq_Hz": 28000000.0
+    },
+    {
+     "freq_Hz": 56000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00",
+   "recipe": "iqmod_iq_tran_v1",
+   "folder": "testbenches/tt_T27_S1p00/iqmod_iq_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/iq1.tran.tran"
+   ],
+   "metrics": {
+    "tone_amplitude_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "tone_power_dBm": {
+     "unit": "dBm",
+     "source": "native"
+    },
+    "sideband_suppression_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "lo_leakage_dBc": {
+     "unit": "dBc",
+     "source": "native"
+    },
+    "counter_im3_dBc": {
+     "unit": "dBc",
+     "source": "native"
+    },
+    "spur_lo_m5_dBc": {
+     "unit": "dBc",
+     "source": "native"
+    },
+    "spur_3lo_max_dBc": {
+     "unit": "dBc",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T27_S0p80",
+   "recipe": "iqmod_bb_ac_v1",
+   "folder": "testbenches/tt_T27_S0p80/iqmod_bb_ac_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/ac1.ac",
+    "raw/ac2.ac",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1000000.0
+    },
+    {
+     "freq_Hz": 4000000.0
+    },
+    {
+     "freq_Hz": 28000000.0
+    },
+    {
+     "freq_Hz": 56000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p20",
+   "recipe": "iqmod_bb_ac_v1",
+   "folder": "testbenches/tt_T27_S1p20/iqmod_bb_ac_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/ac1.ac",
+    "raw/ac2.ac",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1000000.0
+    },
+    {
+     "freq_Hz": 4000000.0
+    },
+    {
+     "freq_Hz": 28000000.0
+    },
+    {
+     "freq_Hz": 56000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00_RS250k",
+   "recipe": "iqmod_bb_ac_v1",
+   "folder": "testbenches/tt_T27_S1p00_RS250k/iqmod_bb_ac_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/ac1.ac",
+    "raw/ac2.ac",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1000000.0
+    },
+    {
+     "freq_Hz": 4000000.0
+    },
+    {
+     "freq_Hz": 28000000.0
+    },
+    {
+     "freq_Hz": 56000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00_RL650",
+   "recipe": "iqmod_bb_ac_v1",
+   "folder": "testbenches/tt_T27_S1p00_RL650/iqmod_bb_ac_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/ac1.ac",
+    "raw/ac2.ac",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1000000.0
+    },
+    {
+     "freq_Hz": 4000000.0
+    },
+    {
+     "freq_Hz": 28000000.0
+    },
+    {
+     "freq_Hz": 56000000.0
+    }
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00_MC",
+   "recipe": "iqmod_bb_ac_v1",
+   "folder": "testbenches/tt_T27_S1p00_MC/iqmod_bb_ac_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [],
+   "metrics": {
+    "mc_mean.passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_sigma.passband_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_mean.cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "mc_sigma.cutoff_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "mc_mean.phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "mc_sigma.phase_at_cutoff_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "mc_mean.attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_sigma.attenuation_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_mean.stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "mc_sigma.stopband_slope_dB_per_decade": {
+     "unit": "dB/decade",
+     "source": "native"
+    },
+    "mc_mean.input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "mc_sigma.input_impedance_dm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "mc_mean.cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_sigma.cmrr_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_mean.common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_sigma.common_mode_gain_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "mc_mean.input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    },
+    "mc_sigma.input_impedance_cm_ohm": {
+     "unit": "ohm",
+     "source": "native"
+    }
+   },
+   "points": [
+    {},
+    {
+     "freq_Hz": 1000000.0
+    },
+    {
+     "freq_Hz": 4000000.0
+    },
+    {
+     "freq_Hz": 28000000.0
+    },
+    {
+     "freq_Hz": 56000000.0
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "tinywhisper24_iqmod_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('tinywhisper24_iqmod_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

@@ -1,0 +1,18 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt gc_d1bc1072d280_d0cab70f (VDD GND IIN VOUT)
+CF (IIN VY) capacitor c=C_FB
+CNCG (VY VOUT) capacitor c=C_NCG
+CPD (IIN GND) capacitor c=50f
+IBIAS1 (TAIL GND) isource type=dc dc=7u
+IBIAS2 (PBIAS GND) isource type=dc dc=400u
+IPHOTO (GND IIN) isource type=dc dc=I_PHOTO
+M1 (VY IIN GND GND) nmos1 w=20u l=180n m=1 as=12p ad=12p ps=41.2u pd=41.2u
+M2 (VY PBIAS VDD VDD) pmos1 w=5u l=180n m=1 as=3p ad=3p ps=11.2u pd=11.2u
+M3 (PBIAS PBIAS VDD VDD) pmos1 w=5u l=180n m=1 as=3p ad=3p ps=11.2u pd=11.2u
+M4 (VDD VY TAIL GND) nmos1 w=4u l=180n m=1 as=2.4p ad=2.4p ps=9.2u pd=9.2u
+M5 (VOUT VBIAS TAIL GND) nmos1 w=4u l=180n m=1 as=2.4p ad=2.4p ps=9.2u pd=9.2u
+M6 (VOUT VOUT VDD VDD) pmos1 w=16u l=180n m=1 as=9.6p ad=9.6p ps=33.2u pd=33.2u
+RF (VY IIN) resistor r=1k
+VBIAS_SOURCE (VBIAS GND) vsource type=dc dc=V_BIAS
+ends gc_d1bc1072d280_d0cab70f

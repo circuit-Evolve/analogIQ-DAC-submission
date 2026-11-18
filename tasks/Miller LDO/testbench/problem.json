@@ -1,0 +1,4022 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "ldo24m_miller_task_001",
+ "topology_id": "ldo24m_miller",
+ "family": "ldo",
+ "technology_id": "gpdk180",
+ "parameterization_id": "ldo24m_miller_p1_counts_20261112",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). Internally compensated capacitor-less PMOS-pass LDO with current-mode Miller compensation (gpdk180 thick-oxide devices), as simulated in the thesis: VIN 2.1 V (also 3.3 V), Vout 1.8 V from VREF 1.2 V (ENABLE low), nominal temperature 60 C (p.93), CL 50 pF, nominal load 70 mA. Conditions: nominal, VIN 3.3 V, Vout=1.2 V mode (ENABLE = VIN) at 2.1 / 3.3 V, and the load-step cases of Tables 4.4/4.5 as labelled conditions. Temperature and process corners are only shown as graphs (not targeted). No Monte Carlo reported. No objective.",
+ "source": {
+  "title": "A 0.18um CMOS Internally-Compensated Low-Dropout Voltage Regulator (C. F. Ventura Arizmendi, INAOE MSc thesis, 2014)",
+  "figure": "Fig. 4.1 (LDO), Fig. 4.4 (AC test setup, source/testbench.png), Tables 3.2-3.7, 4.2-4.8"
+ },
+ "variables": [
+  {
+   "name": "W_EAL",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS active load M1/M2 of the first stage: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_EAL",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS active load M1/M2 of the first stage: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_EAIN",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS input pair M3/M4 of the error amplifier: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_EAIN",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS input pair M3/M4 of the error amplifier: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_EAT",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS tail current source M5 (gate VBIAS): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_EAT",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS tail current source M5 (gate VBIAS): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_EAS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS second-stage current source M6 (gate VBIAS): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_EAS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS second-stage current source M6 (gate VBIAS): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_EA2",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS common-source second stage M7 driving the pass-gate: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_EA2",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS common-source second stage M7 driving the pass-gate: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_MCR",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "MOS compensation resistor MC (triode): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MC"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MCR",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "MOS compensation resistor MC (triode): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MC"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_EA",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "error-amplifier Miller capacitor Cc",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CC"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "W_PASS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS pass device unit: width per multiplier",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PASS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS pass device unit: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "N_PASS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1.0,
+   "upper": 300.0,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS pass device: multiplier (Spectre m)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MP"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_RFB",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "diode-connected PMOS feedback network MRFB1-3: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MRFB1",
+     "MRFB2",
+     "MRFB3"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_RFB",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "diode-connected PMOS feedback network MRFB1-3: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MRFB1",
+     "MRFB2",
+     "MRFB3"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_MSW",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS enable switch Ms in parallel with MRFB1 (size not reported in the paper): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MS"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MSW",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS enable switch Ms in parallel with MRFB1 (size not reported in the paper): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MS"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_CM",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS simple current mirror MA1/MA2 of the current amplifier: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA1",
+     "MA2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_CM",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS simple current mirror MA1/MA2 of the current amplifier: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA1",
+     "MA2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_WLS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS improved-Wilson devices MA3/MA6: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA3",
+     "MA6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_WLS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS improved-Wilson devices MA3/MA6: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA3",
+     "MA6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_WLB",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS improved-Wilson devices MA4/MA5, ratio ~40:1: width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA4",
+     "MA5"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_WLB",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS improved-Wilson devices MA4/MA5, ratio ~40:1: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA4",
+     "MA5"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_MAB",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS bias device MAB (gate VBIAS, size not reported): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MAB"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_MAB",
+   "kind": "real",
+   "unit": "m",
+   "lower": 3e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS bias device MAB (gate VBIAS, size not reported): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MAB"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "C_F",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "current-mode Miller compensation capacitor Cf",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "CF"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "V_BIAS",
+   "kind": "real",
+   "unit": "V",
+   "lower": 0.0,
+   "upper": 2.1,
+   "scale": "lin",
+   "start": 1.05,
+   "quantity": "bias_voltage",
+   "role": "gate bias of the NMOS current sources M5/M6/MAB (not reported in the paper)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "VBIAS"
+   }
+  },
+  {
+   "name": "M_EAL",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M1, M2; preserves matched width/length group W_EAL",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M1",
+     "M2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_EAIN",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M3, M4; preserves matched width/length group W_EAIN",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3",
+     "M4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_EAT",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M5; preserves matched width/length group W_EAT",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_EAS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M6; preserves matched width/length group W_EAS",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_EA2",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M7; preserves matched width/length group W_EA2",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_MCR",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MC; preserves matched width/length group W_MCR",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MC"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_RFB",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MRFB1, MRFB2, MRFB3; preserves matched width/length group W_RFB",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MRFB1",
+     "MRFB2",
+     "MRFB3"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_MSW",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MS; preserves matched width/length group W_MSW",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MS"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_CM",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MA1, MA2; preserves matched width/length group W_CM",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA1",
+     "MA2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_WLS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MA3, MA6; preserves matched width/length group W_WLS",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA3",
+     "MA6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_WLB",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MA4, MA5; preserves matched width/length group W_WLB",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MA4",
+     "MA5"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_MAB",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for MAB; preserves matched width/length group W_MAB",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "MAB"
+    ],
+    "parameter": "m"
+   }
+  }
+ ],
+ "dependent_parameters": {},
+ "conditions": [
+  {
+   "id": "NN_T60_S1p00",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "NN_T60_S1p57_V33",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_v12",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_v12_V33",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_s18_21_a",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_s18_21_b",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_s18_21_c",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_s18_33_a",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_s18_33_b",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_s18_33_c",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_s12_21_a",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_s12_21_b",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p00_s12_21_c",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 2.1,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_s12_33_a",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_s12_33_b",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  },
+  {
+   "id": "NN_T60_S1p57_s12_33_c",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_V": 3.2999988000000005,
+   "supply_scale": 1.571428,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "input_voltage_V": {
+   "value": 2.1,
+   "provenance": "paper: Tables 4.2-4.7 (VIN 2.1 V minimum / nominal for the summary; 3.3 V maximum = condition V33)"
+  },
+  "reference_V": {
+   "value": 1.2,
+   "provenance": "paper: Table 3.5 (Vref 1.2 V, external/ideal)"
+  },
+  "load_current_A": {
+   "value": 0.07,
+   "provenance": "paper: Table 4.1 (max load 70 mA); dropout, Vout and line regulation are reported at Iload = 70 mA"
+  },
+  "load_capacitance_F": {
+   "value": 5e-11,
+   "provenance": "paper: Table 4.7 (CL = 50 pF)"
+  },
+  "output_voltage_V": {
+   "value": 1.8,
+   "provenance": "paper: Table 4.1 (Vout 1.8 V with ENABLE low; the 1.2 V mode overrides it; regulation check, default +-5 %)"
+  }
+ },
+ "constraints": [
+  {
+   "name": "output_voltage_V_lo",
+   "metric": "output_voltage_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 1.5822,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.758,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.3a / Table 4.8 (Vout 1.758 V at Iload 70 mA, VIN 2.1 V; lower side); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "output_voltage_V_hi",
+   "metric": "output_voltage_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 1.9338,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.758,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.3a / Table 4.8 (Vout 1.758 V at 70 mA; upper side); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "output_voltage_V_lo_v12",
+   "metric": "output_voltage_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 1.0485,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.165,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.3b (Vout 1.165 V at 70 mA, Vout=1.2 V mode; lower side); condition v12",
+   "source": "measure"
+  },
+  {
+   "name": "output_voltage_V_hi_v12",
+   "metric": "output_voltage_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 1.2815,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.165,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.3b (Vout 1.165 V at 70 mA, Vout=1.2 V mode; upper side); condition v12",
+   "source": "measure"
+  },
+  {
+   "name": "dropout_voltage_V",
+   "metric": "dropout_voltage_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.38499999999999995,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.35,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.8 p.101 (dropout 350 mV at Iload max, Vout 1.8 V (Table 4.7 / Fig. 4.3a: 342 mV = VIN,min 2.1 V - 1.758 V)); nominal. consolidation_2026_10_27: dropout = VIN,min - VOUT at the nominal supply 2.1 V (ldo_line_v1 dropout_reference: supply_minus_output = the thesis definition VDO = VIN - Vout, Chapter 1.3), was the knee VIN - Vout at the lowest VIN within 1 % of the 2.1 V value",
+   "source": "native"
+  },
+  {
+   "name": "dropout_voltage_V_v12",
+   "metric": "dropout_voltage_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 1.034,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.94,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.7 p.99 (dropout 940 mV, Vout 1.2 V at VIN = 2.1 V = 2.1 V - 1.16 V). consolidation_2026_10_27 (G6 step 2): the 534 mV of the text / Fig. 4.3b is VIN - Vout at VIN 1.7 V (the beginning of the linear region), a supply the task does not simulate; the task measures VIN,min - VOUT at the nominal 2.1 V (ldo_line_v1 dropout_reference: supply_minus_output), where Table 4.7 gives 940 mV (and 342 mV for the 1.8 V mode, the same convention); condition v12",
+   "source": "native"
+  },
+  {
+   "name": "line_regulation_pos",
+   "metric": "line_regulation_V_per_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V/V",
+   "upper": 0.000264,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00024,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.14a / Tables 4.7-4.8 (line regulation 0.24 mV/V, VIN 2.1-3.3 V, 70 mA; magnitude, positive side); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "line_regulation_neg",
+   "metric": "line_regulation_V_per_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V/V",
+   "lower": -0.000264,
+   "target": {
+    "kind": "linear",
+    "paper_value": -0.00024,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.14a / Tables 4.7-4.8 (line regulation 0.24 mV/V; magnitude, negative side); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "line_regulation_pos_v12",
+   "metric": "line_regulation_V_per_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V/V",
+   "upper": 0.00011,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0001,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.14b / Table 4.7 (line regulation 0.10 mV/V, Vout 1.2 V; magnitude, positive side); condition v12",
+   "source": "measure"
+  },
+  {
+   "name": "line_regulation_neg_v12",
+   "metric": "line_regulation_V_per_V",
+   "recipe": "ldo_line_v1",
+   "point": {},
+   "unit": "V/V",
+   "lower": -0.00011,
+   "target": {
+    "kind": "linear",
+    "paper_value": -0.0001,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Fig. 4.14b / Table 4.7 (line regulation 0.10 mV/V; magnitude, negative side); condition v12",
+   "source": "measure"
+  },
+  {
+   "name": "load_regulation_pos",
+   "metric": "load_regulation_V_per_A",
+   "recipe": "ldo_load_v1",
+   "point": {},
+   "unit": "V/A",
+   "upper": 0.6599999999999999,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.6,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.97 / Table 4.7 (load regulation 0.6 mV/mA = 0.6 V/A, 0-70 mA, VIN 2.1 V (Table 4.8: 0.714); magnitude, positive side); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "load_regulation_neg",
+   "metric": "load_regulation_V_per_A",
+   "recipe": "ldo_load_v1",
+   "point": {},
+   "unit": "V/A",
+   "lower": -0.6599999999999999,
+   "target": {
+    "kind": "linear",
+    "paper_value": -0.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.97 / Table 4.7 (load regulation 0.6 mV/mA; magnitude, negative side); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "load_regulation_pos_v12",
+   "metric": "load_regulation_V_per_A",
+   "recipe": "ldo_load_v1",
+   "point": {},
+   "unit": "V/A",
+   "upper": 0.55,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.5,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.97 / Table 4.7 (load regulation 0.5 mV/mA, Vout 1.2 V; magnitude, positive side); condition v12",
+   "source": "measure"
+  },
+  {
+   "name": "load_regulation_neg_v12",
+   "metric": "load_regulation_V_per_A",
+   "recipe": "ldo_load_v1",
+   "point": {},
+   "unit": "V/A",
+   "lower": -0.55,
+   "target": {
+    "kind": "linear",
+    "paper_value": -0.5,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.97 / Table 4.7 (load regulation 0.5 mV/mA; magnitude, negative side); condition v12",
+   "source": "measure"
+  },
+  {
+   "name": "quiescent_current_A",
+   "metric": "ground_current_min_load_A",
+   "recipe": "ldo_load_v1",
+   "point": {},
+   "unit": "A",
+   "upper": 5.1699999999999996e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.7e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.6 p.98 / Table 4.7 (total quiescent current 47 uA (no load)); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "loop_gain_lf_dB_0",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "dB",
+   "lower": 89.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 90.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (loop DC gain (Vout 1.8 V, VIN 2.1 V, Iload 0)); nominal",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_0",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "Hz",
+   "lower": 720000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 800000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (UGF (Vout 1.8 V, VIN 2.1 V, Iload 0)); nominal",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_0",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "deg",
+   "lower": 36.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 40.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (phase margin (Vout 1.8 V, VIN 2.1 V, Iload 0)); nominal",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_70",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "dB",
+   "lower": 107.6848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 108.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value 110 to the witness value 108.6 (not reached by an 8 h search, a local refinement and hand sizing (gpdk180 3.3 V devices show a strong narrow-width threshold shift); gaps 1.3 % (loop gain at 70 C) and 14-17 % on two load-settling times). paper: Table 4.2 p.83 (loop DC gain (Vout 1.8 V, VIN 2.1 V, Iload 70 mA)); nominal",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_70",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "Hz",
+   "lower": 855000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 950000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (UGF (Vout 1.8 V, VIN 2.1 V, Iload 70 mA)); nominal",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_70",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "deg",
+   "lower": 81.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 90.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (phase margin (Vout 1.8 V, VIN 2.1 V, Iload 70 mA)); nominal",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_0_18_33",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "dB",
+   "lower": 87.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 88.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (loop DC gain (Vout 1.8 V, VIN 3.3 V, Iload 0)); V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_0_18_33",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "Hz",
+   "lower": 540000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 600000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (UGF (Vout 1.8 V, VIN 3.3 V, Iload 0)); V33",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_0_18_33",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "deg",
+   "lower": 10.8,
+   "target": {
+    "kind": "linear",
+    "paper_value": 12.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (phase margin (Vout 1.8 V, VIN 3.3 V, Iload 0)); V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_70_18_33",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "dB",
+   "lower": 119.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 120.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (loop DC gain (Vout 1.8 V, VIN 3.3 V, Iload 70 mA)); V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_70_18_33",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "Hz",
+   "lower": 730800.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 812000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (UGF (Vout 1.8 V, VIN 3.3 V, Iload 70 mA)); V33",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_70_18_33",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "deg",
+   "lower": 50.4,
+   "target": {
+    "kind": "linear",
+    "paper_value": 56.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.2 p.83 (phase margin (Vout 1.8 V, VIN 3.3 V, Iload 70 mA)); V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_0_12_21",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "dB",
+   "lower": 87.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 88.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (loop DC gain (Vout 1.2 V, VIN 2.1 V, Iload 0)); v12",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_0_12_21",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "Hz",
+   "lower": 900000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (UGF (Vout 1.2 V, VIN 2.1 V, Iload 0)); v12",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_0_12_21",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "deg",
+   "lower": 21.6,
+   "target": {
+    "kind": "linear",
+    "paper_value": 24.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (phase margin (Vout 1.2 V, VIN 2.1 V, Iload 0)); v12",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_70_12_21",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "dB",
+   "lower": 116.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 117.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (loop DC gain (Vout 1.2 V, VIN 2.1 V, Iload 70 mA)); v12",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_70_12_21",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "Hz",
+   "lower": 2520000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2800000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (UGF (Vout 1.2 V, VIN 2.1 V, Iload 70 mA)); v12",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_70_12_21",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "deg",
+   "lower": 81.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 90.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (phase margin (Vout 1.2 V, VIN 2.1 V, Iload 70 mA)); v12",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_0_12_33",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "dB",
+   "lower": 86.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 87.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (loop DC gain (Vout 1.2 V, VIN 3.3 V, Iload 0)); v12_V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_0_12_33",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "Hz",
+   "lower": 720000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 800000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (UGF (Vout 1.2 V, VIN 3.3 V, Iload 0)); v12_V33",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_0_12_33",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.0
+   },
+   "unit": "deg",
+   "lower": 1.8,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (phase margin (Vout 1.2 V, VIN 3.3 V, Iload 0)); v12_V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_gain_lf_dB_70_12_33",
+   "metric": "loop_gain_lf_dB",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "dB",
+   "lower": 119.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 120.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (loop DC gain (Vout 1.2 V, VIN 3.3 V, Iload 70 mA)); v12_V33",
+   "source": "native"
+  },
+  {
+   "name": "loop_ugf_Hz_70_12_33",
+   "metric": "loop_unity_gain_frequency_Hz",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "Hz",
+   "lower": 990000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1100000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (UGF (Vout 1.2 V, VIN 3.3 V, Iload 70 mA)); v12_V33",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_deg_70_12_33",
+   "metric": "phase_margin_deg",
+   "recipe": "ldo_stb_v1",
+   "point": {
+    "load_A": 0.07
+   },
+   "unit": "deg",
+   "lower": 54.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 60.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.3 p.84 (phase margin (Vout 1.2 V, VIN 3.3 V, Iload 70 mA)); v12_V33",
+   "source": "native"
+  },
+  {
+   "name": "psrr_1kHz_dB_18_21",
+   "metric": "psrr_dB",
+   "recipe": "ldo_psrr_v1",
+   "point": {
+    "freq_Hz": 1000.0
+   },
+   "unit": "dB",
+   "lower": 56.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 57.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.85 / Fig. 4.7 (PSR at 1 kHz, Vout 1.8 V, VIN 2.1 V); nominal",
+   "source": "measure"
+  },
+  {
+   "name": "psrr_1kHz_dB_18_33",
+   "metric": "psrr_dB",
+   "recipe": "ldo_psrr_v1",
+   "point": {
+    "freq_Hz": 1000.0
+   },
+   "unit": "dB",
+   "lower": 89.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 90.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.85 / Fig. 4.7 (PSR at 1 kHz, Vout 1.8 V, VIN 3.3 V); V33",
+   "source": "measure"
+  },
+  {
+   "name": "psrr_1kHz_dB_12_21",
+   "metric": "psrr_dB",
+   "recipe": "ldo_psrr_v1",
+   "point": {
+    "freq_Hz": 1000.0
+   },
+   "unit": "dB",
+   "lower": 66.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 67.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.85 / Fig. 4.7 (PSR at 1 kHz, Vout 1.2 V, VIN 2.1 V); v12",
+   "source": "measure"
+  },
+  {
+   "name": "psrr_1kHz_dB_12_33",
+   "metric": "psrr_dB",
+   "recipe": "ldo_psrr_v1",
+   "point": {
+    "freq_Hz": 1000.0
+   },
+   "unit": "dB",
+   "lower": 94.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 95.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "v12_V33"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: text p.85 / Fig. 4.7 (PSR at 1 kHz, Vout 1.2 V, VIN 3.3 V); v12_V33",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s18_21_a",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.11000000000000001,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.1,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (undershoot after the low->high step, load step 0-1 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s18_21_a",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (low->high), load step 0-1 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s18_21_a",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.066,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (overshoot after the high->low step, load step 0-1 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s18_21_a",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 5.5e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.9999999999999996e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (high->low), load step 0-1 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s18_21_b",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.6050000000000001,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.55,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (undershoot after the low->high step, load step 0-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s18_21_b",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (low->high), load step 0-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s18_21_b",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.31899999999999995,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.29,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (overshoot after the high->low step, load step 0-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s18_21_b",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 5.5e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.9999999999999996e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (high->low), load step 0-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s18_21_c",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.15400000000000003,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.14,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (undershoot after the low->high step, load step 1-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s18_21_c",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 3.3e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (low->high), load step 1-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s18_21_c",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.121,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.11,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (overshoot after the high->low step, load step 1-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s18_21_c",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 4.4e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (high->low), load step 1-70 mA, Vout 1.8 V, VIN 2.1 V, CL 50 pF); condition s18_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s18_33_a",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.132,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.12,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (undershoot after the low->high step, load step 0-1 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s18_33_a",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (low->high), load step 0-1 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s18_33_a",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.088,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.08,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (overshoot after the high->low step, load step 0-1 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s18_33_a",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 1.1e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 9.999999999999999e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (high->low), load step 0-1 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s18_33_b",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.5940000000000001,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.54,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (undershoot after the low->high step, load step 0-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s18_33_b",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (low->high), load step 0-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s18_33_b",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.275,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.25,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (overshoot after the high->low step, load step 0-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s18_33_b",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.9999999999999998e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (high->low), load step 0-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s18_33_c",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.16499999999999998,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.15,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (undershoot after the low->high step, load step 1-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s18_33_c",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 3.3e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (low->high), load step 1-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s18_33_c",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.176,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.16,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (overshoot after the high->low step, load step 1-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s18_33_c",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 4.4e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s18_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.4 p.89 (settling time (high->low), load step 1-70 mA, Vout 1.8 V, VIN 3.3 V, CL 50 pF); condition s18_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s12_21_a",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.09625,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.08750000000000001,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (undershoot after the low->high step, load step 0-1 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s12_21_a",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (low->high), load step 0-1 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s12_21_a",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.027500000000000004,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.025,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (overshoot after the high->low step, load step 0-1 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s12_21_a",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 6.6e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 6e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (high->low), load step 0-1 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s12_21_b",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.6050000000000001,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.55,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (undershoot after the low->high step, load step 0-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s12_21_b",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (low->high), load step 0-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s12_21_b",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.275,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.25,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (overshoot after the high->low step, load step 0-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s12_21_b",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 6.6e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 6e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (high->low), load step 0-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s12_21_c",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.1375,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.125,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (undershoot after the low->high step, load step 1-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s12_21_c",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 3.3e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (low->high), load step 1-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s12_21_c",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.088,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.08,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (overshoot after the high->low step, load step 1-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s12_21_c",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.5058000000000002e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.278e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_21_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value 2e-06 to the witness value 2.278e-06 (not reached by an 8 h search, a local refinement and hand sizing (gpdk180 3.3 V devices show a strong narrow-width threshold shift); gaps 1.3 % (loop gain at 70 C) and 14-17 % on two load-settling times). paper: Table 4.5 p.91 (settling time (high->low), load step 1-70 mA, Vout 1.2 V, VIN 2.1 V, CL 50 pF); condition s12_21_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s12_33_a",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.121,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.11,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (undershoot after the low->high step, load step 0-1 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s12_33_a",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (low->high), load step 0-1 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s12_33_a",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.0605,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.055,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (overshoot after the high->low step, load step 0-1 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s12_33_a",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 1.32e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 1.2e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_a"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (high->low), load step 0-1 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_a",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s12_33_b",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.6050000000000001,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.55,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (undershoot after the low->high step, load step 0-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s12_33_b",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.2e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (low->high), load step 0-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s12_33_b",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.31899999999999995,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.29,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 case e) (HL) 70-0 row, overshoot 290 mV (load step 0-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_b. definition_audit_2026_10_27: was 0.15 = the undershoot column of the same (HL) row (150 mV), a table misread; the (LH) 0-70 row of case e) gives 550 / 50 mV and the HL row 150 / 290 (undershoot / overshoot)",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s12_33_b",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 3.2999999999999996e-05,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.9999999999999997e-05,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_b"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (high->low), load step 0-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_b",
+   "source": "measure"
+  },
+  {
+   "name": "load_undershoot_V_s12_33_c",
+   "metric": "undershoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.16499999999999998,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.15,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (undershoot after the low->high step, load step 1-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_up_s_s12_33_c",
+   "metric": "settling_time_up_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 3.3e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 3e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (settling time (low->high), load step 1-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_overshoot_V_s12_33_c",
+   "metric": "overshoot_V",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "V",
+   "upper": 0.15400000000000003,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.14,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: Table 4.5 p.91 (overshoot after the high->low step, load step 1-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "load_settling_down_s_s12_33_c",
+   "metric": "settling_time_down_s",
+   "recipe": "ldo_load_step_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 2.5652e-06,
+   "target": {
+    "kind": "linear",
+    "paper_value": 2.332e-06,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "label": "s12_33_c"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "CURATOR-SCALED 2026-10-27 from paper value 2e-06 to the witness value 2.332e-06 (not reached by an 8 h search, a local refinement and hand sizing (gpdk180 3.3 V devices show a strong narrow-width threshold shift); gaps 1.3 % (loop gain at 70 C) and 14-17 % on two load-settling times). paper: Table 4.5 p.91 (settling time (high->low), load step 1-70 mA, Vout 1.2 V, VIN 3.3 V, CL 50 pF); condition s12_33_c",
+   "source": "measure"
+  },
+  {
+   "name": "devices_out_of_saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "ldo_stb_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8: unintended devices out of saturation (triode/off by design devices excluded in topology op_check)",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "ldo_stb_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "ldo_stb_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "ldo_line_v1",
+   "dropout_voltage_V"
+  ],
+  [
+   "ldo_line_v1",
+   "ground_current_A"
+  ],
+  [
+   "ldo_line_v1",
+   "line_regulation_V_per_V"
+  ],
+  [
+   "ldo_line_v1",
+   "output_voltage_V"
+  ],
+  [
+   "ldo_load_step_v1",
+   "overshoot_V"
+  ],
+  [
+   "ldo_load_step_v1",
+   "settling_time_down_s"
+  ],
+  [
+   "ldo_load_step_v1",
+   "settling_time_up_s"
+  ],
+  [
+   "ldo_load_step_v1",
+   "undershoot_V"
+  ],
+  [
+   "ldo_load_v1",
+   "ground_current_min_load_A"
+  ],
+  [
+   "ldo_load_v1",
+   "load_regulation_V_per_A"
+  ],
+  [
+   "ldo_psrr_v1",
+   "psrr_dB"
+  ],
+  [
+   "ldo_stb_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "ldo_stb_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "ldo_stb_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "ldo_stb_v1",
+   "gain_margin_dB"
+  ],
+  [
+   "ldo_stb_v1",
+   "loop_gain_lf_dB"
+  ],
+  [
+   "ldo_stb_v1",
+   "loop_unity_gain_frequency_Hz"
+  ],
+  [
+   "ldo_stb_v1",
+   "phase_margin_deg"
+  ],
+  [
+   "ldo_stb_v1",
+   "saturation_margin_min_V"
+  ]
+ ],
+ "simulations_per_design": 24,
+ "analysis_executions_per_design": 28,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "NN_T60_S1p00",
+   "recipe": "ldo_line_v1",
+   "folder": "testbenches/NN_T60_S1p00/ldo_line_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "ground_current_A": {
+     "unit": "A",
+     "source": "measure"
+    },
+    "line_regulation_V_per_V": {
+     "unit": "V/V",
+     "source": "measure"
+    },
+    "dropout_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vin_V": 2.1
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00",
+   "recipe": "ldo_load_v1",
+   "folder": "testbenches/NN_T60_S1p00/ldo_load_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "load_regulation_V_per_A": {
+     "unit": "V/A",
+     "source": "measure"
+    },
+    "ground_current_min_load_A": {
+     "unit": "A",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00",
+   "recipe": "ldo_psrr_v1",
+   "folder": "testbenches/NN_T60_S1p00/ldo_psrr_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/dcrun1.dc"
+   ],
+   "metrics": {
+    "psrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "freq_Hz": 1000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00",
+   "recipe": "ldo_stb_v1",
+   "folder": "testbenches/NN_T60_S1p00/ldo_stb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/regop1.dc",
+    "raw/stb1.stb.ascii",
+    "raw/stb1.margin.stb.ascii",
+    "raw/regop2.dc",
+    "raw/stb2.stb.ascii",
+    "raw/stb2.margin.stb.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "loop_gain_lf_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "loop_unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "load_A": 0.0
+    },
+    {
+     "load_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_V33",
+   "recipe": "ldo_psrr_v1",
+   "folder": "testbenches/NN_T60_S1p57_V33/ldo_psrr_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/dcrun1.dc"
+   ],
+   "metrics": {
+    "psrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "freq_Hz": 1000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_V33",
+   "recipe": "ldo_stb_v1",
+   "folder": "testbenches/NN_T60_S1p57_V33/ldo_stb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/regop1.dc",
+    "raw/stb1.stb.ascii",
+    "raw/stb1.margin.stb.ascii",
+    "raw/regop2.dc",
+    "raw/stb2.stb.ascii",
+    "raw/stb2.margin.stb.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "loop_gain_lf_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "loop_unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "load_A": 0.0
+    },
+    {
+     "load_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_v12",
+   "recipe": "ldo_line_v1",
+   "folder": "testbenches/NN_T60_S1p00_v12/ldo_line_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "ground_current_A": {
+     "unit": "A",
+     "source": "measure"
+    },
+    "line_regulation_V_per_V": {
+     "unit": "V/V",
+     "source": "measure"
+    },
+    "dropout_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vin_V": 2.1
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_v12",
+   "recipe": "ldo_load_v1",
+   "folder": "testbenches/NN_T60_S1p00_v12/ldo_load_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "load_regulation_V_per_A": {
+     "unit": "V/A",
+     "source": "measure"
+    },
+    "ground_current_min_load_A": {
+     "unit": "A",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_v12",
+   "recipe": "ldo_psrr_v1",
+   "folder": "testbenches/NN_T60_S1p00_v12/ldo_psrr_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/dcrun1.dc"
+   ],
+   "metrics": {
+    "psrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "freq_Hz": 1000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_v12",
+   "recipe": "ldo_stb_v1",
+   "folder": "testbenches/NN_T60_S1p00_v12/ldo_stb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/regop1.dc",
+    "raw/stb1.stb.ascii",
+    "raw/stb1.margin.stb.ascii",
+    "raw/regop2.dc",
+    "raw/stb2.stb.ascii",
+    "raw/stb2.margin.stb.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "loop_gain_lf_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "loop_unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "load_A": 0.0
+    },
+    {
+     "load_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_v12_V33",
+   "recipe": "ldo_psrr_v1",
+   "folder": "testbenches/NN_T60_S1p57_v12_V33/ldo_psrr_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/dcrun1.dc"
+   ],
+   "metrics": {
+    "psrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "freq_Hz": 1000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_v12_V33",
+   "recipe": "ldo_stb_v1",
+   "folder": "testbenches/NN_T60_S1p57_v12_V33/ldo_stb_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/regop1.dc",
+    "raw/stb1.stb.ascii",
+    "raw/stb1.margin.stb.ascii",
+    "raw/regop2.dc",
+    "raw/stb2.stb.ascii",
+    "raw/stb2.margin.stb.ascii",
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "loop_gain_lf_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "loop_unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "load_A": 0.0
+    },
+    {
+     "load_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_s18_21_a",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p00_s18_21_a/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.001
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_s18_21_b",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p00_s18_21_b/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_s18_21_c",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p00_s18_21_c/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.001,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_s18_33_a",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p57_s18_33_a/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.001
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_s18_33_b",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p57_s18_33_b/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_s18_33_c",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p57_s18_33_c/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.001,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_s12_21_a",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p00_s12_21_a/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.001
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_s12_21_b",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p00_s12_21_b/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p00_s12_21_c",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p00_s12_21_c/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.001,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_s12_33_a",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p57_s12_33_a/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.001
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_s12_33_b",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p57_s12_33_b/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.0,
+     "load_high_A": 0.07
+    }
+   ]
+  },
+  {
+   "condition": "NN_T60_S1p57_s12_33_c",
+   "recipe": "ldo_load_step_v1",
+   "folder": "testbenches/NN_T60_S1p57_s12_33_c/ldo_load_step_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "undershoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "settling_time_up_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_down_s": {
+     "unit": "s",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "load_low_A": 0.001,
+     "load_high_A": 0.07
+    }
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "ldo24m_miller_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('ldo24m_miller_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

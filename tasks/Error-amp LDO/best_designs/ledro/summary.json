@@ -1,0 +1,143 @@
+{
+ "task": "ldo_erroramp_dac_task_001",
+ "method": "LEDRO",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 32016,
+ "wall_s": 6951.4,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 9,
+ "llm_cost_usd": 3.559578,
+ "llm_cost_usd_recorded": 1.7797889999999998,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "best": {
+  "eval": 1792,
+  "round": 9,
+  "f": 0.034544332873015615,
+  "reward": 0.9654556671269844,
+  "score": 0.9654556671269844,
+  "targets_met": 5,
+  "targets": 7,
+  "feasible": false,
+  "worst_margin": -0.23418014121968173,
+  "objective": null,
+  "params": {
+   "W_PASS": 6.274685289138104e-07,
+   "L_PASS": 1.5656185386892763e-07,
+   "NF_PASS": 71.0,
+   "W_BUF": 1.8551271066942391e-06,
+   "L_BUF": 4.066594766790327e-07,
+   "NF_BUF": 18.0,
+   "M_BUF": 1.0,
+   "W_IN": 2.476357486695995e-06,
+   "L_IN": 1.938465616165173e-07,
+   "NF_IN": 19.0,
+   "M_IN": 1.0,
+   "W_LD": 3.5489209084076706e-07,
+   "L_LD": 4.576551537845199e-07,
+   "NF_LD": 43.0,
+   "M_LD": 10.0,
+   "W_CS2": 4.3428890175717974e-07,
+   "L_CS2": 1.5022495032800953e-07,
+   "NF_CS2": 32.0,
+   "W_MIR": 6.104992868646815e-07,
+   "L_MIR": 3.624858573818446e-07,
+   "NF_MIR": 30.0,
+   "M_MIR": 8.0,
+   "W_SNK": 5.046769455529511e-07,
+   "NF_SNK": 36.0,
+   "M_SNK": 7.0,
+   "C_C": 8.016329173311316e-11,
+   "R_Z": 7273.069565627329,
+   "C_G": 4.618046488696323e-12,
+   "R_G": 8133.614279063378,
+   "C_FF": 1.3373714664439523e-12,
+   "R_S": 26.614863779355257,
+   "R_B": 335536.8434043846,
+   "R_FB_TOP": 16185.250738015482,
+   "R_FB_BOT": 12231.708321074922,
+   "I_BIAS": 0.00026757184638921043,
+   "M_PASS": 85.0,
+   "M_CS2": 16.0
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "evals": 200,
+   "best_f": 0.36183514574697495,
+   "elapsed_s": 829.3,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 2,
+   "evals": 200,
+   "best_f": 0.2597581122469089,
+   "elapsed_s": 672.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 3,
+   "evals": 200,
+   "best_f": 0.19478808018286742,
+   "elapsed_s": 681.5,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 4,
+   "evals": 200,
+   "best_f": 0.14022188141689118,
+   "elapsed_s": 659.7,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 5,
+   "evals": 200,
+   "best_f": 0.12535569933582813,
+   "elapsed_s": 685.6,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 6,
+   "evals": 200,
+   "best_f": 0.10928374325924917,
+   "elapsed_s": 677.0,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 7,
+   "evals": 200,
+   "best_f": 0.0506841248440405,
+   "elapsed_s": 680.9,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 8,
+   "evals": 200,
+   "best_f": 0.04551753322898844,
+   "elapsed_s": 675.5,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 9,
+   "evals": 200,
+   "best_f": 0.034544332873015615,
+   "elapsed_s": 671.5,
+   "best_feasible_objective": null
+  },
+  {
+   "round": 10,
+   "evals": 200,
+   "best_f": 0.03645485008743099,
+   "elapsed_s": 658.5,
+   "best_feasible_objective": null
+  }
+ ]
+}

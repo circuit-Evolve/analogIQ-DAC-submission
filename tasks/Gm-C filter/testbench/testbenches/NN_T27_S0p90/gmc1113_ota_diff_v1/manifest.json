@@ -1,0 +1,46 @@
+{
+  "job_id": "NN_T27_S0p90/gmc1113_ota_diff_v1",
+  "recipe_id": "gmc1113_ota_diff_v1",
+  "recipe_version": 2,
+  "condition": {
+    "id": "NN_T27_S0p90",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 0.9,
+    "supply_V": 0.9,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs",
+        "section": "NN"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 0.9
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/dcOp.dc",
+    "raw/ac.ac"
+  ],
+  "expected_metrics": [
+    "OTA_differential_gain_dB",
+    "OTA_unity_gain_frequency_Hz",
+    "OTA_phase_margin_deg"
+  ],
+  "digests": {
+    "task": "f2f28a9f27d8134c57b985a52b239bddec6a761a0164391308640e13209da6f2",
+    "candidate": "4c8b5f7c3a0f510b82966f5e087564ade16ad0e0b052c54f46aaead8520faf84",
+    "parameterization": "d2686ddb319c5d077ad81edc73286c38bcc2f75e12cc1a95648e3123f6a07718",
+    "dut_source_netlist": "924a793260310aa9faa75289b5f9d2827ba1d9181d52732ae4ecef30db645ec7",
+    "dut_subckt": "5188040b1de8609b94e1c9fd883b33c9b710c91bf91f492637ab67743139ef1f",
+    "models": "31726dba1a2b5e11cfe33e29fd0132f95d1df68d278cf03a3d01c2325d0f72a8",
+    "recipes": "271a4b776b5cd60b714c1a091eed94e9ae6a56d5717efc087205cc3cc6f9988e",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "7ef3827972bbcd5fbb2a90545544a2375ac34041061268496185045481f0c6d2"
+  },
+  "state": "rendered"
+}

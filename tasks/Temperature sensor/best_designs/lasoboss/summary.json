@@ -1,0 +1,94 @@
+{
+ "task": "temp_sensor_101126_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 6003,
+ "wall_s": 13595.5,
+ "feasible_designs": 46,
+ "first_feasible_eval": 1464,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.287826,
+ "llm_cost_usd_recorded": 0.14391320000000002,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.9407880818859103
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.9371558417941116
+  },
+  {
+   "phase": 3,
+   "evals": 501,
+   "best_score": 0.9982261716724133
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 1.0
+  },
+  {
+   "phase": 5,
+   "evals": 397,
+   "best_score": 1.0
+  }
+ ],
+ "best": {
+  "eval": 1800,
+  "round": 5,
+  "f": 0.0,
+  "loss": 0.0,
+  "reward": 1.0,
+  "score": 1.0,
+  "targets_met": 18,
+  "targets": 18,
+  "valid": true,
+  "feasible": true,
+  "worst_margin": 0.032899189694573436,
+  "objective": null,
+  "params": {
+   "W_BP": 9.28002170965986e-07,
+   "L_BP": 2.3563638974439525e-07,
+   "M_BP": 11.0,
+   "W_BC": 6.635401307460648e-06,
+   "L_BC": 3.91419676526181e-06,
+   "M_BC": 50.0,
+   "W_BN": 7.330620625056775e-07,
+   "L_BN": 1.5442114669837136e-07,
+   "M_BN": 80.0,
+   "W_P7": 1.986864944922489e-06,
+   "L_P7": 5.719819469536043e-06,
+   "M_P7": 8.0,
+   "W_N8": 1.0288467390904361e-05,
+   "L_N8": 1.9054083788553824e-05,
+   "M_N8": 11.0,
+   "W_N9": 1.8325082477668028e-06,
+   "L_N9": 1.5612063288933335e-06,
+   "M_N9": 44.0,
+   "W_LD": 7.151885405495026e-05,
+   "L_LD": 2.1099397911067096e-07,
+   "M_LD": 37.0,
+   "W_I12": 5.5589057450437825e-06,
+   "L_I12": 1.062986613749581e-05,
+   "M_I12": 16.0,
+   "W_I13": 1.740155240260942e-06,
+   "L_I13": 4.756474922252003e-06,
+   "M_I13": 74.0,
+   "W_TL": 2.4307462404147968e-05,
+   "L_TL": 6.027601680969707e-07,
+   "M_TL": 40.0
+  }
+ }
+}

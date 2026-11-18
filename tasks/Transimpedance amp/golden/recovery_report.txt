@@ -1,0 +1,95 @@
+TIA02 RESTORATION — 12 NOVEMBER 2026
+====================================================================================================
+
+Restored under the CURRENT task contract: 15% directional target tolerance and NOMINAL G8.
+26/26 scalar target entries pass; 31/31 required measurements valid.
+18 variables (14 continuous, 4 integer), 14 conditions, 17 jobs per candidate.
+Original topology, final.scs, target reference values and corner set unchanged.
+Four omitted matched MOS multiplier controls added with value one in the retained design.
+Old withdrawn package preserved in _superseded/2026-11-12/.
+
+QUALIFICATION LIMITS
+G8 is formally checked at nominal. Non-nominal operating-point flags remain.
+This is NOT a full all-corner physical qualification. A stricter all-condition sizing
+attempt did not meet every scalar target. These limitations are recorded in the README,
+workbook and all_condition_operating_point_audit.json.
+Power uses the pre-existing reconciled 1.458 mW reference, not the printed 0.81 mW.
+Tolerance is applied in the task-defined direction; dB quantities use linear-domain scaling.
+The smallest scalar margin is narrow: 0.00036918544662305214.
+
+SCALAR COMPARISON (native units)
+
+Metric                     | Reference     | Allowed lower      | Allowed upper         | Measured          | Pass
+peaking_dB                 | 7.7           | —                  | 8.913956807072234     | 8.890773029000002 | YES 
+transimpedance_dBohm       | 45.72         | 44.308378514285856 | —                     | 46.262138193      | YES 
+transimpedance_SS          | 47.38         | 45.96837851428586  | —                     | 50.055359877      | YES 
+transimpedance_FS          | 46.0          | 44.58837851428586  | —                     | 45.194569254      | YES 
+transimpedance_SF          | 44.6          | 43.18837851428586  | —                     | 49.196941416      | YES 
+transimpedance_FF          | 43.2          | 41.78837851428586  | —                     | 44.109851507      | YES 
+transimpedance_T54         | 47.6          | 46.18837851428586  | —                     | 47.435426163      | YES 
+transimpedance_T81         | 49.4          | 47.988378514285856 | —                     | 48.470724008      | YES 
+transimpedance_T108        | 50.7          | 49.28837851428586  | —                     | 49.362521658      | YES 
+transimpedance_supply      | 44.6          | 43.18837851428586  | —                     | 46.013825299      | YES 
+bandwidth_Hz               | 10100000000.0 | 8585000000.0       | —                     | 13781671925.0     | YES 
+bandwidth_SS               | 8110000000.0  | 6893500000.0       | —                     | 8516754661.6      | YES 
+bandwidth_FS               | 9500000000.0  | 8075000000.0       | —                     | 15635052677.0     | YES 
+bandwidth_SF               | 11180000000.0 | 9503000000.0       | —                     | 9548223559.3      | YES 
+bandwidth_FF               | 13880000000.0 | 11798000000.0      | —                     | 18061930160.0     | YES 
+bandwidth_T54              | 8570000000.0  | 7284500000.0       | —                     | 11941930012.0     | YES 
+bandwidth_T81              | 7610000000.0  | 6468500000.0       | —                     | 10520350954.0     | YES 
+bandwidth_T108             | 6820000000.0  | 5797000000.0       | —                     | 9431987201.9      | YES 
+bandwidth_V1p6             | 9500000000.0  | 8075000000.0       | —                     | 14017973908.0     | YES 
+bandwidth_V1p4             | 8700000000.0  | 7395000000.0       | —                     | 12605375932.0     | YES 
+bandwidth_V1p2             | 8300000000.0  | 7055000000.0       | —                     | 10685666424.0     | YES 
+bandwidth_Cpd100           | 7370000000.0  | 6264500000.0       | —                     | 8266159682.3      | YES 
+bandwidth_Cpd150           | 6800000000.0  | 5780000000.0       | —                     | 5904451777.5      | YES 
+bandwidth_Cpd200           | 5400000000.0  | 4590000000.0       | —                     | 4591694561.2      | YES 
+quiescent_power_W          | 0.001458      | —                  | 0.0016767000000000002 | 0.0012405976625   | YES 
+input_noise_max_A_per_rtHz | 7.5e-12       | —                  | 8.625e-12             | 6.7546371509e-12  | YES 
+
+EXTRA ALL-CONDITION OPERATING-POINT AUDIT
+
+Condition           | Out of saturation/cutoff | Forward junctions | Outside terminal limits
+FF_T27_S1p00        | M4                       | none              | none                   
+FS_T27_S1p00        | M4,M5                    | none              | M2,M3                  
+NN_T108_S1p00       | none                     | none              | M2,M3                  
+NN_T27_S0p67        | M2,M5                    | none              | M2,M3                  
+NN_T27_S0p78        | M2,M5                    | none              | M2,M3                  
+NN_T27_S0p89        | M2,M5                    | none              | M2,M3                  
+NN_T27_S1p00        | none                     | none              | none                   
+NN_T27_S1p00_Cpd100 | none                     | none              | none                   
+NN_T27_S1p00_Cpd150 | none                     | none              | none                   
+NN_T27_S1p00_Cpd200 | none                     | none              | none                   
+NN_T54_S1p00        | none                     | none              | M2,M3                  
+NN_T81_S1p00        | none                     | none              | M2,M3                  
+SF_T27_S1p00        | none                     | none              | none                   
+SS_T27_S1p00        | M2                       | none              | M2,M3                  
+
+RETAINED SIZING (SI units)
+
+Parameter | Value                 
+W_M1      | 3.657458195642558e-06 
+L_M1      | 1.8000000000000013e-07
+W_M23     | 1.4016309970338957e-06
+L_M23     | 1.9069871673236854e-07
+W_M45     | 4e-07                 
+L_M45     | 1.01327771772505e-06  
+W_M6      | 4e-07                 
+L_M6      | 3.2755420534706423e-07
+R_F       | 10.000000000000002    
+C_FB      | 1.6704328827205776e-13
+C_NCG     | 1.8654253068635632e-12
+I_BIAS1   | 1.2452370327579653e-05
+I_BIAS2   | 0.00036323944511449757
+V_BIAS    | 1.2102881986767737    
+N_M1      | 1                     
+N_M23     | 1                     
+N_M45     | 1                     
+N_M6      | 1                     
+
+Verification evaluator hash: a8082e6740c7aed51fca130f92eea65d426a5f9f2c1668c23dc6d3e9a01c83e1
+Golden folder: <ANALOGIQ>/golden/20_10_2026/Transimpedance amplifier/s10470-018-1246-x
+Persistent recovery workspace: <WORK>/tia02_recovery_20261112
+Nominal transient diagnostic: 1 uA, 10 ps current pulse; 20 ns run.
+Output peak excursion 125.54 uV; final 5 ns ripple 6.69 nV.
+No persistent oscillation observed in that diagnostic; it is not a new paper target.

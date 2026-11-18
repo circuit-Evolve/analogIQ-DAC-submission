@@ -1,0 +1,17 @@
+design( "DAC_20261107_MISO" "VM_BP_TRAN_tb" "schematic")
+modelFile( 
+    '("<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" "NN")
+)
+analysis('tran ?stop "7.53768844221e-06"  ?errpreset "conservative"  ?maxstep "1.25628140704e-09"  
+		?strobeperiod "9.81469849246e-10"  )
+analysis('dc ?saveOppoint t  )
+envOption(
+	'analysisOrder  list("pz" "dcmatch" "stb" "tran" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens" "acmatch") 
+)
+option(	'iabstol  "1e-14" 
+	'vabstol  "1e-09" 
+	'reltol  "1e-06" 
+)
+saveOption( 'subcktprobelvl "5" )
+saveOption( 'currents "all" )
+temp( 27 ) 

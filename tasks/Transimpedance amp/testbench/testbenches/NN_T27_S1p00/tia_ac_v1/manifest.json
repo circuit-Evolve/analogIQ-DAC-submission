@@ -1,0 +1,49 @@
+{
+  "job_id": "NN_T27_S1p00/tia_ac_v1",
+  "recipe_id": "tia_ac_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "NN_T27_S1p00",
+    "model_set": "NN",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+        "section": "NN"
+      }
+    ],
+    "is_nominal": true,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "input.measure",
+    "raw/op_info.info"
+  ],
+  "expected_metrics": [
+    "transimpedance_dBohm",
+    "bandwidth_Hz",
+    "saturation_margin_min_V",
+    "devices_out_of_saturation",
+    "forward_biased_junctions",
+    "devices_outside_rails"
+  ],
+  "digests": {
+    "task": "65ddbb261da035072e08d137d001621f47647eca90e8f772aeb9be9892126152",
+    "candidate": "b4979bc7899dfdaac8b20e2073fe3d4e9222e6717b89a8cd28a12c883a5dd4df",
+    "parameterization": "38a8ed0f4010c7323cc0a106a052a76db388cf72e60d8e280ae74f7773566714",
+    "dut_source_netlist": "4f05ac3c804615ab5235730559cfa260f48fe486f9908e65ece4e2f1442dd06b",
+    "dut_subckt": "6ab1e90802ac8123d531bf9e1a4bc73d28c9d2b7c059c4266647cf92b11f422c",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "a28e42d24599746024222f5a96cc17396635284272ba74e4395904ab011c5341",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "a8082e6740c7aed51fca130f92eea65d426a5f9f2c1668c23dc6d3e9a01c83e1"
+  },
+  "state": "rendered"
+}

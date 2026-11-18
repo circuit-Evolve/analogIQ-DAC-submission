@@ -1,0 +1,101 @@
+{
+ "task": "ldo_erroramp_dac_task_001",
+ "method": "LASO-BOSS",
+ "llm": "claude:claude-sonnet-5-5",
+ "evaluations": 2000,
+ "simulator_invocations": 32016,
+ "wall_s": 8434.3,
+ "feasible_designs": 0,
+ "first_feasible_eval": null,
+ "score": "progress",
+ "time_limit_h": 12.0,
+ "stopped_by_time_limit": false,
+ "budget_evals": 2000,
+ "llm_budget_usd": 100.0,
+ "llm_calls": 2,
+ "llm_cost_usd": 0.314912,
+ "llm_cost_usd_recorded": 0.1574558,
+ "llm_cost_basis": "paper's price basis: 2 x the cost recorded at claude-sonnet-5-5 API prices (llm_cost_usd_recorded)",
+ "stopped_by": "evaluation budget",
+ "error": null,
+ "phases": [
+  {
+   "phase": 1,
+   "evals": 300,
+   "best_score": 0.4227409545860247
+  },
+  {
+   "phase": 2,
+   "evals": 401,
+   "best_score": 0.42857142857142855
+  },
+  {
+   "phase": 3,
+   "evals": 401,
+   "best_score": 0.42857142857142855
+  },
+  {
+   "phase": 4,
+   "evals": 401,
+   "best_score": 0.42857142857142855
+  },
+  {
+   "phase": 5,
+   "evals": 497,
+   "best_score": 0.42857142857142855
+  }
+ ],
+ "best": {
+  "eval": 331,
+  "round": 2,
+  "f": 0.6,
+  "loss": 0.5714285714285714,
+  "reward": 0.42857142857142855,
+  "score": 0.42857142857142855,
+  "targets_met": 5,
+  "targets": 7,
+  "valid": true,
+  "feasible": false,
+  "worst_margin": -1.0,
+  "objective": null,
+  "params": {
+   "W_PASS": 7.139083511797681e-06,
+   "L_PASS": 2.749092098607767e-07,
+   "NF_PASS": 17.0,
+   "W_BUF": 1.424875725115513e-06,
+   "L_BUF": 5.658841453931216e-07,
+   "NF_BUF": 49.0,
+   "M_BUF": 55.0,
+   "W_IN": 9.450022094157382e-07,
+   "L_IN": 1.2159893074655145e-07,
+   "NF_IN": 58.0,
+   "M_IN": 99.0,
+   "W_LD": 2.629643788927309e-06,
+   "L_LD": 2.0850672511242653e-06,
+   "NF_LD": 69.0,
+   "M_LD": 29.0,
+   "W_CS2": 5.284259763298294e-07,
+   "L_CS2": 2.748583094570127e-06,
+   "NF_CS2": 45.0,
+   "W_MIR": 2.4015707020169464e-06,
+   "L_MIR": 1.198769887984831e-07,
+   "NF_MIR": 35.0,
+   "M_MIR": 83.0,
+   "W_SNK": 9.106040896969305e-07,
+   "NF_SNK": 25.0,
+   "M_SNK": 18.0,
+   "C_C": 9.16099389198558e-12,
+   "R_Z": 262880.1842912421,
+   "C_G": 1.7932521779054916e-11,
+   "R_G": 725.5414885816467,
+   "C_FF": 4.2934453917740587e-13,
+   "R_S": 94.85847823988013,
+   "R_B": 4117.107564237249,
+   "R_FB_TOP": 134.36993024551703,
+   "R_FB_BOT": 148.4923001960016,
+   "I_BIAS": 0.0007447446121452754,
+   "M_PASS": 51.0,
+   "M_CS2": 27.0
+  }
+ }
+}

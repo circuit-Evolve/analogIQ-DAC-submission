@@ -1,0 +1,214 @@
+WARNING: HOST <g4-vm> DOES NOT APPEAR TO BE A CADENCE SUPPORTED LINUX CONFIGURATION.
+         For More Info,  Please Run '<cdsroot>/tools.lnx86/bin/checkSysConf' <productId>.
+
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved
+        worldwide. Cadence, Virtuoso and Spectre are registered trademarks of
+        Cadence Design Systems, Inc. All others are the property of their
+        respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA
+        Security, Inc.
+
+User: curator   Host: g4-vm   HostID: 8E0A0200   PID: 338811
+Memory  available: 117.7974 GB  physical: 189.5854 GB
+sh: lsb_release: command not found
+CPU Type: AMD EPYC 9B45
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [2700.0] ( 24 ),  1 [2700.0] ( 25 ),  2 [2700.0] ( 26 )
+                 3 [2700.0] ( 27 ),  4 [2700.0] ( 28 ),  5 [2700.0] ( 29 )
+                 6 [4140.8] ( 30 ),  7 [2700.0] ( 31 ),  8 [2700.0] ( 32 )
+                 9 [2700.0] ( 33 ), 10 [4146.7] ( 34 ), 11 [2700.0] ( 35 )
+                12 [2700.0] ( 36 ), 13 [2700.0] ( 37 ), 14 [2700.0] ( 38 )
+                15 [2700.0] ( 39 ), 16 [2700.0] ( 40 ), 17 [2700.0] ( 41 )
+                18 [2700.0] ( 42 ), 19 [2700.0] ( 43 ), 20 [2700.0] ( 44 )
+                21 [2700.0] ( 45 ), 22 [2700.0] ( 46 ), 23 [2700.0] ( 47 )
+        
+System load averages (1min, 5min, 15min) : 4.9 %, 15.8 %, 17.0 %
+Hyperthreading is enabled
+
+
+Simulating `input.scs' on g4-vm at 11:05:46 AM, Fri Nov 13, 2026 (process id:
+        338811).
+Current working directory:
+        <WORK>/four_papers_20261109/gmc_individual_15pct_20261112/reconstruction_20261113/longcross_physical_verify/FS_V1.0_T+27/PZ
+Command line:
+    /opt/cadence/rootfs/opt/MMSIM151/tools/bin/spectre -64 input.scs  \
+        -format psfascii -raw raw +log spectre.log
+sh: lsb_release: command not found
+Reading file: 
+        <WORK>/four_papers_20261109/gmc_individual_15pct_20261112/reconstruction_20261113/longcross_physical_verify/FS_V1.0_T+27/PZ/input.scs
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_mos.scs
+Reading file: 
+        <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_mos_iso.scs
+Reading file: 
+        <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_resistor.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/resd_va.va
+Reading link: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file: 
+        /opt/cadence/rootfs/opt/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/rnoise_va.va
+Reading file: 
+        <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_capacitor.scs
+Reading file:  <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_diode.scs
+Reading file: 
+        <PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs
+Time for NDB Parsing: CPU = 70.913 ms, elapsed = 83.1039 ms.
+Time accumulated: CPU = 79.88 ms, elapsed = 83.1058 ms.
+Peak resident memory used = 77.5 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre  6 (100.0 %)    10 (80.0 %)     14 (12.5 %)     17 (12.5 %)
+                43 (11.1 %)     44 (11.1 %)     46 (11.1 %)     47 (11.1 %)
+        Other   
+Time for Elaboration: CPU = 11.76 ms, elapsed = 11.827 ms.
+Time accumulated: CPU = 91.695 ms, elapsed = 94.9869 ms.
+Peak resident memory used = 85.3 Mbytes.
+
+Time for EDB Visiting: CPU = 938 us, elapsed = 945.091 us.
+Time accumulated: CPU = 92.69 ms, elapsed = 95.989 ms.
+Peak resident memory used = 86.5 Mbytes.
+
+
+Warning from spectre during initial setup.
+    WARNING (CMI-2477): DUT.FD4Mp: `Rds' = 7.64381 uOhm is less than 0.001. Set
+        to 0.
+    WARNING (CMI-2477): DUT.OTA4.M28: `Rds' = 2.50021 uOhm is less than 0.001.
+        Set to 0.
+    WARNING (CMI-2477): DUT.OTA4.M27: `Rds' = 2.67878 uOhm is less than 0.001.
+        Set to 0.
+    WARNING (CMI-2477): DUT.OTA4.M24: `Rds' = 3.24555 uOhm is less than 0.001.
+        Set to 0.
+    WARNING (CMI-2477): DUT.OTA4.M22: `Rds' = 6.56722 uOhm is less than 0.001.
+        Set to 0.
+        Further occurrences of this warning will be suppressed.
+    WARNING (SPECTRE-8061): `DUT': Does not have a terminal named `oppoint'.
+    WARNING (SPECTRE-8287): Ignoring invalid item `DUT:oppoint' in save
+        statement.
+
+Global user options:
+             reltol = 1e-06
+            vabstol = 1e-09
+            iabstol = 1e-14
+               temp = 27
+               tnom = 27
+               save = selected
+           currents = selected
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 29
+            bsim3v3 144   
+          capacitor 4     
+            vsource 5     
+
+Analysis and control statement inventory:
+                 dc 1     
+               info 1     
+                 pz 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 3     
+
+
+Notice from spectre.
+    17 warnings suppressed.
+
+Time for parsing: CPU = 1.549 ms, elapsed = 1.71399 ms.
+Time accumulated: CPU = 94.286 ms, elapsed = 97.749 ms.
+Peak resident memory used = 88 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+
+******************
+DC Analysis `dcOp'
+******************
+
+Opening the PSFASCII file raw/dcOp.dc ...
+Important parameter values:
+    reltol = 1e-06
+    abstol(V) = 1 nV
+    abstol(I) = 10 fA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    gmindc = 1 pS
+Convergence achieved in 7 iterations.
+Total time required for dc analysis `dcOp': CPU = 1.579 ms, elapsed = 1.64199
+        ms.
+Time accumulated: CPU = 96.032 ms, elapsed = 99.613 ms.
+Peak resident memory used = 89 Mbytes.
+
+dcOpInfo: writing operating point information to rawfile.
+
+Opening the PSFASCII file raw/dcOpInfo.info ...
+
+*******************
+PZ Analysis `poles'
+*******************
+
+Warning from spectre during PZ analysis `poles'.
+    WARNING: BSIM3v3 MOS Transistor - frequency dependent components are
+        present in the circuit, approximated as AC equivalents at
+        1.000000e+00Hz for pz analysis.
+
+DC simulation time: CPU = 533 us, elapsed = 534.058 us.
+Arnoldi iterative solver is invoked for poles.
+                      Poles (Hz)
+
+           Real                       Imaginary                 Qfactor
+
+   1   -2.55579e+07                  0.00000e+00              5.00000e-01 
+   2   -2.61793e+07                  0.00000e+00              5.00000e-01 
+   3   -1.02341e+08                  0.00000e+00              5.00000e-01 
+   4   -1.07491e+08                  0.00000e+00              5.00000e-01 
+   5   -6.49510e+08                  0.00000e+00              5.00000e-01 
+   6   -8.72779e+08              +/- 5.02280e+08              5.76887e-01 
+   7   -9.26935e+08              +/- 5.00239e+08              5.68165e-01 
+   8   -1.00510e+09              +/- 4.70307e+08              5.52031e-01 
+   9   -1.48014e+09                  0.00000e+00              5.00000e-01 
+  10   -2.55094e+09                  0.00000e+00              5.00000e-01 
+  11   -2.55140e+09                  0.00000e+00              5.00000e-01 
+  12   -2.55232e+09                  0.00000e+00              5.00000e-01 
+  13   -2.55363e+09                  0.00000e+00              5.00000e-01 
+  14   -7.85732e+09                  0.00000e+00              5.00000e-01 
+  15   -9.28211e+09                  0.00000e+00              5.00000e-01 
+  16   -1.01037e+10                  0.00000e+00              5.00000e-01 
+  17   -1.03796e+10                  0.00000e+00              5.00000e-01 
+  18   -1.10352e+10                  0.00000e+00              5.00000e-01 
+  19   -1.15957e+10                  0.00000e+00              5.00000e-01 
+  20   -1.35157e+10                  0.00000e+00              5.00000e-01 
+  21   -2.20616e+10                  0.00000e+00              5.00000e-01 
+
+Accumulated DC solution time = 29.7437 ms.
+Intrinsic pz analysis time =              125.874 ms.
+Total time required for pz analysis `poles': CPU = 169.622 ms, elapsed =
+        169.897 ms.
+Time accumulated: CPU = 270.305 ms, elapsed = 274.442 ms.
+Peak resident memory used = 93.3 Mbytes.
+
+
+Aggregate audit (11:05:46 AM, Fri Nov 13, 2026):
+Time used: CPU = 274 ms, elapsed = 278 ms, util. = 98.5%.
+Time spent in licensing: elapsed = 42.7 ms, percentage of total = 15.4%.
+Peak memory used = 93.3 Mbytes.
+Simulation started at: 11:05:46 AM, Fri Nov 13, 2026, ended at: 11:05:46 AM,
+        Fri Nov 13, 2026, with elapsed time (wall clock): 278 ms.
+spectre completes with 0 errors, 8 warnings, and 1 notice.

@@ -1,0 +1,29 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ptat_lelo_task_001  topology ptat_lelo
+// recipe lelo30_ptat_tran_v1 v1  condition fs_T125_S0p94_kfs_th_vl (models fs, 125 C, supply 1.7 V)
+// request ptat_lelo_task_001__plan  candidate 9fd967f9dc055ba4
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" section=fs
+include "dut.scs"
+
+parameters vsup=1.6999992 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource type=pwl wave=[0 0 10n 1.6999992]
+VNEG (vss 0) vsource dc=vneg
+
+VPWR (pwr 0) vsource type=pwl wave=[0 0 9.989999999999999e-07 0 1e-06 1.6999992]
+VPWRN (pwrn 0) vsource type=pwl wave=[0 1.6999992 9.989999999999999e-07 1.6999992 1e-06 0]
+VIO0 (iout0 0) vsource dc=0.5
+VIO1 (iout1 0) vsource dc=0.6
+VIO2 (iout2 0) vsource dc=0.7
+VIO3 (iout3 0) vsource dc=0.8
+VLP (lpo lpi) vsource dc=0
+
+XDUT (vdd vss lpi lpo iout3 iout2 iout1 iout0 vd1 pwr pwrn) ptat_lelo_dut L_BS={{L_BS}} L_CAS={{L_CAS}} L_CLPI={{L_CLPI}} L_CVCP={{L_CVCP}} L_LVT={{L_LVT}} L_MIR={{L_MIR}} L_NCR={{L_NCR}} L_NLD={{L_NLD}} L_PMIR={{L_PMIR}} L_RLAD={{L_RLAD}} L_RTAIL={{L_RTAIL}} NF_BS={{NF_BS}} NF_CAS={{NF_CAS}} NF_LVT={{NF_LVT}} NF_MIR={{NF_MIR}} NF_NCR={{NF_NCR}} NF_NLD={{NF_NLD}} NF_PMIR={{NF_PMIR}} W_BS={{W_BS}} W_CAS={{W_CAS}} W_CLPI={{W_CLPI}} W_CVCP={{W_CVCP}} W_LVT={{W_LVT}} W_MIR={{W_MIR}} W_NCR={{W_NCR}} W_NLD={{W_NLD}} W_PMIR={{W_PMIR}} W_RLAD={{W_RLAD}} W_RTAIL={{W_RTAIL}}
+
+opts options temp=125.0 tnom=27 reltol=0.0001 save=selected
+save VIO0:p VIO1:p VIO2:p VIO3:p VNEG:p VSUP:p XDUT.VD2 XDUT.VR1 iout0 iout1 iout2 iout3 lpi lpo pwr pwrn vd1 vdd vss
+
+tran1 tran stop=1e-05 maxstep=1e-09 errpreset=moderate

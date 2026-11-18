@@ -1,0 +1,49 @@
+{
+  "job_id": "highperf_bjt_s_T100_S1p00/pa1088_hb_v1",
+  "recipe_id": "pa1088_hb_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "highperf_bjt_s_T100_S1p00",
+    "model_set": "highperf_bjt_s",
+    "temperature_C": 100.0,
+    "supply_scale": 1.0,
+    "supply_V": 12.0,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090_bipolar.scs",
+        "section": "highperf_bjt_s"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 12.0
+  },
+  "points": [
+    {
+      "f0_Hz": 433000000.0,
+      "pin_start_dBm": -40.0,
+      "pin_stop_dBm": 20.0
+    }
+  ],
+  "expected_outputs": [
+    "raw/swp-000_hb1.fd.pss_hb"
+  ],
+  "expected_metrics": [
+    "Psat_dBm",
+    "PAE_peak_percent",
+    "points_converged"
+  ],
+  "digests": {
+    "task": "b15265fecfb2d1c3821065ad4b2f0207569fc863d2a7387afeb00fd32a397e52",
+    "candidate": "9b40dcde6eb702954977b83596ec52ab96375cfdbfdf981e4eba5803bdf77e1c",
+    "parameterization": "a20d43fb75b15c1b7858a90a050d592a3aeb44d2c23eb16e471d0e998bd80688",
+    "dut_source_netlist": "0d29685556da64371546fe7ae6e1bfdd122c943a22ed1a8eedda80ade6c69408",
+    "dut_subckt": "2b490225603d2163d62e19d438931b73d7d99200610ef01a8ddb43d40c62f53b",
+    "models": "31726dba1a2b5e11cfe33e29fd0132f95d1df68d278cf03a3d01c2325d0f72a8",
+    "recipes": "3eea6020c68d2297acc7bdbb61f425fc903a731031403384c1aa1247a3cda194",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "f08ab772a863b160ea630973dbffd2137d661b58b7bfbb0af702286f4ed6a94d"
+  },
+  "state": "rendered"
+}

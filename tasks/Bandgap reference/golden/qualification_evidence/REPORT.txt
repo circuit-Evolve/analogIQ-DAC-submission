@@ -1,0 +1,92 @@
+VERIFIED GOLDEN SIZING — BANDGAP AND DTMOS HPF
+Updated: 2026-11-10T10:48:10.964734+00:00
+
+Both circuits use one fixed sizing across their existing corners. No corners were removed and no target relaxed in this round. No new LEDRO run was launched. The original/curator folders and native schematics were not changed. These are schematic-level simulation results with the stated ideal models and measurement definitions.
+
+BANDGAP: 15/15 complete corners; 75/75 paper metric checks, plus15/15 mandatory startup checks.
+DTMOS HPF: 12/12 complete corners;48/48 scalar checks using gain at200Hz.
+
+BANDGAP — METRIC RANGES
+Metric                                    Minimum        Maximum            Accepted limit     Pass
+----------------------------------------------------------------------------------------------------
+Vref_V                                  1.1374671      1.2769891              1.08 to 1.32 15/15
+Power_uW                                92.623688      212.82027                 <=283.217 15/15
+PSRR_LF_dB                              22.870134      31.786613                  >=21.501 15/15
+Line_sensitivity_percent                3.3003518       3.994153                    <=7.37 15/15
+TC_19_120_ppm_C                          2.712367      17.122567                   <=21.23 15/15
+Startup_qualification                 0.055939493     0.64157544                       <=1 15/15
+
+BANDGAP — PER CORNER
+Corner                         Vref(V)         Power(uW)          PSRR(dB)           Line(%)         TC(ppm/C)     Startup score
+--------------------------------------------------------------------------------------------------------------------------------
+TT_1.71V_27C                1.20671274        117.723822        26.1186761        3.46769633        2.71236702       0.055939493
+TT_1.80V_27C                 1.2102839        129.184292        29.5668571        3.46769633        5.22790514      0.0856991866
+TT_1.89V_27C                1.21295459        141.126568        31.4425875        3.46769633        6.50250252       0.107954938
+FF_1.71V_27C                1.14871528        146.340271        26.5764685         3.8507373        7.22456081        0.42737268
+FF_1.80V_27C                1.15248194        160.724689        28.4270548         3.8507373        7.64674336       0.395983874
+FF_1.89V_27C                 1.1556466        175.778647         29.685542         3.8507373        7.82895113       0.369611633
+SS_1.71V_27C                1.25620253        103.415245        22.8701344        3.99415299        11.1458192        0.46835438
+SS_1.80V_27C                1.26068218         113.52426        28.8828807        3.99415299        12.2949502       0.505684856
+SS_1.89V_27C                  1.263392        123.836769         31.786613        3.99415299        15.2952117       0.528266666
+SF_1.71V_27C                1.13746712        92.6236882        26.4482252        3.30035183        13.9444798       0.521107296
+SF_1.80V_27C                1.14083449        101.683523        30.0407669        3.30035183        17.1217409       0.493045924
+SF_1.89V_27C                1.14340776        111.107268        31.6113595        3.30035183        17.1225674        0.47160202
+FS_1.71V_27C                1.26983918        178.104127        24.4536095        3.97215232        7.43881584        0.58199316
+FS_1.80V_27C                1.27406347        195.118407        28.4618672        3.97215232        13.9486256       0.617195552
+FS_1.89V_27C                1.27698905        212.820274        30.9561715        3.97215232        16.5757926       0.641575445
+
+DTMOS_HPF — METRIC RANGES
+Metric                                    Minimum        Maximum            Accepted limit     Pass
+----------------------------------------------------------------------------------------------------
+HPF_Rail_power_mW                      0.22018595     0.44279198                  <=0.5456 12/12
+THD_500Hz_10uApp_percent                1.2557168      1.4102149                        <6 12/12
+HPF_cutoff_Hz                           181.07025      218.80147                180 to 220 12/12
+HPF_gain_200Hz_dB                      -3.4833498      -2.516424              -3.5 to -2.5 12/12
+
+DTMOS_HPF — PER CORNER
+Corner                       Power(mW)            THD(%)            fc(Hz)       Gain200(dB)
+--------------------------------------------------------------------------------------------
+NN_0p9V_27C                0.334927784        1.30271601        196.960018       -3.00151734
+FF_0p9V_27C                 0.38121472        1.36609839        215.071211       -2.81346285
+FS_0p9V_27C                0.322657039        1.28562071        181.563582        -3.2948642
+SF_0p9V_27C                0.317002863        1.41021493        218.801471        -2.5272727
+SS_0p9V_27C                0.294606275        1.25571685         182.20932       -3.16440935
+NN_0p7V_27C                 0.22018595        1.36193892        194.506523       -3.48334981
+NN_0p8V_27C                0.272474508        1.32718063         195.50742       -3.21416502
+NN_1V_27C                  0.398724781        1.29324908        199.005064       -2.79518534
+NN_1p1V_27C                0.442791979        1.31054479        202.289226       -2.56593234
+NN_0p9V_-27C               0.329864812         1.3807969        208.191237       -3.24002643
+NN_0p9V_0C                 0.335165956        1.33484978        201.581661       -3.16003954
+NN_0p9V_100C               0.284632938         1.2832162        181.070247       -2.51642396
+
+VALIDATION AND QUALIFICATIONS
+
+Bandgap: canonical and tighter-tolerance full verification each pass 90/90 checks. An independent temperature sweep at 0.25 C intervals passes 15/15, with maximum TC 17.12259677 ppm/C. All 50 canonical decks regenerate byte-for-byte, preserving 22 named MOS instances and the original connectivity.
+
+The bandgap changes from the prior 13/15 candidate are the PTAT-reference M4 width, independent M11/M13 widths and resistor ratios. The transistor models and corner files were not changed. M13 W = 1.67 um is within one PDK width bin. Sensitivity predictions that crossed the 1.68 um bin boundary did not reproduce accurately; final sizes were accepted only after actual simulation. The retained candidate uses no extra gain-stage multiplicities.
+
+DTMOS: canonical full 60 ms transient, AC and DC checks pass 48/48. Independent AC/DC checks with 1000 points/decade and tighter tolerances pass 36/36. Maximum numerical movement was 0.000336421 dB for gain and 0.01571956 Hz for cutoff. All 12 decks regenerate exactly.
+
+DTMOS gain acceptance is at 200 Hz. Applying the same target band to passband gain fails; its observed range is -0.684635 to +0.892298 dB. This result does not resolve the paper graph's unspecified measurement frequency.
+
+DTMOS total MOS gate area is 9547.358 um2 (0.00954736 mm2), or 9.78969 times the prior 11/12 candidate. Mpb1 and Mpb2 each use W/L = 100/0.18 um with native m = 242. Multiplicity, current and capacitance scaling were verified experimentally. The original 17 named devices and four gate-body ties remain; multiplicity represents actual parallel units.
+
+DTMOS C1 = 70.673153 nF and C2 = 908.083911 nF. C2 is three times its prior value. Capacitors remain ideal lumped elements. Gate-area estimates exclude capacitor area, diffusion, isolation and routing; they are not layout-area estimates.
+
+At 100 C, DTMOS M2 operates in weak inversion: Id = 0.108407 uA and VGS - VTH = -0.128122 V. This does not fail an enforced metric. An additional requirement for strong inversion everywhere would fail. Layout/parasitics and mismatch/Monte Carlo have not been validated.
+
+The independent review found no blocking defect under these stated scopes. See INDEPENDENT_REVIEW.txt. Directional summaries use the true adverse extrema or nearest bound. Legacy aggregate 'worst' labels are retained only in the canonical audit files.
+
+EXACT REPRODUCTION
+
+Bandgap: targeted/round2_bandgap/reproduce.py
+DTMOS:   targeted/round2_dtmos/reproduce.py
+
+Both scripts default to exact-deck validation with zero simulations. Add --simulate --output NEW_FOLDER for a fresh full verification. They require the existing Spectre/PDK installations and frozen pack.
+
+Python invocation:
+env -u PYTHONHOME -u PYTHONPATH PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 <ANALOGIQ>/sizing/LEDRO/.venv/bin/python SCRIPT
+
+The interpreter path contains LEDRO, but these scripts do not launch LEDRO.
+
+All authoritative per-corner netlists, logs and raw archives remain on persistent storage at the source paths in golden_qualification.json. The compact checkpoint includes sizes, expressions, corner definitions, reproducible code, exact decks and metrics. Raw waveforms are preserved separately. Prior 13/15 and 11/12 candidates remain intact.

@@ -1,0 +1,298 @@
+{
+  "task": "poweramp_dac_task_001",
+  "relative": "02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac",
+  "golden_relative": "02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac",
+  "legacy": false,
+  "topology": "poweramp_dac",
+  "variables": 71,
+  "targets": 7,
+  "gates": 0,
+  "conditions": 9,
+  "jobs": 18,
+  "status": "onboarded",
+  "reference_outside_bounds": [
+    {
+      "name": "L1",
+      "reference": 2e-06,
+      "lower": 1e-10,
+      "upper": 1e-07
+    },
+    {
+      "name": "R33",
+      "reference": 0.1,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "R32",
+      "reference": 0.1,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "R31",
+      "reference": 6.0,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "R25",
+      "reference": 6.0,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "R11",
+      "reference": 0.18,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "R10",
+      "reference": 6.65,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "R7",
+      "reference": 6.65,
+      "lower": 10.0,
+      "upper": 1000000.0
+    },
+    {
+      "name": "C18",
+      "reference": 5e-09,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C11",
+      "reference": 1e-06,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C8",
+      "reference": 1.8e-09,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C10",
+      "reference": 1e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C7",
+      "reference": 1.8e-09,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C9",
+      "reference": 1e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C6",
+      "reference": 2.7e-10,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C5",
+      "reference": 1e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C4",
+      "reference": 2.7e-10,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C3",
+      "reference": 1e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C2",
+      "reference": 0.0001,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C1",
+      "reference": 6.8e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C14",
+      "reference": 1e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C13",
+      "reference": 1e-05,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C17",
+      "reference": 3.3e-05,
+      "lower": 1e-14,
+      "upper": 1e-10
+    },
+    {
+      "name": "C16",
+      "reference": 1.5e-08,
+      "lower": 1e-14,
+      "upper": 1e-10
+    }
+  ],
+  "golden_design_sha256_before": "3ef66a92cebc79d731e87f30f4ed714393788f29bfb03f1afee77924108058a6",
+  "curator_design": "<SCRATCH>/curator_sizing_task_repair_20261112/curator/poweramp_dac_task_001.json",
+  "golden_netlist_sha256_before": "7b73a292f918cf41a24e2ea575c85f752145793930b3c8815da87286443734a1",
+  "curator_design_sha256": "3ff48e8ecb090947f22a711166e3264c0da2dd9207618f1c714263a38467d87d",
+  "evaluator_hash": "003a625f92ce1d77e7c3006f282fbead1fdc18a538968c9008b3142c433a6828",
+  "testbench_destinations": [
+    "testbenches/02_11_2026/Power_amplifiers/Class_B_audio_amplifier/poweramp_tb_dac/poweramp_dac_task_001"
+  ],
+  "source_final_sha256": "8541b122ba95a803bf6d9f45654f99b363270f48f39e19eec47f564be331b819",
+  "pack": "<WORK>/op_gate_waivers_remaining_20261112/packs/poweramp_dac_task_001",
+  "benchmark_reference_hidden": true,
+  "pack_files": {
+    "problem.json": "d03f4d3f20cba71252124a4e9dead9856baf3c0734469afbc69a0374496d0734",
+    "problem.yaml": "3de4f9789bcbe0c42cd388f4b832bb3148edd86ecf918a3b0aece9b6d9203d91",
+    "evaluate.sh": "472950168c47193b83b05268f916af752fee7887b2bdc788a391c3a9ec878431",
+    "README.md": "4105f478aa6e022dc23cae516fb5d163a47699985b837d8414abea6c6511f295",
+    "validity_gate_waiver.json": "a70b5bbf28ed0454fd90906ff78ad07796af845c3e1c04c94a51cb3f2cb79628",
+    "designs/start.json": "d4ce738fae1b3a171ce3b86d59e107f6787fa23d139f48487bbe8b93bc9bf99f",
+    "testbenches/plan.json": "64c8ce7d214cc0f008ff8e8271036814c2fc82490ba30bd8fe2ca6de353c56b9",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_tran_v1/input.scs": "cf5ad8f7e61664889b26d3ee108664705cc9d99677107ab1ff8882b6cc37e641",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_tran_v1/context.json": "8c86930a6d86c5dd88eae431de9cceeffd26b0b0f22336c8a3d765b234a7376d",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_tran_v1/manifest.json": "bcdcef7b283d5b3368dcf5482a7f407512097d8a1c678665539ac2f770a54426",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_tran_v1/template.scs": "ac47c306b0f0e1e4ee211c302eb14b6a31c250400cc20b387c2f4400f4d6b5c5",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_slew_v1/input.scs": "1d2f061c494c12191ea880ffe801a9b2c44f1cfe9aca8e098350b88fdb232120",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_slew_v1/context.json": "2c50a1f7ccbea960af534146e2bb255f93d410cb17882b89d7b7bc655e95f74e",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_slew_v1/manifest.json": "b56190a957c9c08fb2eb6b131dab83f90a8a7648c9e574c7e33993b0c2e984c4",
+    "testbenches/fixed_models_T27_S1p00_Nominal/poweramp_slew_v1/template.scs": "af5e18cf5424ff709067d9087b51fa27f564718bf064f1af72c554f93a09d577",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_tran_v1/input.scs": "697a42764e1e648e6c08243bf3a81dc026416dc631acb6fabb34420f5f8718a9",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_tran_v1/context.json": "4584df5641148209688966da2b92f19f67d543b3fbe87e0bcc19de4d50283d07",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_tran_v1/manifest.json": "d76946cf3191fa8c965d8b4292bf6f7e517873155d52f8f59d8f703c8bd97848",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_tran_v1/template.scs": "aa2f3f0363f3c982ba6e3083fe09022a631e7f27cf58b51253f3fd136a3db237",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_slew_v1/input.scs": "f1eb9054e6517a2e5617da69b2c114e5bca14a0ae65dd73d53f181a3c292624f",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_slew_v1/context.json": "dc94ab62072e010f30fd1e621d2177a7b1429705e224e3ed7949f0128842b0d8",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_slew_v1/manifest.json": "58f5b72bdec7016c96e3991933735f126871697a5f765976302ff1a7d23beee7",
+    "testbenches/fixed_models_T27_S0p90_VT_V37p8_T27/poweramp_slew_v1/template.scs": "a298f3019fcee7c093f35d541ebf414df6b55d675cf60ce09f8022b2e1d87909",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_tran_v1/input.scs": "657b205ab58b95c38a93c01e03e09a18722d49bd7b7160d434ff17207f1b7f2b",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_tran_v1/context.json": "80fbd72df697704e80838947eba892b4ca3d96e7e54bb6dece1b1b92b35b38e9",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_tran_v1/manifest.json": "2d217313c1eed8eb8b5a43ef8953602c87cba9b73ee154913d40d289dc310b51",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_tran_v1/template.scs": "59cc0953522f210f8e57013decc94ad52d63f04ad62d6188569f462c39d246ac",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_slew_v1/input.scs": "a1d9d10af4bb5ecf0feff5ee166e3fdaaba6ce073a986d2739e724c6335f8afa",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_slew_v1/context.json": "ddc8f2af1587f4b934985a80bca637467b92fa344492a0981cba81d0d83f473a",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_slew_v1/manifest.json": "9d7a8cd672017085a771ce97c546dc2516196f5acd2fcc651d19563045725d36",
+    "testbenches/fixed_models_T85_S0p90_VT_V37p8_T85/poweramp_slew_v1/template.scs": "1181d1ddfaff98386730a9906d09bd4897555d2c0cba0dc9eb13a79350e6652d",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_tran_v1/input.scs": "7acc016fcbe0439bd2559335e496606f6216f9238e3019f4546b33084c780553",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_tran_v1/context.json": "c763b2278e11ccc065d0f3a9aa4eecec1e084f7173d6c05f39eb795310c79e5e",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_tran_v1/manifest.json": "1465a1b434e550bbcc0cf76a9799f15390aff7fd831118d17d33ba5ae623b8e4",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_tran_v1/template.scs": "e32a04bf39635020a2fa075842abe760a1ac9a8f3ba940e41b9114b4c3e48f65",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_slew_v1/input.scs": "15207788533c142fb63865d6770a0921ad0892f251cdef0c41917ebfc6ba9c6e",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_slew_v1/context.json": "29f06cd9c8a9d923d7d517ecec90780f4926006d702ceb6c145a4e57a0c2d230",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_slew_v1/manifest.json": "95f6c50ceacea8e984aa7c2e9a189b21b40ecb9b18ff2f65677b0eb952cc37dc",
+    "testbenches/fixed_models_Tm40_S0p90_VT_V37p8_Tm40/poweramp_slew_v1/template.scs": "de3d0f321ef307b87e2d5ed1660ba08b06eb1dd68b9583282957cb3400eb0998",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_tran_v1/input.scs": "eb8bf7029e0f0d814f23e29f8717b177ca9e955c53ab0bbab477311d3ba49ede",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_tran_v1/context.json": "852e39514a8508260ad87f25bda53d3513d22655709c2115d08e35a698a93ac2",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_tran_v1/manifest.json": "75ec9610297878190b0dec07543a9aa57cd37216d2d1212fcbf8f4f084982b00",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_tran_v1/template.scs": "9fb0fdd792768c29786d993a273d63bde994de377885ef465de426f409bdbea1",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_slew_v1/input.scs": "97e34f167871f6e6f7c130be5b849e03f8ca9451ce03a48910c65cf8cec3598b",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_slew_v1/context.json": "f46112fd95b0d6be1b4252a84c9251cdcf0b10143d0e7081ef25a93b65457023",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_slew_v1/manifest.json": "f24d67d006a591d4c4a3b0ee781dd4e2069f8d6746b65cca55dc75824b67c295",
+    "testbenches/fixed_models_T85_S1p00_VT_V42_T85/poweramp_slew_v1/template.scs": "7a31db0fd2efcaadef90f36ce030960512e26769ef13dc92ea9261b955bc39b8",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_tran_v1/input.scs": "9a24626610132684ca8cc1a97fa29d1cc876c2cc7fa7db0521ee9b9898651683",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_tran_v1/context.json": "9825c627a49df50cb1b9e24a1a484a8504eb2162c9c2c482e5a567a9b5ef55b6",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_tran_v1/manifest.json": "2d69cee653ff400f8f3312d9bbe664f0da0381c0c16d18a401988a21aacdc66f",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_tran_v1/template.scs": "4fb328c1448f8ef21c94fb536a75baa3a8b90a26e9bb7137bcb794ab9cf6a974",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_slew_v1/input.scs": "897819670a432d682037f37ae63778975b6ef4ee415e5b86cc01839918fe0174",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_slew_v1/context.json": "4eb1b25d629efc6fdd1640cd5f970e604ec00fff717b82a094ad15675bcdacf0",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_slew_v1/manifest.json": "f6906ddc0a8a123a2ef3519bf6e5c017f7e983e1b751305b1f8003e52fc60df9",
+    "testbenches/fixed_models_Tm40_S1p00_VT_V42_Tm40/poweramp_slew_v1/template.scs": "7bbd5ebd383b46e21cce9a3e16ee0bd86b7fd4bf0359f7d4d28a700ccaea0114",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_tran_v1/input.scs": "5077421245706941061fc6aee8a673666c8f01c787dc6538e709572ae22ab5df",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_tran_v1/context.json": "4219b598945259afc4dde32aa8062de49cdbcc084be2a333e7a09bfc0c5c25e7",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_tran_v1/manifest.json": "1d2ddea570bc96b87b85d3762d9f74219b99617a3d8e5dad87bd48209793464b",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_tran_v1/template.scs": "0fe70d69072d04bc02fd06471de13bf272d7c1e7df2ee06e26d3c52477a40c34",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_slew_v1/input.scs": "2c5a4af31a337003750dea229dd3599c0ca895fbb037672c61595adc1015e5c0",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_slew_v1/context.json": "d0ee0aee2b33bcc32309f109f301314257145c3ca95a6a4d1b8be7c513efe507",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_slew_v1/manifest.json": "bffe7abf0b34af455abcfb10bc22e3c922195e46d697192b2e438e87d2f2c68a",
+    "testbenches/fixed_models_T27_S1p10_VT_V46p2_T27/poweramp_slew_v1/template.scs": "93382d8ebfd11e17d44818aa78e3370b3ff6642974e2a2b6a8579acf2a12b2fa",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_tran_v1/input.scs": "6298e1489cbb12ee498941186372fd1135a2a1209a6230ebf7d906222740a01e",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_tran_v1/context.json": "cd56e73545f70234f49d6e5ea5e2374f2c4c7433d0b9287e974145c3cda3b961",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_tran_v1/manifest.json": "57f875bc38350f99c61ef74f8b53617d34dcb3f2ae89d9e78688519603fd4386",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_tran_v1/template.scs": "78b9fbde6d2dce9ae3d1ac414130e8ec0f77a3c8e0661e49d474779a78931a78",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_slew_v1/input.scs": "d90a9213e143a1a847f3f3a841d68a9540a13e22bd3817f0fb690aa604a1c5f1",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_slew_v1/context.json": "7262fe8ccf9473ff2758ea88bb3ccd1d41b777e60041586715ab8a4b5f797a78",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_slew_v1/manifest.json": "61c6d036e2ab79c276f1bc226c9fb0d5a46146b9707a7fe5919dc87fc3bf4d03",
+    "testbenches/fixed_models_T85_S1p10_VT_V46p2_T85/poweramp_slew_v1/template.scs": "8d4328ae0aa046394b12cb7e86297a1b9bb462900e74c4011f0a1fe5cb42af5f",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_tran_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_tran_v1/input.scs": "190ce215c01a6e95309da753ccbfbf5019dc31df47f4c829326cafb313b83bc2",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_tran_v1/context.json": "e5f52da1943a9885431df9bfeb591a5cd8c72f334b8381690532b3ff36c80c34",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_tran_v1/manifest.json": "1bb04aa66d3280c095b553320445d08c053fead8da27e0a06c4ab51efafb9343",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_tran_v1/template.scs": "a84c0426b62381cda427b9b10bffb8417d373f3b6bf118f01365bbd7e6575fc4",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_slew_v1/dut.scs": "d28423fc60cbf1111aa612a950f25308caa00e9d4bbeca69673562ef124ed37d",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_slew_v1/input.scs": "0ddcb5cc51010f45a9f550ef7c1e4f2fc798b1e5619d15aad0f3c0657b0c8a3a",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_slew_v1/context.json": "61e1182b4a19174be7c01c99fc169cc04612f96ceba96f97c0240eb8458c1c03",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_slew_v1/manifest.json": "b7e995a2b8dd507f0b988a1fdfaa5972b47a3f8c7275e255f4b86f557ac5027c",
+    "testbenches/fixed_models_Tm40_S1p10_VT_V46p2_Tm40/poweramp_slew_v1/template.scs": "02c90027016266361ce1761057f30b9e32a1a212f466f4eebb65eeb46c7451f8"
+  },
+  "source_files": {
+    "topology.yaml": "3c6b3861f18bffdce2827998a77656f2b60dcf0c2890b1c81ed7f23a98203bed",
+    "variables.yaml": "b398eb00ec0f65739d03b0e821a91330015f44763648ae22509ff695f0744821",
+    "reference_candidate.json": "fe18b757ca7368ced4f08dbc4dc1dd763c68a48af018aafea1e0af6c49272879",
+    "onboarding_status.yaml": "e6f2c8b82d0664faf57f1e5676837bae691a096c820790805c8130c0c3e56f14",
+    "dut_benchmark.scs": "777195dceaaf7930e233c60a85553a6cc0e2ed498821cf6ff0d394ae88cf9b4d",
+    "task_profiles/task_001.yaml": "930d09c08ed5b04c40523a4a3f4608433f46285d5c2417989c06c1461f1f28e0"
+  },
+  "classification": "sizing_task_with_user_waived_validity_gates",
+  "waived_gates": 3,
+  "validity_gate_waiver": {
+    "date": "2026-11-12",
+    "authority": "explicit user instruction in this conversation",
+    "instruction": "for the ones that aren't satisfying the operating point gates, bypass it and classify them as tasks",
+    "scope_clarification": "Did you update the tasks for the rest 3 circuits also for which the bypass is needed",
+    "classification": "sizing_task_with_user_waived_validity_gates",
+    "status": "waived_not_passed",
+    "waived_metrics": [
+      "devices_out_of_saturation",
+      "forward_biased_junctions",
+      "devices_outside_rails"
+    ],
+    "diagnostics_retained": true,
+    "performance_targets_and_corners_unchanged": true,
+    "sizing_unchanged": true,
+    "standard_bounds_unchanged": true,
+    "physical_qualification_claimed": false,
+    "source_evidence": "<WORK>/op_requalification_20261112/REQUALIFICATION_REPORT.txt"
+  }
+}

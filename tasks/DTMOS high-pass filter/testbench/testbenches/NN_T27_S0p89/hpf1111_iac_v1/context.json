@@ -1,0 +1,226 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T27_S0p89/hpf1111_iac_v1",
+ "recipe_id": "hpf1111_iac_v1",
+ "recipe_version": 1,
+ "points": [
+  {},
+  {
+   "freq_Hz": 200.0
+  }
+ ],
+ "expected_outputs": [
+  "raw/dc1.dc",
+  "raw/ac1.ac",
+  "raw/op_info.info"
+ ],
+ "context": {
+  "job_id": "NN_T27_S0p89/hpf1111_iac_v1",
+  "condition": {
+   "id": "NN_T27_S0p89",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_scale": 0.888888888888889,
+   "supply_V": 0.8,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "is_nominal": false,
+   "supply_negative_V": -0.8,
+   "supply_span_V": 1.6
+  },
+  "operating": {
+   "supply_V": 0.9,
+   "supply_negative_V": -0.9,
+   "output_voltage_V": 0.0,
+   "input_frequency_Hz": 500.0,
+   "input_peak_to_peak_A": 1e-05,
+   "input_dc_A": 0.0
+  },
+  "recipe_settings": {
+   "start_Hz": 1.0,
+   "stop_Hz": 10000000.0,
+   "points_per_decade": 100,
+   "frequencies_Hz": [
+    200.0
+   ],
+   "passband_Hz": [
+    2000.0,
+    20000.0
+   ],
+   "flatness_dB": 1.0,
+   "rejection_frequency_Hz": 1.0,
+   "cutoff_search_max_Hz": 2000.0,
+   "iabstol": 1e-14,
+   "_op_point": {
+    "exclude": []
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "dtmos_hpf_101126",
+   "family": "filter",
+   "interface_type": "current_mode_single_input_single_output_high_pass",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "registered_in_shared_analogiq": true,
+   "disable_finger_fold": "hpf1111 2026-11-11: the task's replay fixture (authoritative) simulates wide devices unfolded (gpdk180 W > 10 um model bin); evidence and numbers in onboarding_status.yaml (curator_choices.finger_fold). Cost: the current-per-width step at the 10 um bin edge is visible to the search.",
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "dtmos_candidate_stb",
+    "port_order": [
+     "GND",
+     "IN",
+     "OUT",
+     "VDD",
+     "VSS"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "input": "IN",
+    "output": "OUT",
+    "supply_positive": "VDD",
+    "supply_negative": "VSS"
+   },
+   "external_bias": {
+    "GND": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "rule G3: the DUT ground pin (return of I0/IB1/IB2, C1/C2 and the M2 source) has no family role and is driven by a 0 V source; the replay decks connect it to node 0 (DUT (0 IN OUT VDD VSS))"
+    }
+   },
+   "op_check": {
+    "exclude": []
+   }
+  },
+  "subckt_name": "dtmos_candidate_stb",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_M1": 1e-06,
+   "L_M1": 1e-06,
+   "W_M2": 1e-06,
+   "W_M4": 1e-06,
+   "L_M24": 1e-06,
+   "W_M3": 1e-06,
+   "M_M3": 1.0,
+   "L_M3": 1e-06,
+   "W_MPB12": 1e-06,
+   "M_MPB12": 1.0,
+   "L_MPB12": 1e-06,
+   "W_MPB3": 1e-06,
+   "W_MPB4": 1e-06,
+   "L_MPB34": 1e-06,
+   "W_MPB56": 1e-06,
+   "L_MPB56": 1e-06,
+   "W_MPB7": 1e-06,
+   "W_MPB8": 1e-06,
+   "L_MPB78": 1e-06,
+   "W_MNB12": 1e-06,
+   "L_MNB12": 1e-06,
+   "W_MNB3": 1e-06,
+   "L_MNB3": 1e-06,
+   "W_MNB4": 1e-06,
+   "L_MNB4": 1e-06,
+   "W_MNB5": 1e-06,
+   "L_MNB5": 1e-06,
+   "C1": 1e-12,
+   "C2": 1e-12,
+   "I0": 1e-05,
+   "IB1": 1e-05,
+   "IB2": 1e-05,
+   "M_M1": 1.0,
+   "M_M2": 1.0,
+   "M_M4": 1.0,
+   "M_MPB3": 1.0,
+   "M_MPB4": 1.0,
+   "M_MPB56": 1.0,
+   "M_MPB7": 1.0,
+   "M_MPB8": 1.0,
+   "M_MNB12": 1.0,
+   "M_MNB3": 1.0,
+   "M_MNB4": 1.0,
+   "M_MNB5": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {},
+  "bias_variables": {},
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

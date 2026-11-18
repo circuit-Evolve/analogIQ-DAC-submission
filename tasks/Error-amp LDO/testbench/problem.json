@@ -1,0 +1,1966 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "ldo_erroramp_dac_task_001",
+ "topology_id": "ldo_erroramp_dac",
+ "family": "ldo",
+ "technology_id": "gpdk045",
+ "parameterization_id": "ldo_erroramp_dac_p1_counts_20261112",
+ "execution_profile": "search_full",
+ "description": "PMOS-pass LDO (gpdk045, VIN = VDD_core 1.8 V, VREF 0.6 V, VOUT 1.2 V): two-stage Miller-compensated error amplifier (NMOS pair M2/M4, PMOS mirror load, PMOS CS second stage M7), PMOS buffer M9 with R10/R7, five 350 um pass devices, R9/C0 gate network, 50/50 ohm feedback divider with C1 feed-forward. Fixture and measurement definitions = the golden replay pack (Maestro Load_reg and PM_min tests): behavioural 25 mA load sink, 100 pF output capacitor, stb at the M4 gate, AC 1 V on VIN, 1 s transient, DC load sweep 0-50 mA. Conditions: the replay's 15 (tt/ss/ff/sf/fs x -40/27/125 C, VIN 1.8 V; nominal tt 27 C). Targets: the replay pack's targets.json limits exactly (owner-approved paper/source references with a 15 % allowance), at every condition. Line regulation is excluded (batch rule). No objective.",
+ "source": {
+  "title": "Project_03_LDO_Voltage_Regulator (sachinathani05/VLSI, Cadence Virtuoso 45nm, commit 9db0757): 1.2 V / 50 mA LDO, gpdk045, VIN 1.8 V; golden sizing promoted 2026-11-05 (LDO_with_erroramp_tb_dac, view schematic_golden)",
+  "doi": "none (project documentation: paper/README.md, paper/OTA_README.md; paper/ORIGIN.txt)",
+  "figure": "paper/README.md sections 3-8 (LDO_Core2 schematic, device tables)"
+ },
+ "variables": [
+  {
+   "name": "W_PASS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS pass array M10-M14 (five identical parallel g45p2svt devices, VIN -> VOUT; gate net13): width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_PASS",
+    "instances": [
+     "M10",
+     "M11",
+     "M12",
+     "M13",
+     "M14"
+    ]
+   }
+  },
+  {
+   "name": "L_PASS",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 1e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS pass array M10-M14 (five identical parallel g45p2svt devices, VIN -> VOUT; gate net13): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M10",
+     "M11",
+     "M12",
+     "M13",
+     "M14"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_PASS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS pass array M10-M14 (five identical parallel g45p2svt devices, VIN -> VOUT; gate net13): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M10",
+     "M11",
+     "M12",
+     "M13",
+     "M14"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_BUF",
+   "kind": "real",
+   "unit": "m",
+   "lower": 2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS buffer stage M9 (g45p2svt, gate = error-amplifier output net11, source via R10 to VIN, drain net12 to R7): drives the pass gate through R9/C0: width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_BUF",
+    "instances": [
+     "M9"
+    ]
+   }
+  },
+  {
+   "name": "L_BUF",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.5e-07,
+   "upper": 1e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS buffer stage M9 (g45p2svt, gate = error-amplifier output net11, source via R10 to VIN, drain net12 to R7): drives the pass gate through R9/C0: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_BUF",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS buffer stage M9 (g45p2svt, gate = error-amplifier output net11, source via R10 to VIN, drain net12 to R7): drives the pass gate through R9/C0: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "M_BUF",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS buffer stage M9 (g45p2svt, gate = error-amplifier output net11, source via R10 to VIN, drain net12 to R7): drives the pass gate through R9/C0: multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_IN",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS differential input pair M2 (gate VREF) / M4 (gate = feedback net6) of the first stage: width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_IN",
+    "instances": [
+     "M2",
+     "M4"
+    ]
+   }
+  },
+  {
+   "name": "L_IN",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.5e-08,
+   "upper": 1e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS differential input pair M2 (gate VREF) / M4 (gate = feedback net6) of the first stage: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_IN",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS differential input pair M2 (gate VREF) / M4 (gate = feedback net6) of the first stage: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M4"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "M_IN",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS differential input pair M2 (gate VREF) / M4 (gate = feedback net6) of the first stage: multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_LD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS current-mirror load M6 (diode) / M5 of the first stage: width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_LD",
+    "instances": [
+     "M5",
+     "M6"
+    ]
+   }
+  },
+  {
+   "name": "L_LD",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.5e-08,
+   "upper": 1e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS current-mirror load M6 (diode) / M5 of the first stage: length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_LD",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS current-mirror load M6 (diode) / M5 of the first stage: finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M6"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "M_LD",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS current-mirror load M6 (diode) / M5 of the first stage: multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_CS2",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "PMOS common-source second stage M7 (gate net1, drain net11): width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_CS2",
+    "instances": [
+     "M7"
+    ]
+   }
+  },
+  {
+   "name": "L_CS2",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.5e-08,
+   "upper": 1e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "PMOS common-source second stage M7 (gate net1, drain net11): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_CS2",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "PMOS common-source second stage M7 (gate net1, drain net11): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "W_MIR",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS bias mirror: diode M0 (fed by I0) and first-stage tail M1 (1:1): width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_MIR",
+    "instances": [
+     "M0",
+     "M1"
+    ]
+   }
+  },
+  {
+   "name": "L_MIR",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4.5e-08,
+   "upper": 1e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "NMOS mirror length: M0, M1 and the second-stage sink M3 (one length for the mirror M0 -> M1 / M3)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M0",
+     "M1",
+     "M3"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "NF_MIR",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS bias mirror: diode M0 (fed by I0) and first-stage tail M1 (1:1): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M0",
+     "M1"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "M_MIR",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS bias mirror: diode M0 (fed by I0) and first-stage tail M1 (1:1): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M0",
+     "M1"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_SNK",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.2e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "NMOS second-stage current sink M3 (gate net3, mirrors M0; length tied to L_MIR): width per finger (instance w = W x NF, dut_benchmark.scs)",
+   "binding": {
+    "type": "dut_parameter",
+    "parameter": "W_SNK",
+    "instances": [
+     "M3"
+    ]
+   }
+  },
+  {
+   "name": "NF_SNK",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS second-stage current sink M3 (gate net3, mirrors M0; length tied to L_MIR): finger count",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3"
+    ],
+    "parameter": "nf"
+   }
+  },
+  {
+   "name": "M_SNK",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "NMOS second-stage current sink M3 (gate net3, mirrors M0; length tied to L_MIR): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "C_C",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "Miller compensation capacitor C2 (net4 -> net11, across the second stage, in series with R0)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C2"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_Z",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "nulling resistor R0 of the Miller compensation (net1 -> net4)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R0"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_G",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "pass-gate network capacitor C0 (net13 - net12, across R9)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C0"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_G",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "pass-gate series resistor R9 (buffer output net12 -> pass gate net13)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R9"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "C_FF",
+   "kind": "real",
+   "unit": "F",
+   "lower": 1e-14,
+   "upper": 1e-10,
+   "scale": "log",
+   "start": 1e-12,
+   "quantity": "capacitance",
+   "role": "feed-forward capacitor C1 across the upper feedback resistor (VOUT -> net6)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "C1"
+    ],
+    "parameter": "c"
+   }
+  },
+  {
+   "name": "R_S",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "buffer source-degeneration resistor R10 (VIN -> M9 source net10)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R10"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R_B",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "buffer load resistor R7 (net12 -> gnd)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R7"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R_FB_TOP",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "upper feedback-divider resistor R11 (VOUT -> net6); VOUT = VREF*(1 + R11/R8)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R11"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "R_FB_BOT",
+   "kind": "real",
+   "unit": "ohm",
+   "lower": 10.0,
+   "upper": 1000000.0,
+   "scale": "log",
+   "start": 10000.0,
+   "quantity": "resistance",
+   "role": "lower feedback-divider resistor R8 (net6 -> gnd)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "R8"
+    ],
+    "parameter": "r"
+   }
+  },
+  {
+   "name": "I_BIAS",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "error-amplifier reference current I0 (ideal source VDD_core -> diode M0): sets the first-stage tail and the second-stage sink currents",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "I0"
+    ],
+    "parameter": "dc"
+   }
+  },
+  {
+   "name": "M_PASS",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M10, M11, M12, M13, M14; matched sizing group W_PASS",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M10",
+     "M11",
+     "M12",
+     "M13",
+     "M14"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_CS2",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M7; matched sizing group W_CS2",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "m"
+   }
+  }
+ ],
+ "dependent_parameters": {
+  "W_PASS_TOTAL": {
+   "expression": "W_PASS*NF_PASS",
+   "role": "PASS instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M10",
+     "M11",
+     "M12",
+     "M13",
+     "M14"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_BUF_TOTAL": {
+   "expression": "W_BUF*NF_BUF",
+   "role": "BUF instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M9"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_IN_TOTAL": {
+   "expression": "W_IN*NF_IN",
+   "role": "IN instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M2",
+     "M4"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_LD_TOTAL": {
+   "expression": "W_LD*NF_LD",
+   "role": "LD instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M5",
+     "M6"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_CS2_TOTAL": {
+   "expression": "W_CS2*NF_CS2",
+   "role": "CS2 instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M7"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_MIR_TOTAL": {
+   "expression": "W_MIR*NF_MIR",
+   "role": "MIR instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M0",
+     "M1"
+    ],
+    "parameter": "w"
+   }
+  },
+  "W_SNK_TOTAL": {
+   "expression": "W_SNK*NF_SNK",
+   "role": "SNK instance width w = per-finger width x fingers (gpdk045 instance w is the total width)",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M3"
+    ],
+    "parameter": "w"
+   }
+  }
+ },
+ "conditions": [
+  {
+   "id": "tt_Tm40_S1p00",
+   "model_set": "tt",
+   "temperature_C": -40.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "tt_T27_S1p00",
+   "model_set": "tt",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "tt_T125_S1p00",
+   "model_set": "tt",
+   "temperature_C": 125.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ss_Tm40_S1p00",
+   "model_set": "ss",
+   "temperature_C": -40.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ss_T27_S1p00",
+   "model_set": "ss",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ss_T125_S1p00",
+   "model_set": "ss",
+   "temperature_C": 125.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ff_Tm40_S1p00",
+   "model_set": "ff",
+   "temperature_C": -40.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ff_T27_S1p00",
+   "model_set": "ff",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "ff_T125_S1p00",
+   "model_set": "ff",
+   "temperature_C": 125.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "sf_Tm40_S1p00",
+   "model_set": "sf",
+   "temperature_C": -40.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "sf_T27_S1p00",
+   "model_set": "sf",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "sf_T125_S1p00",
+   "model_set": "sf",
+   "temperature_C": 125.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "fs_Tm40_S1p00",
+   "model_set": "fs",
+   "temperature_C": -40.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "fs_T27_S1p00",
+   "model_set": "fs",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "fs_T125_S1p00",
+   "model_set": "fs",
+   "temperature_C": 125.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "input_voltage_V": {
+   "value": 1.8,
+   "provenance": "replay pack corners.json supply_V 1.8 (all 15 conditions) and decks V0 (net2 0) vsource dc=1.8; paper README Sec. 2 (VIN = 1.8 V)"
+  },
+  "reference_V": {
+   "value": 0.6,
+   "provenance": "replay decks V1 (net3 0) vsource dc=600.0m on VREF; paper README Sec. 2 (VREF 0.6 V ideal source)"
+  },
+  "load_current_A": {
+   "value": 0.025,
+   "provenance": "replay Load_reg decks: parameters i_load=25m (stb, ac, tran at the nominal 25 mA load); targets.json setup \"nominal load 25 mA\""
+  },
+  "load_capacitance_F": {
+   "value": 1e-10,
+   "provenance": "replay decks: C0 (VOUT 0) capacitor c=100p; paper README device table (Cout 100 pF testbench load cap)"
+  }
+ },
+ "constraints": [
+  {
+   "name": "phase_margin_25mA",
+   "metric": "phase_margin_deg",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 60.018499999999996,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:3:5 \"PM @ 25mA (best)\": paper 70.61 deg (README Sec. 10.4 table, line 410), approved 15 % allowance -> lower 60.0185 deg, scope all saved conditions. Definition: phaseMargin(-loopGain) of stb at 25 mA (replay Load_reg).",
+   "source": "native"
+  },
+  {
+   "name": "loop_gbw_25mA",
+   "metric": "loop_gbw_Hz",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 22015000.0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:3:6 \"GBW\": paper 25.9 MHz (README Sec. 10.4 table, line 410), 15 % allowance -> lower 22.015 MHz, all conditions. Definition: cross(mag(loopGain), 1, 1, \"falling\") at 25 mA.",
+   "source": "native"
+  },
+  {
+   "name": "psr_100Hz",
+   "metric": "psr_100Hz_dB",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 70.38837851428585,
+   "target": {
+    "kind": "voltage_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:3:7 \"PSR (100 Hz)\": paper 71.8 dB (README Sec. 10.7 table, line 460), 15 % allowance on the voltage ratio -> lower 70.388 dB, all conditions. Definition: dB20(V(VIN)/V(VOUT)) at 100 Hz, AC 1 V on VIN = VDD_core, 25 mA.",
+   "source": "native"
+  },
+  {
+   "name": "psr_1MHz",
+   "metric": "psr_1MHz_dB",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 18.588378514285854,
+   "target": {
+    "kind": "voltage_db"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:3:8 \"PSR (1 MHz)\": the source's stated design goal > 20 dB (adopted by the user instead of the contradictory reported -0.2 dB), 15 % allowance -> lower 18.588 dB, all conditions. Definition as psr_100Hz at 1 MHz.",
+   "source": "native"
+  },
+  {
+   "name": "load_regulation",
+   "metric": "load_regulation_mV_per_A",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "mV/A",
+   "upper": 2.162,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:3:9 \"Load Regulation (mV/V)\" (unit corrected to mV/A): paper 0.094 mV over 0-50 mA (README Sec. 10.6, line 437) = 1.88 mV/A, 15 % allowance -> upper 2.162 mV/A, all conditions. Definition: abs(1000*peakToPeak(V(VOUT) over the DC load sweep 0..50 mA)/0.05).",
+   "source": "native"
+  },
+  {
+   "name": "output_voltage",
+   "metric": "output_voltage_V",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "V",
+   "lower": 1.02,
+   "upper": 1.38,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:3:10 \"Vout\": paper 1.2 V (README Sec. 10.1, line 350), 15 % allowance both ways -> [1.02, 1.38] V, all conditions. Definition: average(VT(\"/VOUT\")) over the 1 s transient at 25 mA.",
+   "source": "native"
+  },
+  {
+   "name": "phase_margin_100uA",
+   "metric": "phase_margin_light_load_deg",
+   "recipe": "ldoea_reg_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 39.5845,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": "all",
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "replay targets.json ldo_erroramp_dac_task_001:4:11 \"PM @ 100uA (worst)\": paper 46.57 deg (README Sec. 10.4 table, line 405), 15 % allowance -> lower 39.5845 deg, all conditions. Definition: phaseMargin(-loopGain) of stb at i_load = 100 uA (replay PM_min).",
+   "source": "native"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "ldoea_op_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target: DC operating point at the 25 mA load, nominal condition; forward_biased_junctions and devices_outside_rails are added automatically",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "ldoea_op_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "ldoea_op_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "ldoea_op_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "ldoea_op_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "ldoea_op_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "ldoea_op_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "ldoea_reg_v1",
+   "load_regulation_mV_per_A"
+  ],
+  [
+   "ldoea_reg_v1",
+   "loop_gbw_Hz"
+  ],
+  [
+   "ldoea_reg_v1",
+   "output_voltage_V"
+  ],
+  [
+   "ldoea_reg_v1",
+   "phase_margin_deg"
+  ],
+  [
+   "ldoea_reg_v1",
+   "phase_margin_light_load_deg"
+  ],
+  [
+   "ldoea_reg_v1",
+   "psr_100Hz_dB"
+  ],
+  [
+   "ldoea_reg_v1",
+   "psr_1MHz_dB"
+  ]
+ ],
+ "simulations_per_design": 16,
+ "analysis_executions_per_design": 76,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "tt_Tm40_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/tt_Tm40_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/tt_T27_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T27_S1p00",
+   "recipe": "ldoea_op_v1",
+   "folder": "testbenches/tt_T27_S1p00/ldoea_op_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/op_info.info",
+    "raw/dc1.dc"
+   ],
+   "metrics": {
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "tt_T125_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/tt_T125_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ss_Tm40_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/ss_Tm40_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ss_T27_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/ss_T27_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ss_T125_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/ss_T125_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ff_Tm40_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/ff_Tm40_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ff_T27_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/ff_T27_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "ff_T125_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/ff_T125_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "sf_Tm40_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/sf_Tm40_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "sf_T27_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/sf_T27_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "sf_T125_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/sf_T125_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "fs_Tm40_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/fs_Tm40_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "fs_T27_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/fs_T27_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "fs_T125_S1p00",
+   "recipe": "ldoea_reg_v1",
+   "folder": "testbenches/fs_T125_S1p00/ldoea_reg_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": null,
+   "measure_results": null,
+   "native_results": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+   ],
+   "metrics": {
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "native"
+    },
+    "loop_gbw_Hz": {
+     "unit": "Hz",
+     "source": "native"
+    },
+    "psr_100Hz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "psr_1MHz_dB": {
+     "unit": "dB",
+     "source": "native"
+    },
+    "load_regulation_mV_per_A": {
+     "unit": "mV/A",
+     "source": "native"
+    },
+    "output_voltage_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "phase_margin_light_load_deg": {
+     "unit": "deg",
+     "source": "native"
+    }
+   },
+   "points": [
+    {}
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "ldo_erroramp_dac_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('ldo_erroramp_dac_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

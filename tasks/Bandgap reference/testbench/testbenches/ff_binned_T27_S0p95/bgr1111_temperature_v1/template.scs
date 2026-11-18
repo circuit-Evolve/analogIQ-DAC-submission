@@ -1,0 +1,24 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task sky130_bandgap_101126_task_001  topology bgr1111_nmos_bandgap
+// recipe bgr1111_temperature_v1 v1  condition ff_binned_T27_S0p95 (models ff_binned, 27 C, supply 1.71 V)
+// request sky130_bandgap_101126_task_001__plan  candidate 810467665e3cbc94
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice" section=ff
+include "dut.scs"
+
+parameters vsup=1.71 vneg=0.0
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+VNEG (vss 0) vsource dc=vneg
+
+nodeset out=1.2 XDUT.BIAS=0.66 XDUT.VINP=0.55 XDUT.VINN=0.55
+
+XDUT (vss vdd out) bgr_fig3_paper CC={{CC}} L_M4={{L_M4}} L_M8={{L_M8}} L_M9={{L_M9}} L_NLD={{L_NLD}} L_PBIAS={{L_PBIAS}} L_PIN={{L_PIN}} L_PMIR={{L_PMIR}} L_PTAT={{L_PTAT}} M_M10={{M_M10}} M_M11={{M_M11}} M_M12={{M_M12}} M_M13={{M_M13}} M_M4={{M_M4}} M_M8={{M_M8}} M_M9={{M_M9}} M_PBIAS={{M_PBIAS}} M_PMIR={{M_PMIR}} M_PTAT={{M_PTAT}} NF_M10={{NF_M10}} NF_M11={{NF_M11}} NF_M12={{NF_M12}} NF_M13={{NF_M13}} NF_M4={{NF_M4}} NF_M8={{NF_M8}} NF_M9={{NF_M9}} NF_PBIAS={{NF_PBIAS}} NF_PMIR={{NF_PMIR}} NF_PTAT={{NF_PTAT}} R1={{R1}} R2={{R2}} R3={{R3}} R4={{R4}} W_M10={{W_M10}} W_M11={{W_M11}} W_M12={{W_M12}} W_M13={{W_M13}} W_M4={{W_M4}} W_M8={{W_M8}} W_M9={{W_M9}} W_PBIAS={{W_PBIAS}} W_PMIR={{W_PMIR}} W_PTAT={{W_PTAT}}
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save VNEG:p VSUP:p out vdd vss
+
+bgropts options reltol=1e-05 vabstol=1e-09 iabstol=1e-13 gmin=1e-12 pivrel=0.001 rforce=1 soft_bin=allmodels
+tsw dc param=temp start=-40.0 stop=120.0 step=1.0

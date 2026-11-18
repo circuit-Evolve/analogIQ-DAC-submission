@@ -1,0 +1,32 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task rvco_khan2025_task_001  topology rvco_khan2025_gpdk090
+// recipe osc_pss_tune_v1 v1  condition NN_Tm45_S1p00 (models NN, -45 C, supply 1.2 V)
+// request golden_rvco_khan2025_task_001  candidate 65a6cc100df77a4d
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<PDK_ROOT>/gpdk090_v4.6/models/spectre/gpdk090.scs" section=NN
+include "dut.scs"
+
+parameters cl=1e-14 vctrl=0.45 vsup=1.2
+// Supplies (charged to the DUT power metrics).
+VSUP (vdd 0) vsource dc=vsup
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+
+VCTRL (vctrl 0) vsource dc=vctrl
+CL1 (outp 0) capacitor c=cl
+// Start-up kick: current pulse into outp (start-up assistance, see recipe doc).
+IKICK (0 outp) isource type=pulse val0=0 val1=0.0001 delay=0 rise=5.0000000000000005e-12 fall=5.0000000000000005e-12 width=5e-11
+
+XDUT (vdd b_VSS vctrl outp) gc_0232a331ef36_c27a2916 C_LOAD=1.2940105847534352e-14 C_PUMP=1.6661337689592423e-14 L_DG=2.0082221336350403e-07 L_M11=1.1148739563015059e-07 L_M22=1.0710781560476441e-07 L_M23=1.7728094526847754e-07 L_NCP=2.2789387780598196e-07 L_NI=1.311472009042472e-07 L_NS=6.825605994612687e-07 L_PCP=4.208264806249547e-07 L_PI=1.2611832663850679e-07 L_PS=1.5482369080215923e-07 N_DG=8.0 N_M11=2.0 N_M22=5.0 N_M23=15.0 N_NCP=22.0 N_NI=6.0 N_NS=3.0 N_PCP=9.0 N_PI=6.0 N_PS=2.0 W_DG=8.091124514959516e-06 W_M11=1.9022631417413167e-06 W_M22=1.1589685884903334e-06 W_M23=1.514834198386515e-07 W_NCP=8.946638631022571e-07 W_NI=1.8459991912298766e-06 W_NS=6.353577592142421e-07 W_PCP=2.111193845307927e-06 W_PI=1.1685282345159282e-06 W_PS=1.7732458487842323e-06
+
+opts options temp=-45.0 tnom=27 reltol=0.0001 save=selected
+save VB_VSS:p VSUP:p outp vctrl vdd
+
+// osc_sweep_plan: {"mode": "window", "live": [0, 8, 9, 10, 11, 16], "skipped": {"1": "not simulated: outside the window around the target frequency (estimate `points`)", "2": "not simulated: outside the window around the target frequency (estimate `points`)", "3": "not simulated: outside the window around the target frequency (estimate `points`)", "4": "not simulated: outside the window around the target frequency (estimate `points`)", "5": "not simulated: outside the window around the target frequency (estimate `points`)", "6": "not simulated: outside the window around the target frequency (estimate `points`)", "7": "not simulated: outside the window around the target frequency (estimate `points`)", "12": "not simulated: outside the window around the target frequency (estimate `points`)", "13": "not simulated: outside the window around the target frequency (estimate `points`)", "14": "not simulated: outside the window around the target frequency (estimate `points`)", "15": "not simulated: outside the window around the target frequency (estimate `points`)"}, "estimate_Hz": {"0": 13939104.26889778, "1": 22793536.86249475, "2": 37272504.22117629, "3": 60948837.352376886, "4": 99664909.89075959, "5": 131328832.79713914, "6": 173052505.0668611, "7": 228031947.53260878, "8": 261760794.03834543, "9": 284170153.6805375, "10": 334908513.5186789, "11": 394706168.0284177, "12": 465180647.2246872, "13": 497820011.39491326, "14": 532749514.03025496, "15": 570129842.519169, "16": 610132958.8683077}}
+sw sweep param=vctrl values=[0.45 0.825 0.85 0.9 0.95 1.2] {
+pss1 (outp 0) pss fund=(abs(vctrl-0.45)<0.0062500000000000056 ? 13939104.26889778 : abs(vctrl-0.825)<0.0062500000000000056 ? 261760794.03834543 : abs(vctrl-0.85)<0.0062500000000000056 ? 284170153.6805375 : abs(vctrl-0.9)<0.0062500000000000056 ? 334908513.5186789 : abs(vctrl-0.95)<0.0062500000000000056 ? 394706168.0284177 : 610132958.8683077) harms=10 tstab=4e-07 errpreset=conservative
+pn1 (outp 0) pnoise start=500000.0 stop=2000000.0 dec=10 maxsideband=10 sweeptype=relative relharmnum=1 noisetype=timeaverage
+}
+// osc_sweep_end

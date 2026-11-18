@@ -1,0 +1,325 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "tt_T25_S0p83/osc_pnoise_v1",
+ "recipe_id": "osc_pnoise_v1",
+ "recipe_version": 3,
+ "points": [
+  {
+   "pss": true
+  },
+  {
+   "offset_Hz": 1000000.0
+  },
+  {
+   "offset_Hz": 3000000.0
+  },
+  {
+   "offset_Hz": 10000000.0
+  }
+ ],
+ "expected_outputs": [
+  "raw/pss1.fd.pss",
+  "raw/pss1.td.pss",
+  "raw/pn1.pnoise"
+ ],
+ "context": {
+  "job_id": "tt_T25_S0p83/osc_pnoise_v1",
+  "condition": {
+   "id": "tt_T25_S0p83",
+   "model_set": "tt",
+   "temperature_C": 25.0,
+   "supply_scale": 0.8333333,
+   "supply_V": 0.99999996,
+   "includes": [
+    {
+     "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice",
+     "section": "tt"
+    }
+   ],
+   "is_nominal": false,
+   "supply_span_V": 0.99999996
+  },
+  "operating": {
+   "supply_V": 1.2,
+   "load_capacitance_F": 1e-14
+  },
+  "recipe_settings": {
+   "fund_estimate_Hz": 3800000000.0,
+   "harmonics": 10,
+   "tstab_s": 6e-08,
+   "offsets_Hz": [
+    1000000.0,
+    3000000.0,
+    10000000.0
+   ],
+   "min_amplitude_V": 0.05,
+   "kick_current_A": 0.001,
+   "kick_width_s": 5e-11,
+   "pss_errpreset": "conservative",
+   "estimate": {
+    "tstop_s": 8e-08,
+    "maxstep_s": 2e-11,
+    "errpreset": "liberal"
+   }
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "lcvco24_sheikhahmadi",
+   "family": "oscillator",
+   "interface_type": "differential_lc_vco",
+   "technology_id": "sky130",
+   "approval_status": "unapproved",
+   "source": {
+    "doi": "10.1109/TCSII.2020.3005251",
+    "title": "Sheikhahmadi, Moezzi, Ghafoorifard, 'A Low Phase Noise Class-C Oscillator With Improved Resonator and Robust Start-Up', IEEE TCAS-II 68(1):92-96, Jan 2021",
+    "figure": "Fig. 5 (class-C core M1/M2 with CB/RB gate bias, tail MT with CT, improved coupled-inductor resonator, auxiliary class-B start-up pair M3/M4 + MT1 switched by the comparator output VCOM); sizes: Fig. 5 inset",
+    "netlist_origin": "final.scs",
+    "inputs": "source/ (paper PDF, metrics.xlsx, operating_conditions.xlsx, pvt_corners.xlsx, FINAL_MAIN_SCHEMATIC.png; see source/ORIGIN.txt)",
+    "modifications": [
+     "Paper-fidelity fix 2026-10-27: inductor loss. A series resistor R = 2 pi f0 L / Q (f0 = 3.4 GHz, Q = 10) is added in each of the four inductor branches (LP, LN, LAP, LAN; devices RLP, RLN, RLAP, RLAN, dependent parameters R_ESR_MAIN / R_ESR_AUX = 3.42 ohm at 1.6 nH). Evidence: the paper states Q = 10 for its resonator simulations (Sec. II-III, Figs. 3 and 4(a): 'Assuming Q = 10, the resonant frequency of 3.5 GHz') and models the inductors with a series resistance R (Eq. 5); it gives no other design-inductor Q (the post-layout results use the foundry inductor). Reference bias V_BIAS re-chosen 0.7 -> 0.85 V (D7: the ideal-inductor bias stopped oscillating at TT / SS with the loss).",
+     "dut_benchmark.scs = final.scs plus one added top-level line `parameters W_CORE W_AUX W_MT1 W_MT` declaring the per-finger widths bound by variables.yaml (sky130 netlist width = W per finger x nf, owner rule 2026-10-24; same mechanism as the mixer packages); no device or value changed. The paper's 130 nm circuit is the exporter's sky130 netlist (standard 01v8 devices, L = 0.15 / 0.35 um); rule D7 applies (supply chosen within the 1.95 V device rating, biases re-chosen by simulation and made sizing variables)."
+    ]
+   },
+   "dut": {
+    "netlist": "dut_benchmark.scs",
+    "subckt_name": "repaired_core",
+    "port_order": [
+     "VDD",
+     "VSS",
+     "VBIAS",
+     "VTAIL",
+     "VCOM",
+     "CMP_SENSE",
+     "OUTP",
+     "OUTN",
+     "AUXP",
+     "AUXN"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "output_positive": "OUTP",
+    "output_negative": "OUTN",
+    "supply_positive": "VDD"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VBIAS": {
+     "kind": "voltage",
+     "value": 0.7,
+     "provenance": "paper Fig. 5: gate bias of M1/M2 not reported; sizing variable V_BIAS (curator reference 0.85 V by simulation with the Q = 10 inductor loss, D7; 0.7 V before the loss was added)"
+    },
+    "VTAIL": {
+     "kind": "voltage",
+     "value": 0.9,
+     "provenance": "paper Fig. 5: tail gate bias not reported; sizing variable V_TAIL (curator reference 0.9 V by simulation, D7)"
+    },
+    "VCOM": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "paper Fig. 7: the comparator output VCOM falls to ~0 V within ~20 ns once the oscillation has built up, switching the auxiliary class-B pair off; the comparator is not in the netlist, so the steady state (aux pair off) is VCOM = 0 V; the start-up condition sets it to the supply"
+    }
+   },
+   "open_pins": {
+    "CMP_SENSE": "internal source node of M1/M2 (tail node, CT / MT drain) exported as a port because the missing comparator senses it (paper Fig. 5, Vs ~ 0.2 V in Fig. 7)",
+    "AUXP": "internal drain node of the auxiliary class-B pair M3 (LAP, C1P) exported as a port by the schematic exporter",
+    "AUXN": "internal drain node of the auxiliary class-B pair M4 (LAN, C1N) exported as a port by the schematic exporter"
+   },
+   "probes": [],
+   "op_check": {
+    "exclude": [
+     "M3",
+     "M4",
+     "MT1",
+     "MT"
+    ],
+    "note": "G8 is checked at the DC equilibrium (osc_dc_v1, kept for LC oscillators by the owner 2026-10-23). Excluded: the auxiliary class-B start-up pair M3/M4 and its tail MT1, which the comparator output (VCOM = 0 V) switches off in the steady state (paper Sec. III, Fig. 7: off by design). Also excluded (curator_choice): the class-C tail MT: M1/M2 are biased below threshold (class-C), so at the DC equilibrium they carry ~no current and the tail sits at Vds ~ 10 mV (triode); it is a current source only while the oscillation conducts (paper Fig. 7: Vs ~ 0.2 V)."
+   },
+   "known_issues": [
+    "The paper gives no tuning mechanism (fixed frequency) and no supply, biases or temperature for the nominal case: Fig. 9 shows 1.0 / 1.2 / 1.4 V and TT 25 C, FF -20 C, SS 75 C; the nominal supply 1.2 V is a curator choice.",
+    "The comparator of the robust start-up circuit (Vref, Vbias, Vtail values not reported) is not in the netlist; its output is the pin VCOM (0 V steady state; the start-up time is measured with VCOM at the supply, see onboarding_status).",
+    "Paper results are post-layout simulations; the testbench simulates the schematic with ideal inductors (no Q given for the design inductor) on sky130 instead of the paper's unnamed 130 nm process.",
+    "Phase noise inconsistencies in the paper text: Fig. 4(b) ~-129.5 dBc/Hz at 1 MHz, Fig. 9 ~-127; Table I -136.8 dBc/Hz at 3 MHz is the summary value used (G6)."
+   ]
+  },
+  "subckt_name": "repaired_core",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_CORE": 1.3060651585834978e-06,
+   "L_CORE": 1.7624787201398927e-07,
+   "NF_CORE": 48.0,
+   "N_CORE": 9.0,
+   "W_AUX": 2.6642907696164027e-06,
+   "L_AUX": 1.1176738283983767e-05,
+   "NF_AUX": 52.0,
+   "N_AUX": 70.0,
+   "W_MT1": 1.2799032665068938e-05,
+   "L_MT1": 1.496673118101575e-06,
+   "NF_MT1": 72.0,
+   "N_MT1": 72.0,
+   "W_MT": 4.372181627219309e-05,
+   "L_MT": 8.99336148818903e-07,
+   "NF_MT": 49.0,
+   "N_MT": 74.0,
+   "L_MAIN": 1.502773408294349e-09,
+   "LI_AUX": 2.222560870382872e-10,
+   "C_COUP": 1.083198159253043e-14,
+   "C_PAR": 1.7410997366977215e-14,
+   "C_BIAS": 2.0841217202451464e-11,
+   "R_BIAS": 137808.05238766776,
+   "C_FILT": 6.099729891242877e-13,
+   "C_TAIL": 3.203401066874221e-11
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BIAS": 0.7497004018319421,
+   "V_TAIL": 0.5736024819686902
+  },
+  "bias_variables": {
+   "VBIAS": "V_BIAS",
+   "VTAIL": "V_TAIL"
+  },
+  "devices": {
+   "sky130_fd_pr__nfet_01v8": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__nfet_01v8_lvt": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_01v8_lvt": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 3.5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.95,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__res_high_po": {
+    "kind": "resistor",
+    "min_w_m": 3.5e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__cap_mim_m3_1": {
+    "kind": "capacitor",
+    "min_w_m": 1e-06,
+    "max_w_m": 0.0001,
+    "min_l_m": 1e-06,
+    "max_l_m": 0.0001,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__pnp_05v5_W3p40L3p40": {
+    "kind": "bjt",
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 5.5
+   },
+   "sky130_fd_pr__nfet_g5v0d10v5": {
+    "kind": "nmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__pfet_g5v0d10v5": {
+    "kind": "pmos",
+    "min_w_m": 4.2e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 5e-07,
+    "max_l_m": 2.02e-05,
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5,
+    "fold_wide": false,
+    "multiplier_parameter": "mult",
+    "derived_parameters": {
+     "ad": "w*0.29",
+     "as": "w*0.29",
+     "pd": "2*(w+0.29)",
+     "ps": "2*(w+0.29)"
+    }
+   },
+   "sky130_fd_pr__diode_pd2nw_05v5": {
+    "kind": "bjt",
+    "nominal_supply_V": 5.0,
+    "max_supply_V": 5.5
+   }
+  },
+  "length_unit_m": 1e-06
+ }
+}

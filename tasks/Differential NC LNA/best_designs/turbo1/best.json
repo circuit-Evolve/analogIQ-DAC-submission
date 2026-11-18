@@ -1,0 +1,71 @@
+{
+ "eval": 1140,
+ "round": 1,
+ "params": {
+  "W_N": 1.3783552898147677e-06,
+  "L_N": 2.2651783129910071e-07,
+  "N_N": 96.0,
+  "W_P": 6.0845075661611366e-05,
+  "L_P": 2.009217563086877e-07,
+  "N_P": 11.0,
+  "C_C": 7.409562666638061e-11,
+  "R_C": 90.61997417872846,
+  "R_L": 994556.948133864,
+  "C_O": 3.43209270754641e-11,
+  "V_BN": 1.1494713492103363,
+  "V_BP": 0.692844674692235
+ },
+ "error": null,
+ "wall_s": 0.29,
+ "feasible": false,
+ "execution": "completed",
+ "worst_margin": -1.0,
+ "objective": null,
+ "constraints": {
+  "voltage_gain_max_in_band_dB": -11.279014452078599,
+  "nf_max_in_band_dB": 9.435024268572567,
+  "nf_min_in_band_dB": 3.474808919941664,
+  "s11_max_in_band_dB": -9.182145089430946,
+  "iip3_dBm": 24.61635618665096,
+  "quiescent_power_W": 2.22553972642755e-09,
+  "saturation": 0.0,
+  "forward_biased_junctions": 0.0,
+  "devices_outside_rails": 0.0
+ },
+ "metrics": {
+  "voltage_gain_max_in_band_dB": -11.279014452078599,
+  "nf_max_in_band_dB": 9.435024268572567,
+  "nf_min_in_band_dB": 3.474808919941664,
+  "s11_max_in_band_dB": -9.182145089430946,
+  "iip3_dBm": 24.61635618665096,
+  "quiescent_power_W": 2.22553972642755e-09,
+  "saturation": 0.0,
+  "forward_biased_junctions": 0.0,
+  "devices_outside_rails": 0.0
+ },
+ "regions": {
+  "M2p": "off",
+  "M2n": "off",
+  "M1p": "off",
+  "M1n": "off"
+ },
+ "not_saturated": [],
+ "sims": 2,
+ "f": 0.08272503723888525,
+ "reward": 0.9172749627611148,
+ "score": 0.9172749627611148,
+ "targets_met": 4,
+ "targets": 6,
+ "valid": true,
+ "target_scores": {
+  "iip3_dBm": 1.0,
+  "nf_max_in_band_dB": 0.9248,
+  "nf_min_in_band_dB": 1.0,
+  "quiescent_power_W": 1.0,
+  "s11_max_in_band_dB": 1.0,
+  "voltage_gain_max_in_band_dB": 0.5788,
+  "devices_outside_rails": 1.0,
+  "forward_biased_junctions": 1.0,
+  "saturation": 1.0
+ }
+}

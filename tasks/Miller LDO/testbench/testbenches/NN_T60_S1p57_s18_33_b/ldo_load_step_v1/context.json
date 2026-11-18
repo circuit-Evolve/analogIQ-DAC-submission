@@ -1,0 +1,244 @@
+{
+ "schema": "analogiq.job_context/1",
+ "job_id": "NN_T60_S1p57_s18_33_b/ldo_load_step_v1",
+ "recipe_id": "ldo_load_step_v1",
+ "recipe_version": 1,
+ "points": [
+  {
+   "load_low_A": 0.0,
+   "load_high_A": 0.07
+  }
+ ],
+ "expected_outputs": [
+  "input.measure"
+ ],
+ "context": {
+  "job_id": "NN_T60_S1p57_s18_33_b/ldo_load_step_v1",
+  "condition": {
+   "id": "NN_T60_S1p57_s18_33_b",
+   "model_set": "NN",
+   "temperature_C": 60.0,
+   "supply_scale": 1.571428,
+   "supply_V": 3.2999988000000005,
+   "includes": [
+    {
+     "path": "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs",
+     "section": "NN"
+    }
+   ],
+   "label": "s18_33_b",
+   "operating": {
+    "load_step_low_A": 0,
+    "load_step_high_A": 0.07
+   },
+   "is_nominal": false,
+   "supply_span_V": 3.2999988000000005
+  },
+  "operating": {
+   "input_voltage_V": 2.1,
+   "reference_V": 1.2,
+   "load_current_A": 0.07,
+   "load_capacitance_F": 5e-11,
+   "output_voltage_V": 1.8,
+   "load_step_low_A": 0,
+   "load_step_high_A": 0.07
+  },
+  "recipe_settings": {
+   "edge_time_s": 2e-06,
+   "interval_s": 4e-05,
+   "settle_band_V": 0.0018,
+   "settle_band_fraction": 0.001,
+   "overshoot_reference": "final",
+   "max_step_s": 1e-08
+  },
+  "topology": {
+   "schema_version": 1,
+   "topology_id": "ldo24m_miller",
+   "family": "ldo",
+   "interface_type": "pmos_pass_ldo",
+   "technology_id": "gpdk180",
+   "approval_status": "unapproved",
+   "dut": {
+    "netlist": "final.scs",
+    "subckt_name": "ldo24m_miller_dut",
+    "port_order": [
+     "VIN",
+     "VSS",
+     "VREF",
+     "VBIAS",
+     "ENABLE",
+     "VOUT"
+    ],
+    "net_map": {}
+   },
+   "ports": {
+    "supply_input": "VIN",
+    "output": "VOUT",
+    "reference": "VREF"
+   },
+   "external_bias": {
+    "VSS": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "benchmark rule G3: ground pin without a family role driven by a 0 V source"
+    },
+    "VBIAS": {
+     "kind": "voltage",
+     "value": 1.05,
+     "provenance": "sizing variable V_BIAS"
+    },
+    "ENABLE": {
+     "kind": "voltage",
+     "value": 0.0,
+     "provenance": "paper: p.62 / p.89 (ENABLE low = Ms off = Vout 1.8 V, the nominal mode); the 1.2 V mode (ENABLE = VIN) is the labelled conditions v12 / v12_V33"
+    }
+   },
+   "probes": [
+    "VFB",
+    "N2",
+    "VG",
+    "NCF"
+   ],
+   "loop_probe": {
+    "instance": "M4",
+    "terminal": 1
+   },
+   "op_check": {
+    "exclude": [
+     "MC",
+     "M7",
+     "MS",
+     "MRFB1",
+     "MRFB2",
+     "MRFB3"
+    ]
+   }
+  },
+  "subckt_name": "ldo24m_miller_dut",
+  "dut_file": "dut.scs",
+  "candidate": {
+   "W_EAL": 1e-06,
+   "L_EAL": 1e-06,
+   "W_EAIN": 1e-06,
+   "L_EAIN": 1e-06,
+   "W_EAT": 1e-06,
+   "L_EAT": 1e-06,
+   "W_EAS": 1e-06,
+   "L_EAS": 1e-06,
+   "W_EA2": 1e-06,
+   "L_EA2": 1e-06,
+   "W_MCR": 1e-06,
+   "L_MCR": 1e-06,
+   "C_EA": 1e-12,
+   "W_PASS": 1e-06,
+   "N_PASS": 1.0,
+   "L_PASS": 1e-06,
+   "W_RFB": 1e-06,
+   "L_RFB": 1e-06,
+   "W_MSW": 1e-06,
+   "L_MSW": 1e-06,
+   "W_CM": 1e-06,
+   "L_CM": 1e-06,
+   "W_WLS": 1e-06,
+   "L_WLS": 1e-06,
+   "W_WLB": 1e-06,
+   "L_WLB": 1e-06,
+   "W_MAB": 1e-06,
+   "L_MAB": 1e-06,
+   "C_F": 1e-12,
+   "M_EAL": 1.0,
+   "M_EAIN": 1.0,
+   "M_EAT": 1.0,
+   "M_EAS": 1.0,
+   "M_EA2": 1.0,
+   "M_MCR": 1.0,
+   "M_RFB": 1.0,
+   "M_MSW": 1.0,
+   "M_CM": 1.0,
+   "M_WLS": 1.0,
+   "M_WLB": 1.0,
+   "M_MAB": 1.0
+  },
+  "numerics": {
+   "reltol": 0.0001,
+   "errpreset": "moderate",
+   "tran_points_per_clock_period": 500,
+   "cross_check_waveforms": true
+  },
+  "tb_variables": {
+   "V_BIAS": 1.05
+  },
+  "bias_variables": {
+   "VBIAS": "V_BIAS"
+  },
+  "devices": {
+   "nmos1": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos1": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.0001,
+    "min_l_m": 1.8e-07,
+    "max_l_m": 4e-05,
+    "nominal_supply_V": 1.8,
+    "max_supply_V": 1.98,
+    "fold_wide": true,
+    "fold_finger_w_m": 1e-05,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "nmos25": {
+    "kind": "nmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   },
+   "pmos25": {
+    "kind": "pmos",
+    "min_w_m": 4e-07,
+    "max_w_m": 0.01,
+    "min_l_m": 3e-07,
+    "max_l_m": 2e-05,
+    "nominal_supply_V": 3.3,
+    "max_supply_V": 3.63,
+    "fold_wide": false,
+    "derived_parameters": {
+     "as": "w*6e-07",
+     "ad": "w*6e-07",
+     "ps": "w+1.2e-06",
+     "pd": "w+1.2e-06"
+    }
+   }
+  },
+  "length_unit_m": 1.0
+ }
+}

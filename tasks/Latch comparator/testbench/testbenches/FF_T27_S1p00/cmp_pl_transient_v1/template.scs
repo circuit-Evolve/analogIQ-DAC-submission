@@ -1,0 +1,225 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task cmppl24_task_001  topology cmppl24_upcon2022
+// recipe cmp_pl_transient_v1 v2  condition FF_T27_S1p00 (models FF, 27 C, supply 1.8 V)
+// request cmppl24_task_001__plan  candidate bc912d1d411273e7
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=FF
+include "dut.scs"
+
+parameters vdd_v=1.8 tclk=1e-09 tr=2e-11 cl=5e-15 vcm=0.8 vid=0.001
+
+// Supply (the only source charged to the DUT energy metric).
+VSUP (vdd 0) vsource dc=vdd_v
+// Ideal clock: reset phase first; evaluating 50% edge at k*tclk + tclk/2 (paper Fig. 3: CLK high from 500 ps).
+VCLK (clk 0) vsource type=pulse val0=0 val1=vdd_v delay=tclk/2-tr/2 rise=tr fall=tr width=tclk/2-tr period=tclk
+// Pins driven by external_bias (VSS = 0 V) and the decision reference of the single-ended output.
+VB_VSS (b_vss 0) vsource dc=0.0
+VREFN (outn 0) vsource dc=vdd_v/2
+
+// Constant differential input (paper Fig. 3: one decision, input held), vid signed per run.
+VINP (inp 0) vsource dc=vcm+vid/2
+VINN (inn 0) vsource dc=vcm-vid/2
+
+XDUT (vdd b_vss clk inp inn outp) cmppl24_dut L_B1N={{L_B1N}} L_B1P={{L_B1P}} L_B2N={{L_B2N}} L_B2P={{L_B2P}} L_DN={{L_DN}} L_DP={{L_DP}} L_DT={{L_DT}} L_IN={{L_IN}} L_IVN={{L_IVN}} L_IVP={{L_IVP}} L_NX={{L_NX}} L_PX={{L_PX}} L_RSN={{L_RSN}} L_RSP={{L_RSP}} L_SWPQ={{L_SWPQ}} L_SWXY={{L_SWXY}} L_TAIL={{L_TAIL}} M_B1N={{M_B1N}} M_B1P={{M_B1P}} M_B2N={{M_B2N}} M_B2P={{M_B2P}} M_DN={{M_DN}} M_DP={{M_DP}} M_DT={{M_DT}} M_IN={{M_IN}} M_IVN={{M_IVN}} M_IVP={{M_IVP}} M_NX={{M_NX}} M_PX={{M_PX}} M_RSN={{M_RSN}} M_RSP={{M_RSP}} M_SWPQ={{M_SWPQ}} M_SWXY={{M_SWXY}} M_TAIL={{M_TAIL}} W_B1N={{W_B1N}} W_B1P={{W_B1P}} W_B2N={{W_B2N}} W_B2P={{W_B2P}} W_DN={{W_DN}} W_DP={{W_DP}} W_DT={{W_DT}} W_IN={{W_IN}} W_IVN={{W_IVN}} W_IVP={{W_IVP}} W_NX={{W_NX}} W_PX={{W_PX}} W_RSN={{W_RSN}} W_RSP={{W_RSP}} W_SWPQ={{W_SWPQ}} W_SWXY={{W_SWXY}} W_TAIL={{W_TAIL}}
+CLP (outp 0) capacitor c=cl
+
+opts options temp=27.0 tnom=27 reltol=0.0001 save=selected
+save clk inp inn outp outn VSUP:p VCLK:p XDUT.X XDUT.Y XDUT.P XDUT.Q XDUT.A XDUT.B XDUT.DEC XDUT.BUF
+
+tr1 tran stop=2e-09 maxstep=2e-12 errpreset=moderate
+
+simulator lang=spice
+.include 'measures.sp'
+* run b000 (input.measure block transient1): point 0, polarity +
+.alter
+* run b001 (input.measure block transient2): point 0, polarity -1
+.param vcm=0.8 vid=-0.001
+.alter
+* run b002 (input.measure block transient3): point 1, polarity +1
+.param vcm=0.8 vid=0.005
+.alter
+* run b003 (input.measure block transient4): point 1, polarity -1
+.param vcm=0.8 vid=-0.005
+.alter
+* run b004 (input.measure block transient5): point 2, polarity +1
+.param vcm=0.8 vid=0.01
+.alter
+* run b005 (input.measure block transient6): point 2, polarity -1
+.param vcm=0.8 vid=-0.01
+.alter
+* run b006 (input.measure block transient7): point 3, polarity +1
+.param vcm=0.9 vid=0.001
+.alter
+* run b007 (input.measure block transient8): point 3, polarity -1
+.param vcm=0.9 vid=-0.001
+.alter
+* run b008 (input.measure block transient9): point 4, polarity +1
+.param vcm=0.9 vid=0.005
+.alter
+* run b009 (input.measure block transient10): point 4, polarity -1
+.param vcm=0.9 vid=-0.005
+.alter
+* run b010 (input.measure block transient11): point 5, polarity +1
+.param vcm=0.9 vid=0.01
+.alter
+* run b011 (input.measure block transient12): point 5, polarity -1
+.param vcm=0.9 vid=-0.01
+.alter
+* run b012 (input.measure block transient13): point 6, polarity +1
+.param vcm=1.0 vid=0.001
+.alter
+* run b013 (input.measure block transient14): point 6, polarity -1
+.param vcm=1.0 vid=-0.001
+.alter
+* run b014 (input.measure block transient15): point 7, polarity +1
+.param vcm=1.0 vid=0.005
+.alter
+* run b015 (input.measure block transient16): point 7, polarity -1
+.param vcm=1.0 vid=-0.005
+.alter
+* run b016 (input.measure block transient17): point 8, polarity +1
+.param vcm=1.0 vid=0.01
+.alter
+* run b017 (input.measure block transient18): point 8, polarity -1
+.param vcm=1.0 vid=-0.01
+.alter
+* run b018 (input.measure block transient19): point 9, polarity +1
+.param vcm=1.1 vid=0.001
+.alter
+* run b019 (input.measure block transient20): point 9, polarity -1
+.param vcm=1.1 vid=-0.001
+.alter
+* run b020 (input.measure block transient21): point 10, polarity +1
+.param vcm=1.1 vid=0.005
+.alter
+* run b021 (input.measure block transient22): point 10, polarity -1
+.param vcm=1.1 vid=-0.005
+.alter
+* run b022 (input.measure block transient23): point 11, polarity +1
+.param vcm=1.1 vid=0.01
+.alter
+* run b023 (input.measure block transient24): point 11, polarity -1
+.param vcm=1.1 vid=-0.01
+.alter
+* run b024 (input.measure block transient25): point 12, polarity +1
+.param vcm=1.2 vid=0.001
+.alter
+* run b025 (input.measure block transient26): point 12, polarity -1
+.param vcm=1.2 vid=-0.001
+.alter
+* run b026 (input.measure block transient27): point 13, polarity +1
+.param vcm=1.2 vid=0.005
+.alter
+* run b027 (input.measure block transient28): point 13, polarity -1
+.param vcm=1.2 vid=-0.005
+.alter
+* run b028 (input.measure block transient29): point 14, polarity +1
+.param vcm=1.2 vid=0.01
+.alter
+* run b029 (input.measure block transient30): point 14, polarity -1
+.param vcm=1.2 vid=-0.01
+.alter
+* run b030 (input.measure block transient31): point 15, polarity +1
+.param vcm=1.3 vid=0.001
+.alter
+* run b031 (input.measure block transient32): point 15, polarity -1
+.param vcm=1.3 vid=-0.001
+.alter
+* run b032 (input.measure block transient33): point 16, polarity +1
+.param vcm=1.3 vid=0.005
+.alter
+* run b033 (input.measure block transient34): point 16, polarity -1
+.param vcm=1.3 vid=-0.005
+.alter
+* run b034 (input.measure block transient35): point 17, polarity +1
+.param vcm=1.3 vid=0.01
+.alter
+* run b035 (input.measure block transient36): point 17, polarity -1
+.param vcm=1.3 vid=-0.01
+.alter
+* run b036 (input.measure block transient37): point 18, polarity +1
+.param vcm=1.4 vid=0.001
+.alter
+* run b037 (input.measure block transient38): point 18, polarity -1
+.param vcm=1.4 vid=-0.001
+.alter
+* run b038 (input.measure block transient39): point 19, polarity +1
+.param vcm=1.4 vid=0.005
+.alter
+* run b039 (input.measure block transient40): point 19, polarity -1
+.param vcm=1.4 vid=-0.005
+.alter
+* run b040 (input.measure block transient41): point 20, polarity +1
+.param vcm=1.4 vid=0.01
+.alter
+* run b041 (input.measure block transient42): point 20, polarity -1
+.param vcm=1.4 vid=-0.01
+.alter
+* run b042 (input.measure block transient43): point 21, polarity +1
+.param vcm=1.5 vid=0.001
+.alter
+* run b043 (input.measure block transient44): point 21, polarity -1
+.param vcm=1.5 vid=-0.001
+.alter
+* run b044 (input.measure block transient45): point 22, polarity +1
+.param vcm=1.5 vid=0.005
+.alter
+* run b045 (input.measure block transient46): point 22, polarity -1
+.param vcm=1.5 vid=-0.005
+.alter
+* run b046 (input.measure block transient47): point 23, polarity +1
+.param vcm=1.5 vid=0.01
+.alter
+* run b047 (input.measure block transient48): point 23, polarity -1
+.param vcm=1.5 vid=-0.01
+.alter
+* run b048 (input.measure block transient49): point 24, polarity +1
+.param vcm=1.6 vid=0.001
+.alter
+* run b049 (input.measure block transient50): point 24, polarity -1
+.param vcm=1.6 vid=-0.001
+.alter
+* run b050 (input.measure block transient51): point 25, polarity +1
+.param vcm=1.6 vid=0.005
+.alter
+* run b051 (input.measure block transient52): point 25, polarity -1
+.param vcm=1.6 vid=-0.005
+.alter
+* run b052 (input.measure block transient53): point 26, polarity +1
+.param vcm=1.6 vid=0.01
+.alter
+* run b053 (input.measure block transient54): point 26, polarity -1
+.param vcm=1.6 vid=-0.01
+.alter
+* run b054 (input.measure block transient55): point 27, polarity +1
+.param vcm=1.7 vid=0.001
+.alter
+* run b055 (input.measure block transient56): point 27, polarity -1
+.param vcm=1.7 vid=-0.001
+.alter
+* run b056 (input.measure block transient57): point 28, polarity +1
+.param vcm=1.7 vid=0.005
+.alter
+* run b057 (input.measure block transient58): point 28, polarity -1
+.param vcm=1.7 vid=-0.005
+.alter
+* run b058 (input.measure block transient59): point 29, polarity +1
+.param vcm=1.7 vid=0.01
+.alter
+* run b059 (input.measure block transient60): point 29, polarity -1
+.param vcm=1.7 vid=-0.01
+.alter
+* run b060 (input.measure block transient61): point 30, polarity +1
+.param vcm=0.6 vid=0.005
+.alter
+* run b061 (input.measure block transient62): point 30, polarity -1
+.param vcm=0.6 vid=-0.005
+.alter
+* run b062 (input.measure block transient63): point 31, polarity +1
+.param vcm=0.9 vid=0.1
+.alter
+* run b063 (input.measure block transient64): point 31, polarity -1
+.param vcm=0.9 vid=-0.1
+.end

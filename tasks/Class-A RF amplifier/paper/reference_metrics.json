@@ -1,0 +1,285 @@
+{
+  "source_files": [
+    {
+      "path": "<ANALOGIQ>/golden/02_11_2026/Power_amplifiers/RF_power_amplifier/pa1088_tb_small_signal_dac/paper/1088_paper.pdf",
+      "sha256": "ebb9ea1e454dcdceb75e1222723b8d1c2df6e4bbb70895bb3208bda64f3269bb",
+      "source_type": "paper_or_technical_report",
+      "archived_relative_path": "1088_paper.pdf"
+    }
+  ],
+  "testbench_pack": "<ANALOGIQ>/testbenches/02_11_2026/Power_amplifiers/RF_power_amplifier/pa1088_tb_small_signal_dac/pa1088_dac_task_001",
+  "retained_measurements": {
+    "fH_3dB_Hz": {
+      "resultID": 1,
+      "testID": 1,
+      "unit": "Hz",
+      "reference": {
+        "value": 490359000.0,
+        "unit": "Hz",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "fL_3dB_Hz": {
+      "resultID": 2,
+      "testID": 1,
+      "unit": "Hz",
+      "reference": {
+        "value": 379585000.0,
+        "unit": "Hz",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Bandwidth_MHz": {
+      "resultID": 5,
+      "testID": 1,
+      "unit": "MHz",
+      "reference": {
+        "value": 111.774,
+        "unit": "MHz",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V.",
+        "derived_from_edges_MHz": 110.774
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "S12_dB": {
+      "resultID": 6,
+      "testID": 1,
+      "unit": "dB",
+      "reference": {
+        "value": -68.8505,
+        "unit": "dB",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "S21_dB": {
+      "resultID": 7,
+      "testID": 1,
+      "unit": "dB",
+      "reference": {
+        "value": 23.2187,
+        "unit": "dB",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "S11_dB": {
+      "resultID": 8,
+      "testID": 1,
+      "unit": "dB",
+      "reference": {
+        "value": -13.3766,
+        "unit": "dB",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Delta_max_1MHz_1GHz": {
+      "resultID": 9,
+      "testID": 1,
+      "unit": "1",
+      "reference": {
+        "value": 1,
+        "unit": "1",
+        "citation": "PDF page 4, \u00a7III.C.1",
+        "operator": "<",
+        "meaning": "Reported stability criterion over 1 MHz\u20131 GHz; no exact sweep maximum stated."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Delta_abs_433MHz": {
+      "resultID": 10,
+      "testID": 1,
+      "unit": "1",
+      "reference": {
+        "value": 0.0256,
+        "unit": "1",
+        "citation": "PDF page 4, \u00a7III.C.1",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "K_min_1MHz_1GHz": {
+      "resultID": 11,
+      "testID": 1,
+      "unit": "1",
+      "reference": {
+        "value": 1,
+        "unit": "1",
+        "citation": "PDF page 4, \u00a7III.C.1",
+        "operator": ">",
+        "meaning": "Reported stability criterion over 1 MHz\u20131 GHz; no exact sweep minimum stated in body."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "NF_433MHz_dB": {
+      "resultID": 12,
+      "testID": 1,
+      "unit": "dB",
+      "reference": {
+        "value": 16.16,
+        "unit": "dB",
+        "citation": "PDF page 6, \u00a7III.G",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "K_433MHz": {
+      "resultID": 13,
+      "testID": 1,
+      "unit": "1",
+      "reference": {
+        "value": 115.72,
+        "unit": "1",
+        "citation": "PDF page 4, \u00a7III.C.1",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Power_gain_dB": {
+      "resultID": 14,
+      "testID": 1,
+      "unit": "dB",
+      "reference": {
+        "value": 23.423,
+        "unit": "dB",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "PDC_mW": {
+      "resultID": 15,
+      "testID": 1,
+      "unit": "mW",
+      "reference": {
+        "value": 315.34,
+        "unit": "mW",
+        "citation": "PDF page 5, \u00a7III.E.3 equation",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "IC_mA": {
+      "resultID": 16,
+      "testID": 1,
+      "unit": "mA",
+      "reference": {
+        "value": 24.59,
+        "unit": "mA",
+        "citation": "PDF page 3, \u00a7III.A",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "VCE_V": {
+      "resultID": 17,
+      "testID": 1,
+      "unit": "V",
+      "reference": {
+        "value": 8.884,
+        "unit": "V",
+        "citation": "PDF page 3, \u00a7III.A",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "S22_dB": {
+      "resultID": 18,
+      "testID": 1,
+      "unit": "dB",
+      "reference": {
+        "value": -13.4311,
+        "unit": "dB",
+        "citation": "PDF page 3, \u00a7III.B",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V."
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "Psat_dBm": {
+      "resultID": 19,
+      "testID": 2,
+      "unit": "dBm",
+      "reference": {
+        "value": 17.033,
+        "unit": "dBm",
+        "citation": "PDF page 5, \u00a7III.E.2",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V.",
+        "input_power_dBm": 2.115,
+        "reported_power_mW": 50.5
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    },
+    "PAE_peak_percent": {
+      "resultID": 20,
+      "testID": 2,
+      "unit": "%",
+      "reference": {
+        "value": 42.3,
+        "unit": "%",
+        "citation": "PDF page 5, \u00a7III.E.3",
+        "setup": "433 MHz where applicable; GPDK090 NPN BJT, schematic, 12 V.",
+        "input_power_dBm": 9.4,
+        "PAE_at_saturation_percent": 33.23
+      },
+      "reference_status": "primary_source_reported",
+      "acceptance_threshold": null
+    }
+  },
+  "setup": {
+    "technology": "gpdk090",
+    "models": [
+      "highperf_bjt_f",
+      "highperf_bjt_s",
+      "highperf_bjt_t"
+    ],
+    "temperatures_C": [
+      -40.0,
+      27.0,
+      100.0
+    ],
+    "supplies_V": [
+      12.0
+    ]
+  },
+  "caveats": [
+    "Paper bandwidth 111.774 MHz is internally inconsistent: 490.359 minus 379.585 = 110.774 MHz. Preserve reported value and derived subtraction separately. Retained bandwidth expression computes edge difference.",
+    "Abstract says K exceeds 115 across 1 MHz\u20131 GHz; body only guarantees K>1 over sweep and gives K\u2248115.72 at 433 MHz. Use body criterion for broad-band minimum, not K_min>=115.",
+    "PAE claims need audit: with global Psat 50.5 mW and stated PDC 315.34 mW, peak 42.3% cannot follow stated PAE formula if PDC is fixed; even zero-input upper bound is only about 16.0%. Retained HB computes power from current at each drive, so retain 42.3 as disputed reported reference, not automatic verified acceptance.",
+    "Paper emitter drop 0.657 V over 25 ohm implies 26.28 mA emitter current, distinct from claimed 24.59 mA collector current; retained IC measures choke branch current.",
+    "Paper claims originate from nominal schematic study, not retained nine T/F/S by -40/27/100 C corners.",
+    "Paper HB sweep is -40 to +20 dBm in 0.1 dB steps. Retained input.scs uses start=-40 stop=20 lin=600 with 25 harmonics; this is compatible in range and nominal resolution, but extrema still depend on sampling and sizing.",
+    "Later PA1088 case studies are generation-61 optimization evidence, not primary-paper results or necessarily retained sizing (case-study Q0 multiplier 11 vs retained Q0.m=10)."
+  ],
+  "supplementary_case_studies": [
+    {
+      "note": "two supplementary case studies (not the primary paper) were removed from the artifact for anonymity"
+    }
+  ],
+  "title": "Design and Simulation of a Class-A Common-Emitter RF Power Amplifier for the 433 MHz ISM Band in Cadence Virtuoso"
+}

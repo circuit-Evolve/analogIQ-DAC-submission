@@ -1,0 +1,190 @@
+{
+ "task": "sar24_liang_task_001",
+ "mc_samples": 100,
+ "score": 0.75,
+ "targets_met": 7,
+ "targets": 8,
+ "valid": true,
+ "params": {
+  "W_IN": 9.810183342391263e-07,
+  "L_IN": 3.8414026026007785e-06,
+  "W_PC": 3.021754956834017e-05,
+  "L_PC": 5.182000647619504e-07,
+  "W_TL": 8.350964348814627e-07,
+  "L_TL": 5.904077619993828e-06,
+  "W_M6": 5.077062596011721e-07,
+  "L_M6": 7.566230352108056e-06,
+  "W_PH": 1.7158349419367048e-05,
+  "L_PH": 7.505967470003126e-07,
+  "W_NR": 1.6782906086755304e-05,
+  "L_NR": 2.5169331546371278e-06,
+  "W_PL": 3.3968083959979127e-06,
+  "L_PL": 7.0637931831517e-07,
+  "W_NL": 5.0495002159737236e-05,
+  "L_NL": 9.45574013513711e-07,
+  "W_ND": 3.184372359966861e-06,
+  "L_ND": 3.0640652332422265e-07,
+  "W_OP": 3.672347306494705e-05,
+  "L_OP": 4.900214508987748e-07,
+  "W_ON": 2.026887658241416e-06,
+  "L_ON": 1.0390768279113019e-05,
+  "CU": 1.1107838005886315e-14,
+  "M_IN": 3.0,
+  "M_PC": 17.0,
+  "M_TL": 64.0,
+  "M_M6": 19.0,
+  "M_PH": 4.0,
+  "M_NR": 46.0,
+  "M_PL": 16.0,
+  "M_NL": 13.0,
+  "M_ND": 37.0,
+  "M_OP": 12.0,
+  "M_ON": 94.0
+ },
+ "feasible": null,
+ "objective": null,
+ "constraints": {
+  "sndr": {
+   "lower": 65.04242509439325,
+   "metric": "sndr_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 65.5,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 73.66612429657218,
+   "unit": "dB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 8.623699202178926,
+   "normalized_margin": 6.283999716469013,
+   "satisfied": true
+  },
+  "snr": {
+   "lower": 65.24242509439325,
+   "metric": "snr_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 65.7,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 74.09773697384621,
+   "unit": "dB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 8.855311879452955,
+   "normalized_margin": 6.683006275927557,
+   "satisfied": true
+  },
+  "sfdr": {
+   "lower": 79.14242509439325,
+   "metric": "sfdr_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 79.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 86.91069527979904,
+   "unit": "dB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 7.768270185405797,
+   "normalized_margin": 4.981732924729575,
+   "satisfied": true
+  },
+  "enob": {
+   "lower": 9.54,
+   "metric": "enob_bit",
+   "target": {
+    "kind": "linear",
+    "paper_value": 10.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 11.944538919696376,
+   "unit": "bit",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 2.4045389196963765,
+   "normalized_margin": 0.2520481047899766,
+   "satisfied": true
+  },
+  "power": {
+   "upper": 0.00040040000000000003,
+   "metric": "power_W",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.000364,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.00038043380139372304,
+   "unit": "W",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 1.996619860627699e-05,
+   "normalized_margin": 0.049865630884807666,
+   "satisfied": true
+  },
+  "comparator_delay": {
+   "upper": 4.4000000000000003e-10,
+   "metric": "comparator_delay_s",
+   "target": {
+    "kind": "linear",
+    "paper_value": 4e-10,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": null,
+   "margin": null,
+   "normalized_margin": null,
+   "satisfied": null,
+   "note": "no valid measurement"
+  },
+  "inl": {
+   "upper": 1.0230000000000001,
+   "metric": "inl_abs_max_lsb",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.93,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.1453118950711253,
+   "unit": "LSB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.8776881049288748,
+   "normalized_margin": 0.8579551367828687,
+   "satisfied": true
+  },
+  "dnl": {
+   "upper": 0.8800000000000001,
+   "metric": "dnl_abs_max_lsb",
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.8,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 0.001236919953710336,
+   "unit": "LSB",
+   "condition": "NN_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.8787630800462898,
+   "normalized_margin": 0.9985944091435109,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": -1.0
+}

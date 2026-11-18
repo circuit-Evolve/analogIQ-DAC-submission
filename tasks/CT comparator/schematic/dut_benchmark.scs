@@ -1,0 +1,28 @@
+simulator lang=spice
+.lib "<PDK_ROOT>/sky130_cds/spectre/libs.tech/combined/sky130.lib.spice" tt
+simulator lang=spectre
+// dut_benchmark.scs = final.scs (unchanged copy of the dataset export, export e4308e9) plus ONE added top-level line: the declaration
+// `parameters W_...` of the per-finger widths that variables.yaml binds (sky130 netlist width = W per finger x nf, owner rule 2026-10-24).
+// No device, connection or value is changed.
+parameters W_DIFF W_PTAIL W_NLOAD W_CS W_BIAS W_RST
+subckt LELOTEMP_CCMP (VDD_1V8 PWRUP_B_1V8 PWRUP_N_1V8 VSS IBP_1U_1 IBP_1U_0 CMPO VC RST)
+xd1_C1 (VSS IBP_1U_0) sky130_fd_pr__cap_mim_m3_1 w=5.0 l=5.0 mult=5.0 m=5.0
+xg1_M1 (IBP_1U_0 RST VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_load2_M1 (x1_cmp_VBN1 x1_cmp_VBN1 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_load3_M1 (x1_cmp_VO1 x1_cmp_VBN1 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xp_mirr_tail2_M1 (CMPO x1_cmp_VBP2 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_load5_M1 (CMPO x1_cmp_VO1 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.22 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xp_mirr_tail1_0__M1 (x1_cmp_VBP2 PWRUP_B_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_load1_M1 (x1_cmp_VBN1 PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_load4_M1 (CMPO PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_bias1_M1 (IBP_1U_1 IBP_1U_1 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xn_mirr_bias2_M1 (x1_cmp_VBP2 IBP_1U_1 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=4.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=4.0
+x1_cmp_xn_mirr_bias3_M1 (IBP_1U_1 PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xp_mirr_tail1_M1 (x1_cmp_VBP2 x1_cmp_VBP2 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xp_mirr_tail3_M1 (x1_cmp_VS x1_cmp_VBP2 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.94 nf=2 mult=3.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=3.0
+x1_cmp_xp_diff2_M1 (x1_cmp_VO1 IBP_1U_0 x1_cmp_VS VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.22 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xp_diff1_M1 (x1_cmp_VBN1 VC x1_cmp_VS VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.22 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+x1_cmp_xp_diff3_M1 (VDD_1V8 VDD_1V8 VDD_1V8 VDD_1V8) sky130_fd_pr__pfet_01v8 w=1.92 l=0.22 nf=2 mult=4.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=4.0
+x1_cmp_xn_mirr_load0_M1 (VSS VSS VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+xg4_M1 (IBP_1U_0 PWRUP_N_1V8 VSS VSS) sky130_fd_pr__nfet_01v8 w=1.92 l=0.94 nf=2 mult=1.0 ad=0.2784 as=0.5568 pd=2.5 ps=5 sa=0 sb=0 sd=0 m=1.0
+ends LELOTEMP_CCMP

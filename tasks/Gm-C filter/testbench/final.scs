@@ -1,0 +1,60 @@
+simulator lang=spectre
+// Standard start; original connectivity of the verified reconstructed filter.
+subckt ota_fig2_interpreted VIP VIM VOP VOM VT VREF VDD GND
+M1 (VOM VIP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M2 (VOM VIP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M3 (VOP VIM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M4 (VOP VIM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M5 (VOP VOM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M6 (VOP VOM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M7 (VOP BN GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M8 (VOP BP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M9 (VOM VOP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M10 (VOM VOP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M11 (VOM BN GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M12 (VOM BP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M13 (VOM N GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M14 (VOM N VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M15 (VOP N GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M16 (VOP N VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M17 (N N GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M18 (N N VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M19 (N VIP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M20 (N VIM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M21 (FB VOM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M22 (FB VOP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M23 (N VREF GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M24 (N FB VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M25 (BP VT GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M26 (BN BN GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M27 (BP BP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M28 (BN BP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M25R (N N VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M26R (N N GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M27R (N N VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+M28R (N N GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+ends ota_fig2_interpreted
+OTA1 (VIP VIM AP AM VT VREF VDD GND) ota_fig2_interpreted
+C1 (AP AM) capacitor c=1p
+FD1Pn (AP AP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD1Pp (AP AP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD1Mn (AM AM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD1Mp (AM AM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+OTA2 (AP AM BP BM VT VREF VDD GND) ota_fig2_interpreted
+C2 (BP BM) capacitor c=1p
+FD2Pn (BP BP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD2Pp (BP BP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD2Mn (BM BM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD2Mp (BM BM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+OTA3 (BP BM DP DM VT VREF VDD GND) ota_fig2_interpreted
+C3 (DP DM) capacitor c=1p
+FD3Pn (DP DP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD3Pp (DP DP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD3Mn (DM DM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD3Mp (DM DM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+OTA4 (DP DM VOP VOM VT VREF VDD GND) ota_fig2_interpreted
+C4 (VOP VOM) capacitor c=1p
+FD4Pn (VOP VOP GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD4Pp (VOP VOP VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD4Mn (VOM VOM GND GND) gpdk090_nmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6
+FD4Mp (VOM VOM VDD VDD) gpdk090_pmos1v w=1u l=1u m=1 as=2.8e-13 ad=2.8e-13 ps=2.56e-6 pd=2.56e-6

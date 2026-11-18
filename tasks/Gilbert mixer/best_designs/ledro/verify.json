@@ -1,0 +1,192 @@
+{
+ "task": "gmix04_task_001",
+ "mc_samples": 100,
+ "score": 1.0,
+ "targets_met": 4,
+ "targets": 4,
+ "valid": true,
+ "params": {
+  "W_SW": 1.2782640762049314e-06,
+  "L_SW": 1.5690605483115215e-05,
+  "NF_SW": 95.0,
+  "N_SW": 52.0,
+  "W_BB": 1.4578701550023007e-05,
+  "L_BB": 5.1776616656258665e-06,
+  "NF_BB": 87.0,
+  "N_BB": 84.0,
+  "W_T": 1.3418006330164814e-06,
+  "L_T": 6.099158976626437e-07,
+  "NF_T": 61.0,
+  "N_T": 53.0,
+  "R_D": 79851.11524365295,
+  "R_DIV_TOP": 259307.2638201456,
+  "R_DIV_BOT": 18988.919805336966,
+  "R_BB": 137.74102644146137,
+  "C_DIV": 5.8072016729298095e-11,
+  "C_VDD": 2.0086356076969823e-11,
+  "C_TAIL": 4.473312784331998e-13,
+  "V_TAIL": 0.06517447168647954,
+  "V_LO": 0.8139375397777651
+ },
+ "feasible": true,
+ "objective": null,
+ "constraints": {
+  "conversion_gain_dB": {
+   "lower": -0.9151498112135024,
+   "metric": "conversion_gain_dB",
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 0.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 4.00011431037274,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "f_lo_Hz": 5000000000.0,
+    "f_rf_Hz": 20000000.0,
+    "f_if_Hz": 5020000000.0,
+    "sideband": 1
+   },
+   "complete": true,
+   "margin": 4.915264121586242,
+   "normalized_margin": 0.7610156117050293,
+   "satisfied": true
+  },
+  "nf_ssb_dB": {
+   "upper": 12.51392685158225,
+   "metric": "nf_ssb_dB",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 12.1,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "value": 5.858582021641508,
+   "unit": "dB",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "f_lo_Hz": 5000000000.0,
+    "f_rf_Hz": 20000000.0,
+    "f_if_Hz": 5020000000.0,
+    "sideband": 1,
+    "refsideband": -1
+   },
+   "complete": true,
+   "margin": 6.655344829940741,
+   "normalized_margin": 0.7839941480741499,
+   "satisfied": true
+  },
+  "input_p1db_dBm": {
+   "lower": -9.757574905606752,
+   "metric": "input_p1db_dBm",
+   "target": {
+    "kind": "power_db",
+    "paper_value": -9.3,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": -7.391131034974959,
+   "unit": "dBm",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "f_if_Hz": 5020000000.0,
+    "pin_start_dBm": -30.0,
+    "pin_stop_dBm": 6.0
+   },
+   "complete": true,
+   "margin": 2.3664438706317936,
+   "normalized_margin": 0.724425304206366,
+   "satisfied": true
+  },
+  "iip3_dBm": {
+   "lower": 0.5424250943932488,
+   "metric": "iip3_dBm",
+   "target": {
+    "kind": "power_db",
+    "paper_value": 1.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "value": 12.695701851117974,
+   "unit": "dBm",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "pin_dBm": -40.0,
+    "f_rf1_Hz": 20000000.0,
+    "f_rf2_Hz": 30000100.0,
+    "f_lo_Hz": 5000000000.0,
+    "sideband": 1,
+    "im3_product": "lower",
+    "lo_harmonics": 7,
+    "rf_harmonics": 3
+   },
+   "complete": true,
+   "margin": 12.153276756724726,
+   "normalized_margin": 15.418280671071894,
+   "satisfied": true
+  },
+  "saturation": {
+   "upper": 0,
+   "metric": "devices_out_of_saturation",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "f_lo_Hz": 5000000000.0,
+    "f_rf_Hz": 20000000.0,
+    "f_if_Hz": 5020000000.0,
+    "sideband": 1
+   },
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  },
+  "forward_biased_junctions": {
+   "upper": 0,
+   "metric": "forward_biased_junctions",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "f_lo_Hz": 5000000000.0,
+    "f_rf_Hz": 20000000.0,
+    "f_if_Hz": 5020000000.0,
+    "sideband": 1
+   },
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  },
+  "devices_outside_rails": {
+   "upper": 0,
+   "metric": "devices_outside_rails",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0,
+   "unit": "count",
+   "condition": "tt_T27_S1p00",
+   "point": {
+    "f_lo_Hz": 5000000000.0,
+    "f_rf_Hz": 20000000.0,
+    "f_if_Hz": 5020000000.0,
+    "sideband": 1
+   },
+   "complete": true,
+   "margin": 0.0,
+   "normalized_margin": 0.0,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": 0.724425304206366
+}

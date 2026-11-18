@@ -1,0 +1,53 @@
+{
+  "job_id": "fs_T27_S1p00/ldoea_reg_v1",
+  "recipe_id": "ldoea_reg_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "fs_T27_S1p00",
+    "model_set": "fs",
+    "temperature_C": 27.0,
+    "supply_scale": 1.0,
+    "supply_V": 1.8,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+        "section": "fs"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 1.8
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/stb1.stb.ascii",
+    "raw/ac1.ac",
+    "raw/tran1.tran.tran",
+    "raw/dc1.dc",
+    "raw/stb2.stb.ascii"
+  ],
+  "expected_metrics": [
+    "phase_margin_deg",
+    "loop_gbw_Hz",
+    "psr_100Hz_dB",
+    "psr_1MHz_dB",
+    "load_regulation_mV_per_A",
+    "output_voltage_V",
+    "phase_margin_light_load_deg"
+  ],
+  "digests": {
+    "task": "51e675dca170a3dd63ea8a32b9650307f48da83dc119e828c83d7a8e7428a49c",
+    "candidate": "81f2d7777703330d9d418ed20b663b77bf1d2a0a60f717125f8215f79e567fcb",
+    "parameterization": "0740f3a5354ae5d3c4b08d5829283ab2e9801f80ff9fc7e16cfe50dbd4ea6603",
+    "dut_source_netlist": "ef3e6a473737014b8ab6a65d32a0ab3405a18e929051a08afb4e88f990346f91",
+    "dut_subckt": "8da5d7feb7dbcd8f1d10171c85309724b8997828c2a7a59c68c1dc14858ef849",
+    "models": "5b0d04b93bbe82df5fbde6cdcbc0fcecc6b4ea96e722bce963e1ff68ecea9937",
+    "recipes": "397a5f0f33d2477189c3fc49e9cbeaa1fee43841bb8a84f80da2ba92ff6a62fc",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "1cd4b3fa5b380273b5d5278f83a9e31094ac18371a118a2c638429b0d08217a1"
+  },
+  "state": "rendered"
+}

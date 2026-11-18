@@ -1,0 +1,44 @@
+{
+  "job_id": "ff_binned_T27_S0p95/bgr1111_startup_v1",
+  "recipe_id": "bgr1111_startup_v1",
+  "recipe_version": 1,
+  "condition": {
+    "id": "ff_binned_T27_S0p95",
+    "model_set": "ff_binned",
+    "temperature_C": 27.0,
+    "supply_scale": 0.95,
+    "supply_V": 1.71,
+    "includes": [
+      {
+        "path": "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice",
+        "section": "ff"
+      }
+    ],
+    "is_nominal": false,
+    "supply_span_V": 1.71
+  },
+  "points": [
+    {}
+  ],
+  "expected_outputs": [
+    "raw/tsu.tran.tran"
+  ],
+  "expected_metrics": [
+    "Startup_tail_mean_V",
+    "Startup_tail_vpp_V"
+  ],
+  "digests": {
+    "task": "d315d13b0548aacc970e9edaf8a2502ea73f9e1e97ded061a35ada6afaded5a1",
+    "candidate": "810467665e3cbc941a6d005c4f0c73b7d1d86bbafe0e7008288581ede389e3f5",
+    "parameterization": "bb853d5517701b226341040281073930dc3d55a2eacad0d8389b683e1cd2ecc7",
+    "dut_source_netlist": "a0eca7b12eaa75384bb7c137205ad91c7b449254b4eb140de01cb73d8cd0e572",
+    "dut_subckt": "44aac52f9fd09024315a28e3197c2e0d06456662241249cacedf5322ccbfc3e3",
+    "models": "1e7c1af75bde4b1d694d93ab0bfbcbdbe41368cf09be0dc146a3088cb6c0f12a",
+    "recipes": "d7c1f9edcf552a1caac61d46fd979abc0e2230e6b38cef817f0083471d975c57",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "c909fb3291bdeb9928accd0e076e95a92a710e85f0e99f617a6e63c927469b79"
+  },
+  "state": "rendered"
+}

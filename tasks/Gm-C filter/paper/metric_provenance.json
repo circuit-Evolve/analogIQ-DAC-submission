@@ -1,0 +1,50 @@
+{
+  "paper_values": {
+    "OTA_differential_gain_dB": 39,
+    "OTA_unity_gain_frequency_Hz": 10000000000.0,
+    "OTA_phase_margin_deg": 79,
+    "OTA_common_mode_gain_dB": -24,
+    "Filter_cutoff_Hz": 15000000.0,
+    "Filter_input_noise_nV_sqrtHz": 85
+  },
+  "adopted_limits": {
+    "tolerance": 0.15,
+    "limits": {
+      "OTA_differential_gain_dB": {
+        "lower": 33.15,
+        "upper": null
+      },
+      "OTA_unity_gain_frequency_Hz": {
+        "lower": 8500000000.0,
+        "upper": null
+      },
+      "OTA_phase_margin_deg": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "OTA_common_mode_gain_dB": {
+        "lower": null,
+        "upper": -20.4
+      },
+      "Filter_cutoff_Hz": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "Filter_input_noise_nV_sqrtHz": {
+        "lower": null,
+        "upper": 97.75
+      }
+    },
+    "phase_margin_scope": "Existing unity-feedback estimate; loop stability not yet verified",
+    "noise_frequency_Hz": 1000000.0,
+    "noise_frequency_is_assumed": true,
+    "revision": "cutoff_10_20MHz_20261113",
+    "authorization": "User specifies10..20MHz cutoff range; all other metrics retain15% limits and prior directions.",
+    "cutoff_uses_explicit_range": true
+  },
+  "paper_exact": false,
+  "conditions_origin": "User-requested separate P,V,T variation; not paper-prescribed Cartesian grid",
+  "technology": "gpdk09090nm matches paper",
+  "noise_frequency_Hz": 1000000.0,
+  "noise_frequency_assumed": true
+}

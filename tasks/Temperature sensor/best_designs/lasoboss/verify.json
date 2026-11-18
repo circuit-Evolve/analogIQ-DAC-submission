@@ -1,0 +1,332 @@
+{
+ "task": "temp_sensor_101126_task_001",
+ "mc_samples": 100,
+ "eval": 1800,
+ "score": 1.0,
+ "targets_met": 18,
+ "targets": 18,
+ "valid": true,
+ "params": {
+  "W_BP": 9.28002170965986e-07,
+  "L_BP": 2.3563638974439525e-07,
+  "M_BP": 11.0,
+  "W_BC": 6.635401307460648e-06,
+  "L_BC": 3.91419676526181e-06,
+  "M_BC": 50.0,
+  "W_BN": 7.330620625056775e-07,
+  "L_BN": 1.5442114669837136e-07,
+  "M_BN": 80.0,
+  "W_P7": 1.986864944922489e-06,
+  "L_P7": 5.719819469536043e-06,
+  "M_P7": 8.0,
+  "W_N8": 1.0288467390904361e-05,
+  "L_N8": 1.9054083788553824e-05,
+  "M_N8": 11.0,
+  "W_N9": 1.8325082477668028e-06,
+  "L_N9": 1.5612063288933335e-06,
+  "M_N9": 44.0,
+  "W_LD": 7.151885405495026e-05,
+  "L_LD": 2.1099397911067096e-07,
+  "M_LD": 37.0,
+  "W_I12": 5.5589057450437825e-06,
+  "L_I12": 1.062986613749581e-05,
+  "M_I12": 16.0,
+  "W_I13": 1.740155240260942e-06,
+  "L_I13": 4.756474922252003e-06,
+  "M_I13": 74.0,
+  "W_TL": 2.4307462404147968e-05,
+  "L_TL": 6.027601680969707e-07,
+  "M_TL": 40.0
+ },
+ "feasible": true,
+ "objective": null,
+ "constraints": {
+  "vout0_tt": {
+   "lower": 0.25689762055934157,
+   "upper": 0.3139859806836397,
+   "metric": "Vout_0C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.2681152840994575,
+   "unit": "V",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.01121766354011594,
+   "normalized_margin": 0.04366589116587297,
+   "satisfied": true
+  },
+  "vout0_fs": {
+   "lower": 0.1450820023061246,
+   "upper": 0.17732244726304122,
+   "metric": "Vout_0C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.162022561411204,
+   "unit": "V",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.015299885851837225,
+   "normalized_margin": 0.0862828484943098,
+   "satisfied": true
+  },
+  "vout0_sf": {
+   "lower": 0.3428206041478368,
+   "upper": 0.4190029606251339,
+   "metric": "Vout_0C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.3864610059298484,
+   "unit": "V",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.032541954695285535,
+   "normalized_margin": 0.0776652142188551,
+   "satisfied": true
+  },
+  "vout27_tt": {
+   "lower": 0.20555155156773333,
+   "upper": 0.25122967413834074,
+   "metric": "Vout_27C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.2188462592351823,
+   "unit": "V",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.013294707667448974,
+   "normalized_margin": 0.06467821607791709,
+   "satisfied": true
+  },
+  "vout27_fs": {
+   "lower": 0.10078569442021991,
+   "upper": 0.123182515402491,
+   "metric": "Vout_27C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.1183090099326864,
+   "unit": "V",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.004873505469804612,
+   "normalized_margin": 0.03956328910706803,
+   "satisfied": true
+  },
+  "vout27_sf": {
+   "lower": 0.2956793448595393,
+   "upper": 0.36138586593943695,
+   "metric": "Vout_27C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.3338498905332774,
+   "unit": "V",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.02753597540615954,
+   "normalized_margin": 0.07619549628643797,
+   "satisfied": true
+  },
+  "vout100_tt": {
+   "lower": 0.08613268949013919,
+   "upper": 0.10527328715461458,
+   "metric": "Vout_100C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.0917323251698287,
+   "unit": "V",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.005599635679689505,
+   "normalized_margin": 0.06501173611130037,
+   "satisfied": true
+  },
+  "vout100_fs": {
+   "lower": 0.05602858974451732,
+   "upper": 0.06847938746552118,
+   "metric": "Vout_100C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.05960050353976853,
+   "unit": "V",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.003571913795251208,
+   "normalized_margin": 0.06375162772325066,
+   "satisfied": true
+  },
+  "vout100_sf": {
+   "lower": 0.16402053564440477,
+   "upper": 0.20046954356538363,
+   "metric": "Vout_100C_V",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.1885037209423896,
+   "unit": "V",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.011965822622994032,
+   "normalized_margin": 0.05968898023200891,
+   "satisfied": true
+  },
+  "sens_tt": {
+   "lower": -2.087126935290251,
+   "upper": -1.7076493106920234,
+   "metric": "Sensitivity_mV_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": -1.7638295892962879,
+   "unit": "mV/degC",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.056180278604264444,
+   "normalized_margin": 0.032899189694573436,
+   "satisfied": true
+  },
+  "sens_fs": {
+   "lower": -1.0884305979752005,
+   "upper": -0.890534125616073,
+   "metric": "Sensitivity_mV_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": -1.0242205787143546,
+   "unit": "mV/degC",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.06421001926084591,
+   "normalized_margin": 0.05899321406463153,
+   "satisfied": true
+  },
+  "sens_sf": {
+   "lower": -2.185334170597503,
+   "upper": -1.7880006850343206,
+   "metric": "Sensitivity_mV_C",
+   "target": {
+    "kind": "linear"
+   },
+   "value": -1.979572849874588,
+   "unit": "mV/degC",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.1915721648402673,
+   "normalized_margin": 0.09415554082818225,
+   "satisfied": true
+  },
+  "span_tt": {
+   "lower": 170.76493106920233,
+   "upper": 208.7126935290251,
+   "metric": "Output_span_mV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 176.38295892962878,
+   "unit": "mV",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 5.6180278604264515,
+   "normalized_margin": 0.03289918969457348,
+   "satisfied": true
+  },
+  "span_fs": {
+   "lower": 89.0534125616073,
+   "upper": 108.84305979752004,
+   "metric": "Output_span_mV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 102.42205787143546,
+   "unit": "mV",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 6.421001926084585,
+   "normalized_margin": 0.05899321406463149,
+   "satisfied": true
+  },
+  "span_sf": {
+   "lower": 178.80006850343207,
+   "upper": 218.53341705975032,
+   "metric": "Output_span_mV",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 197.9572849874588,
+   "unit": "mV",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 19.15721648402672,
+   "normalized_margin": 0.09415554082818238,
+   "satisfied": true
+  },
+  "lin_tt": {
+   "upper": 8.371677349998413,
+   "metric": "Endpoint_linearity_percent_FS",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 1.5529482066613232,
+   "unit": "%FS",
+   "condition": "tt_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 6.818729143337089,
+   "normalized_margin": 0.8144997541428639,
+   "satisfied": true
+  },
+  "lin_fs": {
+   "upper": 26.69619155338015,
+   "metric": "Endpoint_linearity_percent_FS",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 22.841394671837598,
+   "unit": "%FS",
+   "condition": "fs_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 3.8547968815425513,
+   "normalized_margin": 0.14439501131967547,
+   "satisfied": true
+  },
+  "lin_sf": {
+   "upper": 0.8483541205432532,
+   "metric": "Endpoint_linearity_percent_FS",
+   "target": {
+    "kind": "linear"
+   },
+   "value": 0.4386322258481807,
+   "unit": "%FS",
+   "condition": "sf_binned_T27_S1p00",
+   "point": {},
+   "complete": true,
+   "margin": 0.40972189469507253,
+   "normalized_margin": 0.4829609296088554,
+   "satisfied": true
+  }
+ },
+ "worst_constraint_margin": 0.032899189694573436,
+ "validity": {}
+}

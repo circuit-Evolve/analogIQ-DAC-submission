@@ -1,0 +1,1576 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_gbfc21_task_001",
+  "task_id": "gbfc21_task_001",
+  "topology_id": "gbfc21",
+  "candidate_hash": "b2e5c7227f26482883d42abe19c8bc2912ed660f733226cdb3d211153c716787",
+  "evaluator_hash": "05db64eb3e66145f426f84f82ac8c689a5ade2a7458b5449691ab328a5fe3ac3",
+  "digests": {
+    "task": "90275846fc41d8fe4e9bdeafaf39e48ee07e61f6350566b6e44e2367def65488",
+    "candidate": "b2e5c7227f26482883d42abe19c8bc2912ed660f733226cdb3d211153c716787",
+    "parameterization": "6a859160e56b2c0af58484103595fd5e6f08c492775febaeb16d11e58cd5e8fd",
+    "dut_source_netlist": "2871a1aa20842bc02f478d275b40c92fbf3104cf94e437dbfa4caa45d31badcf",
+    "dut_subckt": "d6d0c39d9b62769a64efb449d3252edf905f387e7b7d3fa156061375b758300d",
+    "models": "0acce25bd11f5c2bf4ce0672b4a3564a992d5651ab8719d865d7d83a4fbed8ac",
+    "recipes": "d006420012b8b42afee7b6fbc108920db0dab1eec65ffb065fbafeacf01ccdd7",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "05db64eb3e66145f426f84f82ac8c689a5ade2a7458b5449691ab328a5fe3ac3"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 28,
+    "completed_measurement_checks": 28,
+    "valid_measurement_checks": 28
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0018728695289,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W"
+      ],
+      "constraint": {
+        "upper": 0.0022913000000000005
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.98048902507,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0007486227159881897,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.34457872,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB"
+      ],
+      "constraint": {
+        "lower": 111.6448501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 778.10036381,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 643079335.5651803,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 600491302.3,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 554544000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 61.960916067,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 60.552
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 25.486635532,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "input_noise_V_per_rtHz",
+      "value": 4.3968089371e-09,
+      "unit": "V/sqrt(Hz)",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_noise_v1",
+      "constraints": [
+        "input_noise_V_per_rtHz"
+      ],
+      "constraint": {
+        "upper": 4.51e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_noise_V_per_rtHz",
+      "value": 2.8384257895e-07,
+      "unit": "V/sqrt(Hz)",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 10000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "amp_fd_noise_v1"
+    },
+    {
+      "metric": "slew_rate_rise_V_per_s",
+      "value": 495184755.50195783,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1",
+      "constraints": [
+        "slew_rate_pos_V_per_s"
+      ],
+      "constraint": {
+        "lower": 39600000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "final_error_rise_V",
+      "value": -1.7908400000155034e-06,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1"
+    },
+    {
+      "metric": "overshoot_rise_V",
+      "value": 0.011713769210000058,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1"
+    },
+    {
+      "metric": "settling_time_rise_s",
+      "value": 1.703426380000006e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1",
+      "constraints": [
+        "settling_time_s"
+      ],
+      "constraint": {
+        "upper": 5.5000000000000004e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "slew_rate_fall_V_per_s",
+      "value": 482343901.48896843,
+      "unit": "V/s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1",
+      "constraints": [
+        "slew_rate_neg_V_per_s"
+      ],
+      "constraint": {
+        "lower": 32400000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "final_error_fall_V",
+      "value": 1.3951297455e-12,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1"
+    },
+    {
+      "metric": "overshoot_fall_V",
+      "value": 0.00519768377759513,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1"
+    },
+    {
+      "metric": "settling_time_fall_s",
+      "value": 1.5289156999999615e-09,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gbfc21_follower_tran_v1",
+      "constraints": [
+        "settling_time_fall_s"
+      ],
+      "constraint": {
+        "upper": 5.5000000000000004e-09
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0016763098638,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W_SS"
+      ],
+      "constraint": {
+        "upper": 0.0016764
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.9845507815,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.08429439582694379,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 4.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 115.87622255,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB_SS"
+      ],
+      "constraint": {
+        "lower": 114.8848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 895.49517593,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 557024603.4485815,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 528590471.85,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_SS"
+      ],
+      "constraint": {
+        "lower": 418590000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 57.721530386,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg_SS"
+      ],
+      "constraint": {
+        "lower": 57.6
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 26.162041512,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0019271816667,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W_FF"
+      ],
+      "constraint": {
+        "upper": 0.002948
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.97951169843,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.026710768689708994,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 115.53097949,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB_FF"
+      ],
+      "constraint": {
+        "lower": 104.8848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 1130.6104555,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 675868135.7877247,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 633839037.32,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_FF"
+      ],
+      "constraint": {
+        "lower": 633690000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 63.013507875,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg_FF"
+      ],
+      "constraint": {
+        "lower": 63.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 25.262784776,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0018461873205,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W_FS"
+      ],
+      "constraint": {
+        "upper": 0.0022
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.99464894982,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.049145906559064215,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 4.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 116.2792185,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB_FS"
+      ],
+      "constraint": {
+        "lower": 111.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 890.98193527,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 580536892.3240073,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 559967680.6,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_FS"
+      ],
+      "constraint": {
+        "lower": 531000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 64.189066808,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg_FS"
+      ],
+      "constraint": {
+        "lower": 60.3
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 26.011073176,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "quiescent_power_W",
+      "value": 0.0018915633118,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1",
+      "constraints": [
+        "quiescent_power_W_SF"
+      ],
+      "constraint": {
+        "upper": 0.0023100000000000004
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "bias_power_W",
+      "value": 0.0,
+      "unit": "W",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "output_common_mode_V",
+      "value": 0.97809509541,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "differential_output_offset_V",
+      "value": 0.0,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.003719790635590692,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_dc_v1"
+    },
+    {
+      "metric": "open_loop_gain_dB",
+      "value": 118.3790534,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "open_loop_gain_dB_SF"
+      ],
+      "constraint": {
+        "lower": 107.6848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "open_loop_bandwidth_Hz",
+      "value": 827.28954911,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "gain_bandwidth_product_Hz",
+      "value": 686452052.7358731,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    },
+    {
+      "metric": "unity_gain_frequency_Hz",
+      "value": 621972788.27,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "unity_gain_frequency_Hz_SF"
+      ],
+      "constraint": {
+        "lower": 533160000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 59.962414978,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1",
+      "constraints": [
+        "phase_margin_deg_SF"
+      ],
+      "constraint": {
+        "lower": 59.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 25.260434217,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "amp_fd_ol_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "open_loop_gain_dB": {
+      "value": 118.34457872,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz": {
+      "value": 600491302.3,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "phase_margin_deg": {
+      "value": 61.960916067,
+      "unit": "deg",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "quiescent_power_W": {
+      "value": 0.0018728695289,
+      "unit": "W",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "open_loop_gain_dB_SF": {
+      "value": 118.3790534,
+      "unit": "dB",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_SF": {
+      "value": 621972788.27,
+      "unit": "Hz",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "phase_margin_deg_SF": {
+      "value": 59.962414978,
+      "unit": "deg",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "quiescent_power_W_SF": {
+      "value": 0.0018915633118,
+      "unit": "W",
+      "condition_id": "SF_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "open_loop_gain_dB_FF": {
+      "value": 115.53097949,
+      "unit": "dB",
+      "condition_id": "FF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_FF": {
+      "value": 633839037.32,
+      "unit": "Hz",
+      "condition_id": "FF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "phase_margin_deg_FF": {
+      "value": 63.013507875,
+      "unit": "deg",
+      "condition_id": "FF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "quiescent_power_W_FF": {
+      "value": 0.0019271816667,
+      "unit": "W",
+      "condition_id": "FF_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "open_loop_gain_dB_FS": {
+      "value": 116.2792185,
+      "unit": "dB",
+      "condition_id": "FS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_FS": {
+      "value": 559967680.6,
+      "unit": "Hz",
+      "condition_id": "FS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "phase_margin_deg_FS": {
+      "value": 64.189066808,
+      "unit": "deg",
+      "condition_id": "FS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "quiescent_power_W_FS": {
+      "value": 0.0018461873205,
+      "unit": "W",
+      "condition_id": "FS_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "open_loop_gain_dB_SS": {
+      "value": 115.87622255,
+      "unit": "dB",
+      "condition_id": "SS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "unity_gain_frequency_Hz_SS": {
+      "value": 528590471.85,
+      "unit": "Hz",
+      "condition_id": "SS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "phase_margin_deg_SS": {
+      "value": 57.721530386,
+      "unit": "deg",
+      "condition_id": "SS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "quiescent_power_W_SS": {
+      "value": 0.0016763098638,
+      "unit": "W",
+      "condition_id": "SS_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "input_noise_V_per_rtHz": {
+      "value": 4.3968089371e-09,
+      "unit": "V/sqrt(Hz)",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "freq_Hz": 10000000.0
+      },
+      "complete": true
+    },
+    "slew_rate_pos_V_per_s": {
+      "value": 495184755.50195783,
+      "unit": "V/s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "complete": true
+    },
+    "slew_rate_neg_V_per_s": {
+      "value": 482343901.48896843,
+      "unit": "V/s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "complete": true
+    },
+    "settling_time_s": {
+      "value": 1.703426380000006e-09,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "complete": true
+    },
+    "settling_time_fall_s": {
+      "value": 1.5289156999999615e-09,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "step_V": 0.5,
+        "feedback_factor": 1.0
+      },
+      "complete": true
+    },
+    "saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vcm_V": 0.8
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.322,
+      "cpu_s": 0.218
+    },
+    {
+      "job_id": "NN_T27_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.466,
+      "cpu_s": 0.295
+    },
+    {
+      "job_id": "NN_T27_S1p00/amp_fd_noise_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.371,
+      "cpu_s": 0.222
+    },
+    {
+      "job_id": "NN_T27_S1p00/gbfc21_follower_tran_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 4.254,
+      "cpu_s": 3.82
+    },
+    {
+      "job_id": "SS_T27_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.371,
+      "cpu_s": 0.229
+    },
+    {
+      "job_id": "SS_T27_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.444,
+      "cpu_s": 0.28500000000000003
+    },
+    {
+      "job_id": "FF_T27_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.383,
+      "cpu_s": 0.229
+    },
+    {
+      "job_id": "FF_T27_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.424,
+      "cpu_s": 0.28500000000000003
+    },
+    {
+      "job_id": "FS_T27_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.379,
+      "cpu_s": 0.222
+    },
+    {
+      "job_id": "FS_T27_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.429,
+      "cpu_s": 0.279
+    },
+    {
+      "job_id": "SF_T27_S1p00/amp_fd_dc_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 4 notices",
+      "extraction_error": null,
+      "wall_s": 0.402,
+      "cpu_s": 0.194
+    },
+    {
+      "job_id": "SF_T27_S1p00/amp_fd_ol_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 5 notices",
+      "extraction_error": null,
+      "wall_s": 0.542,
+      "cpu_s": 0.23600000000000002
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 12,
+    "analysis_executions": 27,
+    "condition_evaluations": 5,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 6.514,
+    "execution_wall_s": 4.274,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/NN_T27_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/NN_T27_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/NN_T27_S1p00/amp_fd_noise_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/NN_T27_S1p00/gbfc21_follower_tran_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/SS_T27_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/SS_T27_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/FF_T27_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/FF_T27_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/FS_T27_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/FS_T27_S1p00/amp_fd_ol_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/SF_T27_S1p00/amp_fd_dc_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/gbfc21_task_001/SF_T27_S1p00/amp_fd_ol_v1"
+    ]
+  }
+}

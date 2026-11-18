@@ -1,0 +1,58 @@
+DTMOS round 2 targeted sizing — 2026-11-10
+
+RESULT: All 12 requested corners pass all four canonical scalar targets with one fixed sizing: 48/48 checks, 12/12 full-pass corners. Every 60 ms transient completed. This is a scalar-qualified candidate under the fixed-200-Hz gain interpretation, not an unqualified physical/paper-equivalent golden circuit.
+
+Canonical constraints: fc 180–220 Hz; both-rail DC power <=0.5456 mW; THD <6% at 500 Hz and 10 uA peak-to-peak input; gain at exactly 200 Hz in [-3.5,-2.5] dB. All five process corners NN/FF/FS/SF/SS at ±0.9 V and 27 C; NN at ±0.7/0.8/1.0/1.1 V, 27 C; NN at ±0.9 V, -27/0/100 C. No corner removed, target relaxed, device added, connectivity altered, model altered, soft_bin used, new LEDRO/black-box search/LLM campaign launched, or curator/original/shared-pack file written.
+
+Canonical metric ranges:
+  HPF_Rail_power_mW: 0.220185950258 to 0.442791979162
+  THD_500Hz_10uApp_percent: 1.2557168475 to 1.41021493448
+  HPF_cutoff_Hz: 181.070247209 to 218.801470524
+  HPF_gain_200Hz_dB: -3.48334980601 to -2.51642396285
+  HPF_passband_gain_dB: -0.684634820202 to 0.892297559822
+  HPF_gain_500Hz_dB: -1.21980880935 to 0.13633784685
+  HPF_attenuation_50Hz_dB: 11.389419446 to 13.0508464214
+  HPF_passband_ripple_dB: 0.0347880513912 to 0.050871647714
+  HPF_peaking_dB: 0.00210392319201 to 0.00311357483624
+
+Minimum gain200 margin: 0.0164239628 dB. Minimum cutoff margin: 1.07024721 Hz. Tight gain margins remain and are disclosed.
+
+Independent numerical sanity check: all 12 AC/DC cases rerun at 1000 rather than 100 points/decade, reltol 1e-8 rather than 1e-7, vabstol 1e-10 rather than 1e-9, and iabstol 1e-15 rather than 1e-14. All targets still pass; maximum gain200 movement 0.000336420999 dB, maximum cutoff movement 0.0157195605 Hz. Canonical results are unchanged and authoritative. Full transient recipe remains conservative gear2only, stop 60 ms, maxstep/strobe 1 us; THD harmonics 2–20 extracted over 40–60 ms. Cutoff remains first rising half-power crossing versus sqrt(2k*20k) Hz passband reference, with 2–20 kHz ripple qualification.
+
+Alternative gain definition: imposing the SAME [-3.5,-2.5] dB band on passband gain gives 0/12 full-pass points and 36/48 checks; no passband gain passes that band. The unspecified paper gain frequency is not resolved by this result. Fractional-order equivalence, approximately 16 dB attenuation near 50 Hz, extracted layout/parasitics, mismatch/Monte Carlo and a broader PVT Cartesian product are not established.
+
+Physical investigation: the earlier 100 C failure involved strong DTMOS body-current redistribution. Folded larger Mpb1/Mpb2 geometry lowers required gate-body forward voltage and changes body/channel current partition. Independent Mpb3, source-follower M4, M3 W/L, NMOS mirrors and C2 then balance process, supply and temperature sensitivities. Final Mpb1/Mpb2 each use W=100 um, L=0.18 um, native m=242 (total W=24.2 mm each); Mpb3 uses W=75 um with m=1. All four gate-body ties and original 17 named MOS instances remain. Multiplicity represents actual parallel physical devices, not 17 unit fingers. Per-finger W is within 0.4–100 um; nMOS L within 0.18–20 um and pMOS L within 0.18–40 um; integer multiplicity. Diffusion areas and perimeters are rebuilt with W and included with m. Capacitors remain ideal lumped components: C1=70.6731531 nF, C2=908.083911 nF; no capacitor layout-area claim.
+
+Native multiplicity validation: pmos1 is an inline BSIM3 wrapper at <PDK_ROOT>/gpdk180/models/spectre/pmos1.scs:108. An isolated, fixed-terminal-bias diagnostic at 100 C compares identical W/L/AD/AS/PD/PS with m=1 versus m=242. BSIM channel current, gm, gds, gmbs, drain/source junction capacitance and body terminal current scale exactly 242x. Raw source/drain terminal ratios differ from 242 by less than 1e-5 relative because Spectre adds one unscaled numerical 1 pS drain-source gmin path per named instance; subtracting the analytically known 0.25 pA term gives exactly 242x. This diagnostic is separate from the unchanged candidate topology. Evidence in multiplicity_check/result.json.
+
+Physical cost: total MOS gate area is 9547.35812 um² (0.00954735812 mm²), versus prior 11/12 candidate 975.246518 um² and frozen paper core template 501 um². This is 9.78969x prior and 19.0566x paper-core gate area. Mpb1/Mpb2 alone contribute 8712 um², versus prior 36 um² and paper-core 40 um². These are gate-area estimates, not extracted layout area; isolation/routing/diffusion/capacitors add area. Per-instance W/L/m and total AD/AS/PD/PS for all three references are in physical_cost.csv.
+
+Important device operating-point qualification: M2 current is positive at all 12 points, but at 100 C it is only 0.108407 uA, VGS−VTH=-0.128122 V: M2 operates in weak inversion there. The other 11 points have VGS−VTH>=+0.0388211 V and positive saturation headroom. Hence all explicit scalar targets pass, but a requirement that M2 remain above threshold at every corner would NOT pass. This must remain visible in any golden label. Device guards use fresh DC operating-point info from tight_ac; candidate_full dcOpInfo was scheduled after transient and is end-of-transient info, not used for these DC claims.
+
+Preserved artifacts: candidate_full/design.json, metrics.json, corners.csv, qualification_summary.json, physical_cost.csv, device_guards.csv, netlist_audit.json and all twelve exact input.scs decks plus raw data/logs. tight_ac/ contains independent numerical check decks/results. Both interpretations remain explicit. No other candidate replaces this full-verified result.
+
+Reproduction: reproduce.py is standalone against the frozen pack, strictly validates every sizing key, applies M4 and folded independent widths explicitly, and reproduces all twelve measured decks byte-for-byte (verified with zero Spectre runs). Plain Gain200Task ignores independent keys and must NOT be used directly. Run:
+env -u PYTHONHOME -u PYTHONPATH PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 <ANALOGIQ>/sizing/LEDRO/.venv/bin/python <WORK>/three-circuit-robust-sizing-20261110/targeted/round2_dtmos/reproduce.py
+Append --simulate --output reproduced_full for a fresh 12-corner full verification under a new owned output directory. Maximum Spectre concurrency is two.
+
+Physical geometry table (W/L in um; area in um²; each cell W / L / m / total gate area):
+Device | Paper core | Prior 11/12 | Final 12/12
+M3 | 75 / 2 / 2 / 300 | 7.970945 / 1.75635 / 2 / 27.99953 | 9.565134 / 2.634524 / 2 / 50.39916
+Mpb8 | 8 / 2 / 1 / 16 | 86.18935 / 6.807579 / 1 / 586.7408 | 75.00859 / 6.807579 / 1 / 510.6269
+Mpb7 | 8 / 2 / 1 / 16 | 15.6075 / 6.807579 / 1 / 106.2493 | 15.6075 / 6.807579 / 1 / 106.2493
+Mpb6 | 40 / 0.5 / 1 / 20 | 42.81788 / 0.4712567 / 1 / 20.17821 | 42.81788 / 0.4712567 / 1 / 20.17821
+Mpb5 | 40 / 0.5 / 1 / 20 | 42.81788 / 0.4712567 / 1 / 20.17821 | 42.81788 / 0.4712567 / 1 / 20.17821
+Mpb4 | 10 / 2 / 1 / 20 | 100 / 0.18 / 1 / 18 | 100 / 0.18 / 1 / 18
+Mpb3 | 10 / 2 / 1 / 20 | 100 / 0.18 / 1 / 18 | 75 / 0.18 / 1 / 13.5
+Mpb2 | 10 / 2 / 1 / 20 | 100 / 0.18 / 1 / 18 | 100 / 0.18 / 242 / 4356
+Mpb1 | 10 / 2 / 1 / 20 | 100 / 0.18 / 1 / 18 | 100 / 0.18 / 242 / 4356
+Mnb5 | 10 / 0.2 / 1 / 2 | 0.6221546 / 7.727257 / 1 / 4.807549 | 0.6221546 / 7.727257 / 1 / 4.807549
+Mnb4 | 3 / 2 / 1 / 6 | 20.65811 / 0.6197513 / 1 / 12.80289 | 20.65811 / 0.6383438 / 1 / 13.18697
+Mnb3 | 10 / 0.5 / 1 / 5 | 8.874527 / 0.3481813 / 1 / 3.089944 | 8.874527 / 0.3133631 / 1 / 2.78095
+Mnb2 | 10 / 0.5 / 1 / 5 | 24.98561 / 0.5003468 / 1 / 12.50147 | 22.48705 / 0.4503121 / 1 / 10.12619
+Mnb1 | 10 / 0.5 / 1 / 5 | 24.98561 / 0.5003468 / 1 / 12.50147 | 22.48705 / 0.4503121 / 1 / 10.12619
+M4 | 5 / 2 / 1 / 10 | 45.17994 / 1.814908 / 1 / 81.99742 | 22.58997 / 1.814908 / 1 / 40.99871
+M2 | 5 / 2 / 1 / 10 | 4.517994 / 1.814908 / 1 / 8.199742 | 4.517994 / 1.814908 / 1 / 8.199742
+M1 | 3 / 2 / 1 / 6 | 0.75 / 8 / 1 / 6 | 0.75 / 8 / 1 / 6
+
+Final storage audit: 568 additional owned raw files were losslessly compressed after byte-exact decompression verification, reducing 2,928,635,953 bytes to 756,774,916 bytes; SHA-256 and per-file evidence are in compression_manifest.json. Full transient raw compression also has the original per-corner raw_compression.json. The final design has 17 named MOS instances and a sum of native multiplicities of 500 physical parallel unit devices.

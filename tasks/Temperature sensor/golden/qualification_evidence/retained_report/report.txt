@@ -1,0 +1,103 @@
+FOUR RETAINED CIRCUITS — VERIFIED CORNER REPORT
+2026-11-10T08:10:27.323111Z
+
+RETAINED SIZING STATUS
+Sizing remains stopped. These are the existing verified results; no new simulations or optimization were run for this report. Ordinary targets use ±10%; lower power and error are accepted under their saved upper limits.
+
+Circuit                   | Verified coverage                          | Result                                        | Qualification                                   
+--------------------------+--------------------------------------------+-----------------------------------------------+-------------------------------------------------
+Temperature sensor        | TT, FS, SF; temperature sweep0–100°C       | 3/3 process corners;18/18 checks              | Graph-derived references; FF/SS excluded by user
+FGMOS full-wave rectifier | 5processes at27°C plus NN at−27/0/100°C    | 8/8 conditions;32/32 checks                   | Conditional on saved power/error/AC definitions 
+Memristor                 | NN27°C,±1V; six sampled frequency settings | 7/7 Figure7a comparisons;6/6 functional tests | Corrected topology; no PVT validation           
+IR-UWB                    | 5processes ×−40/27/85°C,1.8V               | 5/15 complete corners;39/75 checks            | Partial candidate; not an all-corner golden     
+
+TEMPERATURE SENSOR
+VDD1.8V. Each cell shows paper-graph reference → retained simulation. The actual test sweeps temperature0–100°C in1°C steps at each process corner. Voltage endpoints,27°C output, sensitivity and span meet ±10%. Endpoint linearity is an upper-bound metric; lower is better. Span and endpoint sensitivity are related quantities.
+
+Process | Vout0°C(mV)       | Vout27°C(mV)      | Vout100°C(mV)     | Sensitivity(mV/°C) | Span(mV)          | Linearity(%FS)  | Result
+--------+-------------------+-------------------+-------------------+--------------------+-------------------+-----------------+-------
+TT      | 285.442 → 268.962 | 228.391 → 217.370 | 95.703 → 93.858   | -1.897 → -1.751    | 189.739 → 175.104 | 7.611 → 5.069   | Pass  
+FS      | 161.202 → 162.146 | 111.984 → 119.337 | 62.254 → 61.151   | -0.989 → -1.010    | 98.948 → 100.995  | 24.269 → 20.539 | Pass  
+SF      | 380.912 → 395.407 | 328.533 → 339.440 | 182.245 → 185.605 | -1.987 → -2.098    | 198.667 → 209.802 | 0.771 → 0.324   | Pass  
+
+FGMOS FULL-WAVE RECTIFIER
+VDD0.7V. Paper values: static power1.88µW; maximum power115.4µW; bandwidth17.37MHz; maximum deviation11%. Accepted limits:2.068µW,126.94µW,15.633–19.107MHz,12.1%. Power is VDD-only, AC bias17.5µA, output compliance0.7V and error is normalized to35µA full scale. These eight conditions are not a full Cartesian PVT sweep.
+
+Process | Temp°C | Static power(µW) | Max power(µW) | Bandwidth(MHz) | Max deviation(%) | Result
+--------+--------+------------------+---------------+----------------+------------------+-------
+NN      | 27     | 0.179835         | 62.9976       | 17.3403        | 2.39169          | Pass  
+FF      | 27     | 1.2813           | 68.0404       | 18.3923        | 12.0405          | Pass  
+SS      | 27     | 0.0228724        | 57.9764       | 16.8279        | 12.0437          | Pass  
+FS      | 27     | 0.0257977        | 58.5795       | 18.457         | 3.88929          | Pass  
+SF      | 27     | 1.11115          | 62.7588       | 17.6596        | 4.27516          | Pass  
+NN      | -27    | 0.0164516        | 58.562        | 19.0015        | 9.08782          | Pass  
+NN      | 0      | 0.0612554        | 61.0687       | 18.0625        | 4.11544          | Pass  
+NN      | 100    | 1.51258          | 66.739        | 15.7377        | 7.62449          | Pass  
+
+MEMRISTOR — NOMINAL COMPARISON
+Only NN27°C is verified; no process/temperature corner sweep exists. At200kHz:±1V supplies,80mV peak input and30pF state capacitor. References were digitized from Figure7a. All seven comparisons pass in early and late windows; maximum deviation7.506%. The approved candidate includes the M2 bus connection and swapped reflection outputs, so it is not the literal paper wiring.
+
+Metric                       | Figure7a reference | Early simulation | Late simulation | Result
+-----------------------------+--------------------+------------------+-----------------+-------
+Positive peak current(µA)    | 26.6667            | 28.502           | 28.0453         | Pass  
+Negative peak current(µA)    | -25.8419           | -26.6535         | -26.5562        | Pass  
+Branch opening at+40mV(µA)   | 14.5246            | 13.4345          | 13.4862         | Pass  
+Positive lobe area(µA·V)     | 1.01229            | 0.9708           | 0.976067        | Pass  
+Negative lobe area(µA·V)     | 0.952358           | 0.970204         | 0.970666        | Pass  
+Lower branch conductance(µS) | 54.9828            | 52.0189          | 51.2126         | Pass  
+Upper branch conductance(µS) | 418.099            | 387.88           | 388.368         | Pass  
+
+MEMRISTOR — SAMPLED FREQUENCY VERIFICATION
+These are operating-frequency tests, not PVT corners. Six points pass the documented functional guards.2MHz is the highest tested passing point, not an extracted physical maximum frequency. The separate32.5µA prose reference is ambiguous; the selected200kHz early peak28.502µA is12.30% below it. A different legacy-overlap alternative remains preserved but is not selected.
+
+Frequency(MHz) | Capacitance(pF) | Early pinch(µA) | Late pinch(µA) | Peak drift(%) | Functional result
+---------------+-----------------+-----------------+----------------+---------------+------------------
+0.1            | 30              | 0.0391057       | 0.0387892      | -0.866706     | Pass             
+0.2            | 30              | 0.154668        | 0.148282       | -1.60248      | Pass             
+0.5            | 30              | 0.762138        | 0.751863       | -0.562832     | Pass             
+1              | 5               | 0.480682        | 0.449087       | -4.47507      | Pass             
+1.5            | 5               | 0.771104        | 0.745835       | -2.42434      | Pass             
+2              | 5               | 1.12113         | 1.02719        | -0.838557     | Pass             
+
+IR-UWB — TARGETS
+Fixed VDD1.8V and control biases1.0/0.9/1.0V. Values below are fresh native1ps results; pass flags require both2ps and1ps. Correct110110 activity is present at all15 corners. Power includes VDD and the three control supplies; ideal clock/data sources are excluded. Width means Hilbert-envelope FWHM; band means connected FFT main lobe at−10dB. Equivalence to the paper’s exact width/PSD convention remains unresolved.
+
+Metric               | Paper | Accepted range | Corners passing /15
+---------------------+-------+----------------+--------------------
+Power(mW)            | 0.378 | ≤0.4158        | 10                 
+Amplitude(mVpp)      | 130   | 117–143        | 8                  
+Envelope width(ns)   | 0.6   | 0.54–0.66      | 7                  
+Lower band edge(GHz) | 2.5   | 2.25–2.75      | 7                  
+Upper band edge(GHz) | 6     | 5.4–6.6        | 7                  
+
+IR-UWB — PER-CORNER RESULTS
+An asterisk marks a failed scalar. Five complete passes: NN−40/27°C, FS−40/27°C and SF27°C. The prior nominal sizing passed one complete corner and29/75 scalar checks; the retained partial candidate passes five and39/75. This candidate is not an all-corner golden.
+
+Process | Temp°C | Power(mW) | Amplitude(mVpp) | Width(ns) | Lower edge(GHz) | Upper edge(GHz) | Result
+--------+--------+-----------+-----------------+-----------+-----------------+-----------------+-------
+NN      | -40    | 0.39986   | 126.66          | 0.56961   | 2.2724          | 6.5962          | Pass  
+NN      | 27     | 0.40941   | 133.05          | 0.55199   | 2.4921          | 6.02            | Pass  
+NN      | 85     | 0.42022 * | 146.74 *        | 0.61372   | 3.3522 *        | 5.4436          | Fail  
+FF      | -40    | 0.43386 * | 194.07 *        | 0.7732 *  | 3.0005 *        | 3.9372 *        | Fail  
+FF      | 27     | 0.44715 * | 125.1           | 0.24083 * | 2.6395          | 3.8551 *        | Fail  
+FF      | 85     | 0.46358 * | 108.16 *        | 0.51096 * | 2.0252 *        | 6.6918 *        | Fail  
+SS      | -40    | 0.36449   | 186.86 *        | 0.35308 * | 3.3115 *        | 5.182 *         | Fail  
+SS      | 27     | 0.37652   | 180.07 *        | 0.45449 * | 3.2624 *        | 4.7615 *        | Fail  
+SS      | 85     | 0.38903   | 154.17 *        | 0.47287 * | 3.1847 *        | 4.5562 *        | Fail  
+FS      | -40    | 0.39981   | 132.05          | 0.58745   | 2.338           | 6.493           | Pass  
+FS      | 27     | 0.41342   | 141.99          | 0.54458   | 2.7471          | 5.9144          | Pass  
+FS      | 85     | 0.43056 * | 152.45 *        | 0.36602 * | 3.3151 *        | 5.3477 *        | Fail  
+SF      | -40    | 0.39511   | 125.38          | 0.27844 * | 2.2565          | 6.617 *         | Fail  
+SF      | 27     | 0.40217   | 118.81          | 0.57235   | 2.2517          | 6.1294          | Pass  
+SF      | 85     | 0.4105    | 130.07          | 0.62544   | 3.4016 *        | 5.5346          | Fail  
+
+SAVED RECORDS
+The source JSON/CSV files used here are copied into this report’s sources folder with SHA256 fingerprints. Existing full sizing/native/simulation archives are referenced by saved_checkpoints.json. No curator-folder changes were made.
+
+Circuit   | Detailed record                                      
+----------+------------------------------------------------------
+Sensor    | ../temperature_sensor/golden_20261110/README.txt     
+Rectifier | ../fgmos_full_wave_rectifier/sizing_round2/report.txt
+Memristor | ../memristor/sizing_round2/report.html               
+IR-UWB    | ../ir_uwb/pvt_sizing_20261110/report.html            
+

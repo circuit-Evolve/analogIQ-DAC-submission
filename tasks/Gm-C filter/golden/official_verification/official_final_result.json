@@ -1,0 +1,1758 @@
+{
+  "schema_version": 1,
+  "request_id": "gmc131126_final_export_verify",
+  "task_id": "gmc_reconstructed_131126_task_001",
+  "topology_id": "gmc_reconstructed_131126",
+  "candidate_hash": "c9f6f3379b10cea491597b08ed8c807416daa4d2dee83b6cef53089011078d2f",
+  "evaluator_hash": "7f8914d3f9c5df42b73c2824431c2084f66ec9a49828a1860ef0982335a96f4a",
+  "digests": {
+    "task": "f2f28a9f27d8134c57b985a52b239bddec6a761a0164391308640e13209da6f2",
+    "candidate": "c9f6f3379b10cea491597b08ed8c807416daa4d2dee83b6cef53089011078d2f",
+    "parameterization": "d2686ddb319c5d077ad81edc73286c38bcc2f75e12cc1a95648e3123f6a07718",
+    "dut_source_netlist": "924a793260310aa9faa75289b5f9d2827ba1d9181d52732ae4ecef30db645ec7",
+    "dut_subckt": "5188040b1de8609b94e1c9fd883b33c9b710c91bf91f492637ab67743139ef1f",
+    "models": "31726dba1a2b5e11cfe33e29fd0132f95d1df68d278cf03a3d01c2325d0f72a8",
+    "recipes": "271a4b776b5cd60b714c1a091eed94e9ae6a56d5717efc087205cc3cc6f9988e",
+    "execution_profile": "3c84a94a8946823b196bd31e5a51839bc05754fa41f9e8e12fecfeb4dca6ee0d",
+    "analogiq": "0.1.0",
+    "scoring_revision": "2026-11-12-unclipped-worst-complete-corners",
+    "evaluator": "7f8914d3f9c5df42b73c2824431c2084f66ec9a49828a1860ef0982335a96f4a"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "independently_verified",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 56,
+    "completed_measurement_checks": 56,
+    "valid_measurement_checks": 56
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 44.37495223561594,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 10596799440.073414,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 85.67984820634047,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -26.708420222227787,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 12914644.660112962,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 68.10425872345519,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.02270716586716287,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S0p90",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 33.915235522670216,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 15796030159.333504,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 84.1806800592803,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -26.15072020090601,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 18596349.708503682,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 62.11843846571059,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.03749898218323361,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_Tm40_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 47.892503776718456,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 12370513694.965649,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 85.57332463569423,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -25.486642289642557,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 14948751.437032735,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 74.5660114615729,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.006182531326720919,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 3.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 35.69555433252089,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 10366095537.895893,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 86.29008895521503,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -24.800791543386957,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 12641013.319000188,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 83.53864975603193,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.038026573135249375,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 3.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T85_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 45.923594750637534,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 13710975272.61242,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 85.63966119028149,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -24.2150648966996,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 16577204.631331677,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 84.02191151035107,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.0334620230984789,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 3.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p10",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 54.52161164862837,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 8501410192.662767,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 85.08446376707197,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -26.10003840775733,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 10002115.427397707,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 71.24679859555,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.018856595024996314,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 33.15570245586786,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 12235846177.468985,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 86.54157976301954,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -25.48599704057481,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 12818212.508315269,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 60.04076930598028,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.04706270345190321,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 3.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 52.15450333712644,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 12462397605.814075,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 85.14097415389999,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -20.402984534786775,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 15986851.593600355,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 80.86972482680957,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.12163760152908798,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 8.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "OTA_differential_gain_dB",
+      "value": 44.879051557573526,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_differential_gain_dB"
+      ],
+      "constraint": {
+        "lower": 33.15
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_unity_gain_frequency_Hz",
+      "value": 16113912048.420181,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_unity_gain_frequency_Hz"
+      ],
+      "constraint": {
+        "lower": 8500000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_phase_margin_deg",
+      "value": 85.83697488988389,
+      "unit": "deg",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_diff_v1",
+      "constraints": [
+        "OTA_phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 67.15,
+        "upper": 90.85
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "OTA_common_mode_gain_dB",
+      "value": -25.14899285192137,
+      "unit": "dB",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_ota_cm_v1",
+      "constraints": [
+        "OTA_common_mode_gain_dB"
+      ],
+      "constraint": {
+        "upper": -20.4
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_cutoff_Hz",
+      "value": 19997462.324435532,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_cutoff_Hz"
+      ],
+      "constraint": {
+        "lower": 10000000.0,
+        "upper": 20000000.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "Filter_input_noise_nV_sqrtHz",
+      "value": 78.6105958021573,
+      "unit": "nV/sqrtHz",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "psf",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1",
+      "constraints": [
+        "Filter_input_noise_nV_sqrtHz"
+      ],
+      "constraint": {
+        "upper": 97.75
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": -0.03188611579653333,
+      "unit": "V",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 6.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {},
+      "reason": null,
+      "source": "native",
+      "condition_id": "FF_T27_S1p00",
+      "recipe_id": "gmc1113_filter_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "OTA_differential_gain_dB": {
+      "value": 33.15570245586786,
+      "unit": "dB",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "OTA_unity_gain_frequency_Hz": {
+      "value": 8501410192.662767,
+      "unit": "Hz",
+      "condition_id": "SS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "OTA_phase_margin_deg": {
+      "value": 86.54157976301954,
+      "unit": "deg",
+      "condition_id": "SF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "OTA_common_mode_gain_dB": {
+      "value": -20.402984534786775,
+      "unit": "dB",
+      "condition_id": "FS_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "Filter_cutoff_Hz": {
+      "value": 19997462.324435532,
+      "unit": "Hz",
+      "condition_id": "FF_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "Filter_input_noise_nV_sqrtHz": {
+      "value": 84.02191151035107,
+      "unit": "nV/sqrtHz",
+      "condition_id": "NN_T27_S1p10",
+      "point": {},
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {},
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S0p90/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.15
+    },
+    {
+      "job_id": "NN_T27_S0p90/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.15
+    },
+    {
+      "job_id": "NN_T27_S0p90/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.562,
+      "cpu_s": 1.21
+    },
+    {
+      "job_id": "NN_Tm40_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 11 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.156
+    },
+    {
+      "job_id": "NN_Tm40_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 11 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.155
+    },
+    {
+      "job_id": "NN_Tm40_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 11 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.644,
+      "cpu_s": 1.26
+    },
+    {
+      "job_id": "NN_T27_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.166
+    },
+    {
+      "job_id": "NN_T27_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.305,
+      "cpu_s": 0.171
+    },
+    {
+      "job_id": "NN_T27_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.654,
+      "cpu_s": 1.25
+    },
+    {
+      "job_id": "NN_T85_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.25,
+      "cpu_s": 0.153
+    },
+    {
+      "job_id": "NN_T85_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.452,
+      "cpu_s": 0.15
+    },
+    {
+      "job_id": "NN_T85_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.817,
+      "cpu_s": 1.32
+    },
+    {
+      "job_id": "NN_T27_S1p10/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.311,
+      "cpu_s": 0.15
+    },
+    {
+      "job_id": "NN_T27_S1p10/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.276,
+      "cpu_s": 0.151
+    },
+    {
+      "job_id": "NN_T27_S1p10/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.572,
+      "cpu_s": 1.22
+    },
+    {
+      "job_id": "SS_T27_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.278,
+      "cpu_s": 0.156
+    },
+    {
+      "job_id": "SS_T27_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.323,
+      "cpu_s": 0.153
+    },
+    {
+      "job_id": "SS_T27_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.629,
+      "cpu_s": 1.24
+    },
+    {
+      "job_id": "SF_T27_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.338,
+      "cpu_s": 0.155
+    },
+    {
+      "job_id": "SF_T27_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.323,
+      "cpu_s": 0.154
+    },
+    {
+      "job_id": "SF_T27_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.617,
+      "cpu_s": 1.23
+    },
+    {
+      "job_id": "FS_T27_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.32,
+      "cpu_s": 0.154
+    },
+    {
+      "job_id": "FS_T27_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.346,
+      "cpu_s": 0.151
+    },
+    {
+      "job_id": "FS_T27_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.705,
+      "cpu_s": 1.22
+    },
+    {
+      "job_id": "FF_T27_S1p00/gmc1113_ota_diff_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.272,
+      "cpu_s": 0.152
+    },
+    {
+      "job_id": "FF_T27_S1p00/gmc1113_ota_cm_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.286,
+      "cpu_s": 0.149
+    },
+    {
+      "job_id": "FF_T27_S1p00/gmc1113_filter_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 6 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 1.566,
+      "cpu_s": 1.2
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 27,
+    "analysis_executions": 63,
+    "condition_evaluations": 9,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 13.926,
+    "execution_wall_s": 46.041,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify",
+    "plan": "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/plan.json",
+    "jobs": [
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S0p90/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S0p90/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S0p90/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_Tm40_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_Tm40_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_Tm40_S1p00/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S1p00/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T85_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T85_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T85_S1p00/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S1p10/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S1p10/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/NN_T27_S1p10/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/SS_T27_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/SS_T27_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/SS_T27_S1p00/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/SF_T27_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/SF_T27_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/SF_T27_S1p00/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FS_T27_S1p00/gmc1113_filter_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FF_T27_S1p00/gmc1113_ota_diff_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FF_T27_S1p00/gmc1113_ota_cm_v1",
+      "<WORK>/four_papers_20261109/gmc_analogiq_import_20261113/gmc131126_final_export_verify/FF_T27_S1p00/gmc1113_filter_v1"
+    ]
+  }
+}

@@ -1,0 +1,2116 @@
+{
+  "schema_version": 1,
+  "request_id": "golden_ldo24c_conventional_task_001",
+  "task_id": "ldo24c_conventional_task_001",
+  "topology_id": "ldo24c_conventional",
+  "candidate_hash": "92f6c13c43387af940a312e8d5c69694edf224ecbf9fbe8435b440c70cdbe5dc",
+  "evaluator_hash": "aad679dbabfa408162053907852a55f236c21ce123f1e6354ebd8bab42acb02d",
+  "digests": {
+    "task": "442497d0d4481398c7b46d5747cc6c5fc4e885e241fc89a78702d14df15e48f3",
+    "candidate": "92f6c13c43387af940a312e8d5c69694edf224ecbf9fbe8435b440c70cdbe5dc",
+    "parameterization": "59bc67f9e18e3db4f07c73d9737460f884a13231d061aa98f54d836d1cf51ae1",
+    "dut_source_netlist": "ae2a5e8bf1ed35402fcd1a067dbc83536f77041ab3dcf7bbf2005c49193e5e0b",
+    "dut_subckt": "49c96d353c008248c8a807405f5da607b9eb2cbe8f5af6eb9d07fdcbbd0cbbda",
+    "models": "bed33ed697b2dd877570379c9a01162dc37bf2c2654757e9e935af43b2047f72",
+    "recipes": "561fd1fb0c43abdb67137433fabb408bb82a182735dc226bb25c85ccb907e3c1",
+    "execution_profile": "4a2c3964902c6259c22e2a3ff8b24e8d4b249ef52ba009281488d8e010155864",
+    "analogiq": "0.1.0",
+    "evaluator": "aad679dbabfa408162053907852a55f236c21ce123f1e6354ebd8bab42acb02d"
+  },
+  "approval": {
+    "topology": "unapproved",
+    "task": "unapproved",
+    "parameterization": "unapproved"
+  },
+  "release_eligible": false,
+  "execution_status": "completed",
+  "verification_status": "full_search_evaluation",
+  "feasibility": "feasible",
+  "coverage": {
+    "required_measurement_checks": 39,
+    "completed_measurement_checks": 39,
+    "valid_measurement_checks": 39
+  },
+  "objective": null,
+  "measurements": [
+    {
+      "metric": "output_voltage_V",
+      "value": 1.4805733725,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "output_voltage_V_lo",
+        "output_voltage_V_hi"
+      ],
+      "constraint": {
+        "upper": 1.6489
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 5.0818442183e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "ground_current_A"
+      ],
+      "constraint": {
+        "upper": 5.082e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 0.001509345541632147,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "line_regulation_pos",
+        "line_regulation_neg"
+      ],
+      "constraint": {
+        "lower": -0.00275
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": 0.017158099162132068,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "dropout_voltage_V"
+      ],
+      "constraint": {
+        "upper": 0.017159999999999998
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "load_regulation_V_per_A",
+      "value": -1.1410810265810567,
+      "unit": "V/A",
+      "status": "valid",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_load_v1",
+      "constraints": [
+        "load_regulation_pos",
+        "load_regulation_neg"
+      ],
+      "constraint": {
+        "lower": -1.4300000000000002
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_min_load_A",
+      "value": 5.0693419411e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_load_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 57.789939089,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 57100.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_ugbw_div10_dB"
+      ],
+      "constraint": {
+        "lower": 53.2848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 56.884971377,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 571000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_ugbw_dB"
+      ],
+      "constraint": {
+        "lower": 56.884850188786494
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 60.055667263,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_1MHz_dB"
+      ],
+      "constraint": {
+        "lower": 58.384850188786494
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 82.462141814,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 5710000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_10ugbw_dB"
+      ],
+      "constraint": {
+        "lower": 81.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 81.04688388191991,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB"
+      ],
+      "constraint": {
+        "lower": 75.1848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 546647.341948769,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz"
+      ],
+      "constraint": {
+        "lower": 513900.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 60.6347210926366,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg"
+      ],
+      "constraint": {
+        "lower": 58.589999999999996
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 20.4923106082564,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "gain_margin_dB"
+      ],
+      "constraint": {
+        "lower": 20.474850188786498
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.10707274642487691,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "devices_out_of_saturation"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "forward_biased_junctions"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "devices_outside_rails"
+      ],
+      "constraint": {
+        "upper": 0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_voltage_temp_variation_V",
+      "value": 0.00029434969999986293,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "temp_low_C": -50,
+        "temp_high_C": 100
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_temp_v1",
+      "constraints": [
+        "output_voltage_temp_variation_V"
+      ],
+      "constraint": {
+        "upper": 0.00044
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "temperature_coefficient_ppm_per_C",
+      "value": 1.3253860997202158,
+      "unit": "ppm/C",
+      "status": "valid",
+      "point": {
+        "temp_low_C": -50,
+        "temp_high_C": 100
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_temp_v1"
+    },
+    {
+      "metric": "undershoot_V",
+      "value": 0.0014057701000000922,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_load_transient_v1",
+      "constraints": [
+        "load_undershoot_V"
+      ],
+      "constraint": {
+        "upper": 0.0014299999999999998
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "overshoot_V",
+      "value": 0.0012449194999999413,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_load_transient_v1"
+    },
+    {
+      "metric": "settling_time_up_s",
+      "value": 2.3322461999999934e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_load_transient_v1",
+      "constraints": [
+        "load_settling_up_s"
+      ],
+      "constraint": {
+        "upper": 2.7500000000000004e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "settling_time_down_s",
+      "value": 2.8543063499999978e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_load_transient_v1",
+      "constraints": [
+        "load_settling_down_s"
+      ],
+      "constraint": {
+        "upper": 2.86e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "line_transient_deviation_V",
+      "value": 0.0004226172999999278,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_low_V": 1.7,
+        "vin_high_V": 1.98
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_step_v1",
+      "constraints": [
+        "line_transient_deviation_V"
+      ],
+      "constraint": {
+        "upper": 0.00077
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "line_transient_settling_up_s",
+      "value": 3.4385031699999996e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "vin_low_V": 1.7,
+        "vin_high_V": 1.98
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_step_v1",
+      "constraints": [
+        "line_settling_up_s"
+      ],
+      "constraint": {
+        "upper": 4.07e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "line_transient_settling_down_s",
+      "value": 3.4693157499999887e-06,
+      "unit": "s",
+      "status": "valid",
+      "point": {
+        "vin_low_V": 1.7,
+        "vin_high_V": 1.98
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "NN_T27_S1p00",
+      "recipe_id": "ldo_line_step_v1",
+      "constraints": [
+        "line_settling_down_s"
+      ],
+      "constraint": {
+        "upper": 4.07e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "output_voltage_V",
+      "value": 1.4799027665,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00_SSF_Vmin_T100",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "output_voltage_V_min_wc"
+      ],
+      "constraint": {
+        "lower": 1.3482
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 4.8517719034e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_T100_S1p00_SSF_Vmin_T100",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 0.0016309571530386574,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "SS_T100_S1p00_SSF_Vmin_T100",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": 0.03254373811746136,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "SS_T100_S1p00_SSF_Vmin_T100",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "output_voltage_V",
+      "value": 1.4830145299,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p16_FFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "output_voltage_V_max_wc"
+      ],
+      "constraint": {
+        "upper": 1.6522000000000001
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 4.7846321661e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p16_FFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 0.0014629456519929132,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "FF_T100_S1p16_FFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": -0.009742847630928253,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "FF_T100_S1p16_FFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "output_voltage_V",
+      "value": 1.4796911186,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 5.5534652624e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 0.002712910424636426,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": 0.09860399157909261,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "dropout_voltage_V_wc"
+      ],
+      "constraint": {
+        "upper": 0.098604
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 43.344789372,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 57100.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_ugbw_div10_dB_wc"
+      ],
+      "constraint": {
+        "lower": 42.2948501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 54.619836271,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 571000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 57.872078402,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 86.239988157,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 5710000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 69.7440612778042,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_gain_lf_dB_wc"
+      ],
+      "constraint": {
+        "lower": 66.0848501887865
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 419213.281384779,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 95.9458691534188,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 22.6011385564589,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.0930792253138789,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "output_voltage_V",
+      "value": 1.4815778082,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p16_FFF_Vmax_T100",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "ground_current_A",
+      "value": 4.8194368463e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_T100_S1p16_FFF_Vmax_T100",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "ground_current_A_wc"
+      ],
+      "constraint": {
+        "upper": 7.073e-06
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "line_regulation_V_per_V",
+      "value": 0.0014888236831211985,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "FF_T100_S1p16_FFF_Vmax_T100",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "dropout_voltage_V",
+      "value": 0.0062374840566856715,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "reason": null,
+      "source": "waveform",
+      "condition_id": "FF_T100_S1p16_FFF_Vmax_T100",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 81.54908980169014,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 14063.5912316215,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "loop_ugf_Hz_wc"
+      ],
+      "constraint": {
+        "lower": 10800.0
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 84.8651707270978,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 60.1512853620675,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.040227690861675186,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 9e-06
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 88.67106479784793,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 626352.835008293,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 60.1952146436121,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "phase_margin_deg_wc"
+      ],
+      "constraint": {
+        "lower": 43.74
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 20.5249761893237,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.38285832804209197,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_gain_lf_dB",
+      "value": 88.57702733219946,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "loop_unity_gain_frequency_Hz",
+      "value": 793187.130181382,
+      "unit": "Hz",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "phase_margin_deg",
+      "value": 58.5908682202949,
+      "unit": "deg",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "gain_margin_dB",
+      "value": 15.9166454430275,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "stb",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1",
+      "constraints": [
+        "gain_margin_dB_wc"
+      ],
+      "constraint": {
+        "lower": 12.624850188786496
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "saturation_margin_min_V",
+      "value": 0.21456506752456322,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_out_of_saturation",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "forward_biased_junctions",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "devices_outside_rails",
+      "value": 0.0,
+      "unit": "count",
+      "status": "valid",
+      "point": {
+        "load_A": 0.0011
+      },
+      "reason": null,
+      "source": "native",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "recipe_id": "ldo_stb_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 57.038890963,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 57100.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 56.469540959,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 571000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_ugbw_dB_wc"
+      ],
+      "constraint": {
+        "lower": 50.164850188786495
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 53.286030661,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 64.052513619,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 5710000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 57.380753134,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 57100.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 58.886438918,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 571000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 54.849449611,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax",
+      "recipe_id": "ldo_psrr_v1"
+    },
+    {
+      "metric": "psrr_dB",
+      "value": 63.908559477,
+      "unit": "dB",
+      "status": "valid",
+      "point": {
+        "freq_Hz": 5710000.0
+      },
+      "reason": null,
+      "source": "measure",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax",
+      "recipe_id": "ldo_psrr_v1",
+      "constraints": [
+        "psr_10ugbw_dB_wc"
+      ],
+      "constraint": {
+        "lower": 56.984850188786496
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_mean.output_voltage_V",
+      "value": 1.4807186208699998,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1",
+      "constraints": [
+        "mc_output_voltage_mean_lo",
+        "mc_output_voltage_mean_hi"
+      ],
+      "constraint": {
+        "upper": 1.64824
+      },
+      "constraint_pass": true
+    },
+    {
+      "metric": "mc_sigma.output_voltage_V",
+      "value": 0.00877342369361256,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "mc_mean.ground_current_A",
+      "value": 5.106167658e-06,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "mc_sigma.ground_current_A",
+      "value": 3.122334342322816e-07,
+      "unit": "A",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "mc_mean.line_regulation_V_per_V",
+      "value": 0.0015048889877828215,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "mc_sigma.line_regulation_V_per_V",
+      "value": 4.577330860286569e-05,
+      "unit": "V/V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "mc_mean.dropout_voltage_V",
+      "value": 0.017196202498617908,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    },
+    {
+      "metric": "mc_sigma.dropout_voltage_V",
+      "value": 0.0011713871729063477,
+      "unit": "V",
+      "status": "valid",
+      "point": {
+        "vin_V": 1.7
+      },
+      "source": "monte_carlo",
+      "samples": {
+        "requested": 20,
+        "valid": 20
+      },
+      "reason": null,
+      "condition_id": "NN_T27_S1p00_MC",
+      "recipe_id": "ldo_line_v1"
+    }
+  ],
+  "worst_case_metrics": {
+    "output_voltage_V_lo": {
+      "value": 1.4805733725,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "output_voltage_V_hi": {
+      "value": 1.4805733725,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "ground_current_A": {
+      "value": 5.0818442183e-06,
+      "unit": "A",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "dropout_voltage_V": {
+      "value": 0.017158099162132068,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "line_regulation_pos": {
+      "value": 0.001509345541632147,
+      "unit": "V/V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "line_regulation_neg": {
+      "value": 0.001509345541632147,
+      "unit": "V/V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "load_regulation_pos": {
+      "value": -1.1410810265810567,
+      "unit": "V/A",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "complete": true
+    },
+    "load_regulation_neg": {
+      "value": -1.1410810265810567,
+      "unit": "V/A",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "complete": true
+    },
+    "output_voltage_temp_variation_V": {
+      "value": 0.00029434969999986293,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "temp_low_C": -50,
+        "temp_high_C": 100
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB": {
+      "value": 81.04688388191991,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz": {
+      "value": 546647.341948769,
+      "unit": "Hz",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "phase_margin_deg": {
+      "value": 60.6347210926366,
+      "unit": "deg",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "gain_margin_dB": {
+      "value": 20.4923106082564,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "psr_ugbw_div10_dB": {
+      "value": 57.789939089,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "freq_Hz": 57100.0
+      },
+      "complete": true
+    },
+    "psr_ugbw_dB": {
+      "value": 56.884971377,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "freq_Hz": 571000.0
+      },
+      "complete": true
+    },
+    "psr_1MHz_dB": {
+      "value": 60.055667263,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "freq_Hz": 1000000.0
+      },
+      "complete": true
+    },
+    "psr_10ugbw_dB": {
+      "value": 82.462141814,
+      "unit": "dB",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "freq_Hz": 5710000.0
+      },
+      "complete": true
+    },
+    "load_undershoot_V": {
+      "value": 0.0014057701000000922,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "complete": true
+    },
+    "load_settling_up_s": {
+      "value": 2.3322461999999934e-06,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "complete": true
+    },
+    "load_settling_down_s": {
+      "value": 2.8543063499999978e-06,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_low_A": 9e-06,
+        "load_high_A": 0.0011
+      },
+      "complete": true
+    },
+    "line_settling_up_s": {
+      "value": 3.4385031699999996e-06,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_low_V": 1.7,
+        "vin_high_V": 1.98
+      },
+      "complete": true
+    },
+    "line_settling_down_s": {
+      "value": 3.4693157499999887e-06,
+      "unit": "s",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_low_V": 1.7,
+        "vin_high_V": 1.98
+      },
+      "complete": true
+    },
+    "line_transient_deviation_V": {
+      "value": 0.0004226172999999278,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "vin_low_V": 1.7,
+        "vin_high_V": 1.98
+      },
+      "complete": true
+    },
+    "mc_output_voltage_mean_lo": {
+      "value": 1.4807186208699998,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00_MC",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "mc_output_voltage_mean_hi": {
+      "value": 1.4807186208699998,
+      "unit": "V",
+      "condition_id": "NN_T27_S1p00_MC",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "output_voltage_V_min_wc": {
+      "value": 1.4799027665,
+      "unit": "V",
+      "condition_id": "SS_T100_S1p00_SSF_Vmin_T100",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "output_voltage_V_max_wc": {
+      "value": 1.4830145299,
+      "unit": "V",
+      "condition_id": "FF_T100_S1p16_FFS_Vmax_T100_Imin",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "complete": true
+    },
+    "dropout_voltage_V_wc": {
+      "value": 0.09860399157909261,
+      "unit": "V",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "point": {
+        "vin_V": 1.7
+      },
+      "complete": true
+    },
+    "ground_current_A_wc": {
+      "value": 4.8194368463e-06,
+      "unit": "A",
+      "condition_id": "FF_T100_S1p16_FFF_Vmax_T100",
+      "point": {
+        "vin_V": 1.9799985000000002
+      },
+      "complete": true
+    },
+    "loop_gain_lf_dB_wc": {
+      "value": 69.7440612778042,
+      "unit": "dB",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "loop_ugf_Hz_wc": {
+      "value": 14063.5912316215,
+      "unit": "Hz",
+      "condition_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin",
+      "point": {
+        "load_A": 9e-06
+      },
+      "complete": true
+    },
+    "phase_margin_deg_wc": {
+      "value": 60.1952146436121,
+      "unit": "deg",
+      "condition_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "gain_margin_dB_wc": {
+      "value": 15.9166454430275,
+      "unit": "dB",
+      "condition_id": "FS_T100_S1p16_FSS_Vmax_T100",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "psr_ugbw_div10_dB_wc": {
+      "value": 43.344789372,
+      "unit": "dB",
+      "condition_id": "SS_Tm50_S1p00_SSF_Tmin",
+      "point": {
+        "freq_Hz": 57100.0
+      },
+      "complete": true
+    },
+    "psr_ugbw_dB_wc": {
+      "value": 56.469540959,
+      "unit": "dB",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin",
+      "point": {
+        "freq_Hz": 571000.0
+      },
+      "complete": true
+    },
+    "psr_10ugbw_dB_wc": {
+      "value": 63.908559477,
+      "unit": "dB",
+      "condition_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax",
+      "point": {
+        "freq_Hz": 5710000.0
+      },
+      "complete": true
+    },
+    "devices_out_of_saturation": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "forward_biased_junctions": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    },
+    "devices_outside_rails": {
+      "value": 0.0,
+      "unit": "count",
+      "condition_id": "NN_T27_S1p00",
+      "point": {
+        "load_A": 0.0011
+      },
+      "complete": true
+    }
+  },
+  "violations": [],
+  "infrastructure": [
+    {
+      "job_id": "NN_T27_S1p00/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 6 notices",
+      "extraction_error": null,
+      "wall_s": 0.532,
+      "cpu_s": 0.319
+    },
+    {
+      "job_id": "NN_T27_S1p00/ldo_load_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 6 notices",
+      "extraction_error": null,
+      "wall_s": 0.28,
+      "cpu_s": 0.15
+    },
+    {
+      "job_id": "NN_T27_S1p00/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.332,
+      "cpu_s": 0.17
+    },
+    {
+      "job_id": "NN_T27_S1p00/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.265,
+      "cpu_s": 0.146
+    },
+    {
+      "job_id": "NN_T27_S1p00/ldo_temp_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 7 notices",
+      "extraction_error": null,
+      "wall_s": 0.377,
+      "cpu_s": 0.212
+    },
+    {
+      "job_id": "NN_T27_S1p00/ldo_load_transient_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 0.975,
+      "cpu_s": 0.8150000000000001
+    },
+    {
+      "job_id": "NN_T27_S1p00/ldo_line_step_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 1 notice",
+      "extraction_error": null,
+      "wall_s": 1.082,
+      "cpu_s": 0.9450000000000001
+    },
+    {
+      "job_id": "SS_T100_S1p00_SSF_Vmin_T100/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 6 notices",
+      "extraction_error": null,
+      "wall_s": 0.468,
+      "cpu_s": 0.315
+    },
+    {
+      "job_id": "FF_T100_S1p16_FFS_Vmax_T100_Imin/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 6 notices",
+      "extraction_error": null,
+      "wall_s": 0.434,
+      "cpu_s": 0.296
+    },
+    {
+      "job_id": "SS_Tm50_S1p00_SSF_Tmin/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 11 notices",
+      "extraction_error": null,
+      "wall_s": 0.468,
+      "cpu_s": 0.316
+    },
+    {
+      "job_id": "SS_Tm50_S1p00_SSF_Tmin/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.267,
+      "cpu_s": 0.134
+    },
+    {
+      "job_id": "SS_Tm50_S1p00_SSF_Tmin/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.314,
+      "cpu_s": 0.15
+    },
+    {
+      "job_id": "FF_T100_S1p16_FFF_Vmax_T100/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 6 notices",
+      "extraction_error": null,
+      "wall_s": 0.415,
+      "cpu_s": 0.301
+    },
+    {
+      "job_id": "SF_T100_S1p16_SFS_Vmax_T100_Imin/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.116
+    },
+    {
+      "job_id": "SS_Tm50_S1p16_SSF_Vmax_Tmin/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.315,
+      "cpu_s": 0.156
+    },
+    {
+      "job_id": "FS_T100_S1p16_FSS_Vmax_T100/ldo_stb_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 3 notices",
+      "extraction_error": null,
+      "wall_s": 0.224,
+      "cpu_s": 0.10400000000000001
+    },
+    {
+      "job_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.264,
+      "cpu_s": 0.134
+    },
+    {
+      "job_id": "FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax/ldo_psrr_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 2 notices",
+      "extraction_error": null,
+      "wall_s": 0.319,
+      "cpu_s": 0.17300000000000001
+    },
+    {
+      "job_id": "NN_T27_S1p00_MC/ldo_line_v1",
+      "backend_status": "completed",
+      "message": "spectre completes with 0 errors, 0 warnings, and 49 notices",
+      "extraction_error": null,
+      "wall_s": 3.023,
+      "cpu_s": 2.56
+    }
+  ],
+  "cost": {
+    "simulator_invocations": 19,
+    "analysis_executions": 38,
+    "condition_evaluations": 11,
+    "cache_hits": 0,
+    "retry_attempts": 0,
+    "simulator_cpu_s": 7.512,
+    "execution_wall_s": 5.086,
+    "queue_wait_s": null
+  },
+  "artifacts": {
+    "run_dir": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001",
+    "plan": "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/plan.json",
+    "jobs": [
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_load_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_temp_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_load_transient_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00/ldo_line_step_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/SS_T100_S1p00_SSF_Vmin_T100/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/FF_T100_S1p16_FFS_Vmax_T100_Imin/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/SS_Tm50_S1p00_SSF_Tmin/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/SS_Tm50_S1p00_SSF_Tmin/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/SS_Tm50_S1p00_SSF_Tmin/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/FF_T100_S1p16_FFF_Vmax_T100/ldo_line_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/SF_T100_S1p16_SFS_Vmax_T100_Imin/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/SS_Tm50_S1p16_SSF_Vmax_Tmin/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/FS_T100_S1p16_FSS_Vmax_T100/ldo_stb_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/FF_Tm50_S1p00_FFS_Vmin_Tmin/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/FF_Tm50_S1p00_FFS_Vmin_Tmin_Rpmax/ldo_psrr_v1",
+      "<WORK>/scratch/curator/measdgt_2026-11-02/golden/ldo24c_conventional_task_001/NN_T27_S1p00_MC/ldo_line_v1"
+    ]
+  }
+}

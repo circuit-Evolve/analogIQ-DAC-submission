@@ -1,0 +1,14 @@
+design( "DAC_20261110_TEMP_GOLDEN" "temperature_sensor_tb" "schematic")
+modelFile( 
+    '("<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice" "tt")
+)
+analysis('dc ?param "temp"  ?start "0"  ?stop "100"  
+		?step "1"  )
+option(	'scale  "" 
+	'iabstol  "1e-14" 
+	'vabstol  "1e-09" 
+	'reltol  "1e-06" 
+)
+saveOption( 'subcktprobelvl "5" )
+saveOption( 'currents "all" )
+temp( 27 ) 

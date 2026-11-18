@@ -1,0 +1,2975 @@
+{
+ "schema": "analogiq.sizing_problem/1",
+ "task_id": "gbfc21_task_001",
+ "topology_id": "gbfc21",
+ "family": "amplifier",
+ "technology_id": "gpdk180",
+ "parameterization_id": "gbfc21_p1_counts_20261112",
+ "execution_profile": "search_full",
+ "description": "Benchmark task (docs/benchmark_rules.md). Fully differential gain-boosted folded-cascode amplifier with CMFB and N-/P-input auxiliary amplifiers (Sarkar, Ghosh, Chatterjee, IEEE ISIE 2021, Figs. 1/3/5), gpdk180, 1.8 V. Conditions: nominal (TT 27 C) plus the paper's Table IV process corners SS/FF/FS/SF (gain, UGF, phase margin, power). Targets are the paper's printed values with the 10 % tolerance. No Monte Carlo (the paper reports none). No objective.",
+ "source": {
+  "doi": "10.1109/ISIE45552.2021.9576208",
+  "title": "Sarkar, Ghosh, Chatterjee: Design of a 2 mW Power, 112 dB Gain-Boosted, Folded Cascode Amplifier in 0.18 um Process (IEEE ISIE 2021)",
+  "figure": "Fig. 1 (p. 1, main PMOS-input folded cascode with CMFB and the N-input / P-input auxiliary amplifiers), Fig. 3 (P-input auxiliary), Fig. 5 (N-input auxiliary)"
+ },
+ "variables": [
+  {
+   "name": "W_P1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "main PMOS top current sources Mp1/Mp2 (gate Vb1; set the branch current of A1/A1'; paper Fig. 1: 150/0.72 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp1",
+     "M_Mp2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "main PMOS top current sources Mp1/Mp2 (gate Vb1; set the branch current of A1/A1'; paper Fig. 1: 150/0.72 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp1",
+     "M_Mp2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "M_P1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "main PMOS top current sources Mp1/Mp2 (gate Vb1; set the branch current of A1/A1'; paper Fig. 1: 150/0.72 um): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp1",
+     "M_Mp2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_P3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "main PMOS cascodes Mp3/Mp4 (gate driven by the N-input auxiliary amplifier; paper 20/0.72 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp3",
+     "M_Mp4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "main PMOS cascodes Mp3/Mp4 (gate driven by the N-input auxiliary amplifier; paper 20/0.72 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp3",
+     "M_Mp4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_P5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "CMFB tail current sources Mp5/Mp6 (gate Vb1; paper 4.8/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp5",
+     "M_Mp6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "CMFB tail current sources Mp5/Mp6 (gate Vb1; paper 4.8/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp5",
+     "M_Mp6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_P7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "CMFB sense devices Mp7/Mp10 (gates at the outputs; paper 2.4/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp7",
+     "M_Mp10"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "CMFB sense devices Mp7/Mp10 (gates at the outputs; paper 2.4/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp7",
+     "M_Mp10"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_P8",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "CMFB reference devices Mp8/Mp9 (gates at VCM; paper 2.4/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp8",
+     "M_Mp9"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P8",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "CMFB reference devices Mp8/Mp9 (gates at VCM; paper 2.4/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp8",
+     "M_Mp9"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_P11",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "main PMOS input pair Mp11/Mp12 (VINM/VINP; gm, noise, UGF; paper 110/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp11",
+     "M_Mp12"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P11",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "main PMOS input pair Mp11/Mp12 (VINM/VINP; gm, noise, UGF; paper 110/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp11",
+     "M_Mp12"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "M_P11",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "main PMOS input pair Mp11/Mp12 (VINM/VINP; gm, noise, UGF; paper 110/0.18 um): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp11",
+     "M_Mp12"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_P13",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "main PMOS input-pair tail Mp13 (gate Vb1; paper 180/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp13"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_P13",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "main PMOS input-pair tail Mp13 (gate Vb1; paper 180/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp13"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "M_P13",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "main PMOS input-pair tail Mp13 (gate Vb1; paper 180/0.18 um): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp13"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_N1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "main NMOS cascodes Mn1/Mn2 (gate driven by the P-input auxiliary amplifier; paper 10/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn1",
+     "M_Mn2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_N1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "main NMOS cascodes Mn1/Mn2 (gate driven by the P-input auxiliary amplifier; paper 10/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn1",
+     "M_Mn2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_N3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "main NMOS bottom current sinks Mn3/Mn4 (gate = CMFB node; paper 150/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn3",
+     "M_Mn4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_N3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "main NMOS bottom current sinks Mn3/Mn4 (gate = CMFB node; paper 150/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn3",
+     "M_Mn4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "M_N3",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "main NMOS bottom current sinks Mn3/Mn4 (gate = CMFB node; paper 150/0.18 um): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn3",
+     "M_Mn4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_N9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "CMFB diode Mn9 (CMFB node, mirrors to Mn3/Mn4; paper 0.72/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn9"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_N9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "CMFB diode Mn9 (CMFB node, mirrors to Mn3/Mn4; paper 0.72/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn9"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_N10",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "CMFB diode Mn10 (CM_OUTER load; paper 0.72/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn10"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_N10",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "CMFB diode Mn10 (CM_OUTER load; paper 0.72/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn10"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux PMOS top current sources N_Mp1/N_Mp2 (gate N_VB1; paper 9/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mp1",
+     "N_Mp2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux PMOS top current sources N_Mp1/N_Mp2 (gate N_VB1; paper 9/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mp1",
+     "N_Mp2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux PMOS cascodes N_Mp3/N_Mp4 (gate N_VB2; paper 1.8/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mp3",
+     "N_Mp4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux PMOS cascodes N_Mp3/N_Mp4 (gate N_VB2; paper 1.8/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mp3",
+     "N_Mp4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA_C",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux NMOS cascodes N_Mn1/N_Mn2 (gate N_VB3; paper 0.9/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn1",
+     "N_Mn2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA_C",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux NMOS cascodes N_Mn1/N_Mn2 (gate N_VB3; paper 0.9/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn1",
+     "N_Mn2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA_S",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux NMOS sinks N_Mn3/N_Mn4 (gate N_VB4; paper 0.9/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn3",
+     "N_Mn4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA_S",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux NMOS sinks N_Mn3/N_Mn4 (gate N_VB4; paper 0.9/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn3",
+     "N_Mn4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux CMFB devices N_Mn5/N_Mn6 (gates at the aux outputs; paper 20/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn5",
+     "N_Mn6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux CMFB devices N_Mn5/N_Mn6 (gates at the aux outputs; paper 20/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn5",
+     "N_Mn6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux NMOS input pair N_Mn7/N_Mn8 (gates A1/A1'; paper 1.8/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn7",
+     "N_Mn8"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux NMOS input pair N_Mn7/N_Mn8 (gates A1/A1'; paper 1.8/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn7",
+     "N_Mn8"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_NA9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "N-aux tail N_Mn9 (gate N_VB4; paper 5.4/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn9"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_NA9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "N-aux tail N_Mn9 (gate N_VB4; paper 5.4/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn9"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_PA1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux PMOS top current sources P_Mp1/P_Mp2 (gate P_VB1; paper 2.41/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp1",
+     "P_Mp2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA1",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux PMOS top current sources P_Mp1/P_Mp2 (gate P_VB1; paper 2.41/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp1",
+     "P_Mp2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_PA3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux PMOS cascodes P_Mp3/P_Mp4 (gate P_VB2; paper 2.41/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp3",
+     "P_Mp4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA3",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux PMOS cascodes P_Mp3/P_Mp4 (gate P_VB2; paper 2.41/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp3",
+     "P_Mp4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_PA5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux PMOS input pair P_Mp5/P_Mp6 (gates B1/B1'; paper 4.82/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp5",
+     "P_Mp6"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA5",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux PMOS input pair P_Mp5/P_Mp6 (gates B1/B1'; paper 4.82/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp5",
+     "P_Mp6"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_PA7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux CMFB devices P_Mp7/P_Mp8 (gates at the aux outputs; paper 53.64/1 um total): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp7",
+     "P_Mp8"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA7",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux CMFB devices P_Mp7/P_Mp8 (gates at the aux outputs; paper 53.64/1 um total): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp7",
+     "P_Mp8"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "M_PA7",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "P-aux CMFB devices P_Mp7/P_Mp8 (gates at the aux outputs; paper 53.64/1 um total): multiplier m",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp7",
+     "P_Mp8"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "W_PA9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux tail P_Mp9 (gate P_VB1; paper 14.46/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp9"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA9",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 4e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux tail P_Mp9 (gate P_VB1; paper 14.46/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp9"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_PA_C",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux NMOS cascodes P_Mn1/P_Mn2 (gate P_VB3; paper 0.67/0.18 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mn1",
+     "P_Mn2"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA_C",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux NMOS cascodes P_Mn1/P_Mn2 (gate P_VB3; paper 0.67/0.18 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mn1",
+     "P_Mn2"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "W_PA_S",
+   "kind": "real",
+   "unit": "m",
+   "lower": 4e-07,
+   "upper": 0.0001,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_w",
+   "role": "P-aux NMOS sinks P_Mn3/P_Mn4 (gate P_VB4; paper 3.4/1 um): width",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mn3",
+     "P_Mn4"
+    ],
+    "parameter": "w"
+   }
+  },
+  {
+   "name": "L_PA_S",
+   "kind": "real",
+   "unit": "m",
+   "lower": 1.8e-07,
+   "upper": 2e-05,
+   "scale": "log",
+   "start": 1e-06,
+   "quantity": "mos_l",
+   "role": "P-aux NMOS sinks P_Mn3/P_Mn4 (gate P_VB4; paper 3.4/1 um): length",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mn3",
+     "P_Mn4"
+    ],
+    "parameter": "l"
+   }
+  },
+  {
+   "name": "I_B1",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the pmos1 18/0.18 diode generating Vb1 (gates of Mp1, Mp2, Mp5, Mp6, Mp13): sets the main branch currents and the power",
+   "binding": {
+    "type": "external_bias",
+    "pin": "Vb1"
+   }
+  },
+  {
+   "name": "I_NB1",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the pmos1 1.8/1 diode generating N_VB1 (gates of the N-aux top sources N_Mp1, N_Mp2)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "N_VB1"
+   }
+  },
+  {
+   "name": "I_NB2",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the pmos1 0.5/1 diode generating N_VB2 (gates of the N-aux PMOS cascodes N_Mp3, N_Mp4)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "N_VB2"
+   }
+  },
+  {
+   "name": "I_NB3",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the nmos1 0.5/1 diode generating N_VB3 (gates of the N-aux NMOS cascodes N_Mn1, N_Mn2)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "N_VB3"
+   }
+  },
+  {
+   "name": "I_NB4",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the nmos1 0.9/1 diode generating N_VB4 (gates of N_Mn3, N_Mn4, N_Mn9)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "N_VB4"
+   }
+  },
+  {
+   "name": "I_PB1",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the pmos1 2.41/1 diode generating P_VB1 (gates of P_Mp1, P_Mp2, P_Mp9)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "P_VB1"
+   }
+  },
+  {
+   "name": "I_PB2",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the pmos1 0.5/1 diode generating P_VB2 (gates of the P-aux PMOS cascodes P_Mp3, P_Mp4)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "P_VB2"
+   }
+  },
+  {
+   "name": "I_PB3",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the nmos1 0.5/1 diode generating P_VB3 (gates of the P-aux NMOS cascodes P_Mn1, P_Mn2)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "P_VB3"
+   }
+  },
+  {
+   "name": "I_PB4",
+   "kind": "real",
+   "unit": "A",
+   "lower": 1e-10,
+   "upper": 0.01,
+   "scale": "log",
+   "start": 1e-05,
+   "quantity": "bias_current",
+   "role": "reference current of the nmos1 3.4/1 diode generating P_VB4 (gates of P_Mn3, P_Mn4)",
+   "binding": {
+    "type": "external_bias",
+    "pin": "P_VB4"
+   }
+  },
+  {
+   "name": "M_P3",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mp3, M_Mp4; preserves matched width/length group W_P3",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp3",
+     "M_Mp4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_P5",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mp5, M_Mp6; preserves matched width/length group W_P5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp5",
+     "M_Mp6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_P7",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mp7, M_Mp10; preserves matched width/length group W_P7",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp7",
+     "M_Mp10"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_P8",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mp8, M_Mp9; preserves matched width/length group W_P8",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mp8",
+     "M_Mp9"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_N1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mn1, M_Mn2; preserves matched width/length group W_N1",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn1",
+     "M_Mn2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_N9",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mn9; preserves matched width/length group W_N9",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn9"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_N10",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for M_Mn10; preserves matched width/length group W_N10",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "M_Mn10"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mp1, N_Mp2; preserves matched width/length group W_NA1",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mp1",
+     "N_Mp2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA3",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mp3, N_Mp4; preserves matched width/length group W_NA3",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mp3",
+     "N_Mp4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA_C",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mn1, N_Mn2; preserves matched width/length group W_NA_C",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn1",
+     "N_Mn2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA_S",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mn3, N_Mn4; preserves matched width/length group W_NA_S",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn3",
+     "N_Mn4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA5",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mn5, N_Mn6; preserves matched width/length group W_NA5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn5",
+     "N_Mn6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA7",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mn7, N_Mn8; preserves matched width/length group W_NA7",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn7",
+     "N_Mn8"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_NA9",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for N_Mn9; preserves matched width/length group W_NA9",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "N_Mn9"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_PA1",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for P_Mp1, P_Mp2; preserves matched width/length group W_PA1",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp1",
+     "P_Mp2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_PA3",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for P_Mp3, P_Mp4; preserves matched width/length group W_PA3",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp3",
+     "P_Mp4"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_PA5",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for P_Mp5, P_Mp6; preserves matched width/length group W_PA5",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp5",
+     "P_Mp6"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_PA9",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for P_Mp9; preserves matched width/length group W_PA9",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mp9"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_PA_C",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for P_Mn1, P_Mn2; preserves matched width/length group W_PA_C",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mn1",
+     "P_Mn2"
+    ],
+    "parameter": "m"
+   }
+  },
+  {
+   "name": "M_PA_S",
+   "kind": "int",
+   "unit": "",
+   "lower": 1,
+   "upper": 100,
+   "scale": "lin",
+   "start": 1,
+   "quantity": "mos_count",
+   "role": "Parallel device multiplier for P_Mn3, P_Mn4; preserves matched width/length group W_PA_S",
+   "binding": {
+    "type": "instance_parameter",
+    "instances": [
+     "P_Mn3",
+     "P_Mn4"
+    ],
+    "parameter": "m"
+   }
+  }
+ ],
+ "dependent_parameters": {},
+ "conditions": [
+  {
+   "id": "NN_T27_S1p00",
+   "model_set": "NN",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": true
+  },
+  {
+   "id": "SS_T27_S1p00",
+   "model_set": "SS",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "FF_T27_S1p00",
+   "model_set": "FF",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "FS_T27_S1p00",
+   "model_set": "FS",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  },
+  {
+   "id": "SF_T27_S1p00",
+   "model_set": "SF",
+   "temperature_C": 27.0,
+   "supply_V": 1.8,
+   "supply_scale": 1.0,
+   "nominal": false
+  }
+ ],
+ "operating_conditions": {
+  "supply_V": {
+   "value": 1.8,
+   "provenance": "paper: abstract / Sec. I 'based on the 0.18 um, 1.8 V CMOS process' (Table III prints +1/-1 V: INCONSISTENT with the abstract and with the 1.8 V gpdk180 rating; 1.8 V single supply used, G6 step 2)"
+  },
+  "supply_negative_V": {
+   "value": 0.0,
+   "provenance": "paper: Fig. 1 (VSS = ground)"
+  },
+  "input_common_mode_V": {
+   "value": 0.8,
+   "provenance": "benchmark_default_unreviewed (curator choice, paper silent): input common mode of the follower transient and of the quiescent-point fixture, inside the PMOS input pair's range (the pair works from ground to ~1 V); the open-loop AC fixtures take the input common mode from the amplifier's own output common mode (~0.95 V at the reference design)"
+  },
+  "output_common_mode_V": {
+   "value": 1.09,
+   "provenance": "benchmark_default_unreviewed (curator choice, paper silent): VCM reference of the CMFB (Mp8/Mp9 gates); the CMFB is not a balanced comparator (the output CM sits ~0.14 V below VCM at the reference design: ~0.95 V)"
+  },
+  "load_capacitance_F": {
+   "value": 1e-12,
+   "provenance": "curator choice from the paper's own FOM: the paper never states CL, but Table III FOM1 = Ai x GBW x CL / Power = 122 (units of its ref. [13]: kV/V.MHz.pF/uW) with Ai = 112.56 dB = 427 kV/V, GBW = 616 MHz and P = 2.083 mW gives CL = 122 x 2083 / (427 x 616) = 0.97 pF, so 1 pF per output to ground (the family default) is used"
+  }
+ },
+ "constraints": [
+  {
+   "name": "open_loop_gain_dB",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 111.6448501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 112.56,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table III (p. 4) and Table IV 'Typical' (p. 5): DC gain 112.56 dB (abstract/text: 112 dB, rounded); differential open-loop DC gain at 1 Hz (the dominant pole is ~1.4 kHz)",
+   "source": "measure"
+  },
+  {
+   "name": "unity_gain_frequency_Hz",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 554544000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 616160000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table III and Table IV 'Typical': UGF 616.16 MHz (text: 616 MHz)",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 60.552,
+   "target": {
+    "kind": "linear",
+    "paper_value": 67.28,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table III (p. 4) and text (p. 3): phase margin 67.28 deg (Table IV Typical prints 67)",
+   "source": "measure"
+  },
+  {
+   "name": "quiescent_power_W",
+   "metric": "quiescent_power_W",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.0022913000000000005,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.002083,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV 'Typical' (p. 5): 2.083 (header prints uW; the values are mW: abstract/Table III 2 mW, SS 1.524 ... FF 2.68); INCONSISTENT with the rounded 2 mW of abstract/Table III (4 % apart, inside the tolerance): the precise value of the same table row as the corner values is used (G6 step 2); supply-current power of the DUT at 1.8 V",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_SF",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 107.6848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 108.6,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): gain 108.6 dB at the SF corner",
+   "source": "measure"
+  },
+  {
+   "name": "unity_gain_frequency_Hz_SF",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 533160000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 592400000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): UGF 592.4 MHz at SF",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_SF",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 59.4,
+   "target": {
+    "kind": "linear",
+    "paper_value": 66.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): phase margin 66 deg at SF",
+   "source": "measure"
+  },
+  {
+   "name": "quiescent_power_W_SF",
+   "metric": "quiescent_power_W",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.0023100000000000004,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.0021000000000000003,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): power 2.1 (mW; header prints uW) at SF",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_FF",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 104.8848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 105.8,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): gain 105.8 dB at the FF corner",
+   "source": "measure"
+  },
+  {
+   "name": "unity_gain_frequency_Hz_FF",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 633690000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 704100000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): UGF 704.1 MHz at FF",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_FF",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 63.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 70.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): phase margin 70 deg at FF",
+   "source": "measure"
+  },
+  {
+   "name": "quiescent_power_W_FF",
+   "metric": "quiescent_power_W",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.002948,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.00268,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FF"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): power 2.68 (mW; header prints uW) at FF",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_FS",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 111.0848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 112.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): gain 112 dB at the FS corner",
+   "source": "measure"
+  },
+  {
+   "name": "unity_gain_frequency_Hz_FS",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 531000000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 590000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): UGF 590 MHz at FS",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_FS",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 60.3,
+   "target": {
+    "kind": "linear",
+    "paper_value": 67.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): phase margin 67 deg at FS",
+   "source": "measure"
+  },
+  {
+   "name": "quiescent_power_W_FS",
+   "metric": "quiescent_power_W",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.0022,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.002,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "FS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): power 2.0 (mW; header prints uW) at FS",
+   "source": "measure"
+  },
+  {
+   "name": "open_loop_gain_dB_SS",
+   "metric": "open_loop_gain_dB",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "dB",
+   "lower": 114.8848501887865,
+   "target": {
+    "kind": "voltage_db",
+    "paper_value": 115.8,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): gain 115.8 dB at the SS corner",
+   "source": "measure"
+  },
+  {
+   "name": "unity_gain_frequency_Hz_SS",
+   "metric": "unity_gain_frequency_Hz",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "Hz",
+   "lower": 418590000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 465100000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): UGF 465.1 MHz at SS",
+   "source": "measure"
+  },
+  {
+   "name": "phase_margin_deg_SS",
+   "metric": "phase_margin_deg",
+   "recipe": "amp_fd_ol_v1",
+   "point": {},
+   "unit": "deg",
+   "lower": 57.6,
+   "target": {
+    "kind": "linear",
+    "paper_value": 64.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): phase margin 64 deg at SS",
+   "source": "measure"
+  },
+  {
+   "name": "quiescent_power_W_SS",
+   "metric": "quiescent_power_W",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "W",
+   "upper": 0.0016764,
+   "target": {
+    "kind": "linear",
+    "paper_value": 0.001524,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    {
+     "model_set": "SS"
+    }
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table IV (p. 5, process-corner analysis; temperature and supply not stated: 27 C / 1.8 V, rule G2): power 1.524 (mW; header prints uW) at SS",
+   "source": "measure"
+  },
+  {
+   "name": "input_noise_V_per_rtHz",
+   "metric": "input_noise_V_per_rtHz",
+   "recipe": "amp_fd_noise_v1",
+   "point": {
+    "freq_Hz": 10000000.0
+   },
+   "unit": "V/sqrt(Hz)",
+   "upper": 4.51e-09,
+   "target": {
+    "kind": "linear",
+    "paper_value": 4.1e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) p. 3 text: simulated equivalent input noise density 4.1 nV/rtHz 'as per Fig. 10' (Fig. 10: flat 4.088 nV/rtHz from 1 Hz to beyond 10 MHz, marker at 10 Hz); the calculated 3.8 (Eq. 9) and Table III's 4.68 contradict the figure/text and are not used (INCONSISTENT, G6 steps 2-3). Measured as the spot density at 10 MHz, input-referred to the differential input, open loop: the gpdk180 models carry flicker noise (the reference amplifier shows 1.2 uV/rtHz at 10 Hz, white floor from ~10 MHz) while the paper's curve is flat down to 1 Hz, so the paper's marker frequency (10 Hz) cannot be reproduced in this PDK; 10 MHz lies inside the paper's flat band",
+   "source": "measure"
+  },
+  {
+   "name": "slew_rate_pos_V_per_s",
+   "metric": "slew_rate_rise_V_per_s",
+   "recipe": "gbfc21_follower_tran_v1",
+   "point": {},
+   "unit": "V/s",
+   "lower": 39600000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 44000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table III (p. 4): SR+ 44 V/us (test setup not stated; measured as the 20-80 % slew of the differential output in the Sec. VI 0.5 V step follower fixture, rising edge; the printed value is far below what the paper's own Fig. 12 edge implies, so it is a loose lower bound)",
+   "source": "measure"
+  },
+  {
+   "name": "slew_rate_neg_V_per_s",
+   "metric": "slew_rate_fall_V_per_s",
+   "recipe": "gbfc21_follower_tran_v1",
+   "point": {},
+   "unit": "V/s",
+   "lower": 32400000.0,
+   "target": {
+    "kind": "linear",
+    "paper_value": 36000000.0,
+    "bound": "lower",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Table III (p. 4): SR- 36 V/us (same setup note as SR+; falling edge)",
+   "source": "measure"
+  },
+  {
+   "name": "settling_time_s",
+   "metric": "settling_time_rise_s",
+   "recipe": "gbfc21_follower_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 5.5000000000000004e-09,
+   "target": {
+    "kind": "linear",
+    "paper_value": 5e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Sec. VI (p. 5) and Table III: '+0.5 V square wave input at 1 MHz ... settled within 5 ns' (Fig. 12, '~5'); ideal unity-gain differential follower (Fig. 12: output overlaps the 0-0.5 V input), 0.5 V step, 1 % band (band unstated: standard convention); rising edge",
+   "source": "measure"
+  },
+  {
+   "name": "settling_time_fall_s",
+   "metric": "settling_time_fall_s",
+   "recipe": "gbfc21_follower_tran_v1",
+   "point": {},
+   "unit": "s",
+   "upper": 5.5000000000000004e-09,
+   "target": {
+    "kind": "linear",
+    "paper_value": 5e-09,
+    "bound": "upper",
+    "tolerance_pct": 10.0
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "paper: ISIE 2021 (Sarkar et al.) Sec. VI (p. 5): settling within 5 ns, falling edge (same fixture)",
+   "source": "measure"
+  },
+  {
+   "name": "saturation",
+   "metric": "devices_out_of_saturation",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8: no unintended device out of saturation at the quiescent point (op_check.exclude: the auxiliary amplifiers' CMFB summing devices N_Mn5/N_Mn6/P_Mp7/P_Mp8)",
+   "source": "native"
+  },
+  {
+   "name": "forward_biased_junctions",
+   "metric": "forward_biased_junctions",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  },
+  {
+   "name": "devices_outside_rails",
+   "metric": "devices_outside_rails",
+   "recipe": "amp_fd_dc_v1",
+   "point": {},
+   "unit": "count",
+   "upper": 0,
+   "target": {
+    "kind": "linear"
+   },
+   "conditions": [
+    "nominal"
+   ],
+   "aggregate": "worst case over all conditions and matching points",
+   "provenance": "benchmark rule G8 validity gate (owner 2026-10-30), not a paper target",
+   "source": "native"
+  }
+ ],
+ "objective": null,
+ "derived_metrics": {},
+ "all_metrics": [
+  [
+   "amp_fd_dc_v1",
+   "bias_power_W"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "devices_out_of_saturation"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "devices_outside_rails"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "differential_output_offset_V"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "forward_biased_junctions"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "output_common_mode_V"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "quiescent_power_W"
+  ],
+  [
+   "amp_fd_dc_v1",
+   "saturation_margin_min_V"
+  ],
+  [
+   "amp_fd_noise_v1",
+   "input_noise_V_per_rtHz"
+  ],
+  [
+   "amp_fd_noise_v1",
+   "integrated_input_noise_Vrms"
+  ],
+  [
+   "amp_fd_noise_v1",
+   "integrated_output_noise_Vrms"
+  ],
+  [
+   "amp_fd_noise_v1",
+   "output_noise_V_per_rtHz"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "cmrr_dB"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "gain_bandwidth_product_Hz"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "gain_margin_dB"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "open_loop_bandwidth_Hz"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "open_loop_gain_dB"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "phase_margin_deg"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "psrr_neg_dB"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "psrr_pos_dB"
+  ],
+  [
+   "amp_fd_ol_v1",
+   "unity_gain_frequency_Hz"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "final_error_fall_V"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "final_error_rise_V"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "overshoot_fall_V"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "overshoot_rise_V"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "settling_time_fall_s"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "settling_time_rise_s"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "slew_rate_fall_V_per_s"
+  ],
+  [
+   "gbfc21_follower_tran_v1",
+   "slew_rate_rise_V_per_s"
+  ]
+ ],
+ "simulations_per_design": 12,
+ "analysis_executions_per_design": 27,
+ "benchmark": {
+  "reference_hidden": true,
+  "rules": "docs/benchmark_rules.md",
+  "start_design": "designs/start.json (the standard start design of docs/benchmark_rules.md section 6; not a known design)"
+ },
+ "testbenches": [
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_fd_dc_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_fd_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "bias_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "output_common_mode_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "differential_output_offset_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vcm_V": 0.8
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_fd_ol_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_fd_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "amp_fd_noise_v1",
+   "folder": "testbenches/NN_T27_S1p00/amp_fd_noise_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "input_noise_V_per_rtHz": {
+     "unit": "V/sqrt(Hz)",
+     "source": "measure"
+    },
+    "output_noise_V_per_rtHz": {
+     "unit": "V/sqrt(Hz)",
+     "source": "measure"
+    },
+    "integrated_input_noise_Vrms": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "integrated_output_noise_Vrms": {
+     "unit": "V",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "freq_Hz": 10000000.0
+    }
+   ]
+  },
+  {
+   "condition": "NN_T27_S1p00",
+   "recipe": "gbfc21_follower_tran_v1",
+   "folder": "testbenches/NN_T27_S1p00/gbfc21_follower_tran_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "slew_rate_rise_V_per_s": {
+     "unit": "V/s",
+     "source": "measure"
+    },
+    "slew_rate_fall_V_per_s": {
+     "unit": "V/s",
+     "source": "measure"
+    },
+    "settling_time_rise_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "settling_time_fall_s": {
+     "unit": "s",
+     "source": "measure"
+    },
+    "final_error_rise_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "final_error_fall_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_rise_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "overshoot_fall_V": {
+     "unit": "V",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {
+     "step_V": 0.5,
+     "feedback_factor": 1.0
+    }
+   ]
+  },
+  {
+   "condition": "SS_T27_S1p00",
+   "recipe": "amp_fd_dc_v1",
+   "folder": "testbenches/SS_T27_S1p00/amp_fd_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "bias_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "output_common_mode_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "differential_output_offset_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vcm_V": 0.8
+    }
+   ]
+  },
+  {
+   "condition": "SS_T27_S1p00",
+   "recipe": "amp_fd_ol_v1",
+   "folder": "testbenches/SS_T27_S1p00/amp_fd_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "FF_T27_S1p00",
+   "recipe": "amp_fd_dc_v1",
+   "folder": "testbenches/FF_T27_S1p00/amp_fd_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "bias_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "output_common_mode_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "differential_output_offset_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vcm_V": 0.8
+    }
+   ]
+  },
+  {
+   "condition": "FF_T27_S1p00",
+   "recipe": "amp_fd_ol_v1",
+   "folder": "testbenches/FF_T27_S1p00/amp_fd_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "FS_T27_S1p00",
+   "recipe": "amp_fd_dc_v1",
+   "folder": "testbenches/FS_T27_S1p00/amp_fd_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "bias_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "output_common_mode_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "differential_output_offset_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vcm_V": 0.8
+    }
+   ]
+  },
+  {
+   "condition": "FS_T27_S1p00",
+   "recipe": "amp_fd_ol_v1",
+   "folder": "testbenches/FS_T27_S1p00/amp_fd_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {}
+   ]
+  },
+  {
+   "condition": "SF_T27_S1p00",
+   "recipe": "amp_fd_dc_v1",
+   "folder": "testbenches/SF_T27_S1p00/amp_fd_dc_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [
+    "raw/op_info.info"
+   ],
+   "metrics": {
+    "quiescent_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "bias_power_W": {
+     "unit": "W",
+     "source": "measure"
+    },
+    "output_common_mode_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "differential_output_offset_V": {
+     "unit": "V",
+     "source": "measure"
+    },
+    "saturation_margin_min_V": {
+     "unit": "V",
+     "source": "native"
+    },
+    "devices_out_of_saturation": {
+     "unit": "count",
+     "source": "native"
+    },
+    "forward_biased_junctions": {
+     "unit": "count",
+     "source": "native"
+    },
+    "devices_outside_rails": {
+     "unit": "count",
+     "source": "native"
+    }
+   },
+   "points": [
+    {
+     "vcm_V": 0.8
+    }
+   ]
+  },
+  {
+   "condition": "SF_T27_S1p00",
+   "recipe": "amp_fd_ol_v1",
+   "folder": "testbenches/SF_T27_S1p00/amp_fd_ol_v1",
+   "deck": "input.scs",
+   "template": "template.scs",
+   "dut": "dut.scs",
+   "measure_statements": "measures.sp",
+   "measure_results": "input.measure",
+   "native_results": [],
+   "metrics": {
+    "open_loop_gain_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "open_loop_bandwidth_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "gain_bandwidth_product_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "unity_gain_frequency_Hz": {
+     "unit": "Hz",
+     "source": "measure"
+    },
+    "phase_margin_deg": {
+     "unit": "deg",
+     "source": "measure"
+    },
+    "gain_margin_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "cmrr_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_pos_dB": {
+     "unit": "dB",
+     "source": "measure"
+    },
+    "psrr_neg_dB": {
+     "unit": "dB",
+     "source": "measure"
+    }
+   },
+   "points": [
+    {}
+   ]
+  }
+ ],
+ "interfaces": {
+  "evaluate_command": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "size-eval",
+   "--task",
+   "gbfc21_task_001",
+   "--design",
+   "{design_json}",
+   "--out",
+   "{out_dir}"
+  ],
+  "evaluate_output": "{out_dir}/metrics.json (schema analogiq.sizing_metrics/1); full record {out_dir}/result.json",
+  "python": "from analogiq.sizing import SizingProblem; SizingProblem('gbfc21_task_001').evaluate(design, out_dir)",
+  "deck_run": "spectre -64 +escchars =log spectre.log -format psfascii -raw raw input.scs   (in a job folder)",
+  "deck_extract": [
+   "<ANALOGIQ>/.venv/bin/python",
+   "-m",
+   "analogiq",
+   "extract",
+   "--job",
+   "{job_folder}"
+  ],
+  "design_slots": "template.scs: {{VAR}} on the XDUT line (DUT variables) and on the testbench 'parameters' line (external-bias variables); values in SI units",
+  "working_directory": "<ANALOGIQ>"
+ }
+}

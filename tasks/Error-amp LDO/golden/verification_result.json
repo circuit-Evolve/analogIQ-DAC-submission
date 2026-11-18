@@ -1,0 +1,1676 @@
+{
+  "schema": "analogiq.sizing_metrics/1",
+  "task_id": "ldo_erroramp_dac_task_001",
+  "execution_status": "completed",
+  "verification_status": "fresh_full_corner_verified_snapshot",
+  "feasibility": "feasible",
+  "constraints": {
+    "metric_1": {
+      "lower": 60.018499999999996,
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 65.24916336805785,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 5.230663368057854,
+      "normalized_margin": 0.08715085128848363,
+      "required": 15,
+      "valid": 15
+    },
+    "metric_2": {
+      "lower": 22015000.0,
+      "metric": "GBW",
+      "unit": "Hz",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 25233018.92753366,
+      "condition": "C3_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 3218018.92753366,
+      "normalized_margin": 0.1461739235763643,
+      "required": 15,
+      "valid": 15
+    },
+    "metric_3": {
+      "lower": 70.38837851428585,
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": 73.19571164468924,
+      "condition": "C0_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 2.807333130403393,
+      "normalized_margin": 0.3815501569247781,
+      "required": 15,
+      "valid": 15
+    },
+    "metric_4": {
+      "lower": 18.588378514285854,
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "target": {
+        "kind": "voltage_db"
+      },
+      "strict": null,
+      "value": 19.72380490820637,
+      "condition": "C3_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 1.1354263939205147,
+      "normalized_margin": 0.1396495404005118,
+      "required": 15,
+      "valid": 15
+    },
+    "metric_5": {
+      "upper": 2.162,
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 1.853051738409661,
+      "condition": "C3_2",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.30894826159033895,
+      "normalized_margin": 0.14289928843216418,
+      "required": 15,
+      "valid": 15
+    },
+    "metric_6": {
+      "lower": 1.02,
+      "upper": 1.38,
+      "metric": "Vout",
+      "unit": "V",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 1.196591075046403,
+      "condition": "C2_1",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 0.17659107504640303,
+      "normalized_margin": 0.13290501808231656,
+      "required": 15,
+      "valid": 15
+    },
+    "metric_7": {
+      "lower": 39.5845,
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "target": {
+        "kind": "linear"
+      },
+      "strict": null,
+      "value": 57.79402873579532,
+      "condition": "C2_0",
+      "point": {},
+      "complete": true,
+      "satisfied": true,
+      "margin": 18.209528735795324,
+      "normalized_margin": 0.46001664125592906,
+      "required": 15,
+      "valid": 15
+    }
+  },
+  "objective": null,
+  "worst_constraint_margin": 0.08715085128848363,
+  "metrics": {
+    "PM @ 25mA (best)@C0_0": 66.69235662523609,
+    "GBW@C0_0": 59003244.54744709,
+    "PSR (100 Hz)@C0_0": 77.27314250904512,
+    "PSR (1 MHz)@C0_0": 25.74001205794173,
+    "Load Regulation (mV/V)@C0_0": 1.056215430583762,
+    "Vout@C0_0": 1.196204058130324,
+    "PM @ 100uA (worst)@C0_0": 58.89090981449286,
+    "PM @ 25mA (best)@C0_1": 68.92507787247163,
+    "GBW@C0_1": 42228094.11644916,
+    "PSR (100 Hz)@C0_1": 89.49275702780034,
+    "PSR (1 MHz)@C0_1": 23.51011952205379,
+    "Load Regulation (mV/V)@C0_1": 1.289486505240411,
+    "Vout@C0_1": 1.196493542289598,
+    "PM @ 100uA (worst)@C0_1": 60.95084573530135,
+    "PM @ 25mA (best)@C0_2": 70.20731698299687,
+    "GBW@C0_2": 27963563.62665666,
+    "PSR (100 Hz)@C0_2": 73.19571164468924,
+    "PSR (1 MHz)@C0_2": 20.68967510072468,
+    "Load Regulation (mV/V)@C0_2": 1.759655369086843,
+    "Vout@C0_2": 1.196453602129545,
+    "PM @ 100uA (worst)@C0_2": 62.9825604262082,
+    "PM @ 25mA (best)@C1_0": 66.11463136131492,
+    "GBW@C1_0": 63161782.18240497,
+    "PSR (100 Hz)@C1_0": 74.89688252950602,
+    "PSR (1 MHz)@C1_0": 25.99500531117635,
+    "Load Regulation (mV/V)@C1_0": 1.023564663298338,
+    "Vout@C1_0": 1.196120137497617,
+    "PM @ 100uA (worst)@C1_0": 58.49874883639907,
+    "PM @ 25mA (best)@C1_1": 68.66117970322023,
+    "GBW@C1_1": 45653753.18348784,
+    "PSR (100 Hz)@C1_1": 91.68018803059698,
+    "PSR (1 MHz)@C1_1": 23.86701314573367,
+    "Load Regulation (mV/V)@C1_1": 1.225861437261777,
+    "Vout@C1_1": 1.196398204639658,
+    "PM @ 100uA (worst)@C1_1": 60.68538699956574,
+    "PM @ 25mA (best)@C1_2": 70.28944178163671,
+    "GBW@C1_2": 30252439.0751805,
+    "PSR (100 Hz)@C1_2": 77.693431038507,
+    "PSR (1 MHz)@C1_2": 21.08119807760706,
+    "Load Regulation (mV/V)@C1_2": 1.64678684575037,
+    "Vout@C1_2": 1.196295910249036,
+    "PM @ 100uA (worst)@C1_2": 62.9838543416711,
+    "PM @ 25mA (best)@C2_0": 65.24916336805785,
+    "GBW@C2_0": 69209055.84027635,
+    "PSR (100 Hz)@C2_0": 74.56481879534302,
+    "PSR (1 MHz)@C2_0": 26.79046212046457,
+    "Load Regulation (mV/V)@C2_0": 1.010638068037473,
+    "Vout@C2_0": 1.196328313384494,
+    "PM @ 100uA (worst)@C2_0": 57.79402873579532,
+    "PM @ 25mA (best)@C2_1": 68.4689103882909,
+    "GBW@C2_1": 49665921.38923582,
+    "PSR (100 Hz)@C2_1": 90.5803042492423,
+    "PSR (1 MHz)@C2_1": 24.61989374148457,
+    "Load Regulation (mV/V)@C2_1": 1.209850894765552,
+    "Vout@C2_1": 1.196591075046403,
+    "PM @ 100uA (worst)@C2_1": 60.40791355334144,
+    "PM @ 25mA (best)@C2_2": 70.38015470319996,
+    "GBW@C2_2": 33007074.12807083,
+    "PSR (100 Hz)@C2_2": 77.42779772355968,
+    "PSR (1 MHz)@C2_2": 21.89336491182895,
+    "Load Regulation (mV/V)@C2_2": 1.614628955648456,
+    "Vout@C2_2": 1.19649096580592,
+    "PM @ 100uA (worst)@C2_2": 62.85866347693653,
+    "PM @ 25mA (best)@C3_0": 67.2606319055776,
+    "GBW@C3_0": 53225570.03230252,
+    "PSR (100 Hz)@C3_0": 78.01014056832919,
+    "PSR (1 MHz)@C3_0": 24.81718959746871,
+    "Load Regulation (mV/V)@C3_0": 1.100794735586774,
+    "Vout@C3_0": 1.195964817324948,
+    "PM @ 100uA (worst)@C3_0": 59.40226407321011,
+    "PM @ 25mA (best)@C3_1": 68.96413326225714,
+    "GBW@C3_1": 38327020.46685366,
+    "PSR (100 Hz)@C3_1": 88.04788038871077,
+    "PSR (1 MHz)@C3_1": 22.61727248650664,
+    "Load Regulation (mV/V)@C3_1": 1.346418662002691,
+    "Vout@C3_1": 1.196276095515003,
+    "PM @ 100uA (worst)@C3_1": 61.13135878168812,
+    "PM @ 25mA (best)@C3_2": 70.1026636098899,
+    "GBW@C3_2": 25233018.92753366,
+    "PSR (100 Hz)@C3_2": 73.34269838100323,
+    "PSR (1 MHz)@C3_2": 19.72380490820637,
+    "Load Regulation (mV/V)@C3_2": 1.853051738409661,
+    "Vout@C3_2": 1.196235308477769,
+    "PM @ 100uA (worst)@C3_2": 63.09219423602555,
+    "PM @ 25mA (best)@C4_0": 66.3837192477104,
+    "GBW@C4_0": 61590654.60092478,
+    "PSR (100 Hz)@C4_0": 75.8066514618596,
+    "PSR (1 MHz)@C4_0": 25.92108693320468,
+    "Load Regulation (mV/V)@C4_0": 1.024647123726297,
+    "Vout@C4_0": 1.196160151949222,
+    "PM @ 100uA (worst)@C4_0": 58.68463220652382,
+    "PM @ 25mA (best)@C4_1": 68.7966871861984,
+    "GBW@C4_1": 44349160.86763298,
+    "PSR (100 Hz)@C4_1": 103.8291352233034,
+    "PSR (1 MHz)@C4_1": 23.75159507712785,
+    "Load Regulation (mV/V)@C4_1": 1.237030095024849,
+    "Vout@C4_1": 1.19644464342519,
+    "PM @ 100uA (worst)@C4_1": 60.81011205708607,
+    "PM @ 25mA (best)@C4_2": 70.25894453989733,
+    "GBW@C4_2": 29408396.99526408,
+    "PSR (100 Hz)@C4_2": 75.41157765997629,
+    "PSR (1 MHz)@C4_2": 20.95692802105448,
+    "Load Regulation (mV/V)@C4_2": 1.671161465663928,
+    "Vout@C4_2": 1.196375227796163,
+    "PM @ 100uA (worst)@C4_2": 62.96587907370862
+  },
+  "measurements": [
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 66.69235662523609,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 59003244.54744709,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 77.27314250904512,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 25.74001205794173,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.056215430583762,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196204058130324,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 58.89090981449286,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_0",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 68.92507787247163,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 42228094.11644916,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 89.49275702780034,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 23.51011952205379,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.289486505240411,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196493542289598,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 60.95084573530135,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_1",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 70.20731698299687,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 27963563.62665666,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 73.19571164468924,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 20.68967510072468,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.759655369086843,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196453602129545,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 62.9825604262082,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C0_2",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 66.11463136131492,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 63161782.18240497,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 74.89688252950602,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 25.99500531117635,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.023564663298338,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196120137497617,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 58.49874883639907,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_0",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 68.66117970322023,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 45653753.18348784,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 91.68018803059698,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 23.86701314573367,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.225861437261777,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196398204639658,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 60.68538699956574,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_1",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 70.28944178163671,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 30252439.0751805,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 77.693431038507,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 21.08119807760706,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.64678684575037,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196295910249036,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 62.9838543416711,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C1_2",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 65.24916336805785,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 69209055.84027635,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 74.56481879534302,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 26.79046212046457,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.010638068037473,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196328313384494,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 57.79402873579532,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_0",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 68.4689103882909,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 49665921.38923582,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 90.5803042492423,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 24.61989374148457,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.209850894765552,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196591075046403,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 60.40791355334144,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_1",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 70.38015470319996,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 33007074.12807083,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 77.42779772355968,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 21.89336491182895,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.614628955648456,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.19649096580592,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 62.85866347693653,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C2_2",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 67.2606319055776,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 53225570.03230252,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 78.01014056832919,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 24.81718959746871,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.100794735586774,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.195964817324948,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 59.40226407321011,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_0",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 68.96413326225714,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 38327020.46685366,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 88.04788038871077,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 22.61727248650664,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.346418662002691,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196276095515003,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 61.13135878168812,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_1",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 70.1026636098899,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 25233018.92753366,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 73.34269838100323,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 19.72380490820637,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.853051738409661,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196235308477769,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 63.09219423602555,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C3_2",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 66.3837192477104,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 61590654.60092478,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 75.8066514618596,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 25.92108693320468,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.024647123726297,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196160151949222,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 58.68463220652382,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_0",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 68.7966871861984,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 44349160.86763298,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 103.8291352233034,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 23.75159507712785,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.237030095024849,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.19644464342519,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 60.81011205708607,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_1",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 25mA (best)",
+      "unit": "deg",
+      "value": 70.25894453989733,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "GBW",
+      "unit": "Hz",
+      "value": 29408396.99526408,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (100 Hz)",
+      "unit": "dB",
+      "value": 75.41157765997629,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PSR (1 MHz)",
+      "unit": "dB",
+      "value": 20.95692802105448,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Load Regulation (mV/V)",
+      "unit": "mV/A",
+      "value": 1.671161465663928,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "Vout",
+      "unit": "V",
+      "value": 1.196375227796163,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_load_reg_saved_v1",
+      "point": {}
+    },
+    {
+      "metric": "PM @ 100uA (worst)",
+      "unit": "deg",
+      "value": 62.96587907370862,
+      "status": "valid",
+      "reason": null,
+      "condition_id": "C4_2",
+      "recipe_id": "ldo_erroramp_dac_pm_min_saved_v1",
+      "point": {}
+    }
+  ],
+  "coverage": {
+    "required_measurement_checks": 105,
+    "valid_measurement_checks": 105
+  },
+  "note": "Fixed-sizing replay with explicit acceptance targets; targets.json records paper-referenced limits with the approved 15% allowance and explicit reference exceptions.",
+  "target_coverage": {
+    "required": 105,
+    "valid": 105,
+    "missing_or_invalid": 0
+  },
+  "target_violations": [],
+  "unavailable_target_checks": [],
+  "corner_results": [
+    {
+      "condition_id": "C0_0",
+      "condition": {
+        "id": "C0_0",
+        "model_set": "fs",
+        "temperature_C": -40.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 1,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "fs"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C0_1",
+      "condition": {
+        "id": "C0_1",
+        "model_set": "fs",
+        "temperature_C": 27.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 2,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "fs"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C0_2",
+      "condition": {
+        "id": "C0_2",
+        "model_set": "fs",
+        "temperature_C": 125.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 3,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "fs"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C1_0",
+      "condition": {
+        "id": "C1_0",
+        "model_set": "sf",
+        "temperature_C": -40.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 4,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "sf"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C1_1",
+      "condition": {
+        "id": "C1_1",
+        "model_set": "sf",
+        "temperature_C": 27.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 5,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "sf"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C1_2",
+      "condition": {
+        "id": "C1_2",
+        "model_set": "sf",
+        "temperature_C": 125.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 6,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "sf"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C2_0",
+      "condition": {
+        "id": "C2_0",
+        "model_set": "ff",
+        "temperature_C": -40.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 7,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "ff"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C2_1",
+      "condition": {
+        "id": "C2_1",
+        "model_set": "ff",
+        "temperature_C": 27.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 8,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "ff"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C2_2",
+      "condition": {
+        "id": "C2_2",
+        "model_set": "ff",
+        "temperature_C": 125.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 9,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "ff"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C3_0",
+      "condition": {
+        "id": "C3_0",
+        "model_set": "ss",
+        "temperature_C": -40.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 10,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "ss"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C3_1",
+      "condition": {
+        "id": "C3_1",
+        "model_set": "ss",
+        "temperature_C": 27.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 11,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "ss"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C3_2",
+      "condition": {
+        "id": "C3_2",
+        "model_set": "ss",
+        "temperature_C": 125.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 12,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "ss"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C4_0",
+      "condition": {
+        "id": "C4_0",
+        "model_set": "tt",
+        "temperature_C": -40.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 13,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "tt"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C4_1",
+      "condition": {
+        "id": "C4_1",
+        "model_set": "tt",
+        "temperature_C": 27.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": true,
+        "supply_span_V": 1.8,
+        "source_point_id": 14,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "tt"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    },
+    {
+      "condition_id": "C4_2",
+      "condition": {
+        "id": "C4_2",
+        "model_set": "tt",
+        "temperature_C": 125.0,
+        "supply_V": 1.8,
+        "supply_scale": 1.0,
+        "is_nominal": false,
+        "supply_span_V": 1.8,
+        "source_point_id": 15,
+        "includes": [
+          {
+            "path": "<PDK_ROOT>/gpdk045_v_5_0/models/spectre/gpdk045.scs",
+            "section": "tt"
+          }
+        ]
+      },
+      "status": "pass",
+      "failed_metrics": [],
+      "unavailable_metrics": []
+    }
+  ],
+  "corner_summary": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "unavailable": 0
+  },
+  "source_run": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15",
+  "simulation_jobs": 30,
+  "source_audit": {
+    "source_audit": {
+      "simulation_jobs": 30,
+      "all_simulator_and_extractor_returncodes_zero": true,
+      "identical_dut_sha256": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06",
+      "only_input_deck_changes": "reltol1e-3\u21921e-6;vabstol1e-6\u21921e-9;STBdec=100",
+      "only_connectivity_change": {
+        "M9": [
+          [
+            "net12 net11 net10 net10",
+            "g45p2svt"
+          ],
+          [
+            "net12 net11 net10 VIN",
+            "g45p2svt"
+          ]
+        ]
+      },
+      "raw_evidence": "<WORK>/paper-sizing-20261105/ldo/runs/qualified50ohm_bodyVIN_dense100_fresh_all15",
+      "contract_pass": 105,
+      "contract_required": 105,
+      "tradeoff": "~11.964mA internaldividerload;~22.508mW nominalno-load input; no current/power limit invented"
+    },
+    "report_time_fixed_dut_check": true,
+    "dut_files": 30,
+    "dut_sha256": "939a45182c634b711e5223a421b743e5295a6985c1a640635aa28de8d82fbc06"
+  }
+}

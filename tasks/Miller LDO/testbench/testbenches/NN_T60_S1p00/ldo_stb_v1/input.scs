@@ -1,0 +1,36 @@
+// analogiq 0.1.0 testbench - generated, do not edit
+// task ldo24m_miller_task_001  topology ldo24m_miller
+// recipe ldo_stb_v1 v5  condition NN_T60_S1p00 (models NN, 60 C, supply 2.1 V)
+// request ldo24m_miller_task_001__plan  candidate ac77f2a3c8da6cc8
+// execution profile search_full
+simulator lang=spectre
+global 0
+include "<CADENCE_SHARED>/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+include "dut.scs"
+
+parameters vin=2.1 iload=0.0 cout=5e-11
+// Sizing variables set in the testbench (external-bias values).
+parameters V_BIAS=1.05
+// Supplies (charged to the DUT power metrics).
+VIN (vin 0) vsource dc=vin
+// External bias (topology external_bias; reported separately as bias power).
+VB_VSS (b_VSS 0) vsource dc=0.0
+VB_VBIAS (b_VBIAS 0) vsource dc=V_BIAS
+VB_ENABLE (b_ENABLE 0) vsource dc=0.0
+
+VREFS (vref 0) vsource dc=1.2
+// Load: ideal current sink out->ground and output capacitor (+ESR).
+ILOAD (out 0) isource dc=iload
+COUT (out 0) capacitor c=cout
+
+XDUT (vin b_VSS vref b_VBIAS b_ENABLE out) ldo24m_miller_dut C_EA=1e-12 C_F=1e-12 L_CM=1e-06 L_EA2=1e-06 L_EAIN=1e-06 L_EAL=1e-06 L_EAS=1e-06 L_EAT=1e-06 L_MAB=1e-06 L_MCR=1e-06 L_MSW=1e-06 L_PASS=1e-06 L_RFB=1e-06 L_WLB=1e-06 L_WLS=1e-06 M_CM=1.0 M_EA2=1.0 M_EAIN=1.0 M_EAL=1.0 M_EAS=1.0 M_EAT=1.0 M_MAB=1.0 M_MCR=1.0 M_MSW=1.0 M_RFB=1.0 M_WLB=1.0 M_WLS=1.0 N_PASS=1.0 W_CM=1e-06 W_EA2=1e-06 W_EAIN=1e-06 W_EAL=1e-06 W_EAS=1e-06 W_EAT=1e-06 W_MAB=1e-06 W_MCR=1e-06 W_MSW=1e-06 W_PASS=1e-06 W_RFB=1e-06 W_WLB=1e-06 W_WLS=1e-06
+op_info info what=oppoint where=rawfile
+
+opts options temp=60.0 tnom=27 reltol=0.0001 save=selected
+save VB_ENABLE:p VB_VBIAS:p VB_VSS:p VIN:p XDUT.N2 XDUT.NCF XDUT.VFB XDUT.VG out vin vref
+
+regop1 dc
+stb1 stb start=1.0 stop=100000000.0 dec=20 probe=XDUT.IPRB_LOOP
+ld2 alter param=iload value=0.07
+regop2 dc
+stb2 stb start=1.0 stop=100000000.0 dec=20 probe=XDUT.IPRB_LOOP

@@ -1,0 +1,10 @@
+opened=errset(openResults("raw") t)
+fp=outfile("scalars.tsv")
+v=nil
+when(opened && car(opened) v=errset(ymax((10 * log10(((0.5 * real((value(getData("RF_OUT" ?result "hb_fd") 433000000.0) * conjugate(value(getData("PORT_OUT:p" ?result "hb_fd") 433000000.0))))) / 0.001)))) t))
+if(v && numberp(car(v)) then fprintf(fp "19\t%.16g\n" car(v)) else fprintf(fp "19\tERROR\n"))
+v=nil
+when(opened && car(opened) v=errset(ymax(((100 * ((0.5 * real((value(getData("RF_OUT" ?result "hb_fd") 433000000.0) * conjugate(value(getData("PORT_OUT:p" ?result "hb_fd") 433000000.0))))) - (0.001 * (10**(xval((10 * log10(((0.5 * real((value(getData("RF_OUT" ?result "hb_fd") 433000000.0) * conjugate(value(getData("PORT_OUT:p" ?result "hb_fd") 433000000.0))))) / 0.001)))) / 10))))) / ((- 12.0) * real(value(getData("VDD:p" ?result "hb_fd") 0))))) t))
+if(v && numberp(car(v)) then fprintf(fp "20\t%.16g\n" car(v)) else fprintf(fp "20\tERROR\n"))
+close(fp)
+exit()

@@ -1,0 +1,53 @@
+// Generated for: spectre
+// Generated on: Nov  7 07:34:48 2026
+// Design library name: DAC_20261107_BGR
+// Design cell name: bgr_nominal_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VS=1.8
+include "<PDK_ROOT>/sky130_cds/spectre/libs.tech/spectre/sky130.lib.spice" section=fs
+
+// Library name: DAC_20261107_BGR
+// Cell name: bgr_fig3_paper
+// View name: schematic
+subckt bgr_fig3_paper GND VDD VREF
+    M11 (N2 VINP TAIL VDD) sky130_fd_pr__pfet_01v8 w=17.2163830408 l=1.88126024368 nf=1 mult=1          ad=4.99275108183 as=4.99275108183 pd=35.0127660816 ps=35.0127660816 sa=0          sb=0 sd=0
+    M10 (N1 VINN TAIL VDD) sky130_fd_pr__pfet_01v8 w=18.5728001195 l=1.88126024368 nf=1 mult=1          ad=5.38611203464 as=5.38611203464 pd=37.7256002389 ps=37.7256002389 sa=0          sb=0 sd=0
+    M8 (BIAS PB VDD VDD) sky130_fd_pr__pfet_01v8 w=28 l=0.15 nf=1 mult=1          ad=8.12 as=8.12 pd=56.58 ps=56.58          sa=0 sb=0 sd=0
+    M7 (TAIL PB VDD VDD) sky130_fd_pr__pfet_01v8 w=13.0132015624 l=0.15 nf=1 mult=1          ad=3.7738284531 as=3.7738284531 pd=26.6064031248 ps=26.6064031248 sa=0 sb=0 sd=0
+    M6 (PB PB VDD VDD) sky130_fd_pr__pfet_01v8 w=13.0132015624 l=0.15 nf=1 mult=1          ad=3.7738284531 as=3.7738284531 pd=26.6064031248 ps=26.6064031248 sa=0 sb=0 sd=0
+    M3 (VREF BIAS VDD VDD) sky130_fd_pr__pfet_01v8 w=8.11936491609 l=2.03241167666 nf=1          mult=1 ad=2.35461582567 as=2.35461582567 pd=16.8187298322 ps=16.8187298322          sa=0 sb=0 sd=0
+    M2 (VINP BIAS VDD VDD) sky130_fd_pr__pfet_01v8 w=8.11936491609 l=2.03241167666 nf=1          mult=1 ad=2.35461582567 as=2.35461582567 pd=16.8187298322 ps=16.8187298322          sa=0 sb=0 sd=0
+    M1 (VINN BIAS VDD VDD) sky130_fd_pr__pfet_01v8 w=8.11936491609 l=2.03241167666 nf=1          mult=1 ad=2.35461582567 as=2.35461582567 pd=16.8187298322 ps=16.8187298322          sa=0 sb=0 sd=0
+    M13 (N2 N1 GND GND) sky130_fd_pr__nfet_01v8 w=1.67 l=0.189087528433 nf=1 mult=1          ad=0.484299999999 as=0.484299999999 pd=3.91999999999 ps=3.91999999999 sa=0 sb=0 sd=0
+    M12 (N1 N1 GND GND) sky130_fd_pr__nfet_01v8 w=1.70316663639 l=0.189087528433 nf=1 mult=1          ad=0.493918324552 as=0.493918324552 pd=3.98633327277 ps=3.98633327277 sa=0 sb=0 sd=0
+    M9 (BIAS N2 GND GND) sky130_fd_pr__nfet_01v8 w=80 l=0.3 nf=1 mult=1          ad=23.2 as=23.2 pd=160.58 ps=160.58 sa=0 sb=0 sd=0
+    M5_10 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_9 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_8 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_7 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_6 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_5 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_4 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_3 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_2 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M5_1 (PTAT PTAT GND GND) sky130_fd_pr__nfet_01v8 w=26.3491591964 l=0.501047533903 nf=1          mult=1 ad=7.64125616697 as=7.64125616697 pd=53.2783183929          ps=53.2783183929 sa=0 sb=0 sd=0
+    M4 (VINN VINN GND GND) sky130_fd_pr__nfet_01v8 w=18.4523768328 l=0.501047533903 nf=1          mult=1 ad=5.35118928152 as=5.35118928152 pd=37.4847536657          ps=37.4847536657 sa=0 sb=0 sd=0
+    R4 (PB GND) resistor r=226657.115086
+    R3 (VREF GND) resistor r=118523.473012
+    R2 (VINP GND) resistor r=83316.9685779
+    R1 (VINP PTAT) resistor r=52001.185432
+    CC (N2 BIAS) capacitor c=1e-11
+ends bgr_fig3_paper
+// End of subcircuit definition.
+
+// Library name: DAC_20261107_BGR
+// Cell name: bgr_nominal_tb
+// View name: schematic
+DUT (0 VDD VREF) bgr_fig3_paper
+VDD_SRC (VDD 0) vsource dc=VS mag=1 type=dc
+nodeset VREF=1.2 DUT.BIAS=0.66 DUT.VINP=0.55 DUT.VINN=0.55 
+simulatorOptions options reltol=1e-05 vabstol=1e-09 iabstol=1e-13 temp=27      tnom=27 scalem=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 digits=5      cols=80 pivrel=1e-3      sensfile="sens.output"      checklimitdest=psf 
+saveOptions options save=allpub currents=all subcktprobelvl=5
+dc dc param=temp start=-40 stop=120 step=1

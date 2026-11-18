@@ -1,0 +1,64 @@
+simulator lang=spectre
+include "<PDK_ROOT>/gpdk180/models/spectre/gpdk.scs" section=NN
+subckt sar_analog_core BP_CP11a BP_CP11b BP_CP10a BP_CP10b BP_CP9a BP_CP9b BP_CP8a BP_CP8b BP_CP7a BP_CP7b BP_CP6a BP_CP6b BP_CP5a BP_CP5b BP_CP5ac BP_CP5bc BP_CP4 BP_CP3 BP_CP2 BP_CP1 VXP_MSB VXP_MID VXP BP_CN11a BP_CN11b BP_CN10a BP_CN10b BP_CN9a BP_CN9b BP_CN8a BP_CN8b BP_CN7a BP_CN7b BP_CN6a BP_CN6b BP_CN5a BP_CN5b BP_CN5ac BP_CN5bc BP_CN4 BP_CN3 BP_CN2 BP_CN1 VXN_MSB VXN_MID VXN VDD VSS CKC COP CON
+M1 (VON VXP VCS VSS) nmos1 w=6u l=180n m=1 ad=3.6p as=3.6p pd=13.2u ps=13.2u
+M2 (VOP VXN VCS VSS) nmos1 w=6u l=180n m=1 ad=3.6p as=3.6p pd=13.2u ps=13.2u
+M3 (VON CKC VDD VDD) pmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+M4 (VOP CKC VDD VDD) pmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+M5 (VCS CKC VSS VSS) nmos1 w=4u l=180n m=1 ad=2.4p as=2.4p pd=9.2u ps=9.2u
+M6 (VCS CKC VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MPH_L (HL VOP VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MNR_L (HL VOP VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MPL_L (QL QR HL VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MNL_L (QL QR VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MND_L (QL VOP VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MPH_R (HR VON VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MNR_R (HR VON VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MPL_R (QR QL HR VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MNL_R (QR QL VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MND_R (QR VON VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MP_COP (COP QL VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN_COP (COP QL VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MP_CON (CON QR VDD VDD) pmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+MN_CON (CON QR VSS VSS) nmos1 w=1u l=1u m=1 ad=600f as=600f pd=3.2u ps=3.2u
+CP11a (VXP_MSB BP_CP11a) capacitor c=1.024p
+CP11b (VXP_MSB BP_CP11b) capacitor c=1.024p
+CP10a (VXP_MSB BP_CP10a) capacitor c=512f
+CP10b (VXP_MSB BP_CP10b) capacitor c=512f
+CP9a (VXP_MID BP_CP9a) capacitor c=256f
+CP9b (VXP_MID BP_CP9b) capacitor c=256f
+CP8a (VXP_MID BP_CP8a) capacitor c=128f
+CP8b (VXP_MID BP_CP8b) capacitor c=128f
+CP7a (VXP BP_CP7a) capacitor c=64f
+CP7b (VXP BP_CP7b) capacitor c=64f
+CP6a (VXP BP_CP6a) capacitor c=32f
+CP6b (VXP BP_CP6b) capacitor c=32f
+CP5a (VXP BP_CP5a) capacitor c=16f
+CP5b (VXP BP_CP5b) capacitor c=16f
+CP5ac (VXP BP_CP5ac) capacitor c=16f
+CP5bc (VXP BP_CP5bc) capacitor c=16f
+CP4 (VXP BP_CP4) capacitor c=16f
+CP3 (VXP BP_CP3) capacitor c=64f
+CP2 (VXP BP_CP2) capacitor c=32f
+CP1 (VXP BP_CP1) capacitor c=16f
+CN11a (VXN_MSB BP_CN11a) capacitor c=1.024p
+CN11b (VXN_MSB BP_CN11b) capacitor c=1.024p
+CN10a (VXN_MSB BP_CN10a) capacitor c=512f
+CN10b (VXN_MSB BP_CN10b) capacitor c=512f
+CN9a (VXN_MID BP_CN9a) capacitor c=256f
+CN9b (VXN_MID BP_CN9b) capacitor c=256f
+CN8a (VXN_MID BP_CN8a) capacitor c=128f
+CN8b (VXN_MID BP_CN8b) capacitor c=128f
+CN7a (VXN BP_CN7a) capacitor c=64f
+CN7b (VXN BP_CN7b) capacitor c=64f
+CN6a (VXN BP_CN6a) capacitor c=32f
+CN6b (VXN BP_CN6b) capacitor c=32f
+CN5a (VXN BP_CN5a) capacitor c=16f
+CN5b (VXN BP_CN5b) capacitor c=16f
+CN5ac (VXN BP_CN5ac) capacitor c=16f
+CN5bc (VXN BP_CN5bc) capacitor c=16f
+CN4 (VXN BP_CN4) capacitor c=16f
+CN3 (VXN BP_CN3) capacitor c=64f
+CN2 (VXN BP_CN2) capacitor c=32f
+CN1 (VXN BP_CN1) capacitor c=16f
+ends sar_analog_core

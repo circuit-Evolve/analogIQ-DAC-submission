@@ -35,8 +35,3 @@ Monte Carlo samples (10 during the search for the latch comparator and the I/Q m
   directories, `<PDK_ROOT>` and `<CADENCE_SHARED>` for the process design kits. The testbench files are therefore a
   record of each task, not a ready-to-run setup.
 - The process design kits (Cadence GPDK045/090/180, SkyWater SKY130 and the BJT models) are not included.
-- LLM cost (`llm_cost_usd` in `summary.json` and `meta.json` of LEDRO and LASO-BOSS) is given at the paper's price
-  basis, 2 x the cost the runs recorded at claude-sonnet-5-5 API prices; the recorded value is kept as
-  `llm_cost_usd_recorded`, and `llm_cost_basis` states the basis. The two standard-start LASO-BOSS runs (CT comparator,
-  NVM charge pump) reused an earlier run's strategy without an LLM call; their `llm_cost_usd` counts that strategy's
-  cost. `llm_budget_usd` is the $100 limit and is not scaled.
